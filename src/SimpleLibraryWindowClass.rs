@@ -17,63 +17,63 @@ namespace WindowsApplication1
 {
   pub class SimpleLibraryWindowClass : WindowClass
   {
-     int LibListId;
+     LibListId: i32;
      ListClass LibListObj;
-     int CatListId;
+     CatListId: i32;
      ListClass CatListObj;
-     int IndListId;
+     IndListId: i32;
      ListClass IndListObj;
-     int AddLibEventId;
-     int AddLibTroopsId;
-     int AddLibTextId;
-     int RemoveLibEventId;
-     int RemoveLibEventIdb;
-     int loadVarsId;
-     int LibVarListId;
+     AddLibEventId: i32;
+     AddLibTroopsId: i32;
+     AddLibTextId: i32;
+     RemoveLibEventId: i32;
+     RemoveLibEventIdb: i32;
+     loadVarsId: i32;
+     LibVarListId: i32;
      ListClass LibVarListObj;
-     int AddLibVarId;
-     int AddLibVarTextId;
-     int RemoveLibVarId;
-     int RemoveLibVarTextId;
-     int LibVarTypeId;
-     int LibVarTypeTextId;
-     int importId;
-     int LibVarNameId;
-     int LibVarNameTextId;
-     int LibVarInfoId;
-     int LibVarInfoTextId;
-     int LibVarValueTypeId;
-     int LibVarValueTypeTextId;
-     int BNameId;
-     int BNameTextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int text1id;
-     int text2id;
-     int ChangeValId;
-     int ExecuteId;
-     int TaId;
-     int loadEventPic;
-     int loadSmallGfx;
-     int removeSmallGfx;
-     int removeEventPic;
-     int saveId;
-     int save2id;
-     int save3id;
-     int save4id;
-     int reloadEventPic;
-     int reloadSmallGfx;
-     int LibId;
-     int LibVarId;
-     int IndId;
-     int CatId;
+     AddLibVarId: i32;
+     AddLibVarTextId: i32;
+     RemoveLibVarId: i32;
+     RemoveLibVarTextId: i32;
+     LibVarTypeId: i32;
+     LibVarTypeTextId: i32;
+     importId: i32;
+     LibVarNameId: i32;
+     LibVarNameTextId: i32;
+     LibVarInfoId: i32;
+     LibVarInfoTextId: i32;
+     LibVarValueTypeId: i32;
+     LibVarValueTypeTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     text1id: i32;
+     text2id: i32;
+     ChangeValId: i32;
+     ExecuteId: i32;
+     TaId: i32;
+     loadEventPic: i32;
+     loadSmallGfx: i32;
+     removeSmallGfx: i32;
+     removeEventPic: i32;
+     saveId: i32;
+     save2id: i32;
+     save3id: i32;
+     save4id: i32;
+     reloadEventPic: i32;
+     reloadSmallGfx: i32;
+     LibId: i32;
+     LibVarId: i32;
+     IndId: i32;
+     CatId: i32;
      string ss;
 
-    pub SimpleLibraryWindowClass( GameClass tGame)
+    pub SimpleLibraryWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Libraries")
     {
       self.LibId = -1;
@@ -83,11 +83,11 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void DoRefresh() => self.DoStuff();
+    pub fn DoRefresh() => self.DoStuff();
 
-    pub void PopUpRefresh() => self.DoStuff();
+    pub fn PopUpRefresh() => self.DoStuff();
 
-     void InfoLibVar( Graphics g, int usex1, int usey1)
+     void InfoLibVar( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -118,7 +118,7 @@ namespace WindowsApplication1
       self.ChangeValId = self.AddSubPart( tsubpart2, usex1 + 300, usey1 + 75, 200, 35, 1);
     }
 
-     void InfoEvent( Graphics g, int usex1, int usey1)
+     void InfoEvent( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Event name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -133,7 +133,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, self.game.Data.EventObj[self.LibVarId].LibId.id.ToString(), self.game.MarcFont3, usex1 + 20, usey1 + 100, Color.White);
     }
 
-     void InfoStringlist( Graphics g, int usex1, int usey1)
+     void InfoStringlist( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Table name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -143,7 +143,7 @@ namespace WindowsApplication1
       self.text1id = self.AddSubPart( tsubpart, usex1 + 20, usey1 + 80, 580, 120, 0);
     }
 
-     void InfoLibrary( Graphics g, int usex1, int usey1)
+     void InfoLibrary( Graphics g, usex1: i32, usey1: i32)
     {
       usex1 = 10;
       DrawMod.DrawBlock( g, usex1, usey1, self.game.ScreenWidth - 20, 304, 0, 0, 0, 80);
@@ -158,15 +158,15 @@ namespace WindowsApplication1
       self.text1id = self.AddSubPart( tsubpart, usex1 + 420, usey1 + 30, self.game.ScreenWidth - 440, 240, 0);
     }
 
-     void InfoHisUnit( Graphics g, int usex1, int usey1)
+     void InfoHisUnit( Graphics g, usex1: i32, usey1: i32)
     {
     }
 
-     void InfoOfficer( Graphics g, int usex1, int usey1)
+     void InfoOfficer( Graphics g, usex1: i32, usey1: i32)
     {
     }
 
-     void InfoRegime( Graphics g, int usex1, int usey1)
+     void InfoRegime( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -183,7 +183,7 @@ namespace WindowsApplication1
         else
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(hqSpriteNr, 1);
+          bitmap: Bitmap = BitmapStore.GetBitmap(hqSpriteNr, 1);
            let mut local2: &Bitmap = &bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(hqSpriteNr, 1), BitmapStore.Getheight(hqSpriteNr, 1));
           Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 76, 76);
@@ -196,7 +196,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, self.game.Data.PeopleObj[self.game.Data.RegimeObj[self.IndId].People].Name, self.game.MarcFont3, usex1 + 20, usey1 + 220, Color.White);
     }
 
-     void InfoPeople( Graphics g, int usex1, int usey1)
+     void InfoPeople( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -213,7 +213,7 @@ namespace WindowsApplication1
         else
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
+          bitmap: Bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
            let mut local2: &Bitmap = &bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
           Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 140, 80);
@@ -224,7 +224,7 @@ namespace WindowsApplication1
       DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, usex1 + 20, usey1 + 110, 140, 80, -1, -1);
     }
 
-     void InfoEventPic( Graphics g, int usex1, int usey1)
+     void InfoEventPic( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       if (self.IndId > -1)
@@ -237,7 +237,7 @@ namespace WindowsApplication1
         if (nr > -1 & !Information.IsNothing( BitmapStore.GetBitmap(nr)))
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local2: &Bitmap = &bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
           Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 362, 175);
@@ -264,7 +264,7 @@ namespace WindowsApplication1
       self.loadEventPic = self.AddSubPart( tsubpart, usex1 + 490, 80, 170, 35, 1);
     }
 
-     void InfoCommander( Graphics g, int usex1, int usey1)
+     void InfoCommander( Graphics g, usex1: i32, usey1: i32)
     {
       SizeF sizeF1 = SizeF::new();
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
@@ -279,7 +279,7 @@ namespace WindowsApplication1
       {
         let mut commanderSpriteId: i32 = self.game.Data.HistoricalUnitObj[indId].CommanderSpriteID;
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+        bitmap: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num1 + 460;
         let mut y: i32 = num2 + 35;
@@ -295,7 +295,7 @@ namespace WindowsApplication1
       }
       TextAreaClass2 textAreaClass2 = new TextAreaClass2(self.game, 340, 4, self.game.MarcFont13, "", 12,  self.OwnBitmap, num1 + 110, num2 + 22, true);
        let mut local3: &Graphics = &g;
-      Bitmap bitmap1 = textAreaClass2.Paint();
+      bitmap1: Bitmap = textAreaClass2.Paint();
        let mut local4: &Bitmap = &bitmap1;
       let mut x1: i32 = num1 + 110;
       let mut y1: i32 = num2 + 22;
@@ -308,14 +308,14 @@ namespace WindowsApplication1
       for (; num3 < 365; num3 += 35)
       {
         DrawMod.DrawBlockGradient2( g, num1 + num3, num2 + 68, 2, 41, self.game.MarcCol3, self.game.MarcCol2);
-        int index;
+        index: i32;
         if (self.game.Data.HistoricalUnitObj[indId].HisVarCount >= index)
         {
           str: String = Strings.Trim(Conversion.Str( self.game.Data.HistoricalUnitObj[indId].HisVarValue[index]));
           SizeF sizeF2 = g.MeasureString(str, self.game.MarcFont8b);
           let mut x2: i32 =  Math.Round( ( (num1 + num3 + 18) - sizeF2.Width / 2f));
           DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont8b, x2, num2 + 90, Color.White);
-          Bitmap bitmap2;
+          bitmap2: Bitmap;
           if (self.game.Data.HistoricalUnitObj[indId].HisVarSmall[index] > -1)
           {
              let mut local5: &Graphics = &g;
@@ -342,7 +342,7 @@ namespace WindowsApplication1
       }
     }
 
-     void InfoSmallGraphic( Graphics g, int usex1, int usey1)
+     void InfoSmallGraphic( Graphics g, usex1: i32, usey1: i32)
     {
       let mut num: i32 = usex1;
       if (self.IndId > -1)
@@ -355,7 +355,7 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextColouredMarc( g, "Big version:", self.game.MarcFont4, usex1 + 20, usey1 + 90, Color.White);
           DrawMod.DrawBlock( g, usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 210);
-          Bitmap bitmap;
+          bitmap: Bitmap;
           Rectangle rectangle1;
           Rectangle rectangle2;
           if (Strings.InStr(BitmapStore.GetFileName(nr), "systemgraphics/trans.bmp") > 0)
@@ -441,7 +441,7 @@ namespace WindowsApplication1
       self.loadSmallGfx = self.AddSubPart( tsubpart, usex1 + 490, 80, 170, 35, 1);
     }
 
-     void InfoHisModel( Graphics g, int usex1, int usey1)
+     void InfoHisModel( Graphics g, usex1: i32, usey1: i32)
     {
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
       DrawMod.DrawTextColouredMarc( g, "Name:", self.game.MarcFont4, usex1 + 20, usey1 + 30, Color.White);
@@ -462,7 +462,7 @@ namespace WindowsApplication1
         else
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr, 1);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr, 1);
            let mut local2: &Bitmap = &bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
           Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 76, 76);
@@ -475,7 +475,7 @@ namespace WindowsApplication1
       DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, usex1 + 20, usey1 + 110, 76, 76, -1, -1);
     }
 
-     void InfoSFType( Graphics g, int usex1, int usey1)
+     void InfoSFType( Graphics g, usex1: i32, usey1: i32)
     {
       let mut num: i32 = usex1;
       DrawMod.DrawBlock( g, usex1, usey1, 680, 304, 0, 0, 0, 80);
@@ -497,7 +497,7 @@ namespace WindowsApplication1
         else
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
+          bitmap: Bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
            let mut local2: &Bitmap = &bitmap;
           rectangle1 = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
           let mut srcrect: &Rectangle = &rectangle1
@@ -521,7 +521,7 @@ namespace WindowsApplication1
         else
         {
            let mut local3: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(picSpriteId);
+          bitmap: Bitmap = BitmapStore.GetBitmap(picSpriteId);
            let mut local4: &Bitmap = &bitmap;
           rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(picSpriteId), BitmapStore.Getheight(picSpriteId));
           let mut srcrect: &Rectangle = &rectangle2
@@ -1414,10 +1414,10 @@ namespace WindowsApplication1
       let mut tlistsize1: i32 = 7 +  Math.Round( num2 / 16.0);
       let mut tlistselect3: i32 = num26;
       let mut game1: GameClass = self.game;
-       Bitmap local1 =  self.OwnBitmap;
+       local1: Bitmap =  self.OwnBitmap;
       let mut bbx1: i32 = 10 + num1 + 480;
-      Font font =  null;
-       Font local2 =  font;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart7 =  new ListSubPartClass(indListObj, tlistsize1, 200, tlistselect3, game1, true, "Instances", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx1, bby: 72, tMarcStyle: true, overruleFont: ( local2));
       self.IndListId = self.AddSubPart( tsubpart7, 10 + num1 + 480, 72, 220, (9 +  Math.Round( num2 / 16.0)) * 16, 0);
       if (self.LibVarListId > 0)
@@ -1437,7 +1437,7 @@ namespace WindowsApplication1
             {
               bool flag5 = false;
               let mut num30: i32 = -1;
-              int num31;
+              num31: i32;
               if (self.game.Data.LibVarObj[index].type == NewEnums.LibVarType.HistoricalUnit)
               {
                 num31 = self.game.Data.HistoricalUnitObj[self.IndId].LibId.libSlot;
@@ -1543,10 +1543,10 @@ namespace WindowsApplication1
             let mut tlistselect4: i32 = num28;
             let mut game2: GameClass = self.game;
             let mut tValueWidth: i32 =  Math.Round(Conversion.Int(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0) * 0.66));
-             Bitmap local3 =  self.OwnBitmap;
+             local3: Bitmap =  self.OwnBitmap;
             let mut bbx2: i32 = 10 + num1 + 720;
             font =  null;
-             Font local4 =  font;
+             local4: Font =  font;
             tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize2, twidth, tlistselect4, game2, true, "Variables", false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx2, bby: 72, tMarcStyle: true, overruleFont: ( local4));
             self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
           }
@@ -1586,10 +1586,10 @@ namespace WindowsApplication1
           let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect5: i32 = num28;
           let mut game3: GameClass = self.game;
-           Bitmap local5 =  self.OwnBitmap;
+           local5: Bitmap =  self.OwnBitmap;
           let mut bbx3: i32 = 10 + num1 + 720;
           font =  null;
-           Font local6 =  font;
+           local6: Font =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize3, twidth, tlistselect5, game3, true, "Variables", false, tShowPair: true, tValueWidth: 75, tdotopandbottom: false, tbackbitmap: ( local5), bbx: bbx3, bby: 72, tMarcStyle: true, overruleFont: ( local6));
           self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
@@ -1611,10 +1611,10 @@ namespace WindowsApplication1
           let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect6: i32 = num28;
           let mut game4: GameClass = self.game;
-           Bitmap local7 =  self.OwnBitmap;
+           local7: Bitmap =  self.OwnBitmap;
           let mut bbx4: i32 = 10 + num1 + 720;
           font =  null;
-           Font local8 =  font;
+           local8: Font =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize4, twidth, tlistselect6, game4, true, "Events", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local7), bbx: bbx4, bby: 72, tMarcStyle: true, overruleFont: ( local8));
           self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
@@ -1636,10 +1636,10 @@ namespace WindowsApplication1
           let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect7: i32 = num28;
           let mut game5: GameClass = self.game;
-           Bitmap local9 =  self.OwnBitmap;
+           local9: Bitmap =  self.OwnBitmap;
           let mut bbx5: i32 = 10 + num1 + 720;
           font =  null;
-           Font local10 =  font;
+           local10: Font =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize5, twidth, tlistselect7, game5, true, "Events", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local9), bbx: bbx5, bby: 72, tMarcStyle: true, overruleFont: ( local10));
           self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
@@ -1661,10 +1661,10 @@ namespace WindowsApplication1
           let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect8: i32 = num28;
           let mut game6: GameClass = self.game;
-           Bitmap local11 =  self.OwnBitmap;
+           local11: Bitmap =  self.OwnBitmap;
           let mut bbx6: i32 = 10 + num1 + 720;
           font =  null;
-           Font local12 =  font;
+           local12: Font =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize6, twidth, tlistselect8, game6, true, "Tables", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local11), bbx: bbx6, bby: 72, tMarcStyle: true, overruleFont: ( local12));
           self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
@@ -1683,7 +1683,7 @@ namespace WindowsApplication1
                 num29 += 1;
                 if (self.LibVarId == tdata)
                   num28 = num29;
-                self.LibVarListObj.add(self.game.Data.LibVarObj[tdata].name, tdata, "map paint to set value");
+                self.LibVarListObj.add(self.game.Data.LibVarObj[tdata].name, tdata, "map pato: i32 set value");
               }
               if (flag6)
               {
@@ -1702,10 +1702,10 @@ namespace WindowsApplication1
           let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect9: i32 = num28;
           let mut game7: GameClass = self.game;
-           Bitmap local13 =  self.OwnBitmap;
+           local13: Bitmap =  self.OwnBitmap;
           let mut bbx7: i32 = 10 + num1 + 720;
           font =  null;
-           Font local14 =  font;
+           local14: Font =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize7, twidth, tlistselect9, game7, true, "Variables", false, tShowPair: true, tValueWidth: 75, tdotopandbottom: false, tbackbitmap: ( local13), bbx: bbx7, bby: 72, tMarcStyle: true, overruleFont: ( local14));
           self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
@@ -1758,532 +1758,532 @@ namespace WindowsApplication1
         self.B3TextId = self.AddSubPart( tsubpart3, 510, 109, 400, 20, 0);
         self.ss = "Click to change the name of this Library. Make sure its a unique name. So maybe use part of your name or something thats not easily thought of by other designer.";
         let mut tsubpart4: SubPartClass =  TextPartClass::new("version: " + self.game.Data.LibraryObj[self.LibId].version.ToString(), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
-        self.B4TextId = this.AddSubPart( tsubpart4, 510, 139, 400, 20, 0);
-        if (this.LibVarListId > 0)
-          this.RemoveSubPart(this.LibVarListId);
+        self.B4TextId = self.AddSubPart( tsubpart4, 510, 139, 400, 20, 0);
+        if (self.LibVarListId > 0)
+          self.RemoveSubPart(self.LibVarListId);
         let mut num2: i32 = -1;
         let mut num3: i32 = -1;
-        this.LibVarListObj = ListClass::new();
-        let mut libVarCounter: i32 = this.game.Data.LibVarCounter;
+        self.LibVarListObj = ListClass::new();
+        let mut libVarCounter: i32 = self.game.Data.LibVarCounter;
         for (let mut index: i32 = 0; index <= libVarCounter; index += 1)
         {
-          if (this.game.Data.LibVarObj[index].libId.libSlot == this.LibId)
+          if (self.game.Data.LibVarObj[index].libId.libSlot == self.LibId)
           {
             num3 += 1;
-            this.LibVarListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibVarObj[index].name, index);
-            if (this.LibVarId == index)
+            self.LibVarListObj.add(Conversion.Str( index) + ") " + self.game.Data.LibVarObj[index].name, index);
+            if (self.LibVarId == index)
               num2 = num3;
           }
         }
         if (num2 == -1)
-          this.LibVarId = -1;
-        ListClass libVarListObj = this.LibVarListObj;
+          self.LibVarId = -1;
+        ListClass libVarListObj = self.LibVarListObj;
         let mut tlistselect: i32 = num2;
-        let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart5: SubPartClass =  new ListSubPartClass(libVarListObj, 14, 400, tlistselect, game, tHeader: "LibVars", tbackbitmap: ( local1), bbx: 470, bby: 200, overruleFont: ( local2));
-        this.LibVarListId = this.AddSubPart( tsubpart5, 470, 200, 400, 272, 0);
-        if (this.AddLibVarId > 0)
-          this.RemoveSubPart(this.AddLibVarId);
-        if (this.AddLibVarTextId > 0)
-          this.RemoveSubPart(this.AddLibVarTextId);
-        this.ss = "Click to add a new LibVar";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.LibVarListId = self.AddSubPart( tsubpart5, 470, 200, 400, 272, 0);
+        if (self.AddLibVarId > 0)
+          self.RemoveSubPart(self.AddLibVarId);
+        if (self.AddLibVarTextId > 0)
+          self.RemoveSubPart(self.AddLibVarTextId);
+        self.ss = "Click to add a new LibVar";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart6: SubPartClass =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-          this.AddLibVarId = this.AddSubPart( tsubpart6, 470, 500, 32, 16, 1);
+          let mut tsubpart6: SubPartClass =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+          self.AddLibVarId = self.AddSubPart( tsubpart6, 470, 500, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart7: SubPartClass =  TextPartClass::new("Add LibVar", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-          this.AddLibVarTextId = this.AddSubPart( tsubpart7, 520, 499, 300, 20, 0);
+          let mut tsubpart7: SubPartClass =  TextPartClass::new("Add LibVar", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+          self.AddLibVarTextId = self.AddSubPart( tsubpart7, 520, 499, 300, 20, 0);
         }
       }
-      this.MakeLibVarItemGUI();
+      self.MakeLibVarItemGUI();
     }
 
      void MakeLibVarItemGUI()
     {
-      if (this.LibVarTypeId > 0)
-        this.RemoveSubPart(this.LibVarTypeId);
-      if (this.LibVarValueTypeId > 0)
-        this.RemoveSubPart(this.LibVarValueTypeId);
-      if (this.LibVarNameId > 0)
-        this.RemoveSubPart(this.LibVarNameId);
-      if (this.LibVarTypeTextId > 0)
-        this.RemoveSubPart(this.LibVarTypeTextId);
-      if (this.LibVarValueTypeTextId > 0)
-        this.RemoveSubPart(this.LibVarValueTypeTextId);
-      if (this.LibVarNameTextId > 0)
-        this.RemoveSubPart(this.LibVarNameTextId);
-      if (this.LibVarInfoId > 0)
-        this.RemoveSubPart(this.LibVarInfoId);
-      if (this.LibVarInfoTextId > 0)
-        this.RemoveSubPart(this.LibVarInfoTextId);
-      if (this.RemoveLibVarId > 0)
-        this.RemoveSubPart(this.RemoveLibVarId);
-      if (this.RemoveLibVarTextId > 0)
-        this.RemoveSubPart(this.RemoveLibVarTextId);
-      if (this.LibVarId <= -1)
+      if (self.LibVarTypeId > 0)
+        self.RemoveSubPart(self.LibVarTypeId);
+      if (self.LibVarValueTypeId > 0)
+        self.RemoveSubPart(self.LibVarValueTypeId);
+      if (self.LibVarNameId > 0)
+        self.RemoveSubPart(self.LibVarNameId);
+      if (self.LibVarTypeTextId > 0)
+        self.RemoveSubPart(self.LibVarTypeTextId);
+      if (self.LibVarValueTypeTextId > 0)
+        self.RemoveSubPart(self.LibVarValueTypeTextId);
+      if (self.LibVarNameTextId > 0)
+        self.RemoveSubPart(self.LibVarNameTextId);
+      if (self.LibVarInfoId > 0)
+        self.RemoveSubPart(self.LibVarInfoId);
+      if (self.LibVarInfoTextId > 0)
+        self.RemoveSubPart(self.LibVarInfoTextId);
+      if (self.RemoveLibVarId > 0)
+        self.RemoveSubPart(self.RemoveLibVarId);
+      if (self.RemoveLibVarTextId > 0)
+        self.RemoveSubPart(self.RemoveLibVarTextId);
+      if (self.LibVarId <= -1)
         return;
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.LibVarTypeId = this.AddSubPart( tsubpart, 470, 550, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.LibVarTypeId = self.AddSubPart( tsubpart, 470, 550, 32, 16, 1);
       }
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Type: " + this.game.Data.LibVarObj[this.LibVarId].type.ToString(), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.LibVarTypeTextId = this.AddSubPart( tsubpart1, 510, 549, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Type: " + self.game.Data.LibVarObj[self.LibVarId].type.ToString(), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.LibVarTypeTextId = self.AddSubPart( tsubpart1, 510, 549, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.LibVarNameId = this.AddSubPart( tsubpart1, 470, 580, 32, 16, 1);
+        tsubpart1 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.LibVarNameId = self.AddSubPart( tsubpart1, 470, 580, 32, 16, 1);
       }
-      tsubpart1 =  TextPartClass::new("Name: " + this.game.Data.LibVarObj[this.LibVarId].name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.LibVarNameTextId = this.AddSubPart( tsubpart1, 510, 579, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart1 =  TextPartClass::new("Name: " + self.game.Data.LibVarObj[self.LibVarId].name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.LibVarNameTextId = self.AddSubPart( tsubpart1, 510, 579, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.LibVarValueTypeId = this.AddSubPart( tsubpart1, 470, 610, 32, 16, 1);
+        tsubpart1 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.LibVarValueTypeId = self.AddSubPart( tsubpart1, 470, 610, 32, 16, 1);
       }
-      tsubpart1 =  TextPartClass::new("ValueType: " + this.game.Data.LibVarObj[this.LibVarId].valueType.ToString(), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.LibVarValueTypeTextId = this.AddSubPart( tsubpart1, 510, 609, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart1 =  TextPartClass::new("ValueType: " + self.game.Data.LibVarObj[self.LibVarId].valueType.ToString(), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.LibVarValueTypeTextId = self.AddSubPart( tsubpart1, 510, 609, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.LibVarInfoId = this.AddSubPart( tsubpart1, 470, 640, 32, 16, 1);
+        tsubpart1 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.LibVarInfoId = self.AddSubPart( tsubpart1, 470, 640, 32, 16, 1);
       }
-      tsubpart1 =  TextPartClass::new("Information: " + Strings.Left(this.game.Data.LibVarObj[this.LibVarId].information, 20) + "...", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.LibVarInfoTextId = this.AddSubPart( tsubpart1, 510, 639, 400, 20, 0);
-      this.ss = "Click to remove this libvar.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart1 =  TextPartClass::new("Information: " + Strings.Left(self.game.Data.LibVarObj[self.LibVarId].information, 20) + "...", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.LibVarInfoTextId = self.AddSubPart( tsubpart1, 510, 639, 400, 20, 0);
+      self.ss = "Click to remove this libvar.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart1 =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-        this.RemoveLibVarId = this.AddSubPart( tsubpart1, 470, 520, 32, 16, 1);
+        tsubpart1 =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+        self.RemoveLibVarId = self.AddSubPart( tsubpart1, 470, 520, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      tsubpart1 =  TextPartClass::new("Remove Libvar", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.RemoveLibVarTextId = this.AddSubPart( tsubpart1, 520, 519, 200, 20, 0);
+      tsubpart1 =  TextPartClass::new("Remove Libvar", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.RemoveLibVarTextId = self.AddSubPart( tsubpart1, 520, 519, 200, 20, 0);
     }
 
-    pub void SaveOfficerLib()
+    pub fn SaveOfficerLib()
     {
-      tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing( this.game.Data.ScenarioDir))
+      tinitdir: String = self.game.AppPath + "scenarios\\";
+      if (!Information.IsNothing( self.game.Data.ScenarioDir))
       {
-        if (this.game.Data.ScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
-        else if (this.game.ModScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
+        if (self.game.Data.ScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
+        else if (self.game.ModScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
       }
-      else if (this.game.ModScenarioDir.Length > 1)
-        tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
-      str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Officer library(*.se1off)|*.se1off", "Give save name...", tinitdir, false);
+      else if (self.game.ModScenarioDir.Length > 1)
+        tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
+      str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Officer library(*.se1off)|*.se1off", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
         let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        this.game.FormRef.Cursor = Cursors.WaitCursor;
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficers;
-        this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
-        this.game.HandyFunctionsObj.ZipFile(str);
-        this.game.FormRef.Cursor = Cursors.Default;
+        self.game.FormRef.Cursor = Cursors.WaitCursor;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficers;
+        self.game.HandyFunctionsObj.ActuallyExportLib(self.LibId).serialize(str);
+        self.game.HandyFunctionsObj.ZipFile(str);
+        self.game.FormRef.Cursor = Cursors.Default;
         let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
 
-    pub void SaveMap()
+    pub fn SaveMap()
     {
-      tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing( this.game.Data.ScenarioDir))
+      tinitdir: String = self.game.AppPath + "scenarios\\";
+      if (!Information.IsNothing( self.game.Data.ScenarioDir))
       {
-        if (this.game.Data.ScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
-        else if (this.game.ModScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
+        if (self.game.Data.ScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
+        else if (self.game.ModScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
       }
-      else if (this.game.ModScenarioDir.Length > 1)
-        tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
-      str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Map file(*.se1map)|*.se1map", "Give save name...", tinitdir, false);
+      else if (self.game.ModScenarioDir.Length > 1)
+        tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
+      str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Map file(*.se1map)|*.se1map", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
         let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        this.game.FormRef.Cursor = Cursors.WaitCursor;
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadMap;
-        this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
-        this.game.HandyFunctionsObj.ZipFile(str);
-        this.game.FormRef.Cursor = Cursors.Default;
+        self.game.FormRef.Cursor = Cursors.WaitCursor;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadMap;
+        self.game.HandyFunctionsObj.ActuallyExportLib(self.LibId).serialize(str);
+        self.game.HandyFunctionsObj.ZipFile(str);
+        self.game.FormRef.Cursor = Cursors.Default;
         let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
 
-    pub void SaveTroopTypeLib()
+    pub fn SaveTroopTypeLib()
     {
-      tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing( this.game.Data.ScenarioDir))
+      tinitdir: String = self.game.AppPath + "scenarios\\";
+      if (!Information.IsNothing( self.game.Data.ScenarioDir))
       {
-        if (this.game.Data.ScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
-        else if (this.game.ModScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
+        if (self.game.Data.ScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
+        else if (self.game.ModScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
       }
-      else if (this.game.ModScenarioDir.Length > 1)
-        tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
-      str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Troops&Equipment library(*.se1troops)|*.se1troops", "Give save name...", tinitdir, false);
+      else if (self.game.ModScenarioDir.Length > 1)
+        tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
+      str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Troops&Equipment library(*.se1troops)|*.se1troops", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
         let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        this.game.FormRef.Cursor = Cursors.WaitCursor;
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadTroops;
-        this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
-        this.game.HandyFunctionsObj.ZipFile(str);
-        this.game.FormRef.Cursor = Cursors.Default;
+        self.game.FormRef.Cursor = Cursors.WaitCursor;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadTroops;
+        self.game.HandyFunctionsObj.ActuallyExportLib(self.LibId).serialize(str);
+        self.game.HandyFunctionsObj.ZipFile(str);
+        self.game.FormRef.Cursor = Cursors.Default;
         let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
 
-    pub void SaveHisLib()
+    pub fn SaveHisLib()
     {
-      tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing( this.game.Data.ScenarioDir))
+      tinitdir: String = self.game.AppPath + "scenarios\\";
+      if (!Information.IsNothing( self.game.Data.ScenarioDir))
       {
-        if (this.game.Data.ScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
-        else if (this.game.ModScenarioDir.Length > 1)
-          tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
+        if (self.game.Data.ScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
+        else if (self.game.ModScenarioDir.Length > 1)
+          tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
       }
-      else if (this.game.ModScenarioDir.Length > 1)
-        tinitdir = tinitdir.Replace("scenarios", this.game.ModScenarioDir);
-      str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Historical library(*.se1his)|*.se1his", "Give save name...", tinitdir, false);
+      else if (self.game.ModScenarioDir.Length > 1)
+        tinitdir = tinitdir.Replace("scenarios", self.game.ModScenarioDir);
+      str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Historical library(*.se1his)|*.se1his", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
         let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        this.game.FormRef.Cursor = Cursors.WaitCursor;
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadHistoricals;
-        this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
-        this.game.HandyFunctionsObj.ZipFile(str);
-        this.game.FormRef.Cursor = Cursors.Default;
+        self.game.FormRef.Cursor = Cursors.WaitCursor;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadHistoricals;
+        self.game.HandyFunctionsObj.ActuallyExportLib(self.LibId).serialize(str);
+        self.game.HandyFunctionsObj.ZipFile(str);
+        self.game.FormRef.Cursor = Cursors.Default;
         let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
-        this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
+        self.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (this.SubPartCounter > -1)
+      if (self.SubPartCounter > -1)
       {
-        let mut subPartCounter: i32 = this.SubPartCounter;
+        let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index1: i32 = 0; index1 <= subPartCounter; index1 += 1)
         {
-          if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
+          if (x > self.SubPartX[index1] & x < self.SubPartX[index1] + self.SubPartW[index1] && y > self.SubPartY[index1] & y < self.SubPartY[index1] + self.SubPartH[index1])
           {
-            let mut num1: i32 = this.SubPartID[index1];
-            if (num1 == this.LibListId)
+            let mut num1: i32 = self.SubPartID[index1];
+            if (num1 == self.LibListId)
             {
-              let mut num2: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num2: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
-                this.LibId = num2;
-                this.LibVarId = -1;
-                this.CatId = -1;
-                this.IndId = -1;
-                this.DoStuff();
+                self.LibId = num2;
+                self.LibVarId = -1;
+                self.CatId = -1;
+                self.IndId = -1;
+                self.DoStuff();
               }
               else if (num2 == -2)
               {
-                this.LibId = -1;
-                this.LibVarId = -1;
-                this.CatId = -1;
-                this.IndId = -1;
-                this.DoStuff();
+                self.LibId = -1;
+                self.LibVarId = -1;
+                self.CatId = -1;
+                self.IndId = -1;
+                self.DoStuff();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.saveId)
+            if (num1 == self.saveId)
             {
-              this.SaveOfficerLib();
+              self.SaveOfficerLib();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.save2id)
+            if (num1 == self.save2id)
             {
-              this.SaveHisLib();
+              self.SaveHisLib();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.save3id)
+            if (num1 == self.save3id)
             {
-              this.SaveTroopTypeLib();
+              self.SaveTroopTypeLib();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.save4id)
+            if (num1 == self.save4id)
             {
-              this.SaveMap();
+              self.SaveMap();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.CatListId)
+            if (num1 == self.CatListId)
             {
-              let mut num3: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num3: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
-                this.CatId = num3;
-                this.IndId = -1;
-                if (this.CatId == 4 | this.CatId == 0)
-                  this.IndId = 0;
-                this.LibVarId = -1;
-                this.DoStuff();
+                self.CatId = num3;
+                self.IndId = -1;
+                if (self.CatId == 4 | self.CatId == 0)
+                  self.IndId = 0;
+                self.LibVarId = -1;
+                self.DoStuff();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int num4;
-            if (num1 == this.text2id)
+            num4: i32;
+            if (num1 == self.text2id)
             {
-              num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              num4 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.IndListId)
+            if (num1 == self.IndListId)
             {
-              let mut num5: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num5: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num5 > -1)
               {
-                this.IndId = num5;
-                this.LibVarId = -1;
-                this.DoStuff();
+                self.IndId = num5;
+                self.LibVarId = -1;
+                self.DoStuff();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.text1id)
+            if (num1 == self.text1id)
             {
-              num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              num4 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.LibVarListId)
+            if (num1 == self.LibVarListId)
             {
-              let mut num6: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num6: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num6 > -1)
               {
-                this.LibVarId = num6;
-                this.DoStuff();
+                self.LibVarId = num6;
+                self.DoStuff();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.ChangeValId)
+            if (num1 == self.ChangeValId)
             {
-              let mut tnr: i32 = this.game.Data.GetLibVarUseId(this.LibVarId, this.IndId);
-              if (!(this.game.Data.LibVarObj[tnr].type == NewEnums.LibVarType.General & this.game.Data.LibVarObj[tnr].type == NewEnums.LibVarType.General) && tnr == this.LibVarId & this.game.Data.LibVarObj[tnr].instanceId.id == -1)
+              let mut tnr: i32 = self.game.Data.GetLibVarUseId(self.LibVarId, self.IndId);
+              if (!(self.game.Data.LibVarObj[tnr].type == NewEnums.LibVarType.General & self.game.Data.LibVarObj[tnr].type == NewEnums.LibVarType.General) && tnr == self.LibVarId & self.game.Data.LibVarObj[tnr].instanceId.id == -1)
               {
-                this.game.Data.AddLibVar(this.game.Data.LibVarObj[this.LibVarId].libId.libSlot);
-                this.game.Data.LibVarObj[this.game.Data.LibVarCounter] = this.game.Data.LibVarObj[this.LibVarId].Clone();
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.SFtype)
+                self.game.Data.AddLibVar(self.game.Data.LibVarObj[self.LibVarId].libId.libSlot);
+                self.game.Data.LibVarObj[self.game.Data.LibVarCounter] = self.game.Data.LibVarObj[self.LibVarId].Clone();
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.SFtype)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.SFTypeObj[this.IndId].LibId.id;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.SFTypeObj[this.IndId].LibId.libSlot;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.SFTypeObj[self.IndId].LibId.id;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.SFTypeObj[self.IndId].LibId.libSlot;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.Road)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.Road)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = -1;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = -1;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.River)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.River)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = -1;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = -1;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.Regime)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.Regime)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.RegimeObj[this.IndId].libId.id;
-                  if (this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id == -1)
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.RegimeObj[this.IndId].libId.libSlot;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.RegimeObj[self.IndId].libId.id;
+                  if (self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id == -1)
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.RegimeObj[self.IndId].libId.libSlot;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.People)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.People)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.PeopleObj[this.IndId].LibId.id;
-                  if (this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id == -1)
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.PeopleObj[this.IndId].LibId.libSlot;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.PeopleObj[self.IndId].LibId.id;
+                  if (self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id == -1)
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.PeopleObj[self.IndId].LibId.libSlot;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.Officer)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.Officer)
                 {
-                  if (this.game.Data.HistoricalUnitObj[this.IndId].OffLibId.id > -1)
+                  if (self.game.Data.HistoricalUnitObj[self.IndId].OffLibId.id > -1)
                   {
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.HistoricalUnitObj[this.IndId].OffLibId.id;
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.HistoricalUnitObj[this.IndId].OffLibId.libSlot;
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.HistoricalUnitObj[self.IndId].OffLibId.id;
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.HistoricalUnitObj[self.IndId].OffLibId.libSlot;
                   }
                   else
                   {
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.HistoricalUnitObj[this.IndId].LibId.id;
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.HistoricalUnitObj[this.IndId].LibId.libSlot;
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.HistoricalUnitObj[self.IndId].LibId.id;
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.HistoricalUnitObj[self.IndId].LibId.libSlot;
                   }
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.Landscape)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.Landscape)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = -1;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = -1;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.LocationType)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.LocationType)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = -1;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = -1;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.HistoricalUnitModel)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.HistoricalUnitModel)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.HistoricalUnitObj[this.IndId].LibId.id;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.HistoricalUnitObj[this.IndId].LibId.libSlot;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.HistoricalUnitObj[self.IndId].LibId.id;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.HistoricalUnitObj[self.IndId].LibId.libSlot;
                 }
-                if (this.game.Data.LibVarObj[this.LibVarId].type == NewEnums.LibVarType.HistoricalUnit)
+                if (self.game.Data.LibVarObj[self.LibVarId].type == NewEnums.LibVarType.HistoricalUnit)
                 {
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.game.Data.HistoricalUnitObj[this.IndId].LibId.id;
-                  if (this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id == -1)
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
-                  this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot = this.game.Data.HistoricalUnitObj[this.IndId].LibId.libSlot;
-                  if (this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.libSlot == -1)
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter].instanceId.id = this.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.game.Data.HistoricalUnitObj[self.IndId].LibId.id;
+                  if (self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id == -1)
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
+                  self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot = self.game.Data.HistoricalUnitObj[self.IndId].LibId.libSlot;
+                  if (self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.libSlot == -1)
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter].instanceId.id = self.IndId;
                 }
-                tnr = this.game.Data.LibVarCounter;
+                tnr = self.game.Data.LibVarCounter;
               }
               if (tnr == -1)
-                tnr = this.LibVarId;
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.Number)
+                tnr = self.LibVarId;
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.Number)
               {
                 DefaultResponse: String = "";
-                if (this.game.Data.LibVarObj[tnr].value > 0)
-                  DefaultResponse = this.game.Data.LibVarObj[tnr].value.ToString();
+                if (self.game.Data.LibVarObj[tnr].value > 0)
+                  DefaultResponse = self.game.Data.LibVarObj[tnr].value.ToString();
                 let mut num7: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new number value for variable", "Shadow Empire : Planetary Conquest", DefaultResponse)));
-                this.game.Data.LibVarObj[tnr].value = num7;
+                self.game.Data.LibVarObj[tnr].value = num7;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.Text)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.Text)
               {
-                str: String = Interaction.InputBox("Give new text for variable", "Shadow Empire : Planetary Conquest", this.game.Data.LibVarObj[tnr].valueText);
-                this.game.Data.LibVarObj[tnr].valueText = str;
+                str: String = Interaction.InputBox("Give new text for variable", "Shadow Empire : Planetary Conquest", self.game.Data.LibVarObj[tnr].valueText);
+                self.game.Data.LibVarObj[tnr].valueText = str;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 118, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 118, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitModelId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitModelId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 119, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 119, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.LandscapeId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.LandscapeId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 120, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 120, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.OfficerId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.OfficerId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 121, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 121, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.PeopleId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.PeopleId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 122, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 122, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.ActionCardId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.ActionCardId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 146, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 146, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RegimeId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RegimeId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 123, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 123, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RiverId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RiverId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 124, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 124, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RoadId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.RoadId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 125, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 125, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.LocationTypeId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.LocationTypeId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 128, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 128, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.SFTypeId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.SFTypeId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 126, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 126, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.HistoricalUnitId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 118, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 118, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.SmallGfxId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.SmallGfxId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 142, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 142, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.EventPicId)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.EventPicId)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 143, tnr, tGame: this.game);
+                Form3::new( self.formref).Initialize(self.game.Data, 143, tnr, tGame: self.game);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.YesNo)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.YesNo)
               {
                 if (Interaction.MsgBox( "Set value of to Yes or No?", MsgBoxStyle.YesNo,  "Variable value") == MsgBoxResult.Yes)
-                  this.game.Data.LibVarObj[tnr].value = 1;
+                  self.game.Data.LibVarObj[tnr].value = 1;
                 else
-                  this.game.Data.LibVarObj[tnr].value = 0;
+                  self.game.Data.LibVarObj[tnr].value = 0;
               }
-              if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.DateString)
+              if (self.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.DateString)
               {
                 str1: String = Interaction.InputBox("Give new Day.", "Shadow Empire : Planetary Conquest");
                 if (Conversions.ToInteger(str1) >= 1 & Conversions.ToInteger(str1) <= 31)
@@ -2297,164 +2297,164 @@ namespace WindowsApplication1
                     if (Conversions.ToInteger(str5) >= 1 & Conversions.ToInteger(str5) <= 9999)
                     {
                       str6: String = str4 + "/" + str5;
-                      this.game.Data.LibVarObj[tnr].valueText = str6;
+                      self.game.Data.LibVarObj[tnr].valueText = str6;
                     }
                   }
                 }
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.removeEventPic)
+            if (num1 == self.removeEventPic)
             {
-              this.game.Data.RemoveEventPic(this.IndId);
-              if (this.IndId > this.game.Data.EventPicCounter)
-                this.IndId = this.game.Data.EventPicCounter;
-              this.DoStuff();
+              self.game.Data.RemoveEventPic(self.IndId);
+              if (self.IndId > self.game.Data.EventPicCounter)
+                self.IndId = self.game.Data.EventPicCounter;
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.loadEventPic)
+            if (num1 == self.loadEventPic)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Event Picture:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Event Picture:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.AddEventPic(filename);
+                self.game.Data.AddEventPic(filename);
               }
               else
               {
-                let mut num8: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.reloadEventPic)
+            if (num1 == self.reloadEventPic)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Event Picture:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Event Picture:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.EventPicReplaceprite(this.IndId, filename);
+                self.game.Data.EventPicReplaceprite(self.IndId, filename);
               }
               else
               {
-                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.removeSmallGfx)
+            if (num1 == self.removeSmallGfx)
             {
-              this.game.Data.RemoveSmallPic(this.IndId);
-              if (this.IndId > this.game.Data.EventPicCounter)
-                this.IndId = this.game.Data.EventPicCounter;
-              this.DoStuff();
+              self.game.Data.RemoveSmallPic(self.IndId);
+              if (self.IndId > self.game.Data.EventPicCounter)
+                self.IndId = self.game.Data.EventPicCounter;
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.loadSmallGfx)
+            if (num1 == self.loadSmallGfx)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Small Gfx:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Small Gfx:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.AddSmallPic(filename);
+                self.game.Data.AddSmallPic(filename);
               }
               else
               {
-                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.reloadSmallGfx)
+            if (num1 == self.reloadSmallGfx)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Small Gfx:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps|*.bmp|Jpegs|*.jpg", "Select File For New Small Gfx:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.SmallPicReplaceprite(this.IndId, filename);
+                self.game.Data.SmallPicReplaceprite(self.IndId, filename);
               }
               else
               {
-                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.ExecuteId)
+            if (num1 == self.ExecuteId)
             {
-              this.game.HandyFunctionsObj.RedimStats();
-              let mut regimeCounter: i32 = this.game.Data.RegimeCounter;
+              self.game.HandyFunctionsObj.RedimStats();
+              let mut regimeCounter: i32 = self.game.Data.RegimeCounter;
               for (let mut regnr: i32 = 0; regnr <= regimeCounter; regnr += 1)
               {
-                this.game.HandyFunctionsObj.ClearHistory( regnr);
-                this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
+                self.game.HandyFunctionsObj.ClearHistory( regnr);
+                self.game.ProcessingObj.SetInitialReconAndZOC(regnr);
               }
-              let mut turn: i32 = this.game.Data.Turn;
-              this.game.Data.Turn = 0;
-              this.game.EventRelatedObj.DoCheckSpecificEvent(this.LibVarId);
-              this.game.Data.Turn = turn;
+              let mut turn: i32 = self.game.Data.Turn;
+              self.game.Data.Turn = 0;
+              self.game.EventRelatedObj.DoCheckSpecificEvent(self.LibVarId);
+              self.game.Data.Turn = turn;
               let mut num12: i32 =  Interaction.MsgBox( "Event has been executed", Title: ( "Shadow Empire : Planetary Conquest"));
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.RemoveLibEventId)
+            if (num1 == self.RemoveLibEventId)
             {
               if (Interaction.MsgBox( "Are you sure? Removing a library will usually cause any stringlist or units or other data related to this  library to be removed from your scenario.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
-                this.game.Data.RemoveLibrary(this.LibId);
-                this.game.HandyFunctionsObj.Libraries_ClearUpAllRemnants();
-                this.game.EditObj.OldUnit = -1;
-                this.game.EditObj.UnitSelected = -1;
-                this.LibId = -1;
-                this.LibVarId = -1;
-                this.CatId = -1;
-                this.IndId = -1;
+                self.game.Data.RemoveLibrary(self.LibId);
+                self.game.HandyFunctionsObj.Libraries_ClearUpAllRemnants();
+                self.game.EditObj.OldUnit = -1;
+                self.game.EditObj.UnitSelected = -1;
+                self.LibId = -1;
+                self.LibVarId = -1;
+                self.CatId = -1;
+                self.IndId = -1;
               }
-              this.DoStuff();
+              self.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.loadVarsId)
+            if (num1 == self.loadVarsId)
             {
-              str: String = this.game.HandyFunctionsObj.LoadSomething("SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off", "Pick file to load libraries from...", this.game.AppPath + this.game.ModScenarioDir, false);
+              str: String = self.game.HandyFunctionsObj.LoadSomething("SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off", "Pick file to load libraries from...", self.game.AppPath + self.game.ModScenarioDir, false);
               try
               {
                 if (File.Exists(str))
                 {
-                  this.game.HandyFunctionsObj.Unzip(str);
+                  self.game.HandyFunctionsObj.Unzip(str);
                   dataClass: DataClass = DataClass.deserialize(str);
-                  this.game.HandyFunctionsObj.ZipFile(str);
-                  let mut mapWidth1: i32 = this.game.Data.MapObj[0].MapWidth;
+                  self.game.HandyFunctionsObj.ZipFile(str);
+                  let mut mapWidth1: i32 = self.game.Data.MapObj[0].MapWidth;
                   for (let mut index2: i32 = 0; index2 <= mapWidth1; index2 += 1)
                   {
-                    let mut mapHeight: i32 = this.game.Data.MapObj[0].MapHeight;
+                    let mut mapHeight: i32 = self.game.Data.MapObj[0].MapHeight;
                     for (let mut index3: i32 = 0; index3 <= mapHeight; index3 += 1)
                     {
-                      for (let mut hexLibVarCounter: i32 = this.game.Data.MapObj[0].HexObj[index2, index3].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
+                      for (let mut hexLibVarCounter: i32 = self.game.Data.MapObj[0].HexObj[index2, index3].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
                       {
-                        if (this.game.Data.LibVarObj[this.game.Data.MapObj[0].HexObj[index2, index3].HexLibVarSlotNr[hexLibVarCounter]].libId.libSlot == this.LibId)
-                          this.game.Data.MapObj[0].HexObj[index2, index3].RemoveHexLibVar(hexLibVarCounter);
+                        if (self.game.Data.LibVarObj[self.game.Data.MapObj[0].HexObj[index2, index3].HexLibVarSlotNr[hexLibVarCounter]].libId.libSlot == self.LibId)
+                          self.game.Data.MapObj[0].HexObj[index2, index3].RemoveHexLibVar(hexLibVarCounter);
                       }
                     }
                   }
-                  for (let mut libVarCounter: i32 = this.game.Data.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+                  for (let mut libVarCounter: i32 = self.game.Data.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
                   {
-                    if (this.game.Data.LibVarObj[libVarCounter].libId.libSlot == this.LibId)
-                      this.game.Data.RemoveLibVar(libVarCounter);
+                    if (self.game.Data.LibVarObj[libVarCounter].libId.libSlot == self.LibId)
+                      self.game.Data.RemoveLibVar(libVarCounter);
                   }
                   let mut libVarCounter1: i32 = dataClass.LibVarCounter;
                   for (let mut index4: i32 = 0; index4 <= libVarCounter1; index4 += 1)
                   {
                     let mut libSlot: i32 = dataClass.LibVarObj[index4].libId.libSlot;
-                    if (libSlot > -1 && Operators.CompareString(dataClass.LibraryObj[libSlot].name, this.game.Data.LibraryObj[this.LibId].name, false) == 0)
+                    if (libSlot > -1 && Operators.CompareString(dataClass.LibraryObj[libSlot].name, self.game.Data.LibraryObj[self.LibId].name, false) == 0)
                     {
-                      this.game.Data.AddLibVar(this.LibId);
-                      this.game.Data.LibVarObj[this.game.Data.LibVarCounter] = dataClass.LibVarObj[index4].Clone();
+                      self.game.Data.AddLibVar(self.LibId);
+                      self.game.Data.LibVarObj[self.game.Data.LibVarCounter] = dataClass.LibVarObj[index4].Clone();
                     }
                   }
                   let mut mapWidth2: i32 = dataClass.MapObj[0].MapWidth;
@@ -2467,8 +2467,8 @@ namespace WindowsApplication1
                       {
                         let mut tLibVarSlotNr: i32 = dataClass.MapObj[0].HexObj[index5, index6].HexLibVarSlotNr[hexLibVarCounter];
                         let mut tValue: i32 = dataClass.MapObj[0].HexObj[index5, index6].HexLibVarValue[hexLibVarCounter];
-                        if (this.game.Data.LibVarObj[tLibVarSlotNr].libId.libSlot == this.LibId)
-                          this.game.Data.MapObj[0].HexObj[index5, index6].AddHexLibVar(tLibVarSlotNr, tValue);
+                        if (self.game.Data.LibVarObj[tLibVarSlotNr].libId.libSlot == self.LibId)
+                          self.game.Data.MapObj[0].HexObj[index5, index6].AddHexLibVar(tLibVarSlotNr, tValue);
                       }
                     }
                   }
@@ -2482,23 +2482,23 @@ namespace WindowsApplication1
                 ProjectData.ClearProjectError();
               }
             }
-            else if (num1 == this.AddLibEventId)
+            else if (num1 == self.AddLibEventId)
             {
-              str: String = this.game.HandyFunctionsObj.LoadSomething("SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off", "Pick file to load libraries from...", this.game.AppPath + this.game.ModScenarioDir, false);
+              str: String = self.game.HandyFunctionsObj.LoadSomething("SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off", "Pick file to load libraries from...", self.game.AppPath + self.game.ModScenarioDir, false);
               if (File.Exists(str))
               {
-                this.game.EditObj.TempFileName = str;
+                self.game.EditObj.TempFileName = str;
                 if (Strings.InStr(str, ".se1troops") > 0 & ".se1troops".Length > 0)
-                  this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadTroops;
+                  self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadTroops;
                 else if (Strings.InStr(str, ".se1his") > 0 & ".se1his".Length > 0)
-                  this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadHistoricals;
+                  self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadHistoricals;
                 else if (Strings.InStr(str, ".se1evlib") > 0 & ".se1evlib".Length > 0)
-                  this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadEvents;
+                  self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadEvents;
                 else if (Strings.InStr(str, ".se1offcard") > 0 & ".se1offcard".Length > 0)
-                  this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficerCards;
+                  self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficerCards;
                 else if (Strings.InStr(str, ".se1off") > 0 & ".se1off".Length > 0)
                 {
-                  this.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficers;
+                  self.game.EditObj.TempFileType = NewEnums.LibFileType.LoadOfficers;
                 }
                 else
                 {
@@ -2506,12 +2506,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                this.LibId = -1;
-                this.LibVarId = -1;
-                this.CatId = -1;
-                this.IndId = -1;
-                this.game.EditObj.PopupValue = 17;
-                this.game.EditObj.MyDelegate = new EditClass.AfterPopUpRefresh(this.PopUpRefresh);
+                self.LibId = -1;
+                self.LibVarId = -1;
+                self.CatId = -1;
+                self.IndId = -1;
+                self.game.EditObj.PopupValue = 17;
+                self.game.EditObj.MyDelegate = new EditClass.AfterPopUpRefresh(self.PopUpRefresh);
                 windowReturnClass.AddCommand(5, 10);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -2529,127 +2529,127 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
-      if (this.SubPartCounter > -1)
+      if (self.SubPartCounter > -1)
       {
-        let mut subPartCounter: i32 = this.SubPartCounter;
+        let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
         {
-          if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index] && Operators.CompareString(this.SubPartList[index].Descript, "", false) > 0)
+          if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index] && Operators.CompareString(self.SubPartList[index].Descript, "", false) > 0)
           {
-            this.game.EditObj.TipButton = true;
-            this.game.EditObj.TipTitle = "";
-            this.game.EditObj.TipText = this.SubPartList[index].Descript;
+            self.game.EditObj.TipButton = true;
+            self.game.EditObj.TipTitle = "";
+            self.game.EditObj.TipText = self.SubPartList[index].Descript;
             return;
           }
         }
       }
-      let mut mouseCounter: i32 = this.MouseCounter;
+      let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
       {
-        if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
+        if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
         {
-          if (this.MouseData[index] > 0)
-            this.game.EditObj.TipButton = true;
-          this.game.EditObj.TipTitle = this.MouseTitle[index];
-          this.game.EditObj.TipText = this.MouseText[index];
+          if (self.MouseData[index] > 0)
+            self.game.EditObj.TipButton = true;
+          self.game.EditObj.TipTitle = self.MouseTitle[index];
+          self.game.EditObj.TipText = self.MouseText[index];
           break;
         }
       }
     }
 
-    pub void Import()
+    pub fn Import()
     {
-      path: String = this.game.HandyFunctionsObj.LoadSomething("SE1 Scenario file (*.se1)|*.se1", "Pick a scenario to import libvars from...", this.game.AppPath + this.game.ModScenarioDir, false);
+      path: String = self.game.HandyFunctionsObj.LoadSomething("SE1 Scenario file (*.se1)|*.se1", "Pick a scenario to import libvars from...", self.game.AppPath + self.game.ModScenarioDir, false);
       if (!File.Exists(path))
         return;
       let mut num1: i32 =  Interaction.MsgBox( "Ok hold on... this can take some time", Title: ( "Shadow Empire : Planetary Conquest"));
-      this.game.FormRef.Cursor = Cursors.WaitCursor;
-      this.game.EditObj.TempFileName = path;
-      tempFileName: String = this.game.EditObj.TempFileName;
-      this.game.HandyFunctionsObj.Unzip(tempFileName);
+      self.game.FormRef.Cursor = Cursors.WaitCursor;
+      self.game.EditObj.TempFileName = path;
+      tempFileName: String = self.game.EditObj.TempFileName;
+      self.game.HandyFunctionsObj.Unzip(tempFileName);
       dataClass1: DataClass = new DataClass(DontLoadGraphics: true);
       dataClass2: DataClass = DataClass.deserialize(tempFileName);
-      this.game.HandyFunctionsObj.ZipFile(tempFileName);
+      self.game.HandyFunctionsObj.ZipFile(tempFileName);
       let mut libVarCounter: i32 = dataClass2.LibVarCounter;
-      int num2;
-      int num3;
+      num2: i32;
+      num3: i32;
       for (let mut index: i32 = 0; index <= libVarCounter; index += 1)
       {
         let mut libSlot: i32 = dataClass2.LibVarObj[index].libId.libSlot;
         bool flag = false;
-        let mut library1: i32 = this.game.Data.FindLibrary(dataClass2.LibraryObj[libSlot].name);
-        let mut libVar: i32 = this.game.Data.FindLibVar( dataClass2.LibVarObj[index], dataClass2.LibraryObj[libSlot].name);
-        if (libVar > -1 && this.game.Data.LibVarObj[libVar].valueType == dataClass2.LibVarObj[index].valueType)
+        let mut library1: i32 = self.game.Data.FindLibrary(dataClass2.LibraryObj[libSlot].name);
+        let mut libVar: i32 = self.game.Data.FindLibVar( dataClass2.LibVarObj[index], dataClass2.LibraryObj[libSlot].name);
+        if (libVar > -1 && self.game.Data.LibVarObj[libVar].valueType == dataClass2.LibVarObj[index].valueType)
         {
-          if (this.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.General)
+          if (self.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.General)
           {
-            this.game.Data.LibVarObj[libVar].value = dataClass2.LibVarObj[index].value;
-            this.game.Data.LibVarObj[libVar].valueText = dataClass2.LibVarObj[index].valueText;
+            self.game.Data.LibVarObj[libVar].value = dataClass2.LibVarObj[index].value;
+            self.game.Data.LibVarObj[libVar].valueText = dataClass2.LibVarObj[index].valueText;
             flag = true;
           }
-          else if (this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Hex)
+          else if (self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Hex)
           {
-            if (this.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.HistoricalUnit & dataClass2.LibVarObj[index].instanceId.libSlot > -1 & dataClass2.LibVarObj[index].instanceId.id > -1)
+            if (self.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.HistoricalUnit & dataClass2.LibVarObj[index].instanceId.libSlot > -1 & dataClass2.LibVarObj[index].instanceId.id > -1)
             {
-              let mut library2: i32 = this.game.Data.FindLibrary(dataClass2.LibraryObj[dataClass2.LibVarObj[index].instanceId.libSlot].name);
+              let mut library2: i32 = self.game.Data.FindLibrary(dataClass2.LibraryObj[dataClass2.LibVarObj[index].instanceId.libSlot].name);
               let mut id: i32 = dataClass2.LibVarObj[index].instanceId.id;
-              let mut historicalUnitCounter: i32 = this.game.Data.HistoricalUnitCounter;
+              let mut historicalUnitCounter: i32 = self.game.Data.HistoricalUnitCounter;
               for (let mut slotId: i32 = 0; slotId <= historicalUnitCounter; slotId += 1)
               {
-                if (this.game.Data.HistoricalUnitObj[slotId].LibId.libSlot == library2 && this.game.Data.HistoricalUnitObj[slotId].LibId.id == id)
+                if (self.game.Data.HistoricalUnitObj[slotId].LibId.libSlot == library2 && self.game.Data.HistoricalUnitObj[slotId].LibId.id == id)
                 {
-                  let mut libVarUseId: i32 = this.game.Data.GetLibVarUseId(libVar, slotId);
+                  let mut libVarUseId: i32 = self.game.Data.GetLibVarUseId(libVar, slotId);
                   if (libVarUseId == libVar)
                   {
-                    this.game.Data.AddLibVar(library1);
-                    this.game.Data.LibVarObj[this.game.Data.LibVarCounter] = this.game.Data.LibVarObj[libVar].Clone();
-                    this.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
-                    this.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
-                    this.game.Data.LibVarObj[libVarUseId].instanceId.libSlot = library2;
-                    this.game.Data.LibVarObj[libVarUseId].instanceId.id = id;
+                    self.game.Data.AddLibVar(library1);
+                    self.game.Data.LibVarObj[self.game.Data.LibVarCounter] = self.game.Data.LibVarObj[libVar].Clone();
+                    self.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
+                    self.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
+                    self.game.Data.LibVarObj[libVarUseId].instanceId.libSlot = library2;
+                    self.game.Data.LibVarObj[libVarUseId].instanceId.id = id;
                   }
                   else
                   {
-                    this.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
-                    this.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
+                    self.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
+                    self.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
                     flag = true;
                   }
                 }
               }
             }
-            else if (this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.HistoricalUnitModel && this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Landscape && this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.LocationType && this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Officer && this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.People)
+            else if (self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.HistoricalUnitModel && self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Landscape && self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.LocationType && self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.Officer && self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.People)
             {
-              if (this.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.Regime)
+              if (self.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.Regime)
               {
-                let mut library3: i32 = this.game.Data.FindLibrary(dataClass2.LibraryObj[dataClass2.LibVarObj[index].instanceId.libSlot].name);
+                let mut library3: i32 = self.game.Data.FindLibrary(dataClass2.LibraryObj[dataClass2.LibVarObj[index].instanceId.libSlot].name);
                 let mut id: i32 = dataClass2.LibVarObj[index].instanceId.id;
-                let mut regimeCounter: i32 = this.game.Data.RegimeCounter;
+                let mut regimeCounter: i32 = self.game.Data.RegimeCounter;
                 for (let mut slotId: i32 = 0; slotId <= regimeCounter; slotId += 1)
                 {
-                  if (this.game.Data.RegimeObj[slotId].libId.libSlot == library3 && this.game.Data.RegimeObj[slotId].libId.id == id)
+                  if (self.game.Data.RegimeObj[slotId].libId.libSlot == library3 && self.game.Data.RegimeObj[slotId].libId.id == id)
                   {
-                    let mut libVarUseId: i32 = this.game.Data.GetLibVarUseId(libVar, slotId);
+                    let mut libVarUseId: i32 = self.game.Data.GetLibVarUseId(libVar, slotId);
                     if (libVarUseId == libVar)
                     {
-                      this.game.Data.AddLibVar(library1);
-                      this.game.Data.LibVarObj[this.game.Data.LibVarCounter] = this.game.Data.LibVarObj[libVar].Clone();
-                      this.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
-                      this.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
-                      this.game.Data.LibVarObj[libVarUseId].instanceId.libSlot = library3;
-                      this.game.Data.LibVarObj[libVarUseId].instanceId.id = id;
+                      self.game.Data.AddLibVar(library1);
+                      self.game.Data.LibVarObj[self.game.Data.LibVarCounter] = self.game.Data.LibVarObj[libVar].Clone();
+                      self.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
+                      self.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
+                      self.game.Data.LibVarObj[libVarUseId].instanceId.libSlot = library3;
+                      self.game.Data.LibVarObj[libVarUseId].instanceId.id = id;
                     }
                     else
                     {
-                      this.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
-                      this.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
+                      self.game.Data.LibVarObj[libVarUseId].value = dataClass2.LibVarObj[index].value;
+                      self.game.Data.LibVarObj[libVarUseId].valueText = dataClass2.LibVarObj[index].valueText;
                       flag = true;
                     }
                   }
                 }
               }
-              else if (this.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.River || this.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.Road || this.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.SFtype)
+              else if (self.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.River || self.game.Data.LibVarObj[libVar].type == NewEnums.LibVarType.Road || self.game.Data.LibVarObj[libVar].type != NewEnums.LibVarType.SFtype)
                 ;
             }
           }
@@ -2660,9 +2660,9 @@ namespace WindowsApplication1
           num3 += 1;
       }
       dataClass1 = (DataClass) null;
-      this.game.EditObj.UnitSelected = -1;
-      this.game.EditObj.OldUnit = -1;
-      this.game.FormRef.Cursor = Cursors.Default;
+      self.game.EditObj.UnitSelected = -1;
+      self.game.EditObj.OldUnit = -1;
+      self.game.FormRef.Cursor = Cursors.Default;
       let mut num4: i32 =  Interaction.MsgBox( ("Import completed succesfully. Imported " + num2.ToString() + " libvars and skipped " + num3.ToString() + "."), Title: ( "Shadow Empire : Planetary Conquest"));
     }
   }

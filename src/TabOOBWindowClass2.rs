@@ -13,57 +13,57 @@ namespace WindowsApplication1
 {
   pub class TabOOBWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int CurrentView;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
      int[] Ounit;
      int[] Oselect;
      int[] Ox;
      int[] Oy;
      int[] Ow;
      int[] Showcount;
-     int RowHeight;
-     int MaxLayer;
-     int RowOffset;
-     int Olastselect;
-     int detailnr;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Text4id;
-     int Text5id;
-     int text6id;
-     int Text11Id;
-     int Text12Id;
-     int Text13Id;
-     int Text14id;
-     int Text15id;
-     int text16id;
-     int opt1;
-     int opt2;
-     int opt3;
-     int opt4;
-     int opt5;
-     int opt11;
-     int opt12;
-     int opt13;
-     int opt14;
-     int opt15;
-     int OptionsList5id;
+     RowHeight: i32;
+     MaxLayer: i32;
+     RowOffset: i32;
+     Olastselect: i32;
+     detailnr: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Text4id: i32;
+     Text5id: i32;
+     text6id: i32;
+     Text11Id: i32;
+     Text12Id: i32;
+     Text13Id: i32;
+     Text14id: i32;
+     Text15id: i32;
+     text16id: i32;
+     opt1: i32;
+     opt2: i32;
+     opt3: i32;
+     opt4: i32;
+     opt5: i32;
+     opt11: i32;
+     opt12: i32;
+     opt13: i32;
+     opt14: i32;
+     opt15: i32;
+     OptionsList5id: i32;
      ListClass OptionsList5Obj;
-     int OptionsList6id;
+     OptionsList6id: i32;
      ListClass OptionsList6Obj;
     pub onlyLand: bool;
-     int lastUnitCount;
+     lastUnitCount: i32;
     pub SimpleList UL;
     pub ULselected: i32;
 
     pub TabOOBWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -95,9 +95,9 @@ namespace WindowsApplication1
       self.Olastselect = -1;
       self.Makeoob();
       let mut unitCounter: i32 = self.game.Data.UnitCounter;
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       for (let mut unr: i32 = 0; unr <= unitCounter; unr += 1)
       {
         if (self.game.Data.UnitObj[unr].PreDef == -1)
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void MakeUL()
+    pub fn MakeUL()
     {
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
       let mut stringListById2: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 236, 0, 0));
@@ -323,7 +323,7 @@ namespace WindowsApplication1
       while (num7 <= 3);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 40)
@@ -347,9 +347,9 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
       let mut stringListById2: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 237, 0, 0));
@@ -530,7 +530,7 @@ namespace WindowsApplication1
           self.Oselect[self.Ounit[index6]] = index6;
       }
       SimpleList simpleList1;
-      int tdata1;
+      tdata1: i32;
       if (self.detailnr <= -1)
       {
         DrawMod.DrawTextColouredMarc( g, Strings.UCase("Order of Battle (OOB)"), self.game.MarcFont4, 235 + num2, 30, Color.FromArgb(200,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
@@ -730,7 +730,7 @@ namespace WindowsApplication1
               Expression.Weight[index16] = Expression.Weight[index16] * self.game.Data.ReinfRatio[reinfTypeById];
             }
             let mut unitCounter3: i32 = self.game.Data.UnitCounter;
-            int num36;
+            num36: i32;
             for (let mut index17: i32 = 0; index17 <= unitCounter3; index17 += 1)
             {
               if (self.game.Data.UnitObj[index17].Historical > -1 & self.game.Data.UnitObj[index17].PreDef == -1 & self.game.Data.UnitObj[index17].Regime == self.game.Data.Turn && self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[index17].Historical].GiveHisVarValue(2) == detailnr)
@@ -814,7 +814,7 @@ namespace WindowsApplication1
             {
               tdata1 = Expression.Weight[tdata1];
               let mut nr: i32 = simpleList2.FindNr(tid);
-              int num39;
+              num39: i32;
               string str;
               if (nr > -1)
               {
@@ -844,10 +844,10 @@ namespace WindowsApplication1
           let mut twidth: i32 = 200 + Math.Max(0, self.w - num2 - 1060);
           let mut game: GameClass = self.game;
           let mut tValueWidth: i32 = 100 + Math.Max(0,  Math.Round( (self.w - num2 - 1060) / 3.0));
-           Bitmap local1 =  self.OwnBitmap;
+           local1: Bitmap =  self.OwnBitmap;
           let mut bbx: i32 = 660 + num2;
-          Font font =  null;
-           Font local2 =  font;
+          font: Font =  null;
+           local2: Font =  font;
           tsubpart1 =  new ListSubPartClass(optionsList6Obj, 15, twidth, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: 36, tMarcStyle: true, overruleFont: ( local2));
           self.OptionsList6id = self.AddSubPart( tsubpart1, 660 + num2, 36, 200 + Math.Max(0, self.w - 1060), 256, 0);
         }
@@ -917,7 +917,7 @@ namespace WindowsApplication1
             if (self.UL.Data1[tdata2] == 1)
             {
                let mut local3: &Graphics = &g;
-              Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(self.UL.Id[tdata2], forcehighlight, ForceHideUnitMode: 2);
+              bitmap: Bitmap = self.game.CustomBitmapObj.DrawUnit(self.UL.Id[tdata2], forcehighlight, ForceHideUnitMode: 2);
                let mut local4: &Bitmap = &bitmap;
               let mut x: i32 = self.Ox[tdata2];
               let mut y: i32 = self.Oy[tdata2];
@@ -1000,7 +1000,7 @@ namespace WindowsApplication1
             if (Strings.InStr(self.game.Data.UnitObj[index26].Name, "SS") > 0)
               ttext = ttext;
              let mut local5: &Graphics = &g;
-            Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(index26, forcehighlight, ForceHideUnitMode: 2);
+            bitmap: Bitmap = self.game.CustomBitmapObj.DrawUnit(index26, forcehighlight, ForceHideUnitMode: 2);
              let mut local6: &Bitmap = &bitmap;
             let mut x: i32 = self.Ox[index26];
             let mut y: i32 = self.Oy[index26];
@@ -1019,7 +1019,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
@@ -1033,7 +1033,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (b == 2097152)
@@ -1156,7 +1156,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
@@ -1329,7 +1329,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void Makeoob()
+    pub fn Makeoob()
     {
       let mut index1: i32 = 1;
       do

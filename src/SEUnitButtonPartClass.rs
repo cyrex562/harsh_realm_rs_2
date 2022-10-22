@@ -11,21 +11,21 @@ namespace WindowsApplication1
 {
   pub class SEUnitButtonPartClass : SubPartClass
   {
-     int iconSlotNr;
+     iconSlotNr: i32;
      string dataString;
      string dataString2;
      string description;
      bool active;
-     int overruleR;
-     int overruleG;
-     int overruleB;
+     overruleR: i32;
+     overruleG: i32;
+     overruleB: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
     }
 
     pub SEUnitButtonPartClass(
-      int tIconSlotNr,
+      tIconSlotNr: i32,
       string tDataString,
       string tDataString2,
       string tDescript,
@@ -45,10 +45,10 @@ namespace WindowsApplication1
       this.overruleR = tOverruleR;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (!this.active)
       {
          let mut local1: &Graphics = &objgraphics;
@@ -131,10 +131,10 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (!this.active)
       {
          let mut local1: &Graphics = &objgraphics;

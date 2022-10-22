@@ -15,24 +15,24 @@ namespace WindowsApplication1
 {
   pub class TextAreaClass2 : SubPartClass
   {
-     int ListSize;
-     int ListSelect;
+     ListSize: i32;
+     ListSelect: i32;
     pub TopItem: i32;
     pub ListClass[] ListObj;
-     int Tab;
-     string[] TabName;
-     int TabCount;
-     Font OwnFont;
-     int ItemSize;
-     int Width;
-     int Height;
-     GameClass game;
-     Bitmap backbitmap;
-     int bx;
-     int by;
-     Color fontcol;
-     Color fontColHigh;
-     int clickscroll;
+     Tab: i32;
+     TabName: Vec<String>;
+     TabCount: i32;
+     OwnFont: Font;
+     ItemSize: i32;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
+     backbitmap: Bitmap;
+     bx: i32;
+     by: i32;
+     fontcol: Color;
+     fontColHigh: Color;
+     clickscroll: i32;
     pub Rectangle[] TabRect;
      bool WithoutScrollbars;
     pub WithoutFrame: bool;
@@ -44,7 +44,7 @@ namespace WindowsApplication1
     pub darkerFrame: bool;
      StringListClass tStringList;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( self.backbitmap))
         return;
@@ -52,7 +52,7 @@ namespace WindowsApplication1
       self.backbitmap = (Bitmap) null;
     }
 
-    pub bool HandleTimerWheel(int x, int y,  WindowClass tWindow)
+    pub bool HandleTimerWheel(x: i32, y: i32,  WindowClass tWindow)
     {
       if (self.game.EditObj.MouseWheel > 0)
       {
@@ -74,13 +74,13 @@ namespace WindowsApplication1
     }
 
     pub TextAreaClass2(
-      GameClass tgame,
-      int twidth,
-      int trows,
-      Font tfont,
+      tgame: GameClass,
+      twidth: i32,
+      trows: i32,
+      tfont: Font,
       string tText,
       let mut tItemSize: i32 = 16,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
       bool tWithoutScrollbars = false,
@@ -149,7 +149,7 @@ namespace WindowsApplication1
       self.bx = bbx;
       self.by = bby;
       SizeF sizeF = SizeF::new();
-      string[] strArray1 = new string[10];
+      strArray1: Vec<String> = new string[10];
       self.Tab = 0;
       self.TabCount = -1;
       self.TabName[0] = "";
@@ -243,7 +243,7 @@ namespace WindowsApplication1
             let mut num11: i32 = Strings.InStr(tText, ">>");
             str: String = Strings.Mid(tText, Start, num11 - Start + 2);
             oldValue: String = str;
-            string[] strArray2 = str.Replace("<<", "").Replace(">>", "").Split(';');
+            strArray2: Vec<String> = str.Replace("<<", "").Replace(">>", "").Split(';');
             if (strArray2.Length >= 2)
             {
               self.tStringList.AddRowWithData(strArray2[0], strArray2[1], strArray2[2], 0.ToString(), "", "OVERRULE", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
@@ -292,7 +292,7 @@ namespace WindowsApplication1
             let mut num15: i32 = Strings.InStr(tText, " ");
             if (num15 == 0)
               num15 = 9999999;
-            int num16;
+            num16: i32;
             if (num14 < num15 & num14 > 0)
             {
               let mut num17: i32 = num14;
@@ -415,15 +415,15 @@ namespace WindowsApplication1
       self.MouseOver = true;
     }
 
-    pub int HeightUsed() => (self.ListObj[self.Tab].ListCount + 1) * self.ItemSize;
+    pub HeightUsed: i32() => (self.ListObj[self.Tab].ListCount + 1) * self.ItemSize;
 
-    pub int WidthUsed()
+    pub WidthUsed: i32()
     {
       SizeF sizeF = SizeF::new();
       return self.ListObj[0].ListCount < 0 ? 0 :  Math.Round( Graphics.FromImage((Image) self.OwnBitmap).MeasureString(self.ListObj[0].ListName[0], self.OwnFont).Width);
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       self.game.EditObj.TipColor = 0;
       let mut mouseCounter: i32 = self.MouseCounter;
@@ -440,7 +440,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       SimpleStringList simpleStringList = SimpleStringList::new();
@@ -456,8 +456,8 @@ namespace WindowsApplication1
       {
         if (self.darkerFrame)
         {
-          Color c1 = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol1.R / 2.0),  Math.Round( self.game.MarcCol1.G / 2.0),  Math.Round( self.game.MarcCol1.B / 2.0));
-          Color c2 = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol2.R / 2.0),  Math.Round( self.game.MarcCol2.G / 2.0),  Math.Round( self.game.MarcCol2.B / 2.0));
+          c1: Color = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol1.R / 2.0),  Math.Round( self.game.MarcCol1.G / 2.0),  Math.Round( self.game.MarcCol1.B / 2.0));
+          c2: Color = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol2.R / 2.0),  Math.Round( self.game.MarcCol2.G / 2.0),  Math.Round( self.game.MarcCol2.B / 2.0));
           DrawMod.DrawBlockGradient2( Expression, 0, self.ItemSize, self.Width - 10, self.Height - self.ItemSize, c1, c2);
         }
         else
@@ -465,7 +465,7 @@ namespace WindowsApplication1
       }
       if (self.TabCount < 0)
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         return bitmap;
       }
       let mut num1: i32 = 0;
@@ -589,9 +589,9 @@ namespace WindowsApplication1
                 num8 = num7;
               if (!Information.IsNothing( self.tStringList) & num8 > 0 && self.tStringList.Width >= 3)
                 tdata =  Math.Round(Conversion.Val(self.tStringList.Data[num8 - 1, 3]));
-              int num9;
-              int num10;
-              int num11;
+              num9: i32;
+              num10: i32;
+              num11: i32;
               if (Strings.InStr(str3, "[?") > 0)
               {
                 num9 = 32;
@@ -699,7 +699,7 @@ namespace WindowsApplication1
         let mut x3: i32 = self.Width - 20;
         let mut num16: i32 = self.ItemSize + 25 + num15;
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
          let mut local2: &Bitmap = &bitmap;
         trect = Rectangle::new(0, 3, 20, 4);
         let mut srcrect1: &Rectangle = &trect
@@ -746,7 +746,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void ShiftLeft()
+    pub fn ShiftLeft()
     {
       --self.Tab;
       self.TopItem = 0;
@@ -757,7 +757,7 @@ namespace WindowsApplication1
       self.Tab = 0;
     }
 
-    pub void ShiftRight()
+    pub fn ShiftRight()
     {
       self += 1.Tab;
       self.TopItem = 0;
@@ -768,7 +768,7 @@ namespace WindowsApplication1
       self.Tab = 0;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       self += 1.TopItem;
       if (self.TopItem > self.ListObj[self.Tab].ListCount - self.ListSize)
@@ -778,7 +778,7 @@ namespace WindowsApplication1
       self.TopItem = 0;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       --self.TopItem;
       if (self.TopItem > self.ListObj[self.Tab].ListCount - self.ListSize)
@@ -788,7 +788,7 @@ namespace WindowsApplication1
       self.TopItem = 0;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;
@@ -797,7 +797,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub int Click(int x, int y, let mut b: i32 = 1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
       let mut num1: i32 = y;
       if (self.TabCount > 0 & num1 < self.ItemSize)
@@ -846,11 +846,11 @@ namespace WindowsApplication1
           self.TopItem = 0;
         return -1;
       }
-      int num4;
+      num4: i32;
       return num4;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       let mut num1: i32 = y;
       if (self.clickscroll != 1)

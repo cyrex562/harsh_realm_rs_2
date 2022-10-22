@@ -13,24 +13,24 @@ namespace WindowsApplication1
 {
   pub class MessageWindowClass2 : WindowClass
   {
-     int okid;
-     int tbacknr;
-     int oktextid;
-     int noteid;
-     int note2id;
-     int cloudid;
-     int Pic1Id;
-     int TAid;
-     int FromMessage;
+     okid: i32;
+     tbacknr: i32;
+     oktextid: i32;
+     noteid: i32;
+     note2id: i32;
+     cloudid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     FromMessage: i32;
 
-    pub MessageWindowClass2( GameClass tGame)
+    pub MessageWindowClass2( tGame: GameClass)
       : base( tGame, 680, 480, 8)
     {
       this.FromMessage = tGame.EditObj.FromMessage;
       this.ViewMessage();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (this.okid > 0)
       {
@@ -92,15 +92,15 @@ namespace WindowsApplication1
         SoundMod.STopEventWave();
         SoundMod.PlayEventWave(this.game.AppPath + "sound/" + this.game.Data.RegimeObj[this.game.Data.Turn].MessWav[this.FromMessage],  this.game.EditObj);
       }
-      int width1;
-      int height1;
-      int num1;
+      width1: i32;
+      height1: i32;
+      num1: i32;
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage] > -1)
       {
         let mut index: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage];
         let mut nr: i32 =  index < 10000 ? this.game.Data.EventPicNr[index] : this.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
         Rectangle rectangle;
-        int num2;
+        num2: i32;
         if (nr > -1)
         {
           width1 = BitmapStore.GetWidth(nr);
@@ -131,7 +131,7 @@ namespace WindowsApplication1
         else
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local2: &Bitmap = &bitmap;
           let mut x: i32 =  rectangle.X;
           let mut y: i32 =  rectangle.Y;
@@ -147,7 +147,7 @@ namespace WindowsApplication1
       if (!Information.IsNothing( this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0 & width1 < 150)
       {
         str: String = this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage];
-        int num3;
+        num3: i32;
         for (SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont7);  sizeF2.Width >  (620 - width1); sizeF2 = g.MeasureString(str, this.game.MarcFont7))
         {
           str = Strings.Left(str, Strings.Len(str) - 1);
@@ -165,7 +165,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 270, num1 + num4 + 46, 150, 30, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 40)
@@ -195,7 +195,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -228,7 +228,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

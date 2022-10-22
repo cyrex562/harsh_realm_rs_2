@@ -23,10 +23,10 @@ namespace WindowsApplication1
      int lastpagenr;
      int fadenr;
      int fadeFrameCap;
-     Bitmap bmp;
-     Bitmap lastbmp;
+     bmp: Bitmap;
+     lastbmp: Bitmap;
 
-    pub CinematicsScreenClass(ref GameClass tGame, Form1 tformref)
+    pub CinematicsScreenClass(ref tGame: GameClass, tformref: Form1)
       : base(ref tGame, tFormRef: tformref)
     {
       this.lasttime = DateAndTime.Now;
@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.loadPageStuff(this.pagenr);
     }
 
-    pub Bitmap Paint(bool onlyToolTip = false)
+    pub Paint: Bitmap(bool onlyToolTip = false)
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBackground);
       if (!Information.IsNothing( this.bmp))
@@ -75,14 +75,14 @@ namespace WindowsApplication1
         if (!Information.IsNothing( this.lastbmp) & this.fadenr >= 1 & this.fadenr < this.fadeFrameCap)
         {
           ref Graphics local1 = ref Expression;
-          ref Bitmap local2 = ref this.lastbmp;
+          ref local2: Bitmap = ref this.lastbmp;
           Rectangle rectangle1 = Rectangle::new(0, 0, 1920, 1080);
           let mut srcrect1: &Rectangle = &rectangle1
           Rectangle rectangle2 = Rectangle::new(x, y, width, height);
           let mut destrect1: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
           ref Graphics local3 = ref Expression;
-          ref Bitmap local4 = ref this.bmp;
+          ref local4: Bitmap = ref this.bmp;
           rectangle2 = Rectangle::new(0, 0, 1920, 1080);
           let mut srcrect2: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, y, width, height);
@@ -194,7 +194,7 @@ namespace WindowsApplication1
       return this.OwnBackground;
     }
 
-    pub void introText(ref Graphics g, string s, int mode, int plusy)
+    pub fn introText(ref Graphics g, string s, int mode, int plusy)
     {
       let mut x: i32 =  (int) Math.Round( this.Game.ScreenWidth / 2.0);
       let mut num: i32 =  (int) Math.Round( this.Game.ScreenHeight / 2.0);
@@ -282,7 +282,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub void unloadAnyStuff()
+    pub fn unloadAnyStuff()
     {
       if (!Information.IsNothing( this.bmp))
       {
@@ -295,7 +295,7 @@ namespace WindowsApplication1
       this.lastbmp = (Bitmap) null;
     }
 
-    pub void loadPageStuff(int nr)
+    pub fn loadPageStuff(int nr)
     {
       if (nr == 1)
         this.loadSpecificBmp(this.Game.AppPath + "intrographics/se1.jpg");
@@ -312,7 +312,7 @@ namespace WindowsApplication1
       this.loadSpecificBmp(this.Game.AppPath + "intrographics/se6.jpg");
     }
 
-    pub void loadSpecificBmp(string s)
+    pub fn loadSpecificBmp(string s)
     {
       if (!Information.IsNothing( this.lastbmp))
       {
@@ -326,8 +326,8 @@ namespace WindowsApplication1
         this.bmp = (Bitmap) null;
       }
       FileStream fileStream = new FileStream(s, FileMode.Open, FileAccess.Read);
-      Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
-      Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
+      bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
+      bitmap2: Bitmap = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();

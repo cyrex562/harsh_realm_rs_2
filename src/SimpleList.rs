@@ -105,7 +105,7 @@ impl SimpleList {
     //     todo!()
     // }
 
-    // pub void Remove(int tid)
+    // pub fn Remove(tid: i32)
     pub fn Remove(&mut self, tid: i32)
     {
       let mut nr: isize = self.FindNr(tid);
@@ -157,7 +157,7 @@ impl SimpleList {
       }
     }
 
-    // pub void removeWeight0orLower()
+    // pub fn removeWeight0orLower()
     pub fn removeWeidth0orLower(&mut self) {
         // for (let mut counter: i32 = self.Counter; counter >= 0; counter += -1)
         for counter in self.Counter as usize..0 {
@@ -167,11 +167,11 @@ impl SimpleList {
         }
     }
 
-    // pub int GetRandomIdbasedOnWeight()
+    // pub GetRandomIdbasedOnWeight: i32()
     pub fn GetRandomIdbaseOnWeight(&mut self) -> i32
     {
       let mut counter1 = self.Counter as usize;
-      // int num1;
+      // num1: i32;
       let mut num1 = 0i32;
         // for (let mut index: i32 = 0; index <= counter1; index += 1)
         for index in 0 .. counter1
@@ -196,14 +196,14 @@ impl SimpleList {
       return -1;
     }
 
-    // pub int GetRandomIdbasedOnWeightWithSeed(object tseed)
+    // pub GetRandomIdbasedOnWeightWithSeed: i32(object tseed)
     pub fn GetRandomIdbasedOnWeightWithSeed(&mut self, tseed: i32) -> i32 {
         // Random random = new Random(Conversions.ToInteger(tseed));
         // let random = rand::random::<i32>();
         let mut rng = rand::thread_rng();
         let range_of_items: Vec<i32> = (1..1000).collect();
         let mut counter1 = self.Counter;
-        // int num1;
+        // num1: i32;
         let mut num1 = 0;
         // for (let mut index: i32 = 0; index <= counter1; index += 1)
         for index in 0..counter1 as usize {
@@ -244,7 +244,7 @@ impl SimpleList {
         return -1;
     }
 
-    // pub int GetRandomSlotbasedOnWeightWithSeed(object tseed)
+    // pub GetRandomSlotbasedOnWeightWithSeed: i32(object tseed)
     pub fn GetRandomSlotBasedOnWeightWithSeed(&mut self) -> i32
     {
         let mut rng = rand::thread_rng();
@@ -298,7 +298,7 @@ impl SimpleList {
         return -1;
     }
 
-    // pub void RemoveNr(int nr)
+    // pub fn RemoveNr(nr: i32)
     pub fn RemoveNr(&mut self, nr: isize) {
         if nr < 0 || nr > self.Counter {
             return;
@@ -320,7 +320,7 @@ impl SimpleList {
         self.Counter -= 1;
     }
 
-    // pub void MultiplyWeight(int multi)
+    // pub fn MultiplyWeight(multi: i32)
     pub fn MultiplyWeight(&mut self, multi: isize)
     {
       let mut counter = self.Counter;
@@ -331,7 +331,7 @@ impl SimpleList {
       }
     }
 
-    // pub void AddWeight( SimpleList SL)
+    // pub fn AddWeight( SimpleList SL)
     pub fn AddWeight(&mut self, SL: &mut Self)
     {
       if (Information::IsNothing( SL) || SL.Counter == -1) {
@@ -345,7 +345,7 @@ impl SimpleList {
       }
     }
 
-    // pub void AddWeightBlind( SimpleList SL)
+    // pub fn AddWeightBlind( SimpleList SL)
     pub fn AddWeightBlind(&mut self, SL: &mut Self)
     {
       if (Information::IsNothing( SL) || SL.Counter == -1) {
@@ -359,7 +359,7 @@ impl SimpleList {
       }
     }
 
-    // pub void RemoveWeight( SimpleList SL)
+    // pub fn RemoveWeight( SimpleList SL)
     pub fn RemoveWeight(&mut self, SL: &mut Self)
     {
       let mut counter = SL.Counter;
@@ -385,7 +385,7 @@ impl SimpleList {
       return true;
     }
 
-    // pub void MultiplyWeight(int tid, float multi)
+    // pub fn MultiplyWeight(tid: i32, float multi)
     pub fn MultiplyWeight2(&mut self, tid: i32, multi: f32)
     {
       let mut nr = self.FindNr(tid);
@@ -396,8 +396,8 @@ impl SimpleList {
     }
 
     pub void AddWeight(
-      int tid,
-      int tweight,
+      tid: i32,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -407,7 +407,7 @@ impl SimpleList {
       bool CheckData1Existence = false,
       bool CheckData2Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -509,7 +509,7 @@ impl SimpleList {
       }
     }
 
-    pub void AddData(int tid, int tdataNr, int tvalue)
+    pub fn AddData(tid: i32, tdataNr: i32, tvalue: i32)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr > -1)
@@ -623,8 +623,8 @@ impl SimpleList {
     }
 
     pub void RemoveWeight(
-      int tid,
-      int tweight,
+      tid: i32,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -633,7 +633,7 @@ impl SimpleList {
       bool CheckExistence = true,
       bool CheckData1Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -694,8 +694,8 @@ impl SimpleList {
     }
 
     pub void Add(
-      int tid,
-      int tweight,
+      tid: i32,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -704,7 +704,7 @@ impl SimpleList {
       bool CheckExistence = true,
       bool CheckData1Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -754,7 +754,7 @@ impl SimpleList {
       }
     }
 
-    pub void AddBlind(int tid, int tweight)
+    pub fn AddBlind(tid: i32, tweight: i32)
     {
       this += 1.Counter;
       if (self.Counter > self.MaxCounter)
@@ -767,7 +767,7 @@ impl SimpleList {
       self.Weight[self.Counter] = tweight;
     }
 
-    pub int FindNr(int tid, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
+    pub FindNr: i32(tid: i32, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
     {
       if (self.Counter < 0)
         return -1;
@@ -798,13 +798,13 @@ impl SimpleList {
       return -1;
     }
 
-    pub int FindWeight(int tid, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
+    pub FindWeight: i32(tid: i32, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
     {
       let mut nr: i32 = self.FindNr(tid, tdata1, tdata2, tdata3, tdata4);
       return nr > -1 ? self.Weight[nr] : 0;
     }
 
-    pub int totalWeight()
+    pub totalWeight: i32()
     {
       if (self.Counter < 0)
         return 0;
@@ -815,7 +815,7 @@ impl SimpleList {
       return num;
     }
 
-    pub int FindData(int tid, int tDataSlot)
+    pub FindData: i32(tid: i32, tDataSlot: i32)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr <= -1)
@@ -833,12 +833,12 @@ impl SimpleList {
         case 5:
           return self.Data5[nr];
         default:
-          int data;
+          data: i32;
           return data;
       }
     }
 
-    pub void Percentify()
+    pub fn Percentify()
     {
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
@@ -859,7 +859,7 @@ impl SimpleList {
       }
     }
 
-    pub void Sort()
+    pub fn Sort()
     {
       if (self.Counter < 1)
         return;
@@ -901,7 +901,7 @@ impl SimpleList {
       }
     }
 
-    pub void ReverseSort()
+    pub fn ReverseSort()
     {
       if (self.Counter < 1)
         return;
@@ -943,9 +943,9 @@ impl SimpleList {
       }
     }
 
-    pub void SortHighSpeed() => self.ReverseSortHighSpeed(true);
+    pub fn SortHighSpeed() => self.ReverseSortHighSpeed(true);
 
-    pub void ReverseSortHighSpeed(bool normalSort = false)
+    pub fn ReverseSortHighSpeed(bool normalSort = false)
     {
       let mut num1: i32 = 9999999;
       let mut num2: i32 = -9999999;
@@ -1054,7 +1054,7 @@ impl SimpleList {
       }
     }
 
-    pub void SortOnData5()
+    pub fn SortOnData5()
     {
       if (self.Counter < 1)
         return;

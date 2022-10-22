@@ -13,24 +13,24 @@ namespace WindowsApplication1
 {
   pub class FlexMessageWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
      int[] Answer;
 
-    pub FlexMessageWindowClass(ref GameClass tGame)
+    pub FlexMessageWindowClass(ref tGame: GameClass)
       : base(ref tGame, 600, 200, 8)
     {
       this.Answer = new int[10];
       this.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(600, 200, -1);
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -144,7 +144,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

@@ -43,7 +43,7 @@ namespace WindowsApplication1
       this.Value = (bool[,]) info.GetValue(nameof (Value), this.Value.GetType());
     }
 
-    pub MapMatrix2Boolean(int w, int h)
+    pub MapMatrix2Boolean(w: i32, h: i32)
     {
       this.Value = new bool[1, 1];
       this.Width = w;

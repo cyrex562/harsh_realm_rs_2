@@ -18,49 +18,49 @@ namespace WindowsApplication1
 {
   pub class SimpleTroopTypeWindowClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int tableId;
-     int loadId;
-     int versionid;
-     int text1id;
-     int detailnr;
-     int addId;
-     int loadMasterId;
-     int addReinf;
-     int removeReinf;
-     int ratioid;
-     int ratioidb;
-     int RenameReinf;
-     int RenameReinfb;
-     int RemoveReinfb;
-     int a1id;
-     int a2id;
-     int a3id;
-     int removeId;
-     int changeId;
-     int exitId;
-     int saveId;
-     int editId;
-     int removeIdb;
-     int saveIdb;
-     int editIdb;
-     int strId;
-     int detailx;
-     int detaily;
+     tableId: i32;
+     loadId: i32;
+     versionid: i32;
+     text1id: i32;
+     detailnr: i32;
+     addId: i32;
+     loadMasterId: i32;
+     addReinf: i32;
+     removeReinf: i32;
+     ratioid: i32;
+     ratioidb: i32;
+     RenameReinf: i32;
+     RenameReinfb: i32;
+     RemoveReinfb: i32;
+     a1id: i32;
+     a2id: i32;
+     a3id: i32;
+     removeId: i32;
+     changeId: i32;
+     exitId: i32;
+     saveId: i32;
+     editId: i32;
+     removeIdb: i32;
+     saveIdb: i32;
+     editIdb: i32;
+     strId: i32;
+     detailx: i32;
+     detaily: i32;
      StringListClass stringy;
-     int VarsStartOn;
+     VarsStartOn: i32;
      bool AddNew;
      bool Change;
-     int currentSfTypeNr;
-     int cellinfoid;
+     currentSfTypeNr: i32;
+     cellinfoid: i32;
      int[] ColIsSFTypeVar;
-     int exportCsv;
-     int importCsv;
+     exportCsv: i32;
+     importCsv: i32;
      string lastsound;
      string masterfileStart;
 
-    pub SimpleTroopTypeWindowClass( GameClass tGame)
+    pub SimpleTroopTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight, 9, tDoBorders: 1, tHeaderString: "Intermediate TroopType Editor")
     {
       self.ColIsSFTypeVar = new int[100];
@@ -76,7 +76,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (!((self.AddNew | self.Change) & self.currentSfTypeNr > -1))
         return;
@@ -89,11 +89,11 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
 
-    pub void RefreshCellInfo()
+    pub fn RefreshCellInfo()
     {
       if (self.cellinfoid > 0)
       {
@@ -113,7 +113,7 @@ namespace WindowsApplication1
       SoundMod.PlayAWave(self.game.AppPath + "sound/" + self.stringy.Data[self.detailx, self.detaily],  self.game.EditObj);
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -185,9 +185,9 @@ namespace WindowsApplication1
       ListClass listObj = self.listObj;
       let mut detailnr: i32 = self.detailnr;
       let mut game: GameClass = self.game;
-       Bitmap local1 =  self.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  self.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(listObj, 24, 250, detailnr, game, true, "ReinforcementTypes", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 10, bby: 192, tMarcStyle: true, overruleFont: ( local2));
       self.listId = self.AddSubPart( tsubpart1, 10, 192, 250, 432, 0);
       DrawMod.DrawTextColouredMarc( objgraphics, "REINFORCEMENT TYPES", self.game.MarcFont4, 15, 172, Color.White);
@@ -426,7 +426,7 @@ namespace WindowsApplication1
       self.versionid = self.AddSubPart( tsubpart21, num1 + 910, 100, 190, 35, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.strId == -1 || Information.IsNothing( self.stringy))
@@ -475,7 +475,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -877,12 +877,12 @@ namespace WindowsApplication1
                             num13 = 2;
                             continue;
                           case 2:
-                            string[] strArray = str5.Split(Conversions.ToChar(str4));
+                            strArray: Vec<String> = str5.Split(Conversions.ToChar(str4));
                             let mut num14: i32 = 0;
-                            int num15;
+                            num15: i32;
                             num15 += 1;
                             let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
-                            int index15;
+                            index15: i32;
                             for (index15 = 0; index15 <= sfTypeCounter; index15 += 1)
                             {
                               if (!self.game.Data.SFTypeObj[index15].DontShowInList & self.game.Data.SFTypeObj[index15].CopyDataFrom > -1)
@@ -1395,7 +1395,7 @@ label_298:
       return windowReturnClass1;
     }
 
-    pub void Interpret()
+    pub fn Interpret()
     {
       let mut sfTypeCounter1: i32 = self.game.Data.SFTypeCounter;
       for (let mut index: i32 = 0; index <= sfTypeCounter1; index += 1)

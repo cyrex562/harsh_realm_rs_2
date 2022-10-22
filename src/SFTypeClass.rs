@@ -36,20 +36,20 @@ namespace WindowsApplication1
     pub SymbolWeight: i32;
     pub SymbolOverrule: bool;
     pub ExtraCounter: i32;
-    pub string[] ExtraPicFileName;
+    pub ExtraPicFileName: Vec<String>;
     pub ExtraPicSpriteID: Vec<i32>;
-    pub string[] ExtraSidewaysFileName;
+    pub ExtraSidewaysFileName: Vec<String>;
     pub ExtraSidewaysSpriteID: Vec<i32>;
-    pub string[] ExtraSymbolFileName;
+    pub ExtraSymbolFileName: Vec<String>;
     pub ExtraSymbolSpriteID: Vec<i32>;
-    pub string[] ExtraSymbolFileName2;
+    pub ExtraSymbolFileName2: Vec<String>;
     pub ExtraSymbolSprite2ID: Vec<i32>;
-    pub string[] ExtraSymbolColBigFileName;
+    pub ExtraSymbolColBigFileName: Vec<String>;
     pub ExtraSymbolColBigSpriteID: Vec<i32>;
-    pub string[] ExtraSymbolColBigFileName2;
+    pub ExtraSymbolColBigFileName2: Vec<String>;
     pub ExtraSymbolColBigSprite2ID: Vec<i32>;
     pub ExtraCode: Vec<i32>;
-    pub string[] ExtraName;
+    pub ExtraName: Vec<String>;
     pub BaseColor: i32;
     pub MoveType: i32;
     pub SupplyCarry: i32;
@@ -170,7 +170,7 @@ namespace WindowsApplication1
     pub TempAlterationPossible: Vec<bool>;
     pub float TempAvgCombatMatrixAtt;
     pub float TempAvgCombatMatrixDef;
-    pub string[] LogoString;
+    pub LogoString: Vec<String>;
     pub PreventCounter: i32;
     pub PreventHitOn: Vec<i32>;
     pub PreventHitFrom: Vec<i32>;
@@ -194,7 +194,7 @@ namespace WindowsApplication1
     pub SupplyForAttackDef: i32;
     pub FuelCarry: i32;
     pub ModelVariantCounter: i32;
-    pub string[] ModelVariantName;
+    pub ModelVariantName: Vec<String>;
     pub ModelVariantCheck: Vec<i32>;
     pub ModelVariantExec: Vec<i32>;
     pub artCode: Vec<i32>;
@@ -1385,7 +1385,7 @@ namespace WindowsApplication1
       this.Ratio = 1;
     }
 
-    pub SFTypeClass(int hardcoded, int ltcount, int rcount)
+    pub SFTypeClass(hardcoded: i32, ltcount: i32, rcount: i32)
     {
       this.ExtraPicFileName = new string[1];
       this.ExtraPicSpriteID = new int[1];
@@ -1529,7 +1529,7 @@ namespace WindowsApplication1
       this.heightLevelDiff = 0;
     }
 
-    pub void AddResField()
+    pub fn AddResField()
     {
       this.ModelLastState = (int[]) Utils.CopyArray((Array) this.ModelLastState, (Array) new int[this.ModelLastState.GetUpperBound(0) + 1 + 1]);
       this.ModelPossibleImp = (int[]) Utils.CopyArray((Array) this.ModelPossibleImp, (Array) new int[this.ModelLastState.GetUpperBound(0) + 1 + 1]);
@@ -1537,7 +1537,7 @@ namespace WindowsApplication1
       this.ModelAutoImprovement = (bool[]) Utils.CopyArray((Array) this.ModelAutoImprovement, (Array) new bool[this.ModelLastState.GetUpperBound(0) + 1 + 1]);
     }
 
-    pub void RemoveResField(int nr)
+    pub fn RemoveResField(nr: i32)
     {
       if (nr < this.ModelLastState.GetUpperBound(0))
       {
@@ -1566,43 +1566,43 @@ namespace WindowsApplication1
       return (SFTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub void ReplaceSymbolSprite(string s)
+    pub fn ReplaceSymbolSprite(string s)
     {
       this.SymbolFileName = s;
       this.SymbolSpriteID = BitmapStore.ReloadFile(this.SymbolSpriteID, s, IsBig: true);
     }
 
-    pub void ReplaceColBigSymbolSprite(string s)
+    pub fn ReplaceColBigSymbolSprite(string s)
     {
       this.SymbolColBigFileName = s;
       this.SymbolColBigSpriteID = BitmapStore.ReloadFile(this.SymbolColBigSpriteID, s);
     }
 
-    pub void ReplaceColBigSymbolSprite2(string s)
+    pub fn ReplaceColBigSymbolSprite2(string s)
     {
       this.SymbolColBigFileName2 = s;
       this.SymbolColBigSprite2ID = BitmapStore.ReloadFile(this.SymbolColBigSprite2ID, s);
     }
 
-    pub void ReplaceSymbolSprite2(string s)
+    pub fn ReplaceSymbolSprite2(string s)
     {
       this.SymbolFileName2 = s;
       this.SymbolSprite2ID = BitmapStore.ReloadFile(this.SymbolSprite2ID, s);
     }
 
-    pub void ReplacePicSprite(string s)
+    pub fn ReplacePicSprite(string s)
     {
       this.PicFileName = s;
       this.PicSpriteID = BitmapStore.ReloadFile(this.PicSpriteID, s);
     }
 
-    pub void ReplaceSidewaysSprite(string s)
+    pub fn ReplaceSidewaysSprite(string s)
     {
       this.SidewaysFileName = s;
       this.SidewaysSpriteID = BitmapStore.ReloadFile(this.SidewaysSpriteID, s);
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       BitmapStore.RemoveBitmapNr(this.SymbolSpriteID);
       BitmapStore.RemoveBitmapNr(this.SymbolSprite2ID);
@@ -1622,7 +1622,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       this.SymbolSpriteID = BitmapStore.AddFile(this.SymbolFileName, false, true);
       this.SymbolSprite2ID = BitmapStore.AddFile(this.SymbolFileName2, false);
@@ -1642,7 +1642,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddExtraSprite()
+    pub fn AddExtraSprite()
     {
       this += 1.ExtraCounter;
       this.ExtraPicFileName = (string[]) Utils.CopyArray((Array) this.ExtraPicFileName, (Array) new string[this.ExtraCounter + 1]);
@@ -1671,7 +1671,7 @@ namespace WindowsApplication1
       this.ExtraSymbolColBigSpriteID[this.ExtraCounter] = BitmapStore.AddFile(this.ExtraSymbolColBigFileName[this.ExtraCounter], false);
       this.ExtraSymbolColBigFileName2[this.ExtraCounter] = "systemgraphics/trans.bmp";
       this.ExtraSymbolColBigSprite2ID[this.ExtraCounter] = BitmapStore.AddFile(this.ExtraSymbolColBigFileName2[this.ExtraCounter], false);
-      int num1;
+      num1: i32;
       if (this.ExtraCounter > 0)
       {
         num1 = 1;
@@ -1687,7 +1687,7 @@ namespace WindowsApplication1
       this.ExtraCode[this.ExtraCounter] = num1;
     }
 
-    pub void RemoveExtraSprite(int nr)
+    pub fn RemoveExtraSprite(nr: i32)
     {
       if (this.ExtraCounter > nr)
       {
@@ -1743,37 +1743,37 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReplaceExtraPic(int nr, string filename)
+    pub fn ReplaceExtraPic(nr: i32, string filename)
     {
       this.ExtraPicFileName[nr] = filename;
       this.ExtraPicSpriteID[nr] = BitmapStore.ReloadFile(this.ExtraPicSpriteID[nr], this.ExtraPicFileName[nr]);
     }
 
-    pub void ReplaceExtraSideways(int nr, string filename)
+    pub fn ReplaceExtraSideways(nr: i32, string filename)
     {
       this.ExtraSidewaysFileName[nr] = filename;
       this.ExtraSidewaysSpriteID[nr] = BitmapStore.ReloadFile(this.ExtraSidewaysSpriteID[nr], this.ExtraSidewaysFileName[nr]);
     }
 
-    pub void ReplaceExtraSymbol(int nr, string filename)
+    pub fn ReplaceExtraSymbol(nr: i32, string filename)
     {
       this.ExtraSymbolFileName[nr] = filename;
       this.ExtraSymbolSpriteID[nr] = BitmapStore.ReloadFile(this.ExtraSymbolSpriteID[nr], this.ExtraSymbolFileName[nr], IsBig: true);
     }
 
-    pub void ReplaceExtraColBigSymbol(int nr, string filename)
+    pub fn ReplaceExtraColBigSymbol(nr: i32, string filename)
     {
       this.ExtraSymbolColBigFileName[nr] = filename;
       this.ExtraSymbolColBigSpriteID[nr] = BitmapStore.ReloadFile(this.ExtraSymbolColBigSpriteID[nr], this.ExtraSymbolColBigFileName[nr]);
     }
 
-    pub void ReplaceExtraColBigSymbol2(int nr, string filename)
+    pub fn ReplaceExtraColBigSymbol2(nr: i32, string filename)
     {
       this.ExtraSymbolColBigFileName2[nr] = filename;
       this.ExtraSymbolColBigSprite2ID[nr] = BitmapStore.ReloadFile(this.ExtraSymbolColBigSprite2ID[nr], this.ExtraSymbolColBigFileName2[nr]);
     }
 
-    pub void ReplaceExtraSymbol2(int nr, string filename)
+    pub fn ReplaceExtraSymbol2(nr: i32, string filename)
     {
       this.ExtraSymbolFileName2[nr] = filename;
       this.ExtraSymbolSprite2ID[nr] = BitmapStore.ReloadFile(this.ExtraSymbolSprite2ID[nr], this.ExtraSymbolFileName2[nr]);

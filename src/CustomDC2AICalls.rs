@@ -12,8 +12,8 @@ namespace WindowsApplication1
 {
   pub class CustomDC2AICalls
   {
-    pub DC2AIClass ai;
-    pub DataClass data;
+    pub ai: DC2AIClass;
+    pub data: DataClass;
     pub slotRegimeKeys: i32;
     pub slotOobType: i32;
     pub slotRegimes: i32;
@@ -22,7 +22,7 @@ namespace WindowsApplication1
     pub bool[,] tempActuallyNotAtWarForMove;
     pub bool[,] tempActuallyNotAtWarForAttack;
 
-    pub CustomDC2AICalls(ref DC2AIClass tai)
+    pub CustomDC2AICalls(ref tai: DC2AIClass)
     {
       this.dataLib = "SE_Data";
       this.ai = tai;
@@ -67,11 +67,11 @@ namespace WindowsApplication1
         ;
     }
 
-    pub void CustomAfterInitialization() => this.PlayPostures();
+    pub fn CustomAfterInitialization() => this.PlayPostures();
 
-    pub float CustomAllowedAsStrategicReserve(int byvalunr) => -1f;
+    pub float CustomAllowedAsStrategicReserve(byvalunr: i32) => -1f;
 
-    pub float StrategicReserveModForUnit(int unr)
+    pub float StrategicReserveModForUnit(unr: i32)
     {
       let mut historical1: i32 =  this.data.UnitObj[unr].Historical;
       let mut hq: i32 =  this.data.UnitObj[unr].HQ;
@@ -99,7 +99,7 @@ namespace WindowsApplication1
       return 9999f;
     }
 
-    pub void PlayPostures()
+    pub fn PlayPostures()
     {
       str1: String = "8101_AI_Play_Postures";
       let mut id1: i32 =  this.data.RegimeObj[this.data.Turn].id;
@@ -130,7 +130,7 @@ namespace WindowsApplication1
       this.data.StringListObj[stringListById2].SetData(0, "ROUND", 1, this.data.Round, true);
       SimpleList simpleList2 = SimpleList::new();
       let mut length: i32 =  this.data.StringListObj[stringListById1].Length;
-      int num4;
+      num4: i32;
       for (let mut index: i32 =  0; index <= length; index += 1)
       {
         num4 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
@@ -138,10 +138,10 @@ namespace WindowsApplication1
         {
           str2: String = this.data.StringListObj[stringListById1].Data[index, 1];
           str3: String = this.data.StringListObj[stringListById1].Data[index, 6];
-          int num5;
+          num5: i32;
           if (str3.Length > 0)
           {
-            EventRelatedClass eventRelatedObj = DrawMod.TGame.EventRelatedObj;
+            eventRelatedObj: EventRelatedClass = DrawMod.TGame.EventRelatedObj;
             let mut id2: i32 =  this.data.StringListObj[stringListById3].ID;
             let mut id3: i32 =  this.data.StringListObj[stringListById2].ID;
             logicString: String = str3;
@@ -480,7 +480,7 @@ namespace WindowsApplication1
       this.ai.ClearLog();
     }
 
-    pub float CustomRuleTheater_MinimalAttackModifier(int x, int y, float currentMinimal)
+    pub float CustomRuleTheater_MinimalAttackModifier(x: i32, y: i32, float currentMinimal)
     {
       float num1 = 1f;
       let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
@@ -494,7 +494,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int CustomHelpCombatModifier(int tHelpCombat, int forRegimeNr)
+    pub CustomHelpCombatModifier: i32(tHelpCombat: i32, forRegimeNr: i32)
     {
       let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
       let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[forRegimeNr].id, 1)));
@@ -503,7 +503,7 @@ namespace WindowsApplication1
       return tHelpCombat;
     }
 
-    pub TargetRegimeRelationIsActuallyNotWar: bool(int regnr, int targetregnr, bool forMove)
+    pub TargetRegimeRelationIsActuallyNotWar: bool(regnr: i32, targetregnr: i32, bool forMove)
     {
       if (forMove)
       {
@@ -515,7 +515,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub CustomRuleHQtoFrontAssign_AllowHQGroupsWithoutHQ: bool(int unr)
+    pub CustomRuleHQtoFrontAssign_AllowHQGroupsWithoutHQ: bool(unr: i32)
     {
       let mut index: i32 =  this.data.Turn;
       if (unr > -1)
@@ -541,9 +541,9 @@ namespace WindowsApplication1
 
     pub CustomIsMajor: bool() =>  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1))) == 1;
 
-    pub int CustomStrategicReserveMultiplier() => 1;
+    pub CustomStrategicReserveMultiplier: i32() => 1;
 
-    pub CustomStrategicReserveDelegateToFrontline: bool(int phase) => false;
+    pub CustomStrategicReserveDelegateToFrontline: bool(phase: i32) => false;
 
     pub object CustomRuleInitVars()
     {
@@ -565,7 +565,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub float CustomRuleTheaterModifiers_VpModifier(int x, int y) => 10f;
+    pub float CustomRuleTheaterModifiers_VpModifier(x: i32, y: i32) => 10f;
 
     pub CustomRule_MakeFrontsFromDefensiveZones_NoUnitsAssignedNeeded: bool() => true;
 
@@ -575,7 +575,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub float CustomRuleInitFrontlines_UnitRatioWeightModifier(int unr)
+    pub float CustomRuleInitFrontlines_UnitRatioWeightModifier(unr: i32)
     {
       switch ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.UnitObj[unr].Regime].id, 1))))
       {
@@ -592,7 +592,7 @@ namespace WindowsApplication1
 
     pub CustomRuleInitFrontlines_MLAalreadySet: bool() =>  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1))) == 1;
 
-    pub void CustomRuleInitFrontlines_ResetMatrixes()
+    pub fn CustomRuleInitFrontlines_ResetMatrixes()
     {
       let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
       let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 123, 0, 0));
@@ -639,7 +639,7 @@ namespace WindowsApplication1
       let mut num8: i32 =  0;
       let mut num9: i32 =  0;
       let mut unitCounter1: i32 =  this.data.UnitCounter;
-      int num10;
+      num10: i32;
       for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
       {
         if (this.data.UnitObj[unr].Regime == this.data.Turn & this.data.UnitObj[unr].PreDef == -1)
@@ -793,7 +793,7 @@ namespace WindowsApplication1
       this.ai.AddLog("");
       this.ai.AddLog("IMPORTANT FRIENDLY ZONES");
       let mut num23: i32 =  num22;
-      int tid1;
+      tid1: i32;
       for (tid1 = 1; tid1 <= num23; tid1 += 1)
       {
         let mut idValue3: i32 =  simpleList2.Id[tid1 - 1];
@@ -915,7 +915,7 @@ namespace WindowsApplication1
       simpleList8.Percentify();
       simpleList9.Percentify();
       let mut regimeCounter2: i32 =  this.data.RegimeCounter;
-      int index14;
+      index14: i32;
       for (tid1 = 1; tid1 <= regimeCounter2; tid1 += 1)
       {
         if (tid1 != this.data.Turn)
@@ -1150,8 +1150,8 @@ namespace WindowsApplication1
       else
         this.ai.AddLog("OldOffensiveModFixed IS UNCHANGED");
       let mut num62: i32 =  setValue1;
-      int num63;
-      int num64;
+      num63: i32;
+      num64: i32;
       if (num62 >= 50)
       {
         num63 =  Math.Round(Math.Ceiling( (num47 * num62) / 100.0));
@@ -1225,7 +1225,7 @@ namespace WindowsApplication1
       let mut counter4: i32 =  simpleList10.Counter;
       for (tid1 = 0; tid1 <= counter4; tid1 += 1)
       {
-        int num65;
+        num65: i32;
         if (num65 < num63 && simpleList10.Data2[tid1] < 1 & simpleList11.FindData(simpleList10.Id[tid1], 2) < 1)
         {
           let mut num66: i32 =  0;
@@ -1243,7 +1243,7 @@ namespace WindowsApplication1
           aiMatrix6.SetValueXToValueY(0, 9999);
           this.ai.AddLog("For " + this.data.UnitObj[simpleList10.Id[tid1]].Name + ":");
           let mut num68: i32 =  num38 - 1;
-          int locationById;
+          locationById: i32;
           for (let mut index19: i32 =  0; index19 <= num68; index19 += 1)
           {
             let mut idValue5: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, simpleList5.Id[index19], 12)));
@@ -1417,7 +1417,7 @@ namespace WindowsApplication1
           addvalue.Value[index30, index31] = this.data.MapObj[0].HexObj[index30, index31].Regime != this.data.Turn ? 0 : 1;
       }
       let mut num83: i32 =  0;
-      int maxy1;
+      maxy1: i32;
       if ( val2_1 < 0.2)
         maxy1 = 2;
       else if ( num83 > 0.4)
@@ -1451,7 +1451,7 @@ namespace WindowsApplication1
       if (maxy1 > 0)
         addvalue.ExpandValueForAnyRegimeWithinMask(ref mask2, maxy1);
       let mut num84: i32 =  0;
-      int maxy2;
+      maxy2: i32;
       if ( val2_1 < 0.4)
         maxy2 = 0;
       else if ( num84 > 0.8)
@@ -1596,21 +1596,21 @@ namespace WindowsApplication1
       this.ai.WriteLog("0009_CustomMatrixes");
     }
 
-    pub int CustomRuleHQtoFrontAssign_howmanySSHQperDefensiveZone(int defzoneNumber) => 9;
+    pub CustomRuleHQtoFrontAssign_howmanySSHQperDefensiveZone: i32(defzoneNumber: i32) => 9;
 
     pub float CustomRuleHQtoFrontAssign_ModifyScore1(
       ref AIMatrix frontlines,
       ref AIFront tempFront,
-      int hq,
-      int sshq,
-      int curEnm,
-      int curFr)
+      hq: i32,
+      sshq: i32,
+      curEnm: i32,
+      curFr: i32)
     {
       return 1f;
     }
 
-    pub int CustomRuleHQToFrontAssign_SetScore(
-      int totalScore,
+    pub CustomRuleHQToFrontAssign_SetScore: i32(
+      totalScore: i32,
       float score1,
       float score2,
       float score3)
@@ -1637,7 +1637,7 @@ namespace WindowsApplication1
       return  Math.Round( (num1 * num2) *  score3 / 4.0);
     }
 
-    pub float GetUnitPowerModifier(int unr)
+    pub float GetUnitPowerModifier(unr: i32)
     {
       let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0))].GetData(0, 42, 2)));
       let mut regime: i32 =  this.data.UnitObj[unr].Regime;
@@ -1680,9 +1680,9 @@ namespace WindowsApplication1
       return unitPowerModifier;
     }
 
-    pub CustomRuleHQtoFrontAssign_UnitInCorrectFront_SeeSSHQasSeperateHQ: bool(int unr) => this.data.UnitObj[unr].IsHQ ? this.data.UnitObj[unr].HQ == -1 : this.data.UnitObj[unr].HQ > -1 && this.data.UnitObj[this.data.UnitObj[unr].HQ].HQ <= -1;
+    pub CustomRuleHQtoFrontAssign_UnitInCorrectFront_SeeSSHQasSeperateHQ: bool(unr: i32) => this.data.UnitObj[unr].IsHQ ? this.data.UnitObj[unr].HQ == -1 : this.data.UnitObj[unr].HQ > -1 && this.data.UnitObj[this.data.UnitObj[unr].HQ].HQ <= -1;
 
-    pub int CustomRuleWorld_ExtraTroopsOnHex(int x, int y, int curTroops)
+    pub CustomRuleWorld_ExtraTroopsOnHex: i32(x: i32, y: i32, curTroops: i32)
     {
       let mut regime: i32 =  this.data.MapObj[0].HexObj[x, y].Regime;
       let mut num1: i32 =  0;

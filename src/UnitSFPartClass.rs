@@ -14,17 +14,17 @@ namespace WindowsApplication1
   pub class UnitSFPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     int unr;
-     GameClass game;
+     unr: i32;
+     game: GameClass;
 
-    pub UnitSFPartClass(int tunr, GameClass tgame)
+    pub UnitSFPartClass(tunr: i32, tgame: GameClass)
       : base(620, 200)
     {
       self.unr = tunr;
       self.game = tgame;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Coordinate coordinate1 = Coordinate::new();
@@ -74,11 +74,11 @@ namespace WindowsApplication1
       let mut red2_1: i32 = self.game.Data.RegimeObj[regime].Red2;
       let mut green2_1: i32 = self.game.Data.RegimeObj[regime].Green2;
       let mut blue2_1: i32 = self.game.Data.RegimeObj[regime].Blue2;
-      Color c1_1 = Color.FromArgb( byte.MaxValue, red1, green1, blue1);
-      Color c2_1 = Color.FromArgb(0, red1, green1, blue1);
-      Color c1_2 = Color.FromArgb( byte.MaxValue, red2, green2, blue2);
-      Color c2_2 = Color.FromArgb(0, red2, green2, blue2);
-      Color color = Color.FromArgb( byte.MaxValue, red2_1, green2_1, blue2_1);
+      c1_1: Color = Color.FromArgb( byte.MaxValue, red1, green1, blue1);
+      c2_1: Color = Color.FromArgb(0, red1, green1, blue1);
+      c1_2: Color = Color.FromArgb( byte.MaxValue, red2, green2, blue2);
+      c2_2: Color = Color.FromArgb(0, red2, green2, blue2);
+      color: Color = Color.FromArgb( byte.MaxValue, red2_1, green2_1, blue2_1);
       Color.FromArgb(185, 0, 0, 0);
       Color.FromArgb(200, red2_1, green2_1, blue2_1);
       let mut num1: i32 = -1;
@@ -184,7 +184,7 @@ namespace WindowsApplication1
               }
             }
             DrawMod.DrawTextVic2( graphics, tstring1, self.game.VicFont2, num2, num3 + 2, self.game.VicColor2, self.game.VicColor2Shade);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             Rectangle rectangle1;
             Rectangle rectangle2;
             if ( self.game.Data.RuleVar[869] >= 1.0)
@@ -536,7 +536,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void DescriptInfo(int ix, int iy)
+    pub fn DescriptInfo(ix: i32, iy: i32)
     {
       self.Descript = "";
       let mut num: i32 =  Math.Round(Conversion.Int( iy / 102.0) * 4.0 + Conversion.Int( ix / 155.0));
@@ -550,7 +550,7 @@ namespace WindowsApplication1
         self.Descript = "Click to see info on this SubformationType. (Ap=Action points, Rd=Readiness, Xp=Experience, Mo=Morale, Pe=People)";
     }
 
-    pub int Click(int x, int y, let mut b: i32 = 1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
       if (self.game.Data.UnitObj[self.unr].SFCount > 7)
       {
@@ -567,11 +567,11 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( Expression))

@@ -15,99 +15,99 @@ namespace WindowsApplication1
 {
   pub class RegimeWindowClass : WindowClass
   {
-     int LibListId;
-     int LibNr;
+     LibListId: i32;
+     LibNr: i32;
      ListClass LibListObj;
-     int regimeListId;
+     regimeListId: i32;
      ListClass regimeListObj;
-     int BAddregimeId;
-     int BAddregimeTextId;
-     int BNameId;
-     int BNameTextId;
-     int BRedId;
-     int BRedTextId;
-     int BRed2Id;
-     int BRed2TextId;
-     int BRed3Id;
-     int BRed3TextId;
-     int BRed4Id;
-     int BRed4TextId;
-     int BMorId;
-     int BMorTextId;
-     int BAIId;
-     int BAITextID;
-     int PbemId;
-     int PbemTextId;
-     int BRemoveregimeId;
-     int BRemoveregimeTextId;
-     int BDrawId;
-     int BDrawTextId;
-     int OptionsListId;
+     BAddregimeId: i32;
+     BAddregimeTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BRedId: i32;
+     BRedTextId: i32;
+     BRed2Id: i32;
+     BRed2TextId: i32;
+     BRed3Id: i32;
+     BRed3TextId: i32;
+     BRed4Id: i32;
+     BRed4TextId: i32;
+     BMorId: i32;
+     BMorTextId: i32;
+     BAIId: i32;
+     BAITextID: i32;
+     PbemId: i32;
+     PbemTextId: i32;
+     BRemoveregimeId: i32;
+     BRemoveregimeTextId: i32;
+     BDrawId: i32;
+     BDrawTextId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int BResId;
-     int BResTextId;
-     int BPolId;
-     int BPolTextId;
-     int clid;
-     int cltextid;
-     int e1id;
-     int e1textid;
-     int e2id;
-     int e2textid;
-     int e3id;
-     int e3textid;
-     int e4id;
-     int e4textid;
-     int e5id;
-     int e5textid;
-     int e6id;
-     int e6textid;
-     int e7id;
-     int e7textid;
-     int e8id;
-     int e8textid;
-     int e9id;
-     int e9textid;
-     int e10id;
-     int e10textid;
-     int e11id;
-     int e11textid;
-     int e12id;
-     int e12textid;
-     int e13id;
-     int e13textid;
-     int altid;
-     int alttextid;
-     int B1Id;
-     int B1TextId;
-     int BSymbolId;
-     int BChangeSymbolId;
-     int NatIconId;
-     int NatIconPic;
-     int RoundelId;
-     int RoundelPic;
-     int stringListId;
+     BResId: i32;
+     BResTextId: i32;
+     BPolId: i32;
+     BPolTextId: i32;
+     clid: i32;
+     cltextid: i32;
+     e1id: i32;
+     e1textid: i32;
+     e2id: i32;
+     e2textid: i32;
+     e3id: i32;
+     e3textid: i32;
+     e4id: i32;
+     e4textid: i32;
+     e5id: i32;
+     e5textid: i32;
+     e6id: i32;
+     e6textid: i32;
+     e7id: i32;
+     e7textid: i32;
+     e8id: i32;
+     e8textid: i32;
+     e9id: i32;
+     e9textid: i32;
+     e10id: i32;
+     e10textid: i32;
+     e11id: i32;
+     e11textid: i32;
+     e12id: i32;
+     e12textid: i32;
+     e13id: i32;
+     e13textid: i32;
+     altid: i32;
+     alttextid: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     BSymbolId: i32;
+     BChangeSymbolId: i32;
+     NatIconId: i32;
+     NatIconPic: i32;
+     RoundelId: i32;
+     RoundelPic: i32;
+     stringListId: i32;
      ListClass stringListObj;
-     int B2Id;
-     int B2TextId;
-     int ResListId;
+     B2Id: i32;
+     B2TextId: i32;
+     ResListId: i32;
      ListClass ResListObj;
-     int b3Id;
-     int B3TextId;
-     int b5Id;
-     int B5TextId;
-     int dipListId;
+     b3Id: i32;
+     B3TextId: i32;
+     b5Id: i32;
+     B5TextId: i32;
+     dipListId: i32;
      ListClass dipListObj;
-     int b4Id;
-     int B4TextId;
-     int regimeNr;
-     int TabSheetNr;
-     int DetailNr;
-     int HighId;
-     int LowId;
+     b4Id: i32;
+     B4TextId: i32;
+     regimeNr: i32;
+     TabSheetNr: i32;
+     DetailNr: i32;
+     HighId: i32;
+     LowId: i32;
      string ss;
 
-    pub RegimeWindowClass( GameClass tGame)
+    pub RegimeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Regimes")
     {
       this.regimeNr = -1;
@@ -117,14 +117,14 @@ namespace WindowsApplication1
       this.MakeregimeListGUI(-1);
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.regimeNr > -1)
         this.LibNr = this.game.Data.RegimeObj[this.regimeNr].libId.libSlot;
       this.MakeregimeListGUI(this.regimeNr);
     }
 
-     void MakeregimeListGUI(int tregimenr)
+     void MakeregimeListGUI(tregimenr: i32)
     {
       if (this.regimeListId > 0)
         this.RemoveSubPart(this.regimeListId);
@@ -147,9 +147,9 @@ namespace WindowsApplication1
       ListClass libListObj = this.LibListObj;
       let mut tlistselect1: i32 = num1;
       let mut game1: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font1 =  null;
-       Font local2 =  font1;
+       local1: Bitmap =  this.OwnBitmap;
+      font1: Font =  null;
+       local2: Font =  font1;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 7, 200, tlistselect1, game1, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 10, bby: 40, overruleFont: ( local2));
       this.LibListId = this.AddSubPart( tsubpart1, 10, 40, 200, 160, 0);
       let mut num3: i32 = -1;
@@ -171,9 +171,9 @@ namespace WindowsApplication1
         ListClass regimeListObj = this.regimeListObj;
         let mut tlistselect2: i32 = num4;
         let mut game2: GameClass = this.game;
-         Bitmap local3 =  this.OwnBitmap;
-        Font font2 =  null;
-         Font local4 =  font2;
+         local3: Bitmap =  this.OwnBitmap;
+        font2: Font =  null;
+         local4: Font =  font2;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(regimeListObj, 3, 200, tlistselect2, game2, tHeader: "Regimes", tbackbitmap: ( local3), bbx: 10, bby: 210, overruleFont: ( local4));
         this.regimeListId = this.AddSubPart( tsubpart2, 10, 210, 200, 80, 0);
         this.regimeNr = tregimenr;
@@ -326,12 +326,12 @@ namespace WindowsApplication1
         this.BNameId = this.AddSubPart( tsubpart1, 370, 220, 32, 16, 1);
         let mut tsubpart2: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.RegimeObj[this.regimeNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BNameTextId = this.AddSubPart( tsubpart2, 410, 219, 200, 20, 0);
-        this.ss = "Click to change the color of the counters and backgrounds of this regime";
+        this.ss = "Click to change the of: Color the counters and backgrounds of this regime";
         let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BRedId = this.AddSubPart( tsubpart3, 370, 50, 32, 16, 1);
         let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.CustomBitmapObj.DrawHistoryForce(this.regimeNr, -1, -1));
         this.BRedTextId = this.AddSubPart( tsubpart4, 410, 49, 38, 38, 0);
-        this.ss = "Click to change the color of the sprite and text on the counters, and over backgrounds";
+        this.ss = "Click to change the of: Color the sprite and text on the counters, and over backgrounds";
         let mut tsubpart5: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BRed2Id = this.AddSubPart( tsubpart5, 370, 120, 32, 16, 1);
         if (this.game.Data.SFTypeCounter > -1)
@@ -406,9 +406,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tabSheetNr: i32 = this.TabSheetNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart8 =  new ListSubPartClass(optionsListObj, 5, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 370, bby: 262, overruleFont: ( local2));
         this.OptionsListId = this.AddSubPart( tsubpart8, 370, 262, 300, 128, 0);
       }
@@ -550,9 +550,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.stringListObj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(stringListObj, 12, 300, detailNr, game, tHeader: "Regimeslots", tbackbitmap: ( local1), bbx: 10, bby: 400, overruleFont: ( local2));
       this.stringListId = this.AddSubPart( tsubpart, 10, 400, 300, 240, 0);
       if (this.DetailNr <= -1)
@@ -582,9 +582,9 @@ namespace WindowsApplication1
       ListClass resListObj = this.ResListObj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(resListObj, 12, 300, detailNr, game, tHeader: "Regimes Research", tbackbitmap: ( local1), bbx: 10, bby: 400, overruleFont: ( local2));
       this.ResListId = this.AddSubPart( tsubpart, 10, 400, 300, 240, 0);
       if (this.DetailNr <= -1)
@@ -619,9 +619,9 @@ namespace WindowsApplication1
       ListClass dipListObj = this.dipListObj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(dipListObj, 12, 300, detailNr, game, tHeader: "Dip", tbackbitmap: ( local1), bbx: 10, bby: 400, overruleFont: ( local2));
       this.dipListId = this.AddSubPart( tsubpart, 10, 400, 300, 240, 0);
       if (this.DetailNr <= -1)
@@ -638,7 +638,7 @@ namespace WindowsApplication1
       this.B4TextId = this.AddSubPart( tsubpart2, 390, 399, 400, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -769,7 +769,7 @@ namespace WindowsApplication1
                   if (colorDialog.ShowDialog() == DialogResult.OK)
                   {
                     RegimeClass regimeClass1 = this.game.Data.RegimeObj[this.regimeNr];
-                    Color color = colorDialog.Color;
+                    color: Color = colorDialog.Color;
                     let mut r: i32 =  color.R;
                     regimeClass1.Red = r;
                     RegimeClass regimeClass2 = this.game.Data.RegimeObj[this.regimeNr];
@@ -794,7 +794,7 @@ namespace WindowsApplication1
                   if (colorDialog.ShowDialog() == DialogResult.OK)
                   {
                     RegimeClass regimeClass4 = this.game.Data.RegimeObj[this.regimeNr];
-                    Color color = colorDialog.Color;
+                    color: Color = colorDialog.Color;
                     let mut r: i32 =  color.R;
                     regimeClass4.Red3 = r;
                     RegimeClass regimeClass5 = this.game.Data.RegimeObj[this.regimeNr];
@@ -817,7 +817,7 @@ namespace WindowsApplication1
                   if (colorDialog.ShowDialog() == DialogResult.OK)
                   {
                     RegimeClass regimeClass7 = this.game.Data.RegimeObj[this.regimeNr];
-                    Color color = colorDialog.Color;
+                    color: Color = colorDialog.Color;
                     let mut r: i32 =  color.R;
                     regimeClass7.Red4 = r;
                     RegimeClass regimeClass8 = this.game.Data.RegimeObj[this.regimeNr];
@@ -840,7 +840,7 @@ namespace WindowsApplication1
                   if (colorDialog.ShowDialog() == DialogResult.OK)
                   {
                     RegimeClass regimeClass10 = this.game.Data.RegimeObj[this.regimeNr];
-                    Color color = colorDialog.Color;
+                    color: Color = colorDialog.Color;
                     let mut r: i32 =  color.R;
                     regimeClass10.Red2 = r;
                     RegimeClass regimeClass11 = this.game.Data.RegimeObj[this.regimeNr];

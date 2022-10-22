@@ -16,7 +16,7 @@ namespace WindowsApplication1
      object OwnBitmapNr;
      int x;
      int y;
-     GameClass game;
+     game: GameClass;
      int[] mzx;
      int[] mzy;
      int[] mznr;
@@ -24,7 +24,7 @@ namespace WindowsApplication1
      int prod;
      bool IgnoreAttack;
 
-    pub ATHexSubPartClass(int tx, int ty, GameClass tgame, bool tIgnoreAttack = false)
+    pub ATHexSubPartClass(int tx, int ty, tgame: GameClass, bool tIgnoreAttack = false)
       : base(200, 82)
     {
       this.mzx = new int[401];
@@ -37,7 +37,7 @@ namespace WindowsApplication1
       this.IgnoreAttack = tIgnoreAttack;
     }
 
-    pub void DescriptInfo(int ix, int iy)
+    pub fn DescriptInfo(int ix, int iy)
     {
       Coordinate coordinate = Coordinate::new();
       if (this.x == -1 | this.y == -1 || this.game.Data.Round == 0)
@@ -62,7 +62,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       bool flag;
       if (this.game.EditObj.OrderType == 14)
@@ -84,7 +84,7 @@ namespace WindowsApplication1
       }
       if (this.x == -1 | this.y == -1 || this.game.SelectX == -1 | this.game.SelectY == -1)
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         return bitmap;
       }
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -100,13 +100,13 @@ namespace WindowsApplication1
       }
       if (landscapeType > -1 & spriteNr > -1)
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         if ( this.game.Data.RuleVar[869] == 0.0 |  this.game.Data.RuleVar[869] == 3.0)
         {
           let mut nr: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].BasicPicID[spriteNr];
           ref Graphics local1 = ref graphics;
           bitmap = BitmapStore.GetBitmap(nr);
-          ref Bitmap local2 = ref bitmap;
+          ref local2: Bitmap = ref bitmap;
           DrawMod.DrawScaled(ref local1, ref local2, 0, 0, 200, 82);
         }
         else
@@ -116,18 +116,18 @@ namespace WindowsApplication1
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].SidewaysSPriteID1[spriteNr];
             ref Graphics local3 = ref graphics;
             bitmap = BitmapStore.GetBitmap(nr);
-            ref Bitmap local4 = ref bitmap;
+            ref local4: Bitmap = ref bitmap;
             DrawMod.DrawScaled(ref local3, ref local4, 0, 0, 200, 82);
           }
           let mut nr1: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].SidewaysSPriteID2[spriteNr];
           ref Graphics local5 = ref graphics;
           bitmap = BitmapStore.GetBitmap(nr1);
-          ref Bitmap local6 = ref bitmap;
+          ref local6: Bitmap = ref bitmap;
           DrawMod.DrawScaled(ref local5, ref local6, 0, 0, 200, 82);
           let mut nr2: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].SidewaysSPriteID3[spriteNr];
           ref Graphics local7 = ref graphics;
           bitmap = BitmapStore.GetBitmap(nr2);
-          ref Bitmap local8 = ref bitmap;
+          ref local8: Bitmap = ref bitmap;
           DrawMod.DrawScaled(ref local7, ref local8, 0, 0, 200, 82);
         }
         if (this.game.Data.MapObj[0].HexObj[this.x, this.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT > -1)
@@ -137,7 +137,7 @@ namespace WindowsApplication1
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
             ref Graphics local9 = ref graphics;
             bitmap = BitmapStore.GetBitmap(nr);
-            ref Bitmap local10 = ref bitmap;
+            ref local10: Bitmap = ref bitmap;
             DrawMod.DrawScaled(ref local9, ref local10, 0, 0, 200, 82);
           }
           else
@@ -147,18 +147,18 @@ namespace WindowsApplication1
               let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
               ref Graphics local11 = ref graphics;
               bitmap = BitmapStore.GetBitmap(nr);
-              ref Bitmap local12 = ref bitmap;
+              ref local12: Bitmap = ref bitmap;
               DrawMod.DrawScaled(ref local11, ref local12, 0, 0, 200, 82);
             }
             let mut nr3: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].SidewaysSPriteID2[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
             ref Graphics local13 = ref graphics;
             bitmap = BitmapStore.GetBitmap(nr3);
-            ref Bitmap local14 = ref bitmap;
+            ref local14: Bitmap = ref bitmap;
             DrawMod.DrawScaled(ref local13, ref local14, 0, 0, 200, 82);
             let mut nr4: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].SidewaysSPriteID3[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
             ref Graphics local15 = ref graphics;
             bitmap = BitmapStore.GetBitmap(nr4);
-            ref Bitmap local16 = ref bitmap;
+            ref local16: Bitmap = ref bitmap;
             DrawMod.DrawScaled(ref local15, ref local16, 0, 0, 200, 82);
           }
         }
@@ -278,12 +278,12 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       ref Graphics local1 = ref graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
-      ref Bitmap local2 = ref bitmap;
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
+      ref local2: Bitmap = ref bitmap;
       DrawMod.Draw(ref local1, ref local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return this.OwnBitmap;
     }

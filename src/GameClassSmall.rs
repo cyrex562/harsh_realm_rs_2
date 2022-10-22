@@ -11,8 +11,8 @@ namespace WindowsApplication1
   pub class GameClassSmall
   {
     pub AppPath: String;
-    pub DataClass Data;
-    pub HandyFunctionsclass HandyFunctionsObj;
+    pub Data: DataClass;
+    pub HandyFunctionsObj: HandyFunctionsclass;
 
     pub GameClassSmall()
     {

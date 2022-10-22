@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class OfficerInfoWindowClass2 : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
 
-    pub OfficerInfoWindowClass2( GameClass tGame)
+    pub OfficerInfoWindowClass2( tGame: GameClass)
       : base( tGame, 680, 680, 8)
     {
       this.His = this.game.EditObj.OfficerHisOverrule > 0 ? this.game.EditObj.OfficerHisOverrule : tGame.Data.UnitObj[tGame.EditObj.UnitSelected].Historical;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -63,7 +63,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.cancelid > 0)
       {
@@ -158,14 +158,14 @@ namespace WindowsApplication1
             flag1 = true;
         }
       }
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (this.game.HandyFunctionsObj.GetVisibleHisVar(this.His) > 0 & flag1)
       {
         let mut bbx: i32 =  210;
         let mut num5: i32 =  56;
         TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 420, 3, this.game.MarcFont13, "", 12,  this.BackBitmap, bbx, num5, true);
          let mut local1: &Graphics = &g;
-        Bitmap bitmap2 = textAreaClass2.Paint();
+        bitmap2: Bitmap = textAreaClass2.Paint();
          let mut local2: &Bitmap = &bitmap2;
         let mut x1: i32 =  bbx;
         let mut y: i32 =  num5;
@@ -173,7 +173,7 @@ namespace WindowsApplication1
         let mut num6: i32 =  0;
         while (num6 < 380)
         {
-          int index;
+          index: i32;
           if (this.game.Data.HistoricalUnitObj[this.His].HisVarCount >= index)
           {
             bool flag3 = true;
@@ -224,9 +224,9 @@ namespace WindowsApplication1
       let mut num10: i32 =  -12;
       let mut num11: i32 =  0;
       let mut deckCardCounter1: i32 =  this.game.Data.HistoricalUnitObj[this.His].DeckCardCounter;
-      int x5;
-      int y1;
-      int num12;
+      x5: i32;
+      y1: i32;
+      num12: i32;
       for (let mut index: i32 =  0; index <= deckCardCounter1; index += 1)
       {
         let mut num13: i32 =  1;
@@ -516,7 +516,7 @@ namespace WindowsApplication1
       this.cancelid = this.AddSubPart( tsubpart1, 316, 615, 150, 40, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -560,7 +560,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

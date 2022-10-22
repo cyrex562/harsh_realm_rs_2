@@ -22,7 +22,7 @@ namespace WindowsApplication1.My
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     [DebuggerHidden]
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    internal static void Main(string[] Args)
+    internal static void Main(Args: Vec<String>)
     {
       try
       {

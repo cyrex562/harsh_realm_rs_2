@@ -12,9 +12,9 @@ namespace WindowsApplication1
 {
   pub class SFScreenClass : ScreenClass
   {
-     int wtop;
+     wtop: i32;
 
-    pub SFScreenClass( GameClass tGame, Form1 tformref)
+    pub SFScreenClass( tGame: GameClass, tformref: Form1)
       : base( tGame, tGame.BACKGROUND1MARC, tformref)
     {
       if (this.Game.EditObj.OrderType == 23 | this.Game.Data.CampaignRoom > -1)
@@ -30,7 +30,7 @@ namespace WindowsApplication1
         this.wtop = this.AddWindow((WindowClass) new SFWindowClass( tGame),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round( (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
     }
 
-    pub SFScreenClass( GameClass tGame, Form1 tformref, bool Marc)
+    pub SFScreenClass( tGame: GameClass, tformref: Form1, bool Marc)
       : base( tGame, tGame.BACKGROUND3MARC, tformref)
     {
       let mut x: i32 =  Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -150,7 +150,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

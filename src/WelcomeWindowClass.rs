@@ -19,52 +19,52 @@ namespace WindowsApplication1
 {
   pub class WelcomeWindowClass : WindowClass
   {
-     int BStartGameID;
-     int BLoadGameID;
-     int BSaveGameID;
-     int BRandomID;
-     int BEditorID;
-     int TempText;
-     int TempText2;
-     int txt1;
-     int txt2;
-     int txt3;
-     int opt1;
-     int opt2;
-     int opt3;
-     int opt4;
-     int opt5;
-     int opt6;
-     int opt7;
-     int opt8;
-     int opt9;
-     int opt10;
-     int opt11;
-     int opt12;
-     int opt13;
-     int opt14;
-     int opt15;
-     int opt16;
-     int opt17;
-     int opt18;
-     int opt19;
-     int opt20;
-     int txt4;
-     int cancelID;
+     BStartGameID: i32;
+     BLoadGameID: i32;
+     BSaveGameID: i32;
+     BRandomID: i32;
+     BEditorID: i32;
+     TempText: i32;
+     TempText2: i32;
+     txt1: i32;
+     txt2: i32;
+     txt3: i32;
+     opt1: i32;
+     opt2: i32;
+     opt3: i32;
+     opt4: i32;
+     opt5: i32;
+     opt6: i32;
+     opt7: i32;
+     opt8: i32;
+     opt9: i32;
+     opt10: i32;
+     opt11: i32;
+     opt12: i32;
+     opt13: i32;
+     opt14: i32;
+     opt15: i32;
+     opt16: i32;
+     opt17: i32;
+     opt18: i32;
+     opt19: i32;
+     opt20: i32;
+     txt4: i32;
+     cancelID: i32;
      ListClass RegimeListObj;
-     int RegimeListId;
+     RegimeListId: i32;
      float tempBlink;
-     int detailnr;
-     int phase;
-     int subphase;
+     detailnr: i32;
+     phase: i32;
+     subphase: i32;
      bool menudirect;
      int[] opti;
      int[] txt;
 
-    pub void PopUpRefresh() => self.DoRefresh();
+    pub fn PopUpRefresh() => self.DoRefresh();
 
     pub WelcomeWindowClass(
-       GameClass tGame,
+       tGame: GameClass,
       bool tmenudirect,
       ScreenClass tscreen,
       bool MarcStyle)
@@ -90,7 +90,7 @@ namespace WindowsApplication1
       self.DoStuff2();
     }
 
-    pub WelcomeWindowClass( GameClass tGame, bool tmenudirect, ScreenClass tscreen)
+    pub WelcomeWindowClass( tGame: GameClass, bool tmenudirect, ScreenClass tscreen)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND4MARC)
     {
       self.opti = new int[2];
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut subPartCounter: i32 = self.SubPartCounter;
       for (let mut index1: i32 = 0; index1 <= subPartCounter; index1 += 1)
@@ -171,7 +171,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       SizeF sizeF = SizeF::new();
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -183,7 +183,7 @@ namespace WindowsApplication1
       self.dobuttons(0);
     }
 
-    pub void DoStuff2()
+    pub fn DoStuff2()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -191,7 +191,7 @@ namespace WindowsApplication1
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.TextContrast = 1;
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
+      bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
        let mut local2: &Bitmap = &bitmap;
       let mut x: i32 =  Math.Round( (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
       DrawMod.DrawSimple( local1,  local2, x, 50);
@@ -207,7 +207,7 @@ namespace WindowsApplication1
       self.dobuttons(0);
     }
 
-    pub void dobuttons(int top)
+    pub fn dobuttons(top: i32)
     {
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       let mut modCounter: i32 = self.game.ModCounter;
@@ -221,7 +221,7 @@ namespace WindowsApplication1
           bool flag2 = DrawMod.TGame.ModIntroType != 0;
           if (self.game.ModButSize[index1] == 18)
           {
-            Font tfont = self.game.MarcFont4;
+            tfont: Font = self.game.MarcFont4;
             if (!flag2)
               tfont = Font::new("Arial", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
             if (flag2)
@@ -238,7 +238,7 @@ namespace WindowsApplication1
           }
           else if (self.game.ModButSize[index1] == 8)
           {
-            Font usefont = self.game.MarcFont4;
+            usefont: Font = self.game.MarcFont4;
             if (!flag2)
               usefont =  null;
             int[] opti = self.opti;
@@ -249,7 +249,7 @@ namespace WindowsApplication1
           }
           else if (self.game.ModButSize[index1] == 7)
           {
-            Font usefont = self.game.MarcFont3;
+            usefont: Font = self.game.MarcFont3;
             if (!flag2)
               usefont =  null;
             int[] opti = self.opti;
@@ -260,7 +260,7 @@ namespace WindowsApplication1
           }
           else if (self.game.ModButSize[index1] == 6)
           {
-            Font usefont = self.game.MarcFont2;
+            usefont: Font = self.game.MarcFont2;
             if (!flag2)
               usefont =  null;
             int[] opti = self.opti;
@@ -271,7 +271,7 @@ namespace WindowsApplication1
           }
           else if (self.game.ModButSize[index1] == 5)
           {
-            Font usefont = self.game.MarcFont1;
+            usefont: Font = self.game.MarcFont1;
             if (!flag2)
               usefont =  null;
             int[] opti = self.opti;
@@ -330,10 +330,10 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new();
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter <= -1)
@@ -543,7 +543,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void Import()
+    pub fn Import()
     {
       str: String = self.game.HandyFunctionsObj.LoadSomething("AT Zip Package File (*.atzip)|*.atzip|AT2 file(*.at2)|*.at2|Regular Zip(*.zip)|*.zip", "Pick a zip archive or scenario file to install.", self.game.AppPath, false);
       if (Information.IsNothing( str))

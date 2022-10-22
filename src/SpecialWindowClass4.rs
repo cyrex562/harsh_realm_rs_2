@@ -14,61 +14,61 @@ namespace WindowsApplication1
 {
   pub class SpecialWindowClass4 : WindowClass
   {
-     int okId;
-     int RightId;
-     int StartTurnId;
-     int PreviewId;
-     int RightId2;
-     int StartTurnId2;
-     int PreviewId2;
+     okId: i32;
+     RightId: i32;
+     StartTurnId: i32;
+     PreviewId: i32;
+     RightId2: i32;
+     StartTurnId2: i32;
+     PreviewId2: i32;
      ListClass ListObj;
      ListClass List2Obj;
-     int listId;
-     int list2Id;
-     int useWidth;
-     int useHeight;
+     listId: i32;
+     list2Id: i32;
+     useWidth: i32;
+     useHeight: i32;
      SimpleList listShq;
      SimpleList listZone;
      SimpleList listAsset;
      SimpleList listItemAsset;
      bool anyZoneWithoutSHQ;
-     int prevAssetId;
+     prevAssetId: i32;
      SimpleList IL;
      SimpleStringList ILdesc;
      SimpleList PIL;
      SimpleStringList PILdesc;
      int[] assetButton;
-     int assetButtonCounter;
+     assetButtonCounter: i32;
      int[] assetButtonData;
-     int AssetOrderNumber;
+     AssetOrderNumber: i32;
      string orderfeedbackString;
      bool onPopupRefreshReCalc;
-     int slotAssetPresentation;
-     int slotPerks;
-     int slotPreviewAssetLog;
-     int slotHexPerk;
-     int slotPaid;
-     int slotHexNames;
-     int slotLandscape;
-     int slotAssetLog;
-     int slotConstruction;
-     int slotZones;
-     int slotRegKey;
-     int slotDetail;
-     int slotRegReg;
-     int slotRegZoneKeys;
-     int slotItemType;
-     int slotRegimes;
-     int slotZoneKeys;
-     int slotAssetTypes;
-     int slotAssets;
-     int slotCharacter;
-     int slotPortrait;
+     slotAssetPresentation: i32;
+     slotPerks: i32;
+     slotPreviewAssetLog: i32;
+     slotHexPerk: i32;
+     slotPaid: i32;
+     slotHexNames: i32;
+     slotLandscape: i32;
+     slotAssetLog: i32;
+     slotConstruction: i32;
+     slotZones: i32;
+     slotRegKey: i32;
+     slotDetail: i32;
+     slotRegReg: i32;
+     slotRegZoneKeys: i32;
+     slotItemType: i32;
+     slotRegimes: i32;
+     slotZoneKeys: i32;
+     slotAssetTypes: i32;
+     slotAssets: i32;
+     slotCharacter: i32;
+     slotPortrait: i32;
      int[] itemWeight;
-     string[] itemName;
+     itemName: Vec<String>;
      bool previewSet;
 
-    pub void Dispose()
+    pub fn Dispose()
     {
       if (!self.game.EditObj.layerLisPreview & self.previewSet)
       {
@@ -92,13 +92,13 @@ namespace WindowsApplication1
       base.Dispose();
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       return base.HandleMouseMove(x, y);
     }
 
-    pub SpecialWindowClass4( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass4( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.ListObj = ListClass::new();
@@ -172,7 +172,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void ReCalculate()
+    pub fn ReCalculate()
     {
       libName: String = "SE_Data";
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID(libName, 381, 0, 0));
@@ -247,8 +247,8 @@ namespace WindowsApplication1
         let mut index2: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index1, 9]));
         numArray2[index2] = index1;
       }
-      int x1;
-      int y1;
+      x1: i32;
+      y1: i32;
       if (self.game.EditObj.se1_assetSHQ > 0)
       {
         x1 = self.game.Data.UnitObj[self.game.EditObj.se1_assetSHQ].X;
@@ -273,7 +273,7 @@ namespace WindowsApplication1
         }
       }
       let mut counter1: i32 = self.listZone.Counter;
-      int tweight1;
+      tweight1: i32;
       for (let mut index5: i32 = 0; index5 <= counter1; index5 += 1)
       {
         if (self.listZone.Data1[index5] == self.game.EditObj.se1_assetSHQ)
@@ -294,8 +294,8 @@ namespace WindowsApplication1
           let mut index6: i32 = -1;
           if (id > 0)
             index6 = self.game.HandyFunctionsObj.GetLocationByID(id);
-          int x2;
-          int y2;
+          x2: i32;
+          y2: i32;
           if (index6 > -1)
           {
             x2 = self.game.Data.LocObj[index6].X;
@@ -324,7 +324,7 @@ namespace WindowsApplication1
             self.PIL.Add(index9, tweight3, 1, num5, tdata4: 1, CheckExistence: false);
             self.PILdesc.Add("The amount of " + self.itemName[index9] + " currently available at SHQ.", 1, 1, num5, index9, 1, CheckExistence: false);
           }
-          EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+          eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
           let mut onlyZoneId: i32 = num5;
           SimpleList simpleList3 = (SimpleList) null;
            SimpleList local1 =  simpleList3;
@@ -402,8 +402,8 @@ namespace WindowsApplication1
       string str1;
       string str2;
       string str3;
-      int num12;
-      int num13;
+      num12: i32;
+      num13: i32;
       for (let mut index13: i32 = 0; index13 <= counter7; index13 += 1)
       {
         if (self.listZone.Data1[index13] == self.game.EditObj.se1_assetSHQ)
@@ -413,8 +413,8 @@ namespace WindowsApplication1
           let mut index14: i32 = -1;
           if (id > 0)
             index14 = self.game.HandyFunctionsObj.GetLocationByID(id);
-          int x3;
-          int y3;
+          x3: i32;
+          y3: i32;
           if (index14 > -1)
           {
             x3 = self.game.Data.LocObj[index14].X;
@@ -502,7 +502,7 @@ namespace WindowsApplication1
                 let mut tweight12: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].Data[index16, 3]));
                 let mut tweight13: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].Data[index16, 4]));
                 let mut num18: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].Data[index16, 8]));
-                int num19;
+                num19: i32;
                 if (tweight12 > 0)
                 {
                   simpleListArray7[index13].AddWeight(index17, tweight12);
@@ -786,7 +786,7 @@ namespace WindowsApplication1
         let mut id: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotZones].GetData(0, num42, 6)));
         self.game.Data.StringListObj[self.slotZones].GetData(0, num42, 7);
         let mut index32: i32 = self.game.EventRelatedObj.CheckRegimeSlot( Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotZones].GetData(0, num42, 8))), 0, 0, 0);
-        int locationById;
+        locationById: i32;
         if (id > 0)
           locationById = self.game.HandyFunctionsObj.GetLocationByID(id);
         let mut num43: i32 = -1;
@@ -929,9 +929,9 @@ namespace WindowsApplication1
               num54 *= 100;
               num56 *= 100;
             }
-            int tweight17;
+            tweight17: i32;
             double num57;
-            int eventPicSlotFor;
+            eventPicSlotFor: i32;
             if (tweight16 > 0 | tdata3_1 > 0)
             {
               tweight17 = tweight16;
@@ -1152,7 +1152,7 @@ namespace WindowsApplication1
                 tid11 = tid11 + "\r\nZone provided " + num73.ToString() + " " + simpleStringList.Id[index33] + " Stockage.";
               if (num74 > 0)
                 tid11 = tid11 + "\r\nOf these the Zone provided " + num74.ToString() + " " + simpleStringList.Id[index33] + " Stockage to its SHQ.";
-              Color color = self.game.seColWhite;
+              color: Color = self.game.seColWhite;
               if (num75 > 0)
                 color = self.game.seColYellow;
               self.IL.Add(num45, tweight17, 8, num42, tdata3_4, CheckExistence: false);
@@ -1163,7 +1163,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -1198,7 +1198,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF = SizeF::new();
       let mut id1: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -1404,7 +1404,7 @@ namespace WindowsApplication1
       let mut index1: i32 = -1;
       let mut num11: i32 = -1;
       let mut num12: i32 = -1;
-      int num13;
+      num13: i32;
       if (id2 > 0)
       {
         index1 = self.game.HandyFunctionsObj.GetLocationByID(id2);
@@ -1419,7 +1419,7 @@ namespace WindowsApplication1
       let mut id3: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
       let mut num14: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotRegKey].GetData2(0, id3, 1, "credits", 2)));
       self.orderfeedbackString = "";
-      int num15;
+      num15: i32;
       if (self.AssetOrderNumber > 0)
       {
         if (self.AssetOrderNumber == 32)
@@ -1519,12 +1519,12 @@ namespace WindowsApplication1
       int[] numArray1 = new int[10];
       SimpleList simpleList1 = SimpleList::new();
       let mut num29: i32 = 1;
-      int num30;
-      int integer1;
-      int num31;
-      int num32;
-      int num33;
-      int num34;
+      num30: i32;
+      integer1: i32;
+      num31: i32;
+      num32: i32;
+      num33: i32;
+      num34: i32;
       do
       {
         let mut length: i32 = self.game.Data.StringListObj[self.slotAssets].Length;
@@ -1560,7 +1560,7 @@ namespace WindowsApplication1
             }
             if (x2 == self.game.SelectX & y4 == self.game.SelectY)
             {
-              int num38;
+              num38: i32;
               num38 += 1;
             }
             num34 += 1;
@@ -1649,7 +1649,7 @@ namespace WindowsApplication1
           num13 = 0;
       }
       let mut num45: i32 = 1;
-      int num46;
+      num46: i32;
       do
       {
         let mut counter4: i32 = simpleList1.Counter;
@@ -1659,10 +1659,10 @@ namespace WindowsApplication1
           let mut num47: i32 = -1;
           let mut num48: i32 = 0;
           num46 = -1;
-          int idValue5;
-          int num49;
-          int num50;
-          int num51;
+          idValue5: i32;
+          num49: i32;
+          num50: i32;
+          num51: i32;
           if (index11 >= 9000000 & index11 < 15000000)
           {
             num47 = simpleList1.Data3[index10];
@@ -1724,7 +1724,7 @@ namespace WindowsApplication1
       while (num45 >= 0);
       let mut num56: i32 = 0;
       let mut num57: i32 =  Math.Round(Math.Floor( simpleList1.Counter /  num26)) + 1;
-      int num58;
+      num58: i32;
       if (num42 > -1)
       {
         num56 =  Math.Round(Math.Floor( (num42 - 1) /  num26));
@@ -1894,7 +1894,7 @@ namespace WindowsApplication1
       num15 = -1;
       let mut num77: i32 = -1;
       num75 = 18;
-      Color color = Color.FromArgb(100,  byte.MaxValue,  byte.MaxValue, 0);
+      color: Color = Color.FromArgb(100,  byte.MaxValue,  byte.MaxValue, 0);
       if (turn > -1)
         color = Color.FromArgb(200, self.game.Data.RegimeObj[turn].Red, self.game.Data.RegimeObj[turn].Green, self.game.Data.RegimeObj[turn].Blue);
       let mut num78: i32 =  Math.Round( (rectangle6.Width -  Math.Round(Math.Floor( rectangle6.Width / 160.0)) * 160) / 2.0);
@@ -1912,14 +1912,14 @@ namespace WindowsApplication1
           let mut idValue6: i32 = -1;
           num46 = -1;
           let mut num80: i32 = 0;
-          int x16;
-          int y13;
-          int idValue7;
-          int assetId;
-          int num81;
-          int idValue8;
-          int num82;
-          int regime1;
+          x16: i32;
+          y13: i32;
+          idValue7: i32;
+          assetId: i32;
+          num81: i32;
+          idValue8: i32;
+          num82: i32;
+          regime1: i32;
           if (index14 >= 9000000 & index14 < 15000000)
           {
             idValue6 = simpleList1.Data3[index13];
@@ -1976,7 +1976,7 @@ namespace WindowsApplication1
               }
               if (self.game.EditObj.se1_SelectAssetButton < 1 & x16 == self.game.SelectX & y13 == self.game.SelectY)
                 self.game.EditObj.se1_SelectAssetButton = assetId;
-              CustomBitmapClass customBitmapObj = self.game.CustomBitmapObj;
+              customBitmapObj: CustomBitmapClass = self.game.CustomBitmapObj;
                let mut local3: &Graphics = &g;
               let mut tx: i32 = x15;
               let mut ty: i32 = y12;
@@ -2043,7 +2043,7 @@ namespace WindowsApplication1
                   --num60;
                   let mut x17: i32 = 2 + num60 * 134;
                    let mut local5: &Graphics = &g;
-                  Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[index15]);
+                  bitmap: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[index15]);
                    let mut local6: &Bitmap = &bitmap;
                   rectangle11 = Rectangle::new(x17, 2, 131, 111);
                   let mut srcrect: &Rectangle = &rectangle11
@@ -2054,13 +2054,13 @@ namespace WindowsApplication1
                 }
                 let mut x18: i32 = num96 + 130;
                 let mut y15: i32 = y14 + 45;
-                Color c = Color.FromArgb( byte.MaxValue, 180, 180, 180);
+                c: Color = Color.FromArgb( byte.MaxValue, 180, 180, 180);
                 let mut num97: i32 = 16;
                 let mut idValue9: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index14, 0]));
                 str5 = idValue8 == se1AssetZone ? (num81 != se1AssetZone ? "DEL.TO:" + self.game.Data.StringListObj[self.slotZones].GetData(0, idValue9, 7) : (se1AssetZone >= 1 ? "ZONE:" + self.game.Data.StringListObj[self.slotZones].GetData(0, idValue9, 7) : "Hex without zone")) : (regime2 == self.game.Data.Turn ? "TASK FROM:" + self.game.Data.StringListObj[self.slotZones].GetData(0, idValue8, 7) : "ZONE:Evacuated Asset");
                 if (num92 > 0)
                 {
-                  int y16;
+                  y16: i32;
                   if (turn == self.game.Data.Turn)
                   {
                     tstring3: String = "UPKP: " + num88.ToString() + "%";
@@ -2158,7 +2158,7 @@ namespace WindowsApplication1
                     num60 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotConstruction].GetData3(0, idValue7, 1, 3, 2, "credits", 3)));
                     buttontext: String = "Nationalize [" + num60.ToString() + "Cr]";
                     string tDescript11;
-                    int num105;
+                    num105: i32;
                     if (num60 > num104)
                     {
                       tDescript11 = "You do not have the " + num60.ToString() + " credits required to nationalize this asset. ";
@@ -2374,7 +2374,7 @@ namespace WindowsApplication1
                     --num60;
                     let mut x19: i32 = 2 + num60 * 134;
                      let mut local7: &Graphics = &g;
-                    Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[integer2]);
+                    bitmap: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[integer2]);
                      let mut local8: &Bitmap = &bitmap;
                     rectangle10 = Rectangle::new(x19, 2, 131, 111);
                     let mut srcrect: &Rectangle = &rectangle10
@@ -2385,7 +2385,7 @@ namespace WindowsApplication1
                   }
                   let mut x20: i32 = num131 + 130;
                   let mut y24: i32 = y23 + 45;
-                  Color c = Color.FromArgb( byte.MaxValue, 180, 180, 180);
+                  c: Color = Color.FromArgb( byte.MaxValue, 180, 180, 180);
                   let mut num133: i32 = 16;
                   tstring14: String = "Hex Perk.\r\nNo settings\r\npossible.";
                   DrawMod.DrawTextColouredMarc( g, tstring14, self.game.MarcFont4, x20, y24, c);
@@ -2552,14 +2552,14 @@ namespace WindowsApplication1
           data5: String = self.game.Data.StringListObj[self.slotItemType].GetData(0, simpleList2.Id[index17], 2);
           ttext1: String = simpleStringList.Id[index17];
            let mut local9: &Graphics = &g;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_VARBOX_LONG);
+          bitmap1: Bitmap = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_VARBOX_LONG);
            let mut local10: &Bitmap = &bitmap1;
           let mut x23: i32 = x22;
           let mut y28: i32 = y27;
           DrawMod.DrawSimple( local9,  local10, x23, y28);
           let mut eventPicSlotFor: i32 = self.game.EventRelatedObj.GetEventPicSlotFor(simpleList2.Id[index17], "", "");
            let mut local11: &Graphics = &g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[eventPicSlotFor]);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[eventPicSlotFor]);
            let mut local12: &Bitmap = &bitmap2;
           let mut x24: i32 = x22 + 2;
           let mut y29: i32 = y27 + 6;
@@ -2662,7 +2662,7 @@ namespace WindowsApplication1
                 flag3 = true;
               if (flag3)
                 DrawMod.DrawBlock( g, x25 - 3, y27 + 4, 46, height2 - 10, 100,  byte.MaxValue, 100, 100);
-              Color c = self.game.seColGray;
+              c: Color = self.game.seColGray;
               if (num139 > num138 & num139 > 0 & num138 > 0)
                 c = self.game.seColYellow;
               else if (num139 > 0 & num138 < 1)
@@ -2705,7 +2705,7 @@ namespace WindowsApplication1
       g = (Graphics) null;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -2727,7 +2727,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = WindowReturnClass::new();
@@ -3058,7 +3058,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       if (self.onPopupRefreshReCalc)
         self.dostuff();

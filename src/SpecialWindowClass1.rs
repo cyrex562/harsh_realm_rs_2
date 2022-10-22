@@ -13,11 +13,11 @@ namespace WindowsApplication1
 {
   pub class SpecialWindowClass1 : WindowClass
   {
-     int okId;
-     int useWidth;
-     int useHeight;
+     okId: i32;
+     useWidth: i32;
+     useHeight: i32;
 
-    pub SpecialWindowClass1( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass1( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.useWidth = tUseWidth;
@@ -25,7 +25,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF = SizeF::new();
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -125,7 +125,7 @@ namespace WindowsApplication1
         let mut tCardId: i32 = self.game.Data.FindEventPic( Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, str1, 5))), data1);
         let mut num9: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, str1, 6)));
          let mut local1: &Graphics = &g;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
          let mut local2: &Bitmap = &bitmap1;
         Rectangle trect = Rectangle::new(num9 * 32, 0, 32, 32);
         let mut srcrect: &Rectangle = &trect
@@ -228,7 +228,7 @@ namespace WindowsApplication1
                 let mut width: i32 =  Math.Round(20.0 +  num3 * 0.44);
                 let mut height: i32 =  Math.Round(30.0 +  num3 * 0.66);
                  let mut local3: &Graphics = &g;
-                Bitmap bitmap2 = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, -1, size: 2, tCardId: tCardId);
+                bitmap2: Bitmap = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, -1, size: 2, tCardId: tCardId);
                  let mut local4: &Bitmap = &bitmap2;
                 let mut x2: i32 = x1;
                 let mut y2: i32 = y1;
@@ -249,7 +249,7 @@ namespace WindowsApplication1
                 tCardId =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById6].Data[index, 10]));
                 ttitle: String = "Unit Feat: " + self.game.Data.StringListObj[stringListById6].Data[index, 2];
                 ttext: String = self.game.Data.StringListObj[stringListById6].Data[index, 12];
-                Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
+                bitmap3: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
                 let mut x: i32 = num21 - 4;
                 let mut y: i32 =  Math.Round( (num10 + 10) +  num3 * 0.5);
                 let mut num24: i32 =  Math.Round(40.0 +  num3 * 0.5);
@@ -319,7 +319,7 @@ namespace WindowsApplication1
       g = (Graphics) null;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -341,7 +341,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = WindowReturnClass::new();

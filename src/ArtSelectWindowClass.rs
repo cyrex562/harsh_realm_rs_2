@@ -24,7 +24,7 @@ namespace WindowsApplication1
      UnitList UL;
      int[] Air;
 
-    pub ArtSelectWindowClass(ref GameClass tGame)
+    pub ArtSelectWindowClass(ref tGame: GameClass)
       : base(ref tGame, 680, 380, 8)
     {
       this.Air = new int[100];
@@ -32,7 +32,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void SetUnits()
+    pub fn SetUnits()
     {
       this.UL = UnitList::new();
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -61,7 +61,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(int x, int y)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.cancelid > 0)
       {

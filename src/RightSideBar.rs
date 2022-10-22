@@ -15,65 +15,65 @@ namespace WindowsApplication1
 {
   pub class RightSideBar : WindowClass
   {
-     int hideId;
-     int Info1Id;
-     int info2id;
-     int info3id;
-     int but1id;
-     int but2id;
-     int but3id;
-     int but1;
-     int but2;
-     int but3;
-     int but4;
-     int but5;
-     int but6;
-     int but7;
-     int but8;
-     int but9;
-     int but10;
-     int but11;
-     int w;
-     int h;
-     int currentShqNr;
-     int profId;
+     hideId: i32;
+     Info1Id: i32;
+     info2id: i32;
+     info3id: i32;
+     but1id: i32;
+     but2id: i32;
+     but3id: i32;
+     but1: i32;
+     but2: i32;
+     but3: i32;
+     but4: i32;
+     but5: i32;
+     but6: i32;
+     but7: i32;
+     but8: i32;
+     but9: i32;
+     but10: i32;
+     but11: i32;
+     w: i32;
+     h: i32;
+     currentShqNr: i32;
+     profId: i32;
      string cacheList;
-     int MouseOverWhichTab;
-     int orderReplId;
-     int orderRepl2Id;
-     int orderAmmoId;
-     int orderTradeId;
-     int orderChangeShqId;
-     int orderProduceUnitId;
-     int orderColonizeId;
-     int orderNewAssetId;
-     int orderNewZoneId;
-     int orderMoreId;
-     int orderChangeId;
-     int orderTransferId;
-     int orderBattlegroupId2;
-     int orderBattlegroupId;
-     int orderUnitNr;
-     int orderShqNr;
-     int orderZoneNr;
+     MouseOverWhichTab: i32;
+     orderReplId: i32;
+     orderRepl2Id: i32;
+     orderAmmoId: i32;
+     orderTradeId: i32;
+     orderChangeShqId: i32;
+     orderProduceUnitId: i32;
+     orderColonizeId: i32;
+     orderNewAssetId: i32;
+     orderNewZoneId: i32;
+     orderMoreId: i32;
+     orderChangeId: i32;
+     orderTransferId: i32;
+     orderBattlegroupId2: i32;
+     orderBattlegroupId: i32;
+     orderUnitNr: i32;
+     orderShqNr: i32;
+     orderZoneNr: i32;
      ListClass rlistobj;
-     int rlistid;
-     int layerLog1;
-     int layerLog2;
-     int layerLog3;
-     int layerLog4;
-     int layerLog5;
-     int layerUnit;
-     int layerLabel;
-     int layerDetail;
-     int layerGrid;
-     int layerColor;
-     int layerLisRange;
+     rlistid: i32;
+     layerLog1: i32;
+     layerLog2: i32;
+     layerLog3: i32;
+     layerLog4: i32;
+     layerLog5: i32;
+     layerUnit: i32;
+     layerLabel: i32;
+     layerDetail: i32;
+     layerGrid: i32;
+     layerColor: i32;
+     layerLisRange: i32;
      bool initialOpeningPreviewSet;
 
     pub RightSideBar(
-       GameClass tGame,
-      int theight,
+       tGame: GameClass,
+      theight: i32,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, 185, theight, 8)
@@ -89,7 +89,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       let mut num: i32 = -1;
@@ -120,20 +120,20 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
     pub Rectangle DrawOneTab(
       Graphics g,
-      int ty,
+      ty: i32,
       bool active,
       bool openSideWindow,
-      int iconSlot,
+      iconSlot: i32,
       bool mouseOverRightNow = false)
     {
       let mut x1: i32 = 132;
       if (openSideWindow)
         x1 = -5;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (mouseOverRightNow)
@@ -321,7 +321,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       libName: String = "SE_Data";
       let mut stringListById1: i32 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
@@ -608,7 +608,7 @@ namespace WindowsApplication1
         for (let mut index4: i32 = 0; index4 < this.h; index4 += 185)
         {
            let mut local1: &Graphics = &objgraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TEXTURE);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TEXTURE);
            let mut local2: &Bitmap = &bitmap;
           let mut x2: i32 = x1 + 40;
           let mut y: i32 = index4;
@@ -619,13 +619,13 @@ namespace WindowsApplication1
       if (!openSideWindow)
       {
          let mut local3: &Graphics = &objgraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TOPSHADOWRIGHT);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TOPSHADOWRIGHT);
          let mut local4: &Bitmap = &bitmap;
         let mut x3: i32 = this.w - 150;
         DrawMod.DrawSimple( local3,  local4, x3, 0);
       }
        let mut local5: &Graphics = &objgraphics;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
        let mut local6: &Bitmap = &bitmap1;
       Rectangle trect1 = Rectangle::new(0, 0, 40, 128);
       let mut srcrect1: &Rectangle = &trect1
@@ -635,7 +635,7 @@ namespace WindowsApplication1
       for (let mut y: i32 = 128; y < this.h - 128; y += 124)
       {
          let mut local7: &Graphics = &objgraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
          let mut local8: &Bitmap = &bitmap2;
         rectangle = Rectangle::new(0, 128, 40, 124);
         let mut srcrect2: &Rectangle = &rectangle
@@ -644,7 +644,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
       }
        let mut local9: &Graphics = &objgraphics;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
+      bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
        let mut local10: &Bitmap = &bitmap3;
       rectangle = Rectangle::new(0, 252, 40, 128);
       let mut srcrect3: &Rectangle = &rectangle
@@ -665,7 +665,7 @@ namespace WindowsApplication1
       {
         let mut num5: i32 = this.h - 67;
          let mut local11: &Graphics = &objgraphics;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_EXITRIGHT);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_EXITRIGHT);
          let mut local12: &Bitmap = &bitmap4;
         let mut y: i32 = num5;
         DrawMod.DrawSimple( local11,  local12, 8, y);
@@ -691,7 +691,7 @@ namespace WindowsApplication1
         {
           tstring: String = "Order Mode";
            let mut local13: &Graphics = &objgraphics;
-          Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+          bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
            let mut local14: &Bitmap = &bitmap5;
           let mut x4: i32 = num8 + num6;
           let mut y: i32 = num9 + num7;
@@ -828,7 +828,7 @@ namespace WindowsApplication1
         {
           tstring1: String = "Logistics";
            let mut local15: &Graphics = &objgraphics;
-          Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+          bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
            let mut local16: &Bitmap = &bitmap6;
           let mut x5: i32 = num8 + num6;
           let mut y1: i32 = num9 + num7;
@@ -844,7 +844,7 @@ namespace WindowsApplication1
             let mut tsubpart14: SubPartClass =  new SEButtonPushPartClass(51, this.game.EditObj.layerLisUsed, "Show Used Logistical Points during your turn so far", 42, 40);
             this.layerLog2 = this.AddSubPart( tsubpart14, num23 + num6, num22 + num7, 42, 42, 1);
             let mut num24: i32 = num23 + 45;
-            let mut tsubpart15: SubPartClass =  new SEButtonPushPartClass(52, this.game.EditObj.layerLisBottlenecks, "Show Bottlenecks in Logistical Point usage during your turn so far", 42, 40);
+            let mut tsubpart15: SubPartClass =  new SEButtonPushPartClass(52, this.game.EditObj.layerLisBottlenecks, "Show Bottlenecks in Logistical Pousage: i32 during your turn so far", 42, 40);
             this.layerLog3 = this.AddSubPart( tsubpart15, num24 + num6, num22 + num7, 42, 42, 1);
             let mut num25: i32 = 1;
             let mut num26: i32 = num22 + 45;
@@ -869,7 +869,7 @@ namespace WindowsApplication1
             let mut tsubpart20: SubPartClass =  new SEButtonPushPartClassWithText("Initial Pts", 49, this.game.EditObj.layerLisTotal, "Show your initial start-of-turn Logistical Points before any usage", 132, 32);
             this.layerLog4 = this.AddSubPart( tsubpart20, num8 + num6, num30 + num7, 132, 32, 1);
             let mut num31: i32 = num30 + 34;
-            let mut tsubpart21: SubPartClass =  new SEButtonPushPartClassWithText("Bottlenecks", 52, this.game.EditObj.layerLisBottlenecks, "Show Bottlenecks in Logistical Point usage during your turn so far", 132, 32);
+            let mut tsubpart21: SubPartClass =  new SEButtonPushPartClassWithText("Bottlenecks", 52, this.game.EditObj.layerLisBottlenecks, "Show Bottlenecks in Logistical Pousage: i32 during your turn so far", 132, 32);
             this.layerLog3 = this.AddSubPart( tsubpart21, num8 + num6, num31 + num7, 132, 32, 1);
             let mut num32: i32 = num31 + 34;
             let mut tsubpart22: SubPartClass =  new SEButtonPushPartClassWithText("Preview Pts", 31, this.game.EditObj.layerLisPreview, "Show a preview of upcomming turn Logistical Points [Shortkey P]", 132, 32);
@@ -880,7 +880,7 @@ namespace WindowsApplication1
           {
             tstring2: String = "Zone Log. Assets";
              let mut local17: &Graphics = &objgraphics;
-            Bitmap bitmap7 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap7: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local18: &Bitmap = &bitmap7;
             let mut x6: i32 = num8 + num6;
             let mut y2: i32 = num9 + num7;
@@ -948,7 +948,7 @@ namespace WindowsApplication1
           {
             tstring3: String = "Map Layers";
              let mut local19: &Graphics = &objgraphics;
-            Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap8: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local20: &Bitmap = &bitmap8;
             let mut x7: i32 = num8 + num6;
             let mut y3: i32 = num9 + num7;
@@ -1003,15 +1003,15 @@ namespace WindowsApplication1
         }
         if (this.game.EditObj.rightSideBarMode == 2)
         {
-          int num47;
-          int num48;
+          num47: i32;
+          num48: i32;
           if (index2 > -1 & this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
           {
             str: String = this.game.Data.UnitObj[index2].Name;
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
              let mut local21: &Graphics = &objgraphics;
-            Bitmap bitmap9 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap9: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local22: &Bitmap = &bitmap9;
             let mut x8: i32 = num8 + num6;
             let mut y: i32 = num9 + num7;
@@ -1062,7 +1062,7 @@ namespace WindowsApplication1
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
              let mut local23: &Graphics = &objgraphics;
-            Bitmap bitmap10 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap10: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local24: &Bitmap = &bitmap10;
             let mut x9: i32 = num8 + num6;
             let mut y: i32 = num9 + num7;
@@ -1105,22 +1105,22 @@ namespace WindowsApplication1
               num48 = num68 + 47;
             }
           }
-          int num69;
-          int num70;
+          num69: i32;
+          num70: i32;
           if (integer1 > -1 & num3 == this.game.Data.RegimeObj[this.game.Data.Turn].id & this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
           {
             str1: String = data;
             if (str1.Length > 15)
               str1 = Strings.Left(str1, 15) + ".";
              let mut local25: &Graphics = &objgraphics;
-            Bitmap bitmap11 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap11: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local26: &Bitmap = &bitmap11;
             let mut x10: i32 = num47 + num6;
             let mut y: i32 = num48 + num7;
             DrawMod.DrawSimple( local25,  local26, x10, y);
             DrawMod.DrawTextColouredConsoleCenter( objgraphics, str1, DrawMod.TGame.MarcFont7, num47 + num6 + 65, num48 + num7 + 12, DrawMod.TGame.seColGray);
-            int num71;
-            int num72;
+            num71: i32;
+            num72: i32;
             if (!flag1)
             {
               let mut num73: i32 = 1;
@@ -1262,7 +1262,7 @@ namespace WindowsApplication1
             if (str.Length > 16)
               str = Strings.Left(str, 16) + ".";
              let mut local27: &Graphics = &objgraphics;
-            Bitmap bitmap12 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap12: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local28: &Bitmap = &bitmap12;
             let mut x11: i32 = num47 + num6;
             let mut y: i32 = num48 + num7;
@@ -1322,7 +1322,7 @@ namespace WindowsApplication1
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
              let mut local29: &Graphics = &objgraphics;
-            Bitmap bitmap13 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap13: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local30: &Bitmap = &bitmap13;
             let mut x12: i32 = num69 + num6;
             let mut y: i32 = num70 + num7;
@@ -1383,7 +1383,7 @@ namespace WindowsApplication1
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
              let mut local31: &Graphics = &objgraphics;
-            Bitmap bitmap14 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+            bitmap14: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
              let mut local32: &Bitmap = &bitmap14;
             let mut x13: i32 = num69 + num6;
             let mut y: i32 = num70 + num7;
@@ -1460,7 +1460,7 @@ namespace WindowsApplication1
         if (str4.Length > 15)
           str4 = Strings.Left(str4, 15) + ".";
          let mut local33: &Graphics = &objgraphics;
-        Bitmap bitmap15 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
+        bitmap15: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
          let mut local34: &Bitmap = &bitmap15;
         let mut x15: i32 = x14;
         let mut y4: i32 = num109;
@@ -1478,14 +1478,14 @@ namespace WindowsApplication1
             this.game.Data.StringListObj[stringListById4].GetData(0, simpleList.Id[index8], 2);
             str5: String = simpleStringList.Id[index8];
              let mut local35: &Graphics = &objgraphics;
-            Bitmap bitmap16 = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
+            bitmap16: Bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
              let mut local36: &Bitmap = &bitmap16;
             let mut x16: i32 = x14;
             let mut y6: i32 = y5;
             DrawMod.DrawSimple( local35,  local36, x16, y6);
             let mut eventPicSlotFor: i32 = this.game.EventRelatedObj.GetEventPicSlotFor(simpleList.Id[index8], "", "");
              let mut local37: &Graphics = &objgraphics;
-            Bitmap bitmap17 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor]);
+            bitmap17: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor]);
              let mut local38: &Bitmap = &bitmap17;
             let mut x17: i32 = x14 + 2;
             let mut y7: i32 = y5 + 6;
@@ -1540,7 +1540,7 @@ namespace WindowsApplication1
             if (num114 > 0)
             {
                let mut local39: &Graphics = &objgraphics;
-              Bitmap bitmap18 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic2]);
+              bitmap18: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic2]);
                let mut local40: &Bitmap = &bitmap18;
               rectangle = Rectangle::new(0, 0, 32, 16);
               let mut srcrect4: &Rectangle = &rectangle
@@ -1551,7 +1551,7 @@ namespace WindowsApplication1
             else if (num114 < 0)
             {
                let mut local41: &Graphics = &objgraphics;
-              Bitmap bitmap19 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic1]);
+              bitmap19: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic1]);
                let mut local42: &Bitmap = &bitmap19;
               rectangle = Rectangle::new(0, 0, 32, 16);
               let mut srcrect5: &Rectangle = &rectangle
@@ -1562,7 +1562,7 @@ namespace WindowsApplication1
             else
             {
                let mut local43: &Graphics = &objgraphics;
-              Bitmap bitmap20 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic3]);
+              bitmap20: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic3]);
                let mut local44: &Bitmap = &bitmap20;
               rectangle = Rectangle::new(0, 0, 32, 16);
               let mut srcrect6: &Rectangle = &rectangle
@@ -1594,7 +1594,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = this.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -1633,9 +1633,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PopUpRefresh() => this.DoRefresh();
+    pub fn PopUpRefresh() => this.DoRefresh();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
@@ -2415,6 +2415,6 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new();
   }
 }

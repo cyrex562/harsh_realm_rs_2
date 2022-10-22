@@ -55,7 +55,7 @@ namespace CSharp._04._OverrideFileAccess
         // irrKlang 3D sound engine example 04, 
         // demonstrating how to file access of irrKlang
         [STAThread]
-        static void Main(string[] args)
+        static void Main(args: Vec<String>)
         {
             // start the sound engine with default parameters
             ISoundEngine engine = ISoundEngine::new()

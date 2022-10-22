@@ -13,11 +13,11 @@ namespace WindowsApplication1
 {
   pub class ManagementScreenClass : ScreenClass
   {
-     int WMap;
-     int WRes;
-     int OffSetX;
+     WMap: i32;
+     WRes: i32;
+     OffSetX: i32;
 
-    pub ManagementScreenClass( GameClass tgame, Form1 tformref)
+    pub ManagementScreenClass( tgame: GameClass, tformref: Form1)
       : base( tgame, -3, tformref)
     {
       this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1280) / 2.0);
@@ -243,7 +243,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter > -1)
@@ -291,7 +291,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
@@ -408,7 +408,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

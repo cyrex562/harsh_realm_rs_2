@@ -12,17 +12,17 @@ namespace WindowsApplication1
 {
   pub class PlayScreenClass : ScreenClass
   {
-     int WLeft;
-     int Wleft2;
-     int WRight;
-     int WDown;
-     int WOrder;
-     int WUp;
-     int WRes;
-     int OffSetX;
-     int OffSetY;
+     WLeft: i32;
+     Wleft2: i32;
+     WRight: i32;
+     WDown: i32;
+     WOrder: i32;
+     WUp: i32;
+     WRes: i32;
+     OffSetX: i32;
+     OffSetY: i32;
 
-    pub PlayScreenClass( GameClass tgame, Form1 tformref)
+    pub PlayScreenClass( tgame: GameClass, tformref: Form1)
       : base( tgame, tgame.BACKGROUND1MARC, tformref)
     {
       this.AllowRightMouse = true;
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       this.Game.EditObj.CameFrom = -1;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -274,7 +274,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -436,7 +436,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

@@ -12,7 +12,7 @@ namespace WindowsApplication1
   {
     pub int[,,] stats;
     pub int[,,] ustats;
-    pub GameClass game;
+    pub game: GameClass;
 
     pub CombatAnalysis(let mut tgame: GameClass = null)
     {
@@ -21,12 +21,12 @@ namespace WindowsApplication1
       this.game = tgame;
     }
 
-    pub void analyse(bool attlog, bool deflog)
+    pub fn analyse(bool attlog, bool deflog)
     {
       let mut attackerRegime: i32 =  this.game.TempCombat.AttackerRegime;
       let mut defenderRegime: i32 =  this.game.TempCombat.DefenderRegime;
       let mut icounter: i32 =  this.game.TempCombat.ICounter;
-      int iulistNr;
+      iulistNr: i32;
       for (let mut index1: i32 =  0; index1 <= icounter; index1 += 1)
       {
         let mut iattacker: i32 =  this.game.TempCombat.IList[index1].IAttacker;

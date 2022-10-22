@@ -12,20 +12,20 @@ namespace WindowsApplication1
 {
   pub class TextPartClass : SubPartClass
   {
-     Font OwnFont;
+     OwnFont: Font;
      string OwnText;
      bool CenterIt;
-     int OColor;
+     OColor: i32;
      bool BlackBack;
      bool Outline;
-     int progress;
+     progress: i32;
      bool Marc;
 
     pub TextPartClass(
       string txt,
-      Font f,
-      int w,
-      int h,
+      f: Font,
+      w: i32,
+      h: i32,
       bool tcenterit,
       let mut tcolor: i32 = -1,
       tDescript: String = "",
@@ -47,12 +47,12 @@ namespace WindowsApplication1
       self.oldStyle = true;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      int x;
-      int y;
+      x: i32;
+      y: i32;
       if (self.CenterIt)
       {
         SizeF sizeF2 = Expression.MeasureString(self.OwnText, self.OwnFont);

@@ -27,24 +27,24 @@ namespace WindowsApplication1
 {
   pub class HandyFunctionsclass
   {
-     GameClass game;
-     DataClass data;
+     game: GameClass;
+     data: DataClass;
      bool[] htempb;
      byte[] tempTest;
      int[] tempStrlist;
      bool tempStrlistSet;
-     int tempHexLibVarSnowIsSet;
-     int tempHexLibVarSnowValue;
-     string[] tempstringlist;
+     tempHexLibVarSnowIsSet: i32;
+     tempHexLibVarSnowValue: i32;
+     tempstringlist: Vec<String>;
 
     [DllImport("kernel32", EntryPoint = "GetDiskFreeSpaceExA", CharSet = CharSet.Ansi, SetLastError = true)]
-     static extern int GetDiskFreeSpaceEx(
+     static extern GetDiskFreeSpaceEx: i32(
       [MarshalAs(UnmanagedType.VBByRefStr)]  string lpDirectoryName,
        long lpFreeBytesAvailableToMe,
        long lpTotalNumberOfBytes,
        long lpTotalNumberOfFreeBytes);
 
-    pub HandyFunctionsclass(GameClass tgame)
+    pub HandyFunctionsclass(tgame: GameClass)
     {
       this.htempb = new bool[10000];
       this.tempTest = new byte[1];
@@ -55,9 +55,9 @@ namespace WindowsApplication1
       this.game = tgame;
     }
 
-    pub string CovertNumberToLetter(int numy)
+    pub string CovertNumberToLetter(numy: i32)
     {
-      string[] strArray = new string[29]
+      strArray: Vec<String> = new string[29]
       {
         null,
         "a",
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       return letter;
     }
 
-    pub int GetBattlegroupTemplate(int regNr)
+    pub GetBattlegroupTemplate: i32(regNr: i32)
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut battlegroupTemplate: i32 =  0; battlegroupTemplate <= historicalUnitCounter; battlegroupTemplate += 1)
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub CheckIsBattlegroup: bool(int unr)
+    pub CheckIsBattlegroup: bool(unr: i32)
     {
       let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
       if (historical > -1)
@@ -139,7 +139,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void CheckAttachTransportValidity()
+    pub fn CheckAttachTransportValidity()
     {
       if (!( this.game.Data.RuleVar[474] > 0.0 & this.game.Data.Product >= 6))
         return;
@@ -181,9 +181,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub CanAttach: bool(int unr) => this.game.Data.UnitObj[unr].attachedTo <= -1 && this.game.Data.UnitObj[unr].TransportCounter <= -1 && this.game.Data.UnitObj[unr].OnBoard <= -1 && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && this.GiveAttachablesList(unr).Counter > -1;
+    pub CanAttach: bool(unr: i32) => this.game.Data.UnitObj[unr].attachedTo <= -1 && this.game.Data.UnitObj[unr].TransportCounter <= -1 && this.game.Data.UnitObj[unr].OnBoard <= -1 && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && this.GiveAttachablesList(unr).Counter > -1;
 
-    pub CanTransport: bool(int unr)
+    pub CanTransport: bool(unr: i32)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -204,7 +204,7 @@ namespace WindowsApplication1
       return (num2 <= 0 ? 0.0 :   Math.Round( (100 * num1) /  num2)) >=  this.game.Data.RuleVar[474];
     }
 
-    pub int GiveTransporterMaxCarry(int unr)
+    pub GiveTransporterMaxCarry: i32(unr: i32)
     {
       let mut num: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -222,7 +222,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub int GiveTransporterCurrentCarry(int unr)
+    pub GiveTransporterCurrentCarry: i32(unr: i32)
     {
       let mut num1: i32 =  0;
       let mut transportCounter: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
@@ -234,7 +234,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int GiveAttachablesWeight(int unr)
+    pub GiveAttachablesWeight: i32(unr: i32)
     {
       SimpleList simpleList = this.GiveAttachablesList(unr);
       let mut num1: i32 =  0;
@@ -250,7 +250,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int GiveTransporterMaxManpowerCarry(int unr)
+    pub GiveTransporterMaxManpowerCarry: i32(unr: i32)
     {
       let mut num: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -268,7 +268,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub int GiveTransporterCurrentManpowerCarry(int unr)
+    pub GiveTransporterCurrentManpowerCarry: i32(unr: i32)
     {
       let mut num1: i32 =  0;
       let mut transportCounter: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
@@ -280,7 +280,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int GiveAttachablesManpowerWeight(int unr)
+    pub GiveAttachablesManpowerWeight: i32(unr: i32)
     {
       SimpleList simpleList = this.GiveAttachablesList(unr);
       let mut num1: i32 =  0;
@@ -296,7 +296,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub SimpleList GiveAttachablesList(int unr)
+    pub SimpleList GiveAttachablesList(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return SimpleList::new();
@@ -343,7 +343,7 @@ namespace WindowsApplication1
           let mut index2: i32 =  -1;
           let mut num1: i32 =  0;
           let mut sfCount3: i32 =  this.game.Data.UnitObj[unr].SFCount;
-          int type;
+          type: i32;
           for (let mut index3: i32 =  0; index3 <= sfCount3; index3 += 1)
           {
             let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index3];
@@ -484,7 +484,7 @@ namespace WindowsApplication1
       return simpleList;
     }
 
-    pub string GetUDSmanagementTabName(int tabnr, bool forUDSRandomTab = false)
+    pub string GetUDSmanagementTabName(tabnr: i32, bool forUDSRandomTab = false)
     {
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
@@ -512,7 +512,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub int GetUDSmanagementTabPageCount(int tabnr, bool forUDSRandomTab = false)
+    pub GetUDSmanagementTabPageCount: i32(tabnr: i32, bool forUDSRandomTab = false)
     {
       let mut smanagementTabPageCount: i32 =  0;
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
@@ -538,7 +538,7 @@ namespace WindowsApplication1
       return smanagementTabPageCount;
     }
 
-    pub string GetUDSmanagementSubTabName(int tabnr, int subTabNr, bool forUDSRandomTab = false)
+    pub string GetUDSmanagementSubTabName(tabnr: i32, subTabNr: i32, bool forUDSRandomTab = false)
     {
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
@@ -580,9 +580,9 @@ namespace WindowsApplication1
     }
 
     pub string GetUDSmanagementPageRow(
-      int tabnr,
-      int subTabNr,
-      int pageNr,
+      tabnr: i32,
+      subTabNr: i32,
+      pageNr: i32,
       bool forUDSRandomTab = false)
     {
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
@@ -634,7 +634,7 @@ namespace WindowsApplication1
       return Conversions.ToString(-1);
     }
 
-    pub void SwitchResolution( Form1 formref)
+    pub fn SwitchResolution( formref: Form1)
     {
       if (this.game.EditObj.DoubleSize)
       {
@@ -700,7 +700,7 @@ namespace WindowsApplication1
       this.game.EditObj.Save(this.game.AppPath + "editobj.txt");
     }
 
-    pub void SwitchResolution2( Form1 formref, int tWidth, int tHeight, bool setToDesktop)
+    pub fn SwitchResolution2( formref: Form1, tWidth: i32, tHeight: i32, bool setToDesktop)
     {
       this.game.FormRef.doubleSize = false;
       this.game.ScreenWidth = this.game.RealScreenWidth;
@@ -777,8 +777,8 @@ namespace WindowsApplication1
           let mut Start: i32 =  1;
           if (Strings.InStr(str.ToLower(), "nano") > 0)
             str = str;
-          int num1;
-          int length3;
+          num1: i32;
+          length3: i32;
           if (str.Length > 0)
           {
             for (; Strings.InStr(Start, s, str) > 0; Start = num1 + length3)
@@ -819,8 +819,8 @@ namespace WindowsApplication1
         {
           String2: String = tStringList.Data[index3, 0];
           let mut Start: i32 =  1;
-          int num4;
-          int length5;
+          num4: i32;
+          length5: i32;
           if (String2.Length > 0)
           {
             for (; Strings.InStr(Start, s, String2) > 0; Start = num4 + length5)
@@ -838,14 +838,14 @@ namespace WindowsApplication1
       return encyIdsNew;
     }
 
-    pub void modlib_Import( DataClass xData, int libslot)
+    pub fn modlib_Import( xData: DataClass, libslot: i32)
     {
       SimpleList simpleList = SimpleList::new();
       let mut forSSIDType: i32 =  1;
-      int tid;
-      int num1;
-      int num2;
-      int data;
+      tid: i32;
+      num1: i32;
+      num2: i32;
+      data: i32;
       do
       {
         SimpleList usedL = SimpleList::new();
@@ -987,7 +987,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int modlib_findFirstEmptyID(int forSSIDType,  SimpleList usedL)
+    pub modlib_findFirstEmptyID: i32(forSSIDType: i32,  SimpleList usedL)
     {
       SimpleList simpleList = SimpleList::new();
       simpleList.AddWeight(0, 1);
@@ -1045,7 +1045,7 @@ namespace WindowsApplication1
       return firstEmptyId;
     }
 
-    pub LoadLibrary: bool( DataClass tData)
+    pub LoadLibrary: bool( tData: DataClass)
     {
       tempFileName: String = this.game.EditObj.TempFileName;
       if (!System.IO.File.Exists(tempFileName))
@@ -1059,12 +1059,12 @@ namespace WindowsApplication1
       return true;
     }
 
-    pub DataClass ActuallyExportLib(int libSlot)
+    pub ActuallyExportLib: DataClass(libSlot: i32)
     {
       SimpleStringList simpleStringList = SimpleStringList::new();
       tData: DataClass = this.game.Data.Clone();
       let mut index1: i32 =  999;
-      int index2;
+      index2: i32;
       if (this.game.EditObj.TempFileType == NewEnums.LibFileType.LoadOfficers)
       {
         let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
@@ -1257,7 +1257,7 @@ namespace WindowsApplication1
             tData.RemoveActionCard(actionCardCounter);
         }
       }
-      int historicalUnitCounter1;
+      historicalUnitCounter1: i32;
       for (historicalUnitCounter1 = tData.HistoricalUnitCounter; historicalUnitCounter1 >= 0; historicalUnitCounter1 += -1)
       {
         if (tData.HistoricalUnitObj[historicalUnitCounter1].Pool)
@@ -1546,7 +1546,7 @@ namespace WindowsApplication1
     }
 
     pub void ActuallyImportLibs(
-       DataClass TData,
+       TData: DataClass,
        bool[] import,
        int[] sublib,
        int[] subPpl,
@@ -1557,7 +1557,7 @@ namespace WindowsApplication1
       {
         if (import[index1])
         {
-          int libraryCounter2;
+          libraryCounter2: i32;
           if (sublib[index1] == -1)
           {
             this.game.Data.AddLibrary();
@@ -1571,7 +1571,7 @@ namespace WindowsApplication1
           }
           bool[] flagArray = new bool[this.game.Data.LibVarCounter + 1];
           let mut libVarCounter: i32 =  TData.LibVarCounter;
-          int index2;
+          index2: i32;
           for (let mut index3: i32 =  0; index3 <= libVarCounter; index3 += 1)
           {
             if (this.game.EditObj.TempFileType == NewEnums.LibFileType.LoadEvents | this.game.EditObj.TempFileType == NewEnums.LibFileType.LoadOfficerCards | this.game.EditObj.TempFileType == NewEnums.LibFileType.ImportCardsInOfficerEditor && TData.LibVarObj[index3].libId.libSlot == index1 & TData.LibVarObj[index3].libId.id == -1)
@@ -2682,7 +2682,7 @@ namespace WindowsApplication1
       this.game.Data.LoadGraphics(this.game.FormRef);
     }
 
-    pub HasHexNavyUnit: bool(int x, int y)
+    pub HasHexNavyUnit: bool(x: i32, y: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -2694,7 +2694,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void SetPbemMiscString()
+    pub fn SetPbemMiscString()
     {
       str1: String = this.game.EditObj.LoadFileName.Replace("/", "\\").Replace(this.game.AppPath + this.game.ModScenarioDir + "\\", "");
       if (Strings.Len(str1) > 32)
@@ -2739,13 +2739,13 @@ namespace WindowsApplication1
       while (index1 <= 11);
       let mut num1: i32 =  0;
       let mut num2: i32 =  Math.Min(7, this.game.Data.RegimeCounter);
-      int num3;
+      num3: i32;
       for (let mut index2: i32 =  0; index2 <= num2; index2 += 1)
       {
         if (this.game.Data.RegimeObj[index2].PbemPlayer > 0)
         {
-          EditClass editObj = this.game.EditObj;
-          EditClass editClass = editObj;
+          editObj: EditClass = this.game.EditObj;
+          editClass: EditClass = editObj;
           pbemMiscString: String = editObj.PbemMiscString;
           num3 = this.game.Data.RegimeObj[index2].PbemPlayer + 1;
           str3: String = Strings.Trim(num3.ToString());
@@ -2758,8 +2758,8 @@ namespace WindowsApplication1
           if (num1 > 2)
             num1 = 1;
           this.game.Data.RegimeObj[index2].PbemPlayer = num1;
-          EditClass editObj = this.game.EditObj;
-          EditClass editClass = editObj;
+          editObj: EditClass = this.game.EditObj;
+          editClass: EditClass = editObj;
           pbemMiscString: String = editObj.PbemMiscString;
           num3 = this.game.Data.RegimeObj[index2].PbemPlayer + 1;
           str5: String = Strings.Trim(num3.ToString());
@@ -2773,7 +2773,7 @@ namespace WindowsApplication1
         this.game.EditObj.PbemMiscString += "0";
     }
 
-    pub void SetUploadFile(string s)
+    pub fn SetUploadFile(string s)
     {
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       s = this.game.AppPath + s;
@@ -2792,7 +2792,7 @@ namespace WindowsApplication1
       return s;
     }
 
-    pub void SaveDownloadedFile(string path)
+    pub fn SaveDownloadedFile(string path)
     {
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       path = this.game.AppPath + path;
@@ -2842,7 +2842,7 @@ namespace WindowsApplication1
       return crC32;
     }
 
-    pub void SetMapLoopOnOrOff()
+    pub fn SetMapLoopOnOrOff()
     {
       let mut zoom: i32 =  this.game.EditObj.Zoom;
       if (this.game.Data.Product >= 5 && this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving)
@@ -2897,7 +2897,7 @@ namespace WindowsApplication1
       this.game.EditObj.Zoom = zoom;
     }
 
-    pub Coordinate GetMoveTypeLogo(int unr,  Coordinate tcoord, bool SecondSymbol)
+    pub Coordinate GetMoveTypeLogo(unr: i32,  Coordinate tcoord, bool SecondSymbol)
     {
       let mut turn: i32 =  this.game.Data.Turn;
       let mut index1: i32 =  -1;
@@ -2951,7 +2951,7 @@ namespace WindowsApplication1
       return moveTypeLogo;
     }
 
-    pub int GetMoveType(int unr)
+    pub GetMoveType: i32(unr: i32)
     {
       Coordinate moveTypeLogo = this.GetMoveTypeLogo(unr,  Coordinate::new()
       {
@@ -2960,9 +2960,9 @@ namespace WindowsApplication1
       return moveTypeLogo.y > -1 ? this.game.Data.SFTypeObj[this.game.Data.SFObj[moveTypeLogo.y].Type].MoveType : -1;
     }
 
-    pub void SetGameColors()
+    pub fn SetGameColors()
     {
-      Color pixel = BitmapStore.GetBitmap(this.game.FRAME1).GetPixel(1, 8);
+      pixel: Color = BitmapStore.GetBitmap(this.game.FRAME1).GetPixel(1, 8);
       let mut red: i32 =  Math.Min( byte.MaxValue,  pixel.R * 1);
       let mut green: i32 =  Math.Min( byte.MaxValue,  pixel.G * 1);
       let mut blue: i32 =  Math.Min( byte.MaxValue,  pixel.B * 1);
@@ -2970,7 +2970,7 @@ namespace WindowsApplication1
       this.game.MarcCol3 = Color.FromArgb( byte.MaxValue, red, green, blue);
     }
 
-    pub HasAllies: bool(int regnr, bool IncludeUnterUber)
+    pub HasAllies: bool(regnr: i32, bool IncludeUnterUber)
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
@@ -2981,7 +2981,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void ResetFireListCache()
+    pub fn ResetFireListCache()
     {
       let mut index1: i32 =  0;
       if ( this.game.Data.RuleVar[485] < 1.0)
@@ -3009,7 +3009,7 @@ namespace WindowsApplication1
       this.game.EditObj.TempFireListCacheSet = true;
     }
 
-    pub void ClearFireListRecent()
+    pub fn ClearFireListRecent()
     {
       if ( this.game.Data.RuleVar[485] < 1.0)
         return;
@@ -3020,7 +3020,7 @@ namespace WindowsApplication1
         this.game.Data.StringListObj[stringListById].Data[length, 6] = "";
     }
 
-    pub void ClearFireList(int regnr)
+    pub fn ClearFireList(regnr: i32)
     {
       if ( this.game.Data.RuleVar[485] < 1.0)
         return;
@@ -3034,7 +3034,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub SimpleList GetSupplyReceivingHQ(int x, int y, int map, int regnr, int pts)
+    pub SimpleList GetSupplyReceivingHQ(x: i32, y: i32, map: i32, regnr: i32, pts: i32)
     {
       SimpleList supplyReceivingHq = SimpleList::new();
       if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea && !this.IsAlliedOrSelf(regnr, this.game.Data.MapObj[map].HexObj[x, y].Regime))
@@ -3097,7 +3097,7 @@ namespace WindowsApplication1
       return supplyReceivingHq;
     }
 
-    pub int ExtraHQSwitchPPCost(int unr, bool wholehistoricalunit)
+    pub ExtraHQSwitchPPCost: i32(unr: i32, bool wholehistoricalunit)
     {
       if (this.game.Data.UnitObj[unr].HQ == -1)
         return 0;
@@ -3105,8 +3105,8 @@ namespace WindowsApplication1
       if (!this.HasUnitlandSF(unr) || this.game.Data.UnitObj[hq].Historical == -1 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP >= 0 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP == -9999)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut unr1: i32 =  0; unr1 <= unitCounter; unr1 += 1)
       {
         if (this.IsUnitInHQChain(unr1, hq) | unr1 == hq)
@@ -3119,7 +3119,7 @@ namespace WindowsApplication1
       return num2 > 0 ?  Math.Round(Conversion.Int( num2 /  num1 *  Math.Abs(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP) + 0.99999)) : 0;
     }
 
-    pub int AddUnitToHQIsHowMuchPercentage(int hq, int unr, bool wholehistoricalunit)
+    pub AddUnitToHQIsHowMuchPercentage: i32(hq: i32, unr: i32, bool wholehistoricalunit)
     {
       if (this.game.Data.UnitObj[unr].HQ == -1)
         return 0;
@@ -3143,7 +3143,7 @@ namespace WindowsApplication1
       return howMuchPercentage;
     }
 
-    pub void AddMessageForAll(string s, int frontpic, int style, note: String = "")
+    pub fn AddMessageForAll(string s, frontpic: i32, style: i32, note: String = "")
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
@@ -3179,7 +3179,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddMessageForOne(string s, int too, int frontpic, int style, note: String = "")
+    pub fn AddMessageForOne(string s, too: i32, frontpic: i32, style: i32, note: String = "")
     {
       let mut index1: i32 =  too;
       RegimeClass[] regimeObj = this.game.Data.RegimeObj;
@@ -3214,7 +3214,7 @@ namespace WindowsApplication1
       this.game.Data.RegimeObj[index1].MesHideFromTab[messCounter] = false;
     }
 
-    pub int CheckDiskSpace(string DriveOrFolder)
+    pub CheckDiskSpace: i32(string DriveOrFolder)
     {
       long lpFreeBytesAvailableToMe;
       long lpTotalNumberOfBytes;
@@ -3227,15 +3227,15 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int(num));
     }
 
-    pub IsSleeping: bool(int regnr) => regnr != -1 && this.game.Data.RegimeObj[regnr].Sleep;
+    pub IsSleeping: bool(regnr: i32) => regnr != -1 && this.game.Data.RegimeObj[regnr].Sleep;
 
-    pub IsHostileOrSelf: bool(int regnr, int targetregnr) => this.game.Data.Round != 0 && (targetregnr == -1 || regnr == -1 || regnr == targetregnr || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0 | this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 2);
+    pub IsHostileOrSelf: bool(regnr: i32, targetregnr: i32) => this.game.Data.Round != 0 && (targetregnr == -1 || regnr == -1 || regnr == targetregnr || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0 | this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 2);
 
-    pub IsASleep: bool(int regnr) => this.game.Data.Round != 0 && regnr != -1 && this.game.Data.RegimeObj[regnr].Sleep;
+    pub IsASleep: bool(regnr: i32) => this.game.Data.Round != 0 && regnr != -1 && this.game.Data.RegimeObj[regnr].Sleep;
 
-    pub IsHostileNotSelf: bool(int regnr, int targetregnr) => targetregnr == -1 || regnr != targetregnr && (regnr == -1 || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0);
+    pub IsHostileNotSelf: bool(regnr: i32, targetregnr: i32) => targetregnr == -1 || regnr != targetregnr && (regnr == -1 || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0);
 
-    pub HasUnitHQBelow: bool(int unr)
+    pub HasUnitHQBelow: bool(unr: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -3246,16 +3246,16 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub IsHostileNotSelf2: bool(int regnr, int targetregnr) => targetregnr == -1 || regnr != targetregnr && (regnr == -1 || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0);
+    pub IsHostileNotSelf2: bool(regnr: i32, targetregnr: i32) => targetregnr == -1 || regnr != targetregnr && (regnr == -1 || this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 0);
 
-    pub IsNeutral: bool(int regnr, int targetregnr) => targetregnr != -1 && regnr != targetregnr && regnr != -1 && this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 1;
+    pub IsNeutral: bool(regnr: i32, targetregnr: i32) => targetregnr != -1 && regnr != targetregnr && regnr != -1 && this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 1;
 
-    pub int GetHexStackPts(int x, int y, int map)
+    pub GetHexStackPts: i32(x: i32, y: i32, map: i32)
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-      int hexStackPts;
+      hexStackPts: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index];
@@ -3264,12 +3264,12 @@ namespace WindowsApplication1
       return hexStackPts;
     }
 
-    pub int GetHexStackPts(int x, int y, int map, int regnr)
+    pub GetHexStackPts: i32(x: i32, y: i32, map: i32, regnr: i32)
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-      int hexStackPts;
+      hexStackPts: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index];
@@ -3279,12 +3279,12 @@ namespace WindowsApplication1
       return hexStackPts;
     }
 
-    pub int GetHexStackPtsPrognosed(int x, int y, int regnr)
+    pub GetHexStackPtsPrognosed: i32(x: i32, y: i32, regnr: i32)
     {
       if (this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 0)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int stackPtsPrognosed;
+      stackPtsPrognosed: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].TempX == x & this.game.Data.UnitObj[index].TempY == y)
@@ -3300,7 +3300,7 @@ namespace WindowsApplication1
       return stackPtsPrognosed;
     }
 
-    pub int GetStartPower(int unr)
+    pub GetStartPower: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].Historical == -1 | this.game.Data.UnitObj[unr].HistoricalSubPart == -1 ||  this.game.Data.RuleVar[884] < 1.0)
         return this.game.Data.UnitObj[unr].StartPower;
@@ -3308,12 +3308,12 @@ namespace WindowsApplication1
       return preDef == -1 ? this.game.Data.UnitObj[unr].StartPower : this.game.HandyFunctionsObj.GetPowerPtsAbsolute(preDef);
     }
 
-    pub int GetUnitStackPts(int unr)
+    pub GetUnitStackPts: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitStackPts;
+      unitStackPts: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3323,7 +3323,7 @@ namespace WindowsApplication1
       return unitStackPts;
     }
 
-    pub int GetUnitAirRangeInHex(int unr)
+    pub GetUnitAirRangeInHex: i32(unr: i32)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -3341,12 +3341,12 @@ namespace WindowsApplication1
       return num1 < 1 ? -1 :  Math.Round(Conversion.Int( num2 /  num1));
     }
 
-    pub int GetUnitStackPtsArt(int unr)
+    pub GetUnitStackPtsArt: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitStackPtsArt;
+      unitStackPtsArt: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3356,12 +3356,12 @@ namespace WindowsApplication1
       return unitStackPtsArt;
     }
 
-    pub int GetUnitStackPtsAir(int unr)
+    pub GetUnitStackPtsAir: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitStackPtsAir;
+      unitStackPtsAir: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3371,12 +3371,12 @@ namespace WindowsApplication1
       return unitStackPtsAir;
     }
 
-    pub int GetUnitartStackPts(int unr)
+    pub GetUnitartStackPts: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitartStackPts;
+      unitartStackPts: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3386,12 +3386,12 @@ namespace WindowsApplication1
       return unitartStackPts;
     }
 
-    pub int GetUnitairStackPts(int unr)
+    pub GetUnitairStackPts: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitairStackPts;
+      unitairStackPts: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3401,12 +3401,12 @@ namespace WindowsApplication1
       return unitairStackPts;
     }
 
-    pub int GetUnitAS(int unr)
+    pub GetUnitAS: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitAs;
+      unitAs: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -3415,21 +3415,21 @@ namespace WindowsApplication1
       return unitAs;
     }
 
-    pub int SetUnitAPToZero(int unr)
+    pub SetUnitAPToZero: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
         this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Ap = 0;
-      int zero;
+      zero: i32;
       return zero;
     }
 
-    pub int GetPowerPtsAbsoluteLandForRegime(int regnr)
+    pub GetPowerPtsAbsoluteLandForRegime: i32(regnr: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int absoluteLandForRegime;
+      absoluteLandForRegime: i32;
       for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
       {
         if (this.game.Data.UnitObj[unr].Regime == regnr && this.game.Data.UnitObj[unr].PreDef == -1)
@@ -3438,9 +3438,9 @@ namespace WindowsApplication1
       return absoluteLandForRegime;
     }
 
-    pub int GetSFObjStackPts(int sfnr, int qty) => qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].Frontage;
+    pub GetSFObjStackPts: i32(sfnr: i32, qty: i32) => qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].Frontage;
 
-    pub void DoZOCConquest(int x, int y, int map, int regnr, let mut ox: i32 =  -1, let mut oy: i32 =  -1, let mut unr: i32 =  -1)
+    pub fn DoZOCConquest(x: i32, y: i32, map: i32, regnr: i32, let mut ox: i32 =  -1, let mut oy: i32 =  -1, let mut unr: i32 =  -1)
     {
       let mut num1: i32 =  0;
       if (regnr == 11 & x == 114 & y == 54)
@@ -3527,13 +3527,13 @@ namespace WindowsApplication1
       this.HistoryAddHex(x, y, map, regnr, 1, 1);
     }
 
-    pub int GetEffectiveRecon(int rawRecon) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10( rawRecon) * 30.0)));
+    pub GetEffectiveRecon: i32(rawRecon: i32) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10( rawRecon) * 30.0)));
 
     pub void HistoryAddHex(
-      int x,
-      int y,
-      int map,
-      int curreg,
+      x: i32,
+      y: i32,
+      map: i32,
+      curreg: i32,
       let mut histyp: i32 =  -1,
       let mut hisdata: i32 =  -1,
       let mut hisdata2: i32 =  -1,
@@ -3664,7 +3664,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ResetRegimeLowData(object regnr)
+    pub fn ResetRegimeLowData(object regnr)
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut Left: i32 =  0; Left <= regimeCounter; Left += 1)
@@ -3709,7 +3709,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ClearHistory(object regnr)
+    pub fn ClearHistory(object regnr)
     {
       if (this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].HistoryStepCounter > -1)
       {
@@ -3728,7 +3728,7 @@ namespace WindowsApplication1
         ;
       if (!this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].minimumDataUsage)
       {
-        int index;
+        index: i32;
         this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].HistoryOwner[index].Value = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
         this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].HistoryForce[index].Value = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
         this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].HistorySFType[index].Value = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -3873,7 +3873,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub DoesUnitUseFuel: bool(int id)
+    pub DoesUnitUseFuel: bool(id: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[id].SFCount;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
@@ -3885,7 +3885,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int GetHistoricalUnitByID(int id)
+    pub GetHistoricalUnitByID: i32(id: i32)
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut historicalUnitById: i32 =  0; historicalUnitById <= historicalUnitCounter; historicalUnitById += 1)
@@ -3896,7 +3896,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetSFTypeByID(int id)
+    pub GetSFTypeByID: i32(id: i32)
     {
       let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
       for (let mut sfTypeById: i32 =  0; sfTypeById <= sfTypeCounter; sfTypeById += 1)
@@ -3907,7 +3907,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetReinfTypeByID(int id)
+    pub GetReinfTypeByID: i32(id: i32)
     {
       let mut reinfCounter: i32 =  this.game.Data.ReinfCounter;
       for (let mut reinfTypeById: i32 =  0; reinfTypeById <= reinfCounter; reinfTypeById += 1)
@@ -3918,7 +3918,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetEventByID(int id)
+    pub GetEventByID: i32(id: i32)
     {
       let mut eventCounter: i32 =  this.game.Data.EventCounter;
       for (let mut eventById: i32 =  0; eventById <= eventCounter; eventById += 1)
@@ -3929,7 +3929,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetStringListByID(int id)
+    pub GetStringListByID: i32(id: i32)
     {
       if (this.game.Data.Product < 7 | this.game.Data.Round < 1)
       {
@@ -3971,7 +3971,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetLocationByID(int id)
+    pub GetLocationByID: i32(id: i32)
     {
       let mut locCounter: i32 =  this.game.Data.LocCounter;
       for (let mut locationById: i32 =  0; locationById <= locCounter; locationById += 1)
@@ -3982,7 +3982,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub CardSelectHexTestPossible: bool(int cardNr, int slot, int mustBeValue)
+    pub CardSelectHexTestPossible: bool(cardNr: i32, slot: i32, mustBeValue: i32)
     {
       if (!this.game.Data.ActionCardObj[cardNr].IgnorePopupIfNoSelect)
         return true;
@@ -3999,7 +3999,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub CardSelectUnitTestPossible: bool(int cardNr)
+    pub CardSelectUnitTestPossible: bool(cardNr: i32)
     {
       if (!this.game.Data.ActionCardObj[cardNr].IgnorePopupIfNoSelect)
         return true;
@@ -4012,13 +4012,13 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int GetForceForHex(int x, int y, int map, int regnr)
+    pub GetForceForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
     {
       let mut forceForHex: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return -1;
       let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index];
@@ -4037,7 +4037,7 @@ namespace WindowsApplication1
       return forceForHex;
     }
 
-    pub int GetHistoricalForHex(int x, int y, int map, int regnr)
+    pub GetHistoricalForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return -1;
@@ -4051,7 +4051,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetDepthForHex(int x, int y, int map, int regnr)
+    pub GetDepthForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
     {
       let mut depthForHex: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -4065,9 +4065,9 @@ namespace WindowsApplication1
       return depthForHex;
     }
 
-    pub int GetRegimeForForceForHex(int x, int y, int map) => this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0 ? -1 : this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime;
+    pub GetRegimeForForceForHex: i32(x: i32, y: i32, map: i32) => this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0 ? -1 : this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime;
 
-    pub int GetDominantSfTypeForHex(int x, int y, int map, int regnr)
+    pub GetDominantSfTypeForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
     {
       Coordinate coordinate = Coordinate::new();
       SizeF sizeF = SizeF::new();
@@ -4076,7 +4076,7 @@ namespace WindowsApplication1
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return -1;
       let mut unitCounter1: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-      int num1;
+      num1: i32;
       for (let mut index1: i32 =  0; index1 <= unitCounter1; index1 += 1)
       {
         let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index1];
@@ -4095,7 +4095,7 @@ namespace WindowsApplication1
               if (symbolGroup > -1)
               {
                 numArray2[symbolGroup] = numArray2[symbolGroup] + symbolWeight * qty;
-                int num2;
+                num2: i32;
                 if (numArray2[symbolGroup] > num2)
                 {
                   num2 = numArray2[symbolGroup];
@@ -4143,7 +4143,7 @@ namespace WindowsApplication1
       return num4 > -1 ? num4 : -1;
     }
 
-    pub void SetCapForUnit(int unr)
+    pub fn SetCapForUnit(unr: i32)
     {
       this.game.Data.UnitObj[unr].LandCap = 0;
       this.game.Data.UnitObj[unr].AirCap = 0;
@@ -4181,7 +4181,7 @@ namespace WindowsApplication1
       this.game.Data.UnitObj[unr].AirStart = this.game.Data.UnitObj[unr].AirCap;
     }
 
-    pub int UnitSupplyNeed(int unr, bool deductcurrent, bool AlsoStockpile = true)
+    pub UnitSupplyNeed: i32(unr: i32, bool deductcurrent, bool AlsoStockpile = true)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -4213,7 +4213,7 @@ namespace WindowsApplication1
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-        int num8;
+        num8: i32;
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -4256,13 +4256,13 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int SFSupplyUse(int sfnr)
+    pub SFSupplyUse: i32(sfnr: i32)
     {
       let mut num1: i32 =  0;
       let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
       let mut qty: i32 =  this.game.Data.SFObj[sfnr].Qty;
       let mut rdn: i32 =  this.game.Data.SFObj[sfnr].Rdn;
-      int num2;
+      num2: i32;
       if ( this.game.Data.RuleVar[434] > 0.0)
       {
         num2 = this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty;
@@ -4289,7 +4289,7 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub int GetAggregatedSupplyRequest(int unr, let mut overruleReqPercent: i32 =  -1)
+    pub GetAggregatedSupplyRequest: i32(unr: i32, let mut overruleReqPercent: i32 =  -1)
     {
       let mut aggregatedSupplyRequest: i32 =  this.game.Data.UnitObj[unr].SOSupReqPercent;
       if (overruleReqPercent > -1)
@@ -4297,7 +4297,7 @@ namespace WindowsApplication1
       while (this.game.Data.UnitObj[unr].HQ > -1)
       {
         unr = this.game.Data.UnitObj[unr].HQ;
-        int num;
+        num: i32;
         num += 1;
         aggregatedSupplyRequest =  Math.Round( aggregatedSupplyRequest * ( this.game.Data.UnitObj[unr].SOSupReqPercent / 100.0));
         if (num > 99)
@@ -4306,7 +4306,7 @@ namespace WindowsApplication1
       return aggregatedSupplyRequest;
     }
 
-    pub int GetAggregatedReplacementRequest(int unr, let mut overruleReqPercent: i32 =  -1)
+    pub GetAggregatedReplacementRequest: i32(unr: i32, let mut overruleReqPercent: i32 =  -1)
     {
       let mut replacementRequest: i32 =  this.game.Data.UnitObj[unr].SOReplacementPercent;
       if (overruleReqPercent > -1)
@@ -4317,7 +4317,7 @@ namespace WindowsApplication1
         replacementRequest = this.game.Data.UnitObj[unr].SOReplacementPercent != 999 ?  Math.Round( replacementRequest * ( this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0)) : 999;
         if (replacementRequest < 999 & replacementRequest > 100)
           replacementRequest = 100;
-        int num;
+        num: i32;
         num += 1;
         if (num > 99)
           break;
@@ -4325,7 +4325,7 @@ namespace WindowsApplication1
       return replacementRequest;
     }
 
-    pub int UnitSupplyUse(int unr, bool includepas = false, let mut onlytheater: i32 =  -1)
+    pub UnitSupplyUse: i32(unr: i32, bool includepas = false, let mut onlytheater: i32 =  -1)
     {
       let mut num1: i32 =  0;
       if ( this.game.Data.RuleVar[814] == 1.0)
@@ -4378,7 +4378,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int UnitMaximumFuelReserve(int unr)
+    pub UnitMaximumFuelReserve: i32(unr: i32)
     {
       let mut num1: i32 =  0;
       if ( this.game.Data.RuleVar[435] < 1.0)
@@ -4401,7 +4401,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int UnitSupplyStore(int unr, let mut theater: i32 =  -1)
+    pub UnitSupplyStore: i32(unr: i32, let mut theater: i32 =  -1)
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -4421,7 +4421,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub object RandomizeForUnit(int unr, int i)
+    pub object RandomizeForUnit(unr: i32, i: i32)
     {
       double num =  VBMath.Rnd(-1f);
       VBMath.Randomize( (this.game.Data.UnitObj[unr].Historical + this.game.Data.UnitObj[unr].X + this.game.Data.UnitObj[unr].Y + this.game.Data.Round + i + 10));
@@ -4429,7 +4429,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub Coordinate GetReconMinusHide(int unr, int player, bool withoutIdentify = false)
+    pub Coordinate GetReconMinusHide(unr: i32, player: i32, bool withoutIdentify = false)
     {
       if (this.game.Data.UnitObj[unr].X > -1)
       {
@@ -4488,12 +4488,12 @@ namespace WindowsApplication1
       return reconMinusHide1;
     }
 
-    pub int GetStackWithFOW(int unr, int player, bool FullRecon = false)
+    pub GetStackWithFOW: i32(unr: i32, player: i32, bool FullRecon = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int stackWithFow;
+      stackWithFow: i32;
       for (let mut i: i32 =  0; i <= sfCount; i += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[i];
@@ -4523,9 +4523,9 @@ namespace WindowsApplication1
       return stackWithFow;
     }
 
-    pub int GetPower(
-      int unr,
-      int player,
+    pub GetPower: i32(
+      unr: i32,
+      player: i32,
       bool ishis = false,
       bool withoutrdnmod = false,
       bool withoutfullaiprog = true,
@@ -4536,7 +4536,7 @@ namespace WindowsApplication1
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int power;
+      power: i32;
       for (let mut i: i32 =  0; i <= sfCount; i += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[i];
@@ -4572,13 +4572,13 @@ namespace WindowsApplication1
       return power;
     }
 
-    pub int GetAverageAirRdn(int unr, bool onlyfrontline = false)
+    pub GetAverageAirRdn: i32(unr: i32, bool onlyfrontline = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -4591,7 +4591,7 @@ namespace WindowsApplication1
       return num1 == 0 | num2 == 0 ? 0 :  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageAirRange(int sftyp, int unr)
+    pub GetAverageAirRange: i32(sftyp: i32, unr: i32)
     {
       let mut moveType: i32 =  this.game.Data.SFTypeObj[sftyp].MoveType;
       let mut num: i32 =   Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[0].MoveCost[moveType] * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
@@ -4602,7 +4602,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int(100.0 /  num));
     }
 
-    pub void SetHexReconAndZOCAround(int x, int y, int map, int regnr)
+    pub fn SetHexReconAndZOCAround(x: i32, y: i32, map: i32, regnr: i32)
     {
       let mut num1: i32 =  x - 5;
       let mut num2: i32 =  x + 5;
@@ -4629,7 +4629,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CalculateSFDesignCosts()
+    pub fn CalculateSFDesignCosts()
     {
       let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
       for (let mut tv9: i32 =  0; tv9 <= sfTypeCounter1; tv9 += 1)
@@ -4778,7 +4778,7 @@ namespace WindowsApplication1
             }
           }
           this.game.Data.SFTypeObj[tv9].TempImprovementFields = num13;
-          int num14;
+          num14: i32;
           if (num13 > 0)
           {
             num14 =  Math.Round( ( num10 * this.game.Data.SFTypeObj[tv9].ModelImproveCostMod));
@@ -4819,7 +4819,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub object GetAlphabetLetter(int nr)
+    pub object GetAlphabetLetter(nr: i32)
     {
       switch (nr)
       {
@@ -4861,9 +4861,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetOnlyReconAround(int x, int y, int map, int regnr, int unr)
+    pub fn SetOnlyReconAround(x: i32, y: i32, map: i32, regnr: i32, unr: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[map].MapWidth + 1, this.game.Data.MapObj[map].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[map].MapWidth + 1, this.game.Data.MapObj[map].MapHeight + 1];
       MapMatrix mapMatrix1 = this.checklandconnect(x, y, map, 4, true);
       MapMatrix mapMatrix2 = this.checkseaconnect(x, y, map, 4, true);
       let mut num1: i32 =  x - 5;
@@ -4936,9 +4936,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetOnlyZOCAround(int x, int y, int map, int regnr, int unr)
+    pub fn SetOnlyZOCAround(x: i32, y: i32, map: i32, regnr: i32, unr: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[map].MapWidth + 1, this.game.Data.MapObj[map].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[map].MapWidth + 1, this.game.Data.MapObj[map].MapHeight + 1];
       MapMatrix mapMatrix = this.checklandconnect(x, y, map, 4, true);
       this.checkseaconnect(x, y, map, 4, true);
       let mut num1: i32 =  x - 5;
@@ -4985,10 +4985,10 @@ namespace WindowsApplication1
     }
 
     pub MapMatrix checklandconnect(
-      int x1,
-      int y1,
-      int map,
-      int maxdist,
+      x1: i32,
+      y1: i32,
+      map: i32,
+      maxdist: i32,
       bool plusone)
     {
       MapMatrix mapMatrix = new MapMatrix(this.game.Data.MapObj[map].MapWidth, this.game.Data.MapObj[map].MapHeight);
@@ -5064,7 +5064,7 @@ namespace WindowsApplication1
       return mapMatrix;
     }
 
-    pub int Uncertainty_RollLoadedDice(int unr)
+    pub Uncertainty_RollLoadedDice: i32(unr: i32)
     {
       let mut num1: i32 =  this.game.Data.UnitObj[unr].Historical <= -1 ? unr : this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].ID * 10 + this.game.Data.UnitObj[unr].HistoricalSubPart;
       Random random = new Random( Math.Round(Math.Floor( this.game.Data.GameID / 1000.0)) * num1);
@@ -5124,7 +5124,7 @@ namespace WindowsApplication1
       return num3;
     }
 
-    pub MapMatrix checkseaconnect(int x1, int y1, int map, int maxdist, bool plusone)
+    pub MapMatrix checkseaconnect(x1: i32, y1: i32, map: i32, maxdist: i32, bool plusone)
     {
       MapMatrix mapMatrix = new MapMatrix(this.game.Data.MapObj[map].MapWidth, this.game.Data.MapObj[map].MapHeight);
       mapMatrix.TempValue[x1, y1] = 0;
@@ -5199,12 +5199,12 @@ namespace WindowsApplication1
       return mapMatrix;
     }
 
-    pub ViewFriendlyHexNeighbourOrSelf: bool(int x, int y, int map, int regnr)
+    pub ViewFriendlyHexNeighbourOrSelf: bool(x: i32, y: i32, map: i32, regnr: i32)
     {
-      int num1;
+      num1: i32;
       if (this.game.Data.MapObj[map].HexObj[x, y].Regime == regnr)
       {
-        int num2;
+        num2: i32;
         num1 = num2 + 1;
       }
       let mut num3: i32 =  this.HexNeighbourCount(x, y, map);
@@ -5213,7 +5213,7 @@ namespace WindowsApplication1
         Coordinate coordinate = this.HexNeighbour(x, y, map, tfacing);
         if (coordinate.onmap)
         {
-          int num4;
+          num4: i32;
           if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime > -1 && this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
             num4 = 1;
           if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regnr)
@@ -5225,9 +5225,9 @@ namespace WindowsApplication1
       return num1 > 0;
     }
 
-    pub void RemoveZOCPts(int ox, int oy, int omap, int zocpts, int regnr)
+    pub fn RemoveZOCPts(ox: i32, oy: i32, omap: i32, zocpts: i32, regnr: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if (!(ox > -1 & oy > -1))
         return;
       MapMatrix mapMatrix = this.checklandconnect(ox, oy, omap, 4, true);
@@ -5276,20 +5276,20 @@ namespace WindowsApplication1
     }
 
     pub void SetTempLos(
-      int x,
-      int y,
-      int maxDist,
+      x: i32,
+      y: i32,
+      maxDist: i32,
       bool setBestObstruct,
       bool applyReconDistModifier = true)
     {
       this.RedimTempLosValue(0);
       this.RedimTempObstructValue(0);
       object[,,] objArray1 = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 10];
-      int[,] numArray1 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-      int[,] numArray2 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray1: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray2: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       object[,] objArray2 = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-      int[,] numArray3 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-      int[,] numArray4 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray3: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray4: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       CoordList coordList = CoordList::new();
       coordList.AddCoord(x, y, 0, 9, 0);
       let mut num1: i32 =  x - maxDist;
@@ -5345,8 +5345,8 @@ namespace WindowsApplication1
             }
             while (num9 <= 6);
           }
-          int data2;
-          int tfacing1;
+          data2: i32;
+          tfacing1: i32;
           if (coordList.coord[counter].data1 >= 1 & coordList.coord[counter].data1 <= 6)
           {
             let mut tfacing2: i32 =  coordList.coord[counter].data1 + 3;
@@ -5377,8 +5377,8 @@ namespace WindowsApplication1
             if (data2 > 1 & coordinate1.onmap)
             {
               let mut num10: i32 =  numArray2[coordinate1.x, coordinate1.y];
-              int[,] numArray5 = numArray2;
-              int[,] numArray6 = numArray5;
+              numArray5: Vec<i32> = numArray2;
+              numArray6: Vec<i32> = numArray5;
               let mut x2: i32 =  coordList.coord[counter].x;
               let mut index8: i32 =  x2;
               let mut y2: i32 =  coordList.coord[counter].y;
@@ -5394,8 +5394,8 @@ namespace WindowsApplication1
               }
               if (num13 > 0 & num12 > 0)
               {
-                int[,] numArray7 = numArray2;
-                int[,] numArray8 = numArray7;
+                numArray7: Vec<i32> = numArray2;
+                numArray8: Vec<i32> = numArray7;
                 let mut x3: i32 =  coordList.coord[counter].x;
                 let mut index10: i32 =  x3;
                 let mut y3: i32 =  coordList.coord[counter].y;
@@ -5411,8 +5411,8 @@ namespace WindowsApplication1
                 System.Type Type = typeof (Math);
                 object[] objArray6 = new object[2];
                 object[] objArray7 = objArray6;
-                int[,] numArray9 = numArray2;
-                int[,] numArray10 = numArray9;
+                numArray9: Vec<i32> = numArray2;
+                numArray10: Vec<i32> = numArray9;
                 let mut x5: i32 =  coordList.coord[counter].x;
                 let mut index12: i32 =  x5;
                 let mut y5: i32 =  coordList.coord[counter].y;
@@ -5527,10 +5527,10 @@ namespace WindowsApplication1
           }
           if (coordList.coord[counter].data1 >= 11 & coordList.coord[counter].data1 <= 16)
           {
-            int tfacing3;
+            tfacing3: i32;
             if (coordList.coord[counter].x == 10 & coordList.coord[counter].y == 7)
               tfacing3 = tfacing3;
-            int tfacing4;
+            tfacing4: i32;
             if (coordList.coord[counter].data1 == 11)
             {
               tfacing3 = 1;
@@ -5658,8 +5658,8 @@ namespace WindowsApplication1
                 num22 = num23;
               if (Conversions.ToBoolean(Operators.AndObject( (num23 < num22), Operators.CompareObjectGreaterEqual(objArray1[coordinate2.x, coordinate2.y, this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].HeightLevel],  999, false))))
                 num23 = num22;
-              int[,] numArray11 = numArray2;
-              int[,] numArray12 = numArray11;
+              numArray11: Vec<i32> = numArray2;
+              numArray12: Vec<i32> = numArray11;
               let mut x9: i32 =  coordList.coord[counter].x;
               let mut index26: i32 =  x9;
               let mut y9: i32 =  coordList.coord[counter].y;
@@ -5681,8 +5681,8 @@ namespace WindowsApplication1
               }
               if (num27 > 0 & num25 + num26 > 0)
               {
-                int[,] numArray13 = numArray2;
-                int[,] numArray14 = numArray13;
+                numArray13: Vec<i32> = numArray2;
+                numArray14: Vec<i32> = numArray13;
                 let mut x10: i32 =  coordList.coord[counter].x;
                 let mut index28: i32 =  x10;
                 let mut y10: i32 =  coordList.coord[counter].y;
@@ -5698,8 +5698,8 @@ namespace WindowsApplication1
                 System.Type Type1 = typeof (Math);
                 object[] objArray17 = new object[2];
                 object[] objArray18 = objArray17;
-                int[,] numArray15 = numArray2;
-                int[,] numArray16 = numArray15;
+                numArray15: Vec<i32> = numArray2;
+                numArray16: Vec<i32> = numArray15;
                 let mut x12: i32 =  coordList.coord[counter].x;
                 let mut index30: i32 =  x12;
                 let mut y12: i32 =  coordList.coord[counter].y;
@@ -5798,8 +5798,8 @@ namespace WindowsApplication1
             else
             {
               let mut num29: i32 =  numArray2[coordinate1.x, coordinate1.y];
-              int[,] numArray17 = numArray2;
-              int[,] numArray18 = numArray17;
+              numArray17: Vec<i32> = numArray2;
+              numArray18: Vec<i32> = numArray17;
               let mut x18: i32 =  coordList.coord[counter].x;
               let mut index40: i32 =  x18;
               let mut y18: i32 =  coordList.coord[counter].y;
@@ -5815,8 +5815,8 @@ namespace WindowsApplication1
               }
               if (num32 > 0 & num31 > 0)
               {
-                int[,] numArray19 = numArray2;
-                int[,] numArray20 = numArray19;
+                numArray19: Vec<i32> = numArray2;
+                numArray20: Vec<i32> = numArray19;
                 let mut x19: i32 =  coordList.coord[counter].x;
                 let mut index42: i32 =  x19;
                 let mut y19: i32 =  coordList.coord[counter].y;
@@ -5832,8 +5832,8 @@ namespace WindowsApplication1
                 System.Type Type = typeof (Math);
                 object[] objArray39 = new object[2];
                 object[] objArray40 = objArray39;
-                int[,] numArray21 = numArray2;
-                int[,] numArray22 = numArray21;
+                numArray21: Vec<i32> = numArray2;
+                numArray22: Vec<i32> = numArray21;
                 let mut x21: i32 =  coordList.coord[counter].x;
                 let mut index44: i32 =  x21;
                 let mut y21: i32 =  coordList.coord[counter].y;
@@ -5964,8 +5964,8 @@ namespace WindowsApplication1
           if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index48, index49].LandscapeType].Obstruction > 0)
           {
             let mut obstruction: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index48, index49].LandscapeType].Obstruction;
-            int[,] numArray24 = this.game.EditObj.TempObstruct[0].Value;
-            int[,] numArray25 = numArray24;
+            numArray24: Vec<i32> = this.game.EditObj.TempObstruct[0].Value;
+            numArray25: Vec<i32> = numArray24;
             let mut index50: i32 =  index48;
             let mut index51: i32 =  index50;
             let mut index52: i32 =  index49;
@@ -6003,14 +6003,14 @@ namespace WindowsApplication1
     }
 
     pub void SetHexReconAndZOCUnitMoves_LosRules(
-      int ox,
-      int oy,
-      int omap,
-      int x,
-      int y,
-      int map,
-      int regnr,
-      int unr,
+      ox: i32,
+      oy: i32,
+      omap: i32,
+      x: i32,
+      y: i32,
+      map: i32,
+      regnr: i32,
+      unr: i32,
       bool ZOCConquest = true,
       bool dontcountair = false,
       bool changezoc = true,
@@ -6021,8 +6021,8 @@ namespace WindowsApplication1
       let mut maxDist: i32 =  9;
       let mut unitRecon1: i32 =  this.GetUnitRecon(unr, 1, dontcountair);
       let mut unitRecon2: i32 =  this.GetUnitRecon(unr, 0, dontcountair);
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (ox > -1 & oy > -1)
       {
         this.SetTempLos(ox, oy, maxDist, false);
@@ -6047,7 +6047,7 @@ namespace WindowsApplication1
                 let mut num7: i32 =  0;
                 num2 = 0;
                 let mut num8: i32 =  this.Distance(ox, oy, omap, index2, index3, omap);
-                int num9;
+                num9: i32;
                 if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[omap].HexObj[ox, oy].LandscapeType].IsSea)
                 {
                   num9 =  Math.Round(Math.Floor( (unitRecon1 * this.game.EditObj.TempLos[0].Value[index2, index3]) / 100.0));
@@ -6122,7 +6122,7 @@ namespace WindowsApplication1
                 let mut num17: i32 =  this.Distance(x, y, map, index13, index14, map);
                 if (num17 == 0)
                   x = x;
-                int num18;
+                num18: i32;
                 if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
                 {
                   num18 = overrulerecon <= 0 ?  Math.Round(Math.Floor( (unitRecon1 * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0)) :  Math.Round(Math.Floor( (overrulerecon * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0));
@@ -6232,7 +6232,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub CheckIfIntercepted: bool(int unr, int x, int y)
+    pub CheckIfIntercepted: bool(unr: i32, x: i32, y: i32)
     {
       if ( this.game.Data.RuleVar[428] < 1.0)
         return false;
@@ -6287,14 +6287,14 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub UnitList GetInterceptFireUnits(int unr, int x, int y)
+    pub UnitList GetInterceptFireUnits(unr: i32, x: i32, y: i32)
     {
       UnitList interceptFireUnits = UnitList::new();
       SimpleList simpleList = SimpleList::new();
       if ( this.game.Data.RuleVar[428] < 1.0 || Information.IsNothing( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList))
         return interceptFireUnits;
       let mut counter1: i32 =  this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.counter;
-      int tweight;
+      tweight: i32;
       for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
         let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.unr[index1]);
@@ -6412,7 +6412,7 @@ namespace WindowsApplication1
       return interceptFireUnits;
     }
 
-    pub void ResetInterceptFireCache(int regnr)
+    pub fn ResetInterceptFireCache(regnr: i32)
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
@@ -6544,20 +6544,20 @@ namespace WindowsApplication1
     }
 
     pub void SetHexReconAndZOCUnitMoves(
-      int ox,
-      int oy,
-      int omap,
-      int x,
-      int y,
-      int map,
-      int regnr,
-      int unr,
+      ox: i32,
+      oy: i32,
+      omap: i32,
+      x: i32,
+      y: i32,
+      map: i32,
+      regnr: i32,
+      unr: i32,
       bool ZOCConquest = true,
       bool dontcountair = false,
       bool changezoc = true,
       let mut overrulerecon: i32 =  0)
     {
-      int[,] numArray = new int[1, 1];
+      numArray: Vec<i32> = new int[1, 1];
       if (omap > -1)
         numArray = new int[this.game.Data.MapObj[omap].MapWidth + 1, this.game.Data.MapObj[omap].MapHeight + 1];
       if (this.game.Data.Round == 0)
@@ -6568,7 +6568,7 @@ namespace WindowsApplication1
       }
       else
       {
-        int num1;
+        num1: i32;
         Coordinate coordinate;
         if (ox > -1 & oy > -1)
         {
@@ -6851,7 +6851,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ClearTempCanSee()
+    pub fn ClearTempCanSee()
     {
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
       for (let mut index: i32 =  0; index <= mapCounter; index += 1)
@@ -6885,7 +6885,7 @@ namespace WindowsApplication1
       return coordinate;
     }
 
-    pub void MakeAutoLabels(int usetype, let mut onlyNameTypes: i32 =  -1)
+    pub fn MakeAutoLabels(usetype: i32, let mut onlyNameTypes: i32 =  -1)
     {
       Coordinate coordinate;
       if (onlyNameTypes == -1 | onlyNameTypes == 1)
@@ -7064,10 +7064,10 @@ namespace WindowsApplication1
     }
 
     pub void MakeSpecificAutoLabels(
-      int ix,
-      int iy,
-      int imap,
-      int usetype,
+      ix: i32,
+      iy: i32,
+      imap: i32,
+      usetype: i32,
       string tempstr,
       bool OverwriteOK = false)
     {
@@ -7139,7 +7139,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetHexReconAndZOC(int x, int y, int map, int regnr)
+    pub fn SetHexReconAndZOC(x: i32, y: i32, map: i32, regnr: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -7155,7 +7155,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int CanWeSeeUnit(int unr, int byregnr)
+    pub CanWeSeeUnit: i32(unr: i32, byregnr: i32)
     {
       if (this.game.Data.Round == 0 & !this.game.EditObj.firstroundcheck || !this.game.Data.FOWOn || this.game.Data.RegimeObj[byregnr].RegimeRel[this.game.Data.UnitObj[unr].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
         return 1000;
@@ -7175,7 +7175,7 @@ namespace WindowsApplication1
         return 1000;
       let mut rawRecon: i32 =  byregnr != this.game.Data.Turn ? this.game.Data.MapObj[map].HexObj[x, y].get_ReconPts(byregnr) : this.game.Data.MapObj[map].HexObj[x, y].MaxRecon;
       let mut num1: i32 =   this.game.Data.RuleVar[419] <= 0.0 ?  Math.Round( ( this.game.HandyFunctionsObj.GetUnitHide(unr) + this.game.Data.RuleVar[9] +  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].HidePts)) : this.game.HandyFunctionsObj.GetUnitHide(unr);
-      int num2;
+      num2: i32;
       if ( this.game.Data.RuleVar[419] > 0.0 & rawRecon > 0)
       {
         let mut unitHide: i32 =  this.game.HandyFunctionsObj.GetUnitHide(unr);
@@ -7200,12 +7200,12 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub int GetUnitRecon(int unr, int theater, bool dontdoair = false)
+    pub GetUnitRecon: i32(unr: i32, theater: i32, bool dontdoair = false)
     {
       if (unr == -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitRecon;
+      unitRecon: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7231,12 +7231,12 @@ namespace WindowsApplication1
       return unitRecon;
     }
 
-    pub int GetUnitExtraRecon(int unr, int theater, int Lt, bool dontdoair = false)
+    pub GetUnitExtraRecon: i32(unr: i32, theater: i32, Lt: i32, bool dontdoair = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitExtraRecon;
+      unitExtraRecon: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7262,19 +7262,19 @@ namespace WindowsApplication1
       return unitExtraRecon;
     }
 
-    pub int GetSfEPGrowth(int sfnr)
+    pub GetSfEPGrowth: i32(sfnr: i32)
     {
       let mut index: i32 =  sfnr;
-      int num;
+      num: i32;
       return num + this.game.Data.SFObj[index].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[index].Type].EP;
     }
 
-    pub int GetUnitEP(int unr)
+    pub GetUnitEP: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitEp;
+      unitEp: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7283,12 +7283,12 @@ namespace WindowsApplication1
       return unitEp;
     }
 
-    pub int GetUnitEPGrowth(int unr)
+    pub GetUnitEPGrowth: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitEpGrowth;
+      unitEpGrowth: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7297,7 +7297,7 @@ namespace WindowsApplication1
       return unitEpGrowth;
     }
 
-    pub object GetUnitPeople(int unr)
+    pub object GetUnitPeople(unr: i32)
     {
       object[] objArray1 = new object[this.game.Data.PeopleCounter + 1];
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -7354,7 +7354,7 @@ namespace WindowsApplication1
       return num > -1 ?  num :  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People;
     }
 
-    pub int GetUnitHide(int unr, bool withoutIdentify = false)
+    pub GetUnitHide: i32(unr: i32, bool withoutIdentify = false)
     {
       let mut unitHide: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -7397,12 +7397,12 @@ namespace WindowsApplication1
       return unitHide;
     }
 
-    pub int GetUnitZOC(int unr)
+    pub GetUnitZOC: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7412,10 +7412,10 @@ namespace WindowsApplication1
       return  Math.Round( num * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
     }
 
-    pub int GetHighestSizeForAirBridge(int unr)
+    pub GetHighestSizeForAirBridge: i32(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int sizeForAirBridge;
+      sizeForAirBridge: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type;
@@ -7425,11 +7425,11 @@ namespace WindowsApplication1
       return sizeForAirBridge;
     }
 
-    pub int GetUnitWeight(int unr, bool includeexcessweight = false, bool includeLisWeight = false)
+    pub GetUnitWeight: i32(unr: i32, bool includeexcessweight = false, bool includeLisWeight = false)
     {
       if (unr < 0 | unr > this.game.Data.UnitCounter)
         return 0;
-      int Left;
+      Left: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -7455,12 +7455,12 @@ namespace WindowsApplication1
       return Left;
     }
 
-    pub object GetUnitWeightWithoutLandCarryCap(int unr, bool includeexcessweight = false)
+    pub object GetUnitWeightWithoutLandCarryCap(unr: i32, bool includeexcessweight = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int integer;
+      integer: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7472,12 +7472,12 @@ namespace WindowsApplication1
       return  integer;
     }
 
-    pub object GetUnitSpecialAIWeightWithoutLandCarryCap(int unr, bool includeexcessweight = false)
+    pub object GetUnitSpecialAIWeightWithoutLandCarryCap(unr: i32, bool includeexcessweight = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int integer;
+      integer: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7499,12 +7499,12 @@ namespace WindowsApplication1
       return  integer;
     }
 
-    pub object GetUnitNonSeaWeight(int unr, bool includingaircraft)
+    pub object GetUnitNonSeaWeight(unr: i32, bool includingaircraft)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int unitNonSeaWeight;
+      unitNonSeaWeight: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7514,12 +7514,12 @@ namespace WindowsApplication1
       return  unitNonSeaWeight;
     }
 
-    pub int GetUnitCarryCap(int unr, int theater, bool withexcessweight = false)
+    pub GetUnitCarryCap: i32(unr: i32, theater: i32, bool withexcessweight = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int integer;
+      integer: i32;
       for (let mut index: i32 =  0; index <= sfCount1; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7542,7 +7542,7 @@ namespace WindowsApplication1
       return integer;
     }
 
-    pub int GetUnitCarryCapType(int unr, int theater, bool withexcessweight = false)
+    pub GetUnitCarryCapType: i32(unr: i32, theater: i32, bool withexcessweight = false)
     {
       SimpleList simpleList = SimpleList::new();
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -7553,7 +7553,7 @@ namespace WindowsApplication1
           let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == theater)
           {
-            int num;
+            num: i32;
             num += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CarryCap;
             if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CarryCap > 0)
               simpleList.Add(this.game.Data.SFObj[sf].Type, this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType]);
@@ -7568,7 +7568,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetUnitNonCarryCapType(int unr, int theater, bool withexcessweight = false)
+    pub GetUnitNonCarryCapType: i32(unr: i32, theater: i32, bool withexcessweight = false)
     {
       SimpleList simpleList = SimpleList::new();
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -7589,13 +7589,13 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int GetAverageRdn(int unr)
+    pub GetAverageRdn: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7607,13 +7607,13 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageVigor(int unr)
+    pub GetAverageVigor: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7625,7 +7625,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int OBSOLETE_LIS_GetAmmoPercentageForAttack(int unr, int minArtRange, int maxArtRange)
+    pub OBSOLETE_LIS_GetAmmoPercentageForAttack: i32(unr: i32, minArtRange: i32, maxArtRange: i32)
     {
       ItemList itemList = ItemList::new();
       let mut index1: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
@@ -7662,7 +7662,7 @@ namespace WindowsApplication1
       return 100 -  Math.Round( (100 * num2) /  num1);
     }
 
-    pub HasLimitedCombatRoundArtillery: bool(int unr, int minArtRange, int maxArtRange)
+    pub HasLimitedCombatRoundArtillery: bool(unr: i32, minArtRange: i32, maxArtRange: i32)
     {
       ItemList itemList = ItemList::new();
       let mut num1: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
@@ -7679,17 +7679,17 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int GetAverageOffensiveMod_SupplyOnly(int unr, bool useSupply = true, bool useFuel = true)
+    pub GetAverageOffensiveMod_SupplyOnly: i32(unr: i32, bool useSupply = true, bool useFuel = true)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       float num3;
-      int num4;
+      num4: i32;
       float num5;
-      int num6;
+      num6: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7741,17 +7741,17 @@ namespace WindowsApplication1
       return num11 - 100;
     }
 
-    pub int GetAverageDefensiveMod_SupplyOnly(int unr)
+    pub GetAverageDefensiveMod_SupplyOnly: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       float num3;
-      int num4;
+      num4: i32;
       float num5;
-      int num6;
+      num6: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7800,13 +7800,13 @@ namespace WindowsApplication1
       return num11 - 100;
     }
 
-    pub int GetAverageOffensiveMod(int unr)
+    pub GetAverageOffensiveMod: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount1; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7818,12 +7818,12 @@ namespace WindowsApplication1
       if ( this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
         return  Math.Round(Conversion.Int( num1 /  num2));
       let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num3;
-      int num4;
+      num3: i32;
+      num4: i32;
       float num5;
-      int num6;
+      num6: i32;
       float num7;
-      int num8;
+      num8: i32;
       for (let mut index: i32 =  0; index <= sfCount2; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7859,13 +7859,13 @@ namespace WindowsApplication1
       return num10 + num11 - 100;
     }
 
-    pub int GetAverageDefensiveMod(int unr)
+    pub GetAverageDefensiveMod: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount1; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7877,12 +7877,12 @@ namespace WindowsApplication1
       if ( this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
         return  Math.Round(Conversion.Int( num1 /  num2));
       let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num3;
-      int num4;
+      num3: i32;
+      num4: i32;
       float num5;
-      int num6;
+      num6: i32;
       float num7;
-      int num8;
+      num8: i32;
       for (let mut index: i32 =  0; index <= sfCount2; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7916,13 +7916,13 @@ namespace WindowsApplication1
       return num10 + num11 - 100;
     }
 
-    pub int GetAverageMor(int unr)
+    pub GetAverageMor: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7934,14 +7934,14 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageBaseMor(int unr)
+    pub GetAverageBaseMor: i32(unr: i32)
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People].PeopleGroup;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -7953,7 +7953,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub CanUnitBecomeHQfor: bool(int unr, int forunr)
+    pub CanUnitBecomeHQfor: bool(unr: i32, forunr: i32)
     {
       if (unr == forunr)
         return false;
@@ -7972,7 +7972,7 @@ namespace WindowsApplication1
       return num != 1;
     }
 
-    pub int HowmanyHQsAbove(int unr)
+    pub HowmanyHQsAbove: i32(unr: i32)
     {
       let mut index: i32 =  unr;
       let mut num: i32 =  0;
@@ -7984,7 +7984,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub int HowmanyHQsBelow(int unr)
+    pub HowmanyHQsBelow: i32(unr: i32)
     {
       let mut num1: i32 =  unr;
       let mut num2: i32 =  0;
@@ -7992,7 +7992,7 @@ namespace WindowsApplication1
       while (num2 == 0)
       {
         num2 = 1;
-        int num4;
+        num4: i32;
         num4 += 1;
         let mut unitCounter: i32 =  this.game.Data.UnitCounter;
         for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -8011,15 +8011,15 @@ label_8:
       return num3;
     }
 
-    pub CanUnitBecomeHQforLoc: bool(int unr, int locnr) => this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.UnitObj[unr].Regime && !(this.game.Data.UnitObj[unr].Regime != this.game.Data.Turn & this.game.Data.Round > 0) && this.game.Data.UnitObj[unr].IsHQ;
+    pub CanUnitBecomeHQforLoc: bool(unr: i32, locnr: i32) => this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.UnitObj[unr].Regime && !(this.game.Data.UnitObj[unr].Regime != this.game.Data.Turn & this.game.Data.Round > 0) && this.game.Data.UnitObj[unr].IsHQ;
 
-    pub int GetAverageEntrench(int unr)
+    pub GetAverageEntrench: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8031,13 +8031,13 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageEntrenchAboveAuto(int unr)
+    pub GetAverageEntrenchAboveAuto: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].X <= -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8052,13 +8052,13 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageAutoEntrench(int unr)
+    pub GetAverageAutoEntrench: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].X <= -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8071,7 +8071,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageEntrenchPredict(int unr, bool StayOnHex)
+    pub GetAverageEntrenchPredict: i32(unr: i32, bool StayOnHex)
     {
       if (this.game.Data.UnitObj[unr].TempX == -1)
         return 0;
@@ -8079,8 +8079,8 @@ label_8:
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8101,13 +8101,13 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetAverageXp(int unr)
+    pub GetAverageXp: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8119,12 +8119,12 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetStackPercent(int unr)
+    pub GetStackPercent: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -8136,7 +8136,7 @@ label_8:
     }
 
     pub Coordinate FindLandRetreat(
-      int unr,
+      unr: i32,
       Coordinate coord,
       Neighbours neighbour,
       let mut onlyMoveType: i32 =  -1,
@@ -8276,7 +8276,7 @@ label_8:
         if (coordinate2.onmap)
         {
           Coordinate coordinate3;
-          int x;
+          x: i32;
           if (onlyMoveType > -1)
           {
             coordinate3 = this.MoveApCostPreview2(coord.x, coord.y, this.game.Data.UnitObj[unr].Regime, onlyMoveType, 0, coord.x, coord.y, coord.map, coordinate2.x, coordinate2.y, coordinate2.map);
@@ -8314,7 +8314,7 @@ label_8:
         {
           if (forceDirection == -1 | forceDirection == tid && numArray1[tid] > 0 & numArray4[tid] < 1)
           {
-            int tweight;
+            tweight: i32;
             if (numArray2[tid] < 0 & numArray3[tid] < 1)
               tweight = 4 * numArray7[tid];
             else if (numArray2[tid] < 0 & numArray3[tid] > 0)
@@ -8351,7 +8351,7 @@ label_8:
       return tfacing3 > 0 ? this.HexNeighbourSameMap(coord.x, coord.y, coord.map, tfacing3) : coordinate1;
     }
 
-    pub Coordinate FindSeaRetreat(int unr, Coordinate coord, Neighbours neighbour)
+    pub Coordinate FindSeaRetreat(unr: i32, Coordinate coord, Neighbours neighbour)
     {
       int[] numArray1 = new int[7];
       int[] numArray2 = new int[7];
@@ -8391,7 +8391,7 @@ label_8:
       }
       let mut num1: i32 =  99999;
       let mut index1: i32 =  1;
-      int tfacing2;
+      tfacing2: i32;
       do
       {
         if (numArray1[index1] > 0 && num1 > numArray2[index1])
@@ -8405,7 +8405,7 @@ label_8:
       return tfacing2 > 0 ? this.HexNeighbourSameMap(coord.x, coord.y, coord.map, tfacing2) : coordinate1;
     }
 
-    pub int HexNeighbourCount(int cx, int cy, int cmap)
+    pub HexNeighbourCount: i32(cx: i32, cy: i32, cmap: i32)
     {
       let mut num: i32 =  6;
       if (this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionCount > -1)
@@ -8422,7 +8422,7 @@ label_8:
       return num;
     }
 
-    pub int HexNeighbourCountAir(int cx, int cy, int cmap)
+    pub HexNeighbourCountAir: i32(cx: i32, cy: i32, cmap: i32)
     {
       let mut num: i32 =  6;
       if (!Information.IsNothing( this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
@@ -8434,7 +8434,7 @@ label_8:
       return num;
     }
 
-    pub int GetMinimumEntrench(int x, int y, int map, int grp)
+    pub GetMinimumEntrench: i32(x: i32, y: i32, map: i32, grp: i32)
     {
       let mut minimumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonus[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -8443,7 +8443,7 @@ label_8:
       return minimumEntrench;
     }
 
-    pub int GetMaximumEntrench(int x, int y, int map, int grp)
+    pub GetMaximumEntrench: i32(x: i32, y: i32, map: i32, grp: i32)
     {
       let mut maximumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonusMax[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -8452,12 +8452,12 @@ label_8:
       return maximumEntrench;
     }
 
-    pub Coordinate HexNeighbour(int cx, int cy, int cmap, int tfacing)
+    pub Coordinate HexNeighbour(cx: i32, cy: i32, cmap: i32, tfacing: i32)
     {
       Coordinate coordinate = Coordinate::new();
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       if (tfacing == 1)
       {
         num1 = cx;
@@ -8560,12 +8560,12 @@ label_8:
       return coordinate;
     }
 
-    pub Coordinate HexNeighbourAir(int cx, int cy, int cmap, int tfacing)
+    pub Coordinate HexNeighbourAir(cx: i32, cy: i32, cmap: i32, tfacing: i32)
     {
       Coordinate coordinate = Coordinate::new();
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       if (tfacing == 1)
       {
         num1 = cx;
@@ -8660,14 +8660,14 @@ label_8:
       return coordinate;
     }
 
-    pub Coordinate HexNeighbourSameMap(int cx, int cy, int cmap, int tfacing)
+    pub Coordinate HexNeighbourSameMap(cx: i32, cy: i32, cmap: i32, tfacing: i32)
     {
       Coordinate coordinate = Coordinate::new();
       if (this.game.Data.MapObj[cmap].MapLoop &  this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0 && cx > this.game.Data.MapObj[cmap].MapWidth)
         cx -= this.game.Data.MapObj[cmap].MapWidth + 1;
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       if (tfacing == 1)
       {
         num1 = cx;
@@ -8727,7 +8727,7 @@ label_8:
       return coordinate;
     }
 
-    pub int Distance(int x1, int y1, int map1, int x2, int y2, int map2, let mut maxdistance: i32 =  9999)
+    pub Distance: i32(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32, let mut maxdistance: i32 =  9999)
     {
       if (this.game.Data.MapObj[0].MapLoop &&  Math.Abs(x2 - x1) > Conversion.Int( this.game.Data.MapObj[0].MapWidth / 2.0) + 1.0)
       {
@@ -8742,11 +8742,11 @@ label_8:
       return (x1 + 2) % 2 != 0 ? ((x2 + 2) % 2 != 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))) : (num1 >= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0)))))) : ((x2 + 2) % 2 != 0 ? (num1 <= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0))))) :  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))));
     }
 
-    pub int GetMaxStaffIndividuals(int unr, int @this)
+    pub GetMaxStaffIndividuals: i32(unr: i32, int @this)
     {
       let mut num1: i32 =  unr <= -1 ? this.game.Data.HistoricalUnitObj[@this].StaffSize : this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].StaffSize;
-      int num2;
-      int num3;
+      num2: i32;
+      num3: i32;
       if (unr > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -8779,11 +8779,11 @@ label_8:
       return  Math.Round( num1 /  num2);
     }
 
-    pub int AirSupplyNeeded(int targetx, int targety, int targetmap)
+    pub AirSupplyNeeded: i32(targetx: i32, targety: i32, targetmap: i32)
     {
       let mut num1: i32 =  0;
       this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[857]), 99,  Math.Round( this.game.Data.RuleVar[858]), targetx, targety, targetmap, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
-      int index1;
+      index1: i32;
       if (Information.IsNothing( this.game.EditObj.TempValue3[index1]))
         this.game.EditObj.TempValue3[index1] = this.game.EditObj.TempValue[index1].Clone();
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
@@ -8821,7 +8821,7 @@ label_8:
       return num1;
     }
 
-    pub int HexFacing(int ox, int oy, int omap, int dx, int dy, int dmap)
+    pub HexFacing: i32(ox: i32, oy: i32, omap: i32, dx: i32, dy: i32, dmap: i32)
     {
       let mut num: i32 =  -1;
       if (ox == dx & oy - 1 == dy)
@@ -8871,10 +8871,10 @@ label_8:
     }
 
     pub VisibleEnemyUnitsInHex: bool(
-      int x,
-      int y,
-      int map,
-      int regnr,
+      x: i32,
+      y: i32,
+      map: i32,
+      regnr: i32,
       bool alsoinvisible = false,
       bool alwaysshowotherregime = false,
       bool testingforattack = false)
@@ -8925,10 +8925,10 @@ label_8:
     }
 
     pub VisibleEnemyUnitsInOrAroundHEx: bool(
-      int x,
-      int y,
-      int map,
-      int regnr,
+      x: i32,
+      y: i32,
+      map: i32,
+      regnr: i32,
       bool alsoinvisible = false,
       bool alwaysshowotherregime = false,
       bool testingforattack = false)
@@ -8945,7 +8945,7 @@ label_8:
       return false;
     }
 
-    pub NonRegimeXUnitsInHex: bool(int x, int y, int map, int RegX)
+    pub NonRegimeXUnitsInHex: bool(x: i32, y: i32, map: i32, RegX: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
@@ -8960,7 +8960,7 @@ label_8:
       return num > 0;
     }
 
-    pub RegimeXUnitsInHex: bool(int x, int y, int map, int RegX)
+    pub RegimeXUnitsInHex: bool(x: i32, y: i32, map: i32, RegX: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
@@ -8975,7 +8975,7 @@ label_8:
       return num > 0;
     }
 
-    pub Coordinate EPandPowerInHex(int x, int y, let mut onlyUnr: i32 =  -1)
+    pub Coordinate EPandPowerInHex(x: i32, y: i32, let mut onlyUnr: i32 =  -1)
     {
       let mut index1: i32 =  0;
       let mut num1: i32 =  0;
@@ -9016,7 +9016,7 @@ label_8:
       return coordinate;
     }
 
-    pub object Get8Subformations(int unr, let mut lessSubs: i32 =  0, bool noLimit = false)
+    pub object Get8Subformations(unr: i32, let mut lessSubs: i32 =  0, bool noLimit = false)
     {
       SimpleList simpleList1 = SimpleList::new();
       int[] numArray1 = new int[101];
@@ -9082,7 +9082,7 @@ label_8:
             }
           }
           simpleList2.Sort();
-          int num7;
+          num7: i32;
           if (simpleList2.Counter <= 7 - num1 && simpleList2.Weight[simpleList2.Counter] > 100000)
           {
             let mut num8: i32 =  simpleList2.Id[simpleList2.Counter];
@@ -9311,12 +9311,12 @@ label_8:
       return  simpleList7;
     }
 
-    pub int ClickOnHexGivesUnit(
-      int x,
-      int y,
-      int map,
+    pub ClickOnHexGivesUnit: i32(
+      x: i32,
+      y: i32,
+      map: i32,
       bool firstclick,
-      int b,
+      b: i32,
       let mut remx: i32 =  0,
       let mut remy: i32 =  0,
       bool FixedMediumScale = false,
@@ -9334,7 +9334,7 @@ label_8:
       }
       if (this.game.EditObj.Zoom == 1 & num1 > 0 & num1 <= 13 & this.game.EditObj.SpreadUnit & !FixedMediumScale && isMainMap | this.game.EditObj.DoCardSlot < 0 & this.game.EditObj.HandCard < 0)
       {
-        int num2;
+        num2: i32;
         switch (num1)
         {
           case 1:
@@ -9521,7 +9521,7 @@ label_8:
       return this.ClickOnHexGivesUnit(x, y, map, true, b, FixedMediumScale: FixedMediumScale);
     }
 
-    pub void RedimFuzzyPresumed(int setvalue)
+    pub fn RedimFuzzyPresumed(setvalue: i32)
     {
       if (this.game.EditObj.FuzzyPresumed.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.FuzzyPresumed = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9554,7 +9554,7 @@ label_8:
       }
     }
 
-    pub void RedimFuzzyReal(int setvalue)
+    pub fn RedimFuzzyReal(setvalue: i32)
     {
       if (this.game.EditObj.FuzzyReal.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.FuzzyReal = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9587,7 +9587,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValue(int setvalue)
+    pub fn RedimTempValue(setvalue: i32)
     {
       if (this.game.EditObj.TempValue.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9620,7 +9620,7 @@ label_8:
       }
     }
 
-    pub void RedimTempLosValue(int setvalue)
+    pub fn RedimTempLosValue(setvalue: i32)
     {
       if (this.game.EditObj.TempLos.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempLos = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9653,7 +9653,7 @@ label_8:
       }
     }
 
-    pub void RedimTempObstructValue(int setvalue)
+    pub fn RedimTempObstructValue(setvalue: i32)
     {
       if (this.game.EditObj.TempObstruct.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempObstruct = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9686,7 +9686,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValueSpecial(int setvalue)
+    pub fn RedimTempValueSpecial(setvalue: i32)
     {
       if (this.game.EditObj.TempValue.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempValueSpecial = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9719,7 +9719,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValueSpecial2(int setvalue)
+    pub fn RedimTempValueSpecial2(setvalue: i32)
     {
       if (this.game.EditObj.TempValue.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempValueSpecial2 = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9752,7 +9752,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValue2(int setvalue)
+    pub fn RedimTempValue2(setvalue: i32)
     {
       if (this.game.EditObj.TempValue2.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempValue2 = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -9785,7 +9785,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValue3(int setvalue)
+    pub fn RedimTempValue3(setvalue: i32)
     {
       this.game.EditObj.TempValue3 = new MapMatrix2[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -9817,7 +9817,7 @@ label_8:
       }
     }
 
-    pub void RedimTempValue4(int setvalue)
+    pub fn RedimTempValue4(setvalue: i32)
     {
       this.game.EditObj.TempValue4 = new MapMatrix2[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -9849,7 +9849,7 @@ label_8:
       }
     }
 
-    pub void RedimTempSup(int setvalue)
+    pub fn RedimTempSup(setvalue: i32)
     {
       this.game.EditObj.TempSup = new MapMatrix2[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -9866,10 +9866,10 @@ label_8:
       }
     }
 
-    pub float GetAirFieldStackModifier(int x, int y, let mut extraAirUnr: i32 =  -1)
+    pub float GetAirFieldStackModifier(x: i32, y: i32, let mut extraAirUnr: i32 =  -1)
     {
       let mut unitCounter: i32 =  this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
-      int num1;
+      num1: i32;
       for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[x, y].UnitList[index1];
@@ -9903,7 +9903,7 @@ label_8:
       return  num2 > 1.0 ? 1f : num2;
     }
 
-    pub void RedimTempSupCameFrom()
+    pub fn RedimTempSupCameFrom()
     {
       this.game.EditObj.TempSupCameFrom = new MapMatrix2Coordinate[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -9920,7 +9920,7 @@ label_8:
       }
     }
 
-    pub void BlowBridgeHexHighlight(int x, int y, int map)
+    pub fn BlowBridgeHexHighlight(x: i32, y: i32, map: i32)
     {
       this.RedimTempValue(9999);
       this.RedimTempValueSpecial(0);
@@ -9938,7 +9938,7 @@ label_8:
       while (tfacing <= 6);
     }
 
-    pub string GetRoadOrBridgeBuildCostString(int x1, int y1, int z1, int x2, int y2, int z2)
+    pub string GetRoadOrBridgeBuildCostString(x1: i32, y1: i32, z1: i32, x2: i32, y2: i32, z2: i32)
     {
       let mut num1: i32 =  this.game.HandyFunctionsObj.HexFacing(x1, y1, z1, x2, y2, z2);
       string bridgeBuildCostString;
@@ -10049,7 +10049,7 @@ label_8:
       return bridgeBuildCostString;
     }
 
-    pub void InfraHexHighlight(int x, int y, int map, int unr)
+    pub fn InfraHexHighlight(x: i32, y: i32, map: i32, unr: i32)
     {
       this.RedimTempValue(9999);
       this.RedimTempValueSpecial(0);
@@ -10063,7 +10063,7 @@ label_8:
           if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) |  this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
           {
             Coordinate coordinate2;
-            int x1;
+            x1: i32;
             if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate1.x, coordinate1.y, map, true, EngineerTest: true);
@@ -10121,7 +10121,7 @@ label_8:
       while (tfacing <= 6);
     }
 
-    pub CoordList InfraHexHighlight_getCoordList(int x, int y, int map, int unr)
+    pub CoordList InfraHexHighlight_getCoordList(x: i32, y: i32, map: i32, unr: i32)
     {
       CoordList coordList = CoordList::new();
       let mut tfacing: i32 =  1;
@@ -10134,7 +10134,7 @@ label_8:
           if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) |  this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
           {
             Coordinate coordinate2;
-            int x1;
+            x1: i32;
             if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate1.x, coordinate1.y, map, true, EngineerTest: true);
@@ -10184,7 +10184,7 @@ label_8:
       return coordList;
     }
 
-    pub CanUnitLoadaUnit: bool(int unr)
+    pub CanUnitLoadaUnit: bool(unr: i32)
     {
       let mut x: i32 =  this.game.Data.UnitObj[unr].X;
       let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
@@ -10219,14 +10219,14 @@ label_8:
       return false;
     }
 
-    pub int GetRegime(int nr)
+    pub GetRegime: i32(nr: i32)
     {
       if (nr == -1)
         return -1;
       return this.game.Data.RegimeObj[nr].UberRegime > -1 ? this.game.Data.RegimeObj[nr].UberRegime : nr;
     }
 
-    pub CanWeBlowBridge: bool(int x, int y, int map)
+    pub CanWeBlowBridge: bool(x: i32, y: i32, map: i32)
     {
       let mut num: i32 =  0;
       let mut tfacing: i32 =  1;
@@ -10240,7 +10240,7 @@ label_8:
       return num > 0;
     }
 
-    pub void RedimTempString(string setvalue)
+    pub fn RedimTempString(string setvalue)
     {
       this.game.EditObj.TempString = new MapMatrix2String[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -10257,7 +10257,7 @@ label_8:
       }
     }
 
-    pub void RedimTempString2(string setvalue)
+    pub fn RedimTempString2(string setvalue)
     {
       this.game.EditObj.TempString2 = new MapMatrix2String[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -10274,7 +10274,7 @@ label_8:
       }
     }
 
-    pub void RedimTempAttack(bool setvalue)
+    pub fn RedimTempAttack(bool setvalue)
     {
       this.game.EditObj.TempAttack = new MapMatrix2Plus6[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -10302,7 +10302,7 @@ label_8:
       }
     }
 
-    pub void RedimTempCameFrom()
+    pub fn RedimTempCameFrom()
     {
       if (this.game.EditObj.TempCameFrom.GetUpperBound(0) < this.game.Data.MapCounter)
         this.game.EditObj.TempCameFrom = new MapMatrix2Coordinate[this.game.Data.MapCounter + 1];
@@ -10344,10 +10344,10 @@ label_8:
     }
 
     pub CoordList MakeMovePredictionGroup(
-      int unr,
-      int x,
-      int y,
-      int map,
+      unr: i32,
+      x: i32,
+      y: i32,
+      map: i32,
       bool airfieldcheck = true,
       bool OneHexFurther = false,
       bool PredictAirOnly = false,
@@ -10452,7 +10452,7 @@ label_8:
       return coordList;
     }
 
-    pub int SE1_GetUnitMinimumAirfieldLevel(int unr)
+    pub SE1_GetUnitMinimumAirfieldLevel: i32(unr: i32)
     {
       let mut minimumAirfieldLevel: i32 =  0;
       if (this.game.Data.Product == 7)
@@ -10473,10 +10473,10 @@ label_8:
     }
 
     pub CoordList MakeMovePrediction(
-      int unr,
-      int x,
-      int y,
-      int map,
+      unr: i32,
+      x: i32,
+      y: i32,
+      map: i32,
       bool airfieldcheck = true,
       bool OneHexFurther = false,
       bool PredictAirOnly = false,
@@ -10614,7 +10614,7 @@ label_8:
               if (coordinate1.onmap)
               {
                 let mut PreviousAPspent: i32 =  this.game.EditObj.TempValue[arySrc1[index1].map].Value[arySrc1[index1].x, arySrc1[index1].y];
-                int val2;
+                val2: i32;
                 if ( this.game.Data.RuleVar[814] == 1.0)
                   val2 = PreviousAPspent + 0;
                 else if (num4 == -1)
@@ -10703,7 +10703,7 @@ label_8:
       }
       if (airfieldcheck)
       {
-        int num12;
+        num12: i32;
         if (this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
           num12 = 1;
         if (this.game.HandyFunctionsObj.HasUnitAirSF(unr) & this.game.HandyFunctionsObj.HasUnitNavySF(unr))
@@ -10914,10 +10914,10 @@ label_8:
     }
 
     pub CoordList MakeMovePrediction3(
-      int unr,
-      int x,
-      int y,
-      int map,
+      unr: i32,
+      x: i32,
+      y: i32,
+      map: i32,
       bool airfieldcheck = true,
       bool OneHexFurther = false,
       bool PredictAirOnly = false,
@@ -11021,7 +11021,7 @@ label_8:
               if (coordinate1.onmap)
               {
                 let mut num8: i32 =  this.game.EditObj.TempValue[arySrc1[index1].map].Value[arySrc1[index1].x, arySrc1[index1].y];
-                int num9;
+                num9: i32;
                 if (num2 == -1)
                 {
                   let mut num10: i32 =  this.MoveApCostPreview3(unr, arySrc1[index1].x, arySrc1[index1].y, arySrc1[index1].map, coordinate1.x, coordinate1.y, coordinate1.map, attack, PredictAirOnly, ismove: ismove, EngineerTest: EngineerTest, NoAPPenalty: NoAPPenalty, IsTransfer: IsTransfer, Frontlineonly: OnlyFrontline, GoThroughEnemy: gothroughenemy, ExtraForEnemyHex: ExtraForEnemyHex, TempUnitsMatrix: TempUnitsMatrix, EnemyIsXAP: EnemyIsXAP, tcustomAi: ( tcustomAi));
@@ -11138,7 +11138,7 @@ label_8:
       }
       if (airfieldcheck)
       {
-        int num14;
+        num14: i32;
         if (this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
           num14 = 1;
         if (this.game.HandyFunctionsObj.HasUnitAirSF(unr) & this.game.HandyFunctionsObj.HasUnitNavySF(unr))
@@ -11211,9 +11211,9 @@ label_8:
     }
 
     pub void MakeMovePredictionLIS(
-      int x,
-      int y,
-      int map,
+      x: i32,
+      y: i32,
+      map: i32,
       let mut dontGoUnder: i32 =  -1,
       bool useHistory = false,
       bool mustHaveRoad = false,
@@ -11297,7 +11297,7 @@ label_8:
                 let mut index3: i32 =  index2 + 3;
                 if (index3 > 5)
                   index3 -= 6;
-                int val2_1;
+                val2_1: i32;
                 if (useHistory)
                 {
                   let mut val2_2: i32 =  this.game.EditObj.TempValue[map].Value[arySrc1[index1].x, arySrc1[index1].y];
@@ -11425,7 +11425,7 @@ label_8:
       }
     }
 
-    pub void MakeMovePredictionLIS_Preview(int x, int y, int map, let mut dontGoUnder: i32 =  -1)
+    pub fn MakeMovePredictionLIS_Preview(x: i32, y: i32, map: i32, let mut dontGoUnder: i32 =  -1)
     {
       Coordinate[] arySrc1 = new Coordinate[1];
       bool[] arySrc2 = new bool[1];
@@ -11518,12 +11518,12 @@ label_8:
       }
     }
 
-    pub Coordinate GetHistoricalAverageHex(int his)
+    pub Coordinate GetHistoricalAverageHex(his: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].PreDef == -1 & this.game.Data.UnitObj[index].Historical == his)
@@ -11546,7 +11546,7 @@ label_8:
       return historicalAverageHex1;
     }
 
-    pub IsAlliedOrSelf: bool(int reg1, int reg2, bool ForReconPurpose = false)
+    pub IsAlliedOrSelf: bool(reg1: i32, reg2: i32, bool ForReconPurpose = false)
     {
       if (reg1 == -1 | reg2 == -1 || reg1 == -2 | reg2 == -2 || reg1 > this.game.Data.RegimeCounter || reg2 > this.game.Data.RegimeCounter)
         return false;
@@ -11562,7 +11562,7 @@ label_8:
       return false;
     }
 
-    pub object UnitFuelPrognosis(int unr, int ap)
+    pub object UnitFuelPrognosis(unr: i32, ap: i32)
     {
       let mut num1: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -11585,12 +11585,12 @@ label_8:
       return  num1;
     }
 
-    pub CheckIfInCorrectFrontzone: bool(int unr, int x, int y)
+    pub CheckIfInCorrectFrontzone: bool(unr: i32, x: i32, y: i32)
     {
       bool flag = false;
       if ( this.game.Data.RuleVar[983] < 1.0)
         return true;
-      int num;
+      num: i32;
       if ( this.game.Data.RuleVar[984] < 5.0)
       {
         if (!(this.game.Data.TempString[723].Length > 0 & this.game.Data.TempString[725].Length > 0 & this.game.Data.UnitObj[unr].Historical > -1))
@@ -11631,15 +11631,15 @@ label_8:
     }
 
     pub Coordinate MoveApCostPreview(
-      int unr,
-      int ox1,
-      int oy1,
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2,
+      unr: i32,
+      ox1: i32,
+      oy1: i32,
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32,
       bool attack = false,
       bool predictaironly = false,
       bool IgnoreBridges = false,
@@ -11668,7 +11668,7 @@ label_8:
       int[] numArray10 = new int[251];
       int[] numArray11 = new int[251];
       int[] numArray12 = new int[500];
-      int num1;
+      num1: i32;
       if ( this.game.Data.RuleVar[459] > 0.0)
         num1 =  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(unr, true) * 1) /  this.game.Data.RuleVar[33]));
       Coordinate tcoord;
@@ -11715,7 +11715,7 @@ label_8:
         if (simpleList.totalWeight() <= 0)
           return tcoord;
       }
-      int index1;
+      index1: i32;
       if (!ignoreFuel && simpleList.Counter > -1)
       {
         let mut counter: i32 =  simpleList.Counter;
@@ -11795,9 +11795,9 @@ label_8:
       if (simpleList.Counter > -1)
       {
         let mut counter1: i32 =  simpleList.Counter;
-        int landscapeType;
+        landscapeType: i32;
         bool flag1;
-        int num12;
+        num12: i32;
         for (let mut index9: i32 =  0; index9 <= counter1; index9 += 1)
         {
           index1 = simpleList.Id[index9];
@@ -11892,7 +11892,7 @@ label_8:
                 }
                 if (theater == 0 & flag3)
                 {
-                  int num17;
+                  num17: i32;
                   if (index7 > -1)
                   {
                     if (this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index7] > -1)
@@ -12085,7 +12085,7 @@ label_8:
                     }
                     if ( this.game.Data.RuleVar[495] > 0.0 & num28 > 0)
                     {
-                      int tSlotNr;
+                      tSlotNr: i32;
                       if (this.tempHexLibVarSnowIsSet == this.game.Data.GameID)
                       {
                         tSlotNr = this.tempHexLibVarSnowValue;
@@ -12290,7 +12290,7 @@ label_8:
             }
           }
         }
-        int num42;
+        num42: i32;
         if (!predictaironly)
         {
           if (this.game.Data.UnitObj[unr].IsHQ)
@@ -12336,7 +12336,7 @@ label_8:
               let mut index36: i32 =  -1;
               let mut num43: i32 =  0;
               let mut counter5: i32 =  simpleList.Counter;
-              int typ;
+              typ: i32;
               for (let mut index37: i32 =  0; index37 <= counter5; index37 += 1)
               {
                 let mut index38: i32 =  simpleList.Id[index37];
@@ -12554,14 +12554,14 @@ label_8:
       return tcoord;
     }
 
-    pub int MoveApCostPreview3(
-      int unr,
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2,
+    pub MoveApCostPreview3: i32(
+      unr: i32,
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32,
       bool attack = false,
       bool predictaironly = false,
       bool IgnoreBridges = false,
@@ -12612,13 +12612,13 @@ label_8:
       }
       if (!this.IsHostileOrSelf(this.game.Data.UnitObj[unr].Regime, this.game.Data.MapObj[map2].HexObj[x2, y2].Regime))
         return 9999;
-      int index1;
+      index1: i32;
       if (this.game.Data.UnitObj[unr].TempTypeRoad == -2)
         index1 =  Math.Round( this.game.Data.RuleVar[41]);
       else
         index1 = this.game.Data.SFTypeObj[this.game.Data.UnitObj[unr].TempTypeRoad].MoveType;
       let mut index2: i32 =  this.game.Data.UnitObj[unr].TempType;
-      int index3;
+      index3: i32;
       if (index2 == -2)
       {
         index2 = 0;
@@ -12793,7 +12793,7 @@ label_8:
           }
           if ( this.game.Data.RuleVar[495] > 0.0 & num6 > 0)
           {
-            int tSlotNr;
+            tSlotNr: i32;
             if (this.tempHexLibVarSnowIsSet == this.game.Data.GameID)
             {
               tSlotNr = this.tempHexLibVarSnowValue;
@@ -12828,7 +12828,7 @@ label_8:
             do
             {
               Coordinate coordinate = this.HexNeighbour(x2, y2, 0, tfacing);
-              int num8;
+              num8: i32;
               if (coordinate.onmap)
               {
                 let mut regime2: i32 =  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime;
@@ -12913,7 +12913,7 @@ label_8:
       return num3;
     }
 
-    pub int GetLowestSpeedOnRoad(int unr, int curtyp)
+    pub GetLowestSpeedOnRoad: i32(unr: i32, curtyp: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return -1;
@@ -12926,7 +12926,7 @@ label_8:
       if (this.game.Data.RoadTypeCounter == -1)
       {
         let mut num: i32 =   Interaction.MsgBox( "Error - No Road Types defined");
-        int lowestSpeedOnRoad;
+        lowestSpeedOnRoad: i32;
         return lowestSpeedOnRoad;
       }
       if (this.game.Data.UnitObj[unr].IsHQ)
@@ -12960,7 +12960,7 @@ label_8:
           }
         }
       }
-      int integer;
+      integer: i32;
       if (this.game.Data.UnitObj[unr].IsHQ)
       {
         integer = Conversions.ToInteger(this.GetUnitExcessWeight(unr));
@@ -12981,7 +12981,7 @@ label_8:
           let mut index5: i32 =  -1;
           let mut num3: i32 =  0;
           let mut sfCount4: i32 =  this.game.Data.UnitObj[unr].SFCount;
-          int typ;
+          typ: i32;
           for (let mut index6: i32 =  0; index6 <= sfCount4; index6 += 1)
           {
             let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index6];
@@ -13056,7 +13056,7 @@ label_8:
       let mut num10: i32 =  0;
       let mut index14: i32 =  -1;
       let mut sfCount6: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num11;
+      num11: i32;
       for (let mut index15: i32 =  0; index15 <= sfCount6; index15 += 1)
       {
         num11 = 0;
@@ -13098,7 +13098,7 @@ label_8:
       return index14 > -1 ? this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index14]].Type : index14;
     }
 
-    pub int GetLowestSpeed(int unr, int curtyp, bool returnsfnr = false)
+    pub GetLowestSpeed: i32(unr: i32, curtyp: i32, bool returnsfnr = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return -1;
@@ -13161,7 +13161,7 @@ label_8:
           }
         }
       }
-      int integer;
+      integer: i32;
       if (this.game.Data.UnitObj[unr].IsHQ)
       {
         integer = Conversions.ToInteger(this.GetUnitExcessWeight(unr));
@@ -13184,7 +13184,7 @@ label_8:
           let mut index7: i32 =  -1;
           let mut num4: i32 =  0;
           let mut sfCount4: i32 =  this.game.Data.UnitObj[unr].SFCount;
-          int typ;
+          typ: i32;
           for (let mut index8: i32 =  0; index8 <= sfCount4; index8 += 1)
           {
             let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index8];
@@ -13312,7 +13312,7 @@ label_8:
       let mut num20: i32 =  0;
       let mut lowestSpeed: i32 =  -1;
       let mut sfCount6: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num21;
+      num21: i32;
       for (let mut index: i32 =  0; index <= sfCount6; index += 1)
       {
         num21 = 0;
@@ -13356,7 +13356,7 @@ label_8:
       return returnsfnr ? this.game.Data.UnitObj[unr].SFList[lowestSpeed] : this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[lowestSpeed]].Type;
     }
 
-    pub object GetUnitExcessWeight(int unr)
+    pub object GetUnitExcessWeight(unr: i32)
     {
       let mut num1: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -13369,10 +13369,10 @@ label_8:
           num1 += this.game.Data.SFTypeObj[type].SupplyCarry * this.game.Data.SFObj[sf].Qty;
         }
       }
-      int num2;
+      num2: i32;
       if (num1 < this.game.Data.UnitObj[unr].Supply)
         num2 =  Math.Round( Conversion.Int(this.game.Data.RuleVar[33] *  (this.game.Data.UnitObj[unr].Supply - num1)));
-      int integer;
+      integer: i32;
       if (this.game.Data.UnitObj[unr].PassengerCounter > -1)
       {
         let mut passengerCounter: i32 =  this.game.Data.UnitObj[unr].PassengerCounter;
@@ -13385,7 +13385,7 @@ label_8:
       return  (num2 + integer);
     }
 
-    pub CanBeCarriedBy: bool(int typ, int bytyp)
+    pub CanBeCarriedBy: bool(typ: i32, bytyp: i32)
     {
       if (typ == bytyp)
         return false;
@@ -13401,7 +13401,7 @@ label_8:
       return flag;
     }
 
-    pub EnemyNavyAround: bool(int x, int y, int map, int regnr)
+    pub EnemyNavyAround: bool(x: i32, y: i32, map: i32, regnr: i32)
     {
       bool flag = false;
       let mut tfacing1: i32 =  1;
@@ -13443,17 +13443,17 @@ label_8:
     }
 
     pub Coordinate MoveApCostPreview2(
-      int ox1,
-      int oy1,
-      int byregnr,
-      int movetype,
-      int theater,
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2,
+      ox1: i32,
+      oy1: i32,
+      byregnr: i32,
+      movetype: i32,
+      theater: i32,
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32,
       bool dontenterenemy = true,
       bool AllowShoreDrop = false,
       bool NoAPPenalties = false,
@@ -13500,8 +13500,8 @@ label_8:
       }
       if (this.game.Data.UseAI < 1 & this.game.Data.Turn > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].AI)
         AllowShoreDrop = true;
-      int regime1;
-      int regime2;
+      regime1: i32;
+      regime2: i32;
       if (UseCounterOwner)
       {
         regime1 = this.game.NewAIObj.TempCounterOwner[x2, y2];
@@ -13525,7 +13525,7 @@ label_8:
       }
       let mut location1: i32 =  this.game.Data.MapObj[map2].HexObj[x2, y2].Location;
       let mut location2: i32 =  this.game.Data.MapObj[map1].HexObj[x1, y1].Location;
-      int index2;
+      index2: i32;
       if (FacingPreview == -1)
       {
         index2 = this.game.HandyFunctionsObj.HexFacing(x2, y2, map2, x1, y1, map1) - 1 + 3;
@@ -13609,7 +13609,7 @@ label_8:
             flag3 = true;
             if (this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1] < val1_1)
             {
-              int num3;
+              num3: i32;
               if (useTrafficRules &  this.game.Data.RuleVar[459] > 0.0 & this.game.Data.RoadTypeObj[index4].trafficPoints > 0)
               {
                 let mut index5: i32 =  this.game.Data.MapObj[map2].HexObj[x1, y1].RoadType[index2];
@@ -13707,7 +13707,7 @@ label_8:
         if (this.game.AllowHeightMap & val1_1 < 9999)
         {
           let mut num: i32 =  this.game.Data.MapObj[0].HexObj[x2, y2].HeightLevel - this.game.Data.MapObj[0].HexObj[x1, y1].HeightLevel;
-          int index8;
+          index8: i32;
           if (num > 0)
           {
             if (!flag3)
@@ -13949,7 +13949,7 @@ label_8:
       return coordinate1;
     }
 
-    pub int GetLogisticalBonus(int x1, int y1, int lisMode)
+    pub GetLogisticalBonus: i32(x1: i32, y1: i32, lisMode: i32)
     {
       let mut location: i32 =  this.game.Data.MapObj[0].HexObj[x1, y1].Location;
       let mut logisticalBonus: i32 =  0;
@@ -13965,7 +13965,7 @@ label_8:
       }
       if (this.game.Data.Product >= 7 &  this.game.Data.RuleVar[403] > 0.0)
       {
-        int num;
+        num: i32;
         if (lisMode > 0 & lisMode <= 99 & location > -1)
         {
           num = 0;
@@ -13999,7 +13999,7 @@ label_8:
       return logisticalBonus;
     }
 
-    pub void MakeMovePredictionSimple(int regnr, int movetype, int x, int y)
+    pub fn MakeMovePredictionSimple(regnr: i32, movetype: i32, x: i32, y: i32)
     {
       Coordinate[] arySrc1 = new Coordinate[1];
       bool[] arySrc2 = new bool[1];
@@ -14061,7 +14061,7 @@ label_8:
                   if (index3 == -1)
                   {
                     num2 += 1;
-                    int num9;
+                    num9: i32;
                     if (num2 > num9)
                     {
                       num9 += 2000;
@@ -14092,13 +14092,13 @@ label_8:
     }
 
     pub CoordList MakeMovePrediction2(
-      int byregnr,
-      int movetype,
-      int theater,
-      int ap,
-      int x,
-      int y,
-      int map,
+      byregnr: i32,
+      movetype: i32,
+      theater: i32,
+      ap: i32,
+      x: i32,
+      y: i32,
+      map: i32,
       bool checkairfield = true,
       bool dontenterenemy = true,
       bool allowshoredrop = false,
@@ -14160,7 +14160,7 @@ label_8:
         if (num3 == 1)
           return coordList1;
       }
-      int type;
+      type: i32;
       if (theater == 1)
       {
         let mut num4: i32 =  0;
@@ -14236,7 +14236,7 @@ label_8:
                   Coordinate coordinate2 = this.MoveApCostPreview2(x, y, byregnr, movetype, theater, arySrc1[index1].x, arySrc1[index1].y, arySrc1[index1].map, coordinate1.x, coordinate1.y, coordinate1.map, dontenterenemy, allowshoredrop, NoAPPenalties, SeaBlock, BlockAllSea, istransfer, EngineerTest, EnemyPenalty, IsForSupplyLayer, redux, DontCountEnemyRoads, NoBridgePenalty, UseCounterOwner, UseTempOwner, overruleRoadType, BridgeAP, SFTypeX, PreviousAPspent, SFTypeQty, tfacing - 1, roadsOnly, alwaysUseLogisticalBonus, useTrafficRules, blockLogisticalBonus, lisMode, trafficPointMod, specialRuleNumber, specialRuleNumber2);
                   if (coordinate2.data2 > data2)
                     data2 = coordinate2.data2;
-                  int num10;
+                  num10: i32;
                   if (coordinate2.x >= 9999)
                     num10 = 0;
                   else if (data2 >= coordinate2.x)
@@ -14287,7 +14287,7 @@ label_8:
                     if (index3 == -1)
                     {
                       num1 += 1;
-                      int num14;
+                      num14: i32;
                       if (num1 > num14)
                       {
                         num14 += 100;
@@ -14366,13 +14366,13 @@ label_8:
 
     pub CoordList MakeMovePrediction2_multiStart(
       CoordList tCoordList,
-      int byregnr,
-      int movetype,
-      int theater,
-      int ap,
-      int x,
-      int y,
-      int map,
+      byregnr: i32,
+      movetype: i32,
+      theater: i32,
+      ap: i32,
+      x: i32,
+      y: i32,
+      map: i32,
       bool checkairfield = true,
       bool dontenterenemy = true,
       bool allowshoredrop = false,
@@ -14440,7 +14440,7 @@ label_8:
         if (num2 == 1)
           return coordList1;
       }
-      int type;
+      type: i32;
       if (theater == 1)
       {
         let mut num3: i32 =  0;
@@ -14516,7 +14516,7 @@ label_8:
                   Coordinate coordinate2 = this.MoveApCostPreview2(x, y, byregnr, movetype, theater, arySrc1[index1].x, arySrc1[index1].y, arySrc1[index1].map, coordinate1.x, coordinate1.y, coordinate1.map, dontenterenemy, allowshoredrop, NoAPPenalties, SeaBlock, BlockAllSea, istransfer, EngineerTest, EnemyPenalty, IsForSupplyLayer, redux, DontCountEnemyRoads, NoBridgePenalty, UseCounterOwner, UseTempOwner, overruleRoadType, BridgeAP, SFTypeX, PreviousAPspent, SFTypeQty, tfacing - 1, roadsOnly, alwaysUseLogisticalBonus, useTrafficRules, blockLogisticalBonus, lisMode, trafficPointMod, specialRuleNumber, specialRuleNumber2);
                   if (coordinate2.data2 > data2)
                     data2 = coordinate2.data2;
-                  int num9;
+                  num9: i32;
                   if (coordinate2.x >= 9999)
                     num9 = 0;
                   else if (data2 >= coordinate2.x)
@@ -14643,7 +14643,7 @@ label_8:
       return coordList1;
     }
 
-    pub CanAddTroops: bool(int unr, int sftype, int ppl, int MoveType)
+    pub CanAddTroops: bool(unr: i32, sftype: i32, ppl: i32, MoveType: i32)
     {
       if ( this.game.Data.RuleVar[331] == 1.0)
         return this.game.Data.UnitObj[unr].SFCount > -1 && this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[0]].Type == sftype && !this.game.Data.SFTypeObj[sftype].Unique;
@@ -14661,14 +14661,14 @@ label_8:
     }
 
     pub void AddTroops3(
-      int unr,
-      int SfType,
-      int Peopletype,
-      int Qty,
-      int Xp,
-      int Rdn,
-      int Ap,
-      int Mor,
+      unr: i32,
+      SfType: i32,
+      Peopletype: i32,
+      Qty: i32,
+      Xp: i32,
+      Rdn: i32,
+      Ap: i32,
+      Mor: i32,
       let mut tsc: i32 =  -1,
       let mut entr: i32 =  0,
       let mut offmod: i32 =  0,
@@ -14685,11 +14685,11 @@ label_8:
       }
       if (unr == 106)
         unr = unr;
-      int sf;
+      sf: i32;
       if (tsc > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-        int num2;
+        num2: i32;
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           sf = this.game.Data.UnitObj[unr].SFList[index];
@@ -14709,7 +14709,7 @@ label_8:
         if (0 > this.game.Data.UnitObj[unr].SupplyConsume)
           this.game.Data.UnitObj[unr].SupplyConsume = 0;
       }
-      int num4;
+      num4: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         num4 = -1;
@@ -14772,10 +14772,10 @@ label_8:
       }
     }
 
-    pub void RemoveTroops(int unr, int sftype, int peopletype, int qty, int MoveType)
+    pub fn RemoveTroops(unr: i32, sftype: i32, peopletype: i32, qty: i32, MoveType: i32)
     {
       let mut num: i32 =  -1;
-      int sf;
+      sf: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -14800,7 +14800,7 @@ label_8:
       this.game.Data.ChangeSFNr(Conversions.ToInteger(obj), -1);
     }
 
-    pub void RemoveTroopsRandom(int unr, int qty)
+    pub fn RemoveTroopsRandom(unr: i32, qty: i32)
     {
       SimpleList simpleList = SimpleList::new();
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -14823,7 +14823,7 @@ label_8:
       this.game.Data.ChangeSFNr(Conversions.ToInteger(obj), -1);
     }
 
-    pub int GetLowestAp(int unr, bool notair = false)
+    pub GetLowestAp: i32(unr: i32, bool notair = false)
     {
       let mut lowestAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14841,7 +14841,7 @@ label_8:
       return lowestAp;
     }
 
-    pub int GetLowestMoveCostForAI(int unr, bool notair = false)
+    pub GetLowestMoveCostForAI: i32(unr: i32, bool notair = false)
     {
       let mut lowestMoveCostForAi: i32 =  9999;
       if (this.game.Data.RoadTypeCounter == -1)
@@ -14861,7 +14861,7 @@ label_8:
       return lowestMoveCostForAi;
     }
 
-    pub int GetLowestAirAp(int unr)
+    pub GetLowestAirAp: i32(unr: i32)
     {
       let mut lowestAirAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14876,7 +14876,7 @@ label_8:
       return lowestAirAp;
     }
 
-    pub int GetLowestAirApRule(int unr)
+    pub GetLowestAirApRule: i32(unr: i32)
     {
       let mut lowestAirApRule: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14891,7 +14891,7 @@ label_8:
       return lowestAirApRule;
     }
 
-    pub int GetLowestAirRdn(int unr, bool frontlineonly = false)
+    pub GetLowestAirRdn: i32(unr: i32, bool frontlineonly = false)
     {
       let mut lowestAirRdn: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14909,7 +14909,7 @@ label_8:
       return lowestAirRdn;
     }
 
-    pub int GetLowestlandartAp(int unr, int dist)
+    pub GetLowestlandartAp: i32(unr: i32, dist: i32)
     {
       let mut lowestlandartAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14925,7 +14925,7 @@ label_8:
       return lowestlandartAp;
     }
 
-    pub int GetLowestlandDirectAp(int unr, int dist)
+    pub GetLowestlandDirectAp: i32(unr: i32, dist: i32)
     {
       let mut lowestlandDirectAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14941,7 +14941,7 @@ label_8:
       return lowestlandDirectAp;
     }
 
-    pub int GetLowestseaartAp(int unr, int dist)
+    pub GetLowestseaartAp: i32(unr: i32, dist: i32)
     {
       let mut lowestseaartAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -15056,9 +15056,9 @@ label_8:
     }
 
     pub CanProduceItemResult CanProduceItem(
-      int locnr,
-      int regnr,
-      int itemtypenr,
+      locnr: i32,
+      regnr: i32,
+      itemtypenr: i32,
       let mut sfpplnr: i32 =  -1,
       bool recurse = false,
       bool doblocks = true)
@@ -15074,7 +15074,7 @@ label_8:
         produceItemResult.result = false;
         return produceItemResult;
       }
-      int type;
+      type: i32;
       if (locnr > -1)
       {
         type = this.game.Data.LocObj[locnr].Type;
@@ -15207,9 +15207,9 @@ label_8:
       return produceItemResult;
     }
 
-    pub int GetCarryCapPts(int unr, int theater)
+    pub GetCarryCapPts: i32(unr: i32, theater: i32)
     {
-      int carryCapPts;
+      carryCapPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15224,7 +15224,7 @@ label_8:
       return carryCapPts;
     }
 
-    pub int GetLocTypeItemTypesAmmount(int loctype)
+    pub GetLocTypeItemTypesAmmount: i32(loctype: i32)
     {
       let mut itemTypesAmmount: i32 =  0;
       let mut index: i32 =  0;
@@ -15238,9 +15238,9 @@ label_8:
       return itemTypesAmmount;
     }
 
-    pub int GetPowerPtsAbsolute(int unr, bool onlyland = false, bool stafftoo = true)
+    pub GetPowerPtsAbsolute: i32(unr: i32, bool onlyland = false, bool stafftoo = true)
     {
-      int powerPtsAbsolute;
+      powerPtsAbsolute: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15255,10 +15255,10 @@ label_8:
       return powerPtsAbsolute;
     }
 
-    pub int GetPowerPtsAbsoluteForWholeChainOfCommand(int hqnr, bool onlyland = false, bool stafftoo = true)
+    pub GetPowerPtsAbsoluteForWholeChainOfCommand: i32(hqnr: i32, bool onlyland = false, bool stafftoo = true)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int wholeChainOfCommand;
+      wholeChainOfCommand: i32;
       for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
       {
         if (this.game.Data.UnitObj[unr].Regime == this.game.Data.UnitObj[hqnr].Regime && this.game.Data.UnitObj[unr].PreDef == -1 && this.IsUnitInHQChain(unr, hqnr) | hqnr == unr && this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15276,9 +15276,9 @@ label_8:
       return wholeChainOfCommand;
     }
 
-    pub int GetPowerPtsAbsoluteForAirOnly(int unr)
+    pub GetPowerPtsAbsoluteForAirOnly: i32(unr: i32)
     {
-      int absoluteForAirOnly;
+      absoluteForAirOnly: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15293,9 +15293,9 @@ label_8:
       return absoluteForAirOnly;
     }
 
-    pub int GetAirCarryCapPts(int unr)
+    pub GetAirCarryCapPts: i32(unr: i32)
     {
-      int airCarryCapPts;
+      airCarryCapPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15310,9 +15310,9 @@ label_8:
       return airCarryCapPts;
     }
 
-    pub int GetAntiStrucPts(int unr)
+    pub GetAntiStrucPts: i32(unr: i32)
     {
-      int antiStrucPts;
+      antiStrucPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15326,7 +15326,7 @@ label_8:
       return antiStrucPts;
     }
 
-    pub int GetUnitSFNr(int unr, int Sftyp2, int ppl)
+    pub GetUnitSFNr: i32(unr: i32, Sftyp2: i32, ppl: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
@@ -15341,9 +15341,9 @@ label_8:
       return -1;
     }
 
-    pub int GetBlowBridgePts(int unr)
+    pub GetBlowBridgePts: i32(unr: i32)
     {
-      int blowBridgePts;
+      blowBridgePts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15362,9 +15362,9 @@ label_8:
       return blowBridgePts;
     }
 
-    pub int GetAirCarryCapPtsOccupied(int unr)
+    pub GetAirCarryCapPtsOccupied: i32(unr: i32)
     {
-      int carryCapPtsOccupied;
+      carryCapPtsOccupied: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -15379,7 +15379,7 @@ label_8:
       return carryCapPtsOccupied;
     }
 
-    pub CanUnitMove: bool(int unr, bool ignoreFuel = false)
+    pub CanUnitMove: bool(unr: i32, bool ignoreFuel = false)
     {
       let mut lowestAp: i32 =  this.GetLowestAp(unr);
       if (this.game.Data.UnitObj[unr].LastAP == lowestAp)
@@ -15522,7 +15522,7 @@ label_8:
       return Encoding.Unicode.GetString(decryptor.TransformFinalBlock(inputBuffer, 0, inputBuffer.Length));
     }
 
-    pub CanUnitMoveFreeCheck: bool(int unr, bool ignoreFuel = false)
+    pub CanUnitMoveFreeCheck: bool(unr: i32, bool ignoreFuel = false)
     {
       this.GetLowestAp(unr);
       if (this.game.Data.UnitObj[unr].X == -1)
@@ -15537,7 +15537,7 @@ label_8:
       return this.HasUnitAirSF(unr) & this.HasUnitNavySF(unr) && this.GetLowestAp(unr, true) > 0;
     }
 
-    pub CanUnitMove2: bool(int unr)
+    pub CanUnitMove2: bool(unr: i32)
     {
       let mut lowestAp: i32 =  this.GetLowestAp(unr);
       if (this.game.Data.UnitObj[unr].LastAP == lowestAp)
@@ -15567,7 +15567,7 @@ label_8:
       return true;
     }
 
-    pub CanUnitBuild: bool(int unr)
+    pub CanUnitBuild: bool(unr: i32)
     {
       this.GetUnitEP(unr);
       let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
@@ -15579,7 +15579,7 @@ label_8:
       return false;
     }
 
-    pub CanUnitInfra: bool(int unr)
+    pub CanUnitInfra: bool(unr: i32)
     {
       let mut x1: i32 =  this.game.Data.UnitObj[unr].X;
       let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
@@ -15594,7 +15594,7 @@ label_8:
           if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad)
           {
             Coordinate coordinate2;
-            int x2;
+            x2: i32;
             if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x1, y, map, coordinate1.x, coordinate1.y, coordinate1.map, true, IgnoreBridges: true);
@@ -15629,7 +15629,7 @@ label_8:
       return false;
     }
 
-    pub CanUnitIntercept: bool(int unr, Coordinate target, int vsregime)
+    pub CanUnitIntercept: bool(unr: i32, Coordinate target, vsregime: i32)
     {
       if (this.game.Data.UnitObj[unr].SOInterceptRdnStop >= this.GetAverageAirRdn(unr))
         return false;
@@ -15690,7 +15690,7 @@ label_8:
       return false;
     }
 
-    pub CanUnitAA: bool(int unr, Coordinate target, int vsregime)
+    pub CanUnitAA: bool(unr: i32, Coordinate target, vsregime: i32)
     {
       let mut index1: i32 =  vsregime;
       let mut num: i32 =  1;
@@ -15713,7 +15713,7 @@ label_8:
       return false;
     }
 
-    pub HasUnitAirSF: bool(int unr, bool nonbackbench = false, bool testSOrdn = false, bool UseInitialSO = false)
+    pub HasUnitAirSF: bool(unr: i32, bool nonbackbench = false, bool testSOrdn = false, bool UseInitialSO = false)
     {
       let mut num1: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15737,8 +15737,8 @@ label_8:
     }
 
     pub HasUnitAirSF: bool(
-      int unr,
-      DataClass data,
+      unr: i32,
+      data: DataClass,
       bool nonbackbench = false,
       bool testSOrdn = false,
       bool UseInitialSO = false)
@@ -15764,7 +15764,7 @@ label_8:
       return num1 > 0;
     }
 
-    pub HasUnitOnlyParaLandSF: bool(int unr)
+    pub HasUnitOnlyParaLandSF: bool(unr: i32)
     {
       let mut num1: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15785,7 +15785,7 @@ label_8:
       return num1 == 0;
     }
 
-    pub HasUnitNavySF: bool(int unr)
+    pub HasUnitNavySF: bool(unr: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15800,7 +15800,7 @@ label_8:
       return num > 0;
     }
 
-    pub HasUnitNavySF: bool(int unr, DataClass data)
+    pub HasUnitNavySF: bool(unr: i32, data: DataClass)
     {
       let mut num: i32 =  0;
       if (data.UnitObj[unr].SFCount > -1)
@@ -15817,7 +15817,7 @@ label_8:
       return num > 0;
     }
 
-    pub int HasUnitAA(int unr)
+    pub HasUnitAA: i32(unr: i32)
     {
       let mut num: i32 =  -1;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15835,7 +15835,7 @@ label_8:
       return num >= 0 ? num : -1;
     }
 
-    pub HasUnitlandSF: bool(int unr)
+    pub HasUnitlandSF: bool(unr: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15850,7 +15850,7 @@ label_8:
       return num > 0;
     }
 
-    pub HasUnitSFType: bool(int unr, int typ)
+    pub HasUnitSFType: bool(unr: i32, typ: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15865,7 +15865,7 @@ label_8:
       return num > 0;
     }
 
-    pub HasUnitSFTypeVar: bool(int unr, int varType, let mut equalOrAbove: i32 =  -1, let mut equalOrBelow: i32 =  -1)
+    pub HasUnitSFTypeVar: bool(unr: i32, varType: i32, let mut equalOrAbove: i32 =  -1, let mut equalOrBelow: i32 =  -1)
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15881,7 +15881,7 @@ label_8:
       return num > 0;
     }
 
-    pub HasUnitArtSF: bool(int unr, DataClass data)
+    pub HasUnitArtSF: bool(unr: i32, data: DataClass)
     {
       let mut num: i32 =  0;
       if (data.UnitObj[unr].SFCount > -1)
@@ -15898,7 +15898,7 @@ label_8:
       return num > 0;
     }
 
-    pub int GetUnitBestArtRange(int unr, DataClass data)
+    pub GetUnitBestArtRange: i32(unr: i32, data: DataClass)
     {
       let mut unitBestArtRange: i32 =  0;
       if (data.UnitObj[unr].SFCount > -1)
@@ -15915,7 +15915,7 @@ label_8:
       return unitBestArtRange;
     }
 
-    pub CanDoArtAttack: bool(int unr, Coordinate target, bool Prognosis)
+    pub CanDoArtAttack: bool(unr: i32, Coordinate target, bool Prognosis)
     {
       if (this.game.Data.UnitObj[unr].PreDef > -1)
       {
@@ -15931,7 +15931,7 @@ label_8:
       return false;
     }
 
-    pub CanDoDirectAttack: bool(int unr, Coordinate target, bool Prognosis)
+    pub CanDoDirectAttack: bool(unr: i32, Coordinate target, bool Prognosis)
     {
       if (this.game.Data.UnitObj[unr].PreDef > -1)
       {
@@ -15956,7 +15956,7 @@ label_8:
       return false;
     }
 
-    pub CanDoSeaArtAttack: bool(int unr, Coordinate target)
+    pub CanDoSeaArtAttack: bool(unr: i32, Coordinate target)
     {
       if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn & this.game.Data.UnitObj[unr].Map == target.map)
       {
@@ -15967,11 +15967,11 @@ label_8:
       return false;
     }
 
-    pub CanDoSeaAttack: bool(int unr, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
+    pub CanDoSeaAttack: bool(unr: i32, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
 
-    pub CanDoLandAttack: bool(int unr, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) &&  this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
+    pub CanDoLandAttack: bool(unr: i32, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) &&  this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
 
-    pub OrderResult CanDoLandAttack2(int unr, Coordinate target)
+    pub OrderResult CanDoLandAttack2(unr: i32, Coordinate target)
     {
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = false;
@@ -16008,9 +16008,9 @@ label_8:
       return orderResult;
     }
 
-    pub int CurrentAttackStack()
+    pub CurrentAttackStack: i32()
     {
-      int num;
+      num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
       {
         let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
@@ -16023,9 +16023,9 @@ label_8:
       return num;
     }
 
-    pub int CurrentAttackStackAir()
+    pub CurrentAttackStackAir: i32()
     {
-      int num;
+      num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
       {
         let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
@@ -16038,9 +16038,9 @@ label_8:
       return num;
     }
 
-    pub int CurrentAttackStackart()
+    pub CurrentAttackStackart: i32()
     {
-      int num;
+      num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
       {
         let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
@@ -16053,7 +16053,7 @@ label_8:
       return num;
     }
 
-    pub int maxAttackStack()
+    pub maxAttackStack: i32()
     {
       int[] numArray = new int[6];
       if (this.game.EditObj.TempUnitList.counter > -1)
@@ -16071,7 +16071,7 @@ label_8:
         }
       }
       let mut index: i32 =  0;
-      int num1;
+      num1: i32;
       do
       {
         if (numArray[index] > 0)
@@ -16086,7 +16086,7 @@ label_8:
       return num1;
     }
 
-    pub int maxAttackStackPrognosis(bool facingInData2 = false)
+    pub maxAttackStackPrognosis: i32(bool facingInData2 = false)
     {
       int[] numArray = new int[6];
       if (Information.IsNothing( this.game.EditObj.TempUnitList))
@@ -16114,7 +16114,7 @@ label_8:
         }
       }
       let mut index: i32 =  0;
-      int num1;
+      num1: i32;
       do
       {
         if (numArray[index] > 0)
@@ -16129,7 +16129,7 @@ label_8:
       return num1;
     }
 
-    pub CanDoAirStrike: bool(int unr, Coordinate target)
+    pub CanDoAirStrike: bool(unr: i32, Coordinate target)
     {
       bool flag = false;
       if (this.game.Data.Product == 7 && this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(unr) < 1)
@@ -16160,7 +16160,7 @@ label_8:
       return false;
     }
 
-    pub int GetMaxArtRange(int unr, int temptheater)
+    pub GetMaxArtRange: i32(unr: i32, temptheater: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16175,7 +16175,7 @@ label_8:
       return maxArtRange;
     }
 
-    pub int GetMaxAARange(int unr)
+    pub GetMaxAARange: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16190,7 +16190,7 @@ label_8:
       return maxAaRange;
     }
 
-    pub int GetMaxAirRange(int unr)
+    pub GetMaxAirRange: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16206,10 +16206,10 @@ label_8:
     }
 
     pub AIMatrix AutoMoveLongRangeMatrix(
-      int targetX,
-      int targetY,
-      int width,
-      int height)
+      targetX: i32,
+      targetY: i32,
+      width: i32,
+      height: i32)
     {
       AIMatrix aiMatrix1 = new AIMatrix( this.game.DC2AIObj, width, height, 0, 0);
       AIMatrix aiMatrix2 = new AIMatrix( this.game.DC2AIObj, width, height, 0, 0);
@@ -16224,7 +16224,7 @@ label_8:
           aiMatrix2.Value[index1, index2] = 99999;
       }
       aiMatrix2.Value[targetX, targetY] = 1;
-      int num4;
+      num4: i32;
       do
       {
         num4 = 0;
@@ -16275,7 +16275,7 @@ label_8:
       return aiMatrix2;
     }
 
-    pub int GetMaxDirectRange(int unr, int temptheater)
+    pub GetMaxDirectRange: i32(unr: i32, temptheater: i32)
     {
       if ( this.game.Data.RuleVar[419] < 1.0 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16290,7 +16290,7 @@ label_8:
       return maxDirectRange;
     }
 
-    pub int HexAverageEntrenchment(int x, int y)
+    pub HexAverageEntrenchment: i32(x: i32, y: i32)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -16312,7 +16312,7 @@ label_8:
       return num2 <= 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
-    pub int GetArtPercent(int unr, bool useHis)
+    pub GetArtPercent: i32(unr: i32, bool useHis)
     {
       if (useHis & this.game.Data.UnitObj[unr].HistoricalSubPart > -1 & this.game.Data.UnitObj[unr].Historical > -1)
       {
@@ -16323,8 +16323,8 @@ label_8:
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type;
@@ -16341,7 +16341,7 @@ label_8:
       return  Math.Round( (num1 * 100) /  num2);
     }
 
-    pub int GetDirectPercent(int unr, bool useHis)
+    pub GetDirectPercent: i32(unr: i32, bool useHis)
     {
       if (useHis & this.game.Data.UnitObj[unr].HistoricalSubPart > -1 & this.game.Data.UnitObj[unr].Historical > -1)
       {
@@ -16352,8 +16352,8 @@ label_8:
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type;
@@ -16370,7 +16370,7 @@ label_8:
       return  Math.Round( (num1 * 100) /  num2);
     }
 
-    pub IsHexHarbourOrSea: bool(int x, int y, int map)
+    pub IsHexHarbourOrSea: bool(x: i32, y: i32, map: i32)
     {
       if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
         return true;
@@ -16378,7 +16378,7 @@ label_8:
       return location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].IsPort;
     }
 
-    pub IsHexHarbourOrSea: bool(int x, int y, int map, DataClass Data)
+    pub IsHexHarbourOrSea: bool(x: i32, y: i32, map: i32, Data: DataClass)
     {
       if (Data.LandscapeTypeObj[Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
         return true;
@@ -16389,7 +16389,7 @@ label_8:
       return Data.LocTypeObj[type].IsPort;
     }
 
-    pub IsHexNextToSea: bool(int x, int y, int map)
+    pub IsHexNextToSea: bool(x: i32, y: i32, map: i32)
     {
       let mut tfacing: i32 =  1;
       do
@@ -16403,7 +16403,7 @@ label_8:
       return false;
     }
 
-    pub IsHexNextOnOrNextToFriendlyLoc: bool(int x, int y, int map)
+    pub IsHexNextOnOrNextToFriendlyLoc: bool(x: i32, y: i32, map: i32)
     {
       if (this.game.Data.MapObj[0].HexObj[x, y].Location > -1)
         return true;
@@ -16419,7 +16419,7 @@ label_8:
       return false;
     }
 
-    pub IsHexAirfield: bool(int x, int y, int map)
+    pub IsHexAirfield: bool(x: i32, y: i32, map: i32)
     {
       if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
         return false;
@@ -16427,7 +16427,7 @@ label_8:
       return location > -1 && (this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].IsAirfield || this.game.Data.LocObj[location].isAirfield);
     }
 
-    pub IsHexAirfield: bool(int x, int y, int map, DataClass data)
+    pub IsHexAirfield: bool(x: i32, y: i32, map: i32, data: DataClass)
     {
       if (data.LandscapeTypeObj[data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
         return false;
@@ -16438,7 +16438,7 @@ label_8:
       return data.LocTypeObj[type].IsAirfield || this.game.Data.LocObj[location].isAirfield;
     }
 
-    pub IsHexPort: bool(int x, int y, int map)
+    pub IsHexPort: bool(x: i32, y: i32, map: i32)
     {
       if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
         return false;
@@ -16446,7 +16446,7 @@ label_8:
       return location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].IsPort;
     }
 
-    pub CanAddRoadToHex: bool(int x, int y, int map, int hq, CoordList tlist)
+    pub CanAddRoadToHex: bool(x: i32, y: i32, map: i32, hq: i32, CoordList tlist)
     {
       if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].CanBuildRoad)
         return false;
@@ -16464,7 +16464,7 @@ label_8:
       return map == tlist.coord[tlist.counter].map && this.Distance(tlist.coord[tlist.counter].x, tlist.coord[tlist.counter].y, tlist.coord[tlist.counter].map, x, y, map) <= 1;
     }
 
-    pub CanConstructBridge: bool(int hq, int x, int y, int map, int facing)
+    pub CanConstructBridge: bool(hq: i32, x: i32, y: i32, map: i32, facing: i32)
     {
       if (facing != -1 && this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing] || facing != -1 && (this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing] == -1 ||  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier < 0.0))
         return false;
@@ -16489,19 +16489,19 @@ label_8:
       return true;
     }
 
-    pub CanBlowBridge: bool(int hq, int x, int y, int map, int facing)
+    pub CanBlowBridge: bool(hq: i32, x: i32, y: i32, map: i32, facing: i32)
     {
       this.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime,  Math.Round( this.game.Data.RuleVar[0]), 0,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
       return this.game.EditObj.TempValue[map].Value[x, y] <= 9998 && this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing];
     }
 
     pub CanConstructLoc: bool(
-      int loctype,
-      int x,
-      int y,
-      int map,
-      int regnr,
-      int unr,
+      loctype: i32,
+      x: i32,
+      y: i32,
+      map: i32,
+      regnr: i32,
+      unr: i32,
       bool potentialy = false)
     {
       if (!this.game.Data.LocTypeObj[loctype].Buildable || this.game.Data.LocTypeObj[loctype].SlotType > -1 && this.game.Data.MapObj[map].HexObj[x, y].AreaCode[this.game.Data.LocTypeObj[loctype].SlotType] != this.game.Data.LocTypeObj[loctype].SlotValue)
@@ -16546,7 +16546,7 @@ label_8:
       return false;
     }
 
-    pub int GetVisibleHisVar(int his)
+    pub GetVisibleHisVar: i32(his: i32)
     {
       let mut visibleHisVar: i32 =  0;
       let mut hisVarCount: i32 =  this.game.Data.HistoricalUnitObj[his].HisVarCount;
@@ -16558,14 +16558,14 @@ label_8:
       return visibleHisVar;
     }
 
-    pub int GetRegimeHistoryTotSteps(int regnr)
+    pub GetRegimeHistoryTotSteps: i32(regnr: i32)
     {
       if (this.game.Data.RegimeObj[regnr].HistoryStepCounter == -1)
         return -1;
       let mut num1: i32 =  -1;
-      int num2;
+      num2: i32;
       let mut num3: i32 =  num2;
-      int regimeHistoryTotSteps;
+      regimeHistoryTotSteps: i32;
       try
       {
         let mut historyStepCounter: i32 =  this.game.Data.RegimeObj[regnr].HistoryStepCounter;
@@ -16588,7 +16588,7 @@ label_8:
       return regimeHistoryTotSteps;
     }
 
-    pub int CheckCargoLoss(int unr,  UnitList UL, int Attacker, int Defender)
+    pub CheckCargoLoss: i32(unr: i32,  UnitList UL, Attacker: i32, Defender: i32)
     {
       let mut x: i32 =  this.game.Data.UnitObj[unr].X;
       let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
@@ -16639,9 +16639,9 @@ label_8:
       return num1;
     }
 
-    pub int DoLoseCargo(int unr, float loss, int Attacker, int Defender)
+    pub DoLoseCargo: i32(unr: i32, float loss, Attacker: i32, Defender: i32)
     {
-      int num1;
+      num1: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
@@ -16653,8 +16653,8 @@ label_8:
             let mut num2: i32 =   Math.Round( Conversion.Int( this.game.Data.SFObj[sf].Qty * loss)) + 1;
             if (num2 > this.game.Data.SFObj[sf].Qty)
               num2 = this.game.Data.SFObj[sf].Qty;
-            int index1;
-            int index2;
+            index1: i32;
+            index2: i32;
             if (this.game.Data.UnitObj[unr].Regime == Attacker)
             {
               index1 = Attacker;
@@ -16667,8 +16667,8 @@ label_8:
             }
             if (index2 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index3: i32 =  type;
               let mut index4: i32 =  index3;
               let mut index5: i32 =  this.game.Data.Round + 1;
@@ -16678,8 +16678,8 @@ label_8:
             }
             else
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index7: i32 =  type;
               let mut index8: i32 =  index7;
               let mut round: i32 =  this.game.Data.Round;
@@ -16689,8 +16689,8 @@ label_8:
             }
             if (index1 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index10: i32 =  type;
               let mut index11: i32 =  index10;
               let mut index12: i32 =  this.game.Data.Round + 1;
@@ -16700,8 +16700,8 @@ label_8:
             }
             else
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index14: i32 =  type;
               let mut index15: i32 =  index14;
               let mut round: i32 =  this.game.Data.Round;
@@ -16711,8 +16711,8 @@ label_8:
             }
             if (index1 == Attacker)
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index17: i32 =  type;
               let mut index18: i32 =  index17;
               let mut index19: i32 =  0;
@@ -16722,8 +16722,8 @@ label_8:
             }
             if (index2 == Attacker)
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index21: i32 =  type;
               let mut index22: i32 =  index21;
               let mut index23: i32 =  0;
@@ -16755,9 +16755,9 @@ label_8:
       return num1 < 1 ? 1 : 0;
     }
 
-    pub int DoLoseCargoAircraft(int unr, float loss, int Attacker, int Defender)
+    pub DoLoseCargoAircraft: i32(unr: i32, float loss, Attacker: i32, Defender: i32)
     {
-      int num1;
+      num1: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
@@ -16769,8 +16769,8 @@ label_8:
             let mut num2: i32 =   Math.Round( Conversion.Int( this.game.Data.SFObj[sf].Qty * loss)) + 1;
             if (num2 > this.game.Data.SFObj[sf].Qty)
               num2 = this.game.Data.SFObj[sf].Qty;
-            int index1;
-            int index2;
+            index1: i32;
+            index2: i32;
             if (this.game.Data.UnitObj[unr].Regime == Attacker)
             {
               index1 = Attacker;
@@ -16783,8 +16783,8 @@ label_8:
             }
             if (index2 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index3: i32 =  type;
               let mut index4: i32 =  index3;
               let mut index5: i32 =  this.game.Data.Round + 1;
@@ -16794,8 +16794,8 @@ label_8:
             }
             else
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index7: i32 =  type;
               let mut index8: i32 =  index7;
               let mut round: i32 =  this.game.Data.Round;
@@ -16805,8 +16805,8 @@ label_8:
             }
             if (index1 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index10: i32 =  type;
               let mut index11: i32 =  index10;
               let mut index12: i32 =  this.game.Data.Round + 1;
@@ -16816,8 +16816,8 @@ label_8:
             }
             else
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index14: i32 =  type;
               let mut index15: i32 =  index14;
               let mut round: i32 =  this.game.Data.Round;
@@ -16827,8 +16827,8 @@ label_8:
             }
             if (index1 == Attacker)
             {
-              int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
-              int[,] numArray = sloss;
+              sloss: Vec<i32> = this.game.Data.RegimeObj[index1].SLoss;
+              numArray: Vec<i32> = sloss;
               let mut index17: i32 =  type;
               let mut index18: i32 =  index17;
               let mut index19: i32 =  0;
@@ -16838,8 +16838,8 @@ label_8:
             }
             if (index2 == Attacker)
             {
-              int[,] skills = this.game.Data.RegimeObj[index2].SKills;
-              int[,] numArray = skills;
+              skills: Vec<i32> = this.game.Data.RegimeObj[index2].SKills;
+              numArray: Vec<i32> = skills;
               let mut index21: i32 =  type;
               let mut index22: i32 =  index21;
               let mut index23: i32 =  0;
@@ -16863,7 +16863,7 @@ label_8:
       return num1 < 1 ? 1 : 0;
     }
 
-    pub void ImportPreDefUnitsOnly(string filename, bool HisToo = false)
+    pub fn ImportPreDefUnitsOnly(string filename, bool HisToo = false)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -16905,7 +16905,7 @@ label_8:
               if (data.UnitObj[index2].PreDef == dataClass2.UnitObj[index1].PreDef)
                 num = index2;
             }
-            int unr;
+            unr: i32;
             if (num == -1)
             {
               data += 1.UnitCounter;
@@ -17007,7 +17007,7 @@ label_8:
           for (let mut index: i32 =  0; index <= riverTypeCounter; index += 1)
             data.RiverTypeObj[index] = dataClass.RiverTypeObj[index];
         }
-        int num1;
+        num1: i32;
         if (dataClass.LocTypeCounter > data.LocTypeCounter)
         {
           num1 = data.LocTypeCounter;
@@ -17361,7 +17361,7 @@ label_8:
                 if (data.UnitObj[index20].PreDef == dataClass.UnitObj[index19].PreDef)
                   num3 = index20;
               }
-              int unr;
+              unr: i32;
               if (num3 == -1)
               {
                 data += 1.UnitCounter;
@@ -17451,7 +17451,7 @@ label_8:
       }
     }
 
-    pub void LoadHistoricalUnits(string filename)
+    pub fn LoadHistoricalUnits(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17488,7 +17488,7 @@ label_8:
       dataClass1 = (DataClass) null;
     }
 
-    pub void LoadUnitsByFullOverwrite(string filename)
+    pub fn LoadUnitsByFullOverwrite(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17540,12 +17540,12 @@ label_8:
       dataClass1 = (DataClass) null;
     }
 
-    pub Coordinate GetAverageHQCoordinate(int useHQ)
+    pub Coordinate GetAverageHQCoordinate(useHQ: i32)
     {
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
-      int num1;
-      int num2;
-      int num3;
+      num1: i32;
+      num2: i32;
+      num3: i32;
       for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
       {
         if (this.game.Data.UnitObj[unr].HQ == useHQ | unr == useHQ && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].PreDef == -1 && this.CanWeSeeUnit(unr, this.game.Data.Turn) > 0)
@@ -17605,7 +17605,7 @@ label_8:
       return averageHqCoordinate;
     }
 
-    pub void LoadSFTypes(string filename)
+    pub fn LoadSFTypes(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17718,7 +17718,7 @@ label_8:
       }
     }
 
-    pub void LoadLandscapeTypes(string filename)
+    pub fn LoadLandscapeTypes(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17774,7 +17774,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub void LoadItemTypes(string filename)
+    pub fn LoadItemTypes(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17799,7 +17799,7 @@ label_8:
           data.ItemTypeObj[index] = dataClass2.ItemTypeObj[index];
       }
       let mut itemTypeCounter1: i32 =  this.game.Data.ItemTypeCounter;
-      int Number;
+      Number: i32;
       for (let mut index1: i32 =  0; index1 <= itemTypeCounter1; index1 += 1)
       {
         let mut index2: i32 =  0;
@@ -17824,7 +17824,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub void LoadGameVars(string filename)
+    pub fn LoadGameVars(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18000,7 +18000,7 @@ label_8:
       return false;
     }
 
-    pub void LoadResearch(string filename)
+    pub fn LoadResearch(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18025,7 +18025,7 @@ label_8:
           data.ResearchObj[index] = dataClass2.ResearchObj[index];
       }
       let mut researchCounter1: i32 =  this.game.Data.ResearchCounter;
-      int Number;
+      Number: i32;
       for (let mut index: i32 =  0; index <= researchCounter1; index += 1)
       {
         let mut num: i32 =  0;
@@ -18050,7 +18050,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub void LoadLocTypes(string filename)
+    pub fn LoadLocTypes(string filename)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18075,7 +18075,7 @@ label_8:
           data.LocTypeObj[index] = dataClass2.LocTypeObj[index];
       }
       let mut locTypeCounter1: i32 =  this.game.Data.LocTypeCounter;
-      int Number;
+      Number: i32;
       for (let mut index1: i32 =  0; index1 <= locTypeCounter1; index1 += 1)
       {
         if (this.game.Data.LocTypeObj[index1].OnDestructLT > this.game.Data.LandscapeTypeCounter)
@@ -18118,7 +18118,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub void AlternateLoadMasterFile(string filename)
+    pub fn AlternateLoadMasterFile(string filename)
     {
       str: String = this.game.AppPath + "scenarios\\" + filename;
       this.Unzip(str);
@@ -18246,10 +18246,10 @@ label_8:
       dataClass1 = (DataClass) null;
     }
 
-    pub int GetRegimeVP(int regnr)
+    pub GetRegimeVP: i32(regnr: i32)
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
-      int regimeVp;
+      regimeVp: i32;
       for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
         let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
@@ -18262,21 +18262,21 @@ label_8:
       return regimeVp;
     }
 
-    pub void DoStrucPtsDammage(int x, int y, int map, int dam, bool onlytown = false, bool both = true)
+    pub fn DoStrucPtsDammage(x: i32, y: i32, map: i32, dam: i32, bool onlytown = false, bool both = true)
     {
       if ( this.game.Data.RuleVar[305] > 0.0)
       {
         onlytown = true;
         both = false;
       }
-      int index1;
-      int num1;
+      index1: i32;
+      num1: i32;
       if (onlytown | both && this.game.Data.MapObj[map].HexObj[x, y].Location > -1 && !this.game.Data.LocTypeObj[this.game.Data.LocObj[index1].Type].Invincible)
       {
-        int num2;
+        num2: i32;
         num1 = num2 + 1;
       }
-      int num3;
+      num3: i32;
       if (!onlytown | num1 == 0 | both)
       {
         let mut index2: i32 =  0;
@@ -18335,7 +18335,7 @@ label_9:
           }
           else
           {
-            EditClass editObj = this.game.EditObj;
+            editObj: EditClass = this.game.EditObj;
             editObj.CombatOneSentence = editObj.CombatOneSentence + ". Loc down to " + Strings.Trim(Conversion.Str( this.game.Data.LocObj[location].StructuralPts)) + " pts.";
           }
         }
@@ -18358,7 +18358,7 @@ label_9:
         if (this.game.Data.MapObj[map].HexObj[x, y].Bridge[index6] & this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6] > -1)
         {
           let mut Number: i32 =   Math.Round( (this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier));
-          EditClass editObj = this.game.EditObj;
+          editObj: EditClass = this.game.EditObj;
           editObj.CombatOneSentence = editObj.CombatOneSentence + Strings.Trim(Conversion.Str( dam)) + " vs Brid: " + Strings.Trim(Conversion.Str( Number));
           let mut num5: i32 =   Math.Round(Conversion.Int( dam * 0.5 *  VBMath.Rnd()) +  dam * 0.5);
           let mut num6: i32 =   Math.Round( VBMath.Rnd() *  this.game.Data.RuleVar[7] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier * 0.5 + 0.5 *  this.game.Data.RuleVar[7] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier);
@@ -18383,7 +18383,7 @@ label_9:
       while (index6 <= 5);
     }
 
-    pub HasHexBridge: bool(int x, int y, int map)
+    pub HasHexBridge: bool(x: i32, y: i32, map: i32)
     {
       let mut index: i32 =  0;
       while (!this.game.Data.MapObj[map].HexObj[x, y].Bridge[index])
@@ -18395,7 +18395,7 @@ label_9:
       return true;
     }
 
-    pub HasHexBrokenBridge: bool(int x, int y, int map)
+    pub HasHexBrokenBridge: bool(x: i32, y: i32, map: i32)
     {
       let mut index: i32 =  0;
       while (this.game.Data.MapObj[map].HexObj[x, y].RiverType[index] <= -1 || this.game.Data.MapObj[map].HexObj[x, y].Bridge[index] || this.game.Data.MapObj[map].HexObj[x, y].RoadType[index] <= -1)
@@ -18407,7 +18407,7 @@ label_9:
       return true;
     }
 
-    pub HasHexRiver: bool(int x, int y, int map)
+    pub HasHexRiver: bool(x: i32, y: i32, map: i32)
     {
       let mut index: i32 =  0;
       while (this.game.Data.MapObj[map].HexObj[x, y].RiverType[index] <= -1 || this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index]].drawInteriorOnly)
@@ -18419,7 +18419,7 @@ label_9:
       return true;
     }
 
-    pub HasHexRiverOrInteriorRiver: bool(int x, int y, int map)
+    pub HasHexRiverOrInteriorRiver: bool(x: i32, y: i32, map: i32)
     {
       let mut index: i32 =  0;
       while (this.game.Data.MapObj[map].HexObj[x, y].RiverType[index] <= -1)
@@ -18431,7 +18431,7 @@ label_9:
       return true;
     }
 
-    pub HasHexRiverExitingInIt: bool(int x, int y, int map)
+    pub HasHexRiverExitingInIt: bool(x: i32, y: i32, map: i32)
     {
       let mut tfacing: i32 =  1;
       while (this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1] <= -1)
@@ -18460,7 +18460,7 @@ label_9:
       return true;
     }
 
-    pub HasHexRoad: bool(int x, int y, int map)
+    pub HasHexRoad: bool(x: i32, y: i32, map: i32)
     {
       let mut index: i32 =  0;
       while (this.game.Data.MapObj[map].HexObj[x, y].RoadType[index] <= -1)
@@ -18472,7 +18472,7 @@ label_9:
       return true;
     }
 
-    pub int HexRoadCount(int x, int y, int map)
+    pub HexRoadCount: i32(x: i32, y: i32, map: i32)
     {
       let mut num: i32 =  0;
       let mut index: i32 =  0;
@@ -18486,7 +18486,7 @@ label_9:
       return num;
     }
 
-    pub int HexLowestRulevar99moveCost(int x, int y, int map)
+    pub HexLowestRulevar99moveCost: i32(x: i32, y: i32, map: i32)
     {
       let mut num1: i32 =  999;
       if ( this.game.Data.RuleVar[99] < 0.0 | this.game.Data.RoadTypeCounter == -1)
@@ -18598,7 +18598,7 @@ label_9:
       if (UL.counter <= -1)
         return  0;
       let mut counter: i32 =  UL.counter;
-      int hqsInUnitList;
+      hqsInUnitList: i32;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         let mut index2: i32 =  UL.unr[index1];
@@ -18635,7 +18635,7 @@ label_9:
       return  hqsInUnitList;
     }
 
-    pub int GetHQsInUnitList()
+    pub GetHQsInUnitList: i32()
     {
       let mut num: i32 =  -1;
       let mut hqsInUnitList: i32 =  0;
@@ -18696,7 +18696,7 @@ label_9:
         else
         {
           num5 += 1;
-          int num6;
+          num6: i32;
           num6 += 1;
         }
         index1 += 1;
@@ -18773,10 +18773,10 @@ label_9:
       return !multiplehq ? 1f + num11 : (!(forAI &  this.game.Data.RuleVar[993] > 0.0) ?  (1.0 +  num11 / 2.0) : 1f + num11);
     }
 
-    pub int GetNumberOfSubordinates(int hq)
+    pub GetNumberOfSubordinates: i32(hq: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int numberOfSubordinates;
+      numberOfSubordinates: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].HQ == hq)
@@ -18790,7 +18790,7 @@ label_9:
       return numberOfSubordinates;
     }
 
-    pub void AddXToMap(int tempint)
+    pub fn AddXToMap(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapWidth1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
@@ -18841,7 +18841,7 @@ label_9:
       }
     }
 
-    pub void AddXToMapLeft(int tempint)
+    pub fn AddXToMapLeft(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       this.AddXToMap(tempint);
@@ -18869,7 +18869,7 @@ label_9:
       }
     }
 
-    pub void RemoveXToMap(int tempint)
+    pub fn RemoveXToMap(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapWidth1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
@@ -18946,7 +18946,7 @@ label_9:
       this.game.EditObj.UnitSelected = -1;
     }
 
-    pub void RemoveXToMapLeft(int tempint)
+    pub fn RemoveXToMapLeft(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapWidth1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
@@ -19045,7 +19045,7 @@ label_9:
       this.game.EditObj.UnitSelected = -1;
     }
 
-    pub void AddYToMap(int tempint)
+    pub fn AddYToMap(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapHeight1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
@@ -19096,7 +19096,7 @@ label_9:
       }
     }
 
-    pub void AddYToMapLeft(int tempint)
+    pub fn AddYToMapLeft(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       this.AddYToMap(tempint);
@@ -19124,7 +19124,7 @@ label_9:
       }
     }
 
-    pub void RemoveYToMap(int tempint)
+    pub fn RemoveYToMap(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapHeight1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
@@ -19201,7 +19201,7 @@ label_9:
       this.game.EditObj.UnitSelected = -1;
     }
 
-    pub void RemoveYToMapLeft(int tempint)
+    pub fn RemoveYToMapLeft(tempint: i32)
     {
       HexClass[,] hexClassArray = new HexClass[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       let mut mapHeight1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
@@ -19300,10 +19300,10 @@ label_9:
       this.game.EditObj.UnitSelected = -1;
     }
 
-    pub int CountLandHexesOnMap(int map)
+    pub CountLandHexesOnMap: i32(map: i32)
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[map].MapWidth;
-      int num;
+      num: i32;
       for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
         let mut mapHeight: i32 =  this.game.Data.MapObj[map].MapHeight;
@@ -19316,7 +19316,7 @@ label_9:
       return num;
     }
 
-    pub string GetHexName(int x, int y, int map, bool excludeLabelIfNoLoc = false)
+    pub string GetHexName(x: i32, y: i32, map: i32, bool excludeLabelIfNoLoc = false)
     {
       if (x < 0 | y < 0 | x > this.game.Data.MapObj[0].MapWidth | y > this.game.Data.MapObj[0].MapHeight)
         return "Unknown Hex";
@@ -19348,12 +19348,12 @@ label_9:
       return Left;
     }
 
-    pub int GetProdPtsForLoc(int locnr, int slot, bool AddRem = false)
+    pub GetProdPtsForLoc: i32(locnr: i32, slot: i32, bool AddRem = false)
     {
       let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
       let mut people: i32 =  this.game.Data.LocObj[locnr].People;
-      int index1;
-      int regime;
+      index1: i32;
+      regime: i32;
       if (this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime > -1)
       {
         index1 = this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime].People;
@@ -19385,12 +19385,12 @@ label_9:
       return prodPtsForLoc;
     }
 
-    pub int GetProdPtsForLoc2(int locnr)
+    pub GetProdPtsForLoc2: i32(locnr: i32)
     {
       let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
       let mut people: i32 =  this.game.Data.LocObj[locnr].People;
-      int index;
-      int regime;
+      index: i32;
+      regime: i32;
       if (this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime > -1)
       {
         index = this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime].People;
@@ -19407,8 +19407,8 @@ label_9:
     }
 
     pub double GetEstimatedProduction(
-      int prodslot,
-      int locnr,
+      prodslot: i32,
+      locnr: i32,
       bool withremainder,
       bool onlyremainder,
       bool dontshowregvar = false)
@@ -19416,7 +19416,7 @@ label_9:
       let mut index1: i32 =  this.game.Data.LocObj[locnr].Production[prodslot];
       let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
       let mut regime: i32 =  this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime;
-      int num1;
+      num1: i32;
       if (!onlyremainder)
       {
         num1 = this.GetProdPtsForLoc(locnr, prodslot);
@@ -19425,7 +19425,7 @@ label_9:
       }
       else
       {
-        int num2;
+        num2: i32;
         num1 = num2 + this.game.Data.LocObj[locnr].ProdPointRemainder[prodslot];
       }
       if (this.game.Data.ItemTypeObj[this.game.Data.LocObj[locnr].Production[prodslot]].IsSupply)
@@ -19453,7 +19453,7 @@ label_9:
       return estimatedProduction;
     }
 
-    pub double GetEstimatedProduction(int locnr, int itemtype)
+    pub double GetEstimatedProduction(locnr: i32, itemtype: i32)
     {
       let mut num: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd;
       if (this.game.Data.ItemTypeObj[itemtype].IsSupply)
@@ -19464,7 +19464,7 @@ label_9:
       return  num /  prodWeight;
     }
 
-    pub int NumberOfOtherHQinHex(int x, int y, int map, int currentunr)
+    pub NumberOfOtherHQinHex: i32(x: i32, y: i32, map: i32, currentunr: i32)
     {
       let mut num: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -19479,7 +19479,7 @@ label_9:
       return num;
     }
 
-    pub int IDOfOtherHQinHex(int x, int y, int map, int currentunr)
+    pub IDOfOtherHQinHex: i32(x: i32, y: i32, map: i32, currentunr: i32)
     {
       let mut num: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -19494,7 +19494,7 @@ label_9:
       return num;
     }
 
-    pub void CopyUnit(int unr, int funr, bool CopyName = true)
+    pub fn CopyUnit(unr: i32, funr: i32, bool CopyName = true)
     {
       for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
         this.game.Data.UnitObj[unr].RemoveSF(this.game.Data.UnitObj[unr].SFList[sfCount]);
@@ -19527,7 +19527,7 @@ label_9:
       }
     }
 
-    pub int GetNextPreDefNr()
+    pub GetNextPreDefNr: i32()
     {
       let mut nextPreDefNr: i32 =  0;
       if (this.game.Data.UnitCounter <= -1)
@@ -19541,13 +19541,13 @@ label_9:
       return nextPreDefNr;
     }
 
-    pub void SetInitialXY(int regnr)
+    pub fn SetInitialXY(regnr: i32)
     {
       let mut num1: i32 =  -1;
       let mut num2: i32 =  0;
       let mut num3: i32 =  0;
-      int num4;
-      int num5;
+      num4: i32;
+      num5: i32;
       if (this.game.EditObj.Zoom == -1)
       {
         num4 = 27;
@@ -19566,7 +19566,7 @@ label_9:
       if (this.game.Data.RegimeObj[regnr].UberRegime > -1)
         regnr = this.game.Data.RegimeObj[regnr].UberRegime;
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
-      int num6;
+      num6: i32;
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
@@ -19645,10 +19645,10 @@ label_9:
       }
     }
 
-    pub void CenterOnXY(int tx, int ty, bool dontChangeHex = false, let mut useWidth: i32 =  -1, let mut useHeight: i32 =  -1)
+    pub fn CenterOnXY(tx: i32, ty: i32, bool dontChangeHex = false, let mut useWidth: i32 =  -1, let mut useHeight: i32 =  -1)
     {
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.game.EditObj.Zoom == -1)
       {
         num1 = 27;
@@ -19697,7 +19697,7 @@ label_9:
       this.SetCornerXY();
     }
 
-    pub void NextUnit()
+    pub fn NextUnit()
     {
       let mut index: i32 =  this.game.EditObj.UnitSelected;
       do
@@ -19714,7 +19714,7 @@ label_9:
       while (index != this.game.EditObj.UnitSelected);
     }
 
-    pub void NextUnit2()
+    pub fn NextUnit2()
     {
       let mut index: i32 =  this.game.EditObj.UnitSelected;
       do
@@ -19731,7 +19731,7 @@ label_9:
       while (index != this.game.EditObj.UnitSelected);
     }
 
-    pub void AllHQToTopOutside(int X, int Y)
+    pub fn AllHQToTopOutside(X: i32, Y: i32)
     {
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
       for (let mut index1: i32 =  0; index1 <= unitCounter1; index1 += 1)
@@ -19743,7 +19743,7 @@ label_9:
           if (!(X == x & y == Y))
           {
             let mut num: i32 =  index1;
-            int index2;
+            index2: i32;
             while (this.game.Data.MapObj[index2].HexObj[x, y].UnitList[0] != num)
             {
               let mut unit: i32 =  this.game.Data.MapObj[index2].HexObj[x, y].UnitList[this.game.Data.MapObj[index2].HexObj[x, y].UnitCounter];
@@ -19760,10 +19760,10 @@ label_9:
       }
     }
 
-    pub void SetcornerXY2(let mut useX: i32 =  -1, let mut useY: i32 =  -1, bool useZoom = false)
+    pub fn SetcornerXY2(let mut useX: i32 =  -1, let mut useY: i32 =  -1, bool useZoom = false)
     {
-      int cornerX;
-      int cornerY;
+      cornerX: i32;
+      cornerY: i32;
       if (useX == -1)
       {
         useX = this.game.SelectX;
@@ -19774,8 +19774,8 @@ label_9:
         cornerX = this.game.CornerX;
         cornerY = this.game.CornerY;
       }
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.game.EditObj.Zoom == -1)
       {
         num1 = 27;
@@ -19811,8 +19811,8 @@ label_9:
       }
       if (useX > -1)
       {
-        int num4;
-        int num5;
+        num4: i32;
+        num5: i32;
         if (!useZoom)
         {
           num4 = 53;
@@ -19853,11 +19853,11 @@ label_9:
       this.game.CornerY = -3;
     }
 
-    pub void SetCornerXY()
+    pub fn SetCornerXY()
     {
       let mut num1: i32 =  325;
-      int num2;
-      int num3;
+      num2: i32;
+      num3: i32;
       if (this.game.EditObj.Zoom == -1)
       {
         num2 = 27;
@@ -19901,11 +19901,11 @@ label_9:
       this.game.CornerY = -3;
     }
 
-    pub void DoAirRecon(int x, int y, int map, int tot, int unr) => this.SetHexReconAndZOCUnitMoves(-1, -1, -1, x, y, map, this.game.Data.UnitObj[unr].Regime, unr, false, changezoc: false);
+    pub fn DoAirRecon(x: i32, y: i32, map: i32, tot: i32, unr: i32) => this.SetHexReconAndZOCUnitMoves(-1, -1, -1, x, y, map, this.game.Data.UnitObj[unr].Regime, unr, false, changezoc: false);
 
-    pub CanUpgrade: bool(int sfnr, int unr, bool DontCheckHQ = false)
+    pub CanUpgrade: bool(sfnr: i32, unr: i32, bool DontCheckHQ = false)
     {
-      int peopleGroup;
+      peopleGroup: i32;
       if (sfnr > -1)
         peopleGroup = this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19923,7 +19923,7 @@ label_9:
       return num != 0 && (DontCheckHQ || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) != -1);
     }
 
-    pub int CanUpgradeCost(int sfnr, int unr, int qty)
+    pub CanUpgradeCost: i32(sfnr: i32, unr: i32, qty: i32)
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19931,7 +19931,7 @@ label_9:
       return this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeXP > this.game.Data.SFObj[sfnr].Xp || !this.game.Data.SFTypeObj[upgradeToo].PeopleGroup[peopleGroup] || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) == -1 ? -1 :  Math.Round( ( (upgradeCost * qty) / this.game.Data.RuleVar[77]));
     }
 
-    pub int CanUpgradeMax(int sfnr, int unr, int hq)
+    pub CanUpgradeMax: i32(sfnr: i32, unr: i32, hq: i32)
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19942,20 +19942,20 @@ label_9:
       return upgradeCost < 1 ? 9999 :  Math.Round( Conversion.Int( this.game.Data.UnitObj[hq].Supply / ( upgradeCost / this.game.Data.RuleVar[77])));
     }
 
-    pub int HQSupply(int unr)
+    pub HQSupply: i32(unr: i32)
     {
       let mut index: i32 =  !this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr;
       return index == -1 ? 0 : this.game.Data.UnitObj[index].Supply;
     }
 
-    pub int HQSupplyChain(int unr, bool recurse = false, let mut fromunit: i32 =  -1)
+    pub HQSupplyChain: i32(unr: i32, bool recurse = false, let mut fromunit: i32 =  -1)
     {
       if (unr == -1)
         return 0;
       let mut unr1: i32 =  !(this.game.Data.UnitObj[unr].IsHQ & fromunit == -1) ? this.game.Data.UnitObj[unr].HQ : unr;
       if (unr1 == -1)
         return 0;
-      int num;
+      num: i32;
       if (unr1 != unr)
       {
         this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[unr1].Regime,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y, this.game.Data.UnitObj[unr1].Map, allowshoredrop: true);
@@ -19966,7 +19966,7 @@ label_9:
       return  num <=  this.game.Data.RuleVar[53] ? Math.Max(this.game.Data.UnitObj[unr1].Supply, this.HQSupplyChain(unr1, true, unr)) : 0;
     }
 
-    pub CanUpgrade: bool(int sfnr, int unr, int qty)
+    pub CanUpgrade: bool(sfnr: i32, unr: i32, qty: i32)
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19980,7 +19980,7 @@ label_9:
       return this.game.Data.UnitObj[index].Supply >= num;
     }
 
-    pub int CanSwap(int sfnr1, int sfnr2)
+    pub CanSwap: i32(sfnr1: i32, sfnr2: i32)
     {
       if (this.game.Data.SFObj[sfnr1].People != this.game.Data.SFObj[sfnr2].People)
         return 0;
@@ -19993,13 +19993,13 @@ label_9:
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub int GetNavyUnitForProduction(
-      int x,
-      int y,
-      int map,
-      int sftype,
-      int ppl,
-      int movetype)
+    pub GetNavyUnitForProduction: i32(
+      x: i32,
+      y: i32,
+      map: i32,
+      sftype: i32,
+      ppl: i32,
+      movetype: i32)
     {
       let mut unitForProduction1: i32 =  -1;
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -20069,7 +20069,7 @@ label_9:
             ;
         }
       }
-      int unitForProduction2;
+      unitForProduction2: i32;
       if ( this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >=  this.game.Data.RuleVar[46])
       {
         this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.MapObj[map].HexObj[x, y].Regime);
@@ -20083,7 +20083,7 @@ label_9:
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub int GetAnyUnitForProduction(int x, int y, int map, int sftype, int ppl, int movetype)
+    pub GetAnyUnitForProduction: i32(x: i32, y: i32, map: i32, sftype: i32, ppl: i32, movetype: i32)
     {
       let mut unitForProduction1: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].Location == -1)
@@ -20140,7 +20140,7 @@ label_9:
             ;
         }
       }
-      int unitForProduction2;
+      unitForProduction2: i32;
       if ( this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >=  this.game.Data.RuleVar[46])
       {
         this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.MapObj[map].HexObj[x, y].Regime);
@@ -20153,10 +20153,10 @@ label_9:
       return unitForProduction2;
     }
 
-    pub int GetProdTotalPercent(int locnr)
+    pub GetProdTotalPercent: i32(locnr: i32)
     {
       let mut index: i32 =  0;
-      int prodTotalPercent;
+      prodTotalPercent: i32;
       do
       {
         prodTotalPercent += this.game.Data.LocObj[locnr].ProdPercent[index];
@@ -20166,9 +20166,9 @@ label_9:
       return prodTotalPercent;
     }
 
-    pub int GetCapPts(int unr, int theater)
+    pub GetCapPts: i32(unr: i32, theater: i32)
     {
-      int capPts;
+      capPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20183,9 +20183,9 @@ label_9:
       return capPts;
     }
 
-    pub int GetInterdictPower(int unr)
+    pub GetInterdictPower: i32(unr: i32)
     {
-      int interdictPower;
+      interdictPower: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20203,13 +20203,13 @@ label_9:
     pub void MakeFuzzyOwner(
       bool real,
       bool supplyLayerMode,
-      int forRegime,
+      forRegime: i32,
       bool switchFirstTurnIfNotRegime = false)
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
       let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
-      int[,] numArray1 = new int[mapWidth + 1, mapHeight + 1];
-      int[,] numArray2 = new int[mapWidth + 1, mapHeight + 1];
+      numArray1: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+      numArray2: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
       let mut num1: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[456]));
       this.game.EditObj.resourceVpCacheSet = false;
       let mut num2: i32 =  mapWidth;
@@ -20299,8 +20299,8 @@ label_9:
       }
       bool flag1 = true;
       let mut num7: i32 =  -1;
-      int[,] numArray3 = new int[mapWidth + 1, mapHeight + 1];
-      int[,] numArray4 = new int[mapWidth + 1, mapHeight + 1];
+      numArray3: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+      numArray4: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
       let mut num8: i32 =  mapWidth;
       Coordinate coordinate;
       while (flag1)
@@ -20343,7 +20343,7 @@ label_9:
       }
       bool flag2 = true;
       let mut num12: i32 =  -1;
-      int[,] numArray5 = new int[num8 + 1, mapHeight + 1];
+      numArray5: Vec<i32> = new int[num8 + 1, mapHeight + 1];
       while (flag2)
       {
         num12 += 1;
@@ -20399,7 +20399,7 @@ label_9:
       }
     }
 
-    pub void MakeSupplyLayer(int unr, bool enemypenalty = false)
+    pub fn MakeSupplyLayer(unr: i32, bool enemypenalty = false)
     {
       this.RedimTempSup(9999);
       this.RedimTempSupCameFrom();
@@ -20422,7 +20422,7 @@ label_9:
       SimpleList simpleList = SimpleList::new();
       let mut hq: i32 =  this.game.Data.UnitObj[unr].HQ;
       this.game.HandyFunctionsObj.RedimTempValue(0);
-      int num1;
+      num1: i32;
       if ( this.game.Data.RuleVar[324] == 1.0)
       {
         for (; hq > -1; hq = this.game.Data.UnitObj[hq].HQ)
@@ -20448,8 +20448,8 @@ label_9:
                   let mut mapHeight: i32 =  this.game.Data.MapObj[index2].MapHeight;
                   for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
                   {
-                    int[,] numArray1 = this.game.EditObj.TempValue[index2].Value;
-                    int[,] numArray2 = numArray1;
+                    numArray1: Vec<i32> = this.game.EditObj.TempValue[index2].Value;
+                    numArray2: Vec<i32> = numArray1;
                     let mut index5: i32 =  index3;
                     let mut index6: i32 =  index5;
                     let mut index7: i32 =  index4;
@@ -20481,8 +20481,8 @@ label_9:
             let mut mapHeight: i32 =  this.game.Data.MapObj[index9].MapHeight;
             for (let mut index11: i32 =  0; index11 <= mapHeight; index11 += 1)
             {
-              int[,] numArray3 = this.game.EditObj.TempValue[index9].Value;
-              int[,] numArray4 = numArray3;
+              numArray3: Vec<i32> = this.game.EditObj.TempValue[index9].Value;
+              numArray4: Vec<i32> = numArray3;
               let mut index12: i32 =  index10;
               let mut index13: i32 =  index12;
               let mut index14: i32 =  index11;
@@ -20512,9 +20512,9 @@ label_9:
       }
     }
 
-    pub void MakeSupplyLayer3(int x, int y, int map, bool enemypenalty = false, bool fastMode = false)
+    pub fn MakeSupplyLayer3(x: i32, y: i32, map: i32, bool enemypenalty = false, bool fastMode = false)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       this.RedimTempSup(9999);
       this.RedimTempSupCameFrom();
       bool useTrafficRules = false;
@@ -20547,7 +20547,7 @@ label_9:
       let mut movetype: i32 =   Math.Round( this.game.Data.RuleVar[99]);
       let mut ap: i32 =   Math.Round( this.game.Data.RuleVar[3]);
       this.game.EditObj.LayerSupplyAP = ap;
-      int index1;
+      index1: i32;
       let mut mapWidth1: i32 =  this.game.Data.MapObj[index1].MapWidth;
       for (let mut x1: i32 =  0; x1 <= mapWidth1; x1 += 1)
       {
@@ -20602,7 +20602,7 @@ label_9:
       }
     }
 
-    pub void MakeSupplyLayer2(int x, int y, int map, bool enemypenalty = false)
+    pub fn MakeSupplyLayer2(x: i32, y: i32, map: i32, bool enemypenalty = false)
     {
       this.game.EditObj.SupplyPath = (CoordList) null;
       this.game.EditObj.RightClickX = -1;
@@ -20619,7 +20619,7 @@ label_9:
         float num =  (100 -  Math.Round( (this.game.Data.RuleVar[487] / 3f))) / 100f;
         trafficPointMod = 1f;
       }
-      int num1;
+      num1: i32;
       if (num1 != this.game.Data.Turn &  this.game.Data.RuleVar[890] > 0.0)
         movetype =  Math.Round( this.game.Data.RuleVar[890]);
       let mut ap: i32 =   Math.Round( this.game.Data.RuleVar[3]);
@@ -20662,10 +20662,10 @@ label_9:
       }
     }
 
-    pub object NumberOfPeaces(int regnr)
+    pub object NumberOfPeaces(regnr: i32)
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
       {
         if (index != regnr && this.game.Data.RegimeObj[regnr].RegimeRel[index] >= 1)
@@ -20674,7 +20674,7 @@ label_9:
       return  num;
     }
 
-    pub void deleted_CopyDataFrom()
+    pub fn deleted_CopyDataFrom()
     {
       bool[] flagArray = new bool[20];
       let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
@@ -20710,7 +20710,7 @@ label_9:
       }
     }
 
-    pub IsUnitInHQChain: bool(int unr, int hq)
+    pub IsUnitInHQChain: bool(unr: i32, hq: i32)
     {
       if (unr == -1)
         return false;
@@ -20718,7 +20718,7 @@ label_9:
         return true;
       for (; this.game.Data.UnitObj[unr].HQ > -1; unr = this.game.Data.UnitObj[unr].HQ)
       {
-        int num;
+        num: i32;
         num += 1;
         if (num > 99 || unr == hq)
           return false;
@@ -20728,12 +20728,12 @@ label_9:
       return false;
     }
 
-    pub int GetUnitCumulativeReplacement(int unr, int hq)
+    pub GetUnitCumulativeReplacement: i32(unr: i32, hq: i32)
     {
       let mut cumulativeReplacement: i32 =  100;
       for (; this.game.Data.UnitObj[unr].HQ > -1; unr = this.game.Data.UnitObj[unr].HQ)
       {
-        int num;
+        num: i32;
         num += 1;
         cumulativeReplacement =  Math.Round( cumulativeReplacement * ( this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0));
         if (num > 99 || unr == hq)
@@ -20742,12 +20742,12 @@ label_9:
       return cumulativeReplacement;
     }
 
-    pub float GetStaffCombatMod(int unr)
+    pub float GetStaffCombatMod(unr: i32)
     {
       if (unr == -1)
         return 0.0f;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20772,7 +20772,7 @@ label_9:
       return staffCombatMod;
     }
 
-    pub int GetRealHqCombatImprovementPercentage(int unr)
+    pub GetRealHqCombatImprovementPercentage: i32(unr: i32)
     {
       let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
       if (historical == -1)
@@ -20781,16 +20781,16 @@ label_9:
       let mut num1: i32 =  this.game.HandyFunctionsObj.GetStaffNeeded(unr);
       if (num1 == 0)
         num1 = 1;
-      int num2;
+      num2: i32;
       if ( Math.Round(40.0 * ( staffPoints /  num1)) > 80)
         num2 = 80;
       if ( Math.Round(40.0 * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)) > 80)
         num2 = 80;
-      int num3;
+      num3: i32;
       if (this.game.Data.UnitObj[unr].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
         num3 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)));
-      int num4;
-      int num5;
+      num4: i32;
+      num5: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20806,7 +20806,7 @@ label_9:
       return num7 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
     }
 
-    pub float GetCombatImprovePercent(int unr)
+    pub float GetCombatImprovePercent(unr: i32)
     {
       if (!this.game.Data.UnitObj[unr].IsHQ)
         unr = this.game.Data.UnitObj[unr].HQ;
@@ -20820,11 +20820,11 @@ label_9:
       if (num1 == 0)
         num1 = 1;
       let mut staffSize: i32 =  this.game.Data.HistoricalUnitObj[historical].StaffSize;
-      int num2;
+      num2: i32;
       if (this.game.Data.UnitObj[unr].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
         num2 = num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1));
-      int num3;
-      int num4;
+      num3: i32;
+      num4: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20839,12 +20839,12 @@ label_9:
       return  (num5 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1)) + 100) / 100f;
     }
 
-    pub float GetStaffMoraleMod(int unr)
+    pub float GetStaffMoraleMod(unr: i32)
     {
       if (unr == -1)
         return 0.0f;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20869,10 +20869,10 @@ label_9:
       return staffMoraleMod;
     }
 
-    pub int GetStaffNeeded(int unr)
+    pub GetStaffNeeded: i32(unr: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int staffNeeded;
+      staffNeeded: i32;
       for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (this.game.Data.UnitObj[index1].HQ == unr | index1 == unr)
@@ -20888,8 +20888,8 @@ label_9:
       return staffNeeded;
     }
 
-    pub int GetStaffPercent(
-      int unr,
+    pub GetStaffPercent: i32(
+      unr: i32,
       bool combatmod = false,
       let mut additionalstaffpts: i32 =  0,
       let mut additionalpowerpts: i32 =  0)
@@ -20897,7 +20897,7 @@ label_9:
       if (unr < 0)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num1;
+      num1: i32;
       for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (this.game.Data.UnitObj[index1].HQ == unr | index1 == unr)
@@ -20911,8 +20911,8 @@ label_9:
         }
       }
       let mut num2: i32 =  num1 + additionalpowerpts;
-      int num3;
-      int num4;
+      num3: i32;
+      num4: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20924,7 +20924,7 @@ label_9:
       }
       let mut num5: i32 =  num3 + additionalstaffpts;
       float num6 = num5 <= 0 ? 0.0f :  num4 /  num5;
-      int staffPercent;
+      staffPercent: i32;
       if (num2 > 0)
       {
         staffPercent =  Math.Round(Conversion.Int( num5 /  num2 * 100.0));
@@ -20942,11 +20942,11 @@ label_9:
       return staffPercent;
     }
 
-    pub int GetStaffPoints(int unr)
+    pub GetStaffPoints: i32(unr: i32)
     {
       if (unr < 0)
         return 0;
-      int staffPoints;
+      staffPoints: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
         let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -20956,11 +20956,11 @@ label_9:
       return staffPoints;
     }
 
-    pub int GetSingleCapHQ()
+    pub GetSingleCapHQ: i32()
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int singleCapHq;
-      int num;
+      singleCapHq: i32;
+      num: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn | this.game.Data.UnitObj[index].Regime == this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime && this.game.Data.UnitObj[index].IsHQ & (this.game.Data.UnitObj[index].LandCap > 0 | this.game.Data.UnitObj[index].AirCap > 0 | this.game.Data.UnitObj[index].NavyCap > 0))
@@ -20974,7 +20974,7 @@ label_9:
       return num == 0 ? -2 : -1;
     }
 
-    pub int GetGroupPowerPoints(int unr)
+    pub GetGroupPowerPoints: i32(unr: i32)
     {
       if (unr < 0)
         return 0;
@@ -20995,7 +20995,7 @@ label_9:
       return groupPowerPoints;
     }
 
-    pub void DoResMod()
+    pub fn DoResMod()
     {
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
       for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
@@ -21018,7 +21018,7 @@ label_9:
       if (this.game.Data.LocCounter == -1 || this.game.Data.ResearchCounter == -1 || this.game.Data.ResMod < 1)
         return;
       let mut locCounter: i32 =  this.game.Data.LocCounter;
-      int num1;
+      num1: i32;
       for (let mut index: i32 =  0; index <= locCounter; index += 1)
         num1 += this.game.Data.LocTypeObj[this.game.Data.LocObj[index].Type].MaxProd;
       float num2 =  num1 /  this.game.Data.ResMod;
@@ -21050,7 +21050,7 @@ label_9:
       }
     }
 
-    pub int GetDivBonus(int unr)
+    pub GetDivBonus: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].Historical <= -1)
         return 0;
@@ -21058,7 +21058,7 @@ label_9:
       if (this.game.Data.HistoricalUnitObj[historical].StartSize <= 1)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (index != unr & this.game.Data.UnitObj[index].Historical == historical & this.game.Data.UnitObj[index].Map == this.game.Data.UnitObj[unr].Map && this.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, this.game.Data.UnitObj[index].X, this.game.Data.UnitObj[index].Y, this.game.Data.UnitObj[index].Map) <= 1)
@@ -21078,7 +21078,7 @@ label_9:
       return divBonus;
     }
 
-    pub int GetDivBonusPrognosis(int unr)
+    pub GetDivBonusPrognosis: i32(unr: i32)
     {
       if (this.game.Data.UnitObj[unr].Historical <= -1)
         return 0;
@@ -21086,7 +21086,7 @@ label_9:
       if (this.game.Data.HistoricalUnitObj[historical].StartSize <= 1)
         return 0;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (index != unr & this.game.Data.UnitObj[index].Historical == historical)
@@ -21115,12 +21115,12 @@ label_9:
       return divBonusPrognosis;
     }
 
-    pub int GetDivBonusForAttack(int tarx, int tary, int tarmap)
+    pub GetDivBonusForAttack: i32(tarx: i32, tary: i32, tarmap: i32)
     {
       int[] numArray = new int[this.game.Data.HistoricalUnitCounter + 1];
       let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         let mut index2: i32 =  this.game.EditObj.TempUnitList.unr[index1];
@@ -21170,14 +21170,14 @@ label_9:
       return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
-    pub int GetDivBonusForAttackPrognosis(int tarx, int tary)
+    pub GetDivBonusForAttackPrognosis: i32(tarx: i32, tary: i32)
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
         this.htempb[index] = false;
       let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         let mut index2: i32 =  this.game.EditObj.TempUnitList.unr[index1];
@@ -21227,16 +21227,16 @@ label_9:
       return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
-    pub int Gethqpowifhqis(int unr, int hq, bool UseTemp = false)
+    pub Gethqpowifhqis: i32(unr: i32, hq: i32, bool UseTemp = false)
     {
       float num1 = this.game.Data.RuleVar[73];
       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
         num1 = this.game.Data.RuleVar[987];
       let mut num2: i32 =  -1;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int x2;
-      int y2;
-      int map2;
+      x2: i32;
+      y2: i32;
+      map2: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].IsHQ & hq == index)
@@ -21254,7 +21254,7 @@ label_9:
         }
       }
       let mut num3: i32 =  num2 <= -1 ? 99 : (!(UseTemp & this.game.Data.UnitObj[unr].TempX > -1) ? (this.game.Data.UnitObj[unr].Map != map2 ? 99 : this.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, x2, y2, map2)) : this.Distance(this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY, 0, x2, y2, 0));
-      int num4;
+      num4: i32;
       if ( num3 <=  num1)
       {
         num4 = 100;
@@ -21268,16 +21268,16 @@ label_9:
       return num4;
     }
 
-    pub int Gethqpow(int unr, bool UseTemp = false)
+    pub Gethqpow: i32(unr: i32, bool UseTemp = false)
     {
       float num1 = this.game.Data.RuleVar[73];
       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
         num1 = this.game.Data.RuleVar[987];
       let mut num2: i32 =  -1;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int x2;
-      int y2;
-      int map2;
+      x2: i32;
+      y2: i32;
+      map2: i32;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].IsHQ && index == this.game.Data.UnitObj[unr].HQ)
@@ -21295,7 +21295,7 @@ label_9:
         }
       }
       let mut num3: i32 =  num2 <= -1 ? 99 : (!(UseTemp & this.game.Data.UnitObj[unr].TempX > -1) ? (this.game.Data.UnitObj[unr].Map != map2 ? 99 : this.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, x2, y2, map2)) : this.Distance(this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY, 0, x2, y2, 0));
-      int num4;
+      num4: i32;
       if ( num3 <=  num1)
       {
         num4 = 100;
@@ -21309,7 +21309,7 @@ label_9:
       return num4;
     }
 
-    pub void RedimStats()
+    pub fn RedimStats()
     {
       if (this.game.Data.Round != 0)
         ;
@@ -21452,7 +21452,7 @@ label_9:
       this.RedimTempValueSpecial(0);
     }
 
-    pub int GetTopHQ(int unr)
+    pub GetTopHQ: i32(unr: i32)
     {
       let mut num: i32 =  0;
       if (unr == -1)
@@ -21469,7 +21469,7 @@ label_9:
       return unr;
     }
 
-    pub int MissingTroopsInPowerPoints(int unr)
+    pub MissingTroopsInPowerPoints: i32(unr: i32)
     {
       if (!(this.game.Data.UnitObj[unr].Historical > -1 & this.game.Data.UnitObj[unr].HistoricalSubPart > -1) || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].SubParts[this.game.Data.UnitObj[unr].HistoricalSubPart] <= -1)
         return 0;
@@ -21483,7 +21483,7 @@ label_9:
       return num2;
     }
 
-    pub void UpgradeProduction(int locnr)
+    pub fn UpgradeProduction(locnr: i32)
     {
       let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
       for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
@@ -21503,7 +21503,7 @@ label_9:
                 if (this.game.Data.LocObj[locnr1].Production[index] == this.game.Data.ItemTypeObj[itemtypenr].Blocks && this.game.HandyFunctionsObj.CanProduceItem(locnr1, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr1].X, this.game.Data.LocObj[locnr1].Y].Regime, itemtypenr).result)
                 {
                   this.game.Data.LocObj[locnr1].Production[index] = itemtypenr;
-                  int num3;
+                  num3: i32;
                   num3 += 1;
                 }
                 index += 1;
@@ -21515,7 +21515,7 @@ label_9:
       }
     }
 
-    pub CanLocProduce: bool(int locnr, int regnr)
+    pub CanLocProduce: bool(locnr: i32, regnr: i32)
     {
       if (this.game.Data.Round == 0)
         return true;
@@ -21534,10 +21534,10 @@ label_9:
       return false;
     }
 
-    pub int GetRealHQSupplyPts(int unr)
+    pub GetRealHQSupplyPts: i32(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num;
+      num: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21550,7 +21550,7 @@ label_9:
       return realHqSupplyPts;
     }
 
-    pub void DoAntiInfraDammage(bool AdjustCall = false)
+    pub fn DoAntiInfraDammage(bool AdjustCall = false)
     {
       MapMatrix2[] mapMatrix2Array = new MapMatrix2[this.game.Data.MapCounter + 1];
       int[] numArray1 = new int[500];
@@ -21612,7 +21612,7 @@ label_9:
               }
               while (index4 <= 499);
               let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-              int type1;
+              type1: i32;
               for (let mut index5: i32 =  0; index5 <= sfCount1; index5 += 1)
               {
                 let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index5];
@@ -21826,11 +21826,11 @@ label_9:
       }
     }
 
-    pub int GetBreakPercent(int unr)
+    pub GetBreakPercent: i32(unr: i32)
     {
       let mut num1: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int num2;
+      num2: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21846,10 +21846,10 @@ label_9:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub int GetMaxStockpile(int unr)
+    pub GetMaxStockpile: i32(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int maxStockpile;
+      maxStockpile: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21859,10 +21859,10 @@ label_9:
       return maxStockpile;
     }
 
-    pub object GetStockpileUsePerRound(int unr)
+    pub object GetStockpileUsePerRound(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int stockpileUsePerRound;
+      stockpileUsePerRound: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21872,10 +21872,10 @@ label_9:
       return  stockpileUsePerRound;
     }
 
-    pub object GetMaxSupplyRequest(int unr)
+    pub object GetMaxSupplyRequest(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int maxSupplyRequest;
+      maxSupplyRequest: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21888,10 +21888,10 @@ label_9:
       return  maxSupplyRequest;
     }
 
-    pub object GetStockpileRequest(int unr)
+    pub object GetStockpileRequest(unr: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int stockpileRequest;
+      stockpileRequest: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -21907,7 +21907,7 @@ label_9:
       return  stockpileRequest;
     }
 
-    pub int GetHumanPlayers()
+    pub GetHumanPlayers: i32()
     {
       let mut reg1: i32 =  -1;
       let mut humanPlayers: i32 =  0;
@@ -21925,7 +21925,7 @@ label_9:
       return humanPlayers;
     }
 
-    pub int FindOtherHumanPlayer(int regnr)
+    pub FindOtherHumanPlayer: i32(regnr: i32)
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut otherHumanPlayer: i32 =  0; otherHumanPlayer <= regimeCounter; otherHumanPlayer += 1)
@@ -21936,7 +21936,7 @@ label_9:
       return -1;
     }
 
-    pub int FindAIPlayer()
+    pub FindAIPlayer: i32()
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut aiPlayer: i32 =  0; aiPlayer <= regimeCounter; aiPlayer += 1)
@@ -21947,7 +21947,7 @@ label_9:
       return -1;
     }
 
-    pub int GetAntiSupply(int x1, int y1, int map1, int x2, int y2, int map2)
+    pub GetAntiSupply: i32(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32)
     {
       let mut num1: i32 =  0;
       let mut index1: i32 =  x2;
@@ -21956,7 +21956,7 @@ label_9:
       let mut num2: i32 =  -1;
       let mut num3: i32 =  -1;
       let mut num4: i32 =  -1;
-      int d;
+      d: i32;
       while (num1 == 0)
       {
         if (!(index1 == x1 & index2 == y1 & index3 == map1))
@@ -21985,15 +21985,15 @@ label_9:
     }
 
     pub void SetAntiSupplyKills(
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2,
-      int suppts,
-      int sftypenr,
-      int qty)
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32,
+      suppts: i32,
+      sftypenr: i32,
+      qty: i32)
     {
       int[] numArray1 = new int[this.game.Data.RegimeCounter + 1];
       int[] numArray2 = new int[this.game.Data.RegimeCounter + 1];
@@ -22007,7 +22007,7 @@ label_9:
       let mut index1: i32 =  x2;
       let mut index2: i32 =  y2;
       let mut index3: i32 =  map2;
-      int num3;
+      num3: i32;
       while (num1 == 0)
       {
         if (!(index1 == x1 & index2 == y1 & index3 == map1))
@@ -22032,8 +22032,8 @@ label_9:
               numArray7[index7] = num5;
             }
           }
-          int[,] numArray8 = mapMatrix2Array[index3].Value;
-          int[,] numArray9 = numArray8;
+          numArray8: Vec<i32> = mapMatrix2Array[index3].Value;
+          numArray9: Vec<i32> = numArray8;
           let mut index8: i32 =  index1;
           let mut index9: i32 =  index8;
           let mut index10: i32 =  index2;
@@ -22261,10 +22261,10 @@ label_9:
       }
     }
 
-    pub int GetPowerInReinforcementPoints(int unr, int rtyp)
+    pub GetPowerInReinforcementPoints: i32(unr: i32, rtyp: i32)
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int reinforcementPoints;
+      reinforcementPoints: i32;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
@@ -22275,7 +22275,7 @@ label_9:
       return reinforcementPoints;
     }
 
-    pub int PowerPointsDifferent(int unr1, int unr2)
+    pub PowerPointsDifferent: i32(unr1: i32, unr2: i32)
     {
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
@@ -22316,7 +22316,7 @@ label_9:
           simpleList2.Add(this.game.Data.SFTypeObj[type].ReinforcementType + 10000 * this.game.Data.SFObj[sf].People, this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty);
       }
       let mut counter1: i32 =  simpleList1.Counter;
-      int num1;
+      num1: i32;
       for (let mut index7: i32 =  0; index7 <= counter1; index7 += 1)
       {
         let mut nr: i32 =  simpleList2.FindNr(simpleList1.Id[index7]);
@@ -22342,10 +22342,10 @@ label_9:
       return num1;
     }
 
-    pub int GetHistoricalsSubUnitCount(int hisnr)
+    pub GetHistoricalsSubUnitCount: i32(hisnr: i32)
     {
       let mut index: i32 =  0;
-      int historicalsSubUnitCount;
+      historicalsSubUnitCount: i32;
       do
       {
         if (this.game.Data.HistoricalUnitObj[hisnr].SubParts[index] > -1)
@@ -22356,11 +22356,11 @@ label_9:
       return historicalsSubUnitCount;
     }
 
-    pub string GetRomanNumerical(int nr) => nr < 1 ? "" : this.deka2r(nr);
+    pub string GetRomanNumerical(nr: i32) => nr < 1 ? "" : this.deka2r(nr);
 
-    pub string deka2r(int nr)
+    pub string deka2r(nr: i32)
     {
-      string[] strArray = new string[13]
+      strArray: Vec<String> = new string[13]
       {
         "M",
         "CM",
@@ -22407,7 +22407,7 @@ label_9:
       return str;
     }
 
-    pub int Disabled_GetHighCommand(int regnr)
+    pub Disabled_GetHighCommand: i32(regnr: i32)
     {
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
@@ -22442,7 +22442,7 @@ label_9:
       return simpleList.Id[simpleList.Counter];
     }
 
-    pub HasUnitHQSomewhereUp: bool(int unr, int hqnr)
+    pub HasUnitHQSomewhereUp: bool(unr: i32, hqnr: i32)
     {
       let mut index: i32 =  unr;
       let mut num: i32 =  0;
@@ -22458,24 +22458,24 @@ label_9:
       return false;
     }
 
-    pub int DoDestroyTransporters(
-      int hq,
-      int theater,
-      int cappts,
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2)
+    pub DoDestroyTransporters: i32(
+      hq: i32,
+      theater: i32,
+      cappts: i32,
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32)
     {
-      int num1;
+      num1: i32;
       for (let mut sfCount: i32 =  this.game.Data.UnitObj[hq].SFCount; sfCount >= 0; sfCount += -1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[hq].SFList[sfCount];
         let mut type: i32 =  this.game.Data.SFObj[sf].Type;
         let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
-        int num2;
+        num2: i32;
         for (let mut index: i32 =  1; index <= qty; index += 1)
         {
           if (this.game.Data.SFTypeObj[type].Theater == theater && this.game.Data.SFTypeObj[type].Cap > 0)
@@ -22499,18 +22499,18 @@ label_9:
       return num1;
     }
 
-    pub int DoDestroyRandom(
-      int hq,
-      int theater,
-      int percentage,
-      int x1,
-      int y1,
-      int map1,
-      int x2,
-      int y2,
-      int map2)
+    pub DoDestroyRandom: i32(
+      hq: i32,
+      theater: i32,
+      percentage: i32,
+      x1: i32,
+      y1: i32,
+      map1: i32,
+      x2: i32,
+      y2: i32,
+      map2: i32)
     {
-      int num1;
+      num1: i32;
       for (let mut sfCount: i32 =  this.game.Data.UnitObj[hq].SFCount; sfCount >= 0; sfCount += -1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[hq].SFList[sfCount];
@@ -22522,7 +22522,7 @@ label_9:
           if ( VBMath.Rnd() <  num2)
           {
             num1 += 1;
-            int num3;
+            num3: i32;
             num3 += this.game.Data.SFTypeObj[type].Cap;
             this.RemoveTroops(hq, type, this.game.Data.SFObj[sf].People, 1, this.game.Data.SFObj[sf].MoveType);
             this.SetAntiSupplyKills(x1, y1, map1, x2, y2, map2, 0, type, 1);
@@ -22532,7 +22532,7 @@ label_9:
       return num1;
     }
 
-    pub string GetMonth(int nr)
+    pub string GetMonth(nr: i32)
     {
       switch (nr)
       {
@@ -22566,7 +22566,7 @@ label_9:
       }
     }
 
-    pub void doscreenshot(string extension, int map)
+    pub fn doscreenshot(string extension, map: i32)
     {
       this.game.EditObj.TempCoordList = CoordList::new();
       if (this.game.Data.MapWidth + this.game.Data.MapHeight > 400 &  this.game.Data.RuleVar[878] < 1.0)
@@ -22582,8 +22582,8 @@ label_9:
       }
       else
       {
-        int width;
-        int height;
+        width: i32;
+        height: i32;
         if ( this.game.Data.RuleVar[850] == 0.0)
         {
           this.game.EditObj.Zoom = -1;
@@ -22624,7 +22624,7 @@ label_9:
         this.game.SelectX = -1;
         this.game.SelectY = -1;
         this.game.EditObj.PrefShowFOW = false;
-        Bitmap bitmap1;
+        bitmap1: Bitmap;
         try
         {
           bitmap1 = new Bitmap(width, height, PixelFormat.Format24bppRgb);
@@ -22639,7 +22639,7 @@ label_9:
         Graphics Expression = Graphics.FromImage((Image) bitmap1);
         Expression.SmoothingMode = SmoothingMode.AntiAlias;
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap2 = subPartClass.Paint();
+        bitmap2: Bitmap = subPartClass.Paint();
          let mut local2: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
         bitmap1.Save((Stream) fileStream, ImageFormat.Jpeg);
@@ -22660,7 +22660,7 @@ label_9:
       }
     }
 
-    pub void ZipFile(string FileToZip)
+    pub fn ZipFile(string FileToZip)
     {
       Crc32 crc32 = Crc32::new();
       GC.Collect();
@@ -22723,7 +22723,7 @@ label_9:
       }
     }
 
-    pub void ZipFileExport2(string FileName, string[] slist, string backupFolderPath) => new FastZip(FastZipEvents::new())
+    pub fn ZipFileExport2(string FileName, slist: Vec<String>, string backupFolderPath) => new FastZip(FastZipEvents::new())
     {
       CreateEmptyDirectories = true
     }.CreateZip(FileName, backupFolderPath, true, "");
@@ -22732,7 +22732,7 @@ label_9:
     {
     }
 
-    pub void ZipFileExport(string FileName, string[] slist)
+    pub fn ZipFileExport(string FileName, slist: Vec<String>)
     {
       Crc32 crc32 = Crc32::new();
       byte[] numArray1 = new byte[2];
@@ -22800,7 +22800,7 @@ label_9:
       }
     }
 
-    pub void UnzipImport(string ZipFile)
+    pub fn UnzipImport(string ZipFile)
     {
       appPath: String = this.game.AppPath;
       let mut num1: i32 =  1;
@@ -22808,7 +22808,7 @@ label_9:
       while (num1 == 1)
       {
         ZipEntry nextEntry;
-        int num2;
+        num2: i32;
         try
         {
           nextEntry = zipInputStream.GetNextEntry();
@@ -22883,7 +22883,7 @@ label_9:
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void Unzip(string ZipFile)
+    pub fn Unzip(string ZipFile)
     {
       GC.Collect();
       str: String = Path.GetDirectoryName(ZipFile) + "/temp.txt";
@@ -22937,9 +22937,9 @@ label_9:
       System.IO.File.Delete(str);
     }
 
-    pub CanUnitReceiveTransfer: bool(int unr, int sftype, int qty, int ppl) => true;
+    pub CanUnitReceiveTransfer: bool(unr: i32, sftype: i32, qty: i32, ppl: i32) => true;
 
-    pub string GetAreaName(int slot, int code)
+    pub string GetAreaName(slot: i32, code: i32)
     {
       if (slot < 0 | slot > 9 || code < 1)
         return "";
@@ -22952,7 +22952,7 @@ label_9:
       return "";
     }
 
-    pub int GetMapUnitByID(int hisID)
+    pub GetMapUnitByID: i32(hisID: i32)
     {
       if (hisID < 1)
         return -1;
@@ -22965,7 +22965,7 @@ label_9:
       return -1;
     }
 
-    pub int GetRegimeByID(int id)
+    pub GetRegimeByID: i32(id: i32)
     {
       if (id < 1)
         return -1;
@@ -22978,7 +22978,7 @@ label_9:
       return -1;
     }
 
-    pub int GetPeopleByID(int id)
+    pub GetPeopleByID: i32(id: i32)
     {
       if (id < 1)
         return -1;
@@ -22991,7 +22991,7 @@ label_9:
       return -1;
     }
 
-    pub int GetUnitByHistorical(int his)
+    pub GetUnitByHistorical: i32(his: i32)
     {
       if (his < 0)
         return -1;
@@ -23004,7 +23004,7 @@ label_9:
       return -1;
     }
 
-    pub int GetUnitByHistorical(int his, int subp)
+    pub GetUnitByHistorical: i32(his: i32, subp: i32)
     {
       if (his < 0)
         return -1;
@@ -23017,7 +23017,7 @@ label_9:
       return -1;
     }
 
-    pub int GetUnitByAIid(int id)
+    pub GetUnitByAIid: i32(id: i32)
     {
       if (id < 1)
         return -1;
@@ -23030,7 +23030,7 @@ label_9:
       return -1;
     }
 
-    pub int GetAreaByID(int areaID)
+    pub GetAreaByID: i32(areaID: i32)
     {
       if (areaID < 1)
         return -1;
@@ -23043,7 +23043,7 @@ label_9:
       return -1;
     }
 
-    pub int GetAreaBySlot(int Slot, int Code)
+    pub GetAreaBySlot: i32(Slot: i32, Code: i32)
     {
       let mut areaCounter: i32 =  this.game.Data.AreaCounter;
       for (let mut areaBySlot: i32 =  0; areaBySlot <= areaCounter; areaBySlot += 1)
@@ -23054,7 +23054,7 @@ label_9:
       return -1;
     }
 
-    pub IsHexArea: bool(int x, int y, int area)
+    pub IsHexArea: bool(x: i32, y: i32, area: i32)
     {
       let mut index: i32 =  0;
       while (!(this.game.Data.AreaObj[area].Slot == index & this.game.Data.AreaObj[area].Code == this.game.Data.MapObj[0].HexObj[x, y].AreaCode[index]))
@@ -23066,12 +23066,12 @@ label_9:
       return true;
     }
 
-    pub void DisperseAirSupply(int x, int y, int map, int pts)
+    pub fn DisperseAirSupply(x: i32, y: i32, map: i32, pts: i32)
     {
       SimpleList simpleList = SimpleList::new();
       this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[857]), 99,  Math.Round( this.game.Data.RuleVar[858]), x, y, map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
-      int num1;
+      num1: i32;
       for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
       {
         if (this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn && this.game.Data.UnitObj[tid].PreDef == -1 & this.game.Data.UnitObj[tid].X > -1 & this.game.Data.UnitObj[tid].Map == map)
@@ -23122,7 +23122,7 @@ label_9:
       }
     }
 
-    pub void RemoveAllActionCardofType(int regnr, int actcardnr)
+    pub fn RemoveAllActionCardofType(regnr: i32, actcardnr: i32)
     {
       for (let mut actionCardCounter: i32 =  this.game.Data.RegimeObj[regnr].ActionCardCounter; actionCardCounter >= 0; actionCardCounter += -1)
       {
@@ -23131,7 +23131,7 @@ label_9:
       }
     }
 
-    pub void RemoveHistoryActionCard(int regnr, int actcardnr)
+    pub fn RemoveHistoryActionCard(regnr: i32, actcardnr: i32)
     {
       for (let mut cardHistoryCounter: i32 =  this.game.Data.RegimeObj[regnr].ActionCardHistoryCounter; cardHistoryCounter >= 0; cardHistoryCounter += -1)
       {
@@ -23140,7 +23140,7 @@ label_9:
       }
     }
 
-    pub int DownloadFile(string url, string savename)
+    pub DownloadFile: i32(string url, string savename)
     {
       try
       {
@@ -23170,7 +23170,7 @@ label_9:
         byte[] numArray = new byte[1000001];
         let mut length: i32 =  numArray.Length;
         let mut num1: i32 =  0;
-        int num2;
+        num2: i32;
         for (; length > 0; length -= num2)
         {
           num2 = responseStream.Read(numArray, num1, length);
@@ -23192,11 +23192,11 @@ label_9:
         ProjectData.ClearProjectError();
       }
 label_11:
-      int num;
+      num: i32;
       return num;
     }
 
-    pub void randomizeLT()
+    pub fn randomizeLT()
     {
       VBMath.Randomize();
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -23220,7 +23220,7 @@ label_11:
       }
     }
 
-    pub void RandomizeHex(int ix, int iy, int imap)
+    pub fn RandomizeHex(ix: i32, iy: i32, imap: i32)
     {
       let mut landscapeType: i32 =  this.game.Data.MapObj[imap].HexObj[ix, iy].LandscapeType;
       let mut spriteNr: i32 =  this.game.Data.MapObj[imap].HexObj[ix, iy].SpriteNr;
@@ -23230,7 +23230,7 @@ label_11:
       this.game.Data.MapObj[imap].HexObj[ix, iy].SpriteNr = num;
     }
 
-    pub int RandomizeHexLT(int ltnr, int spnr)
+    pub RandomizeHexLT: i32(ltnr: i32, spnr: i32)
     {
       let mut num1: i32 =  0;
       let mut basicSpriteCounter1: i32 =  this.game.Data.LandscapeTypeObj[ltnr].BasicSpriteCounter;
@@ -23254,7 +23254,7 @@ label_11:
       return 0;
     }
 
-    pub int GetPreDef(int predefnr)
+    pub GetPreDef: i32(predefnr: i32)
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut preDef: i32 =  0; preDef <= unitCounter; preDef += 1)
@@ -23265,10 +23265,10 @@ label_11:
       return -1;
     }
 
-    pub void LoadGameNow()
+    pub fn LoadGameNow()
     {
       int[] numArray1 = new int[501];
-      string[] strArray = new string[1000];
+      strArray: Vec<String> = new string[1000];
       bool[] flagArray1 = new bool[1000];
       bool[] flagArray2 = new bool[1000];
       bool[] flagArray3 = new bool[1000];
@@ -23284,7 +23284,7 @@ label_11:
       bool dontShowAiMove = this.game.Data.DontShowAIMove;
       str: String = this.game.AppPath + this.game.Data.LoadGame;
       GameClassSmall gameClassSmall;
-      int regimeCounter1;
+      regimeCounter1: i32;
       if (System.IO.File.Exists(str))
       {
         gameClassSmall = GameClassSmall::new();
@@ -23751,14 +23751,14 @@ label_11:
       }
     }
 
-    pub void SaveBitmap(Bitmap tmpbmp, string s)
+    pub fn SaveBitmap(tmpbmp: Bitmap, string s)
     {
       FileStream fileStream = new FileStream(this.game.AppPath + "logs/" + s + ".png", FileMode.Create);
       tmpbmp.Save((Stream) fileStream, ImageFormat.Png);
       fileStream.Close();
     }
 
-    pub void SaveBitmapAsPing(Bitmap tmpbmp, string s)
+    pub fn SaveBitmapAsPing(tmpbmp: Bitmap, string s)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -23766,7 +23766,7 @@ label_11:
       fileStream.Close();
     }
 
-    pub void MakeDirIfNecc(string s)
+    pub fn MakeDirIfNecc(string s)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  1;
@@ -23798,7 +23798,7 @@ label_11:
       }
     }
 
-    pub void SaveBitmapAsJpeg(Bitmap tmpbmp, string s)
+    pub fn SaveBitmapAsJpeg(tmpbmp: Bitmap, string s)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -23806,7 +23806,7 @@ label_11:
       fileStream.Close();
     }
 
-    pub int GetFuelSlot949(int currentSlot, int x, int y)
+    pub GetFuelSlot949: i32(currentSlot: i32, x: i32, y: i32)
     {
       str: String = "oil" + this.game.Data.RuleVar[949].ToString();
       if (x == -1 | y == -1)
@@ -23823,7 +23823,7 @@ label_11:
       return currentSlot;
     }
 
-    pub void SaveBitmapAsBmp(Bitmap tmpbmp, string s)
+    pub fn SaveBitmapAsBmp(tmpbmp: Bitmap, string s)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -23834,8 +23834,8 @@ label_11:
     ~HandyFunctionsclass() => base.Finalize();
 
     pub DependencyClass Libraries_CheckDependency(
-       DataClass TData,
-      int LibId,
+       TData: DataClass,
+      LibId: i32,
       bool canAdd)
     {
       DependencyClass dependencyClass = DependencyClass::new();
@@ -24002,7 +24002,7 @@ label_11:
       return dependencyClass;
     }
 
-    pub void SetAllReady(bool questions)
+    pub fn SetAllReady(bool questions)
     {
       let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
       for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
@@ -24081,7 +24081,7 @@ label_11:
           let mut num: i32 =   Interaction.MsgBox( ("Have reseted " + Conversion.Str( Number) + " subformations due to higher entrenchment available"));
         }
       }
-      int index9;
+      index9: i32;
       if (this.game.Data.SFCounter > -1)
       {
         let mut sfCounter: i32 =  this.game.Data.SFCounter;
@@ -24186,14 +24186,14 @@ label_11:
       this.game.HandyFunctionsObj.MakeFuzzyOwner(true, false, 0);
     }
 
-    pub void Libraries_ClearUpAllRemnants()
+    pub fn Libraries_ClearUpAllRemnants()
     {
       for (let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.game.Data.HistoricalUnitObj[historicalUnitCounter].LibId.libSlot == -1 & !this.game.Data.HistoricalUnitObj[historicalUnitCounter].Model & this.game.Data.HistoricalUnitObj[historicalUnitCounter].ModelMaster == -1)
           this.game.Data.RemoveHistoricalUnit(historicalUnitCounter);
       }
-      GameClass gameClass;
+      game: GameClassClass;
       for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
         if (this.game.Data.UnitObj[unitCounter].PreDef == -1 & this.game.Data.UnitObj[unitCounter].Historical == -1)
@@ -24274,11 +24274,11 @@ label_11:
       }
     }
 
-    pub void Export()
+    pub fn Export()
     {
-      string[] arySrc = new string[30000];
-      string[] strArray1 = new string[1000];
-      string[] strArray2 = new string[1000];
+      arySrc: Vec<String> = new string[30000];
+      strArray1: Vec<String> = new string[1000];
+      strArray2: Vec<String> = new string[1000];
       let mut index1: i32 =  -1;
       let mut index2: i32 =  -1;
       FileName: String = this.game.HandyFunctionsObj.SaveSomething("DC Zip package files(dczip)|*.dczip|Regular ZIP file(zip)|*.zip", "Save as .dczip or .zip file", this.game.AppPath, false);
@@ -24456,11 +24456,11 @@ label_11:
           }
         }
       }
-      string[] slist = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
+      slist: Vec<String> = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
       let mut num6: i32 =  index1;
       for (let mut index5: i32 =  0; index5 <= num6; index5 += 1)
         slist[index5] = slist[index5].Replace("\\", "/");
-      string[] strArray3 = new string[1000];
+      strArray3: Vec<String> = new string[1000];
       let mut index6: i32 =  -1;
       let mut num7: i32 =  index1;
       for (let mut index7: i32 =  0; index7 <= num7; index7 += 1)
@@ -24533,11 +24533,11 @@ label_11:
       let mut num15: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub void ExportModLibraryEditor(string libName)
+    pub fn ExportModLibraryEditor(string libName)
     {
-      string[] arySrc = new string[30000];
-      string[] strArray1 = new string[1000];
-      string[] strArray2 = new string[1000];
+      arySrc: Vec<String> = new string[30000];
+      strArray1: Vec<String> = new string[1000];
+      strArray2: Vec<String> = new string[1000];
       let mut index1: i32 =  -1;
       let mut index2: i32 =  -1;
       str1: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Zip package files(se1zip)|*.se1zip|Regular ZIP file(zip)|*.zip", "Save as .se1zip or .zip file", this.game.AppPath, false);
@@ -24568,11 +24568,11 @@ label_11:
           num1 += 1;
         }
       }
-      string[] slist = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
+      slist: Vec<String> = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
       let mut num2: i32 =  index1;
       for (let mut index3: i32 =  0; index3 <= num2; index3 += 1)
         slist[index3] = slist[index3].Replace("\\", "/");
-      string[] strArray3 = new string[1000];
+      strArray3: Vec<String> = new string[1000];
       let mut index4: i32 =  -1;
       let mut num3: i32 =  index1;
       for (let mut index5: i32 =  0; index5 <= num3; index5 += 1)
@@ -24678,7 +24678,7 @@ label_11:
       let mut num12: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub void CopyDirectory(string sourcePath, string destinationPath)
+    pub fn CopyDirectory(string sourcePath, string destinationPath)
     {
       DirectoryInfo directoryInfo = new DirectoryInfo(sourcePath);
       if (!Directory.Exists(destinationPath))
@@ -24693,11 +24693,11 @@ label_11:
       }
     }
 
-    pub void ExportSimpleEditor()
+    pub fn ExportSimpleEditor()
     {
-      string[] arySrc = new string[30000];
-      string[] strArray1 = new string[1000];
-      string[] strArray2 = new string[1000];
+      arySrc: Vec<String> = new string[30000];
+      strArray1: Vec<String> = new string[1000];
+      strArray2: Vec<String> = new string[1000];
       let mut index1: i32 =  -1;
       let mut index2: i32 =  -1;
       str1: String = this.game.HandyFunctionsObj.SaveSomething("DC Zip package files(dczip)|*.dczip|Regular ZIP file(zip)|*.zip", "Save as .dczip or .zip file", this.game.AppPath, false);
@@ -24805,11 +24805,11 @@ label_14:
           }
         }
       }
-      string[] slist = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
+      slist: Vec<String> = (string[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray((Array) arySrc, (Array) new string[index1 + 1]);
       let mut num5: i32 =  index1;
       for (let mut index5: i32 =  0; index5 <= num5; index5 += 1)
         slist[index5] = slist[index5].Replace("\\", "/");
-      string[] strArray3 = new string[1000];
+      strArray3: Vec<String> = new string[1000];
       let mut index6: i32 =  -1;
       let mut num6: i32 =  index1;
       for (let mut index7: i32 =  0; index7 <= num6; index7 += 1)
@@ -24895,7 +24895,7 @@ label_14:
       return attributes & ~attributesToRemove;
     }
 
-    pub SimpleStringList CombatPreviewStats(int targetX, int targetY)
+    pub SimpleStringList CombatPreviewStats(targetX: i32, targetY: i32)
     {
       int[] numArray1 = new int[100];
       int[] numArray2 = new int[100];
@@ -25762,7 +25762,7 @@ label_14:
         }
         str2: String = "The Landscape modifier for the Attack Values of the Troops having to " + str1 + " the Landscape: '" + this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[targetX, targetY].LandscapeType].Name + "'.";
         let mut counter1: i32 =  simpleListArray1[tdata3].Counter;
-        int tdata2_1;
+        tdata2_1: i32;
         for (let mut index120: i32 =  0; index120 <= counter1; index120 += 1)
         {
           let mut tdata5: i32 =  simpleListArray1[tdata3].Id[index120];
@@ -26420,7 +26420,7 @@ label_14:
       return simpleStringList1;
     }
 
-    pub NeighboursExtra GetLisTraffic(int x, int y)
+    pub NeighboursExtra GetLisTraffic(x: i32, y: i32)
     {
       NeighboursExtra lisTraffic = NeighboursExtra::new();
       let mut num1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].Trafic[0].Value[x, y];
@@ -26491,7 +26491,7 @@ label_14:
       return lisTraffic;
     }
 
-    pub void SetLisTraffic(int x, int y, NeighboursExtra neigh)
+    pub fn SetLisTraffic(x: i32, y: i32, NeighboursExtra neigh)
     {
       let mut num1: i32 =  1000000;
       let mut num2: i32 =  1;
@@ -26515,7 +26515,7 @@ label_14:
       this.game.Data.RegimeObj[this.game.Data.Turn].Trafic[0].Value[x, y] = num3;
     }
 
-    pub int Air_CheckSizeStatOf(let mut unr: i32 =  -1, let mut sfnr: i32 =  -1, let mut sftypeNr: i32 =  -1)
+    pub Air_CheckSizeStatOf: i32(let mut unr: i32 =  -1, let mut sfnr: i32 =  -1, let mut sftypeNr: i32 =  -1)
     {
       let mut num1: i32 =  0;
       if (unr > -1)
@@ -26540,7 +26540,7 @@ label_14:
       return num1;
     }
 
-    pub int Air_GetRandomizedRoundingDam(int number, int damPercent)
+    pub Air_GetRandomizedRoundingDam: i32(number: i32, damPercent: i32)
     {
       float num1 =  (number * damPercent) / 100f;
       let mut randomizedRoundingDam: i32 =   Math.Round(Math.Floor( (number * damPercent) / 100.0));
@@ -26550,7 +26550,7 @@ label_14:
       return randomizedRoundingDam;
     }
 
-    pub OrderResult Air_applyDamToUnit(int unr, int damPercent)
+    pub OrderResult Air_applyDamToUnit(unr: i32, damPercent: i32)
     {
       let mut num1: i32 =  0;
       for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
@@ -26576,7 +26576,7 @@ label_14:
       return unit;
     }
 
-    pub void Air_LogUpdateForAll(int regnr, string prefix, string suffix)
+    pub fn Air_LogUpdateForAll(regnr: i32, string prefix, string suffix)
     {
       let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 535, 0, 0));
@@ -26599,7 +26599,7 @@ label_14:
       }
     }
 
-    pub int Air_getNextTurnAirPoints(int regNr, int abNumber)
+    pub Air_getNextTurnAirPoints: i32(regNr: i32, abNumber: i32)
     {
       let mut nextTurnAirPoints: i32 =  0;
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
@@ -26632,7 +26632,7 @@ label_14:
       return nextTurnAirPoints;
     }
 
-    pub int Air_getAirBridgeRowNr(int regId, int fromX, int fromY, int toX, int toY)
+    pub Air_getAirBridgeRowNr: i32(regId: i32, fromX: i32, fromY: i32, toX: i32, toY: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
@@ -26651,7 +26651,7 @@ label_14:
       return -1;
     }
 
-    pub SimpleList Air_getListofAirBridgeRows(int zoneId)
+    pub SimpleList Air_getListofAirBridgeRows(zoneId: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
@@ -26692,7 +26692,7 @@ label_14:
       return listofAirBridgeRows;
     }
 
-    pub Air_removeLisFromAirBridge: bool(int fromX, int fromY, int toX, int toY, int lisRemove)
+    pub Air_removeLisFromAirBridge: bool(fromX: i32, fromY: i32, toX: i32, toY: i32, lisRemove: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
@@ -26754,7 +26754,7 @@ label_14:
       return flag1;
     }
 
-    pub object Air_getLisFromAirBridge(int fromX, int fromY, int toX, int toY)
+    pub object Air_getLisFromAirBridge(fromX: i32, fromY: i32, toX: i32, toY: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
@@ -26781,7 +26781,7 @@ label_14:
       return  lisFromAirBridge;
     }
 
-    pub int Air_GetDamForAirBridge(int fromX, int fromY, int toX, int toY)
+    pub Air_GetDamForAirBridge: i32(fromX: i32, fromY: i32, toX: i32, toY: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
@@ -26819,7 +26819,7 @@ label_14:
       }
       if (num1 < 1)
       {
-        int damForAirBridge;
+        damForAirBridge: i32;
         return damForAirBridge;
       }
       let mut damForAirBridge1: i32 =   Math.Round(Math.Ceiling( num2 /  num1));
@@ -26830,7 +26830,7 @@ label_14:
       return damForAirBridge1;
     }
 
-    pub void ClearTempLisJumps()
+    pub fn ClearTempLisJumps()
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
@@ -26841,7 +26841,7 @@ label_14:
       }
     }
 
-    pub void SetTempLisJumps(int regNr, int sizeOfContent)
+    pub fn SetTempLisJumps(regNr: i32, sizeOfContent: i32)
     {
       this.ClearTempLisJumps();
       if (!this.game.EventRelatedObj.Helper_AirEnabled() || regNr < 0 || regNr > this.game.Data.RegimeCounter)
@@ -26867,12 +26867,12 @@ label_14:
       }
     }
 
-    pub int SetCycleOrder(int unr)
+    pub SetCycleOrder: i32(unr: i32)
     {
       long num = 0;
       let mut shq: i32 =  this.game.EventRelatedObj.GetSHQ(unr);
       let mut ohq: i32 =  this.game.EventRelatedObj.GetOHQ(unr);
-      int id;
+      id: i32;
       if (this.game.Data.UnitObj[unr].Historical > -1)
         id = this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].ID;
       if (shq > -1)
@@ -26887,7 +26887,7 @@ label_14:
       return  num;
     }
 
-    pub int NextCycleUnit(int unr, bool nextMode)
+    pub NextCycleUnit: i32(unr: i32, bool nextMode)
     {
       long num1 = 999999999999999;
       let mut num2: i32 =  -1;
@@ -27321,7 +27321,7 @@ label_14:
       return Left3;
     }
 
-    pub LIS_AutoReinforceRulesValid: bool(int unr)
+    pub LIS_AutoReinforceRulesValid: bool(unr: i32)
     {
       if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0))].GetData(0, this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].id, 1))) == 1)
         return true;
@@ -27336,7 +27336,7 @@ label_14:
       {
         let mut num1: i32 =  0;
         flag = false;
-        int Start1;
+        Start1: i32;
         if (num1 == 0)
         {
           Start1 = Strings.InStr(1, texty, "<PROFILEREGIMEFEATS.");
@@ -27455,7 +27455,7 @@ label_14:
               lower2: String = str1.ToLower();
               if (Strings.InStr(lower1, lower2) > 0)
               {
-                string[] strArray = lower1.Replace(">=", ">").Split('>', ';');
+                strArray: Vec<String> = lower1.Replace(">=", ">").Split('>', ';');
                 let mut upperBound: i32 =  strArray.GetUpperBound(0);
                 for (let mut index: i32 =  0; index <= upperBound; index += 1)
                 {
@@ -27463,7 +27463,7 @@ label_14:
                   {
                     let mut tweight: i32 =   Math.Round(Conversion.Val(strArray[index + 1]));
                     let mut tdata1: i32 =  0;
-                    int num10;
+                    num10: i32;
                     if (num10 >= tweight)
                       tdata1 = 1;
                     simpleList1.Add(tid, tweight, tdata1);
@@ -27648,9 +27648,9 @@ label_14:
       return simpleStringList;
     }
 
-    pub string UnitPopupUdsButtons_MouseOver(int id) => id == 548 ? "Formation administration allows changing the Formation Type and setting Quality Levels" : "";
+    pub string UnitPopupUdsButtons_MouseOver(id: i32) => id == 548 ? "Formation administration allows changing the Formation Type and setting Quality Levels" : "";
 
-    pub void UnitPopupUdsButtons_SetIO(int id)
+    pub fn UnitPopupUdsButtons_SetIO(id: i32)
     {
       if (id != 548)
         return;
@@ -27659,11 +27659,11 @@ label_14:
     }
 
     pub void UnitCausesHexOwnershipChange(
-      int regnr,
-      int x,
-      int y,
-      int ox,
-      int oy,
+      regnr: i32,
+      x: i32,
+      y: i32,
+      ox: i32,
+      oy: i32,
       bool ZoneBorderMode = false)
     {
       let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
@@ -27796,8 +27796,8 @@ label_14:
        local3: String =  str4;
       libName1: String = str3;
       let mut libVar3: i32 =  data3.FindLibVar( local3, libName1);
-      int index3;
-      int index4;
+      index3: i32;
+      index4: i32;
       if (this.game.Data.MapObj[0].HexObj[index3, index4].GetHexLibVarValue(libVar3) > 0)
         this.game.Data.MapObj[0].HexObj[index3, index4].SetHexLibVarValue(libVar3, 0);
       data4: DataClass = this.game.Data;
@@ -27824,20 +27824,20 @@ label_14:
       this.game.Data.MapObj[0].HexObj[index3, index4].SetHexLibVarValue(libVar6, 0);
     }
 
-    pub void GameLoop_SleepingRegime()
+    pub fn GameLoop_SleepingRegime()
     {
       if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0))].GetData(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1))) != 2)
         return;
       new Shadow_Minor( this.game.DC2AIObj).Run();
     }
 
-    pub ShowStatsOfRegime: bool(int regSlot)
+    pub ShowStatsOfRegime: bool(regSlot: i32)
     {
       let mut num: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0))].GetData(0, this.game.Data.RegimeObj[regSlot].id, 1)));
       return this.game.Data.Turn == regSlot || num == 1 && (!this.game.Data.ShrowdOn || !this.game.Data.FOWOn || this.game.Data.Winner > -1 || this.game.Data.RegimeObj[this.game.Data.Turn].Sleep);
     }
 
-    pub ShowStatsOfSFTypeGroup: bool(int sfTypeGroupNr)
+    pub ShowStatsOfSFTypeGroup: bool(sfTypeGroupNr: i32)
     {
       if (this.game.Data.FOWOn & this.game.Data.ShrowdOn & this.game.Data.Winner == -1 & !this.game.Data.RegimeObj[this.game.Data.Turn].Sleep)
       {
@@ -27915,7 +27915,7 @@ label_14:
       return false;
     }
 
-    pub ShowStatsOfSFType: bool(int sfTypeNr)
+    pub ShowStatsOfSFType: bool(sfTypeNr: i32)
     {
       if (this.game.Data.FOWOn & this.game.Data.ShrowdOn & this.game.Data.Winner == -1 & !this.game.Data.RegimeObj[this.game.Data.Turn].Sleep)
       {
@@ -27985,9 +27985,9 @@ label_14:
       return false;
     }
 
-    pub Color Air_GetColor(int airRowNr)
+    pub Air_GetColor: Color(airRowNr: i32)
     {
-      Color color = Color.Black;
+      color: Color = Color.Black;
       if (airRowNr < 0)
         return color;
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
@@ -28006,7 +28006,7 @@ label_14:
       return color;
     }
 
-    pub int AirBridgeInput(int unr, int sourceX, int sourceY, int targetX, int targetY)
+    pub AirBridgeInput: i32(unr: i32, sourceX: i32, sourceY: i32, targetX: i32, targetY: i32)
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut num1: i32 =  0;
@@ -28112,9 +28112,9 @@ label_14:
     }
 
     pub void MovementSpecialCoordSet(
-      int curRegSlot,
-      int tarX,
-      int tarY,
+      curRegSlot: i32,
+      tarX: i32,
+      tarY: i32,
        Coordinate tcoord,
       bool forRecon)
     {
@@ -28155,7 +28155,7 @@ label_14:
       }
     }
 
-    pub int GetSFTypeCombatValueScore(int typ)
+    pub GetSFTypeCombatValueScore: i32(typ: i32)
     {
       let mut index1: i32 =  typ;
       let mut attacks: i32 =  this.game.Data.SFTypeObj[index1].Attacks;
@@ -28188,10 +28188,10 @@ label_14:
       return  Math.Round( attacks * Math.Sqrt( d) *  num / 100.0);
     }
 
-    pub string GetSFTypeCombatValueScoreString(int typ) => "";
+    pub string GetSFTypeCombatValueScoreString(typ: i32) => "";
 
-    pub int GetSFTypeProdCostScore(int typ) => 0 + this.game.Data.SFTypeObj[typ].SFTypeVar[61] + this.game.Data.SFTypeObj[typ].SFTypeVar[62] + this.game.Data.SFTypeObj[typ].SFTypeVar[63] * 2 + this.game.Data.SFTypeObj[typ].SFTypeVar[64] * 4 + this.game.Data.SFTypeObj[typ].SFTypeVar[65] * 8 + this.game.Data.SFTypeObj[typ].SFTypeVar[66] * 6 + this.game.Data.SFTypeObj[typ].SFTypeVar[67] * 2;
+    pub GetSFTypeProdCostScore: i32(typ: i32) => 0 + this.game.Data.SFTypeObj[typ].SFTypeVar[61] + this.game.Data.SFTypeObj[typ].SFTypeVar[62] + this.game.Data.SFTypeObj[typ].SFTypeVar[63] * 2 + this.game.Data.SFTypeObj[typ].SFTypeVar[64] * 4 + this.game.Data.SFTypeObj[typ].SFTypeVar[65] * 8 + this.game.Data.SFTypeObj[typ].SFTypeVar[66] * 6 + this.game.Data.SFTypeObj[typ].SFTypeVar[67] * 2;
 
-    pub string GetSFTypeProdCostScoreString(int typ) => "";
+    pub string GetSFTypeProdCostScoreString(typ: i32) => "";
   }
 }

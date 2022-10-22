@@ -14,19 +14,19 @@ namespace WindowsApplication1
   pub class HistoryOrderWindowClass : WindowClass
   {
      bool TimerUsed;
-     int w;
-     int h;
-     int CurrentView;
-     int info2id;
-     int exitid;
-     int skipid;
-     int slider1id;
-     int specialid;
-     int autoplayid;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     info2id: i32;
+     exitid: i32;
+     skipid: i32;
+     slider1id: i32;
+     specialid: i32;
+     autoplayid: i32;
      HistoryWindowClass2 HisW;
 
     pub HistoryOrderWindowClass(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
        HistoryWindowClass2 tHisW)
@@ -46,9 +46,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (this.SubPartCounter > -1)
       {
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.CurrentView = this.game.EditObj.SetViewMode;
       this.ClearMouse();
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       let mut num1: i32 =   Math.Round( this.game.ScreenWidth / 116.0);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       for (let mut index: i32 =  0; index <= num1; index += 1)
       {
          let mut local1: &Graphics = &Expression;
@@ -174,7 +174,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (y > 18 &&  this.w / 2.0 - 500.0 <  x &  x <  this.w / 2.0 + 500.0)

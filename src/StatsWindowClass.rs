@@ -16,87 +16,87 @@ namespace WindowsApplication1
 {
   pub class StatsWindowClass : WindowClass
   {
-     int TempText1;
-     int temptext2;
-     int temptext3;
-     int temptext4;
-     int temptext5;
-     int temptext6;
-     int temptext7;
-     int temptext8;
-     int temptext9;
-     int temptext10;
-     int TempText11;
-     int temptext12;
-     int temptext13;
-     int temptext14;
-     int temptext15;
-     int temptext16;
-     int temptext17;
-     int temptext18;
-     int temptext19;
+     TempText1: i32;
+     temptext2: i32;
+     temptext3: i32;
+     temptext4: i32;
+     temptext5: i32;
+     temptext6: i32;
+     temptext7: i32;
+     temptext8: i32;
+     temptext9: i32;
+     temptext10: i32;
+     TempText11: i32;
+     temptext12: i32;
+     temptext13: i32;
+     temptext14: i32;
+     temptext15: i32;
+     temptext16: i32;
+     temptext17: i32;
+     temptext18: i32;
+     temptext19: i32;
      int[] TabId;
-     int but1id;
-     int but1textid;
-     int TabCount;
-     int but2id;
-     int but2textid;
-     int but3id;
-     int but3textid;
-     int but4id;
-     int but4textid;
-     int but5id;
-     int but5textid;
-     int GOid;
-     int UpgradeId;
-     int headytxt;
-     int sliderid;
+     but1id: i32;
+     but1textid: i32;
+     TabCount: i32;
+     but2id: i32;
+     but2textid: i32;
+     but3id: i32;
+     but3textid: i32;
+     but4id: i32;
+     but4textid: i32;
+     but5id: i32;
+     but5textid: i32;
+     GOid: i32;
+     UpgradeId: i32;
+     headytxt: i32;
+     sliderid: i32;
      float tempBlink;
-     int hq;
-     int sfnr;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int detailnr4;
-     int detailnr5;
-     int detailtype;
-     int ammount;
+     hq: i32;
+     sfnr: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     detailnr4: i32;
+     detailnr5: i32;
+     detailtype: i32;
+     ammount: i32;
      bool hqreach;
-     int passenger;
-     int OptionsListId;
+     passenger: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int SortStart;
-     int sortcount;
-     int ModeTextId;
-     int ModeButton0Id;
-     int ModeButton1Id;
-     int ModeButton2Id;
-     int OptionsList2Id;
+     SortStart: i32;
+     sortcount: i32;
+     ModeTextId: i32;
+     ModeButton0Id: i32;
+     ModeButton1Id: i32;
+     ModeButton2Id: i32;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ATListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ATListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ATListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ATListClass OptionsList6Obj;
-     int OptionsList7Id;
+     OptionsList7Id: i32;
      ATListClass OptionsList7Obj;
-     int OptionsList8Id;
+     OptionsList8Id: i32;
      ATListClass OptionsList8Obj;
-     int OptionsList9Id;
+     OptionsList9Id: i32;
      ATListClass OptionsList9Obj;
-     int StatMode;
-     int StatAggr;
-     int Abstr;
+     StatMode: i32;
+     StatAggr: i32;
+     Abstr: i32;
      int[] mzx;
      int[] mzy;
      int[] mzx2;
      int[] mzy2;
      int[] mznr;
      int[] mzdetnr;
-     int mzcount;
+     mzcount: i32;
      bool supplycalcdone;
      int[] supplyneed1;
     pub supplyneed2: Vec<i32>;
@@ -109,9 +109,9 @@ namespace WindowsApplication1
      int[] supplyin2;
      int[] supplyin3;
      int[] supplyin4;
-     int truextra;
+     truextra: i32;
 
-    pub StatsWindowClass( GameClass tGame)
+    pub StatsWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       self.TabId = new int[100];
@@ -152,7 +152,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       int[] numArray1 = new int[self.game.Data.UnitCounter + 1];
       int[] numArray2 = new int[self.game.Data.UnitCounter + 1];
@@ -223,9 +223,9 @@ namespace WindowsApplication1
       self.NewBackGroundAndClearAll(1024, 768, self.game.BACKGROUND2MARC);
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
-      Font vicFont2 = self.game.VicFont2;
-      Font vicFont4 = self.game.VicFont4;
-      Font vicFont3 = self.game.VicFont3;
+      vicFont2: Font = self.game.VicFont2;
+      vicFont4: Font = self.game.VicFont4;
+      vicFont3: Font = self.game.VicFont3;
       bool flag;
       if (!self.game.Data.FOWOn)
         flag = true;
@@ -321,7 +321,7 @@ namespace WindowsApplication1
       }
       tsubpart1 =  ButtonPartClass::new(self.game.BUTTONQUIT);
       self.but1id = self.AddSubPart( tsubpart1, 952, 22, 35, 35, 1);
-      int num8;
+      num8: i32;
       if (self.StatMode == 4 | self.StatMode == 9)
       {
         DrawMod.DrawBlock( graphics, 30, 94, 900, 48, 0, 0, 0, 166);
@@ -340,7 +340,7 @@ namespace WindowsApplication1
           numArray1[index6] = -1;
           numArray3[index6] = 0;
         }
-        int num10;
+        num10: i32;
         do
         {
           num10 = 0;
@@ -527,7 +527,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int num24;
+        num24: i32;
         if (self.detailnr > -1)
           num24 = self.detailnr;
         if (self.detailnr2 > -1)
@@ -769,7 +769,7 @@ namespace WindowsApplication1
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
          let mut local1: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local2: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
@@ -850,7 +850,7 @@ namespace WindowsApplication1
         if (self.game.Data.Round > num44)
           num44 = self.game.Data.Round;
         let mut num45: i32 =  Math.Round( num44 + Conversion.Int( num44 * 0.2));
-        int[,] numArray14 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray14: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         let mut regimeCounter5: i32 = self.game.Data.RegimeCounter;
         for (let mut index31: i32 = 0; index31 <= regimeCounter5; index31 += 1)
         {
@@ -860,8 +860,8 @@ namespace WindowsApplication1
             let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
             for (let mut index33: i32 = 0; index33 <= sfTypeCounter; index33 += 1)
             {
-              int[,] numArray15 = numArray14;
-              int[,] numArray16 = numArray15;
+              numArray15: Vec<i32> = numArray14;
+              numArray16: Vec<i32> = numArray15;
               let mut index34: i32 = index31;
               let mut index35: i32 = index34;
               let mut index36: i32 = index32;
@@ -873,7 +873,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int[,] numArray17 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray17: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         if (self.StatAggr > 0)
         {
           if (self.StatAggr == 1)
@@ -912,7 +912,7 @@ namespace WindowsApplication1
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
          let mut local3: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local4: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
@@ -993,7 +993,7 @@ namespace WindowsApplication1
         if (self.game.Data.Round > num55)
           num55 = self.game.Data.Round;
         let mut num56: i32 =  Math.Round( num55 + Conversion.Int( num55 * 0.2));
-        int[,] numArray18 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray18: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         let mut regimeCounter9: i32 = self.game.Data.RegimeCounter;
         for (let mut index45: i32 = 0; index45 <= regimeCounter9; index45 += 1)
         {
@@ -1003,8 +1003,8 @@ namespace WindowsApplication1
             let mut itemTypeCounter: i32 = self.game.Data.ItemTypeCounter;
             for (let mut index47: i32 = 0; index47 <= itemTypeCounter; index47 += 1)
             {
-              int[,] numArray19 = numArray18;
-              int[,] numArray20 = numArray19;
+              numArray19: Vec<i32> = numArray18;
+              numArray20: Vec<i32> = numArray19;
               let mut index48: i32 = index45;
               let mut index49: i32 = index48;
               let mut index50: i32 = index46;
@@ -1016,7 +1016,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int[,] numArray21 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray21: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         if (self.StatAggr > 0)
         {
           if (self.StatAggr == 1)
@@ -1055,7 +1055,7 @@ namespace WindowsApplication1
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
          let mut local5: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local6: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
@@ -1131,7 +1131,7 @@ namespace WindowsApplication1
       }
       if (self.StatMode == 1)
       {
-        int[,] numArray22 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1 + 1];
+        numArray22: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1 + 1];
         let mut num65: i32 = 100;
         let mut num66: i32 = 20;
         if (self.game.Data.Round > num66)
@@ -1151,8 +1151,8 @@ namespace WindowsApplication1
                 let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
                 for (let mut index62: i32 = 0; index62 <= sfTypeCounter; index62 += 1)
                 {
-                  int[,] numArray23 = numArray22;
-                  int[,] numArray24 = numArray23;
+                  numArray23: Vec<i32> = numArray22;
+                  numArray24: Vec<i32> = numArray23;
                   let mut index63: i32 = index59;
                   let mut index64: i32 = index63;
                   let mut index65: i32 = index61;
@@ -1166,7 +1166,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int[,] numArray25 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray25: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         if (self.StatAggr > 0)
         {
           if (self.StatAggr == 1)
@@ -1207,7 +1207,7 @@ namespace WindowsApplication1
           DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
           DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
            let mut local7: &Graphics = &graphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
+          bitmap: Bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
            let mut local8: &Bitmap = &bitmap;
           let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
           double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
@@ -1289,7 +1289,7 @@ namespace WindowsApplication1
         if (self.game.Data.Round > num78)
           num78 = self.game.Data.Round;
         let mut num79: i32 =  Math.Round( num78 + Conversion.Int( num78 * 0.2));
-        int[,] numArray26 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1 + 1];
+        numArray26: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1 + 1];
         let mut regimeCounter18: i32 = self.game.Data.RegimeCounter;
         for (let mut index74: i32 = 0; index74 <= regimeCounter18; index74 += 1)
         {
@@ -1304,8 +1304,8 @@ namespace WindowsApplication1
                 let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
                 for (let mut index77: i32 = 0; index77 <= sfTypeCounter; index77 += 1)
                 {
-                  int[,] numArray27 = numArray26;
-                  int[,] numArray28 = numArray27;
+                  numArray27: Vec<i32> = numArray26;
+                  numArray28: Vec<i32> = numArray27;
                   let mut index78: i32 = index74;
                   let mut index79: i32 = index78;
                   let mut index80: i32 = index76;
@@ -1319,7 +1319,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int[,] numArray29 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
+        numArray29: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         if (self.StatAggr > 0)
         {
           if (self.StatAggr == 1)
@@ -1358,7 +1358,7 @@ namespace WindowsApplication1
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
          let mut local9: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local10: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
@@ -1434,8 +1434,8 @@ namespace WindowsApplication1
       }
       if (self.StatMode == 3)
       {
-        int[,] numArray30 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.SFTypeCounter + 1];
-        int[,] numArray31 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.SFTypeCounter + 1];
+        numArray30: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.SFTypeCounter + 1];
+        numArray31: Vec<i32> = new int[self.game.Data.RegimeCounter + 1, self.game.Data.SFTypeCounter + 1];
         let mut regimeCounter23: i32 = self.game.Data.RegimeCounter;
         for (let mut index89: i32 = 0; index89 <= regimeCounter23; index89 += 1)
         {
@@ -1450,16 +1450,16 @@ namespace WindowsApplication1
                 let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
                 for (let mut index92: i32 = 0; index92 <= sfTypeCounter; index92 += 1)
                 {
-                  int[,] numArray32 = numArray30;
-                  int[,] numArray33 = numArray32;
+                  numArray32: Vec<i32> = numArray30;
+                  numArray33: Vec<i32> = numArray32;
                   let mut index93: i32 = index89;
                   let mut index94: i32 = index93;
                   let mut index95: i32 = index92;
                   let mut index96: i32 = index95;
                   let mut num90: i32 = numArray32[index93, index95] + self.game.Data.RegimeObj[index90].SKills[index92, index91] * Math.Max(1, self.game.Data.SFTypeObj[index92].Ratio);
                   numArray33[index94, index96] = num90;
-                  int[,] numArray34 = numArray31;
-                  int[,] numArray35 = numArray34;
+                  numArray34: Vec<i32> = numArray31;
+                  numArray35: Vec<i32> = numArray34;
                   let mut index97: i32 = index89;
                   let mut index98: i32 = index97;
                   let mut index99: i32 = index92;
@@ -1874,7 +1874,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1894,7 +1894,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -1986,7 +1986,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int num3;
+                num3: i32;
                 if (num1 == self.OptionsList2Id)
                 {
                   num3 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
@@ -2047,8 +2047,8 @@ namespace WindowsApplication1
                   return windowReturnClass;
                 self.game.EditObj.UnitSelected = self.detailnr5;
                 let mut num4: i32 = 265;
-                int x1;
-                int y1;
+                x1: i32;
+                y1: i32;
                 if (self.game.Data.UnitObj[self.detailnr5].X > -1)
                 {
                   x1 = self.game.Data.UnitObj[self.detailnr5].X;
@@ -2185,16 +2185,16 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void AutoUpgrade(int hqused)
+    pub fn AutoUpgrade(hqused: i32)
     {
       object[] objArray = new object[3];
-      int num1;
+      num1: i32;
       if (self.game.HandyFunctionsObj.HowmanyHQsBelow(hqused) > 0)
         num1 =  Interaction.MsgBox( "Also auto upgrade units of subordinate HQs?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
       let mut unitCounter: i32 = self.game.Data.UnitCounter;
-      int Number1;
-      int Number2;
-      int Number3;
+      Number1: i32;
+      Number2: i32;
+      Number3: i32;
       for (let mut unr: i32 = 0; unr <= unitCounter; unr += 1)
       {
         if (self.game.Data.UnitObj[unr].PreDef == -1 && self.game.Data.UnitObj[unr].HQ == hqused | unr == hqused | num1 == 6 & self.game.HandyFunctionsObj.HasUnitHQSomewhereUp(unr, hqused) && self.game.Data.UnitObj[unr].X > -1 & self.game.Data.UnitObj[hqused].X > -1 && !self.game.Data.LandscapeTypeObj[self.game.Data.MapObj[0].HexObj[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y].LandscapeType].IsSea)
@@ -2309,7 +2309,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CalculateSupply()
+    pub fn CalculateSupply()
     {
       int[] numArray1 = new int[self.game.Data.UnitCounter + 1];
       int[] numArray2 = new int[self.game.Data.UnitCounter + 1];
@@ -2321,7 +2321,7 @@ namespace WindowsApplication1
         numArray1[index] = -1;
         numArray2[index] = 0;
       }
-      int num2;
+      num2: i32;
       do
       {
         num2 = 0;
@@ -2411,7 +2411,7 @@ namespace WindowsApplication1
           {
             self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.Turn,  Math.Round( self.game.Data.RuleVar[99]), 99,  Math.Round( self.game.Data.RuleVar[3]), self.game.Data.UnitObj[index6].X, self.game.Data.UnitObj[index6].Y, self.game.Data.UnitObj[index6].Map, allowshoredrop: true);
             let mut unitCounter4: i32 = self.game.Data.UnitCounter;
-            int num6;
+            num6: i32;
             float num7;
             for (let mut unr: i32 = 0; unr <= unitCounter4; unr += 1)
             {

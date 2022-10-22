@@ -10,12 +10,12 @@ namespace WindowsApplication1
 {
   pub class ListItem
   {
-     int mID;
+     mID: i32;
      string mName;
      string mFile;
     pub mRealName: String;
 
-    pub ListItem(int ID, string Name, tFile: String = "", RealName: String = "")
+    pub ListItem(ID: i32, string Name, tFile: String = "", RealName: String = "")
     {
       this.mID = ID;
       this.mName = Name;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub int ID
+    pub ID: i32
     {
       get => this.mID;
       set => this.mID = value;

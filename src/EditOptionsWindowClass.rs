@@ -53,8 +53,8 @@ namespace WindowsApplication1
     pub AddMapId: i32;
     pub RemoveMapId: i32;
     pub maploopid: i32;
-     int BDraw2Id;
-     int BDraw2TextId;
+     BDraw2Id: i32;
+     BDraw2TextId: i32;
     pub BResID: i32;
     pub BResTextId: i32;
     pub BLibId: i32;
@@ -68,21 +68,21 @@ namespace WindowsApplication1
     pub opt5id: i32;
     pub opt6id: i32;
     pub pickid: i32;
-     int firstListId;
+     firstListId: i32;
      ListClass firstListObj;
-     int medListId;
+     medListId: i32;
      ListClass medListObj;
-     int lastListId;
+     lastListId: i32;
      ListClass lastListObj;
-     int MapListId;
+     MapListId: i32;
      ListClass MapListObj;
-     int Shortsdesc;
-     int detailnr;
+     Shortsdesc: i32;
+     detailnr: i32;
      bool warningshown;
 
-    pub void PopUpRefresh() => this.dostuff();
+    pub fn PopUpRefresh() => this.dostuff();
 
-    pub EditOptionsWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub EditOptionsWindowClass(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, tGame.ScreenWidth, 100, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.domenu();
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void domenu()
+    pub fn domenu()
     {
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONKILL);
       this.BBackId = this.AddSubPart(ref tsubpart1, 10, 2, 32, 16, 1);
@@ -208,7 +208,7 @@ namespace WindowsApplication1
       this.AddSubPart(ref tsubpart43, x, y7, 180, 15, 1);
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.pickid > 0)
         this.RemoveSubPart(this.pickid);
@@ -392,7 +392,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub string WindowDescription(int x, int y)
+    pub string WindowDescription(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -405,7 +405,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

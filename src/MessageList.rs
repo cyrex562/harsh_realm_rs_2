@@ -12,7 +12,7 @@ namespace WindowsApplication1
   pub class MessageList
   {
     pub counter: i32;
-    pub string[] data;
+    pub data: Vec<String>;
     pub maxcounter: i32;
 
     pub MessageList()
@@ -22,7 +22,7 @@ namespace WindowsApplication1
       this.maxcounter = 20;
     }
 
-    pub void add(string tdata)
+    pub fn add(string tdata)
     {
       this += 1.counter;
       if (this.counter > this.maxcounter)
@@ -33,7 +33,7 @@ namespace WindowsApplication1
       this.data[this.counter] = tdata;
     }
 
-    pub void removetop()
+    pub fn removetop()
     {
       if (this.counter <= -1)
         return;

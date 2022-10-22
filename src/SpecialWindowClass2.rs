@@ -13,11 +13,11 @@ namespace WindowsApplication1
 {
   pub class SpecialWindowClass2 : WindowClass
   {
-     int okId;
-     int useWidth;
-     int useHeight;
+     okId: i32;
+     useWidth: i32;
+     useHeight: i32;
 
-    pub SpecialWindowClass2( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass2( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.useWidth = tUseWidth;
@@ -25,7 +25,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF = SizeF::new();
       let mut id1: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -110,9 +110,9 @@ namespace WindowsApplication1
       let mut index1: i32 = 1;
       do
       {
-        int num1;
-        int num2;
-        int num3;
+        num1: i32;
+        num2: i32;
+        num3: i32;
         if (index1 == 1)
         {
           num1 = 201;
@@ -302,7 +302,7 @@ namespace WindowsApplication1
         }
         str1: String = "";
         string ttext1;
-        Color c1;
+        c1: Color;
         if (flag2)
         {
           ttext1 = "This Tech Group is open to discoveries. Once you have fully researched 3 Techs from this group you'll open up all the Tech Groups connected to " + data1 + ".";
@@ -387,8 +387,8 @@ namespace WindowsApplication1
         {
           let mut row: i32 = self.game.Data.StringListObj[stringListById1].FindRow(0, simpleList2.Id[index9]);
           str2: String = self.game.Data.StringListObj[stringListById1].Data[row, 1];
-          int x;
-          int num20;
+          x: i32;
+          num20: i32;
           if (index9 < num19)
           {
             x = num11;
@@ -425,7 +425,7 @@ namespace WindowsApplication1
           str5: String = str4.ToLower();
           str6: String = "";
           let mut num25: i32 = 1;
-          int idValue;
+          idValue: i32;
           do
           {
             if (Strings.InStr(str5, "tech.") > 0)
@@ -444,11 +444,11 @@ namespace WindowsApplication1
           }
           while (num25 <= 4);
           str1 = "";
-          int r;
-          int g2;
-          int b;
-          int a;
-          Color c2;
+          r: i32;
+          g2: i32;
+          b: i32;
+          a: i32;
+          c2: Color;
           string str7;
           if (num22 >= 100)
           {
@@ -489,7 +489,7 @@ namespace WindowsApplication1
             bool flag3 = true;
             if (str4.Length > 1)
             {
-              EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+              eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
               let mut id2: i32 = self.game.Data.StringListObj[stringListById4].ID;
               let mut id3: i32 = self.game.Data.StringListObj[stringListById3].ID;
               logicString: String = str4;
@@ -518,7 +518,7 @@ namespace WindowsApplication1
             }
           }
           tstring: String = "";
-          Color color;
+          color: Color;
           if (index10 == -1 | num22 == 0 & index10 > -1)
           {
             switch (num23)
@@ -590,7 +590,7 @@ namespace WindowsApplication1
       g1.Dispose();
     }
 
-    pub Rectangle GetGroupRect(int tgroupX, int tgroupY)
+    pub Rectangle GetGroupRect(tgroupX: i32, tgroupY: i32)
     {
       let mut num1: i32 = 50;
       let mut num2: i32 = 104;
@@ -605,7 +605,7 @@ namespace WindowsApplication1
       return Rectangle::new(x, y, width, height);
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -627,7 +627,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = WindowReturnClass::new();

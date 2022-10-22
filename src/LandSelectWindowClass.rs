@@ -13,18 +13,18 @@ namespace WindowsApplication1
 {
   pub class LandSelectWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
      UnitList UL;
      int[] Air;
 
-    pub LandSelectWindowClass( GameClass tGame)
+    pub LandSelectWindowClass( tGame: GameClass)
       : base( tGame, 680, 380, 8)
     {
       this.Air = new int[100];
@@ -32,7 +32,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void SetUnits()
+    pub fn SetUnits()
     {
       this.UL = UnitList::new();
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -50,7 +50,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -85,7 +85,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.cancelid > 0)
       {
@@ -156,7 +156,7 @@ namespace WindowsApplication1
       this.cancelid = this.AddSubPart( tsubpart, 265, 315, 150, 40, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -178,7 +178,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 =  this.MouseCounter;

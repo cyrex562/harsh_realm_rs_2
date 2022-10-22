@@ -12,7 +12,7 @@ namespace WindowsApplication1
 {
   pub class AITheater
   {
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
     pub MapClass map;
     pub AIFront front;
     pub AIFrontList frontList;
@@ -91,7 +91,7 @@ namespace WindowsApplication1
     pub Height: i32;
     pub LowestRetreatModifierAllowed: i32;
 
-    pub AITheater(DC2AIClass tai, AIFront tfront, AIFrontList tfrontList)
+    pub AITheater(tai: DC2AIClass, AIFront tfront, AIFrontList tfrontList)
     {
       this.ai = tai;
       this.map = this.ai.game.Data.MapObj[0];
@@ -234,11 +234,11 @@ namespace WindowsApplication1
       return aiTheater;
     }
 
-    pub void InitializeReserve()
+    pub fn InitializeReserve()
     {
       this.SetMatrixDimensions();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -252,11 +252,11 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeStrategic()
+    pub fn InitializeStrategic()
     {
       this.SetMatrixDimensionsAir();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -270,11 +270,11 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeAir()
+    pub fn InitializeAir()
     {
       this.SetMatrixDimensionsAir();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -294,7 +294,7 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeNavy()
+    pub fn InitializeNavy()
     {
       this.SetMatrixDimensionsAir();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
@@ -304,11 +304,11 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeAirTransport()
+    pub fn InitializeAirTransport()
     {
       this.SetMatrixDimensionsAir();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -327,11 +327,11 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeEngineer()
+    pub fn InitializeEngineer()
     {
       this.SetMatrixDimensions();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -346,11 +346,11 @@ namespace WindowsApplication1
       this.origOwner = this.Owner.Clone();
     }
 
-    pub void InitializeOrg()
+    pub fn InitializeOrg()
     {
       this.SetMatrixDimensions();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -402,7 +402,7 @@ namespace WindowsApplication1
       {
         if (this.front.DefensiveZone > 0)
         {
-          DC2AIClass ai = this.ai;
+          ai: DC2AIClass = this.ai;
           aiTheater = this;
           ref AITheater local1 = ref aiTheater;
           ref AIMatrix local2 = ref this.Owner;
@@ -411,7 +411,7 @@ namespace WindowsApplication1
         }
         else
         {
-          DC2AIClass ai = this.ai;
+          ai: DC2AIClass = this.ai;
           aiTheater = this;
           ref AITheater local3 = ref aiTheater;
           ref AIMatrix local4 = ref this.Owner;
@@ -421,7 +421,7 @@ namespace WindowsApplication1
       }
       else
       {
-        DC2AIClass ai = this.ai;
+        ai: DC2AIClass = this.ai;
         aiTheater = this;
         ref AITheater local5 = ref aiTheater;
         ref AIMatrix local6 = ref this.Owner;
@@ -433,7 +433,7 @@ namespace WindowsApplication1
       this.friendlySupplyIdeal.SetAllValuesNotValueXTo(0, 9999);
       this.FriendlySupply = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       this.Setsupplymatrix(ref this.FriendlySupply, ref this.Owner, 1);
-      DC2AIClass ai1 = this.ai;
+      ai1: DC2AIClass = this.ai;
       ref AIMatrix local7 = ref this.allTroops;
       ref AIMatrix local8 = ref this.troopsMove;
       let mut width1: i32 =  this.Width;
@@ -452,7 +452,7 @@ namespace WindowsApplication1
       this.FrontAreaForAttack.RemoveValuesByMask(this.Owner, 0);
       this.vpMatrix = this.ai.SetAveragedVPMatrix(this.FrontArea, this.front.FrontID);
       this.vpMatrix.Percentify();
-      DC2AIClass ai2 = this.ai;
+      ai2: DC2AIClass = this.ai;
       aiTheater = this;
       ref AITheater local10 = ref aiTheater;
       ref AIMatrix local11 = ref this.FrontArea;
@@ -467,7 +467,7 @@ namespace WindowsApplication1
       this.origEnemyDistance = this.enemyDistance.Clone();
       this.origOwner = this.Owner.Clone();
       this.SetMoveCost(extraAP);
-      DC2AIClass ai3 = this.ai;
+      ai3: DC2AIClass = this.ai;
       aiTheater = this;
       ref AITheater local13 = ref aiTheater;
       this.TroopsReach = ai3.SetTroopReach(ref local13);
@@ -477,7 +477,7 @@ namespace WindowsApplication1
       aiMatrix.DetectAndMakeEdgeMatrix(false);
       if (this.front.FrontID == 1739)
         ;
-      DC2AIClass ai4 = this.ai;
+      ai4: DC2AIClass = this.ai;
       ref AIMatrix local14 = ref this.troopsstrength;
       ref AIMatrix local15 = ref this.troopsMove;
       let mut width2: i32 =  this.Width;
@@ -558,7 +558,7 @@ namespace WindowsApplication1
       this.Score = 50;
     }
 
-    pub void getInitialScores2()
+    pub fn getInitialScores2()
     {
       this.InitHexes = this.GetInitialFrontAreaHexes(ref this.allTroops, ref this.Owner, 1);
       this.initHexesTot = this.GetInitialHexes(ref this.allTroops, ref this.Owner, 1);
@@ -566,7 +566,7 @@ namespace WindowsApplication1
       this.initEncRatio4 = this.GetTroopsFrontRatioOutOfSupply(ref this.enemySupply, ref this.troopsstrength, ref this.Owner, 2);
     }
 
-    pub void GetInitialScores()
+    pub fn GetInitialScores()
     {
       this.FriendlySupplyAfterEnemyMove = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       this.initEncRatio5 = this.GetTroopsRatioOutOfSupply(ref this.FriendlySupply, ref this.allTroops, ref this.Owner, 1);
@@ -961,7 +961,7 @@ namespace WindowsApplication1
       bool onlyOverRoad,
       bool notAdjustedForEnemyMoveMatrix = false)
     {
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut width1: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width1; index1 += 1)
       {
@@ -1026,8 +1026,8 @@ namespace WindowsApplication1
                     if (num13 <= RANGE && this.ai.game.HandyFunctionsObj.HexFacing(index1, index2, 0, index3, index4, 0) - 1 > -1)
                     {
                       let mut num14: i32 =  (int) Math.Round( ( (int) Math.Round( tTroops.Value[index3, index4] * ( (RANGE + 1 - num13) /  RANGE)) * num2));
-                      int[,] numArray2 = numArray1;
-                      int[,] numArray3 = numArray2;
+                      numArray2: Vec<i32> = numArray1;
+                      numArray3: Vec<i32> = numArray2;
                       let mut index5: i32 =  index1;
                       let mut index6: i32 =  index5;
                       let mut index7: i32 =  index2;
@@ -1069,7 +1069,7 @@ namespace WindowsApplication1
                 index11 += 1;
               }
               while (index11 <= 5);
-              HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+              handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
               ref Neighbours local1 = ref neighbours;
               bool flag2 = false;
               ref bool local2 = ref flag2;
@@ -1165,7 +1165,7 @@ namespace WindowsApplication1
       int RANGE,
       bool onlyOverRoad)
     {
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut width1: i32 =  this.Width;
       for (let mut x1: i32 =  0; x1 <= width1; x1 += 1)
       {
@@ -1225,8 +1225,8 @@ namespace WindowsApplication1
                     if (num13 <= RANGE)
                     {
                       let mut num14: i32 =  (int) Math.Round( ( (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num13) /  RANGE)) * num2));
-                      int[,] numArray2 = numArray1;
-                      int[,] numArray3 = numArray2;
+                      numArray2: Vec<i32> = numArray1;
+                      numArray3: Vec<i32> = numArray2;
                       let mut index1: i32 =  x1;
                       let mut index2: i32 =  index1;
                       let mut index3: i32 =  y1;
@@ -1268,7 +1268,7 @@ namespace WindowsApplication1
                 index7 += 1;
               }
               while (index7 <= 5);
-              HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+              handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
               ref Neighbours local1 = ref neighbours;
               bool flag2 = false;
               ref bool local2 = ref flag2;
@@ -1347,7 +1347,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetMoveCost(let mut extraAP: i32 =  0)
+    pub fn SetMoveCost(let mut extraAP: i32 =  0)
     {
       int num1;
       if (this.front.FrontID == 1362)
@@ -1523,7 +1523,7 @@ namespace WindowsApplication1
                             this.MoveFromAttack[index1, index7].Value[index6, y2_1].onmap = true;
                             this.MoveFromAttack[index1, index7].Value[index6, y2_1].x = x1;
                             this.MoveFromAttack[index1, index7].Value[index6, y2_1].y = y1;
-                            int[,] numArray = this.MoveCostAttack[index1, index7].Value;
+                            numArray: Vec<i32> = this.MoveCostAttack[index1, index7].Value;
                             let mut index8: i32 =  index6;
                             let mut index9: i32 =  y2_1;
                             let mut num8: i32 =  this.ai.game.EditObj.TempValue[0].Value[x1, y1];
@@ -1702,7 +1702,7 @@ namespace WindowsApplication1
                           this.MoveFromArtAttack[index19, index25].Value[index24, y2].onmap = true;
                           this.MoveFromArtAttack[index19, index25].Value[index24, y2].x = x1;
                           this.MoveFromArtAttack[index19, index25].Value[index24, y2].y = y1;
-                          int[,] numArray = this.MoveCostArtAttack[index19, index25].Value;
+                          numArray: Vec<i32> = this.MoveCostArtAttack[index19, index25].Value;
                           let mut index26: i32 =  index24;
                           let mut index27: i32 =  y2;
                           let mut num13: i32 =  this.ai.game.EditObj.TempValue[0].Value[x1, y1];
@@ -1864,7 +1864,7 @@ namespace WindowsApplication1
             }
             if (num2 == 1)
             {
-              HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+              handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
               let mut unr: i32 =  unitByAiid;
               let mut x8: i32 =  x7;
               let mut y6: i32 =  y5;
@@ -1903,7 +1903,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetMatrixDimensionsAir()
+    pub fn SetMatrixDimensionsAir()
     {
       this.Left = 0;
       this.Top = 0;
@@ -1913,7 +1913,7 @@ namespace WindowsApplication1
       this.Height = this.map.MapHeight;
     }
 
-    pub void SetMatrixDimensions()
+    pub fn SetMatrixDimensions()
     {
       if (this.map.MapLoop)
       {
@@ -2078,7 +2078,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetMatrixDimensionsWithMapLoop()
+    pub fn SetMatrixDimensionsWithMapLoop()
     {
       bool[] flagArray = new bool[this.map.MapWidth + 1];
       this.Left = this.map.MapWidth;
@@ -2549,7 +2549,7 @@ namespace WindowsApplication1
                     index5 += 1;
                   }
                   while (index5 <= 5);
-                  HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+                  handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
                   ref Neighbours local1 = ref neighbours;
                   bool flag = false;
                   ref bool local2 = ref flag;
@@ -2588,7 +2588,7 @@ namespace WindowsApplication1
                         index7 += 1;
                       }
                       while (index7 <= 5);
-                      HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+                      handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
                       ref Neighbours local3 = ref neighbours;
                       bool flag = false;
                       ref bool local4 = ref flag;
@@ -2801,8 +2801,8 @@ label_57:
           SimpleList simpleList2 = SimpleList::new();
           SimpleList simpleList3 = SimpleList::new();
           let mut num18: i32 =  this.troopsstrength.Value[index1, index2];
-          int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
-          int[,] numArray2 = new int[this.Width + 1, this.Height + 1];
+          numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+          numArray2: Vec<i32> = new int[this.Width + 1, this.Height + 1];
           let mut num19: i32 =  0;
           float num20 = 0.0f;
           let mut val2: i32 =  0;
@@ -3052,16 +3052,16 @@ label_57:
               index17 = this.ai.game.Data.UnitObj[index22].Y - this.Top;
               if (!(this.GetMatrixX(coordinate3.x) == index16 & coordinate3.y + this.Top == index17))
               {
-                int[,] numArray3 = numArray1;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = numArray1;
+                numArray4: Vec<i32> = numArray3;
                 let mut index24: i32 =  index16;
                 let mut index25: i32 =  index24;
                 let mut index26: i32 =  index17;
                 let mut index27: i32 =  index26;
                 let mut num46: i32 =  numArray3[index24, index26] + this.ai.game.Data.UnitObj[index22].TempUnitPower;
                 numArray4[index25, index27] = num46;
-                int[,] numArray5 = numArray2;
-                int[,] numArray6 = numArray5;
+                numArray5: Vec<i32> = numArray2;
+                numArray6: Vec<i32> = numArray5;
                 let mut x: i32 =  coordinate3.x;
                 let mut index28: i32 =  x;
                 let mut y: i32 =  coordinate3.y;
@@ -3871,7 +3871,7 @@ label_57:
             index += 1;
           }
           while (index <= 5);
-          HandyFunctionsclass handyFunctionsObj = this.ai.game.HandyFunctionsObj;
+          handyFunctionsObj: HandyFunctionsclass = this.ai.game.HandyFunctionsObj;
           ref Neighbours local1 = ref neighbours;
           bool flag = false;
           ref bool local2 = ref flag;
@@ -4238,7 +4238,7 @@ label_57:
       this.Score = 0;
     }
 
-    pub void SetStrategicMove()
+    pub fn SetStrategicMove()
     {
       this.MoveList = AIMoveList::new();
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
@@ -4415,7 +4415,7 @@ label_57:
       this.Score = num2;
     }
 
-    pub void SetReserveMove()
+    pub fn SetReserveMove()
     {
       this.MoveList = AIMoveList::new();
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
@@ -4602,7 +4602,7 @@ label_57:
       }
     }
 
-    pub void SetAirMove()
+    pub fn SetAirMove()
     {
       this.MoveList = AIMoveList::new();
       AIFront front;
@@ -4739,7 +4739,7 @@ label_57:
       }
     }
 
-    pub void SetAirTransportMove()
+    pub fn SetAirTransportMove()
     {
       this.MoveList = AIMoveList::new();
       let mut counter: i32 =  this.front.units.counter;
@@ -4838,7 +4838,7 @@ label_57:
       }
     }
 
-    pub void SetEngineerMove()
+    pub fn SetEngineerMove()
     {
       this.MoveList = AIMoveList::new();
       let mut counter: i32 =  this.front.units.counter;
@@ -5069,7 +5069,7 @@ label_63:
       }
     }
 
-    pub void SetOrgMove()
+    pub fn SetOrgMove()
     {
       this.MoveList = AIMoveList::new();
       if (this.front.FrontID == 4000)
@@ -5128,14 +5128,14 @@ label_63:
       }
     }
 
-    pub void SetEscapeAttack()
+    pub fn SetEscapeAttack()
     {
     }
 
-    pub void SetEscapeMove()
+    pub fn SetEscapeMove()
     {
       this.MoveList = AIMoveList::new();
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut counter: i32 =  this.front.units.counter;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
@@ -5216,16 +5216,16 @@ label_63:
               tempMove.UnitAIid = this.ai.game.Data.UnitObj[unitByAiid].AIid;
               tempMove.MoveTo.x = this.GetRealX(tx1);
               tempMove.MoveTo.y = num4 + this.Top;
-              int[,] numArray2 = numArray1;
-              int[,] numArray3 = numArray2;
+              numArray2: Vec<i32> = numArray1;
+              numArray3: Vec<i32> = numArray2;
               let mut index4: i32 =  tx1;
               let mut index5: i32 =  index4;
               let mut index6: i32 =  num4;
               let mut index7: i32 =  index6;
               let mut num7: i32 =  numArray2[index4, index6] + 1;
               numArray3[index5, index7] = num7;
-              int[,] numArray4 = numArray1;
-              int[,] numArray5 = numArray4;
+              numArray4: Vec<i32> = numArray1;
+              numArray5: Vec<i32> = numArray4;
               let mut matrixX2: i32 =  this.GetMatrixX(this.ai.game.Data.UnitObj[unitByAiid].X);
               let mut index8: i32 =  matrixX2;
               let mut index9: i32 =  this.ai.game.Data.UnitObj[unitByAiid].Y - this.Top;
@@ -5240,10 +5240,10 @@ label_63:
       }
     }
 
-    pub void SetProtectorMove(int unr, int besti, int bestx, int besty)
+    pub fn SetProtectorMove(int unr, int besti, int bestx, int besty)
     {
       this.MoveList = AIMoveList::new();
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       if (bestx <= -1 || this.GetMatrixX(this.ai.game.Data.UnitObj[unr].X) == bestx & this.ai.game.Data.UnitObj[unr].Y - this.Top == besty)
         return;
       Coordinate coordinate;
@@ -5264,16 +5264,16 @@ label_63:
       tempMove.UnitAIid = this.ai.game.Data.UnitObj[unr].AIid;
       tempMove.MoveTo.x = this.GetRealX(bestx);
       tempMove.MoveTo.y = besty + this.Top;
-      int[,] numArray2 = numArray1;
-      int[,] numArray3 = numArray2;
+      numArray2: Vec<i32> = numArray1;
+      numArray3: Vec<i32> = numArray2;
       let mut index1: i32 =  bestx;
       let mut index2: i32 =  index1;
       let mut index3: i32 =  besty;
       let mut index4: i32 =  index3;
       let mut num1: i32 =  numArray2[index1, index3] + 1;
       numArray3[index2, index4] = num1;
-      int[,] numArray4 = numArray1;
-      int[,] numArray5 = numArray4;
+      numArray4: Vec<i32> = numArray1;
+      numArray5: Vec<i32> = numArray4;
       let mut matrixX: i32 =  this.GetMatrixX(this.ai.game.Data.UnitObj[unr].X);
       let mut index5: i32 =  matrixX;
       let mut index6: i32 =  this.ai.game.Data.UnitObj[unr].Y - this.Top;
@@ -5284,7 +5284,7 @@ label_63:
       this.MoveList.AddMove(ref tempMove);
     }
 
-    pub void SetNavyMove()
+    pub fn SetNavyMove()
     {
       this.MoveList = AIMoveList::new();
       if (this.front.targetX == -1)
@@ -5478,7 +5478,7 @@ label_24:
         if (this.enemyDistance.Value[this.triedX, this.triedY] > 5)
           index2 = index2;
         UnitList unitList = UnitList::new();
-        int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+        numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
         bool flag1;
         do
         {
@@ -5683,8 +5683,8 @@ label_24:
             let mut y4: i32 =  this.ai.game.Data.UnitObj[index4].Y;
             if (!(coordinate.x + this.Left == x & coordinate.y + this.Top == y4))
             {
-              int[,] numArray2 = numArray1;
-              int[,] numArray3 = numArray2;
+              numArray2: Vec<i32> = numArray1;
+              numArray3: Vec<i32> = numArray2;
               let mut matrixX: i32 =  this.GetMatrixX(x);
               let mut index8: i32 =  matrixX;
               let mut index9: i32 =  y4 - this.Top;
@@ -5855,7 +5855,7 @@ label_24:
         if (this.enemyDistance.Value[this.triedX, this.triedY] > 5)
           index1 = index1;
         UnitList unitList = UnitList::new();
-        int[,] numArray = new int[this.Width + 1, this.Height + 1];
+        numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
         do
         {
           let mut num4: i32 =  9999;
@@ -6059,7 +6059,7 @@ label_24:
         if (this.enemyDistance.Value[this.triedX, this.triedY] > 5)
           index1 = index1;
         UnitList unitList = UnitList::new();
-        int[,] numArray = new int[this.Width + 1, this.Height + 1];
+        numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
         do
         {
           let mut num5: i32 =  9999;
@@ -6163,7 +6163,7 @@ label_24:
       this.MoveList = AIMoveList::new();
       this.triedX = -1;
       this.triedY = -1;
-      DC2AIClass ai = this.ai;
+      ai: DC2AIClass = this.ai;
       AITheater aiTheater = this;
       ref AITheater local1 = ref aiTheater;
       ref AIMatrix local2 = ref this.Owner;
@@ -6419,7 +6419,7 @@ label_24:
       this.Score = 0;
     }
 
-    pub void SetDefendMoveBACKUP(ref PassHexList passList)
+    pub fn SetDefendMoveBACKUP(ref PassHexList passList)
     {
       this.MoveList = AIMoveList::new();
       let mut num1: i32 =  1;
@@ -6448,7 +6448,7 @@ label_24:
       {
         UnitList unitList = UnitList::new();
         let mut num4: i32 =  this.troopsstrength.Value[index1, y1];
-        int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
+        numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
         bool flag1;
         do
         {
@@ -6504,8 +6504,8 @@ label_24:
             let mut num13: i32 =  this.ai.game.Data.UnitObj[tunr].Y - this.Top;
             if (!(coordinate.x == matrixX & coordinate.y == num13))
             {
-              int[,] numArray2 = numArray1;
-              int[,] numArray3 = numArray2;
+              numArray2: Vec<i32> = numArray1;
+              numArray3: Vec<i32> = numArray2;
               let mut index3: i32 =  matrixX;
               let mut index4: i32 =  index3;
               let mut index5: i32 =  num13;
@@ -6549,7 +6549,7 @@ label_24:
       this.Score *= 2;
     }
 
-    pub void ImplementMoveList()
+    pub fn ImplementMoveList()
     {
       let mut counter1: i32 =  this.MoveList.Counter;
       for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
@@ -6628,8 +6628,8 @@ label_24:
               {
                 if (aiMove.finalTo.onmap)
                 {
-                  int[,] numArray1 = this.allTroops.Value;
-                  int[,] numArray2 = numArray1;
+                  numArray1: Vec<i32> = this.allTroops.Value;
+                  numArray2: Vec<i32> = numArray1;
                   let mut index10: i32 =  matrixX1;
                   let mut index11: i32 =  index10;
                   let mut index12: i32 =  index5;
@@ -6640,16 +6640,16 @@ label_24:
                     this.allTroops.Value[matrixX1, index5] = num3;
                   if (0 > this.allTroops.Value[matrixX1, index5])
                     this.allTroops.Value[matrixX1, index5] = 0;
-                  int[,] numArray3 = this.allTroops.Value;
-                  int[,] numArray4 = numArray3;
+                  numArray3: Vec<i32> = this.allTroops.Value;
+                  numArray4: Vec<i32> = numArray3;
                   let mut matrixX2: i32 =  this.GetMatrixX(aiMove.MoveTo.x);
                   let mut index14: i32 =  matrixX2;
                   let mut index15: i32 =  aiMove.MoveTo.y - this.Top;
                   let mut index16: i32 =  index15;
                   let mut num6: i32 =  numArray3[matrixX2, index15] + (int) Math.Round( tempUnitPowerAbs / 2.0);
                   numArray4[index14, index16] = num6;
-                  int[,] numArray5 = this.allTroops.Value;
-                  int[,] numArray6 = numArray5;
+                  numArray5: Vec<i32> = this.allTroops.Value;
+                  numArray6: Vec<i32> = numArray5;
                   let mut matrixX3: i32 =  this.GetMatrixX(aiMove.finalTo.x);
                   let mut index17: i32 =  matrixX3;
                   let mut index18: i32 =  aiMove.finalTo.y - this.Top;
@@ -6659,8 +6659,8 @@ label_24:
                 }
                 else
                 {
-                  int[,] numArray7 = this.allTroops.Value;
-                  int[,] numArray8 = numArray7;
+                  numArray7: Vec<i32> = this.allTroops.Value;
+                  numArray8: Vec<i32> = numArray7;
                   let mut index20: i32 =  matrixX1;
                   let mut index21: i32 =  index20;
                   let mut index22: i32 =  index5;
@@ -6671,8 +6671,8 @@ label_24:
                     this.allTroops.Value[matrixX1, index5] = num3;
                   if (0 > this.allTroops.Value[matrixX1, index5])
                     this.allTroops.Value[matrixX1, index5] = 0;
-                  int[,] numArray9 = this.allTroops.Value;
-                  int[,] numArray10 = numArray9;
+                  numArray9: Vec<i32> = this.allTroops.Value;
+                  numArray10: Vec<i32> = numArray9;
                   let mut matrixX4: i32 =  this.GetMatrixX(aiMove.MoveTo.x);
                   let mut index24: i32 =  matrixX4;
                   let mut index25: i32 =  aiMove.MoveTo.y - this.Top;
@@ -6740,8 +6740,8 @@ label_24:
             let mut num11: i32 =  aiMove.AttackOn.y - this.Top;
             if (matrixX6 >= 0 & num11 >= 0 & matrixX6 <= this.Width & num11 <= this.Height)
             {
-              int[,] numArray11 = this.allTroops.Value;
-              int[,] numArray12 = numArray11;
+              numArray11: Vec<i32> = this.allTroops.Value;
+              numArray12: Vec<i32> = numArray11;
               let mut index29: i32 =  matrixX6;
               let mut index30: i32 =  index29;
               let mut index31: i32 =  num11;
@@ -6872,11 +6872,11 @@ label_24:
       return num11 + num12 - 100;
     }
 
-    pub void ResetOwner()
+    pub fn ResetOwner()
     {
       let mut width: i32 =  this.Owner.Width;
       let mut height: i32 =  this.Owner.Height;
-      int[,] numArray1 = new int[width + 1, height + 1];
+      numArray1: Vec<i32> = new int[width + 1, height + 1];
       let mut num1: i32 =  width;
       for (let mut tx: i32 =  0; tx <= num1; tx += 1)
       {
@@ -6921,7 +6921,7 @@ label_24:
       }
       bool flag1 = true;
       let mut num7: i32 =  -1;
-      int[,] numArray2 = new int[width + 1, height + 1];
+      numArray2: Vec<i32> = new int[width + 1, height + 1];
       let mut num8: i32 =  width;
       Coordinate coordinate;
       while (flag1)
@@ -6965,7 +6965,7 @@ label_24:
       }
       bool flag2 = true;
       let mut num13: i32 =  -1;
-      int[,] numArray3 = new int[num8 + 1, height + 1];
+      numArray3: Vec<i32> = new int[num8 + 1, height + 1];
       while (flag2)
       {
         num13 += 1;
@@ -7095,8 +7095,8 @@ label_24:
           {
             if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), this.Top + index5].get_ZocPts(Index) > 0 && Index != this.ai.game.Data.Turn && this.ai.game.Data.RegimeObj[Index].RegimeRel[this.ai.game.Data.Turn] == 0)
             {
-              int[,] numArray1 = vp.Value;
-              int[,] numArray2 = numArray1;
+              numArray1: Vec<i32> = vp.Value;
+              numArray2: Vec<i32> = numArray1;
               let mut index6: i32 =  tx;
               let mut index7: i32 =  index6;
               let mut index8: i32 =  index5;
@@ -7105,16 +7105,16 @@ label_24:
               numArray2[index7, index9] = num5;
             }
           }
-          int[,] numArray3 = vp.Value;
-          int[,] numArray4 = numArray3;
+          numArray3: Vec<i32> = vp.Value;
+          numArray4: Vec<i32> = numArray3;
           let mut index10: i32 =  tx;
           let mut index11: i32 =  index10;
           let mut index12: i32 =  index5;
           let mut index13: i32 =  index12;
           let mut num6: i32 =  numArray3[index10, index12] + this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), this.Top + index5].VP;
           numArray4[index11, index13] = num6;
-          int[,] numArray5 = vp.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = vp.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index14: i32 =  tx;
           let mut index15: i32 =  index14;
           let mut index16: i32 =  index5;
@@ -7961,16 +7961,16 @@ label_24:
             num6 += this.allTroops.Value[tx, index5];
           if (this.Owner.Value[tx, index5] == 1)
             num4 += this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), this.Top + index5].VP;
-          int[,] numArray1 = vp.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = vp.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index6: i32 =  tx;
           let mut index7: i32 =  index6;
           let mut index8: i32 =  index5;
           let mut index9: i32 =  index8;
           let mut num7: i32 =  numArray1[index6, index8] + this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), this.Top + index5].VP;
           numArray2[index7, index9] = num7;
-          int[,] numArray3 = vp.Value;
-          int[,] numArray4 = numArray3;
+          numArray3: Vec<i32> = vp.Value;
+          numArray4: Vec<i32> = numArray3;
           let mut index10: i32 =  tx;
           let mut index11: i32 =  index10;
           let mut index12: i32 =  index5;

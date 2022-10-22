@@ -28,7 +28,7 @@ namespace WindowsApplication1
       this.maxcounter = 20;
     }
 
-    pub void add(int tunr, int tAIid, let mut tdata: i32 =  -1, let mut tdata2: i32 =  -1)
+    pub fn add(int tunr, int tAIid, let mut tdata: i32 =  -1, let mut tdata2: i32 =  -1)
     {
       this += 1.counter;
       if (this.counter > this.maxcounter)
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       this.data2[this.counter] = tdata2;
     }
 
-    pub void removeUnr(int tunr)
+    pub fn removeUnr(int tunr)
     {
       if (this.counter <= -1)
         return;
@@ -71,7 +71,7 @@ namespace WindowsApplication1
       --this.counter;
     }
 
-    pub void removeAiId(int tAIid)
+    pub fn removeAiId(int tAIid)
     {
       if (this.counter <= -1)
         return;

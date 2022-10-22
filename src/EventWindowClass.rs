@@ -15,181 +15,181 @@ namespace WindowsApplication1
 {
   pub class EventWindowClass : WindowClass
   {
-     int Info1textId;
-     int info1id;
-     int info2textid;
-     int info2id;
-     int OptionsListId;
+     Info1textId: i32;
+     info1id: i32;
+     info2textid: i32;
+     info2id: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int AddEventId;
-     int RemoveEventId;
-     int EventUpId;
-     int EventDownId;
-     int GroupListId;
+     AddEventId: i32;
+     RemoveEventId: i32;
+     EventUpId: i32;
+     EventDownId: i32;
+     GroupListId: i32;
      ListClass GroupListObj;
      object groupdetail;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
-     int info3textid;
-     int info3id;
-     int AddCommandId;
-     int RemoveCommandId;
-     int CommandUpId;
-     int CommandDownId;
-     int CommandCopy;
-     int CommandPaste;
-     int EventCopy;
-     int EventPaste;
-     int setCat;
-     int setPrio;
-     int setPrioB;
-     int DescriptId;
-     int CurTyp;
-     int Typ1;
-     int Typ1b;
-     int Typ2;
-     int Typ2b;
-     int Typ3;
-     int Typ3b;
-     int Typ4;
-     int Typ4b;
-     int Typ5;
-     int Typ5b;
-     int Typ6;
-     int Typ6b;
-     int Typ7;
-     int Typ7b;
-     int TypMode;
-     int TypModeB;
-     int typstr;
-     int typstrb;
-     int Export;
-     int ExportB;
-     int Import1;
-     int Import2;
-     int replaceId;
-     int Item1;
-     int Item1b;
-     int cat;
-     int Item2;
-     int Item2b;
-     int Item3;
-     int Item3b;
-     int Item4;
-     int Item4b;
-     int Item5;
-     int Item5b;
-     string[] ITEMNAME;
-     int OptionsList3Id;
+     info3textid: i32;
+     info3id: i32;
+     AddCommandId: i32;
+     RemoveCommandId: i32;
+     CommandUpId: i32;
+     CommandDownId: i32;
+     CommandCopy: i32;
+     CommandPaste: i32;
+     EventCopy: i32;
+     EventPaste: i32;
+     setCat: i32;
+     setPrio: i32;
+     setPrioB: i32;
+     DescriptId: i32;
+     CurTyp: i32;
+     Typ1: i32;
+     Typ1b: i32;
+     Typ2: i32;
+     Typ2b: i32;
+     Typ3: i32;
+     Typ3b: i32;
+     Typ4: i32;
+     Typ4b: i32;
+     Typ5: i32;
+     Typ5b: i32;
+     Typ6: i32;
+     Typ6b: i32;
+     Typ7: i32;
+     Typ7b: i32;
+     TypMode: i32;
+     TypModeB: i32;
+     typstr: i32;
+     typstrb: i32;
+     Export: i32;
+     ExportB: i32;
+     Import1: i32;
+     Import2: i32;
+     replaceId: i32;
+     Item1: i32;
+     Item1b: i32;
+     cat: i32;
+     Item2: i32;
+     Item2b: i32;
+     Item3: i32;
+     Item3b: i32;
+     Item4: i32;
+     Item4b: i32;
+     Item5: i32;
+     Item5b: i32;
+     ITEMNAME: Vec<String>;
+     OptionsList3Id: i32;
      ListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ListClass OptionsList6Obj;
-     int Tab1;
-     int Tab2;
-     int Tab3;
-     int Tab4;
-     int Tab5;
-     int Tab6;
-     int Tab7;
-     int Tab8;
-     int Tab9;
-     int Tab10;
-     int tab110;
-     int tab110b;
-     int tab111;
-     int tab111b;
-     int NTab1;
-     int NTab2;
-     int NTab1b;
-     int NTab2b;
-     int ntab1x;
-     int ntab2x;
-     int setLib;
-     int Tab1b;
-     int Tab2b;
-     int Tab3b;
-     int Tab4b;
-     int Tab5b;
-     int Tab6b;
-     int Tab7b;
-     int Tab8b;
-     int Tab9b;
-     int Tab10b;
-     int tab11;
-     int tab12;
-     int tab13;
-     int tab131;
-     int tab132;
-     int tab133;
-     int tab14;
-     int tab15;
-     int tab16;
-     int tab17;
-     int tab18;
-     int tab11b;
-     int tab12b;
-     int tab13b;
-     int tab131b;
-     int tab132b;
-     int tab133b;
-     int tab14b;
-     int tab15b;
-     int tab16b;
-     int tab17b;
-     int tab18b;
-     int tab19b;
-     int tab19;
-     int tabx1;
-     int tabx2;
-     int tabx3;
-     int quick1;
-     int quick1b;
-     int quick2;
-     int quick2b;
-     int quick3;
-     int quick3b;
-     int quick4;
-     int quick4b;
-     int quick5;
-     int quick5b;
-     int quick6;
-     int quick6b;
-     int quick7;
-     int quick7b;
-     int quick8;
-     int quick8b;
+     Tab1: i32;
+     Tab2: i32;
+     Tab3: i32;
+     Tab4: i32;
+     Tab5: i32;
+     Tab6: i32;
+     Tab7: i32;
+     Tab8: i32;
+     Tab9: i32;
+     Tab10: i32;
+     tab110: i32;
+     tab110b: i32;
+     tab111: i32;
+     tab111b: i32;
+     NTab1: i32;
+     NTab2: i32;
+     NTab1b: i32;
+     NTab2b: i32;
+     ntab1x: i32;
+     ntab2x: i32;
+     setLib: i32;
+     Tab1b: i32;
+     Tab2b: i32;
+     Tab3b: i32;
+     Tab4b: i32;
+     Tab5b: i32;
+     Tab6b: i32;
+     Tab7b: i32;
+     Tab8b: i32;
+     Tab9b: i32;
+     Tab10b: i32;
+     tab11: i32;
+     tab12: i32;
+     tab13: i32;
+     tab131: i32;
+     tab132: i32;
+     tab133: i32;
+     tab14: i32;
+     tab15: i32;
+     tab16: i32;
+     tab17: i32;
+     tab18: i32;
+     tab11b: i32;
+     tab12b: i32;
+     tab13b: i32;
+     tab131b: i32;
+     tab132b: i32;
+     tab133b: i32;
+     tab14b: i32;
+     tab15b: i32;
+     tab16b: i32;
+     tab17b: i32;
+     tab18b: i32;
+     tab19b: i32;
+     tab19: i32;
+     tabx1: i32;
+     tabx2: i32;
+     tabx3: i32;
+     quick1: i32;
+     quick1b: i32;
+     quick2: i32;
+     quick2b: i32;
+     quick3: i32;
+     quick3b: i32;
+     quick4: i32;
+     quick4b: i32;
+     quick5: i32;
+     quick5b: i32;
+     quick6: i32;
+     quick6b: i32;
+     quick7: i32;
+     quick7b: i32;
+     quick8: i32;
+     quick8b: i32;
      int[] tbutton;
      int[] tline;
      int[] toption;
-     int InsertId;
-     int allowExecuteId;
+     InsertId: i32;
+     allowExecuteId: i32;
      int[] trefer;
-     int tok;
-     int tok2;
-     int tta;
-     string[] temptext;
+     tok: i32;
+     tok2: i32;
+     tta: i32;
+     temptext: Vec<String>;
      int[] tempoption;
      int[] temprefer;
      bool DoEscape;
-     int ExecNow;
-     int detail1;
-     int detail2;
-     int detail3;
-     int detail4;
-     int detailchoice;
-     int detailLib;
-     string[] COMMANDTYPE;
+     ExecNow: i32;
+     detail1: i32;
+     detail2: i32;
+     detail3: i32;
+     detail4: i32;
+     detailchoice: i32;
+     detailLib: i32;
+     COMMANDTYPE: Vec<String>;
      string String1;
      string String2;
      string String3;
      bool DoingSlots;
-     int SetSlot;
-     int StepCurrent;
-     int VarExtra;
+     SetSlot: i32;
+     StepCurrent: i32;
+     VarExtra: i32;
      const let mut VARINFO: i32 =  1;
      const let mut CHECKTYPE: i32 =  2;
      const let mut CONDITION: i32 =  3;
@@ -205,7 +205,7 @@ namespace WindowsApplication1
      const let mut COMMENT: i32 =  7;
      string ss;
 
-    pub EventWindowClass(ref GameClass tGame)
+    pub EventWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight)
     {
       this.ITEMNAME = new string[6];
@@ -235,9 +235,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void bigclear()
+    pub fn bigclear()
     {
       if (this.OptionsList3Id > 0)
       {
@@ -255,7 +255,7 @@ namespace WindowsApplication1
       this.DescriptId = 0;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.info1id > 0)
         this.RemoveSubPart(this.info1id);
@@ -565,9 +565,9 @@ namespace WindowsApplication1
       ListClass optionsList6Obj = this.OptionsList6Obj;
       let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font1 =  null;
-      ref Font local2 = ref font1;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font1: Font =  null;
+      ref local2: Font = ref font1;
       let mut tsubpart3: SubPartClass =  new ListSubPartClass(optionsList6Obj, 17, 190, tlistselect1, game1, true, "Libraries", tbackbitmap: (ref local1), bbx: 10, bby: 230, overruleFont: (ref local2));
       this.OptionsList6Id = this.AddSubPart(ref tsubpart3, 10, 230, 190, 320, 0);
       this.OptionsList5Obj = ListClass::new();
@@ -591,9 +591,9 @@ namespace WindowsApplication1
       ListClass optionsList5Obj = this.OptionsList5Obj;
       let mut tlistselect2: i32 =  num2;
       let mut game2: GameClass = this.game;
-      ref Bitmap local3 = ref this.OwnBitmap;
-      Font font2 =  null;
-      ref Font local4 = ref font2;
+      ref local3: Bitmap = ref this.OwnBitmap;
+      font2: Font =  null;
+      ref local4: Font = ref font2;
       let mut tsubpart4: SubPartClass =  new ListSubPartClass(optionsList5Obj, 7, 190, tlistselect2, game2, true, "Event Categories", tbackbitmap: (ref local3), bbx: 10, bby: 20, overruleFont: (ref local4));
       this.OptionsList5Id = this.AddSubPart(ref tsubpart4, 10, 20, 190, 160, 0);
       this.OptionsListObj = ListClass::new();
@@ -664,9 +664,9 @@ namespace WindowsApplication1
       let mut twidth1: i32 =  w1;
       let mut tlistselect3: i32 =  num5;
       let mut game3: GameClass = this.game;
-      ref Bitmap local5 = ref this.OwnBitmap;
-      Font font3 =  null;
-      ref Font local6 = ref font3;
+      ref local5: Bitmap = ref this.OwnBitmap;
+      font3: Font =  null;
+      ref local6: Font = ref font3;
       let mut tsubpart5: SubPartClass =  new ListSubPartClass(optionsListObj, 7, twidth1, tlistselect3, game3, true, "Events", tbackbitmap: (ref local5), bbx: 210, bby: 20, overruleFont: (ref local6));
       this.OptionsListId = this.AddSubPart(ref tsubpart5, 210, 20, w1, 160, 0);
       this.ss = "Click to add a new event to the eventlist";
@@ -708,7 +708,7 @@ namespace WindowsApplication1
       this.ss = "Click to execute this event right now...";
       let mut tsubpart17: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
       this.ExecNow = this.AddSubPart(ref tsubpart17, 320 + w1, 90, 32, 16, 1);
-      int y;
+      y: i32;
       SubPartClass tsubpart18;
       if (this.detail1 > -1)
       {
@@ -770,9 +770,9 @@ namespace WindowsApplication1
         let mut twidth2: i32 =  w2;
         let mut detail2: i32 =  this.detail2;
         let mut game4: GameClass = this.game;
-        ref Bitmap local7 = ref this.OwnBitmap;
-        Font font4 =  null;
-        ref Font local8 = ref font4;
+        ref local7: Bitmap = ref this.OwnBitmap;
+        font4: Font =  null;
+        ref local8: Font = ref font4;
         tsubpart18 =  new ListSubPartClass(optionsList2Obj, tlistsize, twidth2, detail2, game4, true, "Code", tbackbitmap: (ref local7), bbx: 210, bby: 220, overruleFont: (ref local8));
         this.OptionsList2Id = this.AddSubPart(ref tsubpart18, 210, 220, w2,  Math.Round((Conversion.Int( y / 16.0) + 2.0) * 16.0), 0);
         this.ss = "Click to add a line of code to the selected event; will be placed below selected line";
@@ -1067,7 +1067,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void TabsheetSlots()
+    pub fn TabsheetSlots()
     {
       let mut type: i32 =  this.game.Data.EventObj[this.detail1].CommandList[this.detail2].type;
       this.String1 = "";
@@ -1238,7 +1238,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void TabSheetNr0()
+    pub fn TabSheetNr0()
     {
       this.ss = "Click to get a value from a hardcoded function";
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1290,7 +1290,7 @@ namespace WindowsApplication1
       this.tabx1 = this.AddSubPart(ref tsubpart19, 10, 390, 32, 16, 1);
     }
 
-    pub void TabSheetNr1()
+    pub fn TabSheetNr1()
     {
       this.ss = "Click to select a temporary value. These are only remembered within this specific event. ";
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1351,9 +1351,9 @@ namespace WindowsApplication1
           let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
-          ref Bitmap local1 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local2 = ref font;
+          ref local1: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local2: Font = ref font;
           let mut tsubpart17: SubPartClass =  new ListSubPartClass(optionsList3Obj, tlistsize, 490, detail3, game, true, "Historical Units", tbackbitmap: (ref local1), bbx: 10, bby: 250, overruleFont: (ref local2));
           this.OptionsList3Id = this.AddSubPart(ref tsubpart17, 10, 450, 490, Conversion.Int(this.game.ScreenHeight - 500), 0);
         }
@@ -1384,9 +1384,9 @@ namespace WindowsApplication1
           let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
-          ref Bitmap local3 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local4 = ref font;
+          ref local3: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local4: Font = ref font;
           let mut tsubpart20: SubPartClass =  new ListSubPartClass(optionsList3Obj, tlistsize, 490, detail3, game, true, "Areas", tbackbitmap: (ref local3), bbx: 10, bby: 250, overruleFont: (ref local4));
           this.OptionsList3Id = this.AddSubPart(ref tsubpart20, 10, 450, 490, Conversion.Int(this.game.ScreenHeight - 500), 0);
         }
@@ -1421,9 +1421,9 @@ namespace WindowsApplication1
           let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
-          ref Bitmap local5 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local6 = ref font;
+          ref local5: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local6: Font = ref font;
           let mut tsubpart23: SubPartClass =  new ListSubPartClass(optionsList3Obj, tlistsize, 490, detail3, game, true, "Game Variables", tbackbitmap: (ref local5), bbx: 10, bby: 250, overruleFont: (ref local6));
           this.OptionsList3Id = this.AddSubPart(ref tsubpart23, 10, 450, 490,  Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) * 16.0), 0);
         }
@@ -1450,9 +1450,9 @@ namespace WindowsApplication1
       let mut tlistsize1: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 650) / 16.0) - 3.0);
       let mut detail4: i32 =  this.detail4;
       let mut game1: GameClass = this.game;
-      ref Bitmap local7 = ref this.OwnBitmap;
-      Font font1 =  null;
-      ref Font local8 = ref font1;
+      ref local7: Bitmap = ref this.OwnBitmap;
+      font1: Font =  null;
+      ref local8: Font = ref font1;
       let mut tsubpart26: SubPartClass =  new ListSubPartClass(optionsList4Obj, tlistsize1, 290, detail4, game1, true, "Regimes", tbackbitmap: (ref local7), bbx: 10, bby: 600, overruleFont: (ref local8));
       this.OptionsList4Id = this.AddSubPart(ref tsubpart26, 10, 600, 290,  Math.Round(Conversion.Int( (this.game.ScreenHeight - 650) / 16.0) * 16.0), 0);
       if (this.detail4 <= -1)
@@ -1477,9 +1477,9 @@ namespace WindowsApplication1
         ListClass optionsList3Obj = this.OptionsList3Obj;
         let mut detail3: i32 =  this.detail3;
         let mut game2: GameClass = this.game;
-        ref Bitmap local9 = ref this.OwnBitmap;
-        Font font2 =  null;
-        ref Font local10 = ref font2;
+        ref local9: Bitmap = ref this.OwnBitmap;
+        font2: Font =  null;
+        ref local10: Font = ref font2;
         let mut tsubpart27: SubPartClass =  new ListSubPartClass(optionsList3Obj, 33, 490, detail3, game2, true, "Regime Variables", tbackbitmap: (ref local9), bbx: 10, bby: 250, overruleFont: (ref local10));
         this.OptionsList3Id = this.AddSubPart(ref tsubpart27, 510, 10, 490, 480, 0);
       }
@@ -1491,7 +1491,7 @@ namespace WindowsApplication1
       this.Tab5b = this.AddSubPart(ref tsubpart29, 350, 650, 350, 20, 0);
     }
 
-    pub void TabSheetNr2()
+    pub fn TabSheetNr2()
     {
       this.GroupListObj = ListClass::new();
       if (Operators.ConditionalCompareObjectLess(this.groupdetail,  1, false))
@@ -1516,9 +1516,9 @@ namespace WindowsApplication1
         ListClass groupListObj = this.GroupListObj;
         let mut tlistselect2: i32 =  tlistselect1;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local2 = ref font;
+        ref local1: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local2: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(groupListObj, 24, 290, tlistselect2, game, true, "Check Categories", tbackbitmap: (ref local1), bbx: 10, bby: 50, overruleFont: (ref local2));
         this.GroupListId = this.AddSubPart(ref tsubpart, 10, 50, 290, 432, 0);
       }
@@ -1549,9 +1549,9 @@ namespace WindowsApplication1
         ListClass optionsList3Obj = this.OptionsList3Obj;
         let mut tlistselect4: i32 =  tlistselect3;
         let mut game: GameClass = this.game;
-        ref Bitmap local3 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local4 = ref font;
+        ref local3: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local4: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsList3Obj, 30, 290, tlistselect4, game, true, "Hardcoded check functions", tbackbitmap: (ref local3), bbx: 310, bby: 50, overruleFont: (ref local4));
         this.OptionsList3Id = this.AddSubPart(ref tsubpart, 310, 50, 290, 528, 0);
       }
@@ -1585,7 +1585,7 @@ namespace WindowsApplication1
       this.tabx2 = this.AddSubPart(ref tsubpart6, 710, 100, 32, 16, 1);
     }
 
-    pub void TabSheetNr3()
+    pub fn TabSheetNr3()
     {
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK);
       this.tab11 = this.AddSubPart(ref tsubpart1, 10, 130, 32, 16, 1);
@@ -1613,7 +1613,7 @@ namespace WindowsApplication1
       this.tab133b = this.AddSubPart(ref tsubpart12, 50, 280, 350, 20, 0);
     }
 
-    pub void TabSheetNr4()
+    pub fn TabSheetNr4()
     {
       if (Operators.ConditionalCompareObjectLess(this.groupdetail,  1, false))
         this.groupdetail =  1;
@@ -1638,9 +1638,9 @@ namespace WindowsApplication1
         ListClass groupListObj = this.GroupListObj;
         let mut tlistselect2: i32 =  tlistselect1;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local2 = ref font;
+        ref local1: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local2: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(groupListObj, 26, 290, tlistselect2, game, true, "Exec Categories", tbackbitmap: (ref local1), bbx: 10, bby: 50, overruleFont: (ref local2));
         this.GroupListId = this.AddSubPart(ref tsubpart, 10, 50, 290, 464, 0);
       }
@@ -1671,9 +1671,9 @@ namespace WindowsApplication1
         ListClass optionsList3Obj = this.OptionsList3Obj;
         let mut tlistselect4: i32 =  tlistselect3;
         let mut game: GameClass = this.game;
-        ref Bitmap local3 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local4 = ref font;
+        ref local3: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local4: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsList3Obj, 35, 290, tlistselect4, game, true, "Hardcoded exec functions", tbackbitmap: (ref local3), bbx: 310, bby: 50, overruleFont: (ref local4));
         this.OptionsList3Id = this.AddSubPart(ref tsubpart, 310, 50, 290, 608, 0);
       }
@@ -1704,7 +1704,7 @@ namespace WindowsApplication1
       this.tabx1 = this.AddSubPart(ref tsubpart4, 710, 100, 32, 16, 1);
     }
 
-    pub void TabSheetNr5()
+    pub fn TabSheetNr5()
     {
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK);
       this.tab14 = this.AddSubPart(ref tsubpart1, 10, 130, 32, 16, 1);
@@ -1728,7 +1728,7 @@ namespace WindowsApplication1
       this.tab18b = this.AddSubPart(ref tsubpart10, 50, 250, 350, 20, 0);
     }
 
-    pub void TabSheetNr6()
+    pub fn TabSheetNr6()
     {
       SubPartClass tsubpart1;
       if (Conversions.ToDouble(this.game.Data.EventObj[this.detail1].CommandList[this.detail2].Data[0, 1]) == 11.0)
@@ -1793,7 +1793,7 @@ namespace WindowsApplication1
             let mut num5: i32 =   Math.Round(Conversion.Val(str5));
             this.temprefer[index3] = num5;
             this.tempoption[index3] = 1;
-            int num6;
+            num6: i32;
             num6 += 1;
           }
           this.temptext[index3] = str4;
@@ -1853,7 +1853,7 @@ namespace WindowsApplication1
       this.tab14b = this.AddSubPart(ref tsubpart1, 50, 700, 200, 20, 0);
     }
 
-    pub void SetitemName(int typ)
+    pub fn SetitemName(typ: i32)
     {
       let mut index: i32 =  1;
       do
@@ -1883,7 +1883,7 @@ namespace WindowsApplication1
       this.ITEMNAME[3] = "ENDVAL: " + this.ItemInfo(this.detail1, this.detail2, 2);
     }
 
-    pub string ItemInfo(int enr, int cnr, int inr)
+    pub string ItemInfo(enr: i32, cnr: i32, inr: i32)
     {
       CommandClass command = this.game.Data.EventObj[enr].CommandList[cnr];
       if (command.type == 5 && inr == 0)
@@ -1975,7 +1975,7 @@ namespace WindowsApplication1
       return str;
     }
 
-    pub string GetVarInfo(int enr, int cnr, int inr, int datnr)
+    pub string GetVarInfo(enr: i32, cnr: i32, inr: i32, datnr: i32)
     {
       CommandClass command = this.game.Data.EventObj[enr].CommandList[cnr];
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 0.0)
@@ -2018,7 +2018,7 @@ namespace WindowsApplication1
       return varInfo1;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -2193,8 +2193,8 @@ namespace WindowsApplication1
                 str1: String = Interaction.InputBox("Search for");
                 newValue: String = Interaction.InputBox("Replace with");
                 let mut eventCounter: i32 =  this.game.Data.EventCounter;
-                int num6;
-                int num7;
+                num6: i32;
+                num7: i32;
                 string str2;
                 for (let mut index4: i32 =  0; index4 <= eventCounter; index4 += 1)
                 {
@@ -2773,7 +2773,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int num17;
+                num17: i32;
                 if (num1 == this.DescriptId)
                 {
                   num17 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
@@ -3388,7 +3388,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoExport()
+    pub fn DoExport()
     {
       let mut eventCounter: i32 =  this.game.Data.EventCounter;
       for (let mut enr: i32 =  0; enr <= eventCounter; enr += 1)
@@ -3435,7 +3435,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReconstructString()
+    pub fn ReconstructString()
     {
       let mut num1: i32 =  -1;
       str: String = "";

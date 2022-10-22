@@ -12,7 +12,7 @@ namespace WindowsApplication1
 {
   pub class ATTextPartClass : SubPartClass
   {
-     Font OwnFont;
+     OwnFont: Font;
      string OwnText;
      bool CenterIt;
      int OColor;
@@ -23,7 +23,7 @@ namespace WindowsApplication1
 
     pub ATTextPartClass(
       string txt,
-      Font f,
+      f: Font,
       int w,
       int h,
       bool tcenterit,
@@ -46,7 +46,7 @@ namespace WindowsApplication1
       this.progress = tProgress;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);

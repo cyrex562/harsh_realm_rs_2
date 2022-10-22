@@ -241,7 +241,7 @@ namespace CSharp._03._MemoryPlayback
         // irrKlang 3D sound engine example 03, 
         // demonstrating playing sounds directly from memory
         [STAThread]
-        static void Main(string[] args)
+        static void Main(args: Vec<String>)
         {
             // start the sound engine with default parameters
             ISoundEngine engine = ISoundEngine::new();

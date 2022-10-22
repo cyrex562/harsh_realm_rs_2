@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class SteveButtonPartClass25 : SubPartClass
   {
-     int OwnBitmapNr;
-     int colorized;
-     Bitmap backbitmap;
+     OwnBitmapNr: i32;
+     colorized: i32;
+     backbitmap: Bitmap;
 
     pub SteveButtonPartClass25(
-      int tbmpnr,
+      tbmpnr: i32,
       let mut tcolorized: i32 = 0,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1)
       : base(25, 25)
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -54,11 +54,11 @@ namespace WindowsApplication1
       if (self.colorized == 0)
       {
          let mut local1: &Graphics = &objGraphics;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1);
          let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawScaled( local1,  local2, 0, 0, 25, 25);
          let mut local3: &Graphics = &objGraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawScaled( local3,  local4, 1, 1, 25, 25);
       }
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -82,11 +82,11 @@ namespace WindowsApplication1
       if (self.colorized == 0)
       {
          let mut local1: &Graphics = &objGraphics;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1b);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1b);
          let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawScaled( local1,  local2, 0, 0, 25, 25);
          let mut local3: &Graphics = &objGraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawScaled( local3,  local4, 1, 1, 25, 25);
       }

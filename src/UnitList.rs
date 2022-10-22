@@ -28,7 +28,7 @@ namespace WindowsApplication1
       self.maxcounter = 20;
     }
 
-    pub void add(int tunr, let mut tdata: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1)
+    pub fn add(tunr: i32, let mut tdata: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1)
     {
       self += 1.counter;
       if (self.counter > self.maxcounter)
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       self.data3[self.counter] = tdata3;
     }
 
-    pub void SortOnData()
+    pub fn SortOnData()
     {
       if (self.counter < 1)
         return;
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void remove(int tunr)
+    pub fn remove(tunr: i32)
     {
       if (self.counter <= -1)
         return;
@@ -104,7 +104,7 @@ namespace WindowsApplication1
       --self.counter;
     }
 
-    pub CheckIfPresent: bool(int tunr)
+    pub CheckIfPresent: bool(tunr: i32)
     {
       if (self.counter <= -1)
         return false;

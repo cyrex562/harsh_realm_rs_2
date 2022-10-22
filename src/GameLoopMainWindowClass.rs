@@ -16,41 +16,41 @@ namespace WindowsApplication1
 {
   pub class GameLoopMainWindowClass : WindowClass
   {
-     int TempText;
-     int TempText2;
-     int HeadingText;
-     int Heading2Text;
-     int EnterTurnId;
-     int EnterTurnTextId;
-     int LoginId;
-     int QuitId;
-     int okid;
-     int oktextid;
-     int Phase;
-     int PhaseData;
+     TempText: i32;
+     TempText2: i32;
+     HeadingText: i32;
+     Heading2Text: i32;
+     EnterTurnId: i32;
+     EnterTurnTextId: i32;
+     LoginId: i32;
+     QuitId: i32;
+     okid: i32;
+     oktextid: i32;
+     Phase: i32;
+     PhaseData: i32;
      int[] TextId;
      int[] ButId;
      int[] ButEvent;
-     int Pic1Id;
-     int Pic2Id;
-     int SaveId;
+     Pic1Id: i32;
+     Pic2Id: i32;
+     SaveId: i32;
      bool saved;
      bool loggedin;
-     int TAid;
-     int refrcount;
-     int opt9;
-     int opt3;
+     TAid: i32;
+     refrcount: i32;
+     opt9: i32;
+     opt3: i32;
      ATListClass ListObj;
      ATListClass ListObj2;
-     int Listid1;
-     int listid2;
-     int cloudid;
-     int noteid;
-     int note2id;
+     Listid1: i32;
+     listid2: i32;
+     cloudid: i32;
+     noteid: i32;
+     note2id: i32;
      DateTime showtime;
      bool DoingAI;
 
-    pub GameLoopMainWindowClass(ref GameClass tGame)
+    pub GameLoopMainWindowClass(ref tGame: GameClass)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.TextId = new int[21];
@@ -59,7 +59,7 @@ namespace WindowsApplication1
       this.Setup();
     }
 
-    pub GameLoopMainWindowClass(ref GameClass tGame, bool NewGfx)
+    pub GameLoopMainWindowClass(ref tGame: GameClass, bool NewGfx)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND1MARC)
     {
       this.TextId = new int[21];
@@ -68,7 +68,7 @@ namespace WindowsApplication1
       this.Setup();
     }
 
-    pub void Setup()
+    pub fn Setup()
     {
       this.game.EditObj.Test = -1;
       this.Phase = this.game.EditObj.Phase;
@@ -136,7 +136,7 @@ namespace WindowsApplication1
             this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND1MARC);
           else
             this.NewBackGroundAndClearAll(1024, 768, DrawMod.TGame.BACKGROUND2MARC);
-          Font f;
+          f: Font;
           bool tBlackBack;
           if ( this.game.Data.RuleVar[839] == 1.0)
           {
@@ -475,7 +475,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.TempText);
       if (this.TempText2 > 0)
         this.RemoveSubPart(this.TempText2);
-      Font f1;
+      f1: Font;
       bool tBlackBack1;
       if ( this.game.Data.RuleVar[839] == 1.0)
       {
@@ -495,7 +495,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void RemoveEnterTurnViewMessageShit()
+    pub fn RemoveEnterTurnViewMessageShit()
     {
       if (this.HeadingText > 0)
         this.RemoveSubPart(this.HeadingText);
@@ -547,7 +547,7 @@ namespace WindowsApplication1
       this.RemoveSubPart(this.oktextid);
     }
 
-    pub void DrawDateAndRegime()
+    pub fn DrawDateAndRegime()
     {
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Turn == -1 | this.game.Data.Turn > this.game.Data.RegimeCounter)
@@ -599,15 +599,15 @@ namespace WindowsApplication1
       if ( this.game.Data.RuleVar[839] == 1.0)
       {
         ref Graphics local1 = ref Expression;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
-        ref Bitmap local2 = ref bitmap1;
+        bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
+        ref local2: Bitmap = ref bitmap1;
         let mut x: i32 =  this.OwnBitmap.Width - (BitmapStore.GetWidth(this.game.LOGOFLATTINY) + 50);
         DrawMod.DrawSimple(ref local1, ref local2, x, 33);
         if (this.game.Data.Turn > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RoundelIconSprite > -1)
         {
           ref Graphics local3 = ref Expression;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.RegimeObj[this.game.Data.Turn].RoundelIconSprite);
-          ref Bitmap local4 = ref bitmap2;
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.Data.RegimeObj[this.game.Data.Turn].RoundelIconSprite);
+          ref local4: Bitmap = ref bitmap2;
           DrawMod.DrawScaled(ref local3, ref local4, 4, -2, 90, 90);
         }
       }
@@ -631,7 +631,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void EnterTurn()
+    pub fn EnterTurn()
     {
       SizeF sizeF = SizeF::new();
       if (this.HeadingText > 0)
@@ -677,19 +677,19 @@ namespace WindowsApplication1
       bool flag;
       if ( this.game.Data.RuleVar[839] == 1.0)
       {
-        Font marcFont1 = this.game.MarcFont1;
+        marcFont1: Font = this.game.MarcFont1;
         flag = false;
         let mut tsubpart: SubPartClass =  TextPartClass::new(txt, marcFont1, 724, 40, true, tMarc: (!flag));
         this.Heading2Text = this.AddSubPart(ref tsubpart, 150, 360, 724, 30, 0);
       }
       else
       {
-        Font vicFont1 = this.game.VicFont1;
+        vicFont1: Font = this.game.VicFont1;
         flag = true;
         let mut tsubpart: SubPartClass =  new ATTextPartClass(txt, vicFont1, 724, 40, true, tMarc: (!flag));
         this.Heading2Text = this.AddSubPart(ref tsubpart, 150, 150, 724, 30, 0);
       }
-      Font usefont =  this.game.Data.RuleVar[839] != 1.0 ?  null : this.game.MarcFont4;
+      usefont: Font =  this.game.Data.RuleVar[839] != 1.0 ?  null : this.game.MarcFont4;
       SubPartClass tsubpart1;
       if (!this.loggedin)
       {
@@ -721,7 +721,7 @@ namespace WindowsApplication1
       {
         this.ListObj = ATListClass::new();
         let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
-        int tdata1;
+        tdata1: i32;
         for (tdata1 = 0; tdata1 <= itemTypeCounter; tdata1 += 1)
         {
           if (this.game.Data.RegimeObj[this.game.Data.Turn].SProd[tdata1, this.game.Data.Round] > 0 | this.game.Data.RegimeObj[this.game.Data.Turn].SASProdLost[tdata1] > 0)
@@ -831,9 +831,9 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
-      string[] strArray = new string[1000];
+      strArray: Vec<String> = new string[1000];
       if (this.SaveId > 0)
         this.RemoveSubPart(this.SaveId);
       if (this.HeadingText > 0)
@@ -1017,9 +1017,9 @@ namespace WindowsApplication1
           Color.FromArgb( byte.MaxValue, 120, 120, 160);
           Color.FromArgb( byte.MaxValue, 200, 200, 200);
           Color.FromArgb( byte.MaxValue, 130, 130, 130);
-          Color white = Color.White;
-          Color black = Color.Black;
-          Font vicFont3 = this.game.VicFont3;
+          white: Color = Color.White;
+          black: Color = Color.Black;
+          vicFont3: Font = this.game.VicFont3;
           let mut num13: i32 =  0;
           if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.PhaseData] > -1)
           {
@@ -1035,8 +1035,8 @@ namespace WindowsApplication1
               else if (BitmapStore.Getheight(nr) <= 200)
               {
                 ref Graphics local1 = ref graphics;
-                Bitmap bitmap = BitmapStore.GetBitmap(nr);
-                ref Bitmap local2 = ref bitmap;
+                bitmap: Bitmap = BitmapStore.GetBitmap(nr);
+                ref local2: Bitmap = ref bitmap;
                 let mut x: i32 =   Math.Round(512.0 -  BitmapStore.GetWidth(nr) / 2.0);
                 let mut width: i32 =  BitmapStore.GetWidth(nr);
                 let mut h: i32 =  BitmapStore.Getheight(nr);
@@ -1047,8 +1047,8 @@ namespace WindowsApplication1
               else
               {
                 ref Graphics local3 = ref graphics;
-                Bitmap bitmap = BitmapStore.GetBitmap(nr);
-                ref Bitmap local4 = ref bitmap;
+                bitmap: Bitmap = BitmapStore.GetBitmap(nr);
+                ref local4: Bitmap = ref bitmap;
                 let mut x: i32 =   Math.Round(512.0 -  BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)) / 2.0);
                 let mut w: i32 =   Math.Round( BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)));
                 DrawMod.DrawScaled(ref local3, ref local4, x, 70, w, 200);
@@ -1074,7 +1074,7 @@ namespace WindowsApplication1
         {
           let mut phaseData: i32 =  this.PhaseData;
           Rectangle rectangle = Rectangle::new();
-          int num18;
+          num18: i32;
           if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[phaseData] > -1)
           {
             let mut index8: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[phaseData];
@@ -1148,8 +1148,8 @@ namespace WindowsApplication1
               else
               {
                 ref Graphics local5 = ref graphics;
-                Bitmap bitmap = BitmapStore.GetBitmap(num21);
-                ref Bitmap local6 = ref bitmap;
+                bitmap: Bitmap = BitmapStore.GetBitmap(num21);
+                ref local6: Bitmap = ref bitmap;
                 let mut x: i32 =  rectangle.X;
                 let mut y: i32 =  rectangle.Y;
                 let mut width: i32 =  rectangle.Width;
@@ -1167,7 +1167,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1202,7 +1202,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1317,7 +1317,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int integer1;
+                    integer1: i32;
                     if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round - 1, this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode),  1, false))
                     {
                       if (this.game.Data.TerrorMode)
@@ -1635,7 +1635,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoPresentStats()
+    pub fn DoPresentStats()
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
@@ -1658,8 +1658,8 @@ namespace WindowsApplication1
           for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
           {
             let mut sf: i32 =  this.game.Data.UnitObj[index3].SFList[index4];
-            int[,] spresent = this.game.Data.RegimeObj[regime].SPresent;
-            int[,] numArray = spresent;
+            spresent: Vec<i32> = this.game.Data.RegimeObj[regime].SPresent;
+            numArray: Vec<i32> = spresent;
             let mut type: i32 =  this.game.Data.SFObj[sf].Type;
             let mut index5: i32 =  type;
             let mut round: i32 =  this.game.Data.Round;
@@ -1671,7 +1671,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (this.SubPartCounter > -1)
       {

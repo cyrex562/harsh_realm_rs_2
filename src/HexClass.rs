@@ -101,141 +101,141 @@
 }
 impl HexClass {
   
-    pub int get_SeeNow(int Index) => Index > this.RegimeFullCount ? 1 : this.tSeeNow[Index];
+    pub get_SeeNow: i32(Index: i32) => Index > this.RegimeFullCount ? 1 : this.tSeeNow[Index];
 
-    pub void set_SeeNow(int Index, int value)
+    pub fn set_SeeNow(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tSeeNow[Index] = value;
     }
 
-    pub int get_LastLT(int Index) => Index > this.RegimeFullCount ? this.LandscapeType : this.tLastLT[Index];
+    pub get_LastLT: i32(Index: i32) => Index > this.RegimeFullCount ? this.LandscapeType : this.tLastLT[Index];
 
-    pub void set_LastLT(int Index, int value)
+    pub fn set_LastLT(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tLastLT[Index] = value;
     }
 
-    pub int get_APPenalty(int Index) => Index > this.RegimeFullCount ? 0 : this.tAPPenalty[Index];
+    pub get_APPenalty: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tAPPenalty[Index];
 
-    pub void set_APPenalty(int Index, int value)
+    pub fn set_APPenalty(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tAPPenalty[Index] = value;
     }
 
-    pub int get_DammagePerRegime(int Index) => Index > this.RegimeFullCount ? 0 : this.tDammagePerRegime[Index];
+    pub get_DammagePerRegime: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tDammagePerRegime[Index];
 
-    pub void set_DammagePerRegime(int Index, int value)
+    pub fn set_DammagePerRegime(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tDammagePerRegime[Index] = value;
     }
 
-    pub int get_LastReg(int Index) => Index > this.RegimeFullCount ? this.Regime : this.tLastReg[Index];
+    pub get_LastReg: i32(Index: i32) => Index > this.RegimeFullCount ? this.Regime : this.tLastReg[Index];
 
-    pub void set_LastReg(int Index, int value)
+    pub fn set_LastReg(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tLastReg[Index] = value;
     }
 
-    pub int get_BattleStack(int Index) => Index > this.RegimeFullCount ? 0 : this.tBattleStack[Index];
+    pub get_BattleStack: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tBattleStack[Index];
 
-    pub void set_BattleStack(int Index, int value)
+    pub fn set_BattleStack(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tBattleStack[Index] = value;
     }
 
-    pub int get_BattleStackAir(int Index) => Index > this.RegimeFullCount ? 0 : this.tBattleStackAir[Index];
+    pub get_BattleStackAir: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tBattleStackAir[Index];
 
-    pub void set_BattleStackAir(int Index, int value)
+    pub fn set_BattleStackAir(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tBattleStackAir[Index] = value;
     }
 
-    pub int get_BattleStackArt(int Index) => Index > this.RegimeFullCount ? 0 : this.tBattleStackArt[Index];
+    pub get_BattleStackArt: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tBattleStackArt[Index];
 
-    pub void set_BattleStackArt(int Index, int value)
+    pub fn set_BattleStackArt(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tBattleStackArt[Index] = value;
     }
 
-    pub int get_LastSpr(int Index) => Index > this.RegimeFullCount ? this.SpriteNr : this.tLastSpr[Index];
+    pub get_LastSpr: i32(Index: i32) => Index > this.RegimeFullCount ? this.SpriteNr : this.tLastSpr[Index];
 
-    pub void set_LastSpr(int Index, int value)
+    pub fn set_LastSpr(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tLastSpr[Index] = value;
     }
 
-    pub int get_PowerPointsKilled(int Index) => Index > this.RegimeFullCount ? 0 : this.tPowerPointsKilled[Index];
+    pub get_PowerPointsKilled: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tPowerPointsKilled[Index];
 
-    pub void set_PowerPointsKilled(int Index, int value)
+    pub fn set_PowerPointsKilled(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tPowerPointsKilled[Index] = value;
     }
 
-    pub int get_PowerPointsLost(int Index) => Index > this.RegimeFullCount ? 0 : this.tPowerPointsLost[Index];
+    pub get_PowerPointsLost: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tPowerPointsLost[Index];
 
-    pub void set_PowerPointsLost(int Index, int value)
+    pub fn set_PowerPointsLost(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tPowerPointsLost[Index] = value;
     }
 
-    pub int get_SupplyLost(int Index) => Index > this.RegimeFullCount ? 0 : this.tSupplyLost[Index];
+    pub get_SupplyLost: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tSupplyLost[Index];
 
-    pub void set_SupplyLost(int Index, int value)
+    pub fn set_SupplyLost(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tSupplyLost[Index] = value;
     }
 
-    pub int get_SupplyKilled(int Index) => Index > this.RegimeFullCount ? 0 : this.tSupplyKilled[Index];
+    pub get_SupplyKilled: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tSupplyKilled[Index];
 
-    pub void set_SupplyKilled(int Index, int value)
+    pub fn set_SupplyKilled(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tSupplyKilled[Index] = value;
     }
 
-    pub int get_BattlePenalty(int Index) => Index > this.RegimeFullCount ? 0 : this.tBattlePenalty[Index];
+    pub get_BattlePenalty: i32(Index: i32) => Index > this.RegimeFullCount ? 0 : this.tBattlePenalty[Index];
 
-    pub void set_BattlePenalty(int Index, int value)
+    pub fn set_BattlePenalty(Index: i32, value: i32)
     {
       if (Index > this.RegimeFullCount)
         return;
       this.tBattlePenalty[Index] = value;
     }
 
-    pub int get_ReconPts(int Index) => this.tReconPts[Index];
+    pub get_ReconPts: i32(Index: i32) => this.tReconPts[Index];
 
-    pub void set_ReconPts(int Index, int value) => this.tReconPts[Index] = value;
+    pub fn set_ReconPts(Index: i32, value: i32) => this.tReconPts[Index] = value;
 
-    pub int get_ZocPts(int Index) => this.tZOCPts[Index];
+    pub get_ZocPts: i32(Index: i32) => this.tZOCPts[Index];
 
-    pub void set_ZocPts(int Index, int value) => this.tZOCPts[Index] = value;
+    pub fn set_ZocPts(Index: i32, value: i32) => this.tZOCPts[Index] = value;
 
-    pub HexClass(int lt, int regcount, int fullRegCount)
+    pub HexClass(lt: i32, regcount: i32, fullRegCount: i32)
     {
       this.RoadType = new int[6];
       this.RiverType = new int[6];
@@ -369,7 +369,7 @@ impl HexClass {
       return (HexClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub void StreamRead( BinaryReader br)
+    pub fn StreamRead( BinaryReader br)
     {
       let mut num: i32 =  br.ReadInt32();
       this.LandscapeType = br.ReadInt32();
@@ -580,7 +580,7 @@ impl HexClass {
       this.SpecialSprite3 = br.ReadInt32();
     }
 
-    pub void StreamWrite( BinaryWriter bw)
+    pub fn StreamWrite( BinaryWriter bw)
     {
       bw.Write(17);
       bw.Write(this.LandscapeType);
@@ -1091,7 +1091,7 @@ impl HexClass {
       }
     }
 
-    pub void Addconnection(int x, int y, int map)
+    pub fn Addconnection(x: i32, y: i32, map: i32)
     {
       this += 1.ConnectionCount;
       this.ConnectionX = (int[]) Utils.CopyArray((Array) this.ConnectionX, (Array) new int[this.ConnectionCount + 1]);
@@ -1102,7 +1102,7 @@ impl HexClass {
       this.ConnectionMap[this.ConnectionCount] = map;
     }
 
-    pub void RemoveConnection(int nr)
+    pub fn RemoveConnection(nr: i32)
     {
       if (this.ConnectionCount > 0)
       {
@@ -1131,7 +1131,7 @@ impl HexClass {
       }
     }
 
-    pub int GetHexLibVarValue(int tSlotNr)
+    pub GetHexLibVarValue: i32(tSlotNr: i32)
     {
       let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
       for (let mut index: i32 =  0; index <= hexLibVarCounter; index += 1)
@@ -1142,7 +1142,7 @@ impl HexClass {
       return 0;
     }
 
-    pub HasHexLibVarValue: bool(int tSlotNr)
+    pub HasHexLibVarValue: bool(tSlotNr: i32)
     {
       let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
       for (let mut index: i32 =  0; index <= hexLibVarCounter; index += 1)
@@ -1153,7 +1153,7 @@ impl HexClass {
       return false;
     }
 
-    pub void SetHexLibVarValue(int tSlotNr, int tValue)
+    pub fn SetHexLibVarValue(tSlotNr: i32, tValue: i32)
     {
       let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
       for (let mut nr: i32 =  0; nr <= hexLibVarCounter; nr += 1)
@@ -1172,7 +1172,7 @@ impl HexClass {
       this.AddHexLibVar(tSlotNr, tValue);
     }
 
-    pub void AddHexLibVar(int tLibVarSlotNr, int tValue)
+    pub fn AddHexLibVar(tLibVarSlotNr: i32, tValue: i32)
     {
       this += 1.HexLibVarCounter;
       this.HexLibVarSlotNr = (int[]) Utils.CopyArray((Array) this.HexLibVarSlotNr, (Array) new int[this.HexLibVarCounter + 1]);
@@ -1181,7 +1181,7 @@ impl HexClass {
       this.HexLibVarValue[this.HexLibVarCounter] = tValue;
     }
 
-    pub void RemoveHexLibVarSlotNr(int slotnr)
+    pub fn RemoveHexLibVarSlotNr(slotnr: i32)
     {
       if (this.HexLibVarCounter <= -1)
         return;
@@ -1200,7 +1200,7 @@ impl HexClass {
       this.RemoveHexLibVar(nr);
     }
 
-    pub void RemoveHexLibVar(int nr)
+    pub fn RemoveHexLibVar(nr: i32)
     {
       if (nr == -1)
         return;
@@ -1228,7 +1228,7 @@ impl HexClass {
       }
     }
 
-    pub void redimRegime(int tRegimeCount, int tRegimeFullCount)
+    pub fn redimRegime(tRegimeCount: i32, tRegimeFullCount: i32)
     {
       this.RegimeCount = tRegimeCount;
       this.RegimeFullCount = tRegimeFullCount;
@@ -1250,7 +1250,7 @@ impl HexClass {
       this.tBattlePenalty = (int[]) Utils.CopyArray((Array) this.tBattlePenalty, (Array) new int[this.RegimeFullCount + 1]);
     }
 
-    pub void UNUSED_addnewregime(int nr, bool fullRegime, bool noRedimNecc = false)
+    pub fn UNUSED_addnewregime(nr: i32, bool fullRegime, bool noRedimNecc = false)
     {
       this += 1.RegimeCount;
       if (nr < 2)
@@ -1300,7 +1300,7 @@ impl HexClass {
       this.tSeeNow[this.RegimeFullCount] = 0;
     }
 
-    pub void removeregime(bool fullRegime, int nr)
+    pub fn removeregime(bool fullRegime, nr: i32)
     {
       if (nr <= this.RegimeFullCount)
         fullRegime = true;
@@ -1383,7 +1383,7 @@ impl HexClass {
       }
     }
 
-    pub void AddUnitToList(int nr)
+    pub fn AddUnitToList(nr: i32)
     {
       if (this.UnitCounter < -1)
         this.UnitCounter = -1;
@@ -1397,7 +1397,7 @@ impl HexClass {
       this.UnitList[0] = nr;
     }
 
-    pub void RemoveUnitFromList(int nr)
+    pub fn RemoveUnitFromList(nr: i32)
     {
       let mut num1: i32 =  -1;
       let mut unitCounter: i32 =  this.UnitCounter;

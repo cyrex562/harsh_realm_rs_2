@@ -16,63 +16,63 @@ namespace WindowsApplication1
 {
   pub class PlayExtraWindowClass2 : WindowClass
   {
-     int CurrentView;
-     int w;
-     int h;
-     int cardsel;
-     int cardhover;
-     int lastunit;
-     int playcardid;
-     int playcard2id;
-     int fakeid;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int detailnr2Top;
+     CurrentView: i32;
+     w: i32;
+     h: i32;
+     cardsel: i32;
+     cardhover: i32;
+     lastunit: i32;
+     playcardid: i32;
+     playcard2id: i32;
+     fakeid: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     detailnr2Top: i32;
      ListClass rlistobj;
      ListClass rlist2obj;
      ListClass rlist3obj;
      ListClass rlist4obj;
      ListClass rlist5obj;
-     int rlistid;
-     int rlist2id;
-     int rlist3id;
-     int rlist4id;
-     int rlist5id;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
-     int prevAssetId;
-     int AssetOrderNumber;
+     rlistid: i32;
+     rlist2id: i32;
+     rlist3id: i32;
+     rlist4id: i32;
+     rlist5id: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
+     prevAssetId: i32;
+     AssetOrderNumber: i32;
      bool viewingtrooptab;
-     int extraTabId;
-     int smallTabId;
+     extraTabId: i32;
+     smallTabId: i32;
      string orderfeedbackString;
      int[] zoneButton;
-     int zoneButtonCounter;
+     zoneButtonCounter: i32;
      int[] zoneButtonData;
      int[] unitButton;
-     int unitButtonCounter;
+     unitButtonCounter: i32;
      int[] unitButtonData;
      int[] regButton;
-     int regButtonCounter;
+     regButtonCounter: i32;
      int[] regButtonData;
      int[] assetButton;
-     int assetButtonCounter;
+     assetButtonCounter: i32;
      int[] assetButtonData;
-     int tempCharId;
-     int tempZoneId;
-     int tempRegId;
-     int tempRegType;
-     int slotCulture;
+     tempCharId: i32;
+     tempZoneId: i32;
+     tempRegId: i32;
+     tempRegType: i32;
+     slotCulture: i32;
      bool calledFromNew;
      bool calledFromNonCardSelectWindow;
 
     pub PlayExtraWindowClass2(
-       GameClass tGame,
-      Bitmap screenbitmap = null,
+       tGame: GameClass,
+      screenbitmap: Bitmap = null,
       let mut sx: i32 =  -1,
       let mut sy: i32 =  -1,
       bool tcalledFromNonCardSelectWindow = false)
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       this.calledFromNew = false;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X == -1)
         this.game.EditObj.UnitSelected = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].OnBoard;
@@ -137,7 +137,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.tSelectX = this.game.SelectX;
       this.tSelectY = this.game.SelectY;
@@ -196,12 +196,12 @@ namespace WindowsApplication1
           useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0) + 1280 + 280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local1: &Graphics = &graphics;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
+          bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local2: &Bitmap = &bitmap1;
           let mut x1: i32 =   Math.Round( (this.w - 1840) / 2.0) - 80;
           DrawMod.DrawSimple( local1,  local2, x1, 0);
            let mut local3: &Graphics = &graphics;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local4: &Bitmap = &bitmap2;
           let mut x2: i32 =   Math.Round( (this.w - 1840) / 2.0) + 1840;
           DrawMod.DrawSimple( local3,  local4, x2, 0);
@@ -213,12 +213,12 @@ namespace WindowsApplication1
           useRect = Rectangle::new( Math.Round( (this.w - 1560) / 2.0) + 1280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local5: &Graphics = &graphics;
-          Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
+          bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local6: &Bitmap = &bitmap3;
           let mut x3: i32 =   Math.Round( (this.w - 1560) / 2.0) - 80;
           DrawMod.DrawSimple( local5,  local6, x3, 0);
            let mut local7: &Graphics = &graphics;
-          Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
+          bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local8: &Bitmap = &bitmap4;
           let mut x4: i32 =   Math.Round( (this.w - 1560) / 2.0) + 1560;
           DrawMod.DrawSimple( local7,  local8, x4, 0);
@@ -228,18 +228,18 @@ namespace WindowsApplication1
           useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.ZoneBottomTab(graphics, useRect);
            let mut local9: &Graphics = &graphics;
-          Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
+          bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local10: &Bitmap = &bitmap5;
           let mut x5: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local9,  local10, x5, 0);
            let mut local11: &Graphics = &graphics;
-          Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
+          bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local12: &Bitmap = &bitmap6;
           let mut x6: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local11,  local12, x6, 0);
         }
       }
-      Bitmap bitmap7;
+      bitmap7: Bitmap;
       if (this.game.EditObj.SetViewModeExtraNr <= 0)
       {
         if (this.w >= 1920 & !this.game.EditObj.maximumInterfaceSpace)
@@ -271,12 +271,12 @@ namespace WindowsApplication1
           useRect = Rectangle::new( Math.Round( num / 2.0), 0, 256, this.h);
           this.OtherUnits(graphics, useRect);
            let mut local17: &Graphics = &graphics;
-          Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
+          bitmap8: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local18: &Bitmap = &bitmap8;
           let mut x9: i32 =   Math.Round( num / 2.0) - 80;
           DrawMod.DrawSimple( local17,  local18, x9, 0);
            let mut local19: &Graphics = &graphics;
-          Bitmap bitmap9 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
+          bitmap9: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local20: &Bitmap = &bitmap9;
           let mut x10: i32 =  this.w -  Math.Round( num / 2.0);
           DrawMod.DrawSimple( local19,  local20, x10, 0);
@@ -286,12 +286,12 @@ namespace WindowsApplication1
           useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.UnitBottomTab(graphics, useRect);
            let mut local21: &Graphics = &graphics;
-          Bitmap bitmap10 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
+          bitmap10: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local22: &Bitmap = &bitmap10;
           let mut x11: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local21,  local22, x11, 0);
            let mut local23: &Graphics = &graphics;
-          Bitmap bitmap11 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
+          bitmap11: Bitmap = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local24: &Bitmap = &bitmap11;
           let mut x12: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local23,  local24, x12, 0);
@@ -482,14 +482,14 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub void QuickHexTab(Graphics g, Rectangle useRect)
+    pub fn QuickHexTab(Graphics g, Rectangle useRect)
     {
       libName1: String = "SE_Data";
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName1, 362, 0, 0));
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKHEXFRAME);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKHEXFRAME);
        let mut local2: &Bitmap = &bitmap;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -592,7 +592,7 @@ namespace WindowsApplication1
       str3: String = "Current Recon Points on the selected Hex." + "\r\n";
       let mut num4: i32 =   Math.Round( this.game.Data.RuleVar[55]);
       str4: String = str3 + "Minimum recon for unit info: " + num4.ToString();
-      int num5;
+      num5: i32;
       if (hidePts > 0)
       {
         str5: String = str4;
@@ -660,7 +660,7 @@ namespace WindowsApplication1
       }
       if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStack(this.game.Data.Turn) > 0 | this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.Data.Turn) > 0)
       {
-        string[] strArray1 = new string[6]
+        strArray1: Vec<String> = new string[6]
         {
           mouseOver2,
           "Regular Combat Residue: ",
@@ -669,7 +669,7 @@ namespace WindowsApplication1
           null,
           null
         };
-        string[] strArray2 = strArray1;
+        strArray2: Vec<String> = strArray1;
         num5 = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.Data.Turn);
         str16: String = num5.ToString();
         strArray2[4] = str16;
@@ -706,7 +706,7 @@ namespace WindowsApplication1
       if (integer <= 0)
         return;
       string headerText1;
-      int itemId1;
+      itemId1: i32;
       if (libVar > 0 & hexLibVarValue4 < 1 & hexLibVarValue3 > 0)
       {
         if (hexLibVarValue2 == 1)
@@ -736,10 +736,10 @@ namespace WindowsApplication1
         }
       }
       string headerText2;
-      int itemId2;
+      itemId2: i32;
       if (num2 > 0 & num2 != hexLibVarValue2)
       {
-        int num10;
+        num10: i32;
         if (num10 <= hexLibVarValue1 & hexLibVarValue2 > 0)
           str17 += ", ";
         if (num2 == 1)
@@ -825,14 +825,14 @@ namespace WindowsApplication1
 
     pub void DrawVarBox2(
       Graphics g,
-      int x,
-      int y,
+      x: i32,
+      y: i32,
       string headerText,
       string dataText,
       string mouseOver)
     {
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX2);
+      bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX2);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 =  x;
       let mut y1: i32 =  y;
@@ -845,9 +845,9 @@ namespace WindowsApplication1
 
     pub void DrawVarBox3(
       Graphics g,
-      int x,
-      int y,
-      int bitmapNr,
+      x: i32,
+      y: i32,
+      bitmapNr: i32,
       string headerText,
       string dataText1,
       string mouseOver1,
@@ -857,7 +857,7 @@ namespace WindowsApplication1
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX3);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX3);
        let mut local2: &Bitmap = &bitmap1;
       let mut x1: i32 =  x;
       let mut y1: i32 =  y;
@@ -868,7 +868,7 @@ namespace WindowsApplication1
         num2 = -3;
       }
        let mut local3: &Graphics = &g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(bitmapNr);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(bitmapNr);
        let mut local4: &Bitmap = &bitmap2;
       let mut x2: i32 =  x + 2 + num1;
       let mut y2: i32 =  y + 4 + num2;
@@ -888,14 +888,14 @@ namespace WindowsApplication1
 
     pub void DrawVarBox4(
       Graphics g,
-      int x,
-      int y,
+      x: i32,
+      y: i32,
       string headerText,
       string dataText,
       string mouseOver)
     {
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX4);
+      bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX4);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 =  x;
       let mut y1: i32 =  y;
@@ -908,12 +908,12 @@ namespace WindowsApplication1
       this.AddMouse( trect, "", mouseOver);
     }
 
-    pub void QuickRegimeTab(Graphics g, Rectangle useRect)
+    pub fn QuickRegimeTab(Graphics g, Rectangle useRect)
     {
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_QUICKREGIMEFRAME);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKREGIMEFRAME);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -941,7 +941,7 @@ namespace WindowsApplication1
       let mut num5: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "voteLeader", 2)));
       let mut num6: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "voteLast", 2)));
       let mut num7: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "votePeriod", 2)));
-      int index2;
+      index2: i32;
       let mut num8: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 11, 0, id1)));
       let mut num9: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 28, 0, id1)));
       let mut num10: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 29, 0, id1)));
@@ -959,8 +959,8 @@ namespace WindowsApplication1
       if (index1 <= -1)
         tstring1 = "No regime selected";
       DrawMod.DrawTextColouredConsoleCenter( g, tstring1, DrawMod.TGame.MarcFont16, x1 + 140, y1 + 10, DrawMod.TGame.seColWhite);
-      int num11;
-      int num12;
+      num11: i32;
+      num12: i32;
       if (flag)
       {
         num11 = 0;
@@ -1039,7 +1039,7 @@ namespace WindowsApplication1
         let mut x10: i32 =  useRect.X;
         let mut num25: i32 =  0;
         string str1;
-        int num26;
+        num26: i32;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[index1] == 1)
         {
           str1 = "PEACE";
@@ -1094,7 +1094,7 @@ namespace WindowsApplication1
           }
         }
          let mut local3: &Graphics = &g;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_QUICKREGIMEPAPERFRAME);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKREGIMEPAPERFRAME);
          let mut local4: &Bitmap = &bitmap2;
         let mut x11: i32 =  x10 + 2;
         let mut y4: i32 =  num25 + 39;
@@ -1110,7 +1110,7 @@ namespace WindowsApplication1
         if (num27 > 0)
         {
           let mut idValue: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, num27, 12)));
-          int index3;
+          index3: i32;
           data1 = this.game.Data.StringListObj[index3].GetData(0, idValue, 1);
           this.game.Data.StringListObj[stringListById2].GetData(0, num27, 2);
           data2: String = this.game.Data.StringListObj[stringListById2].GetData(0, num27, 3);
@@ -1142,7 +1142,7 @@ namespace WindowsApplication1
         if (num27 > 0)
         {
            let mut local5: &Graphics = &g;
-          Bitmap bitmap3 = this.game.CustomBitmapObj.DrawLeaderPortrait(num27, 71, 100);
+          bitmap3: Bitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(num27, 71, 100);
            let mut local6: &Bitmap = &bitmap3;
           let mut x12: i32 =  x10 + 10;
           let mut y5: i32 =  num25 + 46;
@@ -1222,7 +1222,7 @@ namespace WindowsApplication1
           else if (upper.Length <= 0)
             ;
         }
-        Color color;
+        color: Color;
         if (num26 == 1)
           color = Color.FromArgb( byte.MaxValue, 0, 150, 0);
         if (num26 == 2)
@@ -1272,7 +1272,7 @@ namespace WindowsApplication1
       let mut x15: i32 =  useRect.X;
       let mut y6: i32 =  useRect.Y;
        let mut local7: &Graphics = &g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_CLOSEDPANEL);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.SE1_CLOSEDPANEL);
        let mut local8: &Bitmap = &bitmap4;
       trect2 = Rectangle::new(0, 0, 371, 212);
       let mut srcrect: &Rectangle = &trect2
@@ -1281,12 +1281,12 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
     }
 
-    pub void QuickFlagTab(Graphics g, Rectangle useRect)
+    pub fn QuickFlagTab(Graphics g, Rectangle useRect)
     {
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_FLAGPANEL);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_FLAGPANEL);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -1302,7 +1302,7 @@ namespace WindowsApplication1
       let mut num4: i32 =  210;
       let mut bannerSpriteNr: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr;
        let mut local3: &Graphics = &g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(bannerSpriteNr);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(bannerSpriteNr);
        let mut local4: &Bitmap = &bitmap2;
       let mut x3: i32 =  num1;
       let mut y3: i32 =  num2;
@@ -1313,7 +1313,7 @@ namespace WindowsApplication1
       double b1 =  ( this.game.Data.RegimeObj[index].Blue /  byte.MaxValue);
       DrawMod.DrawScaledColorized2( local3,  local4, x3, y3, w1, h1, 124, 210,  r1,  g1,  b1, 1f);
       let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr2;
-      Bitmap bitmap3;
+      bitmap3: Bitmap;
       if (bannerSpriteNr2 > 0)
       {
          let mut local5: &Graphics = &g;
@@ -1344,21 +1344,21 @@ namespace WindowsApplication1
 
     pub void DrawItemBox(
       Graphics g,
-      int tx,
-      int ty,
+      tx: i32,
+      ty: i32,
       bool closed,
-      int bitmapNr,
+      bitmapNr: i32,
       string texty,
-      Color tcol,
+      tcol: Color,
       string texty2,
-      Color tcol2,
+      tcol2: Color,
       string tmouseOverTitle,
       string tmouseOver)
     {
       if (closed)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOXCLOSED);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOXCLOSED);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  tx;
         let mut y: i32 =  ty;
@@ -1369,7 +1369,7 @@ namespace WindowsApplication1
         if (tcol == DrawMod.TGame.seColYellow)
         {
            let mut local3: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOXPROBLEM);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOXPROBLEM);
            let mut local4: &Bitmap = &bitmap;
           let mut x: i32 =  tx;
           let mut y: i32 =  ty;
@@ -1378,7 +1378,7 @@ namespace WindowsApplication1
         else
         {
            let mut local5: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOX);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMBOX);
            let mut local6: &Bitmap = &bitmap;
           let mut x: i32 =  tx;
           let mut y: i32 =  ty;
@@ -1387,7 +1387,7 @@ namespace WindowsApplication1
         if (bitmapNr > 0)
         {
            let mut local7: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(bitmapNr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(bitmapNr);
            let mut local8: &Bitmap = &bitmap;
           let mut x: i32 =  tx + 2;
           let mut y: i32 =  ty + 6;
@@ -1401,13 +1401,13 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ItemBottomTab(Graphics g, Rectangle useRect)
+    pub fn ItemBottomTab(Graphics g, Rectangle useRect)
     {
       libName: String = "SE_Data";
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_ITEMFRAME);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ITEMFRAME);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -1425,7 +1425,7 @@ namespace WindowsApplication1
         let mut num7: i32 =  0;
         do
         {
-          Bitmap bitmap2;
+          bitmap2: Bitmap;
           if (num7 == 1 | num7 == 2)
           {
              let mut local3: &Graphics = &g;
@@ -1701,9 +1701,9 @@ namespace WindowsApplication1
           num24 = 0;
           num28 = 0;
         }
-        int num34;
+        num34: i32;
         double num35;
-        int num36;
+        num36: i32;
         if (num20 > 0 | num25 > 0)
         {
           num34 = num20;
@@ -1735,10 +1735,10 @@ namespace WindowsApplication1
             flagArray[simpleList1.Data1[index3], simpleList1.Data2[index3], 1] = true;
           }
         }
-        int num41;
+        num41: i32;
         let mut tx1: i32 =  num17 + num41;
         Left: String = "";
-        int num42;
+        num42: i32;
         if (num21 > 0 | num26 > 0 | num22 > 0)
         {
           num34 = num21 + num22;
@@ -2062,7 +2062,7 @@ namespace WindowsApplication1
             tmouseOver = tmouseOver + "\r\nZone provided " + num21.ToString() + " " + simpleStringList.Id[index3] + " Stockage.";
           if (num24 > 0)
             tmouseOver = tmouseOver + "\r\nOf these the Zone provided " + num24.ToString() + " " + simpleStringList.Id[index3] + " Stockage to its SHQ.";
-          Color tcol = this.game.seColWhite;
+          tcol: Color = this.game.seColWhite;
           if (num75 > 0)
             tcol = this.game.seColYellow;
           if (weight > 0)
@@ -2108,13 +2108,13 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RegimeBottomTab(Graphics g, Rectangle useRect)
+    pub fn RegimeBottomTab(Graphics g, Rectangle useRect)
     {
       libName: String = "SE_Data";
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_REGIMEFRAME);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_REGIMEFRAME);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -2164,8 +2164,8 @@ namespace WindowsApplication1
       bool flag4;
       if (Operators.CompareString(Strings.LCase(str1), "unclear", false) == 0)
         flag4 = true;
-      int num11;
-      int num12;
+      num11: i32;
+      num12: i32;
       if (flag4)
       {
         num11 = 0;
@@ -2185,13 +2185,13 @@ namespace WindowsApplication1
         if (!this.game.Data.FOWOn)
           num11 = 9999;
       }
-      int num13;
+      num13: i32;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      int idValue1;
-      int x3;
-      int num14;
-      Bitmap bitmap2;
+      idValue1: i32;
+      x3: i32;
+      num14: i32;
+      bitmap2: Bitmap;
       if (!flag4 & num12 == 1)
       {
         str1 = "";
@@ -2243,7 +2243,7 @@ namespace WindowsApplication1
           do
           {
             string idValue2;
-            int num21;
+            num21: i32;
             if (num20 == 0)
             {
               idValue2 = idValue2_2;
@@ -2263,7 +2263,7 @@ namespace WindowsApplication1
             let mut eventPic: i32 =  this.game.Data.FindEventPic( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById11].GetData(0, idValue2, 5))), data);
             let mut num22: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById11].GetData(0, idValue2, 6)));
              let mut local3: &Graphics = &g;
-            Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic]);
+            bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic]);
              let mut local4: &Bitmap = &bitmap3;
             rectangle1 = Rectangle::new(num22 * 32, 0, 32, 32);
             let mut srcrect: &Rectangle = &rectangle1
@@ -2488,7 +2488,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AssetBottomTab(Graphics g, Rectangle useRect)
+    pub fn AssetBottomTab(Graphics g, Rectangle useRect)
     {
       libName1: String = "SE_Data";
       let mut x1: i32 =  useRect.X;
@@ -2496,7 +2496,7 @@ namespace WindowsApplication1
       if (useRect.Width > 1280)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_ASSETFRAME);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ASSETFRAME);
          let mut local2: &Bitmap = &bitmap;
         Rectangle rectangle1 = Rectangle::new(0, 0, 980, 222);
         let mut srcrect1: &Rectangle = &rectangle1
@@ -2504,7 +2504,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
         let mut x2: i32 =  x1 + 980;
-        int width;
+        width: i32;
         for (let mut index: i32 =  useRect.Width - 980; index > 300; index -= width)
         {
           width = index - 300;
@@ -2532,7 +2532,7 @@ namespace WindowsApplication1
       else
       {
          let mut local7: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_ASSETFRAME);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ASSETFRAME);
          let mut local8: &Bitmap = &bitmap;
         let mut x3: i32 =  x1;
         let mut y2: i32 =  y1;
@@ -2626,10 +2626,10 @@ namespace WindowsApplication1
       let mut num10: i32 =  this.game.EditObj.se1_SelectAssetButton;
       if (num10 < 0)
         num10 = 0;
-      int num11;
-      int x4;
-      int y3;
-      int integer2;
+      num11: i32;
+      x4: i32;
+      y3: i32;
+      integer2: i32;
       if (num10 > 0 & num10 < 9000000)
       {
         num11 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData(9, num10, 0)));
@@ -2698,8 +2698,8 @@ namespace WindowsApplication1
         y3 = this.game.SelectY;
       }
       this.orderfeedbackString = "";
-      int num18;
-      int num19;
+      num18: i32;
+      num19: i32;
       if (this.AssetOrderNumber > 0)
       {
         if (this.AssetOrderNumber == 32)
@@ -2725,7 +2725,7 @@ namespace WindowsApplication1
             setValue = 0;
           this.game.Data.StringListObj[stringListById7].SetData(9, num10, 15, setValue);
         }
-        int num20;
+        num20: i32;
         if (this.AssetOrderNumber == 25)
         {
           let mut idValue1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData(9, num10, 1)));
@@ -2977,12 +2977,12 @@ namespace WindowsApplication1
       let mut num51: i32 =  -1;
       SimpleList simpleList1 = SimpleList::new();
       let mut num52: i32 =  1;
-      int num53;
-      int num54;
-      int num55;
-      int num56;
-      int num57;
-      int num58;
+      num53: i32;
+      num54: i32;
+      num55: i32;
+      num56: i32;
+      num57: i32;
+      num58: i32;
       do
       {
         let mut length: i32 =  this.game.Data.StringListObj[stringListById7].Length;
@@ -3083,7 +3083,7 @@ namespace WindowsApplication1
             let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[index17, index18].GetHexLibVarValue(libVar2);
             if (hexLibVarValue > 0 && this.game.Data.MapObj[0].HexObj[index17, index18].MaxRecon > 0)
             {
-              int num62;
+              num62: i32;
               num62 += 1;
               num55 += 1;
               if (this.game.EditObj.se1_AssetCategory2 != 1 && !(this.game.EditObj.se1_AssetCategory1 == 1 & !(index17 == this.game.SelectX & index18 == this.game.SelectY)))
@@ -3099,7 +3099,7 @@ namespace WindowsApplication1
       let mut num63: i32 =  0;
       let mut num64: i32 =  -1;
       let mut num65: i32 =  1;
-      int num66;
+      num66: i32;
       do
       {
         let mut counter: i32 =  simpleList1.Counter;
@@ -3109,12 +3109,12 @@ namespace WindowsApplication1
           let mut num67: i32 =  -1;
           let mut num68: i32 =  0;
           num66 = -1;
-          int x6;
-          int y5;
-          int idValue;
-          int num69;
-          int num70;
-          int num71;
+          x6: i32;
+          y5: i32;
+          idValue: i32;
+          num69: i32;
+          num70: i32;
+          num71: i32;
           if (index20 >= 9000000 & index20 < 15000000)
           {
             num67 = simpleList1.Data3[index19];
@@ -3176,7 +3176,7 @@ namespace WindowsApplication1
       while (num65 >= 0);
       let mut num72: i32 =  0;
       let mut num73: i32 =   Math.Round(Math.Floor( simpleList1.Counter /  int32)) + 1;
-      int num74;
+      num74: i32;
       if (num64 > -1)
       {
         num72 =  Math.Round(Math.Floor( (num64 - 1) /  int32));
@@ -3293,7 +3293,7 @@ namespace WindowsApplication1
       num18 = -1;
       let mut num88: i32 =  -1;
       num76 = 18;
-      Color color = Color.FromArgb(100,  byte.MaxValue,  byte.MaxValue, 0);
+      color: Color = Color.FromArgb(100,  byte.MaxValue,  byte.MaxValue, 0);
       if (index2 > -1)
         color = Color.FromArgb(200, this.game.Data.RegimeObj[index2].Red, this.game.Data.RegimeObj[index2].Green, this.game.Data.RegimeObj[index2].Blue);
       let mut num89: i32 =  1;
@@ -3306,14 +3306,14 @@ namespace WindowsApplication1
           let mut num90: i32 =  -1;
           num66 = -1;
           let mut num91: i32 =  0;
-          int x9;
-          int y12;
-          int idValue6;
-          int assetId;
-          int num92;
-          int idValue7;
-          int num93;
-          int regime;
+          x9: i32;
+          y12: i32;
+          idValue6: i32;
+          assetId: i32;
+          num92: i32;
+          idValue7: i32;
+          num93: i32;
+          regime: i32;
           if (index23 >= 9000000 & index23 < 15000000)
           {
             num90 = simpleList1.Data3[index22];
@@ -3366,7 +3366,7 @@ namespace WindowsApplication1
               let mut num95: i32 =  5;
               if (this.game.EditObj.se1_SelectAssetButton < 1 & x9 == this.game.SelectX & y12 == this.game.SelectY)
                 this.game.EditObj.se1_SelectAssetButton = assetId;
-              CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
+              customBitmapObj: CustomBitmapClass = this.game.CustomBitmapObj;
                let mut local12: &Graphics = &g;
               let mut tx: i32 =  num94;
               let mut ty: i32 =  num95;
@@ -3422,10 +3422,10 @@ namespace WindowsApplication1
                 tstring1: String = idValue7 == integer1 ? (num92 != integer1 ? "DEL.TO:" + this.game.Data.StringListObj[stringListById5].GetData(0, idValue10, 7) : (integer1 >= 1 ? "ZONE:" + this.game.Data.StringListObj[stringListById5].GetData(0, idValue10, 7) : "Hex without zone")) : (index3 == this.game.Data.Turn ? "TASK FROM:" + this.game.Data.StringListObj[stringListById5].GetData(0, idValue7, 7) : "ZONE:Evacuated Asset");
                 DrawMod.DrawTextColouredConsole( g, tstring1, DrawMod.TGame.se1TypeWriterMedium, num107, num108, DrawMod.TGame.seColTW);
                 let mut y13: i32 =  num108 + 20;
-                int y14;
+                y14: i32;
                 if (num102 > 0)
                 {
-                  int y15;
+                  y15: i32;
                   if (index2 == this.game.Data.Turn)
                   {
                     tstring2: String = "UPKEEP:" + num98.ToString() + "% CONSTR: " + num99.ToString() + "%";
@@ -3545,7 +3545,7 @@ namespace WindowsApplication1
                     num77 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById11].GetData3(0, idValue6, 1, 3, 2, "credits", 3)));
                     buttontext: String = "Nationalize [" + num77.ToString() + "Cr]";
                     string tDescript7;
-                    int num119;
+                    num119: i32;
                     if (num77 > num118)
                     {
                       tDescript7 = "You do not have the " + num77.ToString() + " credits required to nationalize this asset. ";
@@ -3756,7 +3756,7 @@ namespace WindowsApplication1
       while (num89 >= 0);
     }
 
-    pub void UnitBottomTab(Graphics g, Rectangle useRect)
+    pub fn UnitBottomTab(Graphics g, Rectangle useRect)
     {
       libName: String = "SE_Data";
       if (this.game.EditObj.se1_SelectUnitButton < 1)
@@ -3784,7 +3784,7 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle trect;
       Rectangle rectangle;
       if (useRect.Width > 1280)
@@ -3798,7 +3798,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
         let mut x2: i32 =  x1 + 980;
-        int width;
+        width: i32;
         for (let mut index3: i32 =  useRect.Width - 980; index3 > 300; index3 -= width)
         {
           width = index3 - 300;
@@ -3873,9 +3873,9 @@ namespace WindowsApplication1
       this.unitButtonData[this.unitButtonCounter] = 9;
       let mut x6: i32 =  useRect.X + 118;
       let mut y6: i32 =  useRect.Y + 8;
-      int regime;
-      int id;
-      int num8;
+      regime: i32;
+      id: i32;
+      num8: i32;
       if (unitSelected > -1)
       {
         regime = this.game.Data.UnitObj[unitSelected].Regime;
@@ -4064,9 +4064,9 @@ namespace WindowsApplication1
       str6 = Conversion.Str( num18);
       if (reconMinusHide.x < 2)
         str6 = "?";
-      int r;
-      int g2;
-      int b;
+      r: i32;
+      g2: i32;
+      b: i32;
       if (reconMinusHide.x >= 2 & this.game.Data.UnitObj[index5].SFCount > -1)
       {
         if (num18 >= 75)
@@ -4260,8 +4260,8 @@ namespace WindowsApplication1
           }
         }
         let mut counter: i32 =  simpleList2.Counter;
-        int num39;
-        int num40;
+        num39: i32;
+        num40: i32;
         for (let mut index12: i32 =  0; index12 <= counter; index12 += 1)
         {
           if (simpleList2.Weight[index12] - simpleList2.Data1[index12] > num39 - num40)
@@ -4631,7 +4631,7 @@ namespace WindowsApplication1
           index6 =  Math.Round(154.0 - ( sizeF2.Width / 2.0 + 20.0));
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[moveTypeLogo.y].Type].SFTypeVar[81] > 0)
           {
-            Bitmap objBitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(this.game.Data.SFObj[moveTypeLogo.y].Type, false, 1, this.game.Data.Turn, index5);
+            objBitmap: Bitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(this.game.Data.SFObj[moveTypeLogo.y].Type, false, 1, this.game.Data.Turn, index5);
             num10 = objBitmap.Width;
             let mut h: i32 =  objBitmap.Height;
             if (num10 > 64)
@@ -4825,7 +4825,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredConsoleMultiline( g, tstring17, DrawMod.TGame.se1TypeWriterSmall, num62 + 80, num63 + 106, DrawMod.TGame.seColTW, 70, 160);
         DrawMod.DrawTextColouredConsoleMultiline( g, tstring18, DrawMod.TGame.se1TypeWriterSmall, num62 + 160, num63 + 106, DrawMod.TGame.seColTW, 70, 160);
       }
-      int predefnr;
+      predefnr: i32;
       if (this.game.EditObj.se1_SelectUnitButton == 7)
       {
         let mut num65: i32 =  useRect.X + 278;
@@ -4954,9 +4954,9 @@ namespace WindowsApplication1
             let mut num80: i32 =  0;
             let mut logCounter1: i32 =  this.game.Data.UnitObj[index5].LogCounter;
             bool flag1;
-            int num81;
-            int num82;
-            int num83;
+            num81: i32;
+            num82: i32;
+            num83: i32;
             bool flag2;
             bool flag3;
             bool flag4;
@@ -5210,7 +5210,7 @@ namespace WindowsApplication1
                   str6 = num89.ToString() + "/" + weight.ToString();
                   str63: String = "";
                   str64: String = "";
-                  int idValue3;
+                  idValue3: i32;
                   if (simpleList3.Id[index26] == 10)
                   {
                     eventPic = this.game.Data.FindEventPic("", 29, "SE_Present");
@@ -5247,7 +5247,7 @@ namespace WindowsApplication1
                     str63 = "RAD";
                   }
                   str65: String = str64;
-                  int num93;
+                  num93: i32;
                   if (predefnr == 0)
                   {
                     num93 = 100;
@@ -5423,7 +5423,7 @@ namespace WindowsApplication1
               if (!flag1)
               {
                 ttitle1 = "Pick-Up Issue";
-                ttext3 = "Unit was not able to find a Pickup Point on a road with Logistical Points within its Operational Logistics range.";
+                ttext3 = "Unit was not able to find a Pickup Poon: i32 a road with Logistical Points within its Operational Logistics range.";
               }
               else if (flag5)
               {
@@ -5435,8 +5435,8 @@ namespace WindowsApplication1
                 ttitle1 = "Pick-Up Issue";
                 ttext3 = "(One of) the Pickup Point(s) (" + num81.ToString() + "," + num82.ToString() + ") on a road with Logistical Points was to far for the Unit's optimal Operational Logistics range. Only " + num83.ToString() + "% could be picked-up.";
               }
-              int num98;
-              int num99;
+              num98: i32;
+              num99: i32;
               if (ttitle1.Length > 1)
               {
                 sizeF2 = g.MeasureString("[" + ttitle1 + "]", DrawMod.TGame.se1TypeWriterSmall);
@@ -5450,7 +5450,7 @@ namespace WindowsApplication1
               if (flag2 & (num83 < 100 | !flag1))
               {
                 str66: String = "Low Log.Pts";
-                ttext4: String = "Unit did not get all it needed delivered to Pickup Point because the Logistical Points on the road between the Pickup Point and its SHQ where too low.";
+                ttext4: String = "Unit did not get all it needed delivered to Pickup Pobecause: i32 the Logistical Points on the road between the Pickup Poand: i32 its SHQ where too low.";
                 sizeF2 = g.MeasureString("[" + str66 + "]", DrawMod.TGame.se1TypeWriterSmall);
                 num99 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str66 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
@@ -5463,7 +5463,7 @@ namespace WindowsApplication1
               if (flag3)
               {
                 str67: String = "SHQ miss.Items";
-                ttext5: String = "Unit did not get all it needed delivered to Pickup Point because its SHQ had not enough Items in inventory to send everything requested.";
+                ttext5: String = "Unit did not get all it needed delivered to Pickup Pobecause: i32 its SHQ had not enough Items in inventory to send everything requested.";
                 sizeF2 = g.MeasureString("[" + str67 + "]", DrawMod.TGame.se1TypeWriterSmall);
                 num99 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str67 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
@@ -5476,7 +5476,7 @@ namespace WindowsApplication1
               if (flag4)
               {
                 str68: String = "SHQ Log.Limit";
-                ttext6: String = "Unit did not get all it needed delivered to Pickup Point because the Logistical Points on the road between the Pickup Point and its SHQ reached the limit that it was allowed to use (See Unit Admin order for SHQ).";
+                ttext6: String = "Unit did not get all it needed delivered to Pickup Pobecause: i32 the Logistical Points on the road between the Pickup Poand: i32 its SHQ reached the limit that it was allowed to use (See Unit Admin order for SHQ).";
                 sizeF2 = g.MeasureString("[" + str68 + "]", DrawMod.TGame.se1TypeWriterSmall);
                 num98 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str68 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
@@ -5564,8 +5564,8 @@ namespace WindowsApplication1
             do
             {
               tstring27: String = "";
-              int num121;
-              int num122;
+              num121: i32;
+              num122: i32;
               if (num120 == 0)
               {
                 num121 = index6;
@@ -5590,7 +5590,7 @@ namespace WindowsApplication1
                 num122 = num109 + num111;
                 tstring27 = "REPLACEMENT";
               }
-              int num123;
+              num123: i32;
               if (num121 == 0)
               {
                 num123 = 100;
@@ -5655,7 +5655,7 @@ namespace WindowsApplication1
               rectangle = Rectangle::new(num102 + 10, num101, 220, 16);
               trect = rectangle;
               this.AddMouse( trect, ttitle, ttext);
-              int num125;
+              num125: i32;
               if (num120 == 0)
               {
                 num125 = num112;
@@ -5712,12 +5712,12 @@ namespace WindowsApplication1
       this.game.EditObj.se1_SelectUnitButton = selectUnitButton;
     }
 
-    pub void ZoneBottomTab(Graphics g, Rectangle useRect)
+    pub fn ZoneBottomTab(Graphics g, Rectangle useRect)
     {
       let mut x1: i32 =  useRect.X;
       let mut y1: i32 =  useRect.Y;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_ZONEFRAME);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEFRAME);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 =  x1;
       let mut y2: i32 =  y1;
@@ -5820,15 +5820,15 @@ namespace WindowsApplication1
         flag3 = true;
       if (this.game.EditObj.se1_SelectZoneButton < 1)
         this.game.EditObj.se1_SelectZoneButton = 1;
-      int num8;
-      int idValue1;
-      int num9;
-      int num10;
+      num8: i32;
+      idValue1: i32;
+      num9: i32;
+      num10: i32;
       string str1;
-      int tSlotNr;
-      int num11;
+      tSlotNr: i32;
+      num11: i32;
       string str2;
-      int num12;
+      num12: i32;
       string str3;
       if ((num5 > -1 | this.game.Data.Turn == regNr) & !(num5 == 0 & this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < 1 & this.game.Data.ShrowdOn))
       {
@@ -5845,7 +5845,7 @@ namespace WindowsApplication1
           let mut num17: i32 =  useRect.X + 0;
           let mut num18: i32 =  0;
            let mut local3: &Graphics = &g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME2);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME2);
            let mut local4: &Bitmap = &bitmap2;
           let mut x3: i32 =  num17;
           let mut y3: i32 =  num18;
@@ -5999,7 +5999,7 @@ namespace WindowsApplication1
           else
           {
              let mut local5: &Graphics = &g;
-            Bitmap bitmap3 = this.game.CustomBitmapObj.DrawLeaderPortrait(num4, 100, 140, regNr == this.game.Data.Turn);
+            bitmap3: Bitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(num4, 100, 140, regNr == this.game.Data.Turn);
              let mut local6: &Bitmap = &bitmap3;
             let mut x4: i32 =  num17 + 287;
             let mut y9: i32 =  num28 + 48;
@@ -6049,7 +6049,7 @@ namespace WindowsApplication1
           let mut num31: i32 =  useRect.X + 0;
           let mut y10: i32 =  0;
            let mut local7: &Graphics = &g;
-          Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
+          bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
            let mut local8: &Bitmap = &bitmap4;
           let mut x5: i32 =  num31;
           let mut y11: i32 =  y10;
@@ -6068,7 +6068,7 @@ namespace WindowsApplication1
           tstring16: String = "Private Jobs";
           DrawMod.DrawTextColouredConsole( g, tstring16, DrawMod.TGame.se1TypeWriterMedium, num31 + 40, y12, DrawMod.TGame.seColTW);
           index3 = 0;
-          EventRelatedClass eventRelatedObj = this.game.EventRelatedObj;
+          eventRelatedObj: EventRelatedClass = this.game.EventRelatedObj;
           dataLib: String = libName1;
           let mut onlyZoneId: i32 =  integer1;
           SimpleList simpleList1 = (SimpleList) null;
@@ -6270,7 +6270,7 @@ namespace WindowsApplication1
           let mut num47: i32 =  useRect.X + 0;
           let mut y21: i32 =  0;
            let mut local11: &Graphics = &g;
-          Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
+          bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
            let mut local12: &Bitmap = &bitmap5;
           let mut x6: i32 =  num47;
           let mut y22: i32 =  y21;
@@ -6287,7 +6287,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredConsoleCenter( g, tstring30, DrawMod.TGame.se1TypeWriterBig, num47 + 283, 17, DrawMod.TGame.seColTW);
           let mut y23: i32 =  num15;
           tstring31: String = "Public Jobs";
-          EventRelatedClass eventRelatedObj = this.game.EventRelatedObj;
+          eventRelatedObj: EventRelatedClass = this.game.EventRelatedObj;
           dataLib: String = libName1;
           let mut onlyZoneId: i32 =  integer1;
           SimpleList simpleList3 = (SimpleList) null;
@@ -6393,7 +6393,7 @@ namespace WindowsApplication1
           let mut num51: i32 =  useRect.X + 0;
           let mut num52: i32 =  0;
            let mut local15: &Graphics = &g;
-          Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
+          bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
            let mut local16: &Bitmap = &bitmap6;
           let mut x7: i32 =  num51;
           let mut y28: i32 =  num52;
@@ -6575,7 +6575,7 @@ namespace WindowsApplication1
           let mut num54: i32 =  useRect.X + 0;
           let mut num55: i32 =  0;
            let mut local17: &Graphics = &g;
-          Bitmap bitmap7 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
+          bitmap7: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
            let mut local18: &Bitmap = &bitmap7;
           let mut x8: i32 =  num54;
           let mut y39: i32 =  num55;
@@ -6661,7 +6661,7 @@ namespace WindowsApplication1
           let mut num59: i32 =  useRect.X + 0;
           let mut num60: i32 =  0;
            let mut local19: &Graphics = &g;
-          Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
+          bitmap8: Bitmap = BitmapStore.GetBitmap(this.game.SE1_ZONEPAPERFRAME1);
            let mut local20: &Bitmap = &bitmap8;
           let mut x9: i32 =  num59;
           let mut y44: i32 =  num60;
@@ -6690,7 +6690,7 @@ namespace WindowsApplication1
           this.AddMouse( trect1, ttitle, ttext);
           num8 = y45 + 30;
         }
-        Bitmap bitmap9;
+        bitmap9: Bitmap;
         if (this.game.EditObj.se1_SelectZoneButton == 7)
         {
           num14 = 180;
@@ -7192,7 +7192,7 @@ namespace WindowsApplication1
               tstring90 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring90, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y61, DrawMod.TGame.seColTW);
             ttitle47: String = "Truck Range in AP";
-            ttext50: String = "The Action Point Range this Zone had available for use at start of turn.";
+            ttext50: String = "The Action PoRange: i32 this Zone had available for use at start of turn.";
             if (str26.Length > 1)
               ttext50 += str26;
             trect2 = Rectangle::new(num75 + 35, y61 - 10, 250, 30);
@@ -7224,7 +7224,7 @@ namespace WindowsApplication1
               tstring94 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring94, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y63, DrawMod.TGame.seColTW);
             ttitle49: String = "Rail Range in AP";
-            ttext52: String = "The Action Point Range this Zone had available for use at start of turn.";
+            ttext52: String = "The Action PoRange: i32 this Zone had available for use at start of turn.";
             if (str30.Length > 1)
               ttext52 += str30;
             trect2 = Rectangle::new(num75 + 35, y63 - 10, 250, 30);
@@ -7276,7 +7276,7 @@ namespace WindowsApplication1
               tstring100 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring100, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y66, DrawMod.TGame.seColTW);
             ttitle52: String = "Next Truck Range in AP";
-            ttext55: String = "The Action Point Range that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
+            ttext55: String = "The Action PoRange: i32 that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
             if (str27.Length > 1)
               ttext55 += str27;
             trect2 = Rectangle::new(num75 + 35, y66 - 10, 250, 30);
@@ -7308,7 +7308,7 @@ namespace WindowsApplication1
               tstring104 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring104, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y68, DrawMod.TGame.seColTW);
             ttitle54: String = "Next Truck Range in AP";
-            ttext57: String = "The Action Point Range that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
+            ttext57: String = "The Action PoRange: i32 that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
             if (str31.Length > 1)
               ttext57 += str31;
             trect2 = Rectangle::new(num75 + 35, y68 - 10, 250, 30);
@@ -7350,7 +7350,7 @@ namespace WindowsApplication1
                     num75 = useRect.X + 0;
                   letter: String = this.game.HandyFunctionsObj.CovertNumberToLetter(simpleList.Id[index12]);
                   let mut num90: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById19].Data[row2, 9]));
-                  Color color = this.game.HandyFunctionsObj.Air_GetColor(row2);
+                  color: Color = this.game.HandyFunctionsObj.Air_GetColor(row2);
                   let mut tcol: i32 =  0;
                   if (simpleList.Data1[index12] == 1)
                   {
@@ -7444,7 +7444,7 @@ namespace WindowsApplication1
               tstring115 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring115, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y70, DrawMod.TGame.seColTW);
             ttitle57: String = "Truck Range in AP";
-            ttext60: String = "The Action Point Range this Zone had available for use at start of turn.";
+            ttext60: String = "The Action PoRange: i32 this Zone had available for use at start of turn.";
             trect2 = Rectangle::new(num75 + 35, y70 - 10, 250, 30);
             trect1 = trect2;
             this.AddMouse( trect1, ttitle57, ttext60);
@@ -7472,7 +7472,7 @@ namespace WindowsApplication1
               tstring119 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring119, DrawMod.TGame.se1TypeWriterMedium, num75 + 195, y72, DrawMod.TGame.seColTW);
             ttitle59: String = "Rail Range in AP";
-            ttext62: String = "The Action Point Range this Zone had available for use at start of turn.";
+            ttext62: String = "The Action PoRange: i32 this Zone had available for use at start of turn.";
             trect2 = Rectangle::new(num75 + 35, y72 - 10, 250, 30);
             trect1 = trect2;
             this.AddMouse( trect1, ttitle59, ttext62);
@@ -7502,7 +7502,7 @@ namespace WindowsApplication1
               tstring123 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring123, DrawMod.TGame.se1TypeWriterMedium, num98 + 195, y74, DrawMod.TGame.seColTW);
             ttitle61: String = "Next Truck Range in AP";
-            ttext64: String = "The Action Point Range that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
+            ttext64: String = "The Action PoRange: i32 that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
             trect2 = Rectangle::new(num98 + 35, y74 - 10, 250, 30);
             trect1 = trect2;
             this.AddMouse( trect1, ttitle61, ttext64);
@@ -7530,7 +7530,7 @@ namespace WindowsApplication1
               tstring127 = "?";
             DrawMod.DrawTextColouredConsole( g, tstring127, DrawMod.TGame.se1TypeWriterMedium, num98 + 195, y76, DrawMod.TGame.seColTW);
             ttitle63: String = "Next Truck Range in AP";
-            ttext66: String = "The Action Point Range that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
+            ttext66: String = "The Action PoRange: i32 that got generated for this Zone. These will be used in the next turn to provide your Logistical Network and originate from the Zone's City.";
             trect2 = Rectangle::new(num98 + 35, y76 - 10, 250, 30);
             trect1 = trect2;
             this.AddMouse( trect1, ttitle63, ttext66);
@@ -8324,7 +8324,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SmallRightUds(Graphics g)
+    pub fn SmallRightUds(Graphics g)
     {
       let mut num: i32 =   Math.Round( (this.w - 1024) / 2.0) + 1024;
       let mut enr: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[450]));
@@ -8339,7 +8339,7 @@ namespace WindowsApplication1
       this.smallTabId = this.AddSubPart( tsubpart, num - 128, 7, 154, 210, 1);
     }
 
-    pub void Old_UnitUDSBottomTab(Graphics g)
+    pub fn Old_UnitUDSBottomTab(Graphics g)
     {
       let mut num: i32 =   Math.Round( (this.w - 1024) / 2.0);
       let mut enr1: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[410]));
@@ -8370,7 +8370,7 @@ namespace WindowsApplication1
       this.smallTabId = this.AddSubPart( tsubpart2, num + 16 + 1280 - 128, 7, 154, 210, 1);
     }
 
-    pub void OfficerTab(Graphics g)
+    pub fn OfficerTab(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =   Math.Round(440.0 +  (this.w - 1024) / 2.0);
@@ -8405,16 +8405,16 @@ namespace WindowsApplication1
         let mut num1: i32 =  this.game.HandyFunctionsObj.GetStaffNeeded(unitSelected);
         if (num1 == 0)
           num1 = 1;
-        int num2;
+        num2: i32;
         if ( Math.Round(40.0 * ( staffPoints /  num1)) > 80)
           num2 = 80;
         if ( Math.Round(40.0 * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)) > 80)
           num2 = 80;
-        int Number1;
+        Number1: i32;
         if (this.game.Data.UnitObj[unitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
           Number1 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)));
-        int num3;
-        int num4;
+        num3: i32;
+        num4: i32;
         if (this.game.Data.UnitObj[unitSelected].SFCount > -1)
         {
           let mut sfCount: i32 =  this.game.Data.UnitObj[unitSelected].SFCount;
@@ -8465,7 +8465,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredMarc( g, "POL = " + str1, this.game.MarcFont5, x1 + 10, 145, Color.White);
           rectangle = Rectangle::new(x1 + 10, 141, 80, 20);
           let mut trect1: &Rectangle = &rectangle
-          this.AddMouse( trect1, "POLITICAL VALUE", "A negative political value is the cost in PP to replace this officer.\r\nA positive political value is the cost to appoint the officer.");
+          this.AddMouse( trect1, "POLITICAL VALUE", "A negative political value is the cost in PP to replace this officer.\r\nA positive political value is the cost to appothe: i32 officer.");
           DrawMod.DrawBlockGradient2( g, x1 + 5, 165, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
           DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x1 + 5, 166, 80, 19, -1, -1);
           str2: String = Strings.Trim(Conversion.Str( Math.Round( this.game.Data.HistoricalUnitObj[historical].StaffSize /  staffPoints, 2)));
@@ -8502,12 +8502,12 @@ namespace WindowsApplication1
         }
         if ((uint) (-(this.game.Data.Product < 4 ? 1 : 0) & this.game.HandyFunctionsObj.GetVisibleHisVar(historical)) > 0U)
           flag1 = true;
-        Bitmap bitmap1;
+        bitmap1: Bitmap;
         if ( this.game.Data.RuleVar[879] < 1.0 | this.game.HandyFunctionsObj.GetVisibleHisVar(historical) < 1 | !flag1)
         {
           TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 5, this.game.MarcFont13, "\r\n\r\n" + this.game.Data.HistoricalUnitObj[historical].Descript, 12,  this.BackBitmap, x1 + 110, -7, true);
            let mut local1: &Graphics = &g;
-          Bitmap bitmap2 = textAreaClass2.Paint();
+          bitmap2: Bitmap = textAreaClass2.Paint();
            let mut local2: &Bitmap = &bitmap2;
           let mut x2: i32 =  x1 + 110;
           DrawMod.DrawSimple( local1,  local2, x2, -7);
@@ -8520,7 +8520,7 @@ namespace WindowsApplication1
         {
           TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 5, this.game.MarcFont13, "", 12,  this.BackBitmap, x1 + 110, -7, true);
            let mut local3: &Graphics = &g;
-          Bitmap bitmap3 = textAreaClass2.Paint();
+          bitmap3: Bitmap = textAreaClass2.Paint();
            let mut local4: &Bitmap = &bitmap3;
           let mut x3: i32 =  x1 + 110;
           DrawMod.DrawSimple( local3,  local4, x3, -7);
@@ -8532,7 +8532,7 @@ namespace WindowsApplication1
           let mut num10: i32 =  0;
           while (num9 < 425)
           {
-            int index;
+            index: i32;
             if (this.game.Data.HistoricalUnitObj[historical].HisVarCount >= index)
             {
               bool flag3 = true;
@@ -8599,8 +8599,8 @@ namespace WindowsApplication1
         num2 = 0;
         let mut num13: i32 =  Math.Min(15, this.game.Data.HistoricalUnitObj[historical].HandCardCounter);
         let mut num14: i32 =  num13;
-        int x7;
-        int y1;
+        x7: i32;
+        y1: i32;
         for (let mut index: i32 =  0; index <= num14; index += 1)
         {
           if (index <= 7)
@@ -8692,7 +8692,7 @@ namespace WindowsApplication1
         {
           let mut num16: i32 =  x1 + 397 + 60;
           let mut y6: i32 =  10;
-          int nr;
+          nr: i32;
           bool Shaded;
           if (this.cardsel < 7000)
           {
@@ -8766,7 +8766,7 @@ namespace WindowsApplication1
             return;
           let mut x13: i32 =  x1 + 397 + 60;
           let mut y8: i32 =  10;
-          int nr;
+          nr: i32;
           bool Shaded;
           if (this.cardhover < 7000)
           {
@@ -8811,7 +8811,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CombatTab(Graphics g)
+    pub fn CombatTab(Graphics g)
     {
       SizeF sizeF = SizeF::new();
       let mut num1: i32 =   Math.Round(580.0 +  (this.w - 1024) / 2.0);
@@ -8829,8 +8829,8 @@ namespace WindowsApplication1
         if (this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitList[index], this.game.Data.Turn) > 0)
           num3 += 1;
       }
-      int num4;
-      int num5;
+      num4: i32;
+      num5: i32;
       Rectangle trect1;
       Rectangle trect2;
       if (landscapeType > -1 & spriteNr > -1 & num3 > -1)
@@ -8848,8 +8848,8 @@ namespace WindowsApplication1
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
           {
             num6 += 1;
-            int num7;
-            int num8;
+            num7: i32;
+            num8: i32;
             if (num6 <= 7)
             {
               num7 = num1 + 30 + num6 * 48;
@@ -8907,8 +8907,8 @@ namespace WindowsApplication1
       {
         let mut nr: i32 =  this.game.EditObj.TempUnitList.unr[index];
         num12 += 1;
-        int num13;
-        int num14;
+        num13: i32;
+        num14: i32;
         if (num12 <= 7)
         {
           num13 = num9 + 30 + num12 * 48;
@@ -8938,7 +8938,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Coordinate TroopTab(Graphics g, Rectangle useRect, int PageNr)
+    pub Coordinate TroopTab(Graphics g, Rectangle useRect, PageNr: i32)
     {
       SizeF sizeF1 = SizeF::new();
       let mut val2: i32 =  0;
@@ -8972,8 +8972,8 @@ namespace WindowsApplication1
       if (hexLibVarValue > 0)
         num2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue, 13)));
       let mut num3: i32 =   Math.Round( num2 /  num1);
-      int eventPicOrigSlot1;
-      int eventPicOrigSlot2;
+      eventPicOrigSlot1: i32;
+      eventPicOrigSlot2: i32;
       if (stringListById1 > -1)
       {
         eventPicOrigSlot1 = num3 >= 50 ? (num3 >= 500 ?  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 3))) :  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 2)))) :  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 1)));
@@ -8995,7 +8995,7 @@ namespace WindowsApplication1
       {
         let mut historical: i32 =  this.game.Data.UnitObj[unitSelected].Historical;
         SimpleList simpleList1 = SimpleList::new();
-        int num4;
+        num4: i32;
         if (historical > -1)
         {
           let mut hisVarCount: i32 =  this.game.Data.HistoricalUnitObj[historical].HisVarCount;
@@ -9035,7 +9035,7 @@ namespace WindowsApplication1
         let mut num10: i32 =  -1;
         let mut num11: i32 =  num10;
         let mut counter: i32 =  simpleList2.Counter;
-        Bitmap bitmap;
+        bitmap: Bitmap;
         Rectangle trect;
         Rectangle rectangle;
         for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -9047,7 +9047,7 @@ namespace WindowsApplication1
             if (num10 > num11)
               num11 = num10;
             let mut x2: i32 =  useRect.X;
-            int x3;
+            x3: i32;
             if (num10 <= num5 - 1)
             {
               x3 = x2 + num10 * 156;
@@ -9087,9 +9087,9 @@ namespace WindowsApplication1
               }
               str2 = num10.ToString();
             }
-            int Number;
+            Number: i32;
             string name;
-            int index2;
+            index2: i32;
             if (simpleList2.Data3[index1] == 0)
             {
               sfNr = simpleList2.Id[index1];
@@ -9256,7 +9256,7 @@ namespace WindowsApplication1
               let mut tv0: i32 =  this.game.Data.PeopleObj[index2].tv0;
               bool isMilitia = this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected].Historical].GiveHisVarValue(11) > 0;
               let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[stringListById8].GetData(0, tv0, 1));
-              Bitmap objBitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(type2, isMilitia, integer, this.game.Data.UnitObj[unitSelected].Regime, unitSelected);
+              objBitmap: Bitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(type2, isMilitia, integer, this.game.Data.UnitObj[unitSelected].Regime, unitSelected);
               if (!Information.IsNothing( objBitmap))
               {
                 let mut num19: i32 =  8;
@@ -9268,8 +9268,8 @@ namespace WindowsApplication1
                 let mut num22: i32 =  0;
                 if (width > num21 | height > h)
                 {
-                  int w;
-                  int num23;
+                  w: i32;
+                  num23: i32;
                   if ( width /  num21 <  height /  h)
                   {
                     float num24 =  h /  height;
@@ -9335,7 +9335,7 @@ namespace WindowsApplication1
               ;
             if (isPeoplePortraitGroup > 0 | isUniformEventPic > 0)
             {
-              Bitmap objBitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(-1, 50, 70, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: index2, isPeopleType: tv1, isRegId: id, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
+              objBitmap: Bitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(-1, 50, 70, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: index2, isPeopleType: tv1, isRegId: id, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
               DrawMod.DrawSimple( g,  objBitmap, x3 + 8, num8 + 6);
               objBitmap.Dispose();
             }
@@ -9378,7 +9378,7 @@ namespace WindowsApplication1
             sizeF1 = g.MeasureString(str4, this.game.MarcFont7);
             DrawMod.DrawTextColouredConsoleCenter( g, str4, this.game.MarcFont7, x3 + 76, num8 + 85, this.game.seColGray);
             tstring1: String = Strings.Trim(Conversion.Str( num12)) + "xp";
-            Color c = Color.White;
+            c: Color = Color.White;
             if (this.game.Data.PeopleObj[people1].tv1 == 1)
               c = Color.FromArgb( byte.MaxValue, 170,  byte.MaxValue, 170);
             if (this.game.Data.PeopleObj[people1].tv1 == 2)
@@ -9415,7 +9415,7 @@ namespace WindowsApplication1
               num27 += 1;
               let mut idValue3: i32 =  simpleList1.Id[index3];
               let mut Number: i32 =  simpleList1.Weight[index3];
-              int x5;
+              x5: i32;
               if (num27 <= num5 - 1)
               {
                 x5 = useRect.X + num27 * 156;
@@ -9489,7 +9489,7 @@ namespace WindowsApplication1
               sizeF1 = g.MeasureString(str6, this.game.MarcFont7);
               DrawMod.DrawTextColouredConsoleCenter( g, str6, this.game.MarcFont7, x5 + 76, num8 + 85, this.game.seColGray);
               tstring: String = "Feat";
-              Color gray = Color.Gray;
+              gray: Color = Color.Gray;
               DrawMod.DrawTextColouredConsoleCenter( g, tstring, this.game.MarcFont8, x5 + 34, num8 + 68, gray);
               data3: String = this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 12);
               str7: String = "Ratio Feat:Sub Units 1:" + this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 3) + "\r\n";
@@ -9553,7 +9553,7 @@ namespace WindowsApplication1
       return coordinate1;
     }
 
-    pub void DetailTab(Graphics g)
+    pub fn DetailTab(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num1: i32 =  0;
@@ -9563,7 +9563,7 @@ namespace WindowsApplication1
       let mut num2: i32 =   Math.Round( (this.w - 1024) / 2.0) + 440;
       DrawMod.DrawBlockGradient2( g, num2, 35, 580 + num1, 175, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num2, 35, 580 + num1, 174, -1, -1);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (this.game.EditObj.SetSubViewMode == 3)
       {
          let mut local1: &Graphics = &g;
@@ -9875,10 +9875,10 @@ namespace WindowsApplication1
         }
         ListClass tListobj1 = listClass1;
         let mut game1: GameClass = this.game;
-         Bitmap local33 =  this.OwnBitmap;
+         local33: Bitmap =  this.OwnBitmap;
         let mut bbx1: i32 =  x33;
-        Font font1 =  null;
-         Font local34 =  font1;
+        font1: Font =  null;
+         local34: Font =  font1;
         ListSubPartClass listSubPartClass1 = new ListSubPartClass(tListobj1, 7, 150, -1, game1, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 60, tdotopandbottom: false, tbackbitmap: ( local33), bbx: bbx1, bby: 59, tMarcStyle: true, overruleFont: ( local34));
         DrawMod.DrawTextColouredMarc( g, "SUPPLY STATS", this.game.MarcFont8b, x33 + 7, 41, Color.White);
          let mut local35: &Graphics = &g;
@@ -9938,10 +9938,10 @@ namespace WindowsApplication1
         }
         ListClass tListobj2 = listClass2;
         let mut game2: GameClass = this.game;
-         Bitmap local37 =  this.OwnBitmap;
+         local37: Bitmap =  this.OwnBitmap;
         let mut bbx2: i32 =  x33 + 175;
-        Font font2 =  null;
-         Font local38 =  font2;
+        font2: Font =  null;
+         local38: Font =  font2;
         ListSubPartClass listSubPartClass2 = new ListSubPartClass(tListobj2, 7, 150, -1, game2, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 60, tdotopandbottom: false, tbackbitmap: ( local37), bbx: bbx2, bby: 59, tMarcStyle: true, overruleFont: ( local38));
         DrawMod.DrawTextColouredMarc( g, "   STATS", this.game.MarcFont8b, x33 + 7 + 175, 41, Color.White);
          let mut local39: &Graphics = &g;
@@ -9956,10 +9956,10 @@ namespace WindowsApplication1
         listClass3.add("People", -1, name2);
         ListClass tListobj3 = listClass3;
         let mut game3: GameClass = this.game;
-         Bitmap local41 =  this.OwnBitmap;
+         local41: Bitmap =  this.OwnBitmap;
         let mut bbx3: i32 =  x33 + 350;
-        Font font3 =  null;
-         Font local42 =  font3;
+        font3: Font =  null;
+         local42: Font =  font3;
         ListSubPartClass listSubPartClass3 = new ListSubPartClass(tListobj3, 1, 200, -1, game3, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 130, tdotopandbottom: false, tbackbitmap: ( local41), bbx: bbx3, bby: 59, tMarcStyle: true, overruleFont: ( local42));
         DrawMod.DrawTextColouredMarc( g, "REGIME & PEOPLE", this.game.MarcFont8b, x33 + 7 + 350, 41, Color.White);
          let mut local43: &Graphics = &g;
@@ -9990,7 +9990,7 @@ namespace WindowsApplication1
           numArray6[index3] = num8;
         }
         let mut index: i32 =  0;
-        int num9;
+        num9: i32;
         do
         {
           if (numArray1[index] > 0)
@@ -10008,10 +10008,10 @@ namespace WindowsApplication1
         ListClass tListobj4 = listClass4;
         let mut tlistsize: i32 =  num9 + 1;
         let mut game4: GameClass = this.game;
-         Bitmap local45 =  this.OwnBitmap;
+         local45: Bitmap =  this.OwnBitmap;
         let mut bbx4: i32 =  x33 + 350;
-        Font font4 =  null;
-         Font local46 =  font4;
+        font4: Font =  null;
+         local46: Font =  font4;
         ListSubPartClass listSubPartClass4 = new ListSubPartClass(tListobj4, tlistsize, 200, -1, game4, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: ( local45), bbx: bbx4, bby: 123, tMarcStyle: true, overruleFont: ( local46));
         DrawMod.DrawTextColouredMarc( g, "MOVEMENT DETAILS", this.game.MarcFont8b, x33 + 7 + 350, 105, Color.White);
          let mut local47: &Graphics = &g;
@@ -10062,10 +10062,10 @@ namespace WindowsApplication1
         }
         ListClass rlistobj = this.rlistobj;
         let mut game: GameClass = this.game;
-         Bitmap local49 =  this.OwnBitmap;
+         local49: Bitmap =  this.OwnBitmap;
         let mut bbx: i32 =  x33;
-        Font font =  null;
-         Font local50 =  font;
+        font: Font =  null;
+         local50: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(rlistobj, 8, 540, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 360, tdotopandbottom: false, tbackbitmap: ( local49), bbx: bbx, bby: 59, tMarcStyle: true, overruleFont: ( local50));
         this.rlistid = this.AddSubPart( tsubpart, x33, 59, 540, 144, 0);
         DrawMod.DrawTextColouredMarc( g, "REPLACEMENTS REQUESTED", this.game.MarcFont8b, x33 + 7, 41, Color.White);
@@ -10106,10 +10106,10 @@ namespace WindowsApplication1
         }
         ListClass rlist2obj = this.rlist2obj;
         let mut game: GameClass = this.game;
-         Bitmap local51 =  this.OwnBitmap;
+         local51: Bitmap =  this.OwnBitmap;
         let mut bbx: i32 =  x33;
-        Font font =  null;
-         Font local52 =  font;
+        font: Font =  null;
+         local52: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(rlist2obj, 8, 540, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 360, tdotopandbottom: false, tbackbitmap: ( local51), bbx: bbx, bby: 59, tMarcStyle: true, overruleFont: ( local52));
         this.rlist2id = this.AddSubPart( tsubpart, x33, 59, 540, 144, 0);
         DrawMod.DrawTextColouredMarc( g, "REPLACEMENTS SENT", this.game.MarcFont8b, x33 + 7, 41, Color.White);
@@ -10153,17 +10153,17 @@ namespace WindowsApplication1
         let mut twidth: i32 =  540 + num1;
         let mut game: GameClass = this.game;
         let mut tValueWidth: i32 =  360 + num1;
-         Bitmap local53 =  this.OwnBitmap;
+         local53: Bitmap =  this.OwnBitmap;
         let mut bbx: i32 =  x33;
-        Font font =  null;
-         Font local54 =  font;
+        font: Font =  null;
+         local54: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(rlist4obj, 8, twidth, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local53), bbx: bbx, bby: 59, tMarcStyle: true, overruleFont: ( local54));
         this.rlist4id = this.AddSubPart( tsubpart, x33, 59, 540 + num1, 144, 0);
         DrawMod.DrawTextColouredMarc( g, "ITEMS", this.game.MarcFont8b, x33 + 7, 41, Color.White);
       }
     }
 
-    pub void StandingOrders(Graphics g)
+    pub fn StandingOrders(Graphics g)
     {
       SizeF sizeF = SizeF::new();
       let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
@@ -10242,10 +10242,10 @@ namespace WindowsApplication1
       this.AddMouse( trect1, "REPLACEMENT PERCENTAGE", ttext, tdata4);
     }
 
-    pub void OtherUnits(Graphics g, Rectangle useRect)
+    pub fn OtherUnits(Graphics g, Rectangle useRect)
     {
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKUNITFRAME);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_QUICKUNITFRAME);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 =  useRect.X;
       let mut y: i32 =  useRect.Y;
@@ -10278,8 +10278,8 @@ namespace WindowsApplication1
         if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
         {
           num4 += 1;
-          int num7;
-          int num8;
+          num7: i32;
+          num8: i32;
           if (num4 <= 3)
           {
             num7 = x2 + 30 + num4 * 54;
@@ -10331,7 +10331,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawViewModeExtra(Graphics g, int tabNr)
+    pub fn DrawViewModeExtra(Graphics g, tabNr: i32)
     {
       SizeF sizeF = SizeF::new();
       let mut x: i32 =   Math.Round( (this.w - 1024) / 2.0);
@@ -10353,7 +10353,7 @@ namespace WindowsApplication1
           return;
         let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
         this.game.EventRelatedObj.DoCheckSpecificEvent(enr1);
-        int index;
+        index: i32;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter == messCounter)
         {
           let mut num: i32 =   Interaction.MsgBox( "Error!!! The event called specified by ExecSetExtraTabEvent did not generate a message for our current regime.");
@@ -10414,10 +10414,10 @@ namespace WindowsApplication1
           }
           ListClass rlist5obj = this.rlist5obj;
           let mut game: GameClass = this.game;
-           Bitmap local1 =  this.OwnBitmap;
+           local1: Bitmap =  this.OwnBitmap;
           let mut bbx: i32 =  x;
-          Font font =  null;
-           Font local2 =  font;
+          font: Font =  null;
+           local2: Font =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(rlist5obj, 8, 500, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 350, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: 59, tMarcStyle: true, overruleFont: ( local2));
           this.rlist5id = this.AddSubPart( tsubpart, x, 59, 500, 144, 0);
           DrawMod.DrawTextColouredMarc( g, "LOCATION ITEMS", this.game.MarcFont8b, x + 7, 41, Color.White);
@@ -10452,7 +10452,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawUnitInfo(Graphics g, int unr)
+    pub fn DrawUnitInfo(Graphics g, unr: i32)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
@@ -10474,12 +10474,12 @@ namespace WindowsApplication1
         if (flag)
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(moveTypeLogo.x);
+          bitmap1: Bitmap = BitmapStore.GetBitmap(moveTypeLogo.x);
            let mut local2: &Bitmap = &bitmap1;
           let mut x1: i32 =  num1 + 25;
           DrawMod.DrawSimple( local1,  local2, x1, 10);
            let mut local3: &Graphics = &g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SUPPLIESSYMBOL);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.SUPPLIESSYMBOL);
            let mut local4: &Bitmap = &bitmap2;
           let mut x2: i32 =  num1 + 25;
           DrawMod.DrawSimple( local3,  local4, x2, 30);
@@ -10487,7 +10487,7 @@ namespace WindowsApplication1
         else
         {
            let mut local5: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(moveTypeLogo.x);
+          bitmap: Bitmap = BitmapStore.GetBitmap(moveTypeLogo.x);
            let mut local6: &Bitmap = &bitmap;
           let mut x: i32 =  num1 + 25;
           DrawMod.DrawSimple( local5,  local6, x, 18);
@@ -10502,7 +10502,7 @@ namespace WindowsApplication1
       else if (moveTypeLogo.x > -1)
       {
          let mut local7: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(moveTypeLogo.x);
+        bitmap: Bitmap = BitmapStore.GetBitmap(moveTypeLogo.x);
          let mut local8: &Bitmap = &bitmap;
         let mut x: i32 =  num1 + 25;
         DrawMod.DrawSimple( local7,  local8, x, 18);
@@ -10532,7 +10532,7 @@ namespace WindowsApplication1
               let mut height: i32 =  BitmapStore.Getheight(this.game.Data.SmallPicNr[index]);
               num2 += width;
                let mut local9: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[index]);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[index]);
                let mut local10: &Bitmap = &bitmap;
               let mut x: i32 =  num1 + 70 + 250 - num2;
               DrawMod.DrawSimple( local9,  local10, x, 10);
@@ -10594,20 +10594,20 @@ namespace WindowsApplication1
         {
           trect2 = Rectangle::new(num1 + 25, 57, 38, 38);
           trect1 = trect2;
-          this.AddMouse( trect1, "HQ COLOR", "Click to change color of HQ", 5);
+          this.AddMouse( trect1, "HQ COLOR", "Click to change of: Color HQ", 5);
         }
         else
         {
           trect2 = Rectangle::new(num1 + 25, 57, 38, 38);
           trect1 = trect2;
-          this.AddMouse( trect1, "HQ COLOR", "You can only change the color of your own HQ units.");
+          this.AddMouse( trect1, "HQ COLOR", "You can only change the of: Color your own HQ units.");
         }
       }
       else
       {
         trect2 = Rectangle::new(num1 + 25, 57, 38, 38);
         trect1 = trect2;
-        this.AddMouse( trect1, "", "You can only change the color of HQs.");
+        this.AddMouse( trect1, "", "You can only change the of: Color HQs.");
       }
       let mut num5: i32 =  72;
       let mut num6: i32 =  num1 + 72 - 35 + 4;
@@ -10624,7 +10624,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str5, this.game.MarcFont8b, x3, 78, Color.White);
       let mut num7: i32 =  num6 + 35;
        let mut local11: &Graphics = &g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.ICONAP1);
+      bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.ICONAP1);
        let mut local12: &Bitmap = &bitmap3;
       let mut x4: i32 =  num7;
       DrawMod.DrawSimple( local11,  local12, x4, 54);
@@ -10641,7 +10641,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str6, this.game.MarcFont8b, x5, 78, Color.White);
       let mut num8: i32 =  num7 + 35;
        let mut local13: &Graphics = &g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.ICONSU1);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.ICONSU1);
        let mut local14: &Bitmap = &bitmap4;
       let mut x6: i32 =  num8;
       DrawMod.DrawSimple( local13,  local14, x6, 54);
@@ -10663,7 +10663,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str7, this.game.MarcFont8b, x7, 78, Color.White);
       let mut num11: i32 =  num8 + 35;
        let mut local15: &Graphics = &g;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.ICONIN1);
+      bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.ICONIN1);
        let mut local16: &Bitmap = &bitmap5;
       let mut x8: i32 =  num11;
       DrawMod.DrawSimple( local15,  local16, x8, 54);
@@ -10691,7 +10691,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str8, this.game.MarcFont8b, x9, 78, Color.White);
       let mut num16: i32 =  num11 + 35;
        let mut local17: &Graphics = &g;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.ICONRD1);
+      bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.ICONRD1);
        let mut local18: &Bitmap = &bitmap6;
       let mut x10: i32 =  num16;
       DrawMod.DrawSimple( local17,  local18, x10, 54);
@@ -10719,7 +10719,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont8b, x11, 78, Color.White);
       let mut num21: i32 =  num16 + 35;
        let mut local19: &Graphics = &g;
-      Bitmap bitmap7 = BitmapStore.GetBitmap(this.game.ICONEX1);
+      bitmap7: Bitmap = BitmapStore.GetBitmap(this.game.ICONEX1);
        let mut local20: &Bitmap = &bitmap7;
       let mut x12: i32 =  num21;
       DrawMod.DrawSimple( local19,  local20, x12, 54);
@@ -10747,7 +10747,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont8b, x13, 78, Color.White);
       let mut num26: i32 =  num21 + 35;
        let mut local21: &Graphics = &g;
-      Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.ICONMO1);
+      bitmap8: Bitmap = BitmapStore.GetBitmap(this.game.ICONMO1);
        let mut local22: &Bitmap = &bitmap8;
       let mut x14: i32 =  num26;
       DrawMod.DrawSimple( local21,  local22, x14, 54);
@@ -10775,7 +10775,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str11, this.game.MarcFont8b, x15, 78, Color.White);
       let mut num31: i32 =  num26 + 35;
        let mut local23: &Graphics = &g;
-      Bitmap bitmap9 = BitmapStore.GetBitmap(this.game.ICONEN1);
+      bitmap9: Bitmap = BitmapStore.GetBitmap(this.game.ICONEN1);
        let mut local24: &Bitmap = &bitmap9;
       let mut x16: i32 =  num31;
       DrawMod.DrawSimple( local23,  local24, x16, 54);
@@ -10784,7 +10784,7 @@ namespace WindowsApplication1
       this.AddMouse( trect1, "ENTRENCHMENT", "Improves defensive combat stats.", 0);
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.HandCard = -1;
       if (this.game.EditObj.UnitSelected > -1 && this.cardsel >= 5000 & this.cardsel < 7000 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].HandCardCounter < this.cardsel - 5000)
@@ -10794,7 +10794,7 @@ namespace WindowsApplication1
       this.game.EditObj.udsReturnFromPopup = true;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (this.SubPartCounter > -1)
       {
@@ -10831,7 +10831,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = base.HandleMouseMove(x, y);
@@ -10879,7 +10879,7 @@ namespace WindowsApplication1
       return windowReturnClass2;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -10976,7 +10976,7 @@ namespace WindowsApplication1
                 this.game.EditObj.UnitSelected = index3;
                 this.game.SelectX = this.game.Data.UnitObj[index3].X;
                 this.game.SelectY = this.game.Data.UnitObj[index3].Y;
-                int index4;
+                index4: i32;
                 while (this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != index3)
                 {
                   let mut unit: i32 =  this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
@@ -11107,7 +11107,7 @@ namespace WindowsApplication1
                     this.game.SelectX = this.game.Data.UnitObj[this.game.Data.UnitObj[hq].OnBoard].X;
                     this.game.SelectY = this.game.Data.UnitObj[this.game.Data.UnitObj[hq].OnBoard].Y;
                   }
-                  int index5;
+                  index5: i32;
                   while (this.game.Data.MapObj[index5].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != hq)
                   {
                     let mut unit: i32 =  this.game.Data.MapObj[index5].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[index5].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
@@ -11212,7 +11212,7 @@ namespace WindowsApplication1
                 {
                   this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Blue =  colorDialog.Color.B;
                   UnitClass unitClass1 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected];
-                  Color color = colorDialog.Color;
+                  color: Color = colorDialog.Color;
                   let mut g: i32 =   color.G;
                   unitClass1.Green = g;
                   UnitClass unitClass2 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected];
@@ -11688,7 +11688,7 @@ namespace WindowsApplication1
                       this.game.SelectX = this.game.Data.UnitObj[this.game.Data.UnitObj[hq].OnBoard].X;
                       this.game.SelectY = this.game.Data.UnitObj[this.game.Data.UnitObj[hq].OnBoard].Y;
                     }
-                    int index14;
+                    index14: i32;
                     while (this.game.Data.MapObj[index14].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != hq)
                     {
                       let mut unit: i32 =  this.game.Data.MapObj[index14].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[index14].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];

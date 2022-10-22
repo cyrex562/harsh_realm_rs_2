@@ -17,30 +17,30 @@ namespace WindowsApplication1
   {
      bool overrule;
      string buttext;
-     int width;
-     int height;
-     Font ourfont;
-     Font ourfont2;
-     Bitmap backbitmap;
+     width: i32;
+     height: i32;
+     ourfont: Font;
+     ourfont2: Font;
+     backbitmap: Bitmap;
      bool inactive;
      bool red;
      bool tuseshadow;
      bool marcStyle;
      string extraS;
 
-    pub int Click(int x, int y, let mut b: i32 = 1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
       if (DrawMod.TGame.EmpireStyle)
         SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
-      int num;
+      num: i32;
       return num;
     }
 
     pub SmallTextButtonPartClass(
       string buttontext,
-      int twidth,
+      twidth: i32,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
       bool tinactive = false,
@@ -67,7 +67,7 @@ namespace WindowsApplication1
       self.inactive = tinactive;
     }
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( self.backbitmap))
         return;
@@ -75,7 +75,7 @@ namespace WindowsApplication1
       self.backbitmap = (Bitmap) null;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
@@ -91,7 +91,7 @@ namespace WindowsApplication1
       if (self.inactive)
       {
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
          let mut local2: &Bitmap = &bitmap1;
         Rectangle rectangle1 = Rectangle::new(7, 0, 7, 25);
         let mut srcrect1: &Rectangle = &rectangle1
@@ -99,7 +99,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &Expression;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
          let mut local4: &Bitmap = &bitmap2;
         rectangle2 = Rectangle::new(0, 0, 7, 25);
         let mut srcrect2: &Rectangle = &rectangle2
@@ -107,7 +107,7 @@ namespace WindowsApplication1
         let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
          let mut local5: &Graphics = &Expression;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
          let mut local6: &Bitmap = &bitmap3;
         rectangle2 = Rectangle::new(19, 0, 7, 25);
         let mut srcrect3: &Rectangle = &rectangle2
@@ -118,7 +118,7 @@ namespace WindowsApplication1
       else
       {
          let mut local7: &Graphics = &Expression;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
          let mut local8: &Bitmap = &bitmap4;
         Rectangle rectangle3 = Rectangle::new(7, 0, 7, 25);
         let mut srcrect4: &Rectangle = &rectangle3
@@ -126,7 +126,7 @@ namespace WindowsApplication1
         let mut destrect4: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
          let mut local9: &Graphics = &Expression;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
+        bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
          let mut local10: &Bitmap = &bitmap5;
         rectangle3 = Rectangle::new(0, 0, 7, 25);
         let mut srcrect5: &Rectangle = &rectangle3
@@ -134,7 +134,7 @@ namespace WindowsApplication1
         let mut destrect5: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
          let mut local11: &Graphics = &Expression;
-        Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
+        bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
          let mut local12: &Bitmap = &bitmap6;
         rectangle3 = Rectangle::new(19, 0, 7, 25);
         let mut srcrect6: &Rectangle = &rectangle3
@@ -158,7 +158,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       if (self.inactive)
@@ -170,7 +170,7 @@ namespace WindowsApplication1
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
       Expression.TextContrast = 1;
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
+      bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
        let mut local2: &Bitmap = &bitmap;
       Rectangle rectangle1 = Rectangle::new(7, 0, 7, 25);
       let mut srcrect1: &Rectangle = &rectangle1

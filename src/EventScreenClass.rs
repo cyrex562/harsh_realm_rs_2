@@ -11,17 +11,17 @@ namespace WindowsApplication1
 {
   pub class EventScreenClass : ScreenClass
   {
-     int wtop;
-     int wup;
+     wtop: i32;
+     wup: i32;
 
-    pub EventScreenClass( GameClass tGame, Form1 tformref)
+    pub EventScreenClass( tGame: GameClass, tformref: Form1)
       : base( tGame, tFormRef: tformref)
     {
       this.wtop = this.AddWindow((WindowClass) new EventWindowClass( tGame), 0, 20, this.Game.ScreenWidth, this.Game.ScreenHeight - 20);
       this.wup = this.AddWindow((WindowClass) new InfoWindowClass( tGame), 0, 0, this.Game.ScreenWidth, 20);
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -65,7 +65,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)

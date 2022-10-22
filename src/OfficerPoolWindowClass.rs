@@ -12,28 +12,28 @@ namespace WindowsApplication1
 {
   pub class OfficerPoolWindowClass : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int b1bid;
-     int B1TextId;
-     int B2Id;
-     int b2bid;
-     int B2TextId;
-     int B3Id;
-     int b3bid;
-     int B3TextId;
-     int B4Id;
-     int b4bid;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     b1bid: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     b2bid: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     b3bid: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     b4bid: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int detailnr;
+     detailnr: i32;
 
-    pub OfficerPoolWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub OfficerPoolWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.LocNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -109,9 +109,9 @@ namespace WindowsApplication1
           ListClass optionsListObj = this.OptionsListObj;
           let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = this.game;
-           Bitmap local1 =  this.OwnBitmap;
-          Font font =  null;
-           Font local2 =  font;
+           local1: Bitmap =  this.OwnBitmap;
+          font: Font =  null;
+           local2: Font =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 8, 270, tlistselect2, game, true, "Officer Pool", tbackbitmap: ( local1), bbx: 310, bby: 10, overruleFont: ( local2));
           this.OptionsListId = this.AddSubPart( tsubpart, 310, 10, 270, 176, 0);
         }
@@ -151,7 +151,7 @@ namespace WindowsApplication1
           }
           else
           {
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass("Swap (" + @this.ToString() + "pp)", 150, "You dont have the PP to appoint this officer or the PP to remove the officer in the unit.",  this.OwnBitmap, 600, 50, true);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass("Swap (" + @this.ToString() + "pp)", 150, "You dont have the PP to appothis: i32 officer or the PP to remove the officer in the unit.",  this.OwnBitmap, 600, 50, true);
             this.b2bid = this.AddSubPart( tsubpart, 600, 50, 150, 35, 0);
           }
         }
@@ -167,7 +167,7 @@ namespace WindowsApplication1
           }
           else
           {
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass("Appoint (" + @this.ToString() + "pp)", 150, "You dont have the PP to appoint this officer or the PP to remove the officer in the unit.",  this.OwnBitmap, 600, 50, true);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass("Appoint (" + @this.ToString() + "pp)", 150, "You dont have the PP to appothis: i32 officer or the PP to remove the officer in the unit.",  this.OwnBitmap, 600, 50, true);
             this.b2bid = this.AddSubPart( tsubpart, 600, 50, 150, 35, 0);
           }
         }
@@ -214,11 +214,11 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -236,8 +236,8 @@ namespace WindowsApplication1
               if (num2 > 50 & num3 > 107 & num2 < 350 & num3 < 177)
               {
                 this.game.EditObj.PopupValue = 4;
-                int index2;
-                int index3;
+                index2: i32;
+                index3: i32;
                 this.game.EditObj.HandCard = this.game.Data.HistoricalUnitObj[index2].HandCard[index3];
                 this.game.EditObj.TempHisUnit = this.SubPartList[index1].GetSelect();
                 windowReturnClass.AddCommand(5, 10);

@@ -12,18 +12,18 @@ namespace WindowsApplication1
 {
   pub class SEButtonPushPartClass : SubPartClass
   {
-     int iconNr;
-     int width;
-     int height;
+     iconNr: i32;
+     width: i32;
+     height: i32;
      bool gray;
      bool pushed;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
     }
 
     pub SEButtonPushPartClass(
-      int ticonnr,
+      ticonnr: i32,
       bool tPushed,
       tDescript: String = "",
       let mut twidth: i32 = 35,
@@ -39,10 +39,10 @@ namespace WindowsApplication1
       this.pushed = tPushed;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (this.pushed)
@@ -128,10 +128,10 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (this.pushed)

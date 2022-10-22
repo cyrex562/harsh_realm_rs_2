@@ -11,12 +11,12 @@ namespace WindowsApplication1
 {
   pub class AIMatrix
   {
-    pub int[,] Value;
+    pub Value: Vec<i32>;
     pub Width: i32;
     pub Height: i32;
     pub Left: i32;
     pub Top: i32;
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
 
     pub AIMatrix()
     {
@@ -29,7 +29,7 @@ namespace WindowsApplication1
       this.Value = new int[this.Width + 1, this.Height + 1];
     }
 
-    pub AIMatrix(ref DC2AIClass tai)
+    pub AIMatrix(ref tai: DC2AIClass)
     {
       this.Value = new int[1, 1];
       this.ai = tai;
@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.Value = new int[this.Width + 1, this.Height + 1];
     }
 
-    pub AIMatrix(ref DC2AIClass tai, int twidth, int theight, int ttop, int tleft)
+    pub AIMatrix(ref tai: DC2AIClass, int twidth, int theight, int ttop, int tleft)
     {
       this.Value = new int[1, 1];
       this.ai = tai;
@@ -64,7 +64,7 @@ namespace WindowsApplication1
       return aiMatrix;
     }
 
-    pub void RemoveValuesByMask(AIMatrix mask, int SetValXToZero, let mut ignoreAbove: i32 =  -1)
+    pub fn RemoveValuesByMask(AIMatrix mask, int SetValXToZero, let mut ignoreAbove: i32 =  -1)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddValueByMask(AIMatrix mask, int SetValXToY, int valueY)
+    pub fn AddValueByMask(AIMatrix mask, int SetValXToY, int valueY)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveValuesBySuperFrontRule()
+    pub fn RemoveValuesBySuperFrontRule()
     {
       if (!this.ai.VAR_USE_SUPERFRONTS || this.ai.VAR_SUPERFRONT_HQLEVEL < 6)
         return;
@@ -177,7 +177,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveValuesByLandscapeAIBlock(int SetToVal)
+    pub fn RemoveValuesByLandscapeAIBlock(int SetToVal)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -227,7 +227,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub void RemoveValuesByNotMask(AIMatrix mask, int SetNotValXToZero)
+    pub fn RemoveValuesByNotMask(AIMatrix mask, int SetNotValXToZero)
     {
       if (this.ai.game.Data.MapObj[0].MapLoop)
       {
@@ -263,7 +263,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void MultiplyAllValues(int number)
+    pub fn MultiplyAllValues(int number)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -275,7 +275,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DiminishAllPositiveValues(int number)
+    pub fn DiminishAllPositiveValues(int number)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -290,7 +290,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetAllValuesTo(int number)
+    pub fn SetAllValuesTo(int number)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -302,7 +302,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetAllValuesToWithMask(int number, ref AIMatrix mask, int ifMaskValue)
+    pub fn SetAllValuesToWithMask(int number, ref AIMatrix mask, int ifMaskValue)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -317,7 +317,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetAllValuesSubtractWith(int number)
+    pub fn SetAllValuesSubtractWith(int number)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -326,8 +326,8 @@ namespace WindowsApplication1
         let mut height: i32 =  this.Height;
         for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
-          int[,] numArray1 = this.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index3: i32 =  index1;
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
@@ -338,7 +338,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SwitchValues(int number1, int number2)
+    pub fn SwitchValues(int number1, int number2)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -355,7 +355,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetValueXToValueY(int number1, int number2)
+    pub fn SetValueXToValueY(int number1, int number2)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -370,7 +370,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetAllValuesNotValueXTo(int number, int NotValueX)
+    pub fn SetAllValuesNotValueXTo(int number, int NotValueX)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -385,7 +385,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveUnconnectedHex(AIMatrix frontlines)
+    pub fn RemoveUnconnectedHex(AIMatrix frontlines)
     {
       let mut width: i32 =  frontlines.Width;
       let mut height: i32 =  frontlines.Height;
@@ -473,7 +473,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CopyValuesFrom(AIMatrix mat)
+    pub fn CopyValuesFrom(AIMatrix mat)
     {
       if (this.ai.game.Data.MapObj[0].MapLoop)
       {
@@ -505,7 +505,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetAllValuesHigherThenXTo(int higherthen, int number)
+    pub fn SetAllValuesHigherThenXTo(int higherthen, int number)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut width: i32 =  this.Width;
@@ -520,7 +520,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveValueByPercentage(AIMatrix mult, let mut maxPercentRemove: i32 =  100)
+    pub fn RemoveValueByPercentage(AIMatrix mult, let mut maxPercentRemove: i32 =  100)
     {
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -528,8 +528,8 @@ namespace WindowsApplication1
         let mut height: i32 =  this.Height;
         for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
-          int[,] numArray1 = this.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index3: i32 =  index1;
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
@@ -540,7 +540,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddValueByPercentage(AIMatrix mult, AIMatrix mult2, let mut divideBy: i32 =  10)
+    pub fn AddValueByPercentage(AIMatrix mult, AIMatrix mult2, let mut divideBy: i32 =  10)
     {
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -548,8 +548,8 @@ namespace WindowsApplication1
         let mut height: i32 =  this.Height;
         for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
-          int[,] numArray1 = this.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index3: i32 =  index1;
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
@@ -560,7 +560,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddValue(AIMatrix addvalue, int multiply)
+    pub fn AddValue(AIMatrix addvalue, int multiply)
     {
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -568,8 +568,8 @@ namespace WindowsApplication1
         let mut height: i32 =  this.Height;
         for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
-          int[,] numArray1 = this.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index3: i32 =  index1;
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
@@ -580,7 +580,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddValue(int addvalue)
+    pub fn AddValue(int addvalue)
     {
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -588,8 +588,8 @@ namespace WindowsApplication1
         let mut height: i32 =  this.Height;
         for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
-          int[,] numArray1 = this.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index3: i32 =  index1;
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
@@ -600,7 +600,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CopyToAreaSlot(ref DataClass data, int slot)
+    pub fn CopyToAreaSlot(ref data: DataClass, int slot)
     {
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -611,7 +611,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Percentify()
+    pub fn Percentify()
     {
       let mut width1: i32 =  this.Width;
       int num;
@@ -633,7 +633,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveSmallestEnclaves()
+    pub fn RemoveSmallestEnclaves()
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       AIMatrix aiMatrix2 = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
@@ -719,7 +719,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveSmallestRegularFronts()
+    pub fn RemoveSmallestRegularFronts()
     {
       SimpleList simpleList = SimpleList::new();
       let mut width1: i32 =  this.Width;
@@ -1141,7 +1141,7 @@ namespace WindowsApplication1
       return flag;
     }
 
-    pub void RemoveExposedNonNeccFronts()
+    pub fn RemoveExposedNonNeccFronts()
     {
       SimpleList simpleList1 = SimpleList::new();
       let mut width1: i32 =  this.Width;
@@ -1517,7 +1517,7 @@ namespace WindowsApplication1
     pub AIMatrix AverageValuesWithWindDirection(
       int tsteps,
       ref AIMatrix windDirection,
-      ref GameClass tgame,
+      ref tgame: GameClass,
       bool allowLowering,
       bool onlycorrectdir = false)
     {
@@ -1645,9 +1645,9 @@ namespace WindowsApplication1
       return aiMatrix;
     }
 
-    pub void ExpandValueForSameRegime(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
+    pub fn ExpandValueForSameRegime(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
     {
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut num1: i32 =  -1;
       int num2;
@@ -1686,9 +1686,9 @@ namespace WindowsApplication1
       while (num2 > 0);
     }
 
-    pub void ExpandValueForAnyRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
+    pub fn ExpandValueForAnyRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
     {
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut num1: i32 =  -1;
       int num2;
@@ -1727,9 +1727,9 @@ namespace WindowsApplication1
       while (num2 > 0);
     }
 
-    pub void AddValueForAnyRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
+    pub fn AddValueForAnyRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
     {
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut num1: i32 =  -1;
       int num2;
@@ -1768,9 +1768,9 @@ namespace WindowsApplication1
       while (num2 > 0);
     }
 
-    pub void ExpandValueForSameRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
+    pub fn ExpandValueForSameRegimeWithinMask(ref AIMatrix mask, let mut maxy: i32 =  9999)
     {
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut num1: i32 =  -1;
       int num2;
@@ -1814,7 +1814,7 @@ namespace WindowsApplication1
       ref AIMatrix maskSameValueNeeded,
       let mut maxy: i32 =  9999)
     {
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       let mut num1: i32 =  -1;
       int num2;
@@ -1853,7 +1853,7 @@ namespace WindowsApplication1
       while (num2 > 0);
     }
 
-    pub void ExpandValueForAnyRegime(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
+    pub fn ExpandValueForAnyRegime(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -1894,7 +1894,7 @@ namespace WindowsApplication1
       while (num1 > 0);
     }
 
-    pub void ExpandValueWithoutConditions(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
+    pub fn ExpandValueWithoutConditions(let mut maxy: i32 =  9999, let mut maxValueToBeMutated: i32 =  -1)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -1935,7 +1935,7 @@ namespace WindowsApplication1
       while (num1 > 0);
     }
 
-    pub void ExpandValueWithoutConditionsDimishWithOne(let mut maxy: i32 =  9999)
+    pub fn ExpandValueWithoutConditionsDimishWithOne(let mut maxy: i32 =  9999)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -1976,7 +1976,7 @@ namespace WindowsApplication1
       while (num1 > 0);
     }
 
-    pub void ExpandValueWithoutConditionsDimishWithOneAndOverwriteSmaller(let mut maxy: i32 =  9999)
+    pub fn ExpandValueWithoutConditionsDimishWithOneAndOverwriteSmaller(let mut maxy: i32 =  9999)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -2162,7 +2162,7 @@ label_25:
       while (num3 < max0changes);
     }
 
-    pub void ExpandValueWithoutConditionsHighest(let mut maxy: i32 =  9999, let mut percenta: i32 =  100, let mut addVal: i32 =  0)
+    pub fn ExpandValueWithoutConditionsHighest(let mut maxy: i32 =  9999, let mut percenta: i32 =  100, let mut addVal: i32 =  0)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -2203,7 +2203,7 @@ label_25:
       while (num1 > 0);
     }
 
-    pub void ExpandValueForAnyRegimeOverRoadOnly(float moddyOfValue = 1f)
+    pub fn ExpandValueForAnyRegimeOverRoadOnly(float moddyOfValue = 1f)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -2375,7 +2375,7 @@ label_25:
       while (num1 < maxHex && num2 > 0);
     }
 
-    pub void ExpandValueToSpecificRegime(int UseOwner, ref AIMatrix owner)
+    pub fn ExpandValueToSpecificRegime(int UseOwner, ref AIMatrix owner)
     {
       AIMatrix aiMatrix = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
       MapClass mapClass = this.ai.game.Data.MapObj[0];
@@ -2419,8 +2419,8 @@ label_25:
       AICoordinateMatrix camefromMatrix)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray2 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray2: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -2528,8 +2528,8 @@ label_25:
       let mut maxSteps: i32 =  9999)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray1 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
-      int[,] numArray2 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray1: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray2: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       let mut num1: i32 =  DrawMod.TGame.Data.Product < 7 ? this.ai.VAR_SUPPLY_MAXIMUM_RANGE * 2 : this.ai.VAR_SUPPLY_MAXIMUM_RANGE;
       CoordList coordList = CoordList::new();
       let mut width: i32 =  this.Width;
@@ -2606,7 +2606,7 @@ label_25:
       AIMatrix enemyDist = null)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       bool[,] flagArray = new bool[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  DrawMod.TGame.Data.Product < 7 ? this.ai.VAR_SUPPLY_MAXIMUM_RANGE * 2 : this.ai.VAR_SUPPLY_MAXIMUM_RANGE;
       if (extraForEnemy > 0)
@@ -2723,8 +2723,8 @@ label_25:
       bool blockSea = false)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray1 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
-      int[,] numArray2 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray1: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray2: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -2849,8 +2849,8 @@ label_25:
       AIMatrix id)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray1 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
-      int[,] numArray2 = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray1: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray2: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -2915,10 +2915,10 @@ label_25:
       while (num2 > 0);
     }
 
-    pub void ExpandUniquesValuesForAnyRegime(let mut MaxSteps: i32 =  9999, bool allowSea = false, let mut valueMustBeBelow: i32 =  -1)
+    pub fn ExpandUniquesValuesForAnyRegime(let mut MaxSteps: i32 =  9999, bool allowSea = false, let mut valueMustBeBelow: i32 =  -1)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -2964,7 +2964,7 @@ label_25:
       let mut valueMustBeBelow: i32 =  -1)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
+      numArray: Vec<i32> = new int[mapClass.MapWidth + 1, mapClass.MapHeight + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -3006,10 +3006,10 @@ label_25:
       while (num2 > 0 & MaxSteps > num1);
     }
 
-    pub void ExpandAllNonZeroValuesForAnyRegime(int MaxSteps)
+    pub fn ExpandAllNonZeroValuesForAnyRegime(int MaxSteps)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       if (this.ai.TempHexNeighbour.GetUpperBound(0) < this.ai.game.Data.MapObj[0].MapWidth | this.ai.TempHexNeighbour.GetUpperBound(1) < this.ai.game.Data.MapObj[0].MapHeight)
         this.ai.SetTempHexNeighbours();
       let mut num1: i32 =  -1;
@@ -3057,10 +3057,10 @@ label_25:
       while (num2 > 0 & MaxSteps > num1 + 1);
     }
 
-    pub void ExpandAllNonZeroValuesForAnyRegime(int MaxSteps, AIMatrix specialMask)
+    pub fn ExpandAllNonZeroValuesForAnyRegime(int MaxSteps, AIMatrix specialMask)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -3110,10 +3110,10 @@ label_25:
       while (num2 > 0 & MaxSteps > num1 + 1);
     }
 
-    pub void ExpandSpecificValueForAnyRegime(int specificVal, int MaxSteps)
+    pub fn ExpandSpecificValueForAnyRegime(int specificVal, int MaxSteps)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -3154,7 +3154,7 @@ label_25:
       AIMatrix matrixMustBeBelow1)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -3189,10 +3189,10 @@ label_25:
       while (num2 > 0 & MaxSteps > num1 + 1);
     }
 
-    pub void ExpandSpecificValueForSameRegime(int specificVal, int MaxSteps)
+    pub fn ExpandSpecificValueForSameRegime(int specificVal, int MaxSteps)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       if (this.ai.TempHexNeighbour.GetUpperBound(0) < this.ai.game.Data.MapObj[0].MapWidth | this.ai.TempHexNeighbour.GetUpperBound(1) < this.ai.game.Data.MapObj[0].MapHeight)
         this.ai.SetTempHexNeighbours();
       let mut num1: i32 =  -1;
@@ -3235,7 +3235,7 @@ label_25:
       ref AIMatrix mask)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       let mut num1: i32 =  -1;
       int num2;
       do
@@ -3270,10 +3270,10 @@ label_25:
       while (num2 > 0 & MaxSteps > num1 + 1);
     }
 
-    pub void ExpandAndAddValueForSameRegime(int MaxValue)
+    pub fn ExpandAndAddValueForSameRegime(int MaxValue)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       int num1;
       int num2;
       do
@@ -3307,7 +3307,7 @@ label_25:
       while (num1 > 0 & num2 < MaxValue);
     }
 
-    pub void ExpandAndAddValueForSameOwner_FAST(int MaxValue, ref AIMatrix tOwnerMat)
+    pub fn ExpandAndAddValueForSameOwner_FAST(int MaxValue, ref AIMatrix tOwnerMat)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       CoordList coordList = CoordList::new();
@@ -3342,10 +3342,10 @@ label_25:
       }
     }
 
-    pub void ExpandAndAddValueForSameOwner(int MaxValue, ref AIMatrix tOwnerMat)
+    pub fn ExpandAndAddValueForSameOwner(int MaxValue, ref AIMatrix tOwnerMat)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       int num1;
       int num2;
       do
@@ -3379,7 +3379,7 @@ label_25:
       while (num1 > 0 & num2 < MaxValue);
     }
 
-    pub void SetLandscapeValues(ref SimpleList LTSL, int multiplier)
+    pub fn SetLandscapeValues(ref SimpleList LTSL, int multiplier)
     {
       int[] numArray = new int[this.ai.game.Data.LandscapeTypeCounter + 2 + 1];
       let mut landscapeTypeCounter: i32 =  this.ai.game.Data.LandscapeTypeCounter;
@@ -3401,7 +3401,7 @@ label_25:
       }
     }
 
-    pub void ExpandAndAddValueForLandscapeTypeAndSameRegime(ref SimpleList LTSL, int MaxValue)
+    pub fn ExpandAndAddValueForLandscapeTypeAndSameRegime(ref SimpleList LTSL, int MaxValue)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
       int[] numArray = new int[this.ai.game.Data.LandscapeTypeCounter + 1];
@@ -3450,10 +3450,10 @@ label_25:
       }
     }
 
-    pub void ExpandAndAddValueForAnyRegime(int MaxValue, bool blockSea = false)
+    pub fn ExpandAndAddValueForAnyRegime(int MaxValue, bool blockSea = false)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       int num1;
       int num2;
       do
@@ -3487,10 +3487,10 @@ label_25:
       while (num1 > 0 & num2 < MaxValue);
     }
 
-    pub void ExpandAndRemoveValueForAnyRegime(int MaxValue, bool anyhex = false)
+    pub fn ExpandAndRemoveValueForAnyRegime(int MaxValue, bool anyhex = false)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       int num1;
       int num2;
       do
@@ -3524,10 +3524,10 @@ label_25:
       while (num1 > 0 & num2 < MaxValue);
     }
 
-    pub void ExpandAndRemovePercentageForAnyRegime(int MaxValue, float moddy, bool anyhex = false)
+    pub fn ExpandAndRemovePercentageForAnyRegime(int MaxValue, float moddy, bool anyhex = false)
     {
       MapClass mapClass = this.ai.game.Data.MapObj[0];
-      int[,] numArray = new int[this.Width + 1, this.Height + 1];
+      numArray: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       int num1;
       int num2;
       do

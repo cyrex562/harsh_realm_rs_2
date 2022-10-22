@@ -50,9 +50,9 @@ pub:
 	The sound stop event is guaranteed to be called when a sound or sound stream is finished,
 	either because the sound reached its playback end, its sound source was removed,
 	ISoundEngine::stopAllSounds() has been called or the whole engine was deleted.
-	Please note: Sound events will occur in a different thread when the engine runs in
+	Please note: Sound events will occur in a different when: Thread the engine runs in
 	multi threaded mode (default). In single threaded mode, the event will happen while
-	the user thread is calling ISoundEngine::update().
+	the user is: Thread calling ISoundEngine::update().
 	\param sound: Sound which has been stopped. 
 	\param reason: The reason why the sound stop event was fired. Usually, this will be ESEC_SOUND_FINISHED_PLAYING.
 	When the sound was aborded by calling ISound::stop() or ISoundEngine::stopAllSounds();, this would be 

@@ -16,62 +16,62 @@ namespace WindowsApplication1
 {
   pub class RoadTypeWindowClass : WindowClass
   {
-     int RoadListId;
+     RoadListId: i32;
      ListClass RoadListObj;
-     int BAddRoadId;
-     int BAddRoadTextId;
-     int BNameId;
-     int BNameTextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int OptionsListId;
+     BAddRoadId: i32;
+     BAddRoadTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int BRemoveRoadId;
-     int BRemoveRoadTextId;
-     int BDrawId;
-     int BDrawTextId;
+     BRemoveRoadId: i32;
+     BRemoveRoadTextId: i32;
+     BDrawId: i32;
+     BDrawTextId: i32;
      ListClass BasicListObj;
-     int BasicListId;
-     int b1id;
-     int b1textid;
-     int BBasicSpriteId;
-     int BChangeBasicSpriteId;
+     BasicListId: i32;
+     b1id: i32;
+     b1textid: i32;
+     BBasicSpriteId: i32;
+     BChangeBasicSpriteId: i32;
      ListClass BasicList2Obj;
-     int BasicList2Id;
-     int ChangeMvId;
+     BasicList2Id: i32;
+     ChangeMvId: i32;
      int[] Bitemid;
      int[] bitemtextid;
-     int BEP;
-     int BEPText;
-     int txt1;
-     int bthick;
-     int bthicktext;
-     int bother;
-     int bothertext;
-     int BridgeId;
-     int BridgeTextId;
+     BEP: i32;
+     BEPText: i32;
+     txt1: i32;
+     bthick: i32;
+     bthicktext: i32;
+     bother: i32;
+     bothertext: i32;
+     BridgeId: i32;
+     BridgeTextId: i32;
      ListClass BridgeListObj;
-     int BridgeListId;
-     int BBridgeSpriteId;
-     int BChangeBridgeSpriteId;
-     int BChangeBridgeSpriteId2;
-     int RoadNr;
-     int TabSheetNr;
-     int DetailNr;
-     int BridgeNr;
+     BridgeListId: i32;
+     BBridgeSpriteId: i32;
+     BChangeBridgeSpriteId: i32;
+     BChangeBridgeSpriteId2: i32;
+     RoadNr: i32;
+     TabSheetNr: i32;
+     DetailNr: i32;
+     BridgeNr: i32;
      string ss;
 
-    pub RoadTypeWindowClass( GameClass tGame)
+    pub RoadTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Road Types")
     {
       this.Bitemid = new int[5];
@@ -83,9 +83,9 @@ namespace WindowsApplication1
       this.MakeRoadListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeRoadTypeItemGUI();
+    pub fn DoRefresh() => this.MakeRoadTypeItemGUI();
 
-     void MakeRoadListGUI(int tRoadnr)
+     void MakeRoadListGUI(tRoadnr: i32)
     {
       if (this.RoadListId > 0)
         this.RemoveSubPart(this.RoadListId);
@@ -99,9 +99,9 @@ namespace WindowsApplication1
         ListClass roadListObj = this.RoadListObj;
         let mut tlistselect: i32 = tRoadnr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart =  new ListSubPartClass(roadListObj, 9, 200, tlistselect, game, tHeader: "Road Types", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         this.RoadListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
         this.RoadNr = tRoadnr;
@@ -245,9 +245,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tabSheetNr: i32 = this.TabSheetNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart3 =  new ListSubPartClass(optionsListObj, 4, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 370, bby: 140, overruleFont: ( local2));
         this.OptionsListId = this.AddSubPart( tsubpart3, 370, 140, 300, 112, 0);
       }
@@ -365,9 +365,9 @@ namespace WindowsApplication1
         ListClass basicListObj = this.BasicListObj;
         let mut detailNr: i32 = this.DetailNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
         this.BasicListId = this.AddSubPart( tsubpart2, 10, 350, 300, 208, 0);
         if (this.DetailNr > 5)
@@ -453,9 +453,9 @@ namespace WindowsApplication1
       ListClass basicList2Obj = this.BasicList2Obj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicList2Obj, 10, 300, detailNr, game, tHeader: "MoveCost for MoveTypes", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.BasicList2Id = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
       if (this.DetailNr > 99)
@@ -528,9 +528,9 @@ namespace WindowsApplication1
       ListClass bridgeListObj = this.BridgeListObj;
       let mut bridgeNr: i32 = this.BridgeNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart =  new ListSubPartClass(bridgeListObj, 7, 400, bridgeNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 550, overruleFont: ( local2));
       this.BridgeListId = this.AddSubPart( tsubpart, 10, 550, 400, 160, 0);
       if (this.BridgeNr > 5)
@@ -563,10 +563,10 @@ namespace WindowsApplication1
       this.BChangeBridgeSpriteId2 = this.AddSubPart( tsubpart3, 500, 610, 32, 16, 1);
     }
 
-    pub void ConstructTileset(string s)
+    pub fn ConstructTileset(string s)
     {
-      string[] strArray = new string[65];
-      Bitmap bitmap1 = new Bitmap(384, 528);
+      strArray: Vec<String> = new string[65];
+      bitmap1: Bitmap = new Bitmap(384, 528);
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
       graphics1.Clear(Color.Transparent);
@@ -574,7 +574,7 @@ namespace WindowsApplication1
       let mut num1: i32 = 64;
       let mut num2: i32 = 48;
       let mut index1: i32 = 0;
-      int num3;
+      num3: i32;
       do
       {
         let mut index2: i32 = 0;
@@ -648,7 +648,7 @@ namespace WindowsApplication1
       bitmap1.Save((Stream) fileStream1, ImageFormat.Png);
       fileStream1.Close();
       graphics1.Dispose();
-      Bitmap bitmap2 = new Bitmap(768, 1056);
+      bitmap2: Bitmap = new Bitmap(768, 1056);
       bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) bitmap2);
       graphics2.Clear(Color.Transparent);
@@ -732,7 +732,7 @@ namespace WindowsApplication1
       bitmap2.Dispose();
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

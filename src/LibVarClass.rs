@@ -24,18 +24,18 @@ namespace WindowsApplication1
     pub valueText: String;
     pub information: String;
 
-    pub LibVarClass(int tlibSlot)
+    pub LibVarClass(tlibSlot: i32)
     {
-      this.type = NewEnums.LibVarType.General;
-      this.libId = LibIdClass::new();
-      this.libId.libSlot = tlibSlot;
-      this.libId.id = -1;
-      this.valueType = NewEnums.LibVarValueType.Number;
-      this.value = 0;
-      this.valueText = "";
-      this.instanceId = LibIdClass::new();
-      this.instanceId.libSlot = -1;
-      this.instanceId.id = -1;
+      self.type = NewEnums.LibVarType.General;
+      self.libId = LibIdClass::new();
+      self.libId.libSlot = tlibSlot;
+      self.libId.id = -1;
+      self.valueType = NewEnums.LibVarValueType.Number;
+      self.value = 0;
+      self.valueText = "";
+      self.instanceId = LibIdClass::new();
+      self.instanceId.libSlot = -1;
+      self.instanceId.id = -1;
     }
 
     pub LibVarClass Clone()
@@ -47,18 +47,18 @@ namespace WindowsApplication1
       return (LibVarClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub string GetValue( DataClass Data, bool ForEvent = false)
+    pub string GetValue( Data: DataClass, bool ForEvent = false)
     {
-      str: String = this.value.ToString();
-      if (this.valueType == NewEnums.LibVarValueType.Number)
-        return this.value.ToString();
-      if (this.valueType == NewEnums.LibVarValueType.YesNo)
-        return !ForEvent ? (this.value != 1 ? "No" : "Yes") : (this.value != 1 ? "0" : "1");
-      if (this.valueType == NewEnums.LibVarValueType.Text)
-        return this.valueText;
-      if (this.valueType == NewEnums.LibVarValueType.DateString)
+      str: String = self.value.ToString();
+      if (self.valueType == NewEnums.LibVarValueType.Number)
+        return self.value.ToString();
+      if (self.valueType == NewEnums.LibVarValueType.YesNo)
+        return !ForEvent ? (self.value != 1 ? "No" : "Yes") : (self.value != 1 ? "0" : "1");
+      if (self.valueType == NewEnums.LibVarValueType.Text)
+        return self.valueText;
+      if (self.valueType == NewEnums.LibVarValueType.DateString)
       {
-        Left: String = this.valueText;
+        Left: String = self.valueText;
         if (ForEvent)
         {
           if (Operators.CompareString(Left, "", false) == 0)
@@ -68,66 +68,66 @@ namespace WindowsApplication1
           Left = "-not set-";
         return Left;
       }
-      if (this.valueType == NewEnums.LibVarValueType.HistoricalUnitId | this.valueType == NewEnums.LibVarValueType.HistoricalUnitModelId)
-        str = !(this.value > -1 & this.value <= Data.HistoricalUnitCounter) ? (this.value <= Data.HistoricalUnitCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.HistoricalUnitObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.OfficerId)
-        str = !(this.value > -1 & this.value <= Data.HistoricalUnitCounter) ? (this.value <= Data.HistoricalUnitCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.HistoricalUnitObj[this.value].CommanderName;
-      if (this.valueType == NewEnums.LibVarValueType.LandscapeId)
-        str = !(this.value > -1 & this.value <= Data.LandscapeTypeCounter) ? (this.value <= Data.LandscapeTypeCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.LandscapeTypeObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.EventPicId)
-        str = !(this.value > -1 & this.value <= Data.EventPicCounter) ? (this.value <= Data.EventPicCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.EventPicName[this.value];
-      if (this.valueType == NewEnums.LibVarValueType.SmallGfxId)
-        str = !(this.value > -1 & this.value <= Data.SmallPicCounter) ? (this.value <= Data.SmallPicCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.SmallPicName[this.value];
-      if (this.valueType == NewEnums.LibVarValueType.PeopleId)
-        str = !(this.value > -1 & this.value <= Data.PeopleCounter) ? (this.value <= Data.PeopleCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.PeopleObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.RiverId)
-        str = !(this.value > -1 & this.value <= Data.RiverTypeCounter) ? (this.value <= Data.RiverTypeCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.RiverTypeObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.RoadId)
-        str = !(this.value > -1 & this.value <= Data.RoadTypeCounter) ? (this.value <= Data.RoadTypeCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.RoadTypeObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.SFTypeId)
-        str = !(this.value > -1 & this.value <= Data.SFTypeCounter) ? (this.value <= Data.SFTypeCounter ? (this.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.SFTypeObj[this.value].Name;
-      if (this.valueType == NewEnums.LibVarValueType.YesNo)
-        str = this.value <= 0 ? "No" : "Yes";
-      if (ForEvent && this.value == -1)
+      if (self.valueType == NewEnums.LibVarValueType.HistoricalUnitId | self.valueType == NewEnums.LibVarValueType.HistoricalUnitModelId)
+        str = !(self.value > -1 & self.value <= Data.HistoricalUnitCounter) ? (self.value <= Data.HistoricalUnitCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.HistoricalUnitObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.OfficerId)
+        str = !(self.value > -1 & self.value <= Data.HistoricalUnitCounter) ? (self.value <= Data.HistoricalUnitCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.HistoricalUnitObj[self.value].CommanderName;
+      if (self.valueType == NewEnums.LibVarValueType.LandscapeId)
+        str = !(self.value > -1 & self.value <= Data.LandscapeTypeCounter) ? (self.value <= Data.LandscapeTypeCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.LandscapeTypeObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.EventPicId)
+        str = !(self.value > -1 & self.value <= Data.EventPicCounter) ? (self.value <= Data.EventPicCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.EventPicName[self.value];
+      if (self.valueType == NewEnums.LibVarValueType.SmallGfxId)
+        str = !(self.value > -1 & self.value <= Data.SmallPicCounter) ? (self.value <= Data.SmallPicCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.SmallPicName[self.value];
+      if (self.valueType == NewEnums.LibVarValueType.PeopleId)
+        str = !(self.value > -1 & self.value <= Data.PeopleCounter) ? (self.value <= Data.PeopleCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.PeopleObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.RiverId)
+        str = !(self.value > -1 & self.value <= Data.RiverTypeCounter) ? (self.value <= Data.RiverTypeCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.RiverTypeObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.RoadId)
+        str = !(self.value > -1 & self.value <= Data.RoadTypeCounter) ? (self.value <= Data.RoadTypeCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.RoadTypeObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.SFTypeId)
+        str = !(self.value > -1 & self.value <= Data.SFTypeCounter) ? (self.value <= Data.SFTypeCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.SFTypeObj[self.value].Name;
+      if (self.valueType == NewEnums.LibVarValueType.YesNo)
+        str = self.value <= 0 ? "No" : "Yes";
+      if (ForEvent && self.value == -1)
         return "-1";
-      return ForEvent ? Conversions.ToString(this.value) : str;
+      return ForEvent ? Conversions.ToString(self.value) : str;
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("type",  this.type);
-      info.AddValue("libId",  this.libId);
-      info.AddValue("name",  this.name);
-      info.AddValue("valueType",  this.valueType);
-      info.AddValue("value", this.value);
-      info.AddValue("valueText",  this.valueText);
-      if (this.libId.id == -1)
-        info.AddValue("information",  this.information);
-      info.AddValue("instanceId",  this.instanceId);
+      info.AddValue("type",  self.type);
+      info.AddValue("libId",  self.libId);
+      info.AddValue("name",  self.name);
+      info.AddValue("valueType",  self.valueType);
+      info.AddValue("value", self.value);
+      info.AddValue("valueText",  self.valueText);
+      if (self.libId.id == -1)
+        info.AddValue("information",  self.information);
+      info.AddValue("instanceId",  self.instanceId);
     }
 
     protected LibVarClass(SerializationInfo info, StreamingContext context)
     {
-      this.type = (NewEnums.LibVarType) info.GetInt32(nameof (type));
-      this.libId = LibIdClass::new();
-      this.libId = (LibIdClass) info.GetValue(nameof (libId), this.libId.GetType());
-      this.name = info.GetString(nameof (name));
-      this.valueType = (NewEnums.LibVarValueType) info.GetInt32(nameof (valueType));
-      this.value = info.GetInt32(nameof (value));
-      this.valueText = info.GetString(nameof (valueText));
-      if (this.libId.id == -1)
-        this.information = info.GetString(nameof (information));
+      self.type = (NewEnums.LibVarType) info.GetInt32(nameof (type));
+      self.libId = LibIdClass::new();
+      self.libId = (LibIdClass) info.GetValue(nameof (libId), self.libId.GetType());
+      self.name = info.GetString(nameof (name));
+      self.valueType = (NewEnums.LibVarValueType) info.GetInt32(nameof (valueType));
+      self.value = info.GetInt32(nameof (value));
+      self.valueText = info.GetString(nameof (valueText));
+      if (self.libId.id == -1)
+        self.information = info.GetString(nameof (information));
       try
       {
-        this.instanceId = LibIdClass::new();
-        this.instanceId = (LibIdClass) info.GetValue(nameof (instanceId), this.instanceId.GetType());
+        self.instanceId = LibIdClass::new();
+        self.instanceId = (LibIdClass) info.GetValue(nameof (instanceId), self.instanceId.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.instanceId = LibIdClass::new();
-        this.instanceId.libSlot = -1;
-        this.instanceId.id = -1;
+        self.instanceId = LibIdClass::new();
+        self.instanceId.libSlot = -1;
+        self.instanceId.id = -1;
         ProjectData.ClearProjectError();
       }
     }

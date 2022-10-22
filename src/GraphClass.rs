@@ -15,24 +15,24 @@ namespace WindowsApplication1
 {
   pub class GraphClass : SubPartClass
   {
-     int Width;
-     int Height;
-     GameClass game;
-     Bitmap backbitmap;
-     int bx;
-     int by;
-     int[,] Mat;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
+     backbitmap: Bitmap;
+     bx: i32;
+     by: i32;
+     Mat: Vec<i32>;
      string MatTitle;
-     int Multiplier;
+     Multiplier: i32;
      Color[] RegCol;
-     string[] RegName;
-     int RegCount;
+     RegName: Vec<String>;
+     RegCount: i32;
      bool showNumbers;
      bool checkForRegime;
-     int tmin;
+     tmin: i32;
      bool tminRun;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -41,17 +41,17 @@ namespace WindowsApplication1
     }
 
     pub GraphClass(
-      GameClass tgame,
-      int[,] tMat,
+      tgame: GameClass,
+      tMat: Vec<i32>,
       bool tshowNumbers,
       string tMatTitle,
-      int tMultiplier,
+      tMultiplier: i32,
       Color[] tRegCol,
-      string[] tRegName,
-      int tregcount,
-      int twidth,
-      int theight,
-       Bitmap tbackbitmap = null,
+      tRegName: Vec<String>,
+      tregcount: i32,
+      twidth: i32,
+      theight: i32,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool tcheckforregime = true)
@@ -82,7 +82,7 @@ namespace WindowsApplication1
       this.by = bby;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Rectangle[] rectangleArray = Rectangle::new[10000];
@@ -94,8 +94,8 @@ namespace WindowsApplication1
         graphics.CompositingMode = CompositingMode.SourceOver;
       }
       DrawMod.DrawBlockGradient2( graphics, 0, 0, this.Width - 1, this.Height - 1, this.game.MarcCol1, this.game.MarcCol2);
-      int[,] numArray1 = new int[this.Mat.GetUpperBound(0) + 1, this.Mat.GetUpperBound(1) + 1];
-      int[,] numArray2 = new int[this.Mat.GetUpperBound(0) + 1, this.Mat.GetUpperBound(1) + 1];
+      numArray1: Vec<i32> = new int[this.Mat.GetUpperBound(0) + 1, this.Mat.GetUpperBound(1) + 1];
+      numArray2: Vec<i32> = new int[this.Mat.GetUpperBound(0) + 1, this.Mat.GetUpperBound(1) + 1];
       let mut num1: i32 =  this.Width - 70;
       let mut num2: i32 =  60;
       let mut num3: i32 =   Math.Round( this.Height - (50.0 + Math.Max(2.0,  this.RegCount / 2.0 + 0.5) * 15.0));
@@ -121,8 +121,8 @@ namespace WindowsApplication1
           let mut regCount: i32 =  this.RegCount;
           for (let mut index4: i32 =  1; index4 <= regCount; index4 += 1)
           {
-            int[,] mat = this.Mat;
-            int[,] numArray3 = mat;
+            mat: Vec<i32> = this.Mat;
+            numArray3: Vec<i32> = mat;
             let mut index5: i32 =  index3;
             let mut index6: i32 =  index5;
             let mut index7: i32 =  index4;
@@ -154,7 +154,7 @@ label_43:
         let mut num9: i32 =  1;
         do
         {
-          int num10;
+          num10: i32;
           if (num9 == 1)
             num10 =  Math.Round( a1);
           if (num9 == 2)
@@ -213,8 +213,8 @@ label_44:
           numArray1[index11, index15] = num2 + numArray1[index11, index15];
         }
       }
-      Color c1 = Color.FromArgb(128, 200, 200, 200);
-      Color c2 = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+      c1: Color = Color.FromArgb(128, 200, 200, 200);
+      c2: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       DrawMod.drawLine( graphics, num2, num4 - 10, num2, this.Height - 5, c1);
       DrawMod.drawLine( graphics, 5, num4 + num3 + 10, this.Width - 5, num4 + num3 + 10, c1);
       let mut num12: i32 =  Math.Max(10, this.game.Data.Round);
@@ -263,7 +263,7 @@ label_44:
           x1_1 =  Math.Round( num2 +  num1 / 2.0 +  num1 / 5.0 -  num19) + 75;
         }
         y1_1 += 15;
-        Color color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index].A,  this.RegCol[index].R,  this.RegCol[index].G,  this.RegCol[index].B), 66);
+        color: Color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index].A,  this.RegCol[index].R,  this.RegCol[index].G,  this.RegCol[index].B), 66);
         DrawMod.DrawBlock( graphics, x1_1, y1_1, 20, 10,  this.RegCol[index].R,  this.RegCol[index].G,  this.RegCol[index].B,  this.RegCol[index].A);
         DrawMod.DrawRectangle( graphics, x1_1, y1_1, 20, 10,  color.R,  color.G,  color.B,  color.A);
         DrawMod.DrawRectangle( graphics, x1_1 - 1, y1_1 - 1, 22, 12, 0, 0, 0, 200);
@@ -285,7 +285,7 @@ label_44:
             let mut num25: i32 =  numArray2[index16 + 1, index17];
             let mut y1_2: i32 =  num24 + 0;
             let mut y2: i32 =  num25 + 0;
-            Color color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index17].A,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B), 66);
+            color: Color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index17].A,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B), 66);
             DrawMod.drawLine( graphics, x1_2, y1_2 + 1,  Math.Round( a2), y2 + 1,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B,  this.RegCol[index17].A);
             DrawMod.drawLine( graphics, x1_2, y1_2,  Math.Round( a2), y2,  color.R,  color.G,  color.B,  color.A);
           }
@@ -310,7 +310,7 @@ label_44:
               str: String = !( num30 > 9999.0 |  num30 < -9999.0) ? num30.ToString() : Strings.Format(  ( num30 / 1000.0), "0.0") + "K";
               sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
               let mut num31: i32 =  0;
-              int index20;
+              index20: i32;
               let mut num32: i32 =  index20;
               for (let mut index21: i32 =  1; index21 <= num32; index21 += 1)
               {
@@ -326,7 +326,7 @@ label_44:
               if (num31 == 0)
               {
                 index20 += 1;
-                Color c3 = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index19].A,  this.RegCol[index19].R,  this.RegCol[index19].G,  this.RegCol[index19].B), 66);
+                c3: Color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index19].A,  this.RegCol[index19].R,  this.RegCol[index19].G,  this.RegCol[index19].B), 66);
                 DrawMod.DrawBlock( graphics, num28, num29, 5, 5,  this.RegCol[index19].R,  this.RegCol[index19].G,  this.RegCol[index19].B,  this.RegCol[index19].A);
                 DrawMod.DrawRectangle( graphics, num28, num29, 5, 5,  c3.R,  c3.G,  c3.B,  c3.A);
                 DrawMod.DrawRectangle( graphics, num28 - 1, num29 - 1, 7, 7, 0, 0, 0, 80);
@@ -342,7 +342,7 @@ label_44:
       return this.OwnBitmap;
     }
 
-    pub string DateString(int round)
+    pub string DateString(round: i32)
     {
       object Counter;
       string str;

@@ -15,61 +15,61 @@ namespace WindowsApplication1
 {
   pub class ResourceWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
+     w: i32;
+     h: i32;
      bool AskingAboutMetrics;
-     int CurrentView;
-     int tab1;
-     int tab2;
-     int tab3;
-     int tab4;
-     int tab5;
-     int tab6;
-     int tab7;
-     int tab8;
-     int tab9;
-     int tab1a;
-     int tab2a;
-     int tab3a;
-     int tab4a;
-     int tab5a;
-     int tab6a;
-     int tab7a;
-     int tab8a;
-     int tab9a;
-     int tab13;
-     int tab11;
-     int tab12;
+     CurrentView: i32;
+     tab1: i32;
+     tab2: i32;
+     tab3: i32;
+     tab4: i32;
+     tab5: i32;
+     tab6: i32;
+     tab7: i32;
+     tab8: i32;
+     tab9: i32;
+     tab1a: i32;
+     tab2a: i32;
+     tab3a: i32;
+     tab4a: i32;
+     tab5a: i32;
+     tab6a: i32;
+     tab7a: i32;
+     tab8a: i32;
+     tab9a: i32;
+     tab13: i32;
+     tab11: i32;
+     tab12: i32;
      string tab13name;
      string tab11name;
      string tab12name;
-     int butNextTurnId;
-     int butNextTurnId2;
-     int butHistoryId;
-     int butPlayId;
-     int currentPlayerId;
-     int cinButId;
-     int MouseOverWhichTab;
-     int smallAiProgress;
-     int prevAiProgress;
+     butNextTurnId: i32;
+     butNextTurnId2: i32;
+     butHistoryId: i32;
+     butPlayId: i32;
+     currentPlayerId: i32;
+     cinButId: i32;
+     MouseOverWhichTab: i32;
+     smallAiProgress: i32;
+     prevAiProgress: i32;
      bool startedInHistoryMode;
      bool surrendering;
-     int special1;
-     int special2;
-     int special3;
-     int advice;
-     int adviceB;
-     int screenHis;
-     int screenVid;
-     int screenMan;
-     int screenMap;
+     special1: i32;
+     special2: i32;
+     special3: i32;
+     advice: i32;
+     adviceB: i32;
+     screenHis: i32;
+     screenVid: i32;
+     screenMan: i32;
+     screenMap: i32;
 
     pub ResourceWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, tGame.ScreenWidth, 75, 8)
@@ -186,7 +186,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       if (y < 60 && x > 100 & x < this.game.ScreenWidth - 175)
@@ -219,7 +219,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.cinButId > 0)
       {
@@ -254,7 +254,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.game.Data.DontShowAIMove = this.game.EditObj.dontShowAImoves;
       if (this.butNextTurnId > 0)
@@ -302,7 +302,7 @@ namespace WindowsApplication1
         this.DrawOpenTab( graphics);
       let mut tx1: i32 = 312;
       bool flag1 = false;
-      int width;
+      width: i32;
       if ( this.game.Data.RuleVar[971] > 0.0)
       {
         let mut stringListById: i32 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[971]));
@@ -323,7 +323,7 @@ namespace WindowsApplication1
       this.screenMan = -1;
       this.screenVid = -1;
       this.screenMap = -1;
-      int num2;
+      num2: i32;
       if (this.game.se1Running | this.game.se1ThreadRunning | this.game.se1Running & !this.game.se1ThreadRunning & this.game.EditObj.AIMoving)
       {
         flag2 = true;
@@ -374,7 +374,7 @@ namespace WindowsApplication1
           trect.Height -= 36;
           this.AddMouse( trect, "", "You are currently in HISTORY mode", 2002);
           let mut tx6: i32 = tx5 + num1;
-          int tx7;
+          tx7: i32;
           if (flag1)
           {
             trect = this.DrawOneTab(graphics, false, tx6, "VID", -1, MousingOverNow: (this.MouseOverWhichTab == 2003)) with
@@ -408,7 +408,7 @@ namespace WindowsApplication1
         else
         {
           Rectangle trect;
-          int tx8;
+          tx8: i32;
           if (this.game.EditObj.se1_ManagementMode)
           {
             trect = this.DrawOneTab(graphics, false, tx1, "MAP", -1, MousingOverNow: (this.MouseOverWhichTab == 2001)) with
@@ -438,7 +438,7 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "Click to go to HISTORY mode [Shortkey H]", 2002);
           this.screenHis = this.MouseCounter;
           let mut tx9: i32 = tx8 + num1;
-          int tx10;
+          tx10: i32;
           if (flag1)
           {
             trect = this.DrawOneTab(graphics, false, tx9, "VID", -1, MousingOverNow: (this.MouseOverWhichTab == 2003)) with
@@ -484,7 +484,7 @@ namespace WindowsApplication1
         }
       }
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBOTBAR);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBOTBAR);
        let mut local2: &Bitmap = &bitmap;
       Rectangle trect3 = Rectangle::new(0, 140, 300, 63);
       let mut srcrect1: &Rectangle = &trect3
@@ -850,9 +850,9 @@ namespace WindowsApplication1
     pub Rectangle DrawOneTab(
       Graphics g,
       bool active,
-      int tx,
+      tx: i32,
       string s,
-      int iconSlot,
+      iconSlot: i32,
       let mut smallNumber: i32 = -1,
       bool grayedOut = false,
       bool MousingOverNow = false)
@@ -860,7 +860,7 @@ namespace WindowsApplication1
       let mut y1: i32 = 0;
       if (!active)
         y1 = -12;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (MousingOverNow)
       {
          let mut local1: &Graphics = &g;
@@ -931,7 +931,7 @@ namespace WindowsApplication1
           }
         }
       }
-      Color c;
+      c: Color;
       if (smallNumber > 0)
       {
         if (!active)
@@ -977,14 +977,14 @@ namespace WindowsApplication1
       return rectangle3;
     }
 
-    pub void DrawOpenTab(object g)
+    pub fn DrawOpenTab(object g)
     {
       if (this.CurrentView <= 0)
         return;
       Rectangle rectForTab = DrawMod.GetRectForTab(this.CurrentView);
       Graphics graphics = (Graphics) g;
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.MARCTAB);
        let mut local2: &Bitmap = &bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 20, 8, 43);
       let mut srcrect1: &Rectangle = &rectangle1
@@ -994,7 +994,7 @@ namespace WindowsApplication1
       g =  graphics;
       graphics = (Graphics) g;
        let mut local3: &Graphics = &graphics;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCTAB);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.MARCTAB);
        let mut local4: &Bitmap = &bitmap2;
       rectangle2 = Rectangle::new(170, 20, 16, 43);
       let mut srcrect2: &Rectangle = &rectangle2
@@ -1010,7 +1010,7 @@ namespace WindowsApplication1
           width = rectForTab.X + rectForTab.Width - 16 - x;
         graphics = (Graphics) g;
          let mut local5: &Graphics = &graphics;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.MARCTAB);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.MARCTAB);
          let mut local6: &Bitmap = &bitmap3;
         rectangle2 = Rectangle::new(10, 20, width, 43);
         let mut srcrect3: &Rectangle = &rectangle2
@@ -1021,7 +1021,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawTabs(object g)
+    pub fn DrawTabs(object g)
     {
       this.tab1 = -1;
       this.tab2 = -1;
@@ -1055,7 +1055,7 @@ namespace WindowsApplication1
         this.AddMouse( trect5, "STRATEGIC MAP", "View the strategic situation and send messages. [F7]", 6);
         this.tab7 = this.MouseCounter;
         let mut tx5: i32 = tx4 + 68;
-        int tx6;
+        tx6: i32;
         if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ActionCardCounter == -1)
         {
           this.DrawOneTab((Graphics) g, false, tx5, "STRAT.", 4);
@@ -1101,7 +1101,7 @@ namespace WindowsApplication1
       this.tab8 = this.MouseCounter;
     }
 
-    pub void DrawTabs_ManagementScreen(object g)
+    pub fn DrawTabs_ManagementScreen(object g)
     {
       this.tab1a = -1;
       this.tab2a = -1;
@@ -1145,7 +1145,7 @@ namespace WindowsApplication1
       let mut num: i32 = tx7 + 68;
     }
 
-    pub void DrawHexStats( Graphics g)
+    pub fn DrawHexStats( Graphics g)
     {
       let mut x1: i32 =  Math.Round( this.game.ScreenWidth / 2.0 + 158.0);
       if (!(this.game.EditObj.RealRound > 0 & this.game.SelectX > -1))
@@ -1156,7 +1156,7 @@ namespace WindowsApplication1
       let mut x2: i32 =  Math.Round( ( x1 +  (15.0 -  sizeF2.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont5, x2, 2, Color.White);
       str2: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
-      Color color =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[55] ? ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[56] ? Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0) : Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 0)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 0, 0);
+      color: Color =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[55] ? ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[56] ? Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0) : Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 0)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 0, 0);
       SizeF sizeF3 = g.MeasureString(str2, this.game.MarcFont5);
       let mut x3: i32 =  Math.Round( ( x1 +  (15.0 -  sizeF3.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont5, x3, 15, Color.White);
@@ -1188,7 +1188,7 @@ namespace WindowsApplication1
       ttext: String = "How much extra AP it costs to move into hex.\r\n" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn))) + " points for enemy owned hex rule." + "\r\n" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn))) + " points for previous battles fought in hex.";
       trect1 = Rectangle::new(x7, 2, 30, 28);
       let mut trect3: &Rectangle = &trect1
-      this.AddMouse( trect3, "ACTION POINT PENALTIES", ttext);
+      this.AddMouse( trect3, "ACTION POPENALTIES: i32", ttext);
       let mut x10: i32 = x7 + 30;
       DrawMod.DrawBlockGradient2( g, x10 - 2, 0, 3, 32, Color.FromArgb(200, 80, 90, 110), Color.FromArgb(50, 80, 90, 110));
       str7: String = "STK";
@@ -1206,7 +1206,7 @@ namespace WindowsApplication1
       if (Operators.CompareString(str8, "?", false) == 0)
       {
         let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
-        int num;
+        num: i32;
         for (let mut index: i32 = 0; index <= unitCounter; index += 1)
         {
           let mut unit: i32 = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
@@ -1236,7 +1236,7 @@ namespace WindowsApplication1
       this.AddMouse( trect5, "VICTORY POINTS", "How much VP does hex have.");
     }
 
-    pub void DrawScope( Graphics g)
+    pub fn DrawScope( Graphics g)
     {
       let mut num1: i32 =  Math.Round( this.game.ScreenWidth / 2.0 - 158.0);
       if (!(this.game.SelectX > -1 & this.game.SelectY > -1))
@@ -1255,8 +1255,8 @@ namespace WindowsApplication1
       if (hexLibVarValue > 0)
         num3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue, 13)));
       let mut num4: i32 =  Math.Round( num3 /  num2);
-      int eventPicOrigSlot1;
-      int eventPicOrigSlot2;
+      eventPicOrigSlot1: i32;
+      eventPicOrigSlot2: i32;
       if (stringListById1 > -1)
       {
         eventPicOrigSlot1 = num4 >= 50 ? (num4 >= 500 ?  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 3))) :  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 2)))) :  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, landscapeType, 1)));
@@ -1265,8 +1265,8 @@ namespace WindowsApplication1
       if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < 1)
         eventPicOrigSlot2 = 61;
       let mut eventPic1: i32 = this.game.Data.FindEventPic(eventPicOrigSlot1, "SE_Present");
-      int num5;
-      int num6;
+      num5: i32;
+      num6: i32;
       Rectangle trect;
       Rectangle rectangle;
       if (eventPic1 > -1)
@@ -1275,7 +1275,7 @@ namespace WindowsApplication1
         num5 = 256;
         num6 = 80;
          let mut local2: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(nr);
+        bitmap: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local3: &Bitmap = &bitmap;
         trect = Rectangle::new(0, 0, 256, 65);
         let mut srcrect: &Rectangle = &trect
@@ -1290,7 +1290,7 @@ namespace WindowsApplication1
         num5 = 256;
         num6 = 80;
          let mut local4: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(nr);
+        bitmap: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local5: &Bitmap = &bitmap;
         rectangle = Rectangle::new(0, 0, 256, 65);
         let mut srcrect: &Rectangle = &rectangle
@@ -1299,7 +1299,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local4,  local5, srcrect, destrect);
       }
        let mut local6: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MARCSCOPE);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.MARCSCOPE);
        let mut local7: &Bitmap = &bitmap1;
       let mut x1: i32 = num1;
       DrawMod.DrawSimple( local6,  local7, x1, 0);
@@ -1320,7 +1320,7 @@ namespace WindowsApplication1
       str3 + " (" + Strings.Trim(Conversion.Str( this.game.SelectX)) + "," + Strings.Trim(Conversion.Str( this.game.SelectY)) + ") ";
       sizeF1 = g.MeasureString(str2, this.game.MarcFont5);
       string str4;
-      int regime;
+      regime: i32;
       if (this.game.EditObj.OrderType == 26)
       {
         if (this.game.EditObj.HisOwner[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY] > -1)
@@ -1360,7 +1360,7 @@ namespace WindowsApplication1
         if (Operators.CompareString(str8, "Unknown", false) != 0 & Operators.CompareString(str8, "Unclear", false) != 0)
         {
            let mut local8: &Graphics = &g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.RegimeObj[regime].SymbolSpriteNr);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.Data.RegimeObj[regime].SymbolSpriteNr);
            let mut local9: &Bitmap = &bitmap2;
           let mut x6: i32 = x5 - 24;
           let mut width: i32 = BitmapStore.GetWidth(this.game.Data.RegimeObj[regime].SymbolSpriteNr);
@@ -1374,7 +1374,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawDate( Graphics g)
+    pub fn DrawDate( Graphics g)
     {
       if (this.game.EditObj.RealTurn <= -1)
         return;
@@ -1391,7 +1391,7 @@ namespace WindowsApplication1
       if (Information.IsNothing( this.game.Data.TurnString))
         this.game.Data.TurnString = "";
       SizeF sizeF = SizeF::new();
-      string[] strArray = this.game.Data.TurnString.Split(new char[1]
+      strArray: Vec<String> = this.game.Data.TurnString.Split(new char[1]
       {
         ','
       }, StringSplitOptions.RemoveEmptyEntries);
@@ -1405,7 +1405,7 @@ namespace WindowsApplication1
       this.AddMouse( trect, "", "This is Round " + this.game.EditObj.RealRound.ToString() + ".\r\nThis is Local Year " + num3.ToString() + " AA, Season " + idValue.ToString() + " of " + num2.ToString() + ".\r\nThis is Earth Year " + num1.ToString() + "-" + DateAndTime.MonthName(Month, true) + ".");
     }
 
-    pub void DrawPP( Graphics g)
+    pub fn DrawPP( Graphics g)
     {
       if (this.game.EditObj.RealTurn <= -1)
         return;
@@ -1446,7 +1446,7 @@ namespace WindowsApplication1
       let mut x1: i32 = 302;
       let mut y1: i32 = 0;
        let mut local1: &Graphics = &g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
        let mut local2: &Bitmap = &bitmap1;
       let mut x2: i32 = x1;
       let mut y2: i32 = y1;
@@ -1455,14 +1455,14 @@ namespace WindowsApplication1
       this.AddMouse( trect1, "Fate Points", "You need FP’s to play powerful Fate Stratagems.");
       let mut eventPicSlotFor1: i32 = this.game.EventRelatedObj.GetEventPicSlotFor(0, "", "fp");
        let mut local3: &Graphics = &g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor1]);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor1]);
        let mut local4: &Bitmap = &bitmap2;
       let mut x3: i32 = x1 + 2;
       DrawMod.DrawSimple( local3,  local4, x3, 6);
       DrawMod.DrawTextColouredConsole( g, data2, this.game.MarcFont16, x1 + 31, 4, this.game.seColWhite);
       let mut x4: i32 = x1 + 75;
        let mut local5: &Graphics = &g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
+      bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
        let mut local6: &Bitmap = &bitmap3;
       let mut x5: i32 = x4;
       let mut y3: i32 = y1;
@@ -1472,14 +1472,14 @@ namespace WindowsApplication1
       this.AddMouse( trect2, "Political Points", "You need PP’s to play organisation-generated Stratagems and sometimes make Decisions.");
       let mut eventPicSlotFor2: i32 = this.game.EventRelatedObj.GetEventPicSlotFor(0, "", "pp");
        let mut local7: &Graphics = &g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor2]);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor2]);
        let mut local8: &Bitmap = &bitmap4;
       let mut x6: i32 = x4 + 2;
       DrawMod.DrawSimple( local7,  local8, x6, 6);
       DrawMod.DrawTextColouredConsole( g, str1, this.game.MarcFont16, x4 + 31, 4, this.game.seColWhite);
       let mut x7: i32 = x4 + 75;
        let mut local9: &Graphics = &g;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
+      bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_VARBOX);
        let mut local10: &Bitmap = &bitmap5;
       let mut x8: i32 = x7;
       let mut y4: i32 = y1;
@@ -1489,7 +1489,7 @@ namespace WindowsApplication1
       this.AddMouse( trect3, "Credits", "You need credits to buy with traders and to pay leaders, workers and others.");
       let mut eventPicSlotFor3: i32 = this.game.EventRelatedObj.GetEventPicSlotFor(0, "", "credits");
        let mut local11: &Graphics = &g;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor3]);
+      bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor3]);
        let mut local12: &Bitmap = &bitmap6;
       let mut x9: i32 = x7 + 2;
       DrawMod.DrawSimple( local11,  local12, x9, 6);
@@ -1553,7 +1553,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawResources( Graphics g)
+    pub fn DrawResources( Graphics g)
     {
       SizeF sizeF = SizeF::new();
       int[] numArray = new int[10];
@@ -1570,11 +1570,11 @@ namespace WindowsApplication1
       {
         index1 += 1;
         let mut num2: i32 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[411]))].GetData2(0, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].id, 1, this.game.Data.TempString[731], 2)));
-        int index2;
+        index2: i32;
         tstring: String = num2 <= 9999 ? this.game.Data.TempString[732] + " " + num2.ToString() : this.game.Data.TempString[732] + " " + (Conversion.Int( this.game.Data.GameSlot[index2] / 1000.0).ToString() + "k");
         let mut x1: i32 = 165;
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
          let mut local2: &Bitmap = &bitmap;
         let mut x2: i32 = x1;
         DrawMod.DrawSimple( local1,  local2, x2, 2);
@@ -1602,12 +1602,12 @@ namespace WindowsApplication1
             if (this.game.Data.GameSlotSmallGfx[index3] > -1)
             {
                let mut local3: &Graphics = &g;
-              Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+              bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                let mut local4: &Bitmap = &bitmap1;
               let mut x3: i32 = numArray[index1];
               DrawMod.DrawSimple( local3,  local4, x3, 2);
                let mut local5: &Graphics = &g;
-              Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[this.game.Data.GameSlotSmallGfx[index3]]);
+              bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[this.game.Data.GameSlotSmallGfx[index3]]);
                let mut local6: &Bitmap = &bitmap2;
               let mut x4: i32 = numArray[index1];
               DrawMod.DrawSimple( local5,  local6, x4, 2);
@@ -1622,12 +1622,12 @@ namespace WindowsApplication1
               if (this.game.NATO[this.game.Data.GameSlotNato[index3]] > 0)
               {
                  let mut local7: &Graphics = &g;
-                Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+                bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                  let mut local8: &Bitmap = &bitmap3;
                 let mut x6: i32 = numArray[index1];
                 DrawMod.DrawSimple( local7,  local8, x6, 2);
                  let mut local9: &Graphics = &g;
-                Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.GameSlotNato[index3]]);
+                bitmap4: Bitmap = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.GameSlotNato[index3]]);
                  let mut local10: &Bitmap = &bitmap4;
                 let mut x7: i32 = numArray[index1];
                 DrawMod.DrawSimple( local9,  local10, x7, 2);
@@ -1641,7 +1641,7 @@ namespace WindowsApplication1
             else
             {
                let mut local11: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                let mut local12: &Bitmap = &bitmap;
               let mut x9: i32 = numArray[index1];
               DrawMod.DrawSimple( local11,  local12, x9, 2);
@@ -1662,7 +1662,7 @@ namespace WindowsApplication1
         if (this.game.Data.RegimeSlotShow[index4] &  this.game.Data.RuleVar[814] < 1.0)
         {
           let mut index5: i32 = index4;
-          int x11;
+          x11: i32;
           string tstring;
           if (Operators.CompareString(this.game.Data.RegimeSlotName[index4], Right, false) == 0)
           {
@@ -1703,12 +1703,12 @@ namespace WindowsApplication1
               if (this.game.Data.RegimeSlotSmallGfx[index5] > 0)
               {
                  let mut local13: &Graphics = &g;
-                Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+                bitmap5: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                  let mut local14: &Bitmap = &bitmap5;
                 let mut x12: i32 = numArray[index1];
                 DrawMod.DrawSimple( local13,  local14, x12, 2);
                  let mut local15: &Graphics = &g;
-                Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[this.game.Data.RegimeSlotSmallGfx[index5]]);
+                bitmap6: Bitmap = BitmapStore.GetBitmap(this.game.Data.SmallPicNr[this.game.Data.RegimeSlotSmallGfx[index5]]);
                  let mut local16: &Bitmap = &bitmap6;
                 let mut x13: i32 = numArray[index1];
                 DrawMod.DrawSimple( local15,  local16, x13, 2);
@@ -1721,12 +1721,12 @@ namespace WindowsApplication1
               else if (this.game.Data.RegimeSlotNato[index5] > 0)
               {
                  let mut local17: &Graphics = &g;
-                Bitmap bitmap7 = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+                bitmap7: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                  let mut local18: &Bitmap = &bitmap7;
                 let mut x14: i32 = numArray[index1];
                 DrawMod.DrawSimple( local17,  local18, x14, 2);
                  let mut local19: &Graphics = &g;
-                Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.RegimeSlotNato[index5]]);
+                bitmap8: Bitmap = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.RegimeSlotNato[index5]]);
                  let mut local20: &Bitmap = &bitmap8;
                 let mut x15: i32 = numArray[index1];
                 DrawMod.DrawSimple( local19,  local20, x15, 2);
@@ -1739,7 +1739,7 @@ namespace WindowsApplication1
               else
               {
                  let mut local21: &Graphics = &g;
-                Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
+                bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
                  let mut local22: &Bitmap = &bitmap;
                 let mut x16: i32 = numArray[index1];
                 DrawMod.DrawSimple( local21,  local22, x16, 2);
@@ -1757,7 +1757,7 @@ namespace WindowsApplication1
       while (index4 <= 499);
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = this.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -1796,7 +1796,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.surrendering &= this.game.EditObj.AnswerChosen == 1;
       if (this.AskingAboutMetrics)
@@ -1811,13 +1811,13 @@ namespace WindowsApplication1
       this.DoRefresh();
     }
 
-    pub DoEndTurnStuff: WindowReturnClass(int tMouseButPressed)
+    pub DoEndTurnStuff: WindowReturnClass(tMouseButPressed: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & !this.game.SuperAdminRights)
       {
         let mut locCounter: i32 = this.game.Data.LocCounter;
-        int num;
+        num: i32;
         for (let mut index: i32 = 0; index <= locCounter; index += 1)
         {
           if (this.game.Data.MapObj[0].HexObj[this.game.Data.LocObj[index].X, this.game.Data.LocObj[index].Y].Regime == this.game.Data.Turn)
@@ -1907,7 +1907,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
@@ -2469,7 +2469,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.screenVid > -1 & nr == 86)

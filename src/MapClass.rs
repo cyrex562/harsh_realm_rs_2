@@ -42,8 +42,8 @@ impl MapClass {
       let mut num2: i32 =  4;
       let mut num3: i32 =  num1 + 112 * ((this.MapWidth + 1) * (this.MapHeight + 1));
       let mut mapWidth1: i32 =  this.MapWidth;
-      int index1;
-      int index2;
+      index1: i32;
+      index2: i32;
       for (index1 = 0; index1 <= mapWidth1; index1 += 1)
       {
         let mut mapHeight: i32 =  this.MapHeight;
@@ -160,7 +160,7 @@ impl MapClass {
       }
     }
 
-    pub MapClass(int hardcoded, int regimecount, int w, int h)
+    pub MapClass(hardcoded: i32, regimecount: i32, w: i32, h: i32)
     {
       this.HexObj = new HexClass[1, 1];
       this.Name = "New Extra Map";

@@ -13,37 +13,37 @@
 // namespace WindowsApplication1
 // {
   // pub class AdviceWindow : WindowClass
-  #[derive(Clone,Debug,Default)]
-  pub struct AdviceWindow
-  {
-     hideId: i32,
-     Info1Id: i32,
-     info2id: i32,
-     info3id: i32,
-     info4id: i32,
-     info5id: i32,
-     info6id: i32,
-     info7id: i32,
-     info8id: i32,
-     w: i32,
-     h: i32,
-     MouseOverWhichTab: i32,
-     cacheList: String,
-     profId: i32,
-     currentShqNr: i32,
-     special1id: i32,
-     special2id: i32,
-     special3id: i32,
-  }
+#[derive(Clone,Debug,Default)]
+pub struct AdviceWindow
+{
+    pub hideId: i32,
+    pub Info1Id: i32,
+    pub info2id: i32,
+    pub info3id: i32,
+    pub info4id: i32,
+    pub info5id: i32,
+    pub info6id: i32,
+    pub info7id: i32,
+    pub info8id: i32,
+    pub w: i32,
+    pub h: i32,
+    pub MouseOverWhichTab: i32,
+    pub cacheList: String,
+    pub profId: i32,
+    pub currentShqNr: i32,
+    pub special1id: i32,
+    pub special2id: i32,
+    pub special3id: i32,
+}
 
-  impl AdviceWindow {
+impl AdviceWindow {
 
     // pub  AdviceWindow(
-    //    GameClass tGame,
+    //    tGame: GameClass,
     //    WindowClass tLowerWindow,
     //    Rectangle tLowerRect)
     //   : base( tGame, 820, 240, 8)
-      pub fn new(tGame: GameClass, tLowerWindow: WindowClass, tLowerRect: Rectangle) -> Self
+    pub fn new(tGame: GameClass, tLowerWindow: WindowClass, tLowerRect: Rectangle) -> Self
     {
       LowerWindow = tLowerWindow;
       LowerRect = tLowerRect;
@@ -77,7 +77,7 @@
         return Self;
     }
 
-    // pub fn HandleMouseMove: WindowReturnClass(int x, int y)
+    // pub fn HandleMouseMove: WindowReturnClass(x: i32, y: i32)
       pub fn HandleMouseMove(mut self, x: i32, y: i32)
       {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
@@ -311,7 +311,7 @@
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -351,9 +351,9 @@
       }
     }
 
-    pub void PopUpRefresh() => self.DoRefresh();
+    pub fn PopUpRefresh() => self.DoRefresh();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.SetViewMode2 > 0 || self.game.EditObj.TutOrder > -1)
@@ -512,6 +512,6 @@
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new();
   }
 // }

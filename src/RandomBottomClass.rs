@@ -12,11 +12,11 @@ namespace WindowsApplication1
 {
   pub class RandomBottomClass : WindowClass
   {
-     int w;
-     int h;
-     int CurrentView;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
 
-    pub RandomBottomClass( GameClass tGame)
+    pub RandomBottomClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 32, 8)
     {
       this.NewGfx = true;
@@ -26,9 +26,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y) => base.HandleMouseMove(x, y);
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32) => base.HandleMouseMove(x, y);
 
-    pub handleTimerWheel: WindowReturnClass(int x, int y)
+    pub handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -61,8 +61,8 @@ namespace WindowsApplication1
       let mut num3: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
       let mut num4: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
       let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
-      int num6;
-      int num7;
+      num6: i32;
+      num7: i32;
       if (this.game.EditObj.Zoom == 0)
       {
         this.game.EditObj.Zoom = -1;
@@ -124,8 +124,8 @@ namespace WindowsApplication1
       let mut num3: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
       let mut num4: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
       let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
-      int num6;
-      int num7;
+      num6: i32;
+      num7: i32;
       if (this.game.EditObj.Zoom == 0)
       {
         this.game.EditObj.Zoom = 1;
@@ -174,13 +174,13 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.game.EditObj.se1_map_data3cache_set = false;
       this.dostuff();
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.CurrentView = this.game.EditObj.SetViewMode2;
       this.ClearMouse();
@@ -191,7 +191,7 @@ namespace WindowsApplication1
       for (; num < this.game.ScreenWidth; num += 100)
       {
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num;
         DrawMod.DrawSimple( local1,  local2, x, -4);
@@ -202,7 +202,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = this.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -218,7 +218,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
@@ -235,7 +235,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut num1: i32 = 262;
@@ -245,8 +245,8 @@ namespace WindowsApplication1
         let mut num3: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
         let mut num4: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
         let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
-        int num6;
-        int num7;
+        num6: i32;
+        num7: i32;
         if (this.game.EditObj.Zoom == 0)
         {
           this.game.EditObj.Zoom = 1;
@@ -287,8 +287,8 @@ namespace WindowsApplication1
       let mut num9: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
       let mut num10: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
       let mut num11: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
-      int num12;
-      int num13;
+      num12: i32;
+      num13: i32;
       if (this.game.EditObj.Zoom == 0)
       {
         this.game.EditObj.Zoom = -1;

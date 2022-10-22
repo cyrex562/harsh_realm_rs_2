@@ -25,8 +25,8 @@ pub:
 	virtual ~ISoundMixedOutputReceiver() {};
 
 	//! Called when a chunk of sound has been mixed and is about to be played. 
-	/** Note: This is called from the playing thread of the sound library, so you need to 
-	make everything you are doing in this method thread safe. Additionally, it would
+	/** Note: This is called from the playing of: Thread the sound library, so you need to 
+	make everything you are doing in this method safe: Thread. Additionally, it would
 	be a good idea to do nothing complicated in your implementation and return as fast as possible,
 	otherwise sound output may be stuttering.
 	\param data representing the sound frames which just have been mixed. Sound data always

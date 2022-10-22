@@ -17,35 +17,35 @@ namespace WindowsApplication1
 {
   pub class SpecialWindowClass7 : WindowClass
   {
-     int useWidth;
-     int useHeight;
-     int listId;
+     useWidth: i32;
+     useHeight: i32;
+     listId: i32;
      ListClass listObj;
      ListClass libListObj;
-     int libTableId;
-     int tableId;
-     int text1id;
-     int addId;
-     int remId;
-     int remIdb;
-     int editId;
-     int editidb;
-     int importCsv;
-     int exportCsv;
-     int strId;
-     int detailx;
-     int detaily;
-     int cellinfoid;
-     int libSelect;
-     int switchId;
-     int fullForwardId;
-     int forwardId;
-     int backwardId;
-     int fullBackwardId;
-     int mode;
-     int pageNumberId;
+     libTableId: i32;
+     tableId: i32;
+     text1id: i32;
+     addId: i32;
+     remId: i32;
+     remIdb: i32;
+     editId: i32;
+     editidb: i32;
+     importCsv: i32;
+     exportCsv: i32;
+     strId: i32;
+     detailx: i32;
+     detaily: i32;
+     cellinfoid: i32;
+     libSelect: i32;
+     switchId: i32;
+     fullForwardId: i32;
+     forwardId: i32;
+     backwardId: i32;
+     fullBackwardId: i32;
+     mode: i32;
+     pageNumberId: i32;
 
-    pub SpecialWindowClass7( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass7( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.useWidth = tUseWidth;
@@ -58,7 +58,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void RefreshCellInfo()
+    pub fn RefreshCellInfo()
     {
       let mut num: i32 = 40;
       if (self.cellinfoid > 0)
@@ -75,9 +75,9 @@ namespace WindowsApplication1
       self.cellinfoid = self.AddSubPart( tsubpart, 12, num + 49, self.game.ScreenWidth - 32, 20, 0);
     }
 
-    pub void DoRefresh() => self.DoStuff();
+    pub fn DoRefresh() => self.DoStuff();
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.strId == -1)
@@ -142,7 +142,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -188,7 +188,7 @@ namespace WindowsApplication1
       objgraphics.TextContrast = 1;
       let mut num3: i32 = -1;
       let mut num4: i32 = 40;
-      int num5;
+      num5: i32;
       if (num2 > 10)
         num5 =  Math.Round( (num2 - 10) * 0.33 / 16.0);
       self.libListObj = ListClass::new();
@@ -226,11 +226,11 @@ namespace WindowsApplication1
           let mut tlistsize: i32 = 9 + num5;
           let mut tlistselect: i32 = num3;
           let mut game: GameClass = self.game;
-           Bitmap local1 =  self.OwnBitmap;
+           local1: Bitmap =  self.OwnBitmap;
           let mut bbx: i32 = 10 + num1 - 256;
           let mut bby: i32 =  Math.Round( (num4 + 72) + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
-          Font font =  null;
-           Font local2 =  font;
+          font: Font =  null;
+           local2: Font =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(libListObj, tlistsize, 250, tlistselect, game, true, "Tables", tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: bby, tMarcStyle: true, overruleFont: ( local2));
           self.libTableId = self.AddSubPart( tsubpart, 10 + num1 - 256,  Math.Round( (num4 + 72) + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num5) * 16, 0);
         }
@@ -265,11 +265,11 @@ namespace WindowsApplication1
         let mut tlistsize: i32 = 9 + num5;
         let mut tlistselect: i32 = num8;
         let mut game: GameClass = self.game;
-         Bitmap local3 =  self.OwnBitmap;
+         local3: Bitmap =  self.OwnBitmap;
         let mut bbx: i32 = 10 + num1;
         let mut bby: i32 =  Math.Round( (num4 + 72) + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
-        Font font =  null;
-         Font local4 =  font;
+        font: Font =  null;
+         local4: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(listObj, tlistsize, 250, tlistselect, game, true, "Tables", tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx, bby: bby, tMarcStyle: true, overruleFont: ( local4));
         self.listId = self.AddSubPart( tsubpart, 10 + num1,  Math.Round( (num4 + 72) + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num5) * 16, 0);
       }
@@ -317,7 +317,7 @@ namespace WindowsApplication1
       self.RefreshCellInfo();
     }
 
-    pub void Tabby()
+    pub fn Tabby()
     {
       if (self.addId > 0)
         self.RemoveSubPart(self.addId);
@@ -405,7 +405,7 @@ namespace WindowsApplication1
       self.exportCsv = self.AddSubPart( tsubpart, 170 + num1, num3, 150, 35, 1);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -447,7 +447,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.addId)
             {
-              int index3;
+              index3: i32;
               if (self.detailx == -1)
               {
                 self.game.Data.StringListObj[self.strId].AddRow(self.game.Data.StringListObj[self.strId].Length);

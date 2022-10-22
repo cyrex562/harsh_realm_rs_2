@@ -15,68 +15,68 @@ namespace WindowsApplication1
 {
   pub class StringListWindowClass : WindowClass
   {
-     int ListId;
+     ListId: i32;
      ListClass ListObj;
-     int LibListId;
+     LibListId: i32;
      ListClass LibListObj;
-     int BAddId;
-     int BAddTextId;
-     int b1id;
-     int b1textid;
-     int b2id;
-     int b2textid;
-     int b3id;
-     int b3textid;
-     int b4id;
-     int b4textid;
-     int b5id;
-     int b5textid;
-     int b6id;
-     int b6textid;
-     int b7id;
-     int b7textid;
-     int b8id;
-     int b8textid;
-     int b9id;
-     int b9textid;
-     int b10id;
-     int b10textid;
-     int b11id;
-     int b11textid;
-     int b12id;
-     int b12textid;
-     int b13id;
-     int b13textid;
-     int b14id;
-     int b14textid;
-     int b15id;
-     int b15textid;
-     int b16id;
-     int b16textid;
-     int b17id;
-     int b17textid;
-     int b18id;
-     int b18textid;
-     int b19id;
-     int b19textid;
-     int b20id;
-     int b20textid;
-     int b21id;
-     int b21textid;
-     int b22id;
-     int b22textid;
-     int BNameId;
-     int BNameTextId;
-     int OptionsListId;
-     int BRemoveId;
-     int BRemoveTextId;
-     int detailnr;
-     int libnr;
-     int detailx;
-     int detaily;
+     BAddId: i32;
+     BAddTextId: i32;
+     b1id: i32;
+     b1textid: i32;
+     b2id: i32;
+     b2textid: i32;
+     b3id: i32;
+     b3textid: i32;
+     b4id: i32;
+     b4textid: i32;
+     b5id: i32;
+     b5textid: i32;
+     b6id: i32;
+     b6textid: i32;
+     b7id: i32;
+     b7textid: i32;
+     b8id: i32;
+     b8textid: i32;
+     b9id: i32;
+     b9textid: i32;
+     b10id: i32;
+     b10textid: i32;
+     b11id: i32;
+     b11textid: i32;
+     b12id: i32;
+     b12textid: i32;
+     b13id: i32;
+     b13textid: i32;
+     b14id: i32;
+     b14textid: i32;
+     b15id: i32;
+     b15textid: i32;
+     b16id: i32;
+     b16textid: i32;
+     b17id: i32;
+     b17textid: i32;
+     b18id: i32;
+     b18textid: i32;
+     b19id: i32;
+     b19textid: i32;
+     b20id: i32;
+     b20textid: i32;
+     b21id: i32;
+     b21textid: i32;
+     b22id: i32;
+     b22textid: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     OptionsListId: i32;
+     BRemoveId: i32;
+     BRemoveTextId: i32;
+     detailnr: i32;
+     libnr: i32;
+     detailx: i32;
+     detaily: i32;
      string ss;
 
-    pub StringListWindowClass( GameClass tGame)
+    pub StringListWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "String Lists")
     {
       self.detailnr = -1;
@@ -86,9 +86,9 @@ namespace WindowsApplication1
       self.MakeList(-1);
     }
 
-    pub void DoRefresh() => self.MakeList(self.detailnr);
+    pub fn DoRefresh() => self.MakeList(self.detailnr);
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.detailnr == -1)
@@ -127,7 +127,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-     void MakeList(int tDetailnr)
+     void MakeList(tDetailnr: i32)
     {
       let mut num1: i32 = -1;
       if (self.LibListId > 0)
@@ -153,9 +153,9 @@ namespace WindowsApplication1
         ListClass libListObj = self.LibListObj;
         let mut tlistselect: i32 = num1;
         let mut game: GameClass = self.game;
-         Bitmap local1 =  self.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  self.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(libListObj, 10, 200, tlistselect, game, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         self.LibListId = self.AddSubPart( tsubpart, 10, 50, 200, 208, 0);
       }
@@ -184,9 +184,9 @@ namespace WindowsApplication1
         let mut tlistsize: i32 = 20 + num5;
         let mut tlistselect: i32 = num4;
         let mut game: GameClass = self.game;
-         Bitmap local3 =  self.OwnBitmap;
-        Font font =  null;
-         Font local4 =  font;
+         local3: Bitmap =  self.OwnBitmap;
+        font: Font =  null;
+         local4: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(listObj, tlistsize, 200, tlistselect, game, tHeader: "Stringlists", tbackbitmap: ( local3), bbx: 10, bby: 274, overruleFont: ( local4));
         self.ListId = self.AddSubPart( tsubpart, 10, 274, 200, (23 + num5) * 16, 0);
         self.detailnr = tDetailnr;
@@ -431,7 +431,7 @@ namespace WindowsApplication1
       self.MakeTab();
     }
 
-    pub void MakeTab()
+    pub fn MakeTab()
     {
       if (self.b2id > 0)
         self.RemoveSubPart(self.b2id);
@@ -500,7 +500,7 @@ namespace WindowsApplication1
       self.b21textid = self.AddSubPart( tsubpart12, 1150, 159, 140, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -587,7 +587,7 @@ namespace WindowsApplication1
                     if (Strings.Len(Expression) > 0)
                     {
                       self.game.Data.StringListObj[self.detailnr].AddRow(self.game.Data.StringListObj[self.detailnr].Length);
-                      string[] strArray = Expression.Split('\t');
+                      strArray: Vec<String> = Expression.Split('\t');
                       let mut index2: i32 = -1;
                       foreach (string str in strArray)
                       {

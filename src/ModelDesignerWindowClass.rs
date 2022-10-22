@@ -14,105 +14,105 @@ namespace WindowsApplication1
 {
   pub class ModelDesignerWindowClass : WindowClass
   {
-     int TempText1;
-     int temptext2;
-     int temptext3;
-     int temptext4;
-     int temptext5;
-     int temptext6;
-     int temptext7;
-     int temptext8;
-     int temptext9;
-     int temptext10;
-     int TempText11;
-     int temptext12;
-     int temptext13;
-     int temptext14;
-     int temptext15;
-     int temptext16;
-     int temptext17;
-     int temptext18;
-     int temptext19;
-     int temptext20;
-     int TempText21;
-     int temptext22;
-     int temptext23;
-     int temptext24;
-     int temptext25;
-     int temptext26;
-     int temptext27;
-     int temptext28;
-     int temptext29;
-     int temptext30;
-     int TempText31;
-     int temptext32;
-     int temptext33;
-     int temptext34;
-     int temptext35;
-     int temptext36;
-     int temptext37;
-     int temptext38;
-     int temptext39;
-     int temptext40;
-     int temptext41;
-     int temptext42;
-     int temptext43;
-     int temptext44;
-     int temptext45;
-     int temptext46;
-     int but1id;
-     int but1textid;
-     int but1bid;
-     int hqbut0;
-     int hqbut1;
-     int hqbut2;
-     int but2id;
-     int but2textid;
-     int but3id;
-     int but3textid;
-     int but4id;
-     int but4textid;
-     int but5id;
-     int but5textid;
-     int but6id;
-     int but6textid;
-     int but7id;
-     int but7textid;
-     int descid;
-     int sliderid;
+     TempText1: i32;
+     temptext2: i32;
+     temptext3: i32;
+     temptext4: i32;
+     temptext5: i32;
+     temptext6: i32;
+     temptext7: i32;
+     temptext8: i32;
+     temptext9: i32;
+     temptext10: i32;
+     TempText11: i32;
+     temptext12: i32;
+     temptext13: i32;
+     temptext14: i32;
+     temptext15: i32;
+     temptext16: i32;
+     temptext17: i32;
+     temptext18: i32;
+     temptext19: i32;
+     temptext20: i32;
+     TempText21: i32;
+     temptext22: i32;
+     temptext23: i32;
+     temptext24: i32;
+     temptext25: i32;
+     temptext26: i32;
+     temptext27: i32;
+     temptext28: i32;
+     temptext29: i32;
+     temptext30: i32;
+     TempText31: i32;
+     temptext32: i32;
+     temptext33: i32;
+     temptext34: i32;
+     temptext35: i32;
+     temptext36: i32;
+     temptext37: i32;
+     temptext38: i32;
+     temptext39: i32;
+     temptext40: i32;
+     temptext41: i32;
+     temptext42: i32;
+     temptext43: i32;
+     temptext44: i32;
+     temptext45: i32;
+     temptext46: i32;
+     but1id: i32;
+     but1textid: i32;
+     but1bid: i32;
+     hqbut0: i32;
+     hqbut1: i32;
+     hqbut2: i32;
+     but2id: i32;
+     but2textid: i32;
+     but3id: i32;
+     but3textid: i32;
+     but4id: i32;
+     but4textid: i32;
+     but5id: i32;
+     but5textid: i32;
+     but6id: i32;
+     but6textid: i32;
+     but7id: i32;
+     but7textid: i32;
+     descid: i32;
+     sliderid: i32;
      float tempBlink;
-     int unr;
-     int sfnr;
-     int sftyp;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int detailtype;
-     int ammount;
+     unr: i32;
+     sfnr: i32;
+     sftyp: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     detailtype: i32;
+     ammount: i32;
      bool hqreach;
-     int passenger;
-     int OptionsListId;
+     passenger: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ListClass OptionsList6Obj;
-     int combatListId;
+     combatListId: i32;
      ListClass combatListObj;
-     int combatList2Id;
+     combatList2Id: i32;
      ListClass combatList2Obj;
-     int StatTyp;
-     int StatMode;
+     StatTyp: i32;
+     StatMode: i32;
      int[] ChainHq;
-     int HQselect;
+     HQselect: i32;
 
-    pub ModelDesignerWindowClass( GameClass tGame)
+    pub ModelDesignerWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.ChainHq = new int[3];
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND2MARC);
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -208,9 +208,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tlistselect2: i32 = tlistselect1;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 15, 300, tlistselect2, game, tHeader: "Models", tShowPair: true, tValueWidth: 160, tbackbitmap: ( local1), bbx: 20, bby: 50, overruleFont: ( local2));
         this.OptionsListId = this.AddSubPart( tsubpart, 20, 50, 300, 288, 0);
       }
@@ -276,9 +276,9 @@ namespace WindowsApplication1
           let mut tlistselect4: i32 = tlistselect3;
           let mut game: GameClass = this.game;
           tHeader: String = this.game.Data.HistoricalUnitObj[this.detailnr].Name + " Sub Unit Models";
-           Bitmap local3 =  this.OwnBitmap;
-          Font font =  null;
-           Font local4 =  font;
+           local3: Bitmap =  this.OwnBitmap;
+          font: Font =  null;
+           local4: Font =  font;
           let mut tsubpart8: SubPartClass =  new ListSubPartClass(optionsList2Obj, 15, 300, tlistselect4, game, tHeader: tHeader, tShowPair: true, tbackbitmap: ( local3), bbx: 520, bby: 50, overruleFont: ( local4));
           this.OptionsList2Id = this.AddSubPart( tsubpart8, 520, 50, 300, 288, 0);
         }
@@ -330,9 +330,9 @@ namespace WindowsApplication1
           let mut tlistselect6: i32 = tlistselect5;
           let mut game: GameClass = this.game;
           tHeader: String = this.game.Data.UnitObj[preDef].Name + " composition";
-           Bitmap local5 =  this.OwnBitmap;
-          Font font =  null;
-           Font local6 =  font;
+           local5: Bitmap =  this.OwnBitmap;
+          font: Font =  null;
+           local6: Font =  font;
           let mut tsubpart13: SubPartClass =  new ListSubPartClass(optionsList3Obj, 10, 600, tlistselect6, game, tHeader: tHeader, tShowPair: true, tValueWidth: 350, tbackbitmap: ( local5), bbx: 20, bby: 400, overruleFont: ( local6));
           this.OptionsList3Id = this.AddSubPart( tsubpart13, 20, 400, 600, 208, 0);
         }
@@ -405,7 +405,7 @@ namespace WindowsApplication1
       objgraphics.Dispose();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -427,9 +427,9 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => this.DoStuff();
+    pub fn DoRefresh() => this.DoStuff();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -497,7 +497,7 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int preDef;
+            preDef: i32;
             if (num1 == this.temptext7)
             {
               preDef = this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[this.detailnr2]);
@@ -557,8 +557,8 @@ namespace WindowsApplication1
             {
               if (Interaction.MsgBox( "Add a HQ?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
-                int num8;
-                int historicalUnitCounter;
+                num8: i32;
+                historicalUnitCounter: i32;
                 if ( this.game.Data.RuleVar[348] == 1.0)
                 {
                   num8 =  Math.Round(Conversion.Val(Interaction.InputBox("Level of the HQ? (1=Corps, 2=Army, 3=Armygroup, 4=Highest)", "Shadow Empire : Planetary Conquest")));

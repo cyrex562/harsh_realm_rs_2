@@ -14,16 +14,16 @@ namespace WindowsApplication1
 {
   pub class RandomTopClass : WindowClass
   {
-     int w;
-     int h;
-     int CurrentView;
-     int tab1;
-     int tab2;
-     int tab3;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     tab1: i32;
+     tab2: i32;
+     tab3: i32;
      string tabname;
 
     pub RandomTopClass(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, tGame.ScreenWidth, 75, 8)
@@ -38,7 +38,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       if (y < 60)
@@ -46,9 +46,9 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.game.EditObj.SetViewMode2 > 0 & this.game.EditObj.SetViewMode2 < 101)
         this.game.EditObj.SetViewMode2 = 0;
@@ -59,7 +59,7 @@ namespace WindowsApplication1
       for (let mut index: i32 = 0; index < this.game.ScreenWidth; index += 100)
       {
          let mut local1: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = index;
         DrawMod.DrawSimple( local1,  local2, x, 0);
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       graphics.Dispose();
     }
 
-    pub void DrawTabs(object g)
+    pub fn DrawTabs(object g)
     {
       this.tab1 = -1;
       this.tab2 = -1;
@@ -78,13 +78,13 @@ namespace WindowsApplication1
       Graphics objgraphics;
       Rectangle trect1;
       Rectangle rectangle;
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (this.CurrentView > 0)
       {
         Rectangle rectForTab = DrawMod.GetRectForTab(this.CurrentView);
         objgraphics = (Graphics) g;
          let mut local1: &Graphics = &objgraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCTAB);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.MARCTAB);
          let mut local2: &Bitmap = &bitmap2;
         trect1 = Rectangle::new(0, 20, 8, 43);
         let mut srcrect1: &Rectangle = &trect1
@@ -140,7 +140,7 @@ namespace WindowsApplication1
         };
         object[] objArray2 = objArray1;
         let mut tgame: GameClass = DrawMod.TGame;
-        Font marcFont4 = tgame.MarcFont4;
+        marcFont4: Font = tgame.MarcFont4;
         objArray2[1] =  marcFont4;
         object[] objArray3 = objArray1;
         object[] Arguments = objArray3;
@@ -183,7 +183,7 @@ namespace WindowsApplication1
         };
         object[] objArray5 = objArray4;
         let mut tgame: GameClass = DrawMod.TGame;
-        Font marcFont4 = tgame.MarcFont4;
+        marcFont4: Font = tgame.MarcFont4;
         objArray5[1] =  marcFont4;
         object[] objArray6 = objArray4;
         object[] Arguments = objArray6;
@@ -218,7 +218,7 @@ namespace WindowsApplication1
         };
         object[] objArray8 = objArray7;
         let mut tgame: GameClass = DrawMod.TGame;
-        Font marcFont4 = tgame.MarcFont4;
+        marcFont4: Font = tgame.MarcFont4;
         objArray8[1] =  marcFont4;
         object[] objArray9 = objArray7;
         object[] Arguments = objArray9;
@@ -238,7 +238,7 @@ namespace WindowsApplication1
       this.tab2 = this.MouseCounter;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = this.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -254,7 +254,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
@@ -293,7 +293,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 77)

@@ -33,11 +33,11 @@ namespace WindowsApplication1
       info.AddValue("Height", this.Height);
       if (this.Width <= -1)
         return;
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray2 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray3 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray4 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray5 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray2: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray3: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray4: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray5: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       bool[,] flagArray = new bool[this.Width + 1, this.Height + 1];
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -69,19 +69,19 @@ namespace WindowsApplication1
       this.Value = new Coordinate[this.Width + 1, this.Height + 1];
       if (this.Width <= 0)
         return;
-      int[,] numArray1 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray2 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray3 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray4 = new int[this.Width + 1, this.Height + 1];
-      int[,] numArray5 = new int[this.Width + 1, this.Height + 1];
+      numArray1: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray2: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray3: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray4: Vec<i32> = new int[this.Width + 1, this.Height + 1];
+      numArray5: Vec<i32> = new int[this.Width + 1, this.Height + 1];
       bool[,] flagArray1 = new bool[this.Width + 1, this.Height + 1];
       if (this.Width <= -1)
         return;
-      int[,] numArray6 = (int[,]) info.GetValue("t1", numArray1.GetType());
-      int[,] numArray7 = (int[,]) info.GetValue("t2", numArray2.GetType());
-      int[,] numArray8 = (int[,]) info.GetValue("t3", numArray3.GetType());
-      int[,] numArray9 = (int[,]) info.GetValue("t4", numArray4.GetType());
-      int[,] numArray10 = (int[,]) info.GetValue("t5", numArray5.GetType());
+      numArray6: Vec<i32> = (int[,]) info.GetValue("t1", numArray1.GetType());
+      numArray7: Vec<i32> = (int[,]) info.GetValue("t2", numArray2.GetType());
+      numArray8: Vec<i32> = (int[,]) info.GetValue("t3", numArray3.GetType());
+      numArray9: Vec<i32> = (int[,]) info.GetValue("t4", numArray4.GetType());
+      numArray10: Vec<i32> = (int[,]) info.GetValue("t5", numArray5.GetType());
       bool[,] flagArray2 = (bool[,]) info.GetValue("t6", flagArray1.GetType());
       let mut width: i32 =  this.Width;
       for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
@@ -99,7 +99,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub MapMatrix2Coordinate(int w, int h)
+    pub MapMatrix2Coordinate(w: i32, h: i32)
     {
       this.Value = new Coordinate[1, 1];
       this.Width = w;

@@ -14,11 +14,11 @@ namespace WindowsApplication1
   pub class UnitHeaderPartClass_Backuo : SubPartClass
   {
      object OwnBitmapNr;
-     int unr;
-     GameClass game;
-     int his;
+     unr: i32;
+     game: GameClass;
+     his: i32;
 
-    pub UnitHeaderPartClass_Backuo(int tunr, GameClass tgame)
+    pub UnitHeaderPartClass_Backuo(tunr: i32, tgame: GameClass)
       : base(225, 200)
     {
       self.unr = tunr;
@@ -26,7 +26,7 @@ namespace WindowsApplication1
       self.his = self.game.Data.UnitObj[self.unr].Historical;
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (self.game.EditObj.UnitSelected == -1)
         return;
@@ -60,8 +60,8 @@ namespace WindowsApplication1
         }
         else
         {
-          int Number1;
-          int Number2;
+          Number1: i32;
+          Number2: i32;
           if (hq == -1 | self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
           {
             Number1 = 0;
@@ -119,10 +119,10 @@ namespace WindowsApplication1
         self.Descript = "For all practical purposes this unit travels with the movement speed this movement type";
       if (!(x > 5 & y > 1 & x < 43 & y < 38) || !self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
         return;
-      self.Descript = "Click to change color of hq.";
+      self.Descript = "Click to change of: Color hq.";
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Coordinate coordinate = Coordinate::new();
@@ -300,7 +300,7 @@ namespace WindowsApplication1
         if (nr > -1 & index2 > -1)
         {
            let mut local1: &Graphics = &toG;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local2: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local1,  local2, 188, 13);
           str5: String = self.game.Data.SFObj[index2].MoveType <= -1 ? self.game.Data.TempString[self.game.Data.SFTypeObj[self.game.Data.SFObj[index2].Type].MoveType] : self.game.Data.TempString[self.game.Data.SFObj[index2].MoveType];
@@ -312,7 +312,7 @@ namespace WindowsApplication1
         else if (nr > -1)
         {
            let mut local3: &Graphics = &toG;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local3,  local4, 188, 13);
           if (Strings.Len(str4) > 7)
@@ -556,11 +556,11 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return self.OwnBitmap;

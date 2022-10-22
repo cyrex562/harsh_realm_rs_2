@@ -14,26 +14,26 @@ namespace WindowsApplication1
 {
   pub class MapSelectWindowClass2 : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int unitheaderid;
-     int unitsfid;
-     int mapid;
-     int FromMessage;
-     int UnitSelected;
-     int oldShowSetting;
-     int tempUnitHisId;
-     int tempUnitHis2Id;
-     int tcx;
-     int tcy;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     unitheaderid: i32;
+     unitsfid: i32;
+     mapid: i32;
+     FromMessage: i32;
+     UnitSelected: i32;
+     oldShowSetting: i32;
+     tempUnitHisId: i32;
+     tempUnitHis2Id: i32;
+     tcx: i32;
+     tcy: i32;
      bool UdsMode;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
      MapMatrix2 cacheTemp;
      MapMatrix2Coordinate cacheTempCameFrom;
      MapMatrix2 cacheTempValueSpecial;
@@ -41,7 +41,7 @@ namespace WindowsApplication1
      MapMatrix2 cacheTemp2;
      MapMatrix2Plus6 cacheTempAttack;
 
-    pub void Close()
+    pub fn Close()
     {
       if (this.game.Data.Product != 6)
         return;
@@ -53,7 +53,7 @@ namespace WindowsApplication1
       this.game.EditObj.TempAttack[0] = this.cacheTempAttack;
     }
 
-    pub MapSelectWindowClass2( GameClass tGame)
+    pub MapSelectWindowClass2( tGame: GameClass)
       : base( tGame, 860, 700, 8)
     {
       if (Information.IsNothing( this.game.EditObj.TempValue[0]))
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       this.UdsMode = false;
       if (this.game.EditObj.HandCard == -1 & this.game.EditObj.DoCardSlot == -1 & this.game.Data.Product > 6)
         this.UdsMode = true;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (!this.UdsMode)
       {
         if (this.game.EditObj.HandCard == -1)
@@ -220,13 +220,13 @@ namespace WindowsApplication1
       this.ViewMessage();
     }
 
-    pub void Dispose()
+    pub fn Dispose()
     {
       base.Dispose();
       DrawMod.TGame.EditObj.MapPopupMode = false;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -261,7 +261,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (this.Pic1Id > 0)
       {
@@ -309,7 +309,7 @@ namespace WindowsApplication1
       }
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &objgraphics;
-       Bitmap local2 =  this.BackBitmap;
+       local2: Bitmap =  this.BackBitmap;
       trect1 = Rectangle::new(370, 540, 240, 140);
       let mut rect: &Rectangle = &trect1
       DrawMod.DrawSimplePart( local1,  local2, rect);
@@ -319,14 +319,14 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextColouredMarc( objgraphics, "HEX SELECTED:", this.game.MarcFont4, 370, 550, Color.White);
            let mut local3: &Graphics = &objgraphics;
-          CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
+          customBitmapObj: CustomBitmapClass = this.game.CustomBitmapObj;
           let mut selectX: i32 =  this.game.SelectX;
           let mut selectY: i32 =  this.game.SelectY;
-          Bitmap bitmap1 = (Bitmap) null;
+          bitmap1: Bitmap = (Bitmap) null;
            let mut local4: &Bitmap = &bitmap1;
           bool flag = false;
            bool local5 =  flag;
-          Bitmap bitmap2 = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local4), tFromMapPopup: ( local5));
+          bitmap2: Bitmap = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local4), tFromMapPopup: ( local5));
            let mut local6: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local6, 370, 575);
           DrawMod.DrawTextColouredMarc( objgraphics, this.game.HandyFunctionsObj.GetHexName(this.game.SelectX, this.game.SelectY, 0), this.game.MarcFont4, 440, 585, Color.White);
@@ -351,14 +351,14 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextColouredMarc( objgraphics, "HEX SELECTED:", this.game.MarcFont4, 370, 550, Color.White);
            let mut local7: &Graphics = &objgraphics;
-          CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
+          customBitmapObj: CustomBitmapClass = this.game.CustomBitmapObj;
           let mut selectX: i32 =  this.game.SelectX;
           let mut selectY: i32 =  this.game.SelectY;
-          Bitmap bitmap3 = (Bitmap) null;
+          bitmap3: Bitmap = (Bitmap) null;
            let mut local8: &Bitmap = &bitmap3;
           bool flag = false;
            bool local9 =  flag;
-          Bitmap bitmap4 = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local8), tFromMapPopup: ( local9));
+          bitmap4: Bitmap = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local8), tFromMapPopup: ( local9));
            let mut local10: &Bitmap = &bitmap4;
           DrawMod.DrawSimple( local7,  local10, 370, 575);
           DrawMod.DrawTextColouredMarc( objgraphics, this.game.HandyFunctionsObj.GetHexName(this.game.SelectX, this.game.SelectY, 0), this.game.MarcFont4, 440, 585, Color.White);
@@ -381,7 +381,7 @@ namespace WindowsApplication1
       this.Pic1Id = this.AddSubPart( tsubpart3, 5, 535, 200, 150, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -543,7 +543,7 @@ namespace WindowsApplication1
                 return windowReturnClass;
               }
               let mut locCounter: i32 =  this.game.Data.LocCounter;
-              int Number;
+              Number: i32;
               for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
               {
                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
@@ -621,7 +621,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut cornerX: i32 =  this.game.CornerX;
@@ -631,7 +631,7 @@ namespace WindowsApplication1
       return nr == 32 & this.okid > 0 ? this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.okid)] + 1, this.SubPartY[this.SubpartNr(this.okid)] + 1, 1) : windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;

@@ -15,10 +15,10 @@ namespace WindowsApplication1
   pub class RiverTypeClass : ISerializable
   {
     pub Name: String;
-    pub string[] BasicSpriteFileName;
+    pub BasicSpriteFileName: Vec<String>;
     pub BasicSpriteID: Vec<i32>;
     pub LayerSpriteID: Vec<i32>;
-    pub string[] LayerSpriteFileName;
+    pub LayerSpriteFileName: Vec<String>;
     pub SpecialLayer: bool;
     pub float[] AttackPenalty;
     pub MovePenalty: Vec<i32>;
@@ -133,7 +133,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int GetRiverHeight(GameClass game, int x, int y, int z)
+    pub GetRiverHeight: i32(game: GameClass, x: i32, y: i32, z: i32)
     {
       if (!game.AllowHeightMap ||  game.Data.RuleVar[418] < 1.0)
         return 0;
@@ -171,7 +171,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub RiverTypeClass(int hardcoded)
+    pub RiverTypeClass(hardcoded: i32)
     {
       this.BasicSpriteFileName = new string[6];
       this.BasicSpriteID = new int[6];
@@ -195,7 +195,7 @@ namespace WindowsApplication1
       this.snakeMode = false;
     }
 
-    pub void AutoLoadSpecial(string dirstring, string extstring)
+    pub fn AutoLoadSpecial(string dirstring, string extstring)
     {
       this.LayerSpriteFileName[1] = dirstring + "/a1" + extstring;
       this.LayerSpriteFileName[2] = dirstring + "/b1" + extstring;
@@ -264,7 +264,7 @@ namespace WindowsApplication1
       this.ReloadSpecialSprites();
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       let mut index1: i32 = 0;
       do
@@ -284,19 +284,19 @@ namespace WindowsApplication1
       while (index2 <= 64);
     }
 
-    pub void ReplaceBasicSprite(int nr, string filename)
+    pub fn ReplaceBasicSprite(nr: i32, string filename)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void ReplaceSpriteSheet(string filename)
+    pub fn ReplaceSpriteSheet(string filename)
     {
       this.SheetFileName = filename;
       this.SheetSpriteID = BitmapStore.ReloadFile(this.SheetSpriteID, this.SheetFileName, IsBig: true);
     }
 
-    pub void ReloadSpecialSprites()
+    pub fn ReloadSpecialSprites()
     {
       let mut index: i32 = 1;
       do
@@ -307,7 +307,7 @@ namespace WindowsApplication1
       while (index <= 64);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       let mut index1: i32 = 0;
       do

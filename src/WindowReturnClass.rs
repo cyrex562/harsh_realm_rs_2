@@ -22,7 +22,7 @@ namespace WindowsApplication1
 
     pub WindowReturnClass() => self.Counter = -1;
 
-    pub void AddCommand(int type, int data)
+    pub fn AddCommand(type: i32, data: i32)
     {
       let mut counter: i32 = self.Counter;
       for (let mut index: i32 = 0; index <= counter; index += 1)
@@ -37,8 +37,8 @@ namespace WindowsApplication1
       self.CommandData[self.Counter] = data;
     }
 
-    pub void SetFlag(bool t) => self.Flag = t;
+    pub fn SetFlag(bool t) => self.Flag = t;
 
-    pub void SetOverlay(bool t) => self.Overlay = t;
+    pub fn SetOverlay(bool t) => self.Overlay = t;
   }
 }

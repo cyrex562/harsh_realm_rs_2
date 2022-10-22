@@ -65,14 +65,14 @@ namespace WindowsApplication1
     pub HistoryStepClass[] HistoryStep;
     pub HistoryStepCounter: i32;
     pub MessCounter: i32;
-    pub string[] MessString;
+    pub MessString: Vec<String>;
     pub MessBackPic: Vec<i32>;
     pub MessFrontPic: Vec<i32>;
-    pub string[] MessWav;
+    pub MessWav: Vec<String>;
     pub MesStyle: Vec<i32>;
-    pub string[] MesNote;
-    pub string[] MesNote2;
-    pub string[] MesName;
+    pub MesNote: Vec<String>;
+    pub MesNote2: Vec<String>;
+    pub MesName: Vec<String>;
     pub MesGroup: Vec<i32>;
     pub MesHideFromStart: Vec<bool>;
     pub MesHideFromTab: Vec<bool>;
@@ -85,23 +85,23 @@ namespace WindowsApplication1
     pub UnitNumber: i32;
     pub HQName: String;
     pub HQNumber: i32;
-    pub int[,] SLoss;
-    pub int[,] SKills;
-    pub int[,] SProd;
-    pub int[,] SPresent;
+    pub SLoss: Vec<i32>;
+    pub SKills: Vec<i32>;
+    pub SProd: Vec<i32>;
+    pub SPresent: Vec<i32>;
     pub int[,,] LisPoints;
-    pub Bitmap HexBack;
+    pub HexBack: Bitmap;
     pub PlanCounter: i32;
-    pub AIPlanClass[] PlanObj;
-    pub Bitmap TempCounter;
-    pub Bitmap TempCounterHigh;
-    pub Bitmap TempCounterBig;
-    pub Bitmap TempCounterBigHigh;
-    pub Bitmap TempCountersmall;
-    pub Bitmap TempCountersmallHigh;
-    pub Bitmap TempRegimeColor;
-    pub Bitmap TempRegimeColorSmall;
-    pub Bitmap TempRegimeColorBig;
+    pub PlanObj: Vec<AIPlanClass>;
+    pub TempCounter: Bitmap;
+    pub TempCounterHigh: Bitmap;
+    pub TempCounterBig: Bitmap;
+    pub TempCounterBigHigh: Bitmap;
+    pub TempCountersmall: Bitmap;
+    pub TempCountersmallHigh: Bitmap;
+    pub TempRegimeColor: Bitmap;
+    pub TempRegimeColorSmall: Bitmap;
+    pub TempRegimeColorBig: Bitmap;
     pub DipBlock: bool;
     pub SASSupplyLost: i32;
     pub SASSupplyKilled: i32;
@@ -115,7 +115,7 @@ namespace WindowsApplication1
     pub ActionCardHistoryCounter: i32;
     pub ActionCardHistory: Vec<i32>;
     pub ActionCardHistoryRound: Vec<i32>;
-    pub int[,] ExtraStat;
+    pub ExtraStat: Vec<i32>;
     pub NationalIconSpriteName: String;
     pub NationalIconSprite: i32;
     pub RoundelSpriteName: String;
@@ -143,7 +143,7 @@ namespace WindowsApplication1
     pub LastVersion: i32;
     pub OfficerPool: i32;
     pub AIGroupCounter: i32;
-    pub string[] AIGroupName;
+    pub AIGroupName: Vec<String>;
     pub AIGroupType: Vec<i32>;
     pub AIGroupHis: Vec<i32>;
     pub AIGroupLastAttack: Vec<i32>;
@@ -280,14 +280,14 @@ namespace WindowsApplication1
       info.AddValue("minimumDataUsage", this.minimumDataUsage);
     }
 
-    pub void AddPlan()
+    pub fn AddPlan()
     {
       this += 1.PlanCounter;
       this.PlanObj = (AIPlanClass[]) Utils.CopyArray((Array) this.PlanObj, (Array) new AIPlanClass[this.PlanCounter + 1]);
       this.PlanObj[this.PlanCounter] = AIPlanClass::new();
     }
 
-    pub void RemovePlan(int nr)
+    pub fn RemovePlan(nr: i32)
     {
       if (nr < this.PlanCounter)
       {
@@ -436,7 +436,7 @@ namespace WindowsApplication1
       }
       let mut mapWidth: i32 = DrawMod.TGame.Data.MapWidth;
       let mut mapHeight: i32 = DrawMod.TGame.Data.MapHeight;
-      int[,] numArray1 = new int[mapWidth + 1, mapHeight + 1];
+      numArray1: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
       try
       {
         this.MapCount = info.GetInt32(nameof (MapCount));
@@ -501,26 +501,26 @@ namespace WindowsApplication1
         this.AIDefense = new MapMatrix2[1];
         if (mapWidth > -1 & mapHeight > -1)
         {
-          int[,] numArray2 = new int[mapWidth + 1, mapHeight + 1];
-          int[,] numArray3 = (int[,]) info.GetValue(nameof (HistoryOwner), numArray2.GetType());
+          numArray2: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+          numArray3: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryOwner), numArray2.GetType());
           this.HistoryOwner[0] = new MapMatrix2(mapWidth, mapHeight);
           this.HistoryOwner[0].Value = numArray3;
-          int[,] numArray4 = new int[mapWidth + 1, mapHeight + 1];
-          int[,] numArray5 = (int[,]) info.GetValue(nameof (HistoryForce), numArray4.GetType());
+          numArray4: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+          numArray5: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryForce), numArray4.GetType());
           this.HistoryForce[0] = new MapMatrix2(mapWidth, mapHeight);
           this.HistoryForce[0].Value = numArray5;
-          int[,] numArray6 = new int[mapWidth + 1, mapHeight + 1];
-          int[,] numArray7 = (int[,]) info.GetValue(nameof (HistorySFType), numArray6.GetType());
+          numArray6: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+          numArray7: Vec<i32> = (int[,]) info.GetValue(nameof (HistorySFType), numArray6.GetType());
           this.HistorySFType[0] = new MapMatrix2(mapWidth, mapHeight);
           this.HistorySFType[0].Value = numArray7;
           try
           {
-            int[,] numArray8 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray9 = (int[,]) info.GetValue(nameof (HistoryHis), numArray8.GetType());
+            numArray8: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray9: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryHis), numArray8.GetType());
             this.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
             this.HistoryHis[0].Value = numArray9;
-            int[,] numArray10 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray11 = (int[,]) info.GetValue(nameof (HistoryDepth), numArray10.GetType());
+            numArray10: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray11: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryDepth), numArray10.GetType());
             this.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
             this.HistoryDepth[0].Value = numArray11;
           }
@@ -529,7 +529,7 @@ namespace WindowsApplication1
             ProjectData.SetProjectError(ex2);
             this.HistoryHis = new MapMatrix2[1];
             this.HistoryDepth = new MapMatrix2[1];
-            int[,] numArray12 = new int[mapWidth + 1, mapHeight + 1];
+            numArray12: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             this.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
             this.HistoryHis[0].Value = numArray12;
             this.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
@@ -538,8 +538,8 @@ namespace WindowsApplication1
           }
           try
           {
-            int[,] numArray13 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray14 = (int[,]) info.GetValue(nameof (AIVP), numArray13.GetType());
+            numArray13: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray14: Vec<i32> = (int[,]) info.GetValue(nameof (AIVP), numArray13.GetType());
             this.AIVP[0] = new MapMatrix2(mapWidth, mapHeight);
             this.AIVP[0].Value = numArray14;
           }
@@ -551,8 +551,8 @@ namespace WindowsApplication1
           }
           try
           {
-            int[,] numArray15 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray16 = (int[,]) info.GetValue(nameof (Trafic), numArray15.GetType());
+            numArray15: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray16: Vec<i32> = (int[,]) info.GetValue(nameof (Trafic), numArray15.GetType());
             this.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
             this.Trafic[0].Value = numArray16;
           }
@@ -564,8 +564,8 @@ namespace WindowsApplication1
           }
           try
           {
-            int[,] numArray17 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray18 = (int[,]) info.GetValue(nameof (Trafic2), numArray17.GetType());
+            numArray17: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray18: Vec<i32> = (int[,]) info.GetValue(nameof (Trafic2), numArray17.GetType());
             this.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
             this.Trafic2[0].Value = numArray18;
           }
@@ -577,8 +577,8 @@ namespace WindowsApplication1
           }
           try
           {
-            int[,] numArray19 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray20 = (int[,]) info.GetValue(nameof (AIPower), numArray19.GetType());
+            numArray19: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray20: Vec<i32> = (int[,]) info.GetValue(nameof (AIPower), numArray19.GetType());
             this.AIPower[0] = new MapMatrix2(mapWidth, mapHeight);
             this.AIPower[0].Value = numArray20;
           }
@@ -590,8 +590,8 @@ namespace WindowsApplication1
           }
           try
           {
-            int[,] numArray21 = new int[mapWidth + 1, mapHeight + 1];
-            int[,] numArray22 = (int[,]) info.GetValue(nameof (AIDefense), numArray21.GetType());
+            numArray21: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
+            numArray22: Vec<i32> = (int[,]) info.GetValue(nameof (AIDefense), numArray21.GetType());
             this.AIDefense[0] = new MapMatrix2(mapWidth, mapHeight);
             this.AIDefense[0].Value = numArray22;
           }
@@ -975,10 +975,10 @@ namespace WindowsApplication1
     }
 
     pub RegimeClass(
-      int hardcoded,
-      int tregimecounter,
-      int trescounter,
-      DataClass tData,
+      hardcoded: i32,
+      tregimecounter: i32,
+      trescounter: i32,
+      tData: DataClass,
       bool tminimalDataUsage = false)
     {
       this.RegimeSlot = new int[500];
@@ -1107,7 +1107,7 @@ namespace WindowsApplication1
       this.libId = LibIdClass::new();
     }
 
-    pub void AddMap(int w, int h)
+    pub fn AddMap(w: i32, h: i32)
     {
       this += 1.MapCount;
       this.HistoryOwner = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryOwner, (Array) new MapMatrix2[this.MapCount + 1]);
@@ -1132,7 +1132,7 @@ namespace WindowsApplication1
       this.AIDefense[this.MapCount] = new MapMatrix2(w, h);
     }
 
-    pub void RemoveMap(int nr)
+    pub fn RemoveMap(nr: i32)
     {
       if (nr < this.MapCount)
       {
@@ -1167,14 +1167,14 @@ namespace WindowsApplication1
       this.AIDefense = (MapMatrix2[]) Utils.CopyArray((Array) this.AIDefense, (Array) new MapMatrix2[this.MapCount + 1]);
     }
 
-    pub void AddResField()
+    pub fn AddResField()
     {
       this += 1.ResFieldCounter;
       this.ResField = (bool[]) Utils.CopyArray((Array) this.ResField, (Array) new bool[this.ResFieldCounter + 1]);
       this.ResField[this.ResFieldCounter] = false;
     }
 
-    pub void RemoveResField(int nr)
+    pub fn RemoveResField(nr: i32)
     {
       if (nr < this.ResFieldCounter)
       {
@@ -1189,7 +1189,7 @@ namespace WindowsApplication1
       this.ResField = (bool[]) Utils.CopyArray((Array) this.ResField, (Array) new bool[this.ResFieldCounter + 1]);
     }
 
-    pub void AddRegime()
+    pub fn AddRegime()
     {
       this += 1.RegimeCounter;
       this.RegimeRel = (int[]) Utils.CopyArray((Array) this.RegimeRel, (Array) new int[this.RegimeCounter + 1]);
@@ -1197,7 +1197,7 @@ namespace WindowsApplication1
       this.RegimeRel[this.RegimeCounter] = 1;
     }
 
-    pub void Removeregime(int nr)
+    pub fn Removeregime(nr: i32)
     {
       if (nr < this.RegimeCounter)
       {
@@ -1212,14 +1212,14 @@ namespace WindowsApplication1
       this.RegimeRel = (int[]) Utils.CopyArray((Array) this.RegimeRel, (Array) new int[this.RegimeCounter + 1]);
     }
 
-    pub void AddActionCard(int nr)
+    pub fn AddActionCard(nr: i32)
     {
       this += 1.ActionCardCounter;
       this.ActionCard = (int[]) Utils.CopyArray((Array) this.ActionCard, (Array) new int[this.ActionCardCounter + 1]);
       this.ActionCard[this.ActionCardCounter] = nr;
     }
 
-    pub void RemoveActionCard(int nr)
+    pub fn RemoveActionCard(nr: i32)
     {
       if (nr < this.ActionCardCounter)
       {
@@ -1234,7 +1234,7 @@ namespace WindowsApplication1
       this.ActionCard = (int[]) Utils.CopyArray((Array) this.ActionCard, (Array) new int[this.ActionCardCounter + 1]);
     }
 
-    pub void AddActionCardHistory(int nr, int round)
+    pub fn AddActionCardHistory(nr: i32, round: i32)
     {
       this += 1.ActionCardHistoryCounter;
       this.ActionCardHistory = (int[]) Utils.CopyArray((Array) this.ActionCardHistory, (Array) new int[this.ActionCardHistoryCounter + 1]);
@@ -1243,7 +1243,7 @@ namespace WindowsApplication1
       this.ActionCardHistoryRound[this.ActionCardHistoryCounter] = round;
     }
 
-    pub void RemoveActionCardHistory(int nr)
+    pub fn RemoveActionCardHistory(nr: i32)
     {
       if (nr < this.ActionCardHistoryCounter)
       {
@@ -1262,13 +1262,13 @@ namespace WindowsApplication1
       this.ActionCardHistoryRound = (int[]) Utils.CopyArray((Array) this.ActionCardHistoryRound, (Array) new int[this.RegimeCounter + 1]);
     }
 
-    pub void DoTempCounterBig() => this.DoTempCounterAnySize(1);
+    pub fn DoTempCounterBig() => this.DoTempCounterAnySize(1);
 
-    pub void DoTempCounter() => this.DoTempCounterAnySize(0);
+    pub fn DoTempCounter() => this.DoTempCounterAnySize(0);
 
-    pub void DoTempCounterSmall() => this.DoTempCounterAnySize(-1);
+    pub fn DoTempCounterSmall() => this.DoTempCounterAnySize(-1);
 
-    pub void doTempRegimeHighlight(bool lighter = false)
+    pub fn doTempRegimeHighlight(bool lighter = false)
     {
       float num1 =  ( this.Red / 512.0 - 0.9);
       float num2 =  ( this.Green / 512.0 - 0.9);
@@ -1276,12 +1276,12 @@ namespace WindowsApplication1
       float num4 = 0.25f;
       if (lighter)
         num4 = 0.1f;
-      Bitmap bitmap1 = new Bitmap(128, 96);
+      bitmap1: Bitmap = new Bitmap(128, 96);
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
       graphics1.Clear(Color.Transparent);
        let mut local1: &Graphics = &graphics1;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, 1);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, 1);
        let mut local2: &Bitmap = &bitmap2;
       double r1 =  num1;
       double g1 =  num2;
@@ -1290,12 +1290,12 @@ namespace WindowsApplication1
       DrawMod.Draw( local1,  local2, 0, 0,  r1,  g1,  b1,  a1);
       this.TempRegimeColorBig = bitmap1;
       graphics1.Dispose();
-      Bitmap bitmap3 = new Bitmap(64, 48);
+      bitmap3: Bitmap = new Bitmap(64, 48);
       bitmap3.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) bitmap3);
       graphics2.Clear(Color.Transparent);
        let mut local3: &Graphics = &graphics2;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX);
        let mut local4: &Bitmap = &bitmap4;
       double r2 =  num1;
       double g2 =  num2;
@@ -1304,12 +1304,12 @@ namespace WindowsApplication1
       DrawMod.Draw( local3,  local4, 0, 0,  r2,  g2,  b2,  a2);
       this.TempRegimeColor = bitmap3;
       graphics2.Dispose();
-      Bitmap bitmap5 = new Bitmap(32, 24);
+      bitmap5: Bitmap = new Bitmap(32, 24);
       bitmap5.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics3 = Graphics.FromImage((Image) bitmap5);
       graphics3.Clear(Color.Transparent);
        let mut local5: &Graphics = &graphics3;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, -1);
+      bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, -1);
        let mut local6: &Bitmap = &bitmap6;
       double r3 =  num1;
       double g3 =  num2;
@@ -1320,7 +1320,7 @@ namespace WindowsApplication1
       graphics3.Dispose();
     }
 
-    pub void DoTempCounterAnySize(int sizey)
+    pub fn DoTempCounterAnySize(sizey: i32)
     {
       let mut landscapeTypeCounter: i32 = DrawMod.TGame.Data.LandscapeTypeCounter;
       let mut num1: i32 = 76;
@@ -1351,7 +1351,7 @@ namespace WindowsApplication1
       float num11 =  ((1.0 +  num8) / 2.0);
       float num12 =  ((1.0 +  num9) / 2.0);
       float num13 =  ((1.0 +  num10) / 2.0);
-      Bitmap bitmap1 = new Bitmap(num1 * (landscapeTypeCounter + 1), num1);
+      bitmap1: Bitmap = new Bitmap(num1 * (landscapeTypeCounter + 1), num1);
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       str1: String = "systemgraphics/defaultcounterbig.png";
       if (sizey == -1)
@@ -1361,7 +1361,7 @@ namespace WindowsApplication1
       graphicsDirectory: String = DrawMod.TGame.ModSystemGraphicsDirectory;
       if (Strings.Len(graphicsDirectory) > 1)
         str1 = str1.Replace("systemgraphics", graphicsDirectory);
-      Bitmap objBitmap;
+      objBitmap: Bitmap;
       if (File.Exists(BitmapStore.GraphicsPath + str1))
       {
         objBitmap = new Bitmap(BitmapStore.GraphicsPath + str1);
@@ -1377,7 +1377,7 @@ namespace WindowsApplication1
       }
       objBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       let mut num14: i32 = objBitmap.Height - 1;
-      Color pixel1;
+      pixel1: Color;
       for (let mut y: i32 = 0; y <= num14; y += 1)
       {
         let mut num15: i32 = objBitmap.Width - 1;
@@ -1396,13 +1396,13 @@ namespace WindowsApplication1
       for (let mut index: i32 = 0; index <= num16; index += 1)
         DrawMod.DrawSimple( objGraphics,  objBitmap, index * num1, 0);
       objGraphics.Dispose();
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, 1);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, 1);
       float num17 = 0.4f;
       float num18 = 0.6f;
       let mut num19: i32 = landscapeTypeCounter;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      Color pixel2;
+      pixel2: Color;
       for (let mut index1: i32 = 0; index1 <= num19; index1 += 1)
       {
         if (DrawMod.TGame.Data.LandscapeTypeObj[index1].PreHexPicID > 0 & Strings.InStr(DrawMod.TGame.Data.LandscapeTypeObj[index1].PreHexPicFileName, "trans") < 1 & Strings.InStr(DrawMod.TGame.Data.LandscapeTypeObj[index1].PreHexPicFileName, "blackhex") < 1)
@@ -1429,7 +1429,7 @@ namespace WindowsApplication1
           }
           if (!flag)
           {
-            Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].PreHexPicID, 1);
+            bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].PreHexPicID, 1);
             if (!Information.IsNothing( bitmap3))
             {
               long num21 = 0;
@@ -1459,9 +1459,9 @@ namespace WindowsApplication1
                   let mut b: i32 =  pixel2.B;
                   let mut a1: i32 =  pixel2.A;
                   let mut num28: i32 =  Math.Round( (r + b + g) / 3.0);
-                  int num29;
-                  int num30;
-                  int num31;
+                  num29: i32;
+                  num30: i32;
+                  num31: i32;
                   if (num28 > num25)
                   {
                     num29 =  Math.Round( pixel1.G +  (Math.Min( pixel1.G * 2,  byte.MaxValue) -  pixel1.G) * ( (num28 - num25) /  byte.MaxValue));
@@ -1525,7 +1525,7 @@ namespace WindowsApplication1
           }
           if (!flag)
           {
-            Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].SheetSpriteID, 1);
+            bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].SheetSpriteID, 1);
             if (!Information.IsNothing( bitmap4))
             {
               long num33 = 0;
@@ -1554,9 +1554,9 @@ namespace WindowsApplication1
                   let mut g: i32 =  pixel2.G;
                   let mut b: i32 =  pixel2.B;
                   let mut num40: i32 =  Math.Round( (r + b + g) / 3.0);
-                  int num41;
-                  int num42;
-                  int num43;
+                  num41: i32;
+                  num42: i32;
+                  num43: i32;
                   if (num40 > num37)
                   {
                     num41 =  Math.Round( pixel1.G +  (Math.Min( pixel1.G * 2,  byte.MaxValue) -  pixel1.G) * ( (num40 - num37) /  byte.MaxValue));
@@ -1648,9 +1648,9 @@ namespace WindowsApplication1
                   let mut num57: i32 =  dst[index10 + 1];
                   let mut num58: i32 =  dst[index10 + 2];
                   let mut num59: i32 =  Math.Round( (num57 + num56 + num58) / 3.0);
-                  int num60;
-                  int num61;
-                  int num62;
+                  num60: i32;
+                  num61: i32;
+                  num62: i32;
                   if (num59 > num53)
                   {
                     num60 =  Math.Round( pixel1.G +  (Math.Min( pixel1.G * 2,  byte.MaxValue) -  pixel1.G) * ( (num59 - num53) /  byte.MaxValue));
@@ -1682,7 +1682,7 @@ namespace WindowsApplication1
         }
         else if (!DrawMod.TGame.Data.LandscapeTypeObj[index1].UseSheet & DrawMod.TGame.Data.LandscapeTypeObj[index1].LayerSpriteID[0] > 0)
         {
-          Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].LayerSpriteID[0], 1);
+          bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.LandscapeTypeObj[index1].LayerSpriteID[0], 1);
           if (!Information.IsNothing( bitmap5))
           {
             let mut num64: i32 = 0;
@@ -1711,9 +1711,9 @@ namespace WindowsApplication1
                 let mut g: i32 =  pixel2.G;
                 let mut b: i32 =  pixel2.B;
                 let mut num71: i32 =  Math.Round( (r + b + g) / 3.0);
-                int num72;
-                int num73;
-                int num74;
+                num72: i32;
+                num73: i32;
+                num74: i32;
                 if (num71 > num68)
                 {
                   num72 =  Math.Round( pixel1.G +  (Math.Min( pixel1.G * 2,  byte.MaxValue) -  pixel1.G) * ( (num71 - num68) / 128.0));
@@ -1745,7 +1745,7 @@ namespace WindowsApplication1
           let mut num75: i32 = num75;
         }
       }
-      Bitmap bitmap6 = new Bitmap(bitmap1.Width, bitmap1.Height);
+      bitmap6: Bitmap = new Bitmap(bitmap1.Width, bitmap1.Height);
       bitmap6.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap6);
       graphics1.CompositingMode = CompositingMode.SourceCopy;
@@ -1775,14 +1775,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       this.TempCounter = (Bitmap) null;
       BitmapStore.RemoveBitmapNr(this.NationalIconSprite);
       BitmapStore.RemoveBitmapNr(this.HQSpriteNr);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       this.HQSpriteNr = BitmapStore.AddFile(this.HQSpriteFileName, false, true);
       this.HQSpriteNr2 = BitmapStore.AddFile(this.HQSpriteFileName2, false, true);
@@ -1795,31 +1795,31 @@ namespace WindowsApplication1
       this.SymbolSpriteNr = BitmapStore.AddFile(this.SymbolSpriteName, false);
     }
 
-    pub void ReplaceNationalSprite(string filename)
+    pub fn ReplaceNationalSprite(string filename)
     {
       this.NationalIconSpriteName = filename;
       this.NationalIconSprite = BitmapStore.ReloadFile(this.NationalIconSprite, filename, IsBig: true);
     }
 
-    pub void ReplaceRoundelSprite(string filename)
+    pub fn ReplaceRoundelSprite(string filename)
     {
       this.RoundelSpriteName = filename;
       this.RoundelIconSprite = BitmapStore.ReloadFile(this.RoundelIconSprite, filename);
     }
 
-    pub void ReplaceBannerSprite(string filename)
+    pub fn ReplaceBannerSprite(string filename)
     {
       this.BannerSpriteFileName = filename;
       this.BannerSpriteNr = BitmapStore.ReloadFile(this.BannerSpriteNr, filename);
     }
 
-    pub void ReplaceSymbolSprite(string filename)
+    pub fn ReplaceSymbolSprite(string filename)
     {
       this.SymbolSpriteName = filename;
       this.SymbolSpriteNr = BitmapStore.ReloadFile(this.SymbolSpriteNr, filename);
     }
 
-    pub void ReplaceHQSprite(string filename)
+    pub fn ReplaceHQSprite(string filename)
     {
       this.HQSpriteFileName = filename;
       this.HQSpriteNr = BitmapStore.AddFile(this.HQSpriteFileName, false, true);
@@ -1828,13 +1828,13 @@ namespace WindowsApplication1
       this.DoTempCounter();
     }
 
-    pub void ReplaceRoundelSprite2(string filename)
+    pub fn ReplaceRoundelSprite2(string filename)
     {
       this.RoundelSpriteName2 = filename;
       this.RoundelIconSprite2 = BitmapStore.ReloadFile(this.RoundelIconSprite2, filename);
     }
 
-    pub void ReplaceHQSprite2(string filename)
+    pub fn ReplaceHQSprite2(string filename)
     {
       this.HQSpriteFileName2 = filename;
       this.HQSpriteNr2 = BitmapStore.AddFile(this.HQSpriteFileName2, false, true);
@@ -1843,7 +1843,7 @@ namespace WindowsApplication1
       this.DoTempCounter();
     }
 
-    pub void ReplaceBannerSprite2(string filename)
+    pub fn ReplaceBannerSprite2(string filename)
     {
       this.BannerSpriteFileName2 = filename;
       this.BannerSpriteNr2 = BitmapStore.ReloadFile(this.BannerSpriteNr2, filename);

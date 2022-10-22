@@ -13,12 +13,12 @@ namespace WindowsApplication1
   pub class ATListClass
   {
     pub ListCount: i32;
-    pub string[] ListName;
+    pub ListName: Vec<String>;
     pub ListData: Vec<i32>;
-    pub string[] ListValue;
-    pub string[] ListValue2;
-    pub string[] ListValue3;
-    pub string[] ListValue4;
+    pub ListValue: Vec<String>;
+    pub ListValue2: Vec<String>;
+    pub ListValue3: Vec<String>;
+    pub ListValue4: Vec<String>;
     pub ListColor: Vec<i32>;
     pub Bitmap[] ListBmp;
     pub ListR: Vec<i32>;
@@ -49,7 +49,7 @@ namespace WindowsApplication1
       tvalue3: String = "",
       tvalue4: String = "",
       let mut tcol: i32 =  -1,
-      Bitmap tbmp = null,
+      tbmp: Bitmap = null,
       let mut tr: i32 =  -1,
       let mut tg: i32 =  -1,
       let mut tb: i32 =  -1)
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       this.ListB[this.ListCount] = tb;
     }
 
-    pub void Sort()
+    pub fn Sort()
     {
       if (this.ListCount < 1)
         return;

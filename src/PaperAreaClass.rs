@@ -13,34 +13,34 @@ namespace WindowsApplication1
 {
   pub class PaperAreaClass : SubPartClass
   {
-     int ListSize;
-     int ListSelect;
+     ListSize: i32;
+     ListSelect: i32;
     pub TopItem: i32;
      ListClass ListObj;
-     Font OwnFont;
-     int ItemSize;
+     OwnFont: Font;
+     ItemSize: i32;
      const let mut ItemFontOffset: i32 =  1;
      const let mut LeftTextOffset: i32 =  5;
-     int Width;
-     int Height;
+     Width: i32;
+     Height: i32;
      string Header;
      bool HeaderCenter;
-     GameClass game;
-     Bitmap backbitmap;
-     Color fontcol;
+     game: GameClass;
+     backbitmap: Bitmap;
+     fontcol: Color;
      bool centerit;
-     int clickscroll;
+     clickscroll: i32;
      bool HideShade;
-     int PaginationLines;
-     int mzx;
-     int mzy;
-     int mzx2;
-     int mzy2;
+     PaginationLines: i32;
+     mzx: i32;
+     mzy: i32;
+     mzx2: i32;
+     mzy2: i32;
      bool mzover;
      bool mzover2;
-     int bgcolor;
+     bgcolor: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -48,7 +48,7 @@ namespace WindowsApplication1
       this.backbitmap = (Bitmap) null;
     }
 
-    pub void Refresh(ListClass tListObj, int tlistselect, theader: String = "")
+    pub fn Refresh(ListClass tListObj, tlistselect: i32, theader: String = "")
     {
       this.ListObj = tListObj;
       this.ListSelect = tlistselect;
@@ -62,17 +62,17 @@ namespace WindowsApplication1
     }
 
     pub PaperAreaClass(
-      GameClass tgame,
-      int twidth,
-      int trows,
-      Font tfont,
+      tgame: GameClass,
+      twidth: i32,
+      trows: i32,
+      tfont: Font,
       string theader,
       bool theadercenter,
       string tText,
-      Color tfontcol,
+      tfontcol: Color,
       let mut tTop: i32 =  0,
       let mut tItemSize: i32 =  16,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool tcenterit = false,
@@ -201,7 +201,7 @@ namespace WindowsApplication1
       objGraphics = (Graphics) null;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -268,9 +268,9 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay() => this.Paint();
+    pub PaintOverlay: Bitmap() => this.Paint();
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       if (x > this.mzx & x < this.mzx + 40 & y > this.mzy & y < this.mzy + 21)
       {
@@ -284,11 +284,11 @@ namespace WindowsApplication1
         if (this.TopItem > this.ListObj.ListCount)
           this.TopItem = this.ListObj.ListCount;
       }
-      int num;
+      num: i32;
       return num;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       if (x > this.mzx & x < this.mzx + 40 & y > this.mzy & y < this.mzy + 21)
       {

@@ -13,51 +13,51 @@ namespace WindowsApplication1
 {
   pub class SimpleButtonPartClass : SubPartClass
   {
-     int OwnBitmapNr;
-     Bitmap backbitmap;
+     OwnBitmapNr: i32;
+     backbitmap: Bitmap;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
-      if (Information.IsNothing( this.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
         return;
-      this.backbitmap.Dispose();
-      this.backbitmap = (Bitmap) null;
+      self.backbitmap.Dispose();
+      self.backbitmap = (Bitmap) null;
     }
 
     pub SimpleButtonPartClass(
-      int tbmpnr,
+      tbmpnr: i32,
       string tDescript,
-       Bitmap tBackbitmap,
-      int bbx,
-      int bby)
+       tBackbitmap: Bitmap,
+      bbx: i32,
+      bby: i32)
       : base(BitmapStore.GetWidth(tbmpnr), BitmapStore.Getheight(tbmpnr))
     {
-      this.OwnBitmapNr = tbmpnr;
-      this.Descript = tDescript;
+      self.OwnBitmapNr = tbmpnr;
+      self.Descript = tDescript;
       if (Information.IsNothing( tBackbitmap))
         return;
-      this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-      this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
-      Graphics Expression = Graphics.FromImage((Image) this.backbitmap);
+      self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
+      self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
+      Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
-      Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing( this.backbitmap))
+      Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
+      if (!Information.IsNothing( self.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
-        DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);
+        DrawMod.DrawSimple( objGraphics,  self.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
        let mut local1: &Graphics = &objGraphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+      bitmap: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
        let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 0, 0);
       if (!Information.IsNothing( objGraphics))
@@ -65,20 +65,20 @@ namespace WindowsApplication1
         objGraphics.Dispose();
         objGraphics = (Graphics) null;
       }
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
-      Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing( this.backbitmap))
+      Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
+      if (!Information.IsNothing( self.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
-        DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);
+        DrawMod.DrawSimple( objGraphics,  self.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
        let mut local1: &Graphics = &objGraphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+      bitmap: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( objGraphics))
@@ -86,7 +86,7 @@ namespace WindowsApplication1
         objGraphics.Dispose();
         objGraphics = (Graphics) null;
       }
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
   }
 }

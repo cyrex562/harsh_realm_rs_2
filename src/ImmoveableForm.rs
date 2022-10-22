@@ -25,7 +25,7 @@ namespace WindowsApplication1
     pub bMoveable: bool;
 
     [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
-     static extern int EnableMenuItem(IntPtr hMenu, int uIDEnableItem, int uEnable);
+     static extern EnableMenuItem: i32(IntPtr hMenu, uIDEnableItem: i32, uEnable: i32);
 
     pub ImmoveableForm() => this.bMoveable = true;
 

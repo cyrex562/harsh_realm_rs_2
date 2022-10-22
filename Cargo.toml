@@ -2,8 +2,12 @@
 name = "shadow-empire-rs"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+readme = "README.md"
+license = "MIT"
 
 [dependencies]
 rand = "0.8"
+
+[[bin]]
+name = "hr2"
+path = "src/main.rs"

@@ -13,24 +13,24 @@ namespace WindowsApplication1
 {
   pub class UnitSelectWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int unitheaderid;
-     int unitsfid;
-     int mapid;
-     int FromMessage;
-     int UnitSelected;
-     int tcx;
-     int tcy;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     unitheaderid: i32;
+     unitsfid: i32;
+     mapid: i32;
+     FromMessage: i32;
+     UnitSelected: i32;
+     tcx: i32;
+     tcy: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
 
-    pub UnitSelectWindowClass( GameClass tGame)
+    pub UnitSelectWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       self.FromMessage = tGame.EditObj.FromMessage;
@@ -72,14 +72,14 @@ namespace WindowsApplication1
       if (self.game.EditObj.DoCardSlot > -1)
       {
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot]);
+        bitmap: Bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot]);
          let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local1,  local2, 685, 210, 267, 400);
       }
       else
       {
          let mut local3: &Graphics = &Expression;
-        Bitmap bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.EditObj.HandCard);
+        bitmap: Bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.EditObj.HandCard);
          let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local3,  local4, 685, 210, 267, 400);
       }
@@ -90,7 +90,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (self.Pic1Id > 0)
         self.RemoveSubPart(self.Pic1Id);
@@ -138,7 +138,7 @@ namespace WindowsApplication1
       self.Pic1Id = self.AddSubPart( tsubpart, 720, 50, 200, 150, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -176,7 +176,7 @@ namespace WindowsApplication1
                     let mut x1: i32 = selectX;
                     let mut y1: i32 = selectY;
                     let mut map: i32 = coordinate.map;
-                    Bitmap bitmap = (Bitmap) null;
+                    bitmap: Bitmap = (Bitmap) null;
                      let mut local: &Bitmap = &bitmap;
                     subPart.PaintCoordinate((Graphics) null, x1, y1, map, gBitmap: ( local));
                   }
@@ -272,7 +272,7 @@ namespace WindowsApplication1
                     {
                       if (self.game.Data.LocObj[locnr].Production[index4] > -1 && !self.game.HandyFunctionsObj.CanProduceItem(locnr, self.game.Data.Turn, self.game.Data.LocObj[locnr].Production[index4]).result)
                       {
-                        int num3;
+                        num3: i32;
                         num3 += 1;
                         self.game.Data.LocObj[locnr].Production[index4] = -1;
                         self.game.Data.LocObj[locnr].ProdPointRemainder[index4] = 0;
@@ -345,7 +345,7 @@ namespace WindowsApplication1
         let mut selectY: i32 = self.game.SelectY;
         let mut mapSelected: i32 = self.game.EditObj.MapSelected;
         let mut counterAlpha: i32 = self.game.EditObj.CounterAlpha;
-        Bitmap bitmap = (Bitmap) null;
+        bitmap: Bitmap = (Bitmap) null;
          let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, selectX, selectY, mapSelected, counterAlpha,  local);
         self.PaintCurrentBitmap(self.mapid);
@@ -356,7 +356,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;

@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="memdoc">
 
 <p>Called when a sound has stopped playing. </p>
-<p>This is the only method to be implemented by the user. The sound stop event is guaranteed to be called when a sound or sound stream is finished, either because the sound reached its playback end, its sound source was removed, <a class="el" href="classirrklang_1_1_i_sound_engine.html#a38dbc2f1d49e3127fc4a81a9c1a2f82d" title="Stops all currently playing sounds.">ISoundEngine::stopAllSounds()</a> has been called or the whole engine was deleted. Please note: Sound events will occur in a different thread when the engine runs in multi threaded mode (default). In single threaded mode, the event will happen while the user thread is calling <a class="el" href="classirrklang_1_1_i_sound_engine.html#a7b4f4913148d42ffe80b69979ad25906" title="Updates the audio engine. This should be called several times per frame if irrKlang...">ISoundEngine::update()</a>. </p>
+<p>This is the only method to be implemented by the user. The sound stop event is guaranteed to be called when a sound or sound stream is finished, either because the sound reached its playback end, its sound source was removed, <a class="el" href="classirrklang_1_1_i_sound_engine.html#a38dbc2f1d49e3127fc4a81a9c1a2f82d" title="Stops all currently playing sounds.">ISoundEngine::stopAllSounds()</a> has been called or the whole engine was deleted. Please note: Sound events will occur in a different when: Thread the engine runs in multi threaded mode (default). In single threaded mode, the event will happen while the user is: Thread calling <a class="el" href="classirrklang_1_1_i_sound_engine.html#a7b4f4913148d42ffe80b69979ad25906" title="Updates the audio engine. This should be called several times per frame if irrKlang...">ISoundEngine::update()</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>sound,:</em>&nbsp;</td><td>Sound which has been stopped. </td></tr>
@@ -154,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table width="100%" border="0" cellspacing="0" cellpadding="2">
   <tr> 
     <td width="0"> <div align="left"><small><a href="http://www.ambiera.com/irrklang" target="_blank"><img src="irrklang.png" alt="irrKlang Audio Library" align="middle" border=0 width=88 height=30></a></small></div></td>
-    <td> <div align="left"><small><em><font size="2">The <a href="http://www.ambiera.com/irrklang" target="_blank">irrKlang 
+    <td> <div align="left"><small><em><size: Font="2">The <a href="http://www.ambiera.com/irrklang" target="_blank">irrKlang 
         Engine</a> Documentation &copy; 2003-2018 by Nikolaus Gebhardt. Generated 
         by <a href="http://www.doxygen.org" target="_blank">Doxygen</a> 
         (1.6.1)</font></em></small></div></td>

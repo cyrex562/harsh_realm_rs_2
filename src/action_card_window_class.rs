@@ -105,7 +105,7 @@ pub struct ActionCardWindowClass {
 impl ActionCardWindowClass {
 
     // TODO
-    // pub ActionCardWindowClass( GameClass tGame)
+    // pub ActionCardWindowClass( tGame: GameClass)
     //   : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Action Cards")
     // {
     //   self.UnitNr = -1;
@@ -115,7 +115,7 @@ impl ActionCardWindowClass {
     // }
 
     // TODO
-    // pub void Doresh() => self.MakeUnitTypeItemGUI();
+    // pub fn Doresh() => self.MakeUnitTypeItemGUI();
 
     pub fn MakeUnitListGUI(mut self) {
         if self.UnitListId > 0 {

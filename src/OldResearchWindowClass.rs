@@ -16,59 +16,59 @@ namespace WindowsApplication1
 {
   pub class OldResearchWindowClass : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int BAllyId;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Text4id;
-     int Text5id;
-     int text6id;
-     int text7id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     BAllyId: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Text4id: i32;
+     Text5id: i32;
+     text6id: i32;
+     text7id: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ATListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ATListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ATListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ATListClass OptionsList6Obj;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int peoplenr;
-     int but1id;
-     int but1textid;
-     int regnr;
-     int pplnr;
-     int pregnr;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     peoplenr: i32;
+     but1id: i32;
+     but1textid: i32;
+     regnr: i32;
+     pplnr: i32;
+     pregnr: i32;
      SimpleList SL;
      int[] minicard;
      Bitmap[] tempbmp;
-     int main1;
-     int main2;
-     int main3;
-     int main4;
-     int main5;
-     int mainnr;
-     int mainx;
-     int dodetailnr;
+     main1: i32;
+     main2: i32;
+     main3: i32;
+     main4: i32;
+     main5: i32;
+     mainnr: i32;
+     mainx: i32;
+     dodetailnr: i32;
      DateTime lasttime;
-     int lasttab;
+     lasttab: i32;
 
-    pub OldResearchWindowClass( GameClass tGame, int tempInt)
+    pub OldResearchWindowClass( tGame: GameClass, tempInt: i32)
       : base( tGame, 1024, 768, 7)
     {
       this.minicard = new int[65];
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       this.remainderofnew();
     }
 
-    pub OldResearchWindowClass( GameClass tGame)
+    pub OldResearchWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.minicard = new int[65];
@@ -88,7 +88,7 @@ namespace WindowsApplication1
       this.remainderofnew();
     }
 
-    pub void remainderofnew()
+    pub fn remainderofnew()
     {
       this.SL = SimpleList::new();
       this.regnr = this.game.Data.Turn;
@@ -196,7 +196,7 @@ namespace WindowsApplication1
         else if (Strings.Len(this.game.Data.LoadGame) > 0)
         {
           this.game.FormRef.Cursor = Cursors.WaitCursor;
-          Form1 formRef = this.game.FormRef;
+          formRef: Form1 = this.game.FormRef;
           this.game.HandyFunctionsObj.LoadGameNow();
           this.game.FormRef = formRef;
           this.game.FormRef.Cursor = Cursors.Default;
@@ -283,7 +283,7 @@ namespace WindowsApplication1
       let mut num1: i32 =  25;
       if (Strings.Len(this.game.EditObj.CampaignRoomTitle) > 0)
         num1 = 25;
-      Font font;
+      font: Font;
       bool flag;
       if ( this.game.Data.RuleVar[839] == 1.0)
       {
@@ -295,7 +295,7 @@ namespace WindowsApplication1
         font = this.game.VicFont2;
         flag = false;
       }
-      int num2;
+      num2: i32;
       if ( this.game.Data.RuleVar[502] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1)
       {
         buttontext: String = "Cards";
@@ -580,7 +580,7 @@ namespace WindowsApplication1
             this.tempbmp[index2].SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             Graphics graphics = Graphics.FromImage((Image) this.tempbmp[index2]);
              let mut local1: &Graphics = &graphics;
-            Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[index2], this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[index2]);
+            bitmap: Bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[index2], this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[index2]);
              let mut local2: &Bitmap = &bitmap;
             let mut w: i32 =  num2;
             let mut h: i32 =  num3;
@@ -603,7 +603,7 @@ namespace WindowsApplication1
       if (this.detailnr > -1)
       {
          let mut local3: &Graphics = &Expression1;
-        Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[this.detailnr]);
+        bitmap: Bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[this.detailnr]);
          let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 660, 160);
         if (this.game.Data.AlternateRound > -1)
@@ -680,7 +680,7 @@ namespace WindowsApplication1
       SimpleList simpleList = SimpleList::new();
       let mut actionCardCounter1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
       let mut num1: i32 =  actionCardCounter1;
-      int index2;
+      index2: i32;
       for (index2 = 0; index2 <= num1; index2 += 1)
       {
         let mut tweight: i32 =  this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index2]].ColorScheme * 1000 + this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index2];
@@ -689,7 +689,7 @@ namespace WindowsApplication1
       simpleList.Sort();
       SubPartClass tsubpart;
       Graphics Expression2;
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       Rectangle trect1;
       if ( this.game.Data.RuleVar[839] == 0.0)
       {
@@ -742,7 +742,7 @@ namespace WindowsApplication1
               this.tempbmp[index2].SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               Graphics graphics = Graphics.FromImage((Image) this.tempbmp[index2]);
                let mut local1: &Graphics = &graphics;
-              Bitmap bitmap2 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index2]);
+              bitmap2: Bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index2]);
                let mut local2: &Bitmap = &bitmap2;
               let mut w: i32 =  num4;
               let mut h: i32 =  num5;
@@ -810,7 +810,7 @@ namespace WindowsApplication1
       }
       if (this.detailnr > -1)
       {
-        Font usefont;
+        usefont: Font;
         bool flag;
         if ( this.game.Data.RuleVar[839] == 0.0)
         {
@@ -953,7 +953,7 @@ namespace WindowsApplication1
         }
         if (this.detailnr > -1)
         {
-          int num3;
+          num3: i32;
           if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr] > -1)
           {
             let mut index: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr];
@@ -979,7 +979,7 @@ namespace WindowsApplication1
               else
               {
                  let mut local1: &Graphics = &graphics;
-                Bitmap bitmap = BitmapStore.GetBitmap(nr);
+                bitmap: Bitmap = BitmapStore.GetBitmap(nr);
                  let mut local2: &Bitmap = &bitmap;
                 let mut x: i32 =   Math.Round(690.0 -  w1 / 2.0);
                 let mut w2: i32 =  w1;
@@ -1240,7 +1240,7 @@ namespace WindowsApplication1
               num8 = 1;
               x1 += 37;
                let mut local1: &Graphics = &Expression;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.RegimeObj[reg2].HQSpriteNr);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.RegimeObj[reg2].HQSpriteNr);
                let mut local2: &Bitmap = &bitmap;
               let mut x2: i32 =  x1;
               DrawMod.DrawSimple( local1,  local2, x2, 143);
@@ -1274,9 +1274,9 @@ namespace WindowsApplication1
           let mut y1: i32 =  240;
           let mut width1: i32 =  260;
           let mut height: i32 =  194;
-          int index3;
-          int index4;
-          Bitmap bitmap;
+          index3: i32;
+          index4: i32;
+          bitmap: Bitmap;
           Rectangle rectangle1;
           Rectangle rectangle2;
           if ( this.game.Data.RuleVar[869] >= 1.0)
@@ -1530,7 +1530,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1552,7 +1552,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleActionCard: WindowReturnClass(int t2)
+    pub HandleActionCard: WindowReturnClass(t2: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut upperBound: i32 =  this.tempbmp.GetUpperBound(0);
@@ -1661,7 +1661,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
@@ -1784,7 +1784,7 @@ label_71:
               this.game.ProcessingObj.BuyResearch(this.pplnr, this.regnr, this.detailnr);
               SimpleList simpleList = SimpleList::new();
               let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
-              int Number;
+              Number: i32;
               for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
               {
                 if (this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[0] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[1] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[2] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[3] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[4] == this.detailnr && this.game.Data.ItemTypeObj[itemtypenr].Blocks > -1)
@@ -1889,9 +1889,9 @@ label_71:
       return windowReturnClass1;
     }
 
-    pub void DoRefresh() => this.domain();
+    pub fn DoRefresh() => this.domain();
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.AreaSlot = -1;
       this.game.EditObj.AreaX = -1;

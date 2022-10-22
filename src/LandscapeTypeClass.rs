@@ -18,30 +18,30 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub BasicSpriteCounter: i32;
-    pub string[] BasicSpriteFileName;
+    pub BasicSpriteFileName: Vec<String>;
     pub BasicSpriteID: Vec<i32>;
-    pub string[] BasicSpriteFileName2;
-    pub string[] BasicSpriteFileName3;
+    pub BasicSpriteFileName2: Vec<String>;
+    pub BasicSpriteFileName3: Vec<String>;
     pub BasicSpriteID2: Vec<i32>;
     pub BasicSpriteID3: Vec<i32>;
     pub BasicSpriteRandom: Vec<i32>;
-    pub string[] BasicPicFileName;
+    pub BasicPicFileName: Vec<String>;
     pub BasicPicID: Vec<i32>;
     pub PlotLast: Vec<bool>;
     pub PlotBeforeRiver: Vec<bool>;
     pub SheetFileName: String;
     pub SheetSpriteID: i32;
     pub UseSheet: bool;
-    pub string[] SidewaysSpriteFileName1;
+    pub SidewaysSpriteFileName1: Vec<String>;
     pub SidewaysSPriteID1: Vec<i32>;
-    pub string[] SidewaysSpriteFileName2;
+    pub SidewaysSpriteFileName2: Vec<String>;
     pub SidewaysSPriteID2: Vec<i32>;
-    pub string[] SidewaysSpriteFileName3;
+    pub SidewaysSpriteFileName3: Vec<String>;
     pub SidewaysSPriteID3: Vec<i32>;
     pub SpecialLayer: bool;
     pub SpecialLayer6: bool;
     pub LayerSpriteID: Vec<i32>;
-    pub string[] LayerSpriteFileName;
+    pub LayerSpriteFileName: Vec<String>;
     pub OverridesCount: i32;
     pub OverridesType: Vec<i32>;
     pub OverridesZ: i32;
@@ -60,7 +60,7 @@ namespace WindowsApplication1
     pub HidePts: i32;
     pub PreHexPicFileName: String;
     pub PreHexPicID: i32;
-    pub Bitmap TempHexBitmap;
+    pub TempHexBitmap: Bitmap;
     pub PreHexTextureFileName: String;
     pub PreHexTextureID: i32;
     pub UsePreHexTexture: bool;
@@ -634,7 +634,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub CheckOverride: bool(int lt)
+    pub CheckOverride: bool(lt: i32)
     {
       if (this.OverridesCount <= -1)
         return false;
@@ -648,7 +648,7 @@ namespace WindowsApplication1
       return num == 1;
     }
 
-    pub CheckOverride2: bool(int lt)
+    pub CheckOverride2: bool(lt: i32)
     {
       if (this.OverridesCount2 <= -1)
         return false;
@@ -662,7 +662,7 @@ namespace WindowsApplication1
       return num == 1;
     }
 
-    pub void AddOverride(int lt)
+    pub fn AddOverride(lt: i32)
     {
       if (this.OverridesCount < -1)
         this.OverridesCount = -1;
@@ -671,7 +671,7 @@ namespace WindowsApplication1
       this.OverridesType[this.OverridesCount] = lt;
     }
 
-    pub void RemoveOverride(int nr)
+    pub fn RemoveOverride(nr: i32)
     {
       if (nr < this.OverridesCount)
       {
@@ -686,7 +686,7 @@ namespace WindowsApplication1
       this.OverridesType = (int[]) Utils.CopyArray((Array) this.OverridesType, (Array) new int[this.OverridesCount + 1]);
     }
 
-    pub void AddOverride2(int lt)
+    pub fn AddOverride2(lt: i32)
     {
       if (this.OverridesCount2 < -1)
         this.OverridesCount2 = -1;
@@ -695,7 +695,7 @@ namespace WindowsApplication1
       this.OverridesType2[this.OverridesCount2] = lt;
     }
 
-    pub void RemoveOverride2(int nr)
+    pub fn RemoveOverride2(nr: i32)
     {
       if (nr < this.OverridesCount2)
       {
@@ -710,7 +710,7 @@ namespace WindowsApplication1
       this.OverridesType2 = (int[]) Utils.CopyArray((Array) this.OverridesType2, (Array) new int[this.OverridesCount2 + 1]);
     }
 
-    pub LandscapeTypeClass(int hardcoded)
+    pub LandscapeTypeClass(hardcoded: i32)
     {
       this.BasicSpriteFileName = new string[1];
       this.BasicSpriteID = new int[1];
@@ -830,7 +830,7 @@ namespace WindowsApplication1
       this.NewGfxWeatherForegroundY = -1;
     }
 
-    pub void AutoLoadSpecial(string dirstring, string extstring)
+    pub fn AutoLoadSpecial(string dirstring, string extstring)
     {
       this.LayerSpriteFileName[1] = dirstring + "/a1" + extstring;
       this.LayerSpriteFileName[2] = dirstring + "/b1" + extstring;
@@ -899,7 +899,7 @@ namespace WindowsApplication1
       this.ReloadSpecialSprites();
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       if (this.BasicSpriteCounter > -1)
       {
@@ -926,7 +926,7 @@ namespace WindowsApplication1
       BitmapStore.RemoveBitmapNr(this.SheetSpriteID);
     }
 
-    pub void AddBasicSprite(string filename, string picfilename)
+    pub fn AddBasicSprite(string filename, string picfilename)
     {
       this += 1.BasicSpriteCounter;
       this.BasicSpriteFileName = (string[]) Utils.CopyArray((Array) this.BasicSpriteFileName, (Array) new string[this.BasicSpriteCounter + 1]);
@@ -964,31 +964,31 @@ namespace WindowsApplication1
       this.BasicPicID[this.BasicSpriteCounter] = BitmapStore.AddFile(this.BasicPicFileName[this.BasicSpriteCounter], false);
     }
 
-    pub void ReplaceSpriteSheet(string filename)
+    pub fn ReplaceSpriteSheet(string filename)
     {
       this.SheetFileName = filename;
       this.SheetSpriteID = BitmapStore.ReloadFile(this.SheetSpriteID, this.SheetFileName, IsBig: true);
     }
 
-    pub void ReplaceBasicSprite(int nr, string filename)
+    pub fn ReplaceBasicSprite(nr: i32, string filename)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void ReplaceBasicSprite2(int nr, string filename)
+    pub fn ReplaceBasicSprite2(nr: i32, string filename)
     {
       this.BasicSpriteFileName2[nr] = filename;
       this.BasicSpriteID2[nr] = BitmapStore.ReloadFile(this.BasicSpriteID2[nr], filename, IsBig: true);
     }
 
-    pub void ReplaceBasicSprite3(int nr, string filename)
+    pub fn ReplaceBasicSprite3(nr: i32, string filename)
     {
       this.BasicSpriteFileName3[nr] = filename;
       this.BasicSpriteID3[nr] = BitmapStore.ReloadFile(this.BasicSpriteID3[nr], filename, IsBig: true);
     }
 
-    pub void ReplacePreHexTexture(string filename)
+    pub fn ReplacePreHexTexture(string filename)
     {
       this.PreHexTextureFileName = filename;
       this.PreHexTextureID = BitmapStore.ReloadFile(this.PreHexTextureID, filename, IsBig: true);
@@ -996,43 +996,43 @@ namespace WindowsApplication1
       BitmapStore.simpleByteCacheSet[this.PreHexTextureID] = false;
     }
 
-    pub void ReplacePicSprite(int nr, string filename)
+    pub fn ReplacePicSprite(nr: i32, string filename)
     {
       this.BasicPicFileName[nr] = filename;
       this.BasicPicID[nr] = BitmapStore.ReloadFile(this.BasicPicID[nr], filename);
     }
 
-    pub void ReplaceSidewaysSprite1(string filename, int nr)
+    pub fn ReplaceSidewaysSprite1(string filename, nr: i32)
     {
       this.SidewaysSpriteFileName1[nr] = filename;
       this.SidewaysSPriteID1[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID1[nr], this.SidewaysSpriteFileName1[nr]);
     }
 
-    pub void ReplaceSidewaysSprite2(string filename, int nr)
+    pub fn ReplaceSidewaysSprite2(string filename, nr: i32)
     {
       this.SidewaysSpriteFileName2[nr] = filename;
       this.SidewaysSPriteID2[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID2[nr], this.SidewaysSpriteFileName2[nr]);
     }
 
-    pub void ReplaceSidewaysSprite3(string filename, int nr)
+    pub fn ReplaceSidewaysSprite3(string filename, nr: i32)
     {
       this.SidewaysSpriteFileName3[nr] = filename;
       this.SidewaysSPriteID3[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID3[nr], this.SidewaysSpriteFileName3[nr]);
     }
 
-    pub void ReplacePreHexPicSprite(string filename)
+    pub fn ReplacePreHexPicSprite(string filename)
     {
       this.PreHexPicFileName = filename;
       this.PreHexPicID = BitmapStore.ReloadFile(this.PreHexPicID, filename, IsBig: true);
     }
 
-    pub void ReplaceSpecialSprite(int nr, string filename)
+    pub fn ReplaceSpecialSprite(nr: i32, string filename)
     {
       this.LayerSpriteFileName[nr] = filename;
       this.LayerSpriteID[nr] = BitmapStore.ReloadFile(this.LayerSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       if (this.BasicSpriteCounter > -1)
       {
@@ -1063,7 +1063,7 @@ namespace WindowsApplication1
       this.PreHexTextureID = BitmapStore.AddFile(this.PreHexTextureFileName, false, true);
     }
 
-    pub void ReloadSpecialSprites()
+    pub fn ReloadSpecialSprites()
     {
       let mut index: i32 =  1;
       do

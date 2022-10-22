@@ -18,61 +18,61 @@ namespace WindowsApplication1
 {
   pub class SimpleHisWindowClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int cellinfoid;
-     int tableId;
-     int loadId;
-     int text1id;
-     int detailnr;
-     int noneId;
-     int noneIdB;
-     int versionid;
-     int addId;
-     int addReinf;
-     int removeReinf;
-     int RenameReinf;
-     int RenameReinfb;
-     int RemoveReinfb;
-     int a1id;
-     int a2id;
-     int a3id;
-     int removeId;
-     int changeId;
-     int exitId;
-     int saveId;
-     int editId;
-     int removeIdb;
-     int saveIdb;
-     int tab1id;
-     int tab2id;
-     int tab3id;
-     int tab4id;
-     int exportCsv;
-     int importCsv;
-     int tab1idb;
-     int tab2idb;
-     int tab3idb;
-     int tab4idb;
-     int editIdb;
-     int strId;
-     int detailx;
-     int detaily;
-     int tabId;
+     cellinfoid: i32;
+     tableId: i32;
+     loadId: i32;
+     text1id: i32;
+     detailnr: i32;
+     noneId: i32;
+     noneIdB: i32;
+     versionid: i32;
+     addId: i32;
+     addReinf: i32;
+     removeReinf: i32;
+     RenameReinf: i32;
+     RenameReinfb: i32;
+     RemoveReinfb: i32;
+     a1id: i32;
+     a2id: i32;
+     a3id: i32;
+     removeId: i32;
+     changeId: i32;
+     exitId: i32;
+     saveId: i32;
+     editId: i32;
+     removeIdb: i32;
+     saveIdb: i32;
+     tab1id: i32;
+     tab2id: i32;
+     tab3id: i32;
+     tab4id: i32;
+     exportCsv: i32;
+     importCsv: i32;
+     tab1idb: i32;
+     tab2idb: i32;
+     tab3idb: i32;
+     tab4idb: i32;
+     editIdb: i32;
+     strId: i32;
+     detailx: i32;
+     detaily: i32;
+     tabId: i32;
      StringListClass stringy;
-     int VarsStartOn;
+     VarsStartOn: i32;
      bool AddNew;
      bool Change;
-     int currentPplNr;
-     int currentUnitNr;
-     int currentHisNr;
-     int currentInstNr;
+     currentPplNr: i32;
+     currentUnitNr: i32;
+     currentHisNr: i32;
+     currentInstNr: i32;
      int[] ColIsSFTypeVar;
-     int oldTopX;
-     int oldTopY;
+     oldTopX: i32;
+     oldTopY: i32;
      string masterfileStart;
 
-    pub SimpleHisWindowClass( GameClass tGame)
+    pub SimpleHisWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight, 9, tDoBorders: 1, tHeaderString: "Intermediate Historical Unit Editor")
     {
       self.ColIsSFTypeVar = new int[100];
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void RefreshCellInfo()
+    pub fn RefreshCellInfo()
     {
       string txt;
       if (self.detaily == -1 | self.detailx == -1)
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       self.cellinfoid = self.AddSubPart( tsubpart, 312, 152, self.game.ScreenWidth - 323, 20, 0);
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (!self.Change)
         return;
@@ -131,11 +131,11 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -376,10 +376,10 @@ namespace WindowsApplication1
       ListClass listObj = self.listObj;
       let mut tlistselect: i32 = num13;
       let mut game: GameClass = self.game;
-       Bitmap local1 =  self.OwnBitmap;
+       local1: Bitmap =  self.OwnBitmap;
       let mut bby: i32 = y4;
-      Font font =  null;
-       Font local2 =  font;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart2 =  new ListSubPartClass(listObj, 6, 210, tlistselect, game, true, "TroopType Libraries", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 40, bby: bby, tMarcStyle: true, overruleFont: ( local2));
       self.listId = self.AddSubPart( tsubpart2, 40, y4, 210, 144, 0);
       let mut y5: i32 = y4 + 135;
@@ -407,7 +407,7 @@ namespace WindowsApplication1
       self.Tab4( graphics);
     }
 
-    pub void Tab2( Graphics g)
+    pub fn Tab2( Graphics g)
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -552,7 +552,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Tab3( Graphics g)
+    pub fn Tab3( Graphics g)
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -737,7 +737,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Tab4( Graphics g)
+    pub fn Tab4( Graphics g)
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -832,7 +832,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Tab1( Graphics g)
+    pub fn Tab1( Graphics g)
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
@@ -915,7 +915,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.strId == -1 || Information.IsNothing( self.stringy))
@@ -964,7 +964,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -1157,7 +1157,7 @@ namespace WindowsApplication1
                 self.Change = true;
                 return windowReturnClass1;
               }
-              int tnr2_1;
+              tnr2_1: i32;
               if (num1 == self.exitId)
               {
                 self.game.EditObj.InEditor = false;
@@ -1954,7 +1954,7 @@ namespace WindowsApplication1
                     self.game.EditObj.TempFileName = path;
                     self.game.EditObj.TempFileType = NewEnums.LibFileType.ImportTroopsInHistoricalEditor;
                     self.game.FormRef.Cursor = Cursors.WaitCursor;
-                    DataClass dataClass;
+                    dataClass: DataClass;
                     self.game.HandyFunctionsObj.LoadLibrary( dataClass);
                     bool[] import = new bool[dataClass.LibraryCounter + 1];
                     int[] subreg = new int[dataClass.RegimeCounter + 1];
@@ -2078,9 +2078,9 @@ namespace WindowsApplication1
                               num43 = 2;
                               continue;
                             case 2:
-                              string[] strArray = str3.Split(Conversions.ToChar(str2));
+                              strArray: Vec<String> = str3.Split(Conversions.ToChar(str2));
                               let mut id: i32 =  Math.Round(Conversion.Val(strArray[0]));
-                              int index20;
+                              index20: i32;
                               if (id > 0)
                               {
                                 index20 = self.game.HandyFunctionsObj.GetHistoricalUnitByID(id);
@@ -2203,7 +2203,7 @@ label_350:
       return windowReturnClass1;
     }
 
-    pub void Interpret()
+    pub fn Interpret()
     {
       bool[] flagArray = new bool[self.game.Data.SmallPicCounter + 1];
       let mut historicalUnitCounter: i32 = self.game.Data.HistoricalUnitCounter;

@@ -15,11 +15,11 @@ namespace WindowsApplication1
 {
   pub class LoadClass
   {
-    pub GameClass game;
+    pub game: GameClass;
 
-    pub LoadClass( GameClass tgame) => this.game = tgame;
+    pub LoadClass( tgame: GameClass) => this.game = tgame;
 
-    pub void Go()
+    pub fn Go()
     {
       str1: String = this.game.EditObj.LoadFileName;
       if (!this.game.EditObj.LoadNoNewEdit)
@@ -80,7 +80,7 @@ namespace WindowsApplication1
               {
                 simpleStringList.Add(this.game.modlib_Name[index1].ToLower(), 1);
                 this.game.EditObj.TempFileName = this.game.AppPath + this.game.ModScenarioDir + "/" + this.game.modlib_Filename[index1];
-                DataClass dataClass;
+                dataClass: DataClass;
                 if (File.Exists(this.game.EditObj.TempFileName))
                 {
                   try

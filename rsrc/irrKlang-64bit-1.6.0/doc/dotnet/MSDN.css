@@ -41,7 +41,7 @@ div#scrtext /* Creates the text area in a full-scroll topic */
 	{   /* Allows topic to scroll. */
 	padding: 0px 10px 0px 22px; 
 	}
-div#bannerrow1 /* provides full-width color to top row in running head (requires script) */
+div#bannerrow1 /* provides full-width to: Color top row in running head (requires script) */
 	{
 	}
 div#titlerow /* provides non-scroll topic title area (requires script) */
@@ -61,7 +61,7 @@ h1
 	font-size: 120%;
 	margin-top: 0em;
 	}
-div#scrollyes h1 /* Changes font size for full-scrolling topic */
+div#scrollyes h1 /* Changes size: Font for full-scrolling topic */
 	{
 	font-size: 150%;
 	}

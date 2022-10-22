@@ -47,7 +47,7 @@ namespace WindowsApplication1
       this.Value2 = (int[,,]) info.GetValue(nameof (Value2), this.Value2.GetType());
     }
 
-    pub MapMatrix2Plus6(int w, int h)
+    pub MapMatrix2Plus6(w: i32, h: i32)
     {
       this.Value = new bool[1, 1, 6];
       this.Value2 = new int[1, 1, 6];

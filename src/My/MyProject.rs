@@ -65,12 +65,12 @@ namespace WindowsApplication1.My
     [MyGroupCollection("System.Windows.Forms.Form", "Create__Instance__", "Dispose__Instance__", "My.MyProject.Forms")]
     internal sealed class MyForms
     {
-      pub Form1 m_Form1;
+      pub m_Form1: Form1;
       pub ImmoveableForm m_ImmoveableForm;
       [ThreadStatic]
        static Hashtable m_FormBeingCreated;
 
-      pub Form1 Form1
+      pub Form1: Form1
       {
         get
         {
@@ -159,7 +159,7 @@ namespace WindowsApplication1.My
       pub bool Equals(object o) => base.Equals(RuntimeHelpers.GetObjectValue(o));
 
       [EditorBrowsable(EditorBrowsableState.Never)]
-      pub int GetHashCode() => base.GetHashCode();
+      pub GetHashCode: i32() => base.GetHashCode();
 
       [EditorBrowsable(EditorBrowsableState.Never)]
       internal new System.Type GetType() => typeof (MyProject.MyForms);
@@ -178,7 +178,7 @@ namespace WindowsApplication1.My
 
       [EditorBrowsable(EditorBrowsableState.Never)]
       [DebuggerHidden]
-      pub int GetHashCode() => base.GetHashCode();
+      pub GetHashCode: i32() => base.GetHashCode();
 
       [DebuggerHidden]
       [EditorBrowsable(EditorBrowsableState.Never)]

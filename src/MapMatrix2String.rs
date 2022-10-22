@@ -43,7 +43,7 @@ namespace WindowsApplication1
       this.Value = (string[,]) info.GetValue(nameof (Value), this.Value.GetType());
     }
 
-    pub MapMatrix2String(int w, int h)
+    pub MapMatrix2String(w: i32, h: i32)
     {
       this.Value = new string[1, 1];
       this.Width = w;

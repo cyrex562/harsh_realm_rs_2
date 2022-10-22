@@ -12,20 +12,20 @@ namespace WindowsApplication1
 {
   pub class InputTextClass : SubPartClass
   {
-     Font OwnFont;
+     OwnFont: Font;
      string OwnText;
-     int maxchar;
+     maxchar: i32;
      bool inactive;
      bool noSpace;
-     int maxSize;
+     maxSize: i32;
 
     pub InputTextClass(
       string txt,
-      Font f,
-      int w,
-      int h,
+      f: Font,
+      w: i32,
+      h: i32,
       bool tinactive,
-      int tmaxchar,
+      tmaxchar: i32,
       bool tnospace = false,
       let mut tmaxsize: i32 =  50)
       : base(w, h)
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       this.OwnText = Strings.Left(this.OwnText, this.maxSize);
     }
 
-    pub void Refresh(string s)
+    pub fn Refresh(string s)
     {
       let mut length: i32 =  s.Length;
       for (let mut Start: i32 =  1; Start <= length; Start += 1)
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       return this.OwnText;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -78,8 +78,8 @@ namespace WindowsApplication1
       else
         DrawMod.Clear( Expression, 0, 0, 0);
       DrawMod.DrawRectangle( Expression, 0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height, 200, 200, 200, 200, 2);
-      int x;
-      int y;
+      x: i32;
+      y: i32;
       if (Operators.CompareString(this.Descript, "select", false) == 0)
       {
         DrawMod.DrawRectangle( Expression, 2, 2, this.OwnBitmap.Width - 4, this.OwnBitmap.Height - 4,  byte.MaxValue, 0, 0, 200, 2);

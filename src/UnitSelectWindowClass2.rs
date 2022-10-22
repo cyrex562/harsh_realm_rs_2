@@ -14,26 +14,26 @@ namespace WindowsApplication1
 {
   pub class UnitSelectWindowClass2 : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int unitheaderid;
-     int unitsfid;
-     int mapid;
-     int FromMessage;
-     int UnitSelected;
-     int tempUnitHisId;
-     int tempUnitHis2Id;
-     int tcx;
-     int tcy;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     unitheaderid: i32;
+     unitsfid: i32;
+     mapid: i32;
+     FromMessage: i32;
+     UnitSelected: i32;
+     tempUnitHisId: i32;
+     tempUnitHis2Id: i32;
+     tcx: i32;
+     tcy: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
      SimpleList UL;
-     int OptionsListId;
+     OptionsListId: i32;
      ListClass OptionsListObj;
      MapMatrix2 cacheTemp;
      MapMatrix2Coordinate cacheTempCameFrom;
@@ -42,7 +42,7 @@ namespace WindowsApplication1
      MapMatrix2 cacheTemp2;
      MapMatrix2Plus6 cacheTempAttack;
 
-    pub void Close()
+    pub fn Close()
     {
       if (self.game.Data.Product != 6)
         return;
@@ -54,13 +54,13 @@ namespace WindowsApplication1
       self.game.EditObj.TempAttack[0] = self.cacheTempAttack;
     }
 
-    pub void Dispose()
+    pub fn Dispose()
     {
       base.Dispose();
       DrawMod.TGame.EditObj.MapPopupMode = false;
     }
 
-    pub UnitSelectWindowClass2( GameClass tGame)
+    pub UnitSelectWindowClass2( tGame: GameClass)
       : base( tGame, 1010, 700, 8)
     {
       self.FromMessage = tGame.EditObj.FromMessage;
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       DrawMod.DrawMessFrame( self.OwnBitmap,  graphics, 0, 0, 1010, 700);
       self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (self.game.EditObj.HandCard == -1)
       {
          let mut local1: &Graphics = &graphics;
@@ -133,7 +133,7 @@ namespace WindowsApplication1
       else
       {
          let mut local3: &Graphics = &graphics;
-        Bitmap bitmap2 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.EditObj.HandCard, size: 2);
+        bitmap2: Bitmap = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.EditObj.HandCard, size: 2);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 210, 538);
       }
@@ -247,7 +247,7 @@ namespace WindowsApplication1
       self.ViewMessage();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -282,7 +282,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (self.Pic1Id > 0)
       {
@@ -327,7 +327,7 @@ namespace WindowsApplication1
       }
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &objgraphics;
-       Bitmap local2 =  self.BackBitmap;
+       local2: Bitmap =  self.BackBitmap;
       trect1 = Rectangle::new(370, 540, 240, 120);
       let mut rect: &Rectangle = &trect1
       DrawMod.DrawSimplePart( local1,  local2, rect);
@@ -335,7 +335,7 @@ namespace WindowsApplication1
       {
         DrawMod.DrawTextColouredMarc( objgraphics, "UNIT SELECTED:", self.game.MarcFont4, 370, 550, Color.White);
          let mut local3: &Graphics = &objgraphics;
-        Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(self.game.EditObj.UnitSelected);
+        bitmap: Bitmap = self.game.CustomBitmapObj.DrawUnit(self.game.EditObj.UnitSelected);
          let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 370, 575);
         DrawMod.DrawTextColouredMarc( objgraphics, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Name, self.game.MarcFont4, 420, 585, Color.White);
@@ -371,9 +371,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = self.OptionsListObj;
         let mut tlistselect2: i32 = tlistselect1;
         let mut game: GameClass = self.game;
-         Bitmap local5 =  self.OwnBitmap;
-        Font font =  null;
-         Font local6 =  font;
+         local5: Bitmap =  self.OwnBitmap;
+        font: Font =  null;
+         local6: Font =  font;
         let mut tsubpart3: SubPartClass =  new ListSubPartClass(optionsListObj, 28, 142, tlistselect2, game, tdotopandbottom: false, tbackbitmap: ( local5), bbx: 850, bby: 55, tMarcStyle: true, overruleFont: ( local6), overruleItemSize: 20);
         self.OptionsListId = self.AddSubPart( tsubpart3, 850, 55, 142, 580, 0);
       }
@@ -385,7 +385,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -549,7 +549,7 @@ namespace WindowsApplication1
                 return windowReturnClass;
               }
               let mut locCounter: i32 = self.game.Data.LocCounter;
-              int Number;
+              Number: i32;
               for (let mut locnr: i32 = 0; locnr <= locCounter; locnr += 1)
               {
                 if (self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y].Regime == self.game.Data.Turn)
@@ -627,7 +627,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut cornerX: i32 = self.game.CornerX;
@@ -637,7 +637,7 @@ namespace WindowsApplication1
       return nr == 32 & self.okid > 0 ? self.HandleMouseClick(self.SubPartX[self.SubpartNr(self.okid)] + 1, self.SubPartY[self.SubpartNr(self.okid)] + 1, 1) : windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;

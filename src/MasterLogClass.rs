@@ -62,7 +62,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void serialize(string fileloc)
+    pub fn serialize(string fileloc)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
       BinaryFormatter::new().Serialize((Stream) serializationStream,  this);
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       return masterLogClass;
     }
 
-    pub void SetEntry(int gameid, int roundnr, int turnnr, int rancode)
+    pub fn SetEntry(gameid: i32, roundnr: i32, turnnr: i32, rancode: i32)
     {
       let mut index1: i32 =  -1;
       let mut counter: i32 =  this.Counter;
@@ -112,7 +112,7 @@ namespace WindowsApplication1
       this.RandomCode[index1] = rancode;
     }
 
-    pub object ReturnQty(int gameid, int roundnr, int turnnr, int rancode)
+    pub object ReturnQty(gameid: i32, roundnr: i32, turnnr: i32, rancode: i32)
     {
       let mut index1: i32 =  -1;
       let mut counter: i32 =  this.Counter;

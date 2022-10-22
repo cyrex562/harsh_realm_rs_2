@@ -18,7 +18,7 @@ namespace WindowsApplication1
   {
     pub Counter: i32;
     pub MaxCounter: i32;
-    pub string[] Id;
+    pub Id: Vec<String>;
     pub Weight: Vec<i32>;
     pub Data1: Vec<i32>;
     pub Data2: Vec<i32>;
@@ -88,7 +88,7 @@ namespace WindowsApplication1
       self.Data5 = (int[]) info.GetValue(nameof (Data5), self.Data5.GetType());
     }
 
-    pub void Remove(string tid)
+    pub fn Remove(string tid)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr == -1)
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       --self.Counter;
     }
 
-    pub void removeWeight0orLower()
+    pub fn removeWeight0orLower()
     {
       for (let mut counter: i32 = self.Counter; counter >= 0; counter += -1)
       {
@@ -120,7 +120,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveNr(int nr)
+    pub fn RemoveNr(nr: i32)
     {
       if (nr < self.Counter)
       {
@@ -140,7 +140,7 @@ namespace WindowsApplication1
       --self.Counter;
     }
 
-    pub void AddData(string tid, int tdataNr, int tvalue)
+    pub fn AddData(string tid, tdataNr: i32, tvalue: i32)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr > -1)
@@ -253,21 +253,21 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddWeight( SimpleList SL)
+    pub fn AddWeight( SimpleList SL)
     {
       let mut counter: i32 = SL.Counter;
       for (let mut index: i32 = 0; index <= counter; index += 1)
         self.AddWeight(Conversions.ToString(SL.Id[index]), SL.Weight[index]);
     }
 
-    pub void AddList( SimpleStringList SL, bool checkForExistance)
+    pub fn AddList( SimpleStringList SL, bool checkForExistance)
     {
       let mut counter: i32 = SL.Counter;
       for (let mut index: i32 = 0; index <= counter; index += 1)
         self.Add(SL.Id[index], SL.Weight[index], SL.Data1[index], SL.Data2[index], SL.Data3[index], SL.Data4[index], SL.Data5[index], checkForExistance);
     }
 
-    pub void RemoveWeight( SimpleList SL)
+    pub fn RemoveWeight( SimpleList SL)
     {
       let mut counter: i32 = SL.Counter;
       for (let mut index: i32 = 0; index <= counter; index += 1)
@@ -276,7 +276,7 @@ namespace WindowsApplication1
 
     pub void AddWeight(
       string tid,
-      int tweight,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -285,7 +285,7 @@ namespace WindowsApplication1
       bool CheckExistence = true,
       bool CheckData1Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -334,7 +334,7 @@ namespace WindowsApplication1
 
     pub void RemoveWeight(
       string tid,
-      int tweight,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -343,7 +343,7 @@ namespace WindowsApplication1
       bool CheckExistence = true,
       bool CheckData1Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -402,7 +402,7 @@ namespace WindowsApplication1
 
     pub void Add(
       string tid,
-      int tweight,
+      tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
       let mut tdata3: i32 = 0,
@@ -411,7 +411,7 @@ namespace WindowsApplication1
       bool CheckExistence = true,
       bool CheckData1Existence = false)
     {
-      int nr;
+      nr: i32;
       if (CheckExistence)
       {
         nr = self.FindNr(tid);
@@ -458,7 +458,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int FindNr(string tid, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
+    pub FindNr: i32(string tid, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
     {
       if (self.Counter < 0)
         return -1;
@@ -489,7 +489,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindWeight(int tweight)
+    pub FindWeight: i32(tweight: i32)
     {
       if (self.Counter < 0)
         return -1;
@@ -502,7 +502,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindWeightById(string tid)
+    pub FindWeightById: i32(string tid)
     {
       if (self.Counter < 0)
         return 0;
@@ -515,7 +515,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub void Sort()
+    pub fn Sort()
     {
       if (self.Counter < 1)
         return;
@@ -557,7 +557,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReverseSort()
+    pub fn ReverseSort()
     {
       if (self.Counter < 1)
         return;
@@ -599,9 +599,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SortHighSpeed() => self.ReverseSortHighSpeed(true);
+    pub fn SortHighSpeed() => self.ReverseSortHighSpeed(true);
 
-    pub void ReverseSortHighSpeed(bool normalSort = false)
+    pub fn ReverseSortHighSpeed(bool normalSort = false)
     {
       let mut num1: i32 = 9999999;
       let mut num2: i32 = -9999999;
@@ -644,7 +644,7 @@ namespace WindowsApplication1
           }
           numArray1[self.Weight[index1] - num1][numArray1[self.Weight[index1] - num1].GetUpperBound(0)] = index1;
         }
-        string[] strArray = new string[self.Counter + 1 + 1];
+        strArray: Vec<String> = new string[self.Counter + 1 + 1];
         int[] numArray5 = new int[self.Counter + 1 + 1];
         int[] numArray6 = new int[self.Counter + 1 + 1];
         int[] numArray7 = new int[self.Counter + 1 + 1];
@@ -710,7 +710,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SortOnData5()
+    pub fn SortOnData5()
     {
       if (self.Counter < 1)
         return;

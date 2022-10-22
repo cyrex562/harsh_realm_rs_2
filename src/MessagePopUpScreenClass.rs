@@ -13,10 +13,10 @@ namespace WindowsApplication1
 {
   pub class MessagePopUpScreenClass : ScreenClass
   {
-     int wtop;
-     int wup;
+     wtop: i32;
+     wup: i32;
 
-    pub MessagePopUpScreenClass( GameClass tGame, Form1 tformref)
+    pub MessagePopUpScreenClass( tGame: GameClass, tformref: Form1)
       : base( tGame, -4, tformref)
     {
       if ( this.Game.Data.RuleVar[839] == 1.0 | Operators.CompareString(tformref.Screeny.GetType().ToString(), "WindowsApplication1.FirstScreenClass", false) == 0 & this.Game.ModIntroType == 1)
@@ -36,8 +36,8 @@ namespace WindowsApplication1
         else if (tGame.EditObj.PopupValue == 7)
         {
           let mut ucounter: i32 = tGame.TempCombat.UCounter;
-          int val1;
-          int val2;
+          val1: i32;
+          val2: i32;
           for (let mut index: i32 = 0; index <= ucounter; index += 1)
           {
             if (this.Game.TempCombat.UList[index].Uattacker == 1)
@@ -171,7 +171,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -226,7 +226,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -266,7 +266,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyup(int nr)
+    pub ScreenReturnClass HandleKeyup(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -306,7 +306,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)

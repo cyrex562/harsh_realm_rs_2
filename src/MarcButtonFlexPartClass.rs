@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class MarcButtonFlexPartClass : SubPartClass
   {
-     int OwnBitmapNr;
-     Bitmap backbitmap;
-     int otherback;
+     OwnBitmapNr: i32;
+     backbitmap: Bitmap;
+     otherback: i32;
      string texty;
-     int bw;
-     int bh;
-     int colorized;
+     bw: i32;
+     bh: i32;
+     colorized: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -30,11 +30,11 @@ namespace WindowsApplication1
     }
 
     pub MarcButtonFlexPartClass(
-      int tbmpnr,
+      tbmpnr: i32,
       string tTexty,
       let mut tcolorized: i32 =  0,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       let mut totherback: i32 =  0,
@@ -62,7 +62,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -72,8 +72,8 @@ namespace WindowsApplication1
         Expression.CompositingMode = CompositingMode.SourceOver;
       }
       let mut nr: i32 =  0;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.otherback == 0)
       {
         nr = DrawMod.TGame.BUTTONMARC1;
@@ -91,7 +91,7 @@ namespace WindowsApplication1
       if (this.colorized == 0)
       {
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(nr);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local2: &Bitmap = &bitmap1;
         Rectangle rectangle1 = Rectangle::new(0, 0, 8, this.bh);
         let mut srcrect1: &Rectangle = &rectangle1
@@ -99,7 +99,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &Expression;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(nr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local4: &Bitmap = &bitmap2;
         rectangle2 = Rectangle::new(this.bh - 8, 0, 8, this.bh);
         let mut srcrect2: &Rectangle = &rectangle2
@@ -125,7 +125,7 @@ namespace WindowsApplication1
       else if (this.colorized == 1)
       {
          let mut local9: &Graphics = &Expression;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(nr);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local10: &Bitmap = &bitmap3;
         Rectangle rectangle3 = Rectangle::new(0, 0, 8, this.bh);
         let mut srcrect4: &Rectangle = &rectangle3
@@ -133,7 +133,7 @@ namespace WindowsApplication1
         let mut destrect4: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2ColouredNew( local9,  local10, srcrect4, destrect4, 0.5f, 0.5f, 0.5f, 0.5f);
          let mut local11: &Graphics = &Expression;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(nr);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local12: &Bitmap = &bitmap4;
         rectangle3 = Rectangle::new(this.bh - 8, 0, 8, this.bh);
         let mut srcrect5: &Rectangle = &rectangle3
@@ -164,7 +164,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -174,8 +174,8 @@ namespace WindowsApplication1
         Expression.CompositingMode = CompositingMode.SourceOver;
       }
       let mut nr: i32 =  0;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       if (this.otherback == 0)
       {
         nr = DrawMod.TGame.BUTTONMARC1b;
@@ -193,7 +193,7 @@ namespace WindowsApplication1
       if (this.colorized == 0)
       {
          let mut local1: &Graphics = &Expression;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(nr);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local2: &Bitmap = &bitmap1;
         Rectangle rectangle1 = Rectangle::new(0, 0, 8, this.bh);
         let mut srcrect1: &Rectangle = &rectangle1
@@ -201,7 +201,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &Expression;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(nr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local4: &Bitmap = &bitmap2;
         rectangle2 = Rectangle::new(this.bh - 8, 0, 8, this.bh);
         let mut srcrect2: &Rectangle = &rectangle2
@@ -227,7 +227,7 @@ namespace WindowsApplication1
       else if (this.colorized == 1)
       {
          let mut local9: &Graphics = &Expression;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(nr);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local10: &Bitmap = &bitmap3;
         Rectangle rectangle3 = Rectangle::new(0, 0, 8, this.bh);
         let mut srcrect4: &Rectangle = &rectangle3
@@ -235,7 +235,7 @@ namespace WindowsApplication1
         let mut destrect4: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2ColouredNew( local9,  local10, srcrect4, destrect4, 0.0f, 0.0f, 0.0f, 0.2f);
          let mut local11: &Graphics = &Expression;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(nr);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(nr);
          let mut local12: &Bitmap = &bitmap4;
         rectangle3 = Rectangle::new(this.bh - 8, 0, 8, this.bh);
         let mut srcrect5: &Rectangle = &rectangle3

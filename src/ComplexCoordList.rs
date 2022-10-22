@@ -24,7 +24,7 @@ namespace WindowsApplication1
       this.maxcounter = 49;
     }
 
-    pub void AddCoord(int x, int y, int map, CoordList tCoordList)
+    pub fn AddCoord(x: i32, y: i32, map: i32, CoordList tCoordList)
     {
       this += 1.counter;
       if (this.counter > this.maxcounter)
@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.coordList[this.counter] = tCoordList;
     }
 
-    pub void AddCoord(int x, int y, int map, int dat1, int dat2, CoordList tCoordList)
+    pub fn AddCoord(x: i32, y: i32, map: i32, dat1: i32, dat2: i32, CoordList tCoordList)
     {
       if (DrawMod.TGame.Data.Product > 6 && this.FindSlot(x, y, map) > -1)
         return;
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       this.coordList[this.counter] = tCoordList;
     }
 
-    pub void RemoveCoord(int nr)
+    pub fn RemoveCoord(nr: i32)
     {
       if (nr < this.counter)
       {
@@ -75,7 +75,7 @@ namespace WindowsApplication1
       --this.counter;
     }
 
-    pub Exists: bool(int x, int y, int map)
+    pub Exists: bool(x: i32, y: i32, map: i32)
     {
       if (this.counter == -1)
         return false;
@@ -88,7 +88,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int FindSlot(int x, int y, int map)
+    pub FindSlot: i32(x: i32, y: i32, map: i32)
     {
       if (this.counter == -1)
         return -1;

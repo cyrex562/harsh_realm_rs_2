@@ -23,20 +23,20 @@ namespace WindowsApplication1
     protected int[] WindowH;
     protected bool[] WindowInputBlock;
     protected bool[] WindowFlag;
-    protected int WindowCounter;
-    protected int WindowIDCounter;
+    protected WindowCounter: i32;
+    protected WindowIDCounter: i32;
     protected int[] WindowID;
-    protected Bitmap OwnBitmap;
-    pub Bitmap OwnBackground;
+    protected OwnBitmap: Bitmap;
+    pub OwnBackground: Bitmap;
     pub LastOverlayWindow: i32;
-    pub GameClass Game;
-    protected Form1 FormRef;
+    pub game: GameClass;
+    protected FormRef: Form1;
     pub doMinimize: bool;
     pub doQuit: bool;
     pub Rectangle LastToolTipRect;
     pub AllowRightMouse: bool;
 
-    pub void Dispose()
+    pub fn Dispose()
     {
       let mut windowCounter: i32 = this.WindowCounter;
       for (let mut index: i32 = 0; index <= windowCounter; index += 1)
@@ -56,7 +56,7 @@ namespace WindowsApplication1
 
     pub HasOwnBitmap: bool() => !Information.IsNothing( this.OwnBitmap);
 
-    pub int GetMemorySize()
+    pub GetMemorySize: i32()
     {
       let mut memorySize: i32 =  Math.Round( (64 * this.OwnBitmap.Width * this.OwnBitmap.Height) / 8000.0);
       let mut windowCounter: i32 = this.WindowCounter;
@@ -65,7 +65,7 @@ namespace WindowsApplication1
       return memorySize;
     }
 
-    pub void RefreshOwnBackground(int backgroundsprite)
+    pub fn RefreshOwnBackground(backgroundsprite: i32)
     {
       if (Information.IsNothing( this.OwnBackground))
       {
@@ -84,7 +84,7 @@ namespace WindowsApplication1
           for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
           {
              let mut local1: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
              let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = index1 * width;
             let mut y: i32 = index2 * num1;
@@ -125,7 +125,7 @@ namespace WindowsApplication1
             num10 = 0;
           }
            let mut local3: &Graphics = &graphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
+          bitmap: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
            let mut local4: &Bitmap = &bitmap;
           let mut x: i32 = num9;
           let mut y: i32 = num10;
@@ -136,7 +136,7 @@ namespace WindowsApplication1
         else
         {
            let mut local5: &Graphics = &graphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
+          bitmap: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
            let mut local6: &Bitmap = &bitmap;
           let mut screenWidth: i32 = this.Game.ScreenWidth;
           let mut screenHeight: i32 = this.Game.ScreenHeight;
@@ -159,7 +159,7 @@ namespace WindowsApplication1
       objGraphics.Dispose();
     }
 
-    pub ScreenClass( GameClass tGame, let mut backgroundsprite: i32 = -1, Form1 tFormRef = null)
+    pub ScreenClass( tGame: GameClass, let mut backgroundsprite: i32 = -1, tFormRef: Form1 = null)
     {
       this.Game = tGame;
       this.FormRef = tFormRef;
@@ -198,7 +198,7 @@ namespace WindowsApplication1
               for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
               {
                  let mut local1: &Graphics = &Expression;
-                Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
+                bitmap: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
                  let mut local2: &Bitmap = &bitmap;
                 let mut x: i32 = index1 * width;
                 let mut y: i32 = index2 * num1;
@@ -238,7 +238,7 @@ namespace WindowsApplication1
               num10 = 0;
             }
              let mut local3: &Graphics = &Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
              let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = num9;
             let mut y: i32 = num10;
@@ -248,7 +248,7 @@ namespace WindowsApplication1
             break;
           }
            let mut local5: &Graphics = &Expression;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(backgroundsprite);
+          bitmap1: Bitmap = BitmapStore.GetBitmap(backgroundsprite);
            let mut local6: &Bitmap = &bitmap1;
           let mut screenWidth: i32 = this.Game.ScreenWidth;
           let mut screenHeight: i32 = this.Game.ScreenHeight;
@@ -269,7 +269,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub int GetNr(int id)
+    pub GetNr: i32(id: i32)
     {
       if (this.WindowCounter <= -1)
         return -1;
@@ -279,11 +279,11 @@ namespace WindowsApplication1
         if (this.WindowID[nr] == id)
           return nr;
       }
-      int nr1;
+      nr1: i32;
       return nr1;
     }
 
-    pub int GetWindowHeight(int id)
+    pub GetWindowHeight: i32(id: i32)
     {
       if (this.WindowCounter <= -1)
         return -1;
@@ -293,11 +293,11 @@ namespace WindowsApplication1
         if (this.WindowID[index] == id)
           return this.WindowH[index];
       }
-      int windowHeight;
+      windowHeight: i32;
       return windowHeight;
     }
 
-    pub int GetWindowWidth(int id)
+    pub GetWindowWidth: i32(id: i32)
     {
       if (this.WindowCounter <= -1)
         return -1;
@@ -307,11 +307,11 @@ namespace WindowsApplication1
         if (this.WindowID[index] == id)
           return this.WindowW[index];
       }
-      int windowWidth;
+      windowWidth: i32;
       return windowWidth;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.WindowCounter < 0)
         return;
@@ -323,7 +323,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void FlagAll()
+    pub fn FlagAll()
     {
       if (this.WindowCounter < 0)
         return;
@@ -335,7 +335,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void FlagAllIncludingRefresh()
+    pub fn FlagAllIncludingRefresh()
     {
       if (this.WindowCounter < 0)
         return;
@@ -349,7 +349,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub virtual Bitmap Paint(bool onlyToolTip = false)
+    pub virtual Paint: Bitmap(bool onlyToolTip = false)
     {
       bool flag1 = false;
       if (Information.IsNothing( this.OwnBitmap))
@@ -398,7 +398,7 @@ namespace WindowsApplication1
       if (!onlyToolTip)
       {
         let mut windowCounter1: i32 = this.WindowCounter;
-        int num;
+        num: i32;
         for (let mut index: i32 = 0; index <= windowCounter1; index += 1)
         {
           if (!Information.IsNothing( this.WindowList[index]) && Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0 && this.WindowFlag[index])
@@ -433,9 +433,9 @@ namespace WindowsApplication1
               {
                 graphics.CompositingMode = CompositingMode.SourceCopy;
                  let mut local1: &Graphics = &graphics;
-                Bitmap bitmap = this.WindowList[index1].Paint();
+                bitmap: Bitmap = this.WindowList[index1].Paint();
                  let mut local2: &Bitmap = &bitmap;
-                 Bitmap local3 =  this.OwnBitmap;
+                 local3: Bitmap =  this.OwnBitmap;
                 let mut x: i32 = this.WindowX[index1];
                 let mut y: i32 = this.WindowY[index1];
                 DrawMod.DrawSimpleFast( local1,  local2,  local3, x, y);
@@ -460,7 +460,7 @@ namespace WindowsApplication1
                 else
                 {
                    let mut local4: &Graphics = &graphics;
-                   Bitmap local5 =  this.OwnBackground;
+                   local5: Bitmap =  this.OwnBackground;
                   rectangle1 = Rectangle::new(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
                   let mut rect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart( local4,  local5, rect);
@@ -482,7 +482,7 @@ namespace WindowsApplication1
                 else
                 {
                    let mut local6: &Graphics = &graphics;
-                  Bitmap bitmap = this.WindowList[index1].Paint();
+                  bitmap: Bitmap = this.WindowList[index1].Paint();
                    let mut local7: &Bitmap = &bitmap;
                   let mut x: i32 = this.WindowX[index1];
                   let mut y: i32 = this.WindowY[index1];
@@ -494,7 +494,7 @@ namespace WindowsApplication1
               if (this.WindowList[index1].fixshade)
               {
                  let mut local8: &Graphics = &graphics;
-                 Bitmap local9 =  this.OwnBackground;
+                 local9: Bitmap =  this.OwnBackground;
                 rectangle1 = Rectangle::new(0, this.OwnBitmap.Height - 210, this.OwnBitmap.Width, 10);
                 let mut rect: &Rectangle = &rectangle1
                 DrawMod.DrawSimplePart( local8,  local9, rect);
@@ -550,11 +550,11 @@ namespace WindowsApplication1
             DrawMod.DrawBlock( graphics, this.Game.ScreenWidth - 52, 1, 25, 25, 0, 0, 0,  byte.MaxValue);
             DrawMod.DrawBlock( graphics, this.Game.ScreenWidth - 28, 1, 25, 25, 0, 0, 0,  byte.MaxValue);
           }
-          Bitmap bitmap1;
+          bitmap1: Bitmap;
           if (this.doMinimize)
           {
              let mut local10: &Graphics = &graphics;
-            Bitmap bitmap2 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
+            bitmap2: Bitmap = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
              let mut local11: &Bitmap = &bitmap2;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local10,  local11, x, 1);
@@ -588,11 +588,11 @@ namespace WindowsApplication1
         {
           if (Operators.CompareString(this.GetType().FullName, "WindowsApplication1.PlayScreenClass2", false) != 0 && Operators.CompareString(this.GetType().FullName, "WindowsApplication1.MessagePopUpScreenClass2", false) != 0)
           {
-            Bitmap bitmap3;
+            bitmap3: Bitmap;
             if (this.doMinimize)
             {
                let mut local18: &Graphics = &graphics;
-              Bitmap bitmap4 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
+              bitmap4: Bitmap = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
                let mut local19: &Bitmap = &bitmap4;
               let mut x: i32 = this.Game.ScreenWidth - 52;
               DrawMod.DrawSimple( local18,  local19, x, 1);
@@ -627,11 +627,11 @@ namespace WindowsApplication1
         {
           DrawMod.DrawBlock( graphics, this.Game.ScreenWidth - 52, 1, 25, 25, 0, 0, 0,  byte.MaxValue);
           DrawMod.DrawBlock( graphics, this.Game.ScreenWidth - 28, 1, 25, 25, 0, 0, 0,  byte.MaxValue);
-          Bitmap bitmap5;
+          bitmap5: Bitmap;
           if (this.doMinimize)
           {
              let mut local26: &Graphics = &graphics;
-            Bitmap bitmap6 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
+            bitmap6: Bitmap = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
              let mut local27: &Bitmap = &bitmap6;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local26,  local27, x, 1);
@@ -796,7 +796,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub void ClearOverlaySpecificWindow(int id)
+    pub fn ClearOverlaySpecificWindow(id: i32)
     {
       let mut windowCounter: i32 = this.WindowCounter;
       for (let mut index: i32 = 0; index <= windowCounter; index += 1)
@@ -810,7 +810,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int AddWindow(WindowClass tmpWindow, int x, int y, int w, int h)
+    pub AddWindow: i32(WindowClass tmpWindow, x: i32, y: i32, w: i32, h: i32)
     {
       this += 1.WindowCounter;
       this += 1.WindowIDCounter;
@@ -838,12 +838,12 @@ namespace WindowsApplication1
       return this.WindowIDCounter;
     }
 
-    pub int AddWindow(
+    pub AddWindow: i32(
       WindowClass tmpWindow,
-      int x,
-      int y,
-      int w,
-      int h,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
       Rectangle tShowRectangle)
     {
       this += 1.WindowCounter;
@@ -874,7 +874,7 @@ namespace WindowsApplication1
       return this.WindowIDCounter;
     }
 
-    pub void RemoveWindow(int id)
+    pub fn RemoveWindow(id: i32)
     {
       let mut index1: i32 = -1;
       let mut windowCounter: i32 = this.WindowCounter;
@@ -933,16 +933,16 @@ namespace WindowsApplication1
       objGraphics.Dispose();
     }
 
-    pub virtual ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub virtual ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass;
       return screenReturnClass;
     }
 
-    pub virtual void HandleTooltip(int x, int y, bool skipReset = false)
+    pub virtual void HandleTooltip(x: i32, y: i32, bool skipReset = false)
     {
-      int num1;
-      int index1;
+      num1: i32;
+      index1: i32;
       if (!skipReset)
       {
         this.Game.EditObj.TipColor = 0;
@@ -985,7 +985,7 @@ namespace WindowsApplication1
           if (num3 == 0 | num3 - Start > 90 && this.Game.EditObj.TipText.Length - Start > 90)
           {
             let mut num5: i32 = Start;
-            int num6;
+            num6: i32;
             while (num5 - Start < 90)
             {
               num6 = num5;
@@ -1032,7 +1032,7 @@ namespace WindowsApplication1
         return;
       str: String = Strings.Mid(this.Game.EditObj.TipText, Start1, num8 - Start1 + 1);
       oldValue: String = str;
-      string[] strArray = str.Replace("@", "").Split(':');
+      strArray: Vec<String> = str.Replace("@", "").Split(':');
       newValue: String = "";
       if (strArray.Length >= 2)
       {
@@ -1051,7 +1051,7 @@ namespace WindowsApplication1
       this.Game.EditObj.TipText = this.Game.EditObj.TipText.Replace(oldValue, newValue);
     }
 
-    pub virtual ScreenReturnClass HandleMouseUp(int x, int y, int b)
+    pub virtual ScreenReturnClass HandleMouseUp(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       screenReturnClass.flag = false;
@@ -1068,7 +1068,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub virtual void HandleBLOCKEDMouseUp(int x, int y, int b)
+    pub virtual void HandleBLOCKEDMouseUp(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       screenReturnClass.flag = false;
@@ -1087,7 +1087,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub virtual ScreenReturnClass HandleKeyPress(int nr)
+    pub virtual ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -1105,7 +1105,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub virtual ScreenReturnClass HandleKeyup(int nr)
+    pub virtual ScreenReturnClass HandleKeyup(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -1152,7 +1152,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub virtual ScreenReturnClass HandleTimerWheel(int x, int y)
+    pub virtual ScreenReturnClass HandleTimerWheel(x: i32, y: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -1195,7 +1195,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub virtual ScreenReturnClass HandleMouseMove(int x, int y)
+    pub virtual ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
@@ -1293,9 +1293,9 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub void DoTutorial(Graphics g)
+    pub fn DoTutorial(Graphics g)
     {
-      Color color = Color.FromArgb( byte.MaxValue,  byte.MaxValue, 28, 0);
+      color: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue, 28, 0);
       this.Game.EditObj.Zoom = 0;
       System.Type WC1 = typeof (IntroWindowClass2);
       if (this.WindowPresent( WC1))
@@ -1312,7 +1312,7 @@ namespace WindowsApplication1
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num3;
         let mut y: i32 = num4;
@@ -1321,7 +1321,7 @@ namespace WindowsApplication1
       else
       {
         System.Type WC2 = typeof (CombatResultWindowClass2);
-        int num5;
+        num5: i32;
         if (this.WindowPresent( WC2))
         {
           let mut num6: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
@@ -1394,7 +1394,7 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "And that concludes this short tutorial. It handled some key concepts, but I advise you to read the manual now.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               DrawMod.DrawTextColouredOutline( g, "In a normal game you would now press", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 105, Color.White);
                let mut local3: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.MARCBACK4);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.MARCBACK4);
                let mut local4: &Bitmap = &bitmap;
               DrawMod.DrawSimple( local3,  local4, 95, 138);
                let mut local5: &Graphics = &g;
@@ -1411,7 +1411,7 @@ namespace WindowsApplication1
               num5 = 1;
             }
             let mut num17: i32 = 0;
-            Bitmap bitmap1;
+            bitmap1: Bitmap;
             if (this.Game.EditObj.TutStep == 27 & num17 == 0 && this.Game.EditObj.OrderType == 2 & this.Game.EditObj.TempUnitList.counter > -1)
             {
               let mut num18: i32 = num15 + 825;
@@ -2183,7 +2183,7 @@ namespace WindowsApplication1
               let mut num57: i32 = num55 + 485;
               let mut num58: i32 = num56 + 630;
                let mut local99: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local100: &Bitmap = &bitmap;
               let mut x: i32 = num57;
               let mut y: i32 = num58;
@@ -2199,7 +2199,7 @@ namespace WindowsApplication1
               let mut num61: i32 = num59 + 485;
               let mut num62: i32 = num60 + 630;
                let mut local101: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local102: &Bitmap = &bitmap;
               let mut x: i32 = num61;
               let mut y: i32 = num62;
@@ -2219,9 +2219,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoTutorial3(Graphics g)
+    pub fn DoTutorial3(Graphics g)
     {
-      Color color = Color.FromArgb( byte.MaxValue,  byte.MaxValue, 28, 0);
+      color: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue, 28, 0);
       this.Game.EditObj.Zoom = 0;
       this.Game.EditObj.HideDetail = false;
       this.Game.EditObj.HideAS = false;
@@ -2240,7 +2240,7 @@ namespace WindowsApplication1
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num3;
         let mut y: i32 = num4;
@@ -2249,7 +2249,7 @@ namespace WindowsApplication1
       else
       {
         System.Type WC2 = typeof (CombatResultWindowClass2);
-        int num5;
+        num5: i32;
         if (this.WindowPresent( WC2))
         {
           let mut num6: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
@@ -2322,11 +2322,11 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "And that concludes this short tutorial. It handled some key concepts, but I advise you to read the manual now.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               DrawMod.DrawTextColouredOutline( g, "In a normal game you would now press", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 105, Color.White);
                let mut local3: &Graphics = &g;
-              Bitmap bitmap1 = BitmapStore.GetBitmap(this.Game.MARCBACK4);
+              bitmap1: Bitmap = BitmapStore.GetBitmap(this.Game.MARCBACK4);
                let mut local4: &Bitmap = &bitmap1;
               DrawMod.DrawSimple( local3,  local4, 95, 138);
                let mut local5: &Graphics = &g;
-              Bitmap bitmap2 = BitmapStore.GetBitmap(this.Game.BUTTONNEXT);
+              bitmap2: Bitmap = BitmapStore.GetBitmap(this.Game.BUTTONNEXT);
                let mut local6: &Bitmap = &bitmap2;
               DrawMod.DrawSimple( local5,  local6, 95, 138);
               DrawMod.DrawTextColouredOutline( g, "the next turn button, but the tutorial has no next turn. You have to use the 'quit' button.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 130, 155, Color.White);
@@ -2344,7 +2344,7 @@ namespace WindowsApplication1
               let mut num18: i32 = num15 + 825;
               let mut num19: i32 = this.Game.ScreenHeight - 360;
                let mut local7: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local8: &Bitmap = &bitmap;
               let mut x: i32 = num18;
               let mut y: i32 = num19;
@@ -2361,7 +2361,7 @@ namespace WindowsApplication1
               let mut num20: i32 = num15 + 956;
               let mut num21: i32 = this.Game.ScreenHeight - 360;
                let mut local9: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local10: &Bitmap = &bitmap;
               let mut x: i32 = num20;
               let mut y: i32 = num21;
@@ -2393,7 +2393,7 @@ namespace WindowsApplication1
               let mut num22: i32 = num15 + 75;
               let mut num23: i32 = this.Game.ScreenHeight - 360;
                let mut local14: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local15: &Bitmap = &bitmap;
               let mut x: i32 = num22;
               let mut y: i32 = num23;
@@ -2476,7 +2476,7 @@ namespace WindowsApplication1
                 let mut num24: i32 = num15 + 723;
                 let mut num25: i32 = this.Game.ScreenHeight - 360;
                  let mut local22: &Graphics = &g;
-                Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+                bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                  let mut local23: &Bitmap = &bitmap;
                 let mut x: i32 = num24;
                 let mut y: i32 = num25;
@@ -2484,7 +2484,7 @@ namespace WindowsApplication1
               }
               num17 = 1;
             }
-            Bitmap bitmap3;
+            bitmap3: Bitmap;
             if (this.Game.EditObj.TutStep == 24 & num17 == 0 && this.Game.SelectX == 10 & this.Game.SelectY == 4 && !this.Game.EditObj.LayerSupplyOn)
             {
               this.Game.EditObj.TutStep = 24;
@@ -3074,7 +3074,7 @@ namespace WindowsApplication1
               let mut num51: i32 = num49 + 485;
               let mut num52: i32 = num50 + 630;
                let mut local89: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local90: &Bitmap = &bitmap;
               let mut x: i32 = num51;
               let mut y: i32 = num52;
@@ -3090,7 +3090,7 @@ namespace WindowsApplication1
               let mut num55: i32 = num53 + 485;
               let mut num56: i32 = num54 + 630;
                let mut local91: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
                let mut local92: &Bitmap = &bitmap;
               let mut x: i32 = num55;
               let mut y: i32 = num56;
@@ -3138,7 +3138,7 @@ namespace WindowsApplication1
       return (WindowClass) null;
     }
 
-    pub int GetWindowID( System.Type WC)
+    pub GetWindowID: i32( System.Type WC)
     {
       if (this.WindowCounter > -1)
       {
@@ -3152,7 +3152,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub void PaintPresentWindow(Graphics g,  System.Type WC)
+    pub fn PaintPresentWindow(Graphics g,  System.Type WC)
     {
       let mut windowCounter: i32 = this.WindowCounter;
       for (let mut index: i32 = 0; index <= windowCounter; index += 1)
@@ -3166,7 +3166,7 @@ namespace WindowsApplication1
             DrawMod.DrawSimplePart( g,  this.OwnBackground, Rectangle::new(this.WindowX[index], this.WindowY[index], this.WindowW[index], this.WindowH[index]));
             g.CompositingMode = CompositingMode.SourceOver;
              let mut local1: &Graphics = &g;
-            Bitmap bitmap = this.WindowList[index].Paint();
+            bitmap: Bitmap = this.WindowList[index].Paint();
              let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = this.WindowX[index];
             let mut y: i32 = this.WindowY[index];

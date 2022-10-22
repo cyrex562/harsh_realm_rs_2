@@ -15,73 +15,73 @@ namespace WindowsApplication1
 {
   pub class EditUnitWindowClass : WindowClass
   {
-     int LibListId;
-     int LibNr;
+     LibListId: i32;
+     LibNr: i32;
      ListClass LibListObj;
-     int UnitListId;
+     UnitListId: i32;
      ListClass UnitListObj;
-     int BAddUnitId;
-     int BAddUnitTextId;
-     int UnitList2Id;
+     BAddUnitId: i32;
+     BAddUnitTextId: i32;
+     UnitList2Id: i32;
      ListClass UnitList2Obj;
-     int BAddUnit2Id;
-     int BAddUnit2TextId;
-     int BNameId;
-     int BNameTextId;
-     int BRemoveUnitId;
-     int BRemoveUnitTextId;
-     int SFListId;
+     BAddUnit2Id: i32;
+     BAddUnit2TextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BRemoveUnitId: i32;
+     BRemoveUnitTextId: i32;
+     SFListId: i32;
      ListClass SFListObj;
-     int BAddSFId;
-     int BaddSFTextId;
-     int BRemoveSFId;
-     int BRemoveSFTextid;
-     int BHQId;
-     int BHQTextId;
-     int a3id;
-     int a3bid;
-     int a4id;
-     int a4bid;
-     int a5id;
-     int a5bid;
-     int a6id;
-     int a6bid;
-     int a7id;
-     int a7bid;
-     int a8id;
-     int a8bid;
-     int a9id;
-     int a9bid;
-     int a10id;
-     int a10bid;
-     int a11id;
-     int a11bid;
-     int BTypeId;
-     int BTypeTextId;
-     int SFTypeListId;
+     BAddSFId: i32;
+     BaddSFTextId: i32;
+     BRemoveSFId: i32;
+     BRemoveSFTextid: i32;
+     BHQId: i32;
+     BHQTextId: i32;
+     a3id: i32;
+     a3bid: i32;
+     a4id: i32;
+     a4bid: i32;
+     a5id: i32;
+     a5bid: i32;
+     a6id: i32;
+     a6bid: i32;
+     a7id: i32;
+     a7bid: i32;
+     a8id: i32;
+     a8bid: i32;
+     a9id: i32;
+     a9bid: i32;
+     a10id: i32;
+     a10bid: i32;
+     a11id: i32;
+     a11bid: i32;
+     BTypeId: i32;
+     BTypeTextId: i32;
+     SFTypeListId: i32;
      ListClass SFTypeListObj;
-     int BQtyID;
-     int BQtyTextId;
-     int BRdnId;
-     int BRdnTextId;
-     int BXpId;
-     int BXpTextId;
-     int BPeopleId;
-     int BPeopleTextId;
-     int BSupplyId;
-     int BSupplyTextId;
-     int BMorId;
-     int BMorTextId;
-     int bmovid;
-     int bmovtextid;
-     int BEntrId;
-     int BEntrTextId;
-     int UnitNr;
-     int SFNr;
-     int SFTypeNr;
+     BQtyID: i32;
+     BQtyTextId: i32;
+     BRdnId: i32;
+     BRdnTextId: i32;
+     BXpId: i32;
+     BXpTextId: i32;
+     BPeopleId: i32;
+     BPeopleTextId: i32;
+     BSupplyId: i32;
+     BSupplyTextId: i32;
+     BMorId: i32;
+     BMorTextId: i32;
+     bmovid: i32;
+     bmovtextid: i32;
+     BEntrId: i32;
+     BEntrTextId: i32;
+     UnitNr: i32;
+     SFNr: i32;
+     SFTypeNr: i32;
      string ss;
 
-    pub EditUnitWindowClass(ref GameClass tGame)
+    pub EditUnitWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Units in Hex and Units Predefined ")
     {
       this.UnitNr = -1;
@@ -91,9 +91,9 @@ namespace WindowsApplication1
       this.MakeUnitListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeUnitTypeItemGUI();
+    pub fn DoRefresh() => this.MakeUnitTypeItemGUI();
 
-     void MakeUnitListGUI(int tUnitnr)
+     void MakeUnitListGUI(tUnitnr: i32)
     {
       if (this.UnitListId > 0)
         this.RemoveSubPart(this.UnitListId);
@@ -101,7 +101,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.LibListId);
       this.UnitNr = tUnitnr;
       let mut num1: i32 =  -1;
-      Font font;
+      font: Font;
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > -1)
       {
         this.UnitListObj = ListClass::new();
@@ -116,9 +116,9 @@ namespace WindowsApplication1
         ListClass unitListObj = this.UnitListObj;
         let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
+        ref local1: Bitmap = ref this.OwnBitmap;
         font =  null;
-        ref Font local2 = ref font;
+        ref local2: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(unitListObj, 3, 300, tlistselect, game, tHeader: "Units in Hex", tbackbitmap: (ref local1), bbx: 10, bby: 55, overruleFont: (ref local2));
         this.UnitListId = this.AddSubPart(ref tsubpart, 10, 55, 300, 96, 0);
         if (num1 > -1)
@@ -143,9 +143,9 @@ namespace WindowsApplication1
       ListClass libListObj = this.LibListObj;
       let mut tlistselect1: i32 =  num2;
       let mut game1: GameClass = this.game;
-      ref Bitmap local3 = ref this.OwnBitmap;
+      ref local3: Bitmap = ref this.OwnBitmap;
       font =  null;
-      ref Font local4 = ref font;
+      ref local4: Font = ref font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 5, 200, tlistselect1, game1, tHeader: "Libraries", tbackbitmap: (ref local3), bbx: 10, bby: 180, overruleFont: (ref local4));
       this.LibListId = this.AddSubPart(ref tsubpart1, 10, 180, 300, 128, 0);
       if (this.UnitList2Id > 0)
@@ -172,9 +172,9 @@ namespace WindowsApplication1
       ListClass unitList2Obj = this.UnitList2Obj;
       let mut tlistselect2: i32 =  num4;
       let mut game2: GameClass = this.game;
-      ref Bitmap local5 = ref this.OwnBitmap;
+      ref local5: Bitmap = ref this.OwnBitmap;
       font =  null;
-      ref Font local6 = ref font;
+      ref local6: Font = ref font;
       let mut tsubpart2: SubPartClass =  new ListSubPartClass(unitList2Obj, 5, 300, tlistselect2, game2, tHeader: "Predefined Units", tbackbitmap: (ref local5), bbx: 10, bby: 324, overruleFont: (ref local6));
       this.UnitList2Id = this.AddSubPart(ref tsubpart2, 10, 324, 300, 128, 0);
       this.MakeUnitTypeItemGUI();
@@ -382,9 +382,9 @@ namespace WindowsApplication1
           ListClass sfListObj = this.SFListObj;
           let mut tlistselect: i32 =  num;
           let mut game: GameClass = this.game;
-          ref Bitmap local1 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local2 = ref font;
+          ref local1: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local2: Font = ref font;
           tsubpart6 =  new ListSubPartClass(sfListObj, 5, 250, tlistselect, game, tHeader: "Subformations in Unit", tbackbitmap: (ref local1), bbx: 370, bby: 120, overruleFont: (ref local2));
           this.SFListId = this.AddSubPart(ref tsubpart6, 370, 120, 250, 128, 0);
         }
@@ -407,7 +407,7 @@ namespace WindowsApplication1
       this.SpecialSFSheet();
     }
 
-    pub void SpecialSFSheet()
+    pub fn SpecialSFSheet()
     {
       if (this.BTypeId > 0)
         this.RemoveSubPart(this.BTypeId);
@@ -498,7 +498,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -542,7 +542,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.BAddUnitId)
             {
-              int integer;
+              integer: i32;
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1)
               {
                 this.game.ProcessingObj.NewUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime);
@@ -608,7 +608,7 @@ namespace WindowsApplication1
               if (colorDialog.ShowDialog() == DialogResult.OK)
               {
                 UnitClass unitClass1 = this.game.Data.UnitObj[this.UnitNr];
-                Color color = colorDialog.Color;
+                color: Color = colorDialog.Color;
                 let mut r: i32 =   color.R;
                 unitClass1.Red = r;
                 UnitClass unitClass2 = this.game.Data.UnitObj[this.UnitNr];
@@ -666,7 +666,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.a5id)
             {
-              int integer;
+              integer: i32;
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1)
               {
                 this.game.ProcessingObj.NewUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime);

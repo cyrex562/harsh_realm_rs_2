@@ -19,7 +19,7 @@ namespace WindowsApplication1
     pub DynamicData(string datastring)
     {
       this.element = new DynamicDataElement[1000];
-      string[] strArray1 = new string[1000];
+      strArray1: Vec<String> = new string[1000];
       this.elementCounter = -1;
       let mut num1: i32 =  1;
       while (num1 == 1)
@@ -129,7 +129,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray2 = str2.Split(',');
+                    strArray2: Vec<String> = str2.Split(',');
                     if (strArray2.GetUpperBound(0) >= 3)
                     {
                       this.element[index].color = Color.FromArgb( Math.Round(Conversion.Val(strArray2[3])),  Math.Round(Conversion.Val(strArray2[0])),  Math.Round(Conversion.Val(strArray2[1])),  Math.Round(Conversion.Val(strArray2[2])));
@@ -164,7 +164,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray3 = str2.Split(',');
+                    strArray3: Vec<String> = str2.Split(',');
                     if (strArray3.GetUpperBound(0) >= 4)
                     {
                       this.element[index].x =  Math.Round(Conversion.Val(strArray3[0]));
@@ -194,7 +194,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray4 = str2.Split(',');
+                    strArray4: Vec<String> = str2.Split(',');
                     if (strArray4.GetUpperBound(0) >= 1)
                     {
                       this.element[index].optiontempvarOn[ Math.Round(Conversion.Val(strArray4[0]))] = true;

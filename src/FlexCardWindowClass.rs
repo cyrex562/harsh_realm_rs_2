@@ -12,24 +12,24 @@ namespace WindowsApplication1
 {
   pub class FlexCardWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
      int[] Answer;
 
-    pub FlexCardWindowClass(ref GameClass tGame)
+    pub FlexCardWindowClass(ref tGame: GameClass)
       : base(ref tGame, 400, 400, 8)
     {
       this.Answer = new int[10];
       this.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(400, 400, -1);
@@ -42,8 +42,8 @@ namespace WindowsApplication1
       SizeF sizeF2 = graphics.MeasureString(questionText, this.game.MarcFont3);
       DrawMod.DrawTextColouredMarc(ref graphics, questionText, this.game.MarcFont3,  Math.Round(200.0 -  sizeF2.Width / 2.0), 20, Color.White);
       ref Graphics local1 = ref graphics;
-      Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCardSe1(this.game.Data.Turn, questionCard);
-      ref Bitmap local2 = ref bitmap;
+      bitmap: Bitmap = this.game.CustomBitmapObj.DrawActionCardSe1(this.game.Data.Turn, questionCard);
+      ref local2: Bitmap = ref bitmap;
       DrawMod.DrawSimple(ref local1, ref local2, 105, 60);
       int[] answer = this.Answer;
       let mut tsubpart: SubPartClass =  new TextButtonPartClass(this.game.EditObj.AnswerText[1], 100, tBackbitmap: (ref this.OwnBitmap), bbx: 150, bby: 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
@@ -53,7 +53,7 @@ namespace WindowsApplication1
       this.AddMouse(ref trect, "", this.game.EditObj.AnswerTextMouseOver[1]);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -81,7 +81,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

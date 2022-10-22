@@ -16,10 +16,10 @@ namespace WindowsApplication1
   {
      ListClass ListObj;
      ListClass List2Obj;
-     int listId;
-     int list2Id;
-     int useWidth;
-     int useHeight;
+     listId: i32;
+     list2Id: i32;
+     useWidth: i32;
+     useHeight: i32;
      SimpleList listShq;
      SimpleList listUnit;
      SimpleList listUnitModel;
@@ -28,58 +28,58 @@ namespace WindowsApplication1
      SimpleList listModel;
      SimpleList listModelType;
      SimpleList listUnitTotal;
-     int slotAssetPresentation;
-     int slotPerks;
-     int slotPreviewAssetLog;
-     int slotHexPerk;
-     int slotPaid;
-     int slotHexNames;
-     int slotLandscape;
-     int slotAssetLog;
-     int slotConstruction;
-     int slotZones;
-     int slotRegKey;
-     int slotDetail;
-     int slotRegReg;
-     int slotRegZoneKeys;
-     int slotItemType;
-     int slotRegimes;
-     int slotZoneKeys;
-     int slotAssetTypes;
-     int slotAssets;
-     int slotCharacter;
-     int slotPortrait;
-     int slotModel;
-     int slotModelType;
-     int slotModelTech;
-     int slotTechType;
-     int slotModelStatName;
-     int slotModelStatBefore;
-     int slotModelStat;
-     int slotQuality;
-     int slotChoice;
+     slotAssetPresentation: i32;
+     slotPerks: i32;
+     slotPreviewAssetLog: i32;
+     slotHexPerk: i32;
+     slotPaid: i32;
+     slotHexNames: i32;
+     slotLandscape: i32;
+     slotAssetLog: i32;
+     slotConstruction: i32;
+     slotZones: i32;
+     slotRegKey: i32;
+     slotDetail: i32;
+     slotRegReg: i32;
+     slotRegZoneKeys: i32;
+     slotItemType: i32;
+     slotRegimes: i32;
+     slotZoneKeys: i32;
+     slotAssetTypes: i32;
+     slotAssets: i32;
+     slotCharacter: i32;
+     slotPortrait: i32;
+     slotModel: i32;
+     slotModelType: i32;
+     slotModelTech: i32;
+     slotTechType: i32;
+     slotModelStatName: i32;
+     slotModelStatBefore: i32;
+     slotModelStat: i32;
+     slotQuality: i32;
+     slotChoice: i32;
      int[] itemweight;
-     string[] itemName;
+     itemName: Vec<String>;
      int[] assetButton;
-     int assetButtonCounter;
+     assetButtonCounter: i32;
      int[] assetButtonData;
-     int opt1;
-     int but0id;
-     int but1id;
-     int but2id;
-     int but3id;
-     int but4id;
-     int but5id;
+     opt1: i32;
+     but0id: i32;
+     but1id: i32;
+     but2id: i32;
+     but3id: i32;
+     but4id: i32;
+     but5id: i32;
 
-    pub void Dispose() => base.Dispose();
+    pub fn Dispose() => base.Dispose();
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       return base.HandleMouseMove(x, y);
     }
 
-    pub SpecialWindowClass5( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass5( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.ListObj = ListClass::new();
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void ReCalculate()
+    pub fn ReCalculate()
     {
       self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 381, 0, 0));
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -166,8 +166,8 @@ namespace WindowsApplication1
         }
       }
       let mut counter1: i32 = self.listUnit.Counter;
-      int ratio;
-      int qty;
+      ratio: i32;
+      qty: i32;
       for (let mut index1: i32 = 0; index1 <= counter1; index1 += 1)
       {
         let mut tid: i32 = self.listUnit.Id[index1];
@@ -228,7 +228,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -263,7 +263,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -497,12 +497,12 @@ namespace WindowsApplication1
       let mut num21: i32 = 0;
       let mut num22: i32 = num19;
       let mut counter4: i32 = self.listModel.Counter;
-      int num23;
-      int num24;
-      int tdata1;
+      num23: i32;
+      num24: i32;
+      tdata1: i32;
       Rectangle trect1;
       Rectangle rectangle8;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 = 0; index2 <= counter4; index2 += 1)
       {
         if (self.listModel.Data1[index2] == self.game.EditObj.se1_modelReinf | self.game.EditObj.se1_modelReinf < 0)
@@ -519,7 +519,7 @@ namespace WindowsApplication1
             let mut idValue2: i32 = self.listModel.Id[index2];
             let mut x8: i32 = left5 + 10;
             let mut sfTypeById: i32 = self.game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotModel].GetData(0, idValue2, 5))));
-            Bitmap bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, self.game.Data.Turn, -1);
+            bitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, self.game.Data.Turn, -1);
             if (bitmap.Width > 70)
             {
               num23 =  Math.Round( (bitmap.Height * 70) /  bitmap.Width);
@@ -875,7 +875,7 @@ namespace WindowsApplication1
                   data2_7: String = self.game.Data.StringListObj[self.slotChoice].GetData2(1, num24, 2, num23, 3);
                   if (Operators.CompareString(data2_7, "None", false) != 0 & Strings.InStr(data2_7, "No ") < 1)
                   {
-                    int num28;
+                    num28: i32;
                     if (data2_7.Length > 0 & str1.Length > 0)
                     {
                       if (((Strings.InStr(str1, ",") > 0 ? 1 : 0) & 0) != 0)
@@ -1312,7 +1312,7 @@ namespace WindowsApplication1
                 DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont4, x10, num19 + num25, Color.White);
                 x10 += 100;
               }
-              int num36;
+              num36: i32;
               if (x10 + 80 < self.game.ScreenWidth - 20)
               {
                 DrawMod.DrawBlock( g, x10 - 5, num19, 80, num8 - 1,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 40);
@@ -1714,7 +1714,7 @@ namespace WindowsApplication1
               {
                 let mut num56: i32 = simpleList.Weight[index13];
                 let mut sfTypeById: i32 = self.game.HandyFunctionsObj.GetSFTypeByID(simpleList.Id[index13]);
-                Bitmap bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, self.game.Data.Turn, -1);
+                bitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, self.game.Data.Turn, -1);
                 if (bitmap.Width > 50)
                 {
                   num23 =  Math.Round( (bitmap.Height * 50) /  bitmap.Width);
@@ -1770,7 +1770,7 @@ namespace WindowsApplication1
       g = (Graphics) null;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1784,7 +1784,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
@@ -2211,6 +2211,6 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void PopUpRefresh() => self.dostuff();
+    pub fn PopUpRefresh() => self.dostuff();
   }
 }

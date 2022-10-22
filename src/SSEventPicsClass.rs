@@ -15,52 +15,52 @@ namespace WindowsApplication1
 {
   pub class SSEventPicsClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int loadMapId;
-     int setdateid;
-     int exportid;
-     int setdescriptid;
-     int setnameid;
-     int setdesignid;
-     int loadMapIdB;
-     int saveId;
-     int newId;
-     int saveid2;
-     int textId;
-     int text2id;
-     int text3id;
-     int addId;
-     int detailnr;
-     int currentStep;
-     int loadLayer;
-     int removeLayer;
-     int removeLayerB;
-     int rleft;
-     int rtop;
-     int rbottom;
-     int rright;
-     int aleft;
-     int atop;
-     int abottom;
-     int aright;
-     int e1id;
-     int e2id;
-     int e3id;
-     int removeId;
-     int loadId;
-     int picId;
+     loadMapId: i32;
+     setdateid: i32;
+     exportid: i32;
+     setdescriptid: i32;
+     setnameid: i32;
+     setdesignid: i32;
+     loadMapIdB: i32;
+     saveId: i32;
+     newId: i32;
+     saveid2: i32;
+     textId: i32;
+     text2id: i32;
+     text3id: i32;
+     addId: i32;
+     detailnr: i32;
+     currentStep: i32;
+     loadLayer: i32;
+     removeLayer: i32;
+     removeLayerB: i32;
+     rleft: i32;
+     rtop: i32;
+     rbottom: i32;
+     rright: i32;
+     aleft: i32;
+     atop: i32;
+     abottom: i32;
+     aright: i32;
+     e1id: i32;
+     e2id: i32;
+     e3id: i32;
+     removeId: i32;
+     loadId: i32;
+     picId: i32;
 
-    pub SSEventPicsClass( GameClass tGame)
+    pub SSEventPicsClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Event Pics")
     {
       self.detailnr = -1;
       self.DoStuff();
     }
 
-    pub void PopUpRefresh() => self.DoStuff();
+    pub fn PopUpRefresh() => self.DoStuff();
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.textId > 0)
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       let mut num3: i32 = y2;
       let mut x1: i32 = num1 + 25;
       self.listObj = ListClass::new();
-      int tlistselect1;
+      tlistselect1: i32;
       if (self.game.Data.EventPicCounter > -1)
       {
         tlistselect1 = -1;
@@ -144,11 +144,11 @@ namespace WindowsApplication1
         let mut tlistsize: i32 = 12 + num6;
         let mut tlistselect2: i32 = tlistselect1;
         let mut game: GameClass = self.game;
-         Bitmap local1 =  self.OwnBitmap;
+         local1: Bitmap =  self.OwnBitmap;
         let mut bbx: i32 = x1;
         let mut bby: i32 = y2;
-        Font font =  null;
-         Font local2 =  font;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(listObj, tlistsize, 400, tlistselect2, game, tHeader: "Event Pics", tbackbitmap: ( local1), bbx: bbx, bby: bby, overruleFont: ( local2), overruleItemSize: 20);
         self.listId = self.AddSubPart( tsubpart2, x1, y2, 400, (15 + num6) * 20, 0);
       }
@@ -174,7 +174,7 @@ namespace WindowsApplication1
         num12 = 500;
       }
        let mut local3: &Graphics = &objgraphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.detailnr]);
+      bitmap: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.detailnr]);
        let mut local4: &Bitmap = &bitmap;
       let mut x2: i32 = num7;
       let mut y3: i32 = num11;
@@ -183,7 +183,7 @@ namespace WindowsApplication1
       DrawMod.DrawScaled( local3,  local4, x2, y3, w, h, true);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

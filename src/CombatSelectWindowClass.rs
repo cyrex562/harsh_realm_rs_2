@@ -15,27 +15,27 @@ namespace WindowsApplication1
 {
   pub class CombatSelectWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int mapButId;
-     int oktextid;
+     okid: i32;
+     cancelid: i32;
+     mapButId: i32;
+     oktextid: i32;
      UnitList UL;
      UnitList DL;
-     int oldUnitSelected;
-     int oldSelectx;
-     int oldSelecty;
-     int oldMode1;
-     int oldMode2;
+     oldUnitSelected: i32;
+     oldSelectx: i32;
+     oldSelecty: i32;
+     oldMode1: i32;
+     oldMode2: i32;
      CoordList oldTempCoordList;
      CoordList oldTempCoordLastMoveList;
      ListClass rlistobj;
      ListClass rlist2obj;
-     int rlistid;
-     int rlist2id;
-     int switchId;
+     rlistid: i32;
+     rlist2id: i32;
+     switchId: i32;
      UnitList EL;
 
-    pub CombatSelectWindowClass(ref GameClass tGame)
+    pub CombatSelectWindowClass(ref tGame: GameClass)
       : base(ref tGame, 1280, 768, 8)
     {
       this.oldMode1 = this.game.EditObj.HideUnit;
@@ -53,7 +53,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void Setup()
+    pub fn Setup()
     {
       this.EL = UnitList::new();
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
@@ -175,7 +175,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -210,7 +210,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.cancelid > 0)
       {
@@ -242,8 +242,8 @@ namespace WindowsApplication1
       DrawMod.DrawBlock(ref toG, 79, 499, 1115, 234, 0, 0, 0, 128);
       DrawMod.DrawBlock(ref toG, 443, 220, 410, 320, 0, 0, 0,  byte.MaxValue);
       ref Graphics local1 = ref toG;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_COMPLEXFRAME);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.SE1_COMPLEXFRAME);
+      ref local2: Bitmap = ref bitmap1;
       DrawMod.DrawSimple(ref local1, ref local2, 408, 205);
       SimpleStringList simpleStringList = this.game.HandyFunctionsObj.CombatPreviewStats(this.game.SelectX, this.game.SelectY);
       bool flag1 = false;
@@ -268,27 +268,27 @@ namespace WindowsApplication1
       let mut y1: i32 =  152;
       let mut num2: i32 =  x1;
       let mut num3: i32 =  y1;
-      Bitmap bitmap2 = new Bitmap(400, 400, PixelFormat.Format32bppPArgb);
+      bitmap2: Bitmap = new Bitmap(400, 400, PixelFormat.Format32bppPArgb);
       bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics objGraphics = Graphics.FromImage((Image) bitmap2);
       objGraphics.CompositingMode = CompositingMode.SourceCopy;
       objGraphics.Clear(Color.Transparent);
       objGraphics.CompositingMode = CompositingMode.SourceOver;
-      Bitmap objBitmap = new Bitmap(128, 96, PixelFormat.Format32bppPArgb);
+      objBitmap: Bitmap = new Bitmap(128, 96, PixelFormat.Format32bppPArgb);
       objBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) objBitmap);
-      CustomBitmapClass customBitmapObj1 = this.game.CustomBitmapObj;
+      customBitmapObj1: CustomBitmapClass = this.game.CustomBitmapObj;
       let mut selectX: i32 =  this.game.SelectX;
       let mut selectY: i32 =  this.game.SelectY;
       Graphics tempg1 = graphics;
-      Bitmap bitmap3 = (Bitmap) null;
-      ref Bitmap local3 = ref bitmap3;
+      bitmap3: Bitmap = (Bitmap) null;
+      ref local3: Bitmap = ref bitmap3;
       bool flag3 = false;
       ref bool local4 = ref flag3;
       customBitmapObj1.DrawHex(selectX, selectY, 0, tempg: tempg1, counteralpha: 0, Zoom: 1, neverusehistory: true, combatSetup: true, gBitmap: (ref local3), tFromMapPopup: (ref local4));
       DrawMod.DrawSimple(ref objGraphics, ref objBitmap, x1, y1);
       let mut tfacing: i32 =  1;
-      Bitmap bitmap4;
+      bitmap4: Bitmap;
       do
       {
         Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, 0, tfacing);
@@ -320,12 +320,12 @@ namespace WindowsApplication1
             x2 -= 106;
             y2 -= 48;
           }
-          CustomBitmapClass customBitmapObj2 = this.game.CustomBitmapObj;
+          customBitmapObj2: CustomBitmapClass = this.game.CustomBitmapObj;
           let mut x3: i32 =  coordinate.x;
           let mut y3: i32 =  coordinate.y;
           Graphics tempg2 = graphics;
           bitmap4 = (Bitmap) null;
-          ref Bitmap local5 = ref bitmap4;
+          ref local5: Bitmap = ref bitmap4;
           flag3 = false;
           ref bool local6 = ref flag3;
           customBitmapObj2.DrawHex(x3, y3, 0, tempg: tempg2, counteralpha: 0, Zoom: 1, neverusehistory: true, combatSetup: true, gBitmap: (ref local5), tFromMapPopup: (ref local6));
@@ -351,28 +351,28 @@ namespace WindowsApplication1
       if (num8 > 15)
         num8 = 15;
       let mut num9: i32 =  num8;
-      int unit1;
+      unit1: i32;
       for (let mut index: i32 =  0; index <= num9; index += 1)
       {
         unit1 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
         if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit1, this.game.Data.Turn) > 0)
           num7 += 1;
       }
-      int num10;
-      int num11;
+      num10: i32;
+      num11: i32;
       Rectangle trect1;
       Rectangle trect2;
       if (landscapeType > -1 & spriteNr > -1 && this.game.Data.Product > 6 &  this.game.Data.RuleVar[410] > 0.0)
       {
         ref Graphics local7 = ref toG;
         bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SUPERIMPOSEBACKGROUND);
-        ref Bitmap local8 = ref bitmap4;
+        ref local8: Bitmap = ref bitmap4;
         let mut x4: i32 =  num5;
         let mut y4: i32 =  num6;
         DrawMod.DrawSimple(ref local7, ref local8, x4, y4);
         ref Graphics local9 = ref toG;
         bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-        ref Bitmap local10 = ref bitmap4;
+        ref local10: Bitmap = ref bitmap4;
         let mut x5: i32 =  num5 + 120;
         let mut y5: i32 =  num6 - 20;
         DrawMod.DrawSimple(ref local9, ref local10, x5, y5);
@@ -450,13 +450,13 @@ namespace WindowsApplication1
         return;
       ref Graphics local11 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SUPERIMPOSEBACKGROUND);
-      ref Bitmap local12 = ref bitmap4;
+      ref local12: Bitmap = ref bitmap4;
       let mut x6: i32 =  num15;
       let mut y6: i32 =  num16;
       DrawMod.DrawSimple(ref local11, ref local12, x6, y6);
       ref Graphics local13 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-      ref Bitmap local14 = ref bitmap4;
+      ref local14: Bitmap = ref bitmap4;
       let mut x7: i32 =  num15 + 120;
       let mut y7: i32 =  num16 - 20;
       DrawMod.DrawSimple(ref local13, ref local14, x7, y7);
@@ -561,7 +561,7 @@ namespace WindowsApplication1
             ttext: String = Strings.Mid(simpleStringList.Id[index], num23 + 1);
             ref Graphics local15 = ref toG;
             bitmap4 = BitmapStore.GetBitmap(this.game.COMBATICONS);
-            ref Bitmap local16 = ref bitmap4;
+            ref local16: Bitmap = ref bitmap4;
             trect2 = Rectangle::new(32 * (num22 - 1), 0, 32, 32);
             let mut srcrect: &Rectangle = &trect2
             trect1 = Rectangle::new(x8, y8, 32, 32);
@@ -632,7 +632,7 @@ namespace WindowsApplication1
       }
       while (num20 >= 0);
       str5: String = "odds " + num19.ToString() + " : " + num18.ToString();
-      Color color;
+      color: Color;
       if (num19 > 0 & num18 < 1)
         str5 = "No return fire expected";
       else if (num19 < 1 | num18 < 1)
@@ -667,13 +667,13 @@ namespace WindowsApplication1
         return;
       ref Graphics local17 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SUPERIMPOSEBACKGROUND);
-      ref Bitmap local18 = ref bitmap4;
+      ref local18: Bitmap = ref bitmap4;
       let mut x9: i32 =  num27;
       let mut y9: i32 =  num28;
       DrawMod.DrawSimple(ref local17, ref local18, x9, y9);
       ref Graphics local19 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-      ref Bitmap local20 = ref bitmap4;
+      ref local20: Bitmap = ref bitmap4;
       let mut x10: i32 =  num27 + 120;
       let mut y10: i32 =  num28 - 20;
       DrawMod.DrawSimple(ref local19, ref local20, x10, y10);
@@ -776,8 +776,8 @@ namespace WindowsApplication1
       if (Index == this.game.Data.Turn)
         Index = -1;
       let mut counter5: i32 =  this.game.EditObj.TempUnitList.counter;
-      int num34;
-      int num35;
+      num34: i32;
+      num35: i32;
       for (let mut index3: i32 =  0; index3 <= counter5; index3 += 1)
       {
         unit1 = this.game.EditObj.TempUnitList.unr[index3];
@@ -840,7 +840,7 @@ namespace WindowsApplication1
             Coordinate reconMinusHide2 = this.game.HandyFunctionsObj.GetReconMinusHide(unit2, this.game.Data.Turn);
             if (reconMinusHide2.x > 1)
             {
-              int num40;
+              num40: i32;
               if (reconMinusHide2.x < 3 && this.game.Data.FOWOn & this.game.Data.UnitObj[unit2].Regime != this.game.Data.Turn && reconMinusHide2.x == 2)
               {
                 let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
@@ -927,13 +927,13 @@ namespace WindowsApplication1
       tListobj.add("Recon Points", -1, Strings.Trim(Conversion.Str( this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon)) + " / " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[56])), Strings.Trim(Conversion.Str( Number2)) + " / " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[56])));
       ref Graphics local21 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SUPERIMPOSEBACKGROUND);
-      ref Bitmap local22 = ref bitmap4;
+      ref local22: Bitmap = ref bitmap4;
       let mut x11: i32 =  num31;
       let mut y11: i32 =  num32;
       DrawMod.DrawSimple(ref local21, ref local22, x11, y11);
       ref Graphics local23 = ref toG;
       bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-      ref Bitmap local24 = ref bitmap4;
+      ref local24: Bitmap = ref bitmap4;
       let mut x12: i32 =  num31 + 120;
       let mut y12: i32 =  num32 - 20;
       DrawMod.DrawSimple(ref local23, ref local24, x12, y12);
@@ -944,7 +944,7 @@ namespace WindowsApplication1
       ListSubPartClass listSubPartClass = new ListSubPartClass(tListobj, num48 + 1, 330, -1, this.game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 200, tdotopandbottom: false, tbackbitmap: (ref this.OwnBitmap), bbx: (num31 + 20), bby: (num32 + 25), tMarcStyle: true, overruleFont: (ref this.game.MarcFont4), overruleItemSize: 18);
       ref Graphics local25 = ref toG;
       bitmap4 = listSubPartClass.Paint();
-      ref Bitmap local26 = ref bitmap4;
+      ref local26: Bitmap = ref bitmap4;
       let mut x13: i32 =  num31 + 20;
       let mut y13: i32 =  num32 + 25;
       DrawMod.DrawSimple(ref local25, ref local26, x13, y13);
@@ -987,7 +987,7 @@ namespace WindowsApplication1
       this.mapButId = this.AddSubPart(ref tsubpart3, 605, 142, 70, 65, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1028,7 +1028,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut num1: i32 =  574;

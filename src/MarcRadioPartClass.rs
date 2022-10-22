@@ -13,12 +13,12 @@ namespace WindowsApplication1
 {
   pub class MarcRadioPartClass : SubPartClass
   {
-     Bitmap backbitmap;
-     int colorized;
+     backbitmap: Bitmap;
+     colorized: i32;
      bool selected;
      bool udsFlag;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -27,10 +27,10 @@ namespace WindowsApplication1
     }
 
     pub MarcRadioPartClass(
-      int tcolorized,
+      tcolorized: i32,
       bool tselected,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool tudsFlag = false)
@@ -50,7 +50,7 @@ namespace WindowsApplication1
       graphics.CompositingMode = CompositingMode.SourceOver;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -66,14 +66,14 @@ namespace WindowsApplication1
           if (this.colorized == 0)
           {
              let mut local1: &Graphics = &objGraphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2);
              let mut local2: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local1,  local2, 0, 0);
           }
           else if (this.colorized == 1)
           {
              let mut local3: &Graphics = &objGraphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2);
              let mut local4: &Bitmap = &bitmap;
             DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
           }
@@ -81,14 +81,14 @@ namespace WindowsApplication1
         else if (this.colorized == 0)
         {
            let mut local5: &Graphics = &objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1);
+          bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1);
            let mut local6: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local5,  local6, 0, 0);
         }
         else if (this.colorized == 1)
         {
            let mut local7: &Graphics = &objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1);
+          bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1);
            let mut local8: &Bitmap = &bitmap;
           DrawMod.Draw( local7,  local8, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
         }
@@ -96,21 +96,21 @@ namespace WindowsApplication1
       else if (this.selected)
       {
          let mut local9: &Graphics = &objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO2);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO2);
          let mut local10: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local9,  local10, 0, 0);
       }
       else
       {
          let mut local11: &Graphics = &objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO);
          let mut local12: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local11,  local12, 0, 0);
       }
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -126,14 +126,14 @@ namespace WindowsApplication1
           if (this.colorized == 0)
           {
              let mut local1: &Graphics = &objGraphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2A);
+            bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2A);
              let mut local2: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local1,  local2, 0, 0);
           }
           else if (this.colorized == 1)
           {
              let mut local3: &Graphics = &objGraphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2A);
+            bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO2A);
              let mut local4: &Bitmap = &bitmap;
             DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
           }
@@ -141,14 +141,14 @@ namespace WindowsApplication1
         else if (this.colorized == 0)
         {
            let mut local5: &Graphics = &objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1A);
+          bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1A);
            let mut local6: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local5,  local6, 0, 0);
         }
         else if (this.colorized == 1)
         {
            let mut local7: &Graphics = &objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1A);
+          bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.RADIO1A);
            let mut local8: &Bitmap = &bitmap;
           DrawMod.Draw( local7,  local8, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
         }
@@ -156,14 +156,14 @@ namespace WindowsApplication1
       else if (this.selected)
       {
          let mut local9: &Graphics = &objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO2HIGH);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIO2HIGH);
          let mut local10: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local9,  local10, 0, 0);
       }
       else
       {
          let mut local11: &Graphics = &objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIOHIGH);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSRADIOHIGH);
          let mut local12: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local11,  local12, 0, 0);
       }

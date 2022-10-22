@@ -13,22 +13,22 @@ namespace WindowsApplication1
 {
   pub class CreditsInfoWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int Ta2id;
-     int His;
-     int Card;
-     int Unr;
-     int tx;
-     int ty;
-     int tr;
-     int tw;
-     int th;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     Ta2id: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
+     tx: i32;
+     ty: i32;
+     tr: i32;
+     tw: i32;
+     th: i32;
 
-    pub CreditsInfoWindowClass(ref GameClass tGame)
+    pub CreditsInfoWindowClass(ref tGame: GameClass)
       : base(ref tGame, 880, 680, 8)
     {
       this.View();
@@ -37,7 +37,7 @@ namespace WindowsApplication1
       this.ty = 0;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -72,7 +72,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.cancelid > 0)
       {
@@ -93,14 +93,14 @@ namespace WindowsApplication1
       tText1: String = "Designed by Victor Reijkersz" + "\r\n" + "\r\n" + "PROGRAMMING, ARTIFICIAL INTELLIGENCE" + "\r\n" + "Victor Reijkersz" + "\r\n" + "\r\n" + "ARTWORK" + "\r\n" + "Mike Tenebrae, Bernd Brossig, Victor Reijkersz, Frederic Genot and others" + "\r\n" + "\r\n" + "WRITING" + "\r\n" + "Victor Reijkersz" + "\r\n" + "\r\n" + "MUSIC" + "\r\n" + "Tempest for an Angel" + "\r\n" + "\r\n" + "SOUND EFFECTS" + "\r\n" + "Tempest for an Angel, PMSFX, Benjamin D. Halford and others" + "\r\n" + "\r\n" + "SOLDIER VOICES" + "\r\n" + "Georgina Donnalley, CoderVA, Nylithia, Rachel Bell and others" + "\r\n" + "\r\n" + "MANUAL" + "\r\n" + "Victor Reijkersz" + "\r\n" + "\r\n" + "MANUAL POST-RELEASE PROOFREADING" + "\r\n" + "Tom Try" + "\r\n" + "\r\n" + "TESTING AND FEEDBACK" + "\r\n" + "Bavarian Kid, Clux, Soar_Slitherine, Nachtjager, DTurtle, Malevolence, Culthrasa, Jim Winsor, Eric Heiser, Cassini, Benjamin Graham, Andy Brown, Cablenexus, Zakblood, Verde321, Cablenexus, Jnpoint, Gwgardner, JHeinlen, Aristos, Shards, DasTactic, Jakval96, TortugaPower, Pocus, OutOf8, ArditiDagger, Maheb, Dan1911, Wodin, Tufkal2, David Arenz, C.Charles Dunlap, Harry Chrismas, Scott Jackson and many many others!" + "\r\n" + "\r\n";
       tText2: String = "Published by Matrix Games" + "\r\n" + "\r\n" + "CEO" + "\r\n" + "Iain McNeil" + "\r\n" + "\r\n" + "CFO" + "\r\n" + "JD McNeil" + "\r\n" + "\r\n" + "SENIOR PRODUCER" + "\r\n" + "David Sharrock" + "\r\n" + "\r\n" + "PRODUCERS" + "\r\n" + "Tamas Kiss, Bart Schouten, Neil McKenna, Erik Rutins" + "\r\n" + "\r\n" + "TECHNICAL DIRECTOR" + "\r\n" + "Philip Veale" + "\r\n" + "\r\n" + "CREATIVE DIRECTOR" + "\r\n" + "Richard Evans" + "\r\n" + "\r\n" + "MARKETING DIRECTOR " + "\r\n" + "Marco Minoli" + "\r\n" + "\r\n" + "PRODUCT MANAGER" + "\r\n" + "Roberta Migliori, Alberto Casulini, Daniele Meneghini" + "\r\n" + "\r\n" + "SOCIAL MEDIA MANAGER" + "\r\n" + "Bruno Bontempo" + "\r\n" + "\r\n" + "MEDIA RELATIONS" + "\r\n" + "Paolo Paglianti" + "\r\n" + "\r\n" + "PRODUCTION DESIGN" + "\r\n" + "Adriana Bienati" + "\r\n" + "\r\n" + "MARKETING EXECUTIVE" + "\r\n" + "Roberta Migliori" + "\r\n" + "\r\n" + "LEAD ARTIST" + "\r\n" + "Pat Ward" + "\r\n" + "\r\n" + "ARTIST" + "\r\n" + "Koen Bekkema" + "\r\n" + "\r\n" + "MANUAL LAYOUT" + "\r\n" + "Myriam Bell" + "\r\n" + "\r\n" + "PRODUCTION LEAD" + "\r\n" + "Matthew Ravenwood" + "\r\n" + "\r\n" + "PRODUCTION TEAM" + "\r\n" + "Sam O’Neill, Joseph Stephenson" + "\r\n" + "\r\n" + "ADMINISTRATION" + "\r\n" + "Dean Walker" + "\r\n" + "\r\n" + "ADMINISTRATION ASSISTANT" + "\r\n" + "Richard Baker" + "\r\n" + "\r\n" + "CUSTOMER SUPPORT STAFF" + "\r\n" + "Paulo Costa, Joseph Miller" + "\r\n" + "\r\n" + "WEB DEVELOPMENT" + "\r\n" + "Valery Vidershpan, Andrea Nicola, Fernando Turi" + "\r\n" + "\r\n";
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MGSPLASH);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.MGSPLASH);
+      ref local2: Bitmap = ref bitmap1;
       DrawMod.DrawScaled(ref local1, ref local2, 595, 30, 130, 130);
       let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 380, 25, this.game.MarcFont4, tText2, tbackbitmap: (ref this.BackBitmap), bbx: 470, bby: 156, tcenterit: true);
       this.Ta2id = this.AddSubPart(ref tsubpart1, 470, 156, 380, 416, 0);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.VRSPLASH);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.VRSPLASH);
+      ref local4: Bitmap = ref bitmap2;
       DrawMod.DrawScaled(ref local3, ref local4, 155, 30, 130, 130);
       let mut tsubpart2: SubPartClass =  new TextAreaClass2(this.game, 380, 25, this.game.MarcFont4, tText1, tbackbitmap: (ref this.BackBitmap), bbx: 30, bby: 156, tcenterit: true);
       this.TAid = this.AddSubPart(ref tsubpart2, 30, 156, 380, 416, 0);
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       this.cancelid = this.AddSubPart(ref tsubpart3, 365, 620, 150, 40, 1);
     }
 
-    pub void View2()
+    pub fn View2()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       this.tx += 101;
@@ -127,7 +127,7 @@ namespace WindowsApplication1
       DrawMod.DrawBlock(ref objGraphics, this.tx, this.ty, 100, 100, this.tr,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -147,7 +147,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

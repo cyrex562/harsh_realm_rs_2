@@ -16,1310 +16,1310 @@ namespace WindowsApplication1
 {
   pub class SFTypeWindowClass : WindowClass
   {
-     int SFtypeListId;
+     SFtypeListId: i32;
      ListClass SFtypeListObj;
-     int LibListId;
-     int LibNr;
+     LibListId: i32;
+     LibNr: i32;
      ListClass LibListObj;
-     int BAddSFtypeId;
-     int BAddSFtypeTextId;
-     int BAddSFtype2Id;
-     int BAddSFtypeText2Id;
-     int BNameId;
-     int BNameTextId;
-     int BRemoveSFtypeId;
-     int BRemoveSFtypeTextId;
-     int BRemoveSFtypeId2;
-     int BRemoveSFtypeTextId2;
+     BAddSFtypeId: i32;
+     BAddSFtypeTextId: i32;
+     BAddSFtype2Id: i32;
+     BAddSFtypeText2Id: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BRemoveSFtypeId: i32;
+     BRemoveSFtypeTextId: i32;
+     BRemoveSFtypeId2: i32;
+     BRemoveSFtypeTextId2: i32;
      ListClass TabListObj;
-     int TabListId;
-     int BSymbolId;
-     int BChangeSymbolId;
-     int BSymbol2Id;
-     int BChangeSymbol2Id;
-     int BPicId;
-     int bChangePicId;
-     int BSymbolGroupId;
-     int BSymbolGroupTextId;
-     int BSymbolWeightId;
-     int BSymbolWeightTextId;
-     int BSymbolOverRuleId;
-     int BSymbolOverRuleTextId;
-     int BMoveTypeId;
-     int BMoveTypeTextId;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int b9id;
-     int b9textid;
-     int b18id;
-     int b18textid;
-     int b10id;
-     int b10textid;
-     int b11id;
-     int b11textid;
-     int b12id;
-     int b12textid;
-     int b13id;
-     int b13textid;
-     int b14id;
-     int b14textid;
-     int b15id;
-     int b15textid;
-     int b16id;
-     int b16textid;
-     int b17id;
-     int b17textid;
-     int b19id;
-     int b19textid;
-     int b20id;
-     int b20textid;
-     int b21id;
-     int b21textid;
-     int b22id;
-     int b22textid;
-     int b23id;
-     int b23textid;
-     int b24id;
-     int b24textid;
-     int b25id;
-     int b25textid;
-     int b26id;
-     int b26textid;
-     int b27id;
-     int b27textid;
-     int b28id;
-     int b28textid;
-     int b29id;
-     int b29textid;
-     int b30id;
-     int b30textid;
-     int b31id;
-     int b31textid;
-     int b32id;
-     int b32textid;
-     int b33id;
-     int b33textid;
-     int b34id;
-     int b34textid;
-     int b35id;
-     int b35textid;
-     int b36id;
-     int b36textid;
-     int b37id;
-     int b37textid;
-     int b38id;
-     int b38textid;
-     int b39id;
-     int b39textid;
-     int a1id;
-     int a1textid;
-     int a2id;
-     int a2textid;
-     int a3id;
-     int a3textid;
-     int a4id;
-     int a4textid;
-     int a5id;
-     int a5textid;
-     int a6id;
-     int a6textid;
-     int c1id;
-     int c1textid;
-     int c2id;
-     int c2textid;
-     int c3id;
-     int c3textid;
-     int c4id;
-     int c4textid;
-     int c5id;
-     int c5textid;
-     int c6id;
-     int c6textid;
-     int c7id;
-     int c7textid;
-     int c8id;
-     int c8textid;
-     int c11id;
-     int c11textid;
-     int c12id;
-     int c12textid;
-     int c13id;
-     int c13textid;
-     int c14id;
-     int c14textid;
-     int c15id;
-     int c15textid;
-     int c16id;
-     int c16textid;
-     int c17id;
-     int c17textid;
-     int c18id;
-     int c18textid;
-     int c19id;
-     int c19textid;
-     int c20id;
-     int c20textid;
-     int c21id;
-     int c21textid;
-     int d1id;
-     int d1textid;
-     int e1id;
-     int e1textid;
-     int e2id;
-     int e2textid;
-     int e3id;
-     int e3textid;
-     int e4id;
-     int e4textid;
-     int e5id;
-     int e5textid;
-     int e6id;
-     int e6textid;
-     int e7id;
-     int e7textid;
-     int f1id;
-     int f1textid;
-     int f2id;
-     int f2textid;
-     int f3id;
-     int f3textid;
-     int g1id;
-     int g1textid;
-     int g2id;
-     int g2textid;
-     int g3id;
-     int g3textid;
-     int g4id;
-     int g4textid;
-     int g5id;
-     int g5textid;
-     int g6id;
-     int g6textid;
-     int g7id;
-     int g7textid;
-     int g8id;
-     int g8textid;
-     int g9id;
-     int g9textid;
-     int g10id;
-     int g10textid;
-     int g11id;
-     int g11textid;
-     int g12id;
-     int g12textid;
-     int g13id;
-     int g13textid;
-     int g14id;
-     int g14textid;
-     int g15id;
-     int g15textid;
-     int g16id;
-     int g16textid;
-     int g17id;
-     int g17textid;
-     int g18id;
-     int g18textid;
-     int g19id;
-     int g19textid;
-     int g20id;
-     int g20textid;
-     int g21id;
-     int g21textid;
-     int g22id;
-     int g22textid;
-     int g23id;
-     int g23textid;
-     int g24id;
-     int g24textid;
-     int h1id;
-     int h1textid;
-     int h2id;
-     int h2textid;
-     int h3id;
-     int h3textid;
-     int h4id;
-     int h4textid;
-     int h5id;
-     int h5textid;
-     int h6id;
-     int h6textid;
-     int p1id;
-     int p1textid;
-     int p2id;
-     int p2textid;
-     int p3id;
-     int p3textid;
-     int p4id;
-     int p4textid;
-     int p5id;
-     int p5textid;
-     int p6id;
-     int p6textid;
-     int p7id;
-     int p7textid;
-     int p8id;
-     int p8textid;
-     int p9id;
-     int p9textid;
-     int vp1id;
-     int vp1textid;
-     int vp2id;
-     int vp2textid;
-     int vp3id;
-     int vp3textid;
-     int vp4id;
-     int vp4textid;
-     int vp5id;
-     int vp5textid;
-     int vp6id;
-     int vp6textid;
-     int t1id;
-     int t1textid;
-     int w1id;
-     int w1textid;
-     int w1bid;
-     int w1btextid;
-     int w2id;
-     int w2textid;
-     int w2bid;
-     int w2btextid;
-     int w3id;
-     int w3textid;
-     int w133id;
-     int w133textid;
-     int w4id;
-     int w4textid;
-     int w5id;
-     int w5textid;
-     int w6id;
-     int w6textid;
-     int x1id;
-     int x1textid;
-     int x2id;
-     int x2textid;
-     int x3id;
-     int x3textid;
-     int x4id;
-     int x4textid;
-     int x5id;
-     int x5textid;
-     int x6id;
-     int x6textid;
-     int w7id;
-     int w7textid;
-     int w8id;
-     int w8textid;
-     int w9id;
-     int w9textid;
-     int w9bid;
-     int w9btextid;
-     int v1id;
-     int v1textid;
-     int v2id;
-     int v2textid;
-     int j1id;
-     int j1textid;
-     int j2id;
-     int j2textid;
-     int v3id;
-     int v3textid;
-     int v4id;
-     int v4textid;
-     int v5id;
-     int v5textid;
-     int v6id;
-     int v6textid;
-     int v7id;
-     int v7textid;
-     int v8id;
-     int v8textid;
-     int v9id;
-     int v9textid;
-     int copyid;
-     int copytextid;
-     int v10id;
-     int v10textid;
-     int v11id;
-     int v11textid;
-     int v12id;
-     int v12textid;
-     int v13id;
-     int v13textid;
-     int v14id;
-     int v14textid;
-     int v15id;
-     int v15textid;
-     int v16id;
-     int v16textid;
-     int v17id;
-     int v17textid;
-     int v18id;
-     int v18textid;
-     int v19id;
-     int v19textid;
-     int v20id;
-     int v20textid;
-     int v21id;
-     int v21textid;
-     int v22id;
-     int v22textid;
-     int v23id;
-     int v23textid;
-     int w10id;
-     int w10textid;
-     int w11id;
-     int w11textid;
-     int w12id;
-     int w12textid;
-     int w13id;
-     int w13textid;
-     int w14id;
-     int w14textid;
-     int w15id;
-     int w15textid;
-     int w16id;
-     int w16textid;
-     int w17id;
-     int w17textid;
-     int y1id;
-     int y1textid;
-     int y2id;
-     int y2textid;
-     int y3id;
-     int y3textid;
-     int y4id;
-     int y5id;
-     int clibid;
-     int clibtextid;
-     int y6id;
-     int y6textid;
-     int y7id;
-     int y7btextid;
-     int y7textid;
-     int y8id;
-     int y8btextid;
-     int y8textid;
-     int PGListId;
-     int ExtraListId;
-     int LogoListId;
-     int PreventListId;
-     int VariantListId;
+     TabListId: i32;
+     BSymbolId: i32;
+     BChangeSymbolId: i32;
+     BSymbol2Id: i32;
+     BChangeSymbol2Id: i32;
+     BPicId: i32;
+     bChangePicId: i32;
+     BSymbolGroupId: i32;
+     BSymbolGroupTextId: i32;
+     BSymbolWeightId: i32;
+     BSymbolWeightTextId: i32;
+     BSymbolOverRuleId: i32;
+     BSymbolOverRuleTextId: i32;
+     BMoveTypeId: i32;
+     BMoveTypeTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     b9id: i32;
+     b9textid: i32;
+     b18id: i32;
+     b18textid: i32;
+     b10id: i32;
+     b10textid: i32;
+     b11id: i32;
+     b11textid: i32;
+     b12id: i32;
+     b12textid: i32;
+     b13id: i32;
+     b13textid: i32;
+     b14id: i32;
+     b14textid: i32;
+     b15id: i32;
+     b15textid: i32;
+     b16id: i32;
+     b16textid: i32;
+     b17id: i32;
+     b17textid: i32;
+     b19id: i32;
+     b19textid: i32;
+     b20id: i32;
+     b20textid: i32;
+     b21id: i32;
+     b21textid: i32;
+     b22id: i32;
+     b22textid: i32;
+     b23id: i32;
+     b23textid: i32;
+     b24id: i32;
+     b24textid: i32;
+     b25id: i32;
+     b25textid: i32;
+     b26id: i32;
+     b26textid: i32;
+     b27id: i32;
+     b27textid: i32;
+     b28id: i32;
+     b28textid: i32;
+     b29id: i32;
+     b29textid: i32;
+     b30id: i32;
+     b30textid: i32;
+     b31id: i32;
+     b31textid: i32;
+     b32id: i32;
+     b32textid: i32;
+     b33id: i32;
+     b33textid: i32;
+     b34id: i32;
+     b34textid: i32;
+     b35id: i32;
+     b35textid: i32;
+     b36id: i32;
+     b36textid: i32;
+     b37id: i32;
+     b37textid: i32;
+     b38id: i32;
+     b38textid: i32;
+     b39id: i32;
+     b39textid: i32;
+     a1id: i32;
+     a1textid: i32;
+     a2id: i32;
+     a2textid: i32;
+     a3id: i32;
+     a3textid: i32;
+     a4id: i32;
+     a4textid: i32;
+     a5id: i32;
+     a5textid: i32;
+     a6id: i32;
+     a6textid: i32;
+     c1id: i32;
+     c1textid: i32;
+     c2id: i32;
+     c2textid: i32;
+     c3id: i32;
+     c3textid: i32;
+     c4id: i32;
+     c4textid: i32;
+     c5id: i32;
+     c5textid: i32;
+     c6id: i32;
+     c6textid: i32;
+     c7id: i32;
+     c7textid: i32;
+     c8id: i32;
+     c8textid: i32;
+     c11id: i32;
+     c11textid: i32;
+     c12id: i32;
+     c12textid: i32;
+     c13id: i32;
+     c13textid: i32;
+     c14id: i32;
+     c14textid: i32;
+     c15id: i32;
+     c15textid: i32;
+     c16id: i32;
+     c16textid: i32;
+     c17id: i32;
+     c17textid: i32;
+     c18id: i32;
+     c18textid: i32;
+     c19id: i32;
+     c19textid: i32;
+     c20id: i32;
+     c20textid: i32;
+     c21id: i32;
+     c21textid: i32;
+     d1id: i32;
+     d1textid: i32;
+     e1id: i32;
+     e1textid: i32;
+     e2id: i32;
+     e2textid: i32;
+     e3id: i32;
+     e3textid: i32;
+     e4id: i32;
+     e4textid: i32;
+     e5id: i32;
+     e5textid: i32;
+     e6id: i32;
+     e6textid: i32;
+     e7id: i32;
+     e7textid: i32;
+     f1id: i32;
+     f1textid: i32;
+     f2id: i32;
+     f2textid: i32;
+     f3id: i32;
+     f3textid: i32;
+     g1id: i32;
+     g1textid: i32;
+     g2id: i32;
+     g2textid: i32;
+     g3id: i32;
+     g3textid: i32;
+     g4id: i32;
+     g4textid: i32;
+     g5id: i32;
+     g5textid: i32;
+     g6id: i32;
+     g6textid: i32;
+     g7id: i32;
+     g7textid: i32;
+     g8id: i32;
+     g8textid: i32;
+     g9id: i32;
+     g9textid: i32;
+     g10id: i32;
+     g10textid: i32;
+     g11id: i32;
+     g11textid: i32;
+     g12id: i32;
+     g12textid: i32;
+     g13id: i32;
+     g13textid: i32;
+     g14id: i32;
+     g14textid: i32;
+     g15id: i32;
+     g15textid: i32;
+     g16id: i32;
+     g16textid: i32;
+     g17id: i32;
+     g17textid: i32;
+     g18id: i32;
+     g18textid: i32;
+     g19id: i32;
+     g19textid: i32;
+     g20id: i32;
+     g20textid: i32;
+     g21id: i32;
+     g21textid: i32;
+     g22id: i32;
+     g22textid: i32;
+     g23id: i32;
+     g23textid: i32;
+     g24id: i32;
+     g24textid: i32;
+     h1id: i32;
+     h1textid: i32;
+     h2id: i32;
+     h2textid: i32;
+     h3id: i32;
+     h3textid: i32;
+     h4id: i32;
+     h4textid: i32;
+     h5id: i32;
+     h5textid: i32;
+     h6id: i32;
+     h6textid: i32;
+     p1id: i32;
+     p1textid: i32;
+     p2id: i32;
+     p2textid: i32;
+     p3id: i32;
+     p3textid: i32;
+     p4id: i32;
+     p4textid: i32;
+     p5id: i32;
+     p5textid: i32;
+     p6id: i32;
+     p6textid: i32;
+     p7id: i32;
+     p7textid: i32;
+     p8id: i32;
+     p8textid: i32;
+     p9id: i32;
+     p9textid: i32;
+     vp1id: i32;
+     vp1textid: i32;
+     vp2id: i32;
+     vp2textid: i32;
+     vp3id: i32;
+     vp3textid: i32;
+     vp4id: i32;
+     vp4textid: i32;
+     vp5id: i32;
+     vp5textid: i32;
+     vp6id: i32;
+     vp6textid: i32;
+     t1id: i32;
+     t1textid: i32;
+     w1id: i32;
+     w1textid: i32;
+     w1bid: i32;
+     w1btextid: i32;
+     w2id: i32;
+     w2textid: i32;
+     w2bid: i32;
+     w2btextid: i32;
+     w3id: i32;
+     w3textid: i32;
+     w133id: i32;
+     w133textid: i32;
+     w4id: i32;
+     w4textid: i32;
+     w5id: i32;
+     w5textid: i32;
+     w6id: i32;
+     w6textid: i32;
+     x1id: i32;
+     x1textid: i32;
+     x2id: i32;
+     x2textid: i32;
+     x3id: i32;
+     x3textid: i32;
+     x4id: i32;
+     x4textid: i32;
+     x5id: i32;
+     x5textid: i32;
+     x6id: i32;
+     x6textid: i32;
+     w7id: i32;
+     w7textid: i32;
+     w8id: i32;
+     w8textid: i32;
+     w9id: i32;
+     w9textid: i32;
+     w9bid: i32;
+     w9btextid: i32;
+     v1id: i32;
+     v1textid: i32;
+     v2id: i32;
+     v2textid: i32;
+     j1id: i32;
+     j1textid: i32;
+     j2id: i32;
+     j2textid: i32;
+     v3id: i32;
+     v3textid: i32;
+     v4id: i32;
+     v4textid: i32;
+     v5id: i32;
+     v5textid: i32;
+     v6id: i32;
+     v6textid: i32;
+     v7id: i32;
+     v7textid: i32;
+     v8id: i32;
+     v8textid: i32;
+     v9id: i32;
+     v9textid: i32;
+     copyid: i32;
+     copytextid: i32;
+     v10id: i32;
+     v10textid: i32;
+     v11id: i32;
+     v11textid: i32;
+     v12id: i32;
+     v12textid: i32;
+     v13id: i32;
+     v13textid: i32;
+     v14id: i32;
+     v14textid: i32;
+     v15id: i32;
+     v15textid: i32;
+     v16id: i32;
+     v16textid: i32;
+     v17id: i32;
+     v17textid: i32;
+     v18id: i32;
+     v18textid: i32;
+     v19id: i32;
+     v19textid: i32;
+     v20id: i32;
+     v20textid: i32;
+     v21id: i32;
+     v21textid: i32;
+     v22id: i32;
+     v22textid: i32;
+     v23id: i32;
+     v23textid: i32;
+     w10id: i32;
+     w10textid: i32;
+     w11id: i32;
+     w11textid: i32;
+     w12id: i32;
+     w12textid: i32;
+     w13id: i32;
+     w13textid: i32;
+     w14id: i32;
+     w14textid: i32;
+     w15id: i32;
+     w15textid: i32;
+     w16id: i32;
+     w16textid: i32;
+     w17id: i32;
+     w17textid: i32;
+     y1id: i32;
+     y1textid: i32;
+     y2id: i32;
+     y2textid: i32;
+     y3id: i32;
+     y3textid: i32;
+     y4id: i32;
+     y5id: i32;
+     clibid: i32;
+     clibtextid: i32;
+     y6id: i32;
+     y6textid: i32;
+     y7id: i32;
+     y7btextid: i32;
+     y7textid: i32;
+     y8id: i32;
+     y8btextid: i32;
+     y8textid: i32;
+     PGListId: i32;
+     ExtraListId: i32;
+     LogoListId: i32;
+     PreventListId: i32;
+     VariantListId: i32;
      ListClass PGListObj;
      ListClass ExtraListObj;
      ListClass LogoListObj;
      ListClass PreventListObj;
      ListClass VariantListObj;
-     int CombatListId;
-     int combatlist3id;
-     int combatlist4id;
+     CombatListId: i32;
+     combatlist3id: i32;
+     combatlist4id: i32;
      ListClass CombatListObj;
-     int CombatList2Id;
-     int ResListId;
+     CombatList2Id: i32;
+     ResListId: i32;
      ListClass CombatList2Obj;
      ListClass CombatList3Obj;
      ListClass CombatList4Obj;
      ListClass ResListObj;
-     int SFtypeNr;
-     int TabSheetNr;
-     int detailnr2;
-     int detailnr;
+     SFtypeNr: i32;
+     TabSheetNr: i32;
+     detailnr2: i32;
+     detailnr: i32;
      string ss;
 
-    pub SFTypeWindowClass( GameClass tGame)
+    pub SFTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Subformation Types")
     {
-      this.SFtypeNr = -1;
-      this.LibNr = -1;
-      this.MakeSFtypeListGUI(-1);
-      this.TabSheetNr = -1;
-      this.detailnr = -1;
-      this.detailnr2 = -1;
+      self.SFtypeNr = -1;
+      self.LibNr = -1;
+      self.MakeSFtypeListGUI(-1);
+      self.TabSheetNr = -1;
+      self.detailnr = -1;
+      self.detailnr2 = -1;
       tGame.EditObj.TempSelected = -1;
       tGame.EditObj.TempCopy = -1;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
-      if (this.game.EditObj.TempSelected > -1)
+      if (self.game.EditObj.TempSelected > -1)
       {
-        this.SFtypeNr = this.game.EditObj.TempSelected;
-        this.detailnr = this.SFtypeNr;
-        this.game.EditObj.TempSelected = -1;
+        self.SFtypeNr = self.game.EditObj.TempSelected;
+        self.detailnr = self.SFtypeNr;
+        self.game.EditObj.TempSelected = -1;
       }
-      if (this.game.EditObj.TempCopy > -1)
+      if (self.game.EditObj.TempCopy > -1)
       {
-        SFTypeClass sfTypeClass = this.game.Data.SFTypeObj[this.SFtypeNr].Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr] = this.game.Data.SFTypeObj[this.game.EditObj.TempCopy].Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].Name = sfTypeClass.Name;
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraCounter = sfTypeClass.ExtraCounter;
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraCode = (int[]) sfTypeClass.ExtraCode.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraName = (string[]) sfTypeClass.ExtraName.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraPicFileName = (string[]) sfTypeClass.ExtraPicFileName.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSidewaysFileName = (string[]) sfTypeClass.ExtraSidewaysFileName.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolColBigFileName = (string[]) sfTypeClass.ExtraSymbolColBigFileName.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolColBigFileName2 = (string[]) sfTypeClass.ExtraSymbolColBigFileName2.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolFileName = (string[]) sfTypeClass.ExtraSymbolFileName.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolFileName2 = (string[]) sfTypeClass.ExtraSymbolFileName2.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraPicSpriteID = (int[]) sfTypeClass.ExtraPicSpriteID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSidewaysSpriteID = (int[]) sfTypeClass.ExtraSidewaysSpriteID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolColBigSprite2ID = (int[]) sfTypeClass.ExtraSymbolColBigSprite2ID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolColBigSpriteID = (int[]) sfTypeClass.ExtraSymbolColBigSpriteID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolSprite2ID = (int[]) sfTypeClass.ExtraSymbolSprite2ID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].ExtraSymbolSpriteID = (int[]) sfTypeClass.ExtraSymbolSpriteID.Clone();
-        this.game.Data.SFTypeObj[this.SFtypeNr].PicFileName = sfTypeClass.PicFileName;
-        this.game.Data.SFTypeObj[this.SFtypeNr].SidewaysFileName = sfTypeClass.SidewaysFileName;
-        this.game.Data.SFTypeObj[this.SFtypeNr].SymbolColBigFileName = sfTypeClass.SymbolColBigFileName;
-        this.game.Data.SFTypeObj[this.SFtypeNr].SymbolColBigFileName2 = sfTypeClass.SymbolColBigFileName2;
-        this.game.Data.SFTypeObj[this.SFtypeNr].SymbolFileName = sfTypeClass.SymbolFileName;
-        this.game.Data.SFTypeObj[this.SFtypeNr].SymbolFileName2 = sfTypeClass.SymbolFileName2;
-        this.game.Data.SFTypeObj[this.SFtypeNr].Id = sfTypeClass.Id;
-        this.game.Data.SFTypeObj[this.SFtypeNr].LoadSprites();
-        this.game.EditObj.TempCopy = -1;
+        SFTypeClass sfTypeClass = self.game.Data.SFTypeObj[self.SFtypeNr].Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr] = self.game.Data.SFTypeObj[self.game.EditObj.TempCopy].Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].Name = sfTypeClass.Name;
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraCounter = sfTypeClass.ExtraCounter;
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraCode = (int[]) sfTypeClass.ExtraCode.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraName = (string[]) sfTypeClass.ExtraName.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraPicFileName = (string[]) sfTypeClass.ExtraPicFileName.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSidewaysFileName = (string[]) sfTypeClass.ExtraSidewaysFileName.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolColBigFileName = (string[]) sfTypeClass.ExtraSymbolColBigFileName.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolColBigFileName2 = (string[]) sfTypeClass.ExtraSymbolColBigFileName2.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolFileName = (string[]) sfTypeClass.ExtraSymbolFileName.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolFileName2 = (string[]) sfTypeClass.ExtraSymbolFileName2.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraPicSpriteID = (int[]) sfTypeClass.ExtraPicSpriteID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSidewaysSpriteID = (int[]) sfTypeClass.ExtraSidewaysSpriteID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolColBigSprite2ID = (int[]) sfTypeClass.ExtraSymbolColBigSprite2ID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolColBigSpriteID = (int[]) sfTypeClass.ExtraSymbolColBigSpriteID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolSprite2ID = (int[]) sfTypeClass.ExtraSymbolSprite2ID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].ExtraSymbolSpriteID = (int[]) sfTypeClass.ExtraSymbolSpriteID.Clone();
+        self.game.Data.SFTypeObj[self.SFtypeNr].PicFileName = sfTypeClass.PicFileName;
+        self.game.Data.SFTypeObj[self.SFtypeNr].SidewaysFileName = sfTypeClass.SidewaysFileName;
+        self.game.Data.SFTypeObj[self.SFtypeNr].SymbolColBigFileName = sfTypeClass.SymbolColBigFileName;
+        self.game.Data.SFTypeObj[self.SFtypeNr].SymbolColBigFileName2 = sfTypeClass.SymbolColBigFileName2;
+        self.game.Data.SFTypeObj[self.SFtypeNr].SymbolFileName = sfTypeClass.SymbolFileName;
+        self.game.Data.SFTypeObj[self.SFtypeNr].SymbolFileName2 = sfTypeClass.SymbolFileName2;
+        self.game.Data.SFTypeObj[self.SFtypeNr].Id = sfTypeClass.Id;
+        self.game.Data.SFTypeObj[self.SFtypeNr].LoadSprites();
+        self.game.EditObj.TempCopy = -1;
       }
-      this.MakeSFtypeListGUI(this.SFtypeNr);
-      this.MakeSFtypeTypeItemGUI();
+      self.MakeSFtypeListGUI(self.SFtypeNr);
+      self.MakeSFtypeTypeItemGUI();
     }
 
-     void MakeSFtypeListGUI(int tSFtypenr)
+     void MakeSFtypeListGUI(tSFtypenr: i32)
     {
-      if (this.SFtypeListId > 0)
-        this.RemoveSubPart(this.SFtypeListId);
-      this.LibListObj = ListClass::new();
-      this.LibListObj.add("All", -2);
+      if (self.SFtypeListId > 0)
+        self.RemoveSubPart(self.SFtypeListId);
+      self.LibListObj = ListClass::new();
+      self.LibListObj.add("All", -2);
       let mut num1: i32 = -1;
       let mut num2: i32 = 0;
-      let mut libraryCounter: i32 = this.game.Data.LibraryCounter;
+      let mut libraryCounter: i32 = self.game.Data.LibraryCounter;
       for (let mut index: i32 = 0; index <= libraryCounter; index += 1)
       {
         num2 += 1;
-        if (this.LibNr == index)
+        if (self.LibNr == index)
           num1 = num2;
-        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        self.LibListObj.add(Conversion.Str( index) + ") " + self.game.Data.LibraryObj[index].name, index);
       }
-      if (this.LibNr == -1)
+      if (self.LibNr == -1)
         num1 = 0;
-      ListClass libListObj = this.LibListObj;
+      ListClass libListObj = self.LibListObj;
       let mut tlistselect1: i32 = num1;
-      let mut game1: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+      let mut game1: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 9, 200, tlistselect1, game1, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 10, bby: 38, overruleFont: ( local2));
-      this.LibListId = this.AddSubPart( tsubpart1, 10, 38, 200, 192, 0);
-      this.MakeSFtypeTypeItemGUI();
+      self.LibListId = self.AddSubPart( tsubpart1, 10, 38, 200, 192, 0);
+      self.MakeSFtypeTypeItemGUI();
       let mut num3: i32 = -1;
       let mut num4: i32 = -1;
-      if (this.game.Data.SFTypeCounter > -1)
+      if (self.game.Data.SFTypeCounter > -1)
       {
-        this.SFtypeListObj = ListClass::new();
-        let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
+        self.SFtypeListObj = ListClass::new();
+        let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
         for (let mut index: i32 = 0; index <= sfTypeCounter; index += 1)
         {
-          if (this.LibNr == -1 | this.LibNr == this.game.Data.SFTypeObj[index].LibId.libSlot)
+          if (self.LibNr == -1 | self.LibNr == self.game.Data.SFTypeObj[index].LibId.libSlot)
           {
             num4 += 1;
             if (index == tSFtypenr)
               num3 = num4;
-            this.SFtypeListObj.add(Conversion.Str( index) + ") " + this.game.Data.SFTypeObj[index].Name + "(id=" + this.game.Data.SFTypeObj[index].Id.ToString() + ")", index);
+            self.SFtypeListObj.add(Conversion.Str( index) + ") " + self.game.Data.SFTypeObj[index].Name + "(id=" + self.game.Data.SFTypeObj[index].Id.ToString() + ")", index);
           }
         }
-        ListClass sftypeListObj = this.SFtypeListObj;
+        ListClass sftypeListObj = self.SFtypeListObj;
         let mut tlistselect2: i32 = num3;
-        let mut game2: GameClass = this.game;
-         Bitmap local3 =  this.OwnBitmap;
+        let mut game2: GameClass = self.game;
+         local3: Bitmap =  self.OwnBitmap;
         font =  null;
-         Font local4 =  font;
+         local4: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(sftypeListObj, 9, 200, tlistselect2, game2, tHeader: "SFTypes", tbackbitmap: ( local3), bbx: 220, bby: 38, overruleFont: ( local4));
-        this.SFtypeListId = this.AddSubPart( tsubpart2, 220, 38, 200, 192, 0);
-        this.SFtypeNr = tSFtypenr;
-        this.MakeSFtypeTypeItemGUI();
+        self.SFtypeListId = self.AddSubPart( tsubpart2, 220, 38, 200, 192, 0);
+        self.SFtypeNr = tSFtypenr;
+        self.MakeSFtypeTypeItemGUI();
       }
       else
       {
-        this.SFtypeNr = tSFtypenr;
-        this.MakeSFtypeTypeItemGUI();
+        self.SFtypeNr = tSFtypenr;
+        self.MakeSFtypeTypeItemGUI();
       }
-      if (this.BAddSFtypeId > 0)
-        this.RemoveSubPart(this.BAddSFtypeId);
-      if (this.BAddSFtypeTextId > 0)
-        this.RemoveSubPart(this.BAddSFtypeTextId);
-      if (this.BAddSFtype2Id > 0)
-        this.RemoveSubPart(this.BAddSFtype2Id);
-      if (this.BAddSFtypeText2Id > 0)
-        this.RemoveSubPart(this.BAddSFtypeText2Id);
-      this.ss = "Add a new SFType. Will be added at the end of the list.";
+      if (self.BAddSFtypeId > 0)
+        self.RemoveSubPart(self.BAddSFtypeId);
+      if (self.BAddSFtypeTextId > 0)
+        self.RemoveSubPart(self.BAddSFtypeTextId);
+      if (self.BAddSFtype2Id > 0)
+        self.RemoveSubPart(self.BAddSFtype2Id);
+      if (self.BAddSFtypeText2Id > 0)
+        self.RemoveSubPart(self.BAddSFtypeText2Id);
+      self.ss = "Add a new SFType. Will be added at the end of the list.";
       SubPartClass tsubpart3;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart3 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.BAddSFtypeId = this.AddSubPart( tsubpart3, 10, 270, 32, 16, 1);
+        tsubpart3 =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.BAddSFtypeId = self.AddSubPart( tsubpart3, 10, 270, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart3 =  TextPartClass::new("Add SFtype Type", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 170, 20, false, tDescript: this.ss);
-        this.BAddSFtypeTextId = this.AddSubPart( tsubpart3, 50, 269, 170, 20, 0);
+        tsubpart3 =  TextPartClass::new("Add SFtype Type", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 170, 20, false, tDescript: self.ss);
+        self.BAddSFtypeTextId = self.AddSubPart( tsubpart3, 50, 269, 170, 20, 0);
       }
-      if (this.SFtypeNr <= -1)
+      if (self.SFtypeNr <= -1)
         return;
-      this.ss = "Add a copy of the currently selected SFType.. will be added at the end of the list.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Add a copy of the currently selected SFType.. will be added at the end of the list.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart3 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.BAddSFtype2Id = this.AddSubPart( tsubpart3, 10, 250, 32, 16, 1);
+        tsubpart3 =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.BAddSFtype2Id = self.AddSubPart( tsubpart3, 10, 250, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      tsubpart3 =  TextPartClass::new("Add SFtype Copy", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 170, 20, false, tDescript: this.ss);
-      this.BAddSFtypeText2Id = this.AddSubPart( tsubpart3, 50, 249, 170, 20, 0);
+      tsubpart3 =  TextPartClass::new("Add SFtype Copy", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 170, 20, false, tDescript: self.ss);
+      self.BAddSFtypeText2Id = self.AddSubPart( tsubpart3, 50, 249, 170, 20, 0);
     }
 
      void MakeSFtypeTypeItemGUI()
     {
-      if (this.BNameId > 0)
-        this.RemoveSubPart(this.BNameId);
-      if (this.BNameTextId > 0)
-        this.RemoveSubPart(this.BNameTextId);
-      if (this.BRemoveSFtypeId > 0)
-        this.RemoveSubPart(this.BRemoveSFtypeId);
-      if (this.BRemoveSFtypeTextId > 0)
-        this.RemoveSubPart(this.BRemoveSFtypeTextId);
-      if (this.BRemoveSFtypeId2 > 0)
-        this.RemoveSubPart(this.BRemoveSFtypeId2);
-      if (this.BRemoveSFtypeTextId2 > 0)
-        this.RemoveSubPart(this.BRemoveSFtypeTextId2);
-      if (this.TabListId > 0)
-        this.RemoveSubPart(this.TabListId);
-      if (this.g22id > 0)
-        this.RemoveSubPart(this.g22id);
-      if (this.g22textid > 0)
-        this.RemoveSubPart(this.g22textid);
-      if (this.x1id > 0)
-        this.RemoveSubPart(this.x1id);
-      if (this.x1textid > 0)
-        this.RemoveSubPart(this.x1textid);
-      if (this.x2id > 0)
-        this.RemoveSubPart(this.x2id);
-      if (this.x2textid > 0)
-        this.RemoveSubPart(this.x2textid);
-      if (this.x3id > 0)
-        this.RemoveSubPart(this.x3id);
-      if (this.x3textid > 0)
-        this.RemoveSubPart(this.x3textid);
-      if (this.x4id > 0)
-        this.RemoveSubPart(this.x4id);
-      if (this.x4textid > 0)
-        this.RemoveSubPart(this.x4textid);
-      if (this.x5id > 0)
-        this.RemoveSubPart(this.x5id);
-      if (this.x5textid > 0)
-        this.RemoveSubPart(this.x5textid);
-      if (this.x6id > 0)
-        this.RemoveSubPart(this.x6id);
-      if (this.x6textid > 0)
-        this.RemoveSubPart(this.x6textid);
-      if (this.clibid > 0)
-        this.RemoveSubPart(this.clibid);
-      if (this.clibtextid > 0)
-        this.RemoveSubPart(this.clibtextid);
-      if (this.SFtypeNr > -1)
+      if (self.BNameId > 0)
+        self.RemoveSubPart(self.BNameId);
+      if (self.BNameTextId > 0)
+        self.RemoveSubPart(self.BNameTextId);
+      if (self.BRemoveSFtypeId > 0)
+        self.RemoveSubPart(self.BRemoveSFtypeId);
+      if (self.BRemoveSFtypeTextId > 0)
+        self.RemoveSubPart(self.BRemoveSFtypeTextId);
+      if (self.BRemoveSFtypeId2 > 0)
+        self.RemoveSubPart(self.BRemoveSFtypeId2);
+      if (self.BRemoveSFtypeTextId2 > 0)
+        self.RemoveSubPart(self.BRemoveSFtypeTextId2);
+      if (self.TabListId > 0)
+        self.RemoveSubPart(self.TabListId);
+      if (self.g22id > 0)
+        self.RemoveSubPart(self.g22id);
+      if (self.g22textid > 0)
+        self.RemoveSubPart(self.g22textid);
+      if (self.x1id > 0)
+        self.RemoveSubPart(self.x1id);
+      if (self.x1textid > 0)
+        self.RemoveSubPart(self.x1textid);
+      if (self.x2id > 0)
+        self.RemoveSubPart(self.x2id);
+      if (self.x2textid > 0)
+        self.RemoveSubPart(self.x2textid);
+      if (self.x3id > 0)
+        self.RemoveSubPart(self.x3id);
+      if (self.x3textid > 0)
+        self.RemoveSubPart(self.x3textid);
+      if (self.x4id > 0)
+        self.RemoveSubPart(self.x4id);
+      if (self.x4textid > 0)
+        self.RemoveSubPart(self.x4textid);
+      if (self.x5id > 0)
+        self.RemoveSubPart(self.x5id);
+      if (self.x5textid > 0)
+        self.RemoveSubPart(self.x5textid);
+      if (self.x6id > 0)
+        self.RemoveSubPart(self.x6id);
+      if (self.x6textid > 0)
+        self.RemoveSubPart(self.x6textid);
+      if (self.clibid > 0)
+        self.RemoveSubPart(self.clibid);
+      if (self.clibtextid > 0)
+        self.RemoveSubPart(self.clibtextid);
+      if (self.SFtypeNr > -1)
       {
-        if (this.SFtypeNr < this.game.Data.SFTypeCounter)
+        if (self.SFtypeNr < self.game.Data.SFTypeCounter)
         {
-          this.ss = "Move up";
-          if (Strings.Len(this.game.Data.MasterFile) == 0)
+          self.ss = "Move up";
+          if (Strings.Len(self.game.Data.MasterFile) == 0)
           {
-            let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONDOWN, tDescript: this.ss);
-            this.x4id = this.AddSubPart( tsubpart, 250, 290, 32, 16, 1);
+            let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONDOWN, tDescript: self.ss);
+            self.x4id = self.AddSubPart( tsubpart, 250, 290, 32, 16, 1);
           }
         }
-        if (this.SFtypeNr > 0)
+        if (self.SFtypeNr > 0)
         {
-          this.ss = "Move down";
-          if (Strings.Len(this.game.Data.MasterFile) == 0)
+          self.ss = "Move down";
+          if (Strings.Len(self.game.Data.MasterFile) == 0)
           {
-            let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONUP, tDescript: this.ss);
-            this.x5id = this.AddSubPart( tsubpart, 300, 290, 32, 16, 1);
+            let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONUP, tDescript: self.ss);
+            self.x5id = self.AddSubPart( tsubpart, 300, 290, 32, 16, 1);
           }
         }
-        this.ss = "Replace all SFs with this Type with another SFType";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Replace all SFs with this Type with another SFType";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-          this.x6id = this.AddSubPart( tsubpart, 250, 230, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+          self.x6id = self.AddSubPart( tsubpart, 250, 230, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new("Replace all instances", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-          this.x6textid = this.AddSubPart( tsubpart, 290, 229, 200, 20, 0);
+          let mut tsubpart: SubPartClass =  TextPartClass::new("Replace all instances", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+          self.x6textid = self.AddSubPart( tsubpart, 290, 229, 200, 20, 0);
         }
-        this.ss = "Set Library for this SfType";
-        txt: String = "Set Lib (.LibSlot=" + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.libSlot.ToString() + ".LibId=" + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.id.ToString() + ")";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Set Library for this SfType";
+        txt: String = "Set Lib (.LibSlot=" + self.game.Data.SFTypeObj[self.SFtypeNr].LibId.libSlot.ToString() + ".LibId=" + self.game.Data.SFTypeObj[self.SFtypeNr].LibId.id.ToString() + ")";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-          this.clibid = this.AddSubPart( tsubpart, 500, 230, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+          self.clibid = self.AddSubPart( tsubpart, 500, 230, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new(txt, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-          this.clibtextid = this.AddSubPart( tsubpart, 550, 229, 300, 20, 0);
+          let mut tsubpart: SubPartClass =  TextPartClass::new(txt, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+          self.clibtextid = self.AddSubPart( tsubpart, 550, 229, 300, 20, 0);
         }
-        this.ss = "Add a new SFType";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Add a new SFType";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-          this.x1id = this.AddSubPart( tsubpart, 250, 270, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+          self.x1id = self.AddSubPart( tsubpart, 250, 270, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new("Select SFType to View", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-          this.x1textid = this.AddSubPart( tsubpart, 290, 269, 200, 20, 0);
+          let mut tsubpart: SubPartClass =  TextPartClass::new("Select SFType to View", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+          self.x1textid = self.AddSubPart( tsubpart, 290, 269, 200, 20, 0);
         }
-        this.ss = "Copy the stats from a selected other SFType";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Copy the stats from a selected other SFType";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-          this.x2id = this.AddSubPart( tsubpart, 250, 250, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+          self.x2id = self.AddSubPart( tsubpart, 250, 250, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new("Copy Stats from other SFType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-          this.x2textid = this.AddSubPart( tsubpart, 290, 249, 200, 20, 0);
+          let mut tsubpart: SubPartClass =  TextPartClass::new("Copy Stats from other SFType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+          self.x2textid = self.AddSubPart( tsubpart, 290, 249, 200, 20, 0);
         }
-        this.ss = "Click to change the name of this SFType";
-        if (!Information.IsNothing( this.game.Data.SFTypeObj[this.SFtypeNr].LibId))
-          this.ss = this.ss + " lib: LibSlot: " + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.libSlot.ToString() + ", id: " + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.id.ToString();
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Click to change the name of this SFType";
+        if (!Information.IsNothing( self.game.Data.SFTypeObj[self.SFtypeNr].LibId))
+          self.ss = self.ss + " lib: LibSlot: " + self.game.Data.SFTypeObj[self.SFtypeNr].LibId.libSlot.ToString() + ", id: " + self.game.Data.SFTypeObj[self.SFtypeNr].LibId.id.ToString();
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.BNameId = this.AddSubPart( tsubpart, 10, 230, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.BNameId = self.AddSubPart( tsubpart, 10, 230, 32, 16, 1);
         }
-        let mut tsubpart1: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.SFTypeObj[this.SFtypeNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 180, 20, false, tDescript: this.ss);
-        this.BNameTextId = this.AddSubPart( tsubpart1, 50, 230, 400, 20, 0);
-        this.ss = "Click to remove this SFType from the list";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        let mut tsubpart1: SubPartClass =  TextPartClass::new("Name: " + self.game.Data.SFTypeObj[self.SFtypeNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 180, 20, false, tDescript: self.ss);
+        self.BNameTextId = self.AddSubPart( tsubpart1, 50, 230, 400, 20, 0);
+        self.ss = "Click to remove this SFType from the list";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-          this.BRemoveSFtypeId = this.AddSubPart( tsubpart2, 10, 290, 32, 16, 1);
+          let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+          self.BRemoveSFtypeId = self.AddSubPart( tsubpart2, 10, 290, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart3: SubPartClass =  TextPartClass::new("Remove this SFType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-          this.BRemoveSFtypeTextId = this.AddSubPart( tsubpart3, 50, 289, 200, 20, 0);
+          let mut tsubpart3: SubPartClass =  TextPartClass::new("Remove this SFType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+          self.BRemoveSFtypeTextId = self.AddSubPart( tsubpart3, 50, 289, 200, 20, 0);
         }
-        this.ss = "Click All SFTypes from the list";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Click All SFTypes from the list";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-          this.BRemoveSFtypeId2 = this.AddSubPart( tsubpart4, 10, 310, 32, 16, 1);
+          let mut tsubpart4: SubPartClass =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+          self.BRemoveSFtypeId2 = self.AddSubPart( tsubpart4, 10, 310, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart5: SubPartClass =  TextPartClass::new("Remove ALL", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-          this.BRemoveSFtypeTextId2 = this.AddSubPart( tsubpart5, 50, 309, 200, 20, 0);
+          let mut tsubpart5: SubPartClass =  TextPartClass::new("Remove ALL", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+          self.BRemoveSFtypeTextId2 = self.AddSubPart( tsubpart5, 50, 309, 200, 20, 0);
         }
-        this.TabListObj = ListClass::new();
+        self.TabListObj = ListClass::new();
         let mut num1: i32 = -1;
-        this.TabListObj.add("Graphics", 0);
+        self.TabListObj.add("Graphics", 0);
         let mut num2: i32 = num1 + 1;
-        int num3;
-        if (this.TabSheetNr == 0)
+        num3: i32;
+        if (self.TabSheetNr == 0)
           num3 = num2;
-        this.TabListObj.add("Statistics 1", 1);
+        self.TabListObj.add("Statistics 1", 1);
         let mut num4: i32 = num2 + 1;
-        if (this.TabSheetNr == 1)
+        if (self.TabSheetNr == 1)
           num3 = num4;
-        this.TabListObj.add("Statistics 2", 2);
+        self.TabListObj.add("Statistics 2", 2);
         let mut num5: i32 = num4 + 1;
-        if (this.TabSheetNr == 2)
+        if (self.TabSheetNr == 2)
           num3 = num5;
-        this.TabListObj.add("Combat Detail Stats", 3);
+        self.TabListObj.add("Combat Detail Stats", 3);
         let mut num6: i32 = num5 + 1;
-        if (this.TabSheetNr == 3)
+        if (self.TabSheetNr == 3)
           num3 = num6;
-        this.TabListObj.add("Combat Landscape Mods", 4);
+        self.TabListObj.add("Combat Landscape Mods", 4);
         let mut num7: i32 = num6 + 1;
-        if (this.TabSheetNr == 4)
+        if (self.TabSheetNr == 4)
           num3 = num7;
-        this.TabListObj.add("AI Role Scores", 6);
+        self.TabListObj.add("AI Role Scores", 6);
         let mut num8: i32 = num7 + 1;
-        if (this.TabSheetNr == 6)
+        if (self.TabSheetNr == 6)
           num3 = num8;
-        this.TabListObj.add("Logo Values", 7);
+        self.TabListObj.add("Logo Values", 7);
         let mut num9: i32 = num8 + 1;
-        if (this.TabSheetNr == 7)
+        if (self.TabSheetNr == 7)
           num3 = num9;
-        this.TabListObj.add("Prevent List", 8);
+        self.TabListObj.add("Prevent List", 8);
         let mut num10: i32 = num9 + 1;
-        if (this.TabSheetNr == 8)
+        if (self.TabSheetNr == 8)
           num3 = num10;
-        this.TabListObj.add("Fuel + Stockpile + Adv.Supply", 9);
+        self.TabListObj.add("Fuel + Stockpile + Adv.Supply", 9);
         let mut num11: i32 = num10 + 1;
-        if (this.TabSheetNr == 9)
+        if (self.TabSheetNr == 9)
           num3 = num11;
-        ListClass tabListObj = this.TabListObj;
+        ListClass tabListObj = self.TabListObj;
         let mut tlistselect: i32 = num3;
-        let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart6: SubPartClass =  new ListSubPartClass(tabListObj, 9, 200, tlistselect, game, tHeader: "Propery Sheets", tbackbitmap: ( local1), bbx: 430, bby: 38, overruleFont: ( local2));
-        this.TabListId = this.AddSubPart( tsubpart6, 430, 38, 200, 192, 0);
+        self.TabListId = self.AddSubPart( tsubpart6, 430, 38, 200, 192, 0);
       }
-      this.Tabsheet();
+      self.Tabsheet();
     }
 
      void Tabsheet()
     {
-      if (this.BSymbolId > 0)
-        this.RemoveSubPart(this.BSymbolId);
-      if (this.BChangeSymbolId > 0)
-        this.RemoveSubPart(this.BChangeSymbolId);
-      if (this.BSymbol2Id > 0)
-        this.RemoveSubPart(this.BSymbol2Id);
-      if (this.BChangeSymbol2Id > 0)
-        this.RemoveSubPart(this.BChangeSymbol2Id);
-      if (this.BPicId > 0)
-        this.RemoveSubPart(this.BPicId);
-      if (this.bChangePicId > 0)
-        this.RemoveSubPart(this.bChangePicId);
-      if (this.BSymbolGroupId > 0)
-        this.RemoveSubPart(this.BSymbolGroupId);
-      if (this.BSymbolGroupTextId > 0)
-        this.RemoveSubPart(this.BSymbolGroupTextId);
-      if (this.BSymbolWeightId > 0)
-        this.RemoveSubPart(this.BSymbolWeightId);
-      if (this.BSymbolWeightTextId > 0)
-        this.RemoveSubPart(this.BSymbolWeightTextId);
-      if (this.BSymbolOverRuleId > 0)
-        this.RemoveSubPart(this.BSymbolOverRuleId);
-      if ((uint) this.BSymbolOverRuleTextId > 0U)
-        this.RemoveSubPart(this.BSymbolOverRuleTextId);
-      if (this.ResListId > 0)
-        this.RemoveSubPart(this.ResListId);
-      if (this.ExtraListId > 0)
-        this.RemoveSubPart(this.ExtraListId);
-      if (this.PGListId > 0)
-        this.RemoveSubPart(this.PGListId);
-      if (this.CombatListId > 0)
-        this.RemoveSubPart(this.CombatListId);
-      if (this.CombatList2Id > 0)
-        this.RemoveSubPart(this.CombatList2Id);
-      if (this.combatlist3id > 0)
-        this.RemoveSubPart(this.combatlist3id);
-      if (this.combatlist4id > 0)
-        this.RemoveSubPart(this.combatlist4id);
-      if (this.x3id > 0)
-        this.RemoveSubPart(this.x3id);
-      if (this.x3textid > 0)
-        this.RemoveSubPart(this.x3textid);
-      if (this.y1id > 0)
-        this.RemoveSubPart(this.y1id);
-      if (this.y1textid > 0)
-        this.RemoveSubPart(this.y1textid);
-      if (this.y3id > 0)
-        this.RemoveSubPart(this.y3id);
-      if (this.y4id > 0)
-        this.RemoveSubPart(this.y4id);
-      if (this.y5id > 0)
-        this.RemoveSubPart(this.y5id);
-      if (this.y6id > 0)
-        this.RemoveSubPart(this.y6id);
-      if (this.y6textid > 0)
-        this.RemoveSubPart(this.y6textid);
-      if (this.y7id > 0)
-        this.RemoveSubPart(this.y7id);
-      if (this.y7textid > 0)
-        this.RemoveSubPart(this.y7textid);
-      if (this.y7btextid > 0)
-        this.RemoveSubPart(this.y7btextid);
-      if (this.y8btextid > 0)
-        this.RemoveSubPart(this.y8btextid);
-      if (this.y8id > 0)
-        this.RemoveSubPart(this.y8id);
-      if (this.y8textid > 0)
-        this.RemoveSubPart(this.y8textid);
-      if (this.y3textid > 0)
-        this.RemoveSubPart(this.y3textid);
-      if (this.j1id > 0)
-        this.RemoveSubPart(this.j1id);
-      if (this.j1textid > 0)
-        this.RemoveSubPart(this.j1textid);
-      if (this.LogoListId > 0)
-        this.RemoveSubPart(this.LogoListId);
-      if (this.B1Id > 0)
-        this.RemoveSubPart(this.B1Id);
-      if (this.B1TextId > 0)
-        this.RemoveSubPart(this.B1TextId);
-      if (this.B2Id > 0)
-        this.RemoveSubPart(this.B2Id);
-      if (this.B2TextId > 0)
-        this.RemoveSubPart(this.B2TextId);
-      if (this.B3Id > 0)
-        this.RemoveSubPart(this.B3Id);
-      if (this.B3TextId > 0)
-        this.RemoveSubPart(this.B3TextId);
-      if (this.B4Id > 0)
-        this.RemoveSubPart(this.B4Id);
-      if (this.B4TextId > 0)
-        this.RemoveSubPart(this.B4TextId);
-      if (this.B5Id > 0)
-        this.RemoveSubPart(this.B5Id);
-      if (this.B5TextId > 0)
-        this.RemoveSubPart(this.B5TextId);
-      if (this.B6Id > 0)
-        this.RemoveSubPart(this.B6Id);
-      if (this.B6TextId > 0)
-        this.RemoveSubPart(this.B6TextId);
-      if (this.B7Id > 0)
-        this.RemoveSubPart(this.B7Id);
-      if (this.B7TextId > 0)
-        this.RemoveSubPart(this.B7TextId);
-      if (this.B8Id > 0)
-        this.RemoveSubPart(this.B8Id);
-      if (this.B8TextId > 0)
-        this.RemoveSubPart(this.B8TextId);
-      if (this.b9id > 0)
-        this.RemoveSubPart(this.b9id);
-      if (this.b9textid > 0)
-        this.RemoveSubPart(this.b9textid);
-      if (this.BMoveTypeId > 0)
-        this.RemoveSubPart(this.BMoveTypeId);
-      if (this.BMoveTypeTextId > 0)
-        this.RemoveSubPart(this.BMoveTypeTextId);
-      if (this.b10id > 0)
-        this.RemoveSubPart(this.b10id);
-      if (this.b10textid > 0)
-        this.RemoveSubPart(this.b10textid);
-      if (this.b11id > 0)
-        this.RemoveSubPart(this.b11id);
-      if (this.b11textid > 0)
-        this.RemoveSubPart(this.b11textid);
-      if (this.b12id > 0)
-        this.RemoveSubPart(this.b12id);
-      if (this.b12textid > 0)
-        this.RemoveSubPart(this.b12textid);
-      if (this.b13id > 0)
-        this.RemoveSubPart(this.b13id);
-      if (this.b13textid > 0)
-        this.RemoveSubPart(this.b13textid);
-      if (this.b14id > 0)
-        this.RemoveSubPart(this.b14id);
-      if (this.b14textid > 0)
-        this.RemoveSubPart(this.b14textid);
-      if (this.b15id > 0)
-        this.RemoveSubPart(this.b15id);
-      if (this.b15textid > 0)
-        this.RemoveSubPart(this.b15textid);
-      if (this.b16id > 0)
-        this.RemoveSubPart(this.b16id);
-      if (this.b16textid > 0)
-        this.RemoveSubPart(this.b16textid);
-      if (this.b17id > 0)
-        this.RemoveSubPart(this.b17id);
-      if (this.b17textid > 0)
-        this.RemoveSubPart(this.b17textid);
-      if (this.b18id > 0)
-        this.RemoveSubPart(this.b18id);
-      if (this.b18textid > 0)
-        this.RemoveSubPart(this.b18textid);
-      if (this.b19id > 0)
-        this.RemoveSubPart(this.b19id);
-      if (this.b19textid > 0)
-        this.RemoveSubPart(this.b19textid);
-      if (this.b20id > 0)
-        this.RemoveSubPart(this.b20id);
-      if (this.b20textid > 0)
-        this.RemoveSubPart(this.b20textid);
-      if (this.b21id > 0)
-        this.RemoveSubPart(this.b21id);
-      if (this.b21textid > 0)
-        this.RemoveSubPart(this.b21textid);
-      if (this.b22id > 0)
-        this.RemoveSubPart(this.b22id);
-      if (this.b22textid > 0)
-        this.RemoveSubPart(this.b22textid);
-      if (this.b23id > 0)
-        this.RemoveSubPart(this.b23id);
-      if (this.b23textid > 0)
-        this.RemoveSubPart(this.b23textid);
-      if (this.b24id > 0)
-        this.RemoveSubPart(this.b24id);
-      if (this.b24textid > 0)
-        this.RemoveSubPart(this.b24textid);
-      if (this.b25id > 0)
-        this.RemoveSubPart(this.b25id);
-      if (this.b25textid > 0)
-        this.RemoveSubPart(this.b25textid);
-      if (this.b26id > 0)
-        this.RemoveSubPart(this.b26id);
-      if (this.b26textid > 0)
-        this.RemoveSubPart(this.b26textid);
-      if (this.b27id > 0)
-        this.RemoveSubPart(this.b27id);
-      if (this.b27textid > 0)
-        this.RemoveSubPart(this.b27textid);
-      if (this.b28id > 0)
-        this.RemoveSubPart(this.b28id);
-      if (this.b29id > 0)
-        this.RemoveSubPart(this.b29id);
-      if (this.b29textid > 0)
-        this.RemoveSubPart(this.b29textid);
-      if (this.b30id > 0)
-        this.RemoveSubPart(this.b30id);
-      if (this.b30textid > 0)
-        this.RemoveSubPart(this.b30textid);
-      if (this.b31id > 0)
-        this.RemoveSubPart(this.b31id);
-      if (this.b31textid > 0)
-        this.RemoveSubPart(this.b31textid);
-      if (this.b32id > 0)
-        this.RemoveSubPart(this.b32id);
-      if (this.b32textid > 0)
-        this.RemoveSubPart(this.b32textid);
-      if (this.b33id > 0)
-        this.RemoveSubPart(this.b33id);
-      if (this.b33textid > 0)
-        this.RemoveSubPart(this.b33textid);
-      if (this.b34id > 0)
-        this.RemoveSubPart(this.b34id);
-      if (this.b34textid > 0)
-        this.RemoveSubPart(this.b34textid);
-      if (this.b35id > 0)
-        this.RemoveSubPart(this.b35id);
-      if (this.b35textid > 0)
-        this.RemoveSubPart(this.b35textid);
-      if (this.b36id > 0)
-        this.RemoveSubPart(this.b36id);
-      if (this.b36textid > 0)
-        this.RemoveSubPart(this.b36textid);
-      if (this.b37id > 0)
-        this.RemoveSubPart(this.b37id);
-      if (this.b37textid > 0)
-        this.RemoveSubPart(this.b37textid);
-      if (this.b38id > 0)
-        this.RemoveSubPart(this.b38id);
-      if (this.b38textid > 0)
-        this.RemoveSubPart(this.b38textid);
-      if (this.b39id > 0)
-        this.RemoveSubPart(this.b39id);
-      if (this.b39textid > 0)
-        this.RemoveSubPart(this.b39textid);
-      if (this.a1id > 0)
-        this.RemoveSubPart(this.a1id);
-      if (this.a1textid > 0)
-        this.RemoveSubPart(this.a1textid);
-      if (this.a2id > 0)
-        this.RemoveSubPart(this.a2id);
-      if (this.a2textid > 0)
-        this.RemoveSubPart(this.a2textid);
-      if (this.a3id > 0)
-        this.RemoveSubPart(this.a3id);
-      if (this.a3textid > 0)
-        this.RemoveSubPart(this.a3textid);
-      if (this.a4id > 0)
-        this.RemoveSubPart(this.a4id);
-      if (this.a4textid > 0)
-        this.RemoveSubPart(this.a4textid);
-      if (this.a5id > 0)
-        this.RemoveSubPart(this.a5id);
-      if (this.a5textid > 0)
-        this.RemoveSubPart(this.a5textid);
-      if (this.a6id > 0)
-        this.RemoveSubPart(this.a6id);
-      if (this.a6textid > 0)
-        this.RemoveSubPart(this.a6textid);
-      if (this.t1id > 0)
-        this.RemoveSubPart(this.t1id);
-      if (this.t1textid > 0)
-        this.RemoveSubPart(this.t1textid);
-      if (this.c11id > 0)
-        this.RemoveSubPart(this.c11id);
-      if (this.c11textid > 0)
-        this.RemoveSubPart(this.c11textid);
-      if (this.c12id > 0)
-        this.RemoveSubPart(this.c12id);
-      if (this.c12textid > 0)
-        this.RemoveSubPart(this.c12textid);
-      if (this.c13id > 0)
-        this.RemoveSubPart(this.c13id);
-      if (this.c13textid > 0)
-        this.RemoveSubPart(this.c13textid);
-      if (this.c14id > 0)
-        this.RemoveSubPart(this.c14id);
-      if (this.c14textid > 0)
-        this.RemoveSubPart(this.c14textid);
-      if (this.c15id > 0)
-        this.RemoveSubPart(this.c15id);
-      if (this.c15textid > 0)
-        this.RemoveSubPart(this.c15textid);
-      if (this.c16id > 0)
-        this.RemoveSubPart(this.c16id);
-      if (this.c16textid > 0)
-        this.RemoveSubPart(this.c16textid);
-      if (this.c17id > 0)
-        this.RemoveSubPart(this.c17id);
-      if (this.c17textid > 0)
-        this.RemoveSubPart(this.c17textid);
-      if (this.c18id > 0)
-        this.RemoveSubPart(this.c18id);
-      if (this.c18textid > 0)
-        this.RemoveSubPart(this.c18textid);
-      if (this.c19id > 0)
-        this.RemoveSubPart(this.c19id);
-      if (this.c19textid > 0)
-        this.RemoveSubPart(this.c19textid);
-      if (this.c20id > 0)
-        this.RemoveSubPart(this.c20id);
-      if (this.c20textid > 0)
-        this.RemoveSubPart(this.c20textid);
-      if (this.c21id > 0)
-        this.RemoveSubPart(this.c21id);
-      if (this.c21textid > 0)
-        this.RemoveSubPart(this.c21textid);
-      if (this.c1id > 0)
-        this.RemoveSubPart(this.c1id);
-      if (this.c1textid > 0)
-        this.RemoveSubPart(this.c1textid);
-      if (this.c2id > 0)
-        this.RemoveSubPart(this.c2id);
-      if (this.c2textid > 0)
-        this.RemoveSubPart(this.c2textid);
-      if (this.c3id > 0)
-        this.RemoveSubPart(this.c3id);
-      if (this.c3textid > 0)
-        this.RemoveSubPart(this.c3textid);
-      if (this.c4id > 0)
-        this.RemoveSubPart(this.c4id);
-      if (this.c4textid > 0)
-        this.RemoveSubPart(this.c4textid);
-      if (this.c5id > 0)
-        this.RemoveSubPart(this.c5id);
-      if (this.c5textid > 0)
-        this.RemoveSubPart(this.c5textid);
-      if (this.c6id > 0)
-        this.RemoveSubPart(this.c6id);
-      if (this.c6textid > 0)
-        this.RemoveSubPart(this.c6textid);
-      if (this.c7id > 0)
-        this.RemoveSubPart(this.c7id);
-      if (this.c7textid > 0)
-        this.RemoveSubPart(this.c7textid);
-      if (this.c8id > 0)
-        this.RemoveSubPart(this.c8id);
-      if (this.c8textid > 0)
-        this.RemoveSubPart(this.c8textid);
-      if (this.d1id > 0)
-        this.RemoveSubPart(this.d1id);
-      if (this.d1textid > 0)
-        this.RemoveSubPart(this.d1textid);
-      if (this.e1id > 0)
-        this.RemoveSubPart(this.e1id);
-      if (this.e1textid > 0)
-        this.RemoveSubPart(this.e1textid);
-      if (this.e2id > 0)
-        this.RemoveSubPart(this.e2id);
-      if (this.e2textid > 0)
-        this.RemoveSubPart(this.e2textid);
-      if (this.e3id > 0)
-        this.RemoveSubPart(this.e3id);
-      if (this.e3textid > 0)
-        this.RemoveSubPart(this.e3textid);
-      if (this.e4id > 0)
-        this.RemoveSubPart(this.e4id);
-      if (this.e4textid > 0)
-        this.RemoveSubPart(this.e4textid);
-      if (this.e5id > 0)
-        this.RemoveSubPart(this.e5id);
-      if (this.e5textid > 0)
-        this.RemoveSubPart(this.e5textid);
-      if (this.e6id > 0)
-        this.RemoveSubPart(this.e6id);
-      if (this.e6textid > 0)
-        this.RemoveSubPart(this.e6textid);
-      if (this.e7id > 0)
-        this.RemoveSubPart(this.e7id);
-      if (this.e7textid > 0)
-        this.RemoveSubPart(this.e7textid);
-      if (this.f1id > 0)
-        this.RemoveSubPart(this.f1id);
-      if (this.f1textid > 0)
-        this.RemoveSubPart(this.f1textid);
-      if (this.f2id > 0)
-        this.RemoveSubPart(this.f2id);
-      if (this.f2textid > 0)
-        this.RemoveSubPart(this.f2textid);
-      if (this.f3id > 0)
-        this.RemoveSubPart(this.f3id);
-      if (this.f3textid > 0)
-        this.RemoveSubPart(this.f3textid);
-      if (this.v1id > 0)
-        this.RemoveSubPart(this.v1id);
-      if (this.v1textid > 0)
-        this.RemoveSubPart(this.v1textid);
-      if (this.v2id > 0)
-        this.RemoveSubPart(this.v2id);
-      if (this.v2textid > 0)
-        this.RemoveSubPart(this.v2textid);
-      if (this.v3id > 0)
-        this.RemoveSubPart(this.v3id);
-      if (this.v3textid > 0)
-        this.RemoveSubPart(this.v3textid);
-      if (this.v4id > 0)
-        this.RemoveSubPart(this.v4id);
-      if (this.v4textid > 0)
-        this.RemoveSubPart(this.v4textid);
-      if (this.v5id > 0)
-        this.RemoveSubPart(this.v5id);
-      if (this.v5textid > 0)
-        this.RemoveSubPart(this.v5textid);
-      if (this.v6id > 0)
-        this.RemoveSubPart(this.v6id);
-      if (this.v6textid > 0)
-        this.RemoveSubPart(this.v6textid);
-      if (this.v7id > 0)
-        this.RemoveSubPart(this.v7id);
-      if (this.v7textid > 0)
-        this.RemoveSubPart(this.v7textid);
-      if (this.v8id > 0)
-        this.RemoveSubPart(this.v8id);
-      if (this.v8textid > 0)
-        this.RemoveSubPart(this.v8textid);
-      if (this.v9id > 0)
-        this.RemoveSubPart(this.v9id);
-      if (this.v9textid > 0)
-        this.RemoveSubPart(this.v9textid);
-      if (this.v10id > 0)
-        this.RemoveSubPart(this.v10id);
-      if (this.v10textid > 0)
-        this.RemoveSubPart(this.v10textid);
-      if (this.v11id > 0)
-        this.RemoveSubPart(this.v11id);
-      if (this.v11textid > 0)
-        this.RemoveSubPart(this.v11textid);
-      if (this.v12id > 0)
-        this.RemoveSubPart(this.v12id);
-      if (this.v12textid > 0)
-        this.RemoveSubPart(this.v12textid);
-      if (this.v13id > 0)
-        this.RemoveSubPart(this.v13id);
-      if (this.v13textid > 0)
-        this.RemoveSubPart(this.v13textid);
-      if (this.v14id > 0)
-        this.RemoveSubPart(this.v14id);
-      if (this.v14textid > 0)
-        this.RemoveSubPart(this.v14textid);
-      if (this.v15id > 0)
-        this.RemoveSubPart(this.v15id);
-      if (this.v15textid > 0)
-        this.RemoveSubPart(this.v15textid);
-      if (this.v16id > 0)
-        this.RemoveSubPart(this.v16id);
-      if (this.v16textid > 0)
-        this.RemoveSubPart(this.v16textid);
-      if (this.v17id > 0)
-        this.RemoveSubPart(this.v17id);
-      if (this.v17textid > 0)
-        this.RemoveSubPart(this.v17textid);
-      if (this.v18id > 0)
-        this.RemoveSubPart(this.v18id);
-      if (this.v18textid > 0)
-        this.RemoveSubPart(this.v18textid);
-      if (this.v19id > 0)
-        this.RemoveSubPart(this.v19id);
-      if (this.v19textid > 0)
-        this.RemoveSubPart(this.v19textid);
-      if (this.v20id > 0)
-        this.RemoveSubPart(this.v20id);
-      if (this.v20textid > 0)
-        this.RemoveSubPart(this.v20textid);
-      if (this.v21id > 0)
-        this.RemoveSubPart(this.v21id);
-      if (this.v21textid > 0)
-        this.RemoveSubPart(this.v21textid);
-      if (this.v22id > 0)
-        this.RemoveSubPart(this.v22id);
-      if (this.v22textid > 0)
-        this.RemoveSubPart(this.v22textid);
-      if (this.v23id > 0)
-        this.RemoveSubPart(this.v23id);
-      if (this.v23textid > 0)
-        this.RemoveSubPart(this.v23textid);
-      if (this.y2id > 0)
-        this.RemoveSubPart(this.y2id);
-      if (this.g1id > 0)
-        this.RemoveSubPart(this.g1id);
-      if (this.g1textid > 0)
-        this.RemoveSubPart(this.g1textid);
-      if (this.g2id > 0)
-        this.RemoveSubPart(this.g2id);
-      if (this.g2textid > 0)
-        this.RemoveSubPart(this.g2textid);
-      if (this.g3id > 0)
-        this.RemoveSubPart(this.g3id);
-      if (this.g3textid > 0)
-        this.RemoveSubPart(this.g3textid);
-      if (this.g4id > 0)
-        this.RemoveSubPart(this.g4id);
-      if (this.g4textid > 0)
-        this.RemoveSubPart(this.g4textid);
-      if (this.g5id > 0)
-        this.RemoveSubPart(this.g5id);
-      if (this.g5textid > 0)
-        this.RemoveSubPart(this.g5textid);
-      if (this.g6id > 0)
-        this.RemoveSubPart(this.g6id);
-      if (this.g6textid > 0)
-        this.RemoveSubPart(this.g6textid);
-      if (this.g7id > 0)
-        this.RemoveSubPart(this.g7id);
-      if (this.g7textid > 0)
-        this.RemoveSubPart(this.g7textid);
-      if (this.g8id > 0)
-        this.RemoveSubPart(this.g8id);
-      if (this.g8textid > 0)
-        this.RemoveSubPart(this.g8textid);
-      if (this.g9id > 0)
-        this.RemoveSubPart(this.g9id);
-      if (this.g9textid > 0)
-        this.RemoveSubPart(this.g9textid);
-      if (this.g10id > 0)
-        this.RemoveSubPart(this.g10id);
-      if (this.g10textid > 0)
-        this.RemoveSubPart(this.g10textid);
-      if (this.g11id > 0)
-        this.RemoveSubPart(this.g11id);
-      if (this.g11textid > 0)
-        this.RemoveSubPart(this.g11textid);
-      if (this.g12id > 0)
-        this.RemoveSubPart(this.g12id);
-      if (this.g12textid > 0)
-        this.RemoveSubPart(this.g12textid);
-      if (this.g13id > 0)
-        this.RemoveSubPart(this.g13id);
-      if (this.g13textid > 0)
-        this.RemoveSubPart(this.g13textid);
-      if (this.g14id > 0)
-        this.RemoveSubPart(this.g14id);
-      if (this.g14textid > 0)
-        this.RemoveSubPart(this.g14textid);
-      if (this.g15id > 0)
-        this.RemoveSubPart(this.g15id);
-      if (this.g15textid > 0)
+      if (self.BSymbolId > 0)
+        self.RemoveSubPart(self.BSymbolId);
+      if (self.BChangeSymbolId > 0)
+        self.RemoveSubPart(self.BChangeSymbolId);
+      if (self.BSymbol2Id > 0)
+        self.RemoveSubPart(self.BSymbol2Id);
+      if (self.BChangeSymbol2Id > 0)
+        self.RemoveSubPart(self.BChangeSymbol2Id);
+      if (self.BPicId > 0)
+        self.RemoveSubPart(self.BPicId);
+      if (self.bChangePicId > 0)
+        self.RemoveSubPart(self.bChangePicId);
+      if (self.BSymbolGroupId > 0)
+        self.RemoveSubPart(self.BSymbolGroupId);
+      if (self.BSymbolGroupTextId > 0)
+        self.RemoveSubPart(self.BSymbolGroupTextId);
+      if (self.BSymbolWeightId > 0)
+        self.RemoveSubPart(self.BSymbolWeightId);
+      if (self.BSymbolWeightTextId > 0)
+        self.RemoveSubPart(self.BSymbolWeightTextId);
+      if (self.BSymbolOverRuleId > 0)
+        self.RemoveSubPart(self.BSymbolOverRuleId);
+      if ((uint) self.BSymbolOverRuleTextId > 0U)
+        self.RemoveSubPart(self.BSymbolOverRuleTextId);
+      if (self.ResListId > 0)
+        self.RemoveSubPart(self.ResListId);
+      if (self.ExtraListId > 0)
+        self.RemoveSubPart(self.ExtraListId);
+      if (self.PGListId > 0)
+        self.RemoveSubPart(self.PGListId);
+      if (self.CombatListId > 0)
+        self.RemoveSubPart(self.CombatListId);
+      if (self.CombatList2Id > 0)
+        self.RemoveSubPart(self.CombatList2Id);
+      if (self.combatlist3id > 0)
+        self.RemoveSubPart(self.combatlist3id);
+      if (self.combatlist4id > 0)
+        self.RemoveSubPart(self.combatlist4id);
+      if (self.x3id > 0)
+        self.RemoveSubPart(self.x3id);
+      if (self.x3textid > 0)
+        self.RemoveSubPart(self.x3textid);
+      if (self.y1id > 0)
+        self.RemoveSubPart(self.y1id);
+      if (self.y1textid > 0)
+        self.RemoveSubPart(self.y1textid);
+      if (self.y3id > 0)
+        self.RemoveSubPart(self.y3id);
+      if (self.y4id > 0)
+        self.RemoveSubPart(self.y4id);
+      if (self.y5id > 0)
+        self.RemoveSubPart(self.y5id);
+      if (self.y6id > 0)
+        self.RemoveSubPart(self.y6id);
+      if (self.y6textid > 0)
+        self.RemoveSubPart(self.y6textid);
+      if (self.y7id > 0)
+        self.RemoveSubPart(self.y7id);
+      if (self.y7textid > 0)
+        self.RemoveSubPart(self.y7textid);
+      if (self.y7btextid > 0)
+        self.RemoveSubPart(self.y7btextid);
+      if (self.y8btextid > 0)
+        self.RemoveSubPart(self.y8btextid);
+      if (self.y8id > 0)
+        self.RemoveSubPart(self.y8id);
+      if (self.y8textid > 0)
+        self.RemoveSubPart(self.y8textid);
+      if (self.y3textid > 0)
+        self.RemoveSubPart(self.y3textid);
+      if (self.j1id > 0)
+        self.RemoveSubPart(self.j1id);
+      if (self.j1textid > 0)
+        self.RemoveSubPart(self.j1textid);
+      if (self.LogoListId > 0)
+        self.RemoveSubPart(self.LogoListId);
+      if (self.B1Id > 0)
+        self.RemoveSubPart(self.B1Id);
+      if (self.B1TextId > 0)
+        self.RemoveSubPart(self.B1TextId);
+      if (self.B2Id > 0)
+        self.RemoveSubPart(self.B2Id);
+      if (self.B2TextId > 0)
+        self.RemoveSubPart(self.B2TextId);
+      if (self.B3Id > 0)
+        self.RemoveSubPart(self.B3Id);
+      if (self.B3TextId > 0)
+        self.RemoveSubPart(self.B3TextId);
+      if (self.B4Id > 0)
+        self.RemoveSubPart(self.B4Id);
+      if (self.B4TextId > 0)
+        self.RemoveSubPart(self.B4TextId);
+      if (self.B5Id > 0)
+        self.RemoveSubPart(self.B5Id);
+      if (self.B5TextId > 0)
+        self.RemoveSubPart(self.B5TextId);
+      if (self.B6Id > 0)
+        self.RemoveSubPart(self.B6Id);
+      if (self.B6TextId > 0)
+        self.RemoveSubPart(self.B6TextId);
+      if (self.B7Id > 0)
+        self.RemoveSubPart(self.B7Id);
+      if (self.B7TextId > 0)
+        self.RemoveSubPart(self.B7TextId);
+      if (self.B8Id > 0)
+        self.RemoveSubPart(self.B8Id);
+      if (self.B8TextId > 0)
+        self.RemoveSubPart(self.B8TextId);
+      if (self.b9id > 0)
+        self.RemoveSubPart(self.b9id);
+      if (self.b9textid > 0)
+        self.RemoveSubPart(self.b9textid);
+      if (self.BMoveTypeId > 0)
+        self.RemoveSubPart(self.BMoveTypeId);
+      if (self.BMoveTypeTextId > 0)
+        self.RemoveSubPart(self.BMoveTypeTextId);
+      if (self.b10id > 0)
+        self.RemoveSubPart(self.b10id);
+      if (self.b10textid > 0)
+        self.RemoveSubPart(self.b10textid);
+      if (self.b11id > 0)
+        self.RemoveSubPart(self.b11id);
+      if (self.b11textid > 0)
+        self.RemoveSubPart(self.b11textid);
+      if (self.b12id > 0)
+        self.RemoveSubPart(self.b12id);
+      if (self.b12textid > 0)
+        self.RemoveSubPart(self.b12textid);
+      if (self.b13id > 0)
+        self.RemoveSubPart(self.b13id);
+      if (self.b13textid > 0)
+        self.RemoveSubPart(self.b13textid);
+      if (self.b14id > 0)
+        self.RemoveSubPart(self.b14id);
+      if (self.b14textid > 0)
+        self.RemoveSubPart(self.b14textid);
+      if (self.b15id > 0)
+        self.RemoveSubPart(self.b15id);
+      if (self.b15textid > 0)
+        self.RemoveSubPart(self.b15textid);
+      if (self.b16id > 0)
+        self.RemoveSubPart(self.b16id);
+      if (self.b16textid > 0)
+        self.RemoveSubPart(self.b16textid);
+      if (self.b17id > 0)
+        self.RemoveSubPart(self.b17id);
+      if (self.b17textid > 0)
+        self.RemoveSubPart(self.b17textid);
+      if (self.b18id > 0)
+        self.RemoveSubPart(self.b18id);
+      if (self.b18textid > 0)
+        self.RemoveSubPart(self.b18textid);
+      if (self.b19id > 0)
+        self.RemoveSubPart(self.b19id);
+      if (self.b19textid > 0)
+        self.RemoveSubPart(self.b19textid);
+      if (self.b20id > 0)
+        self.RemoveSubPart(self.b20id);
+      if (self.b20textid > 0)
+        self.RemoveSubPart(self.b20textid);
+      if (self.b21id > 0)
+        self.RemoveSubPart(self.b21id);
+      if (self.b21textid > 0)
+        self.RemoveSubPart(self.b21textid);
+      if (self.b22id > 0)
+        self.RemoveSubPart(self.b22id);
+      if (self.b22textid > 0)
+        self.RemoveSubPart(self.b22textid);
+      if (self.b23id > 0)
+        self.RemoveSubPart(self.b23id);
+      if (self.b23textid > 0)
+        self.RemoveSubPart(self.b23textid);
+      if (self.b24id > 0)
+        self.RemoveSubPart(self.b24id);
+      if (self.b24textid > 0)
+        self.RemoveSubPart(self.b24textid);
+      if (self.b25id > 0)
+        self.RemoveSubPart(self.b25id);
+      if (self.b25textid > 0)
+        self.RemoveSubPart(self.b25textid);
+      if (self.b26id > 0)
+        self.RemoveSubPart(self.b26id);
+      if (self.b26textid > 0)
+        self.RemoveSubPart(self.b26textid);
+      if (self.b27id > 0)
+        self.RemoveSubPart(self.b27id);
+      if (self.b27textid > 0)
+        self.RemoveSubPart(self.b27textid);
+      if (self.b28id > 0)
+        self.RemoveSubPart(self.b28id);
+      if (self.b29id > 0)
+        self.RemoveSubPart(self.b29id);
+      if (self.b29textid > 0)
+        self.RemoveSubPart(self.b29textid);
+      if (self.b30id > 0)
+        self.RemoveSubPart(self.b30id);
+      if (self.b30textid > 0)
+        self.RemoveSubPart(self.b30textid);
+      if (self.b31id > 0)
+        self.RemoveSubPart(self.b31id);
+      if (self.b31textid > 0)
+        self.RemoveSubPart(self.b31textid);
+      if (self.b32id > 0)
+        self.RemoveSubPart(self.b32id);
+      if (self.b32textid > 0)
+        self.RemoveSubPart(self.b32textid);
+      if (self.b33id > 0)
+        self.RemoveSubPart(self.b33id);
+      if (self.b33textid > 0)
+        self.RemoveSubPart(self.b33textid);
+      if (self.b34id > 0)
+        self.RemoveSubPart(self.b34id);
+      if (self.b34textid > 0)
+        self.RemoveSubPart(self.b34textid);
+      if (self.b35id > 0)
+        self.RemoveSubPart(self.b35id);
+      if (self.b35textid > 0)
+        self.RemoveSubPart(self.b35textid);
+      if (self.b36id > 0)
+        self.RemoveSubPart(self.b36id);
+      if (self.b36textid > 0)
+        self.RemoveSubPart(self.b36textid);
+      if (self.b37id > 0)
+        self.RemoveSubPart(self.b37id);
+      if (self.b37textid > 0)
+        self.RemoveSubPart(self.b37textid);
+      if (self.b38id > 0)
+        self.RemoveSubPart(self.b38id);
+      if (self.b38textid > 0)
+        self.RemoveSubPart(self.b38textid);
+      if (self.b39id > 0)
+        self.RemoveSubPart(self.b39id);
+      if (self.b39textid > 0)
+        self.RemoveSubPart(self.b39textid);
+      if (self.a1id > 0)
+        self.RemoveSubPart(self.a1id);
+      if (self.a1textid > 0)
+        self.RemoveSubPart(self.a1textid);
+      if (self.a2id > 0)
+        self.RemoveSubPart(self.a2id);
+      if (self.a2textid > 0)
+        self.RemoveSubPart(self.a2textid);
+      if (self.a3id > 0)
+        self.RemoveSubPart(self.a3id);
+      if (self.a3textid > 0)
+        self.RemoveSubPart(self.a3textid);
+      if (self.a4id > 0)
+        self.RemoveSubPart(self.a4id);
+      if (self.a4textid > 0)
+        self.RemoveSubPart(self.a4textid);
+      if (self.a5id > 0)
+        self.RemoveSubPart(self.a5id);
+      if (self.a5textid > 0)
+        self.RemoveSubPart(self.a5textid);
+      if (self.a6id > 0)
+        self.RemoveSubPart(self.a6id);
+      if (self.a6textid > 0)
+        self.RemoveSubPart(self.a6textid);
+      if (self.t1id > 0)
+        self.RemoveSubPart(self.t1id);
+      if (self.t1textid > 0)
+        self.RemoveSubPart(self.t1textid);
+      if (self.c11id > 0)
+        self.RemoveSubPart(self.c11id);
+      if (self.c11textid > 0)
+        self.RemoveSubPart(self.c11textid);
+      if (self.c12id > 0)
+        self.RemoveSubPart(self.c12id);
+      if (self.c12textid > 0)
+        self.RemoveSubPart(self.c12textid);
+      if (self.c13id > 0)
+        self.RemoveSubPart(self.c13id);
+      if (self.c13textid > 0)
+        self.RemoveSubPart(self.c13textid);
+      if (self.c14id > 0)
+        self.RemoveSubPart(self.c14id);
+      if (self.c14textid > 0)
+        self.RemoveSubPart(self.c14textid);
+      if (self.c15id > 0)
+        self.RemoveSubPart(self.c15id);
+      if (self.c15textid > 0)
+        self.RemoveSubPart(self.c15textid);
+      if (self.c16id > 0)
+        self.RemoveSubPart(self.c16id);
+      if (self.c16textid > 0)
+        self.RemoveSubPart(self.c16textid);
+      if (self.c17id > 0)
+        self.RemoveSubPart(self.c17id);
+      if (self.c17textid > 0)
+        self.RemoveSubPart(self.c17textid);
+      if (self.c18id > 0)
+        self.RemoveSubPart(self.c18id);
+      if (self.c18textid > 0)
+        self.RemoveSubPart(self.c18textid);
+      if (self.c19id > 0)
+        self.RemoveSubPart(self.c19id);
+      if (self.c19textid > 0)
+        self.RemoveSubPart(self.c19textid);
+      if (self.c20id > 0)
+        self.RemoveSubPart(self.c20id);
+      if (self.c20textid > 0)
+        self.RemoveSubPart(self.c20textid);
+      if (self.c21id > 0)
+        self.RemoveSubPart(self.c21id);
+      if (self.c21textid > 0)
+        self.RemoveSubPart(self.c21textid);
+      if (self.c1id > 0)
+        self.RemoveSubPart(self.c1id);
+      if (self.c1textid > 0)
+        self.RemoveSubPart(self.c1textid);
+      if (self.c2id > 0)
+        self.RemoveSubPart(self.c2id);
+      if (self.c2textid > 0)
+        self.RemoveSubPart(self.c2textid);
+      if (self.c3id > 0)
+        self.RemoveSubPart(self.c3id);
+      if (self.c3textid > 0)
+        self.RemoveSubPart(self.c3textid);
+      if (self.c4id > 0)
+        self.RemoveSubPart(self.c4id);
+      if (self.c4textid > 0)
+        self.RemoveSubPart(self.c4textid);
+      if (self.c5id > 0)
+        self.RemoveSubPart(self.c5id);
+      if (self.c5textid > 0)
+        self.RemoveSubPart(self.c5textid);
+      if (self.c6id > 0)
+        self.RemoveSubPart(self.c6id);
+      if (self.c6textid > 0)
+        self.RemoveSubPart(self.c6textid);
+      if (self.c7id > 0)
+        self.RemoveSubPart(self.c7id);
+      if (self.c7textid > 0)
+        self.RemoveSubPart(self.c7textid);
+      if (self.c8id > 0)
+        self.RemoveSubPart(self.c8id);
+      if (self.c8textid > 0)
+        self.RemoveSubPart(self.c8textid);
+      if (self.d1id > 0)
+        self.RemoveSubPart(self.d1id);
+      if (self.d1textid > 0)
+        self.RemoveSubPart(self.d1textid);
+      if (self.e1id > 0)
+        self.RemoveSubPart(self.e1id);
+      if (self.e1textid > 0)
+        self.RemoveSubPart(self.e1textid);
+      if (self.e2id > 0)
+        self.RemoveSubPart(self.e2id);
+      if (self.e2textid > 0)
+        self.RemoveSubPart(self.e2textid);
+      if (self.e3id > 0)
+        self.RemoveSubPart(self.e3id);
+      if (self.e3textid > 0)
+        self.RemoveSubPart(self.e3textid);
+      if (self.e4id > 0)
+        self.RemoveSubPart(self.e4id);
+      if (self.e4textid > 0)
+        self.RemoveSubPart(self.e4textid);
+      if (self.e5id > 0)
+        self.RemoveSubPart(self.e5id);
+      if (self.e5textid > 0)
+        self.RemoveSubPart(self.e5textid);
+      if (self.e6id > 0)
+        self.RemoveSubPart(self.e6id);
+      if (self.e6textid > 0)
+        self.RemoveSubPart(self.e6textid);
+      if (self.e7id > 0)
+        self.RemoveSubPart(self.e7id);
+      if (self.e7textid > 0)
+        self.RemoveSubPart(self.e7textid);
+      if (self.f1id > 0)
+        self.RemoveSubPart(self.f1id);
+      if (self.f1textid > 0)
+        self.RemoveSubPart(self.f1textid);
+      if (self.f2id > 0)
+        self.RemoveSubPart(self.f2id);
+      if (self.f2textid > 0)
+        self.RemoveSubPart(self.f2textid);
+      if (self.f3id > 0)
+        self.RemoveSubPart(self.f3id);
+      if (self.f3textid > 0)
+        self.RemoveSubPart(self.f3textid);
+      if (self.v1id > 0)
+        self.RemoveSubPart(self.v1id);
+      if (self.v1textid > 0)
+        self.RemoveSubPart(self.v1textid);
+      if (self.v2id > 0)
+        self.RemoveSubPart(self.v2id);
+      if (self.v2textid > 0)
+        self.RemoveSubPart(self.v2textid);
+      if (self.v3id > 0)
+        self.RemoveSubPart(self.v3id);
+      if (self.v3textid > 0)
+        self.RemoveSubPart(self.v3textid);
+      if (self.v4id > 0)
+        self.RemoveSubPart(self.v4id);
+      if (self.v4textid > 0)
+        self.RemoveSubPart(self.v4textid);
+      if (self.v5id > 0)
+        self.RemoveSubPart(self.v5id);
+      if (self.v5textid > 0)
+        self.RemoveSubPart(self.v5textid);
+      if (self.v6id > 0)
+        self.RemoveSubPart(self.v6id);
+      if (self.v6textid > 0)
+        self.RemoveSubPart(self.v6textid);
+      if (self.v7id > 0)
+        self.RemoveSubPart(self.v7id);
+      if (self.v7textid > 0)
+        self.RemoveSubPart(self.v7textid);
+      if (self.v8id > 0)
+        self.RemoveSubPart(self.v8id);
+      if (self.v8textid > 0)
+        self.RemoveSubPart(self.v8textid);
+      if (self.v9id > 0)
+        self.RemoveSubPart(self.v9id);
+      if (self.v9textid > 0)
+        self.RemoveSubPart(self.v9textid);
+      if (self.v10id > 0)
+        self.RemoveSubPart(self.v10id);
+      if (self.v10textid > 0)
+        self.RemoveSubPart(self.v10textid);
+      if (self.v11id > 0)
+        self.RemoveSubPart(self.v11id);
+      if (self.v11textid > 0)
+        self.RemoveSubPart(self.v11textid);
+      if (self.v12id > 0)
+        self.RemoveSubPart(self.v12id);
+      if (self.v12textid > 0)
+        self.RemoveSubPart(self.v12textid);
+      if (self.v13id > 0)
+        self.RemoveSubPart(self.v13id);
+      if (self.v13textid > 0)
+        self.RemoveSubPart(self.v13textid);
+      if (self.v14id > 0)
+        self.RemoveSubPart(self.v14id);
+      if (self.v14textid > 0)
+        self.RemoveSubPart(self.v14textid);
+      if (self.v15id > 0)
+        self.RemoveSubPart(self.v15id);
+      if (self.v15textid > 0)
+        self.RemoveSubPart(self.v15textid);
+      if (self.v16id > 0)
+        self.RemoveSubPart(self.v16id);
+      if (self.v16textid > 0)
+        self.RemoveSubPart(self.v16textid);
+      if (self.v17id > 0)
+        self.RemoveSubPart(self.v17id);
+      if (self.v17textid > 0)
+        self.RemoveSubPart(self.v17textid);
+      if (self.v18id > 0)
+        self.RemoveSubPart(self.v18id);
+      if (self.v18textid > 0)
+        self.RemoveSubPart(self.v18textid);
+      if (self.v19id > 0)
+        self.RemoveSubPart(self.v19id);
+      if (self.v19textid > 0)
+        self.RemoveSubPart(self.v19textid);
+      if (self.v20id > 0)
+        self.RemoveSubPart(self.v20id);
+      if (self.v20textid > 0)
+        self.RemoveSubPart(self.v20textid);
+      if (self.v21id > 0)
+        self.RemoveSubPart(self.v21id);
+      if (self.v21textid > 0)
+        self.RemoveSubPart(self.v21textid);
+      if (self.v22id > 0)
+        self.RemoveSubPart(self.v22id);
+      if (self.v22textid > 0)
+        self.RemoveSubPart(self.v22textid);
+      if (self.v23id > 0)
+        self.RemoveSubPart(self.v23id);
+      if (self.v23textid > 0)
+        self.RemoveSubPart(self.v23textid);
+      if (self.y2id > 0)
+        self.RemoveSubPart(self.y2id);
+      if (self.g1id > 0)
+        self.RemoveSubPart(self.g1id);
+      if (self.g1textid > 0)
+        self.RemoveSubPart(self.g1textid);
+      if (self.g2id > 0)
+        self.RemoveSubPart(self.g2id);
+      if (self.g2textid > 0)
+        self.RemoveSubPart(self.g2textid);
+      if (self.g3id > 0)
+        self.RemoveSubPart(self.g3id);
+      if (self.g3textid > 0)
+        self.RemoveSubPart(self.g3textid);
+      if (self.g4id > 0)
+        self.RemoveSubPart(self.g4id);
+      if (self.g4textid > 0)
+        self.RemoveSubPart(self.g4textid);
+      if (self.g5id > 0)
+        self.RemoveSubPart(self.g5id);
+      if (self.g5textid > 0)
+        self.RemoveSubPart(self.g5textid);
+      if (self.g6id > 0)
+        self.RemoveSubPart(self.g6id);
+      if (self.g6textid > 0)
+        self.RemoveSubPart(self.g6textid);
+      if (self.g7id > 0)
+        self.RemoveSubPart(self.g7id);
+      if (self.g7textid > 0)
+        self.RemoveSubPart(self.g7textid);
+      if (self.g8id > 0)
+        self.RemoveSubPart(self.g8id);
+      if (self.g8textid > 0)
+        self.RemoveSubPart(self.g8textid);
+      if (self.g9id > 0)
+        self.RemoveSubPart(self.g9id);
+      if (self.g9textid > 0)
+        self.RemoveSubPart(self.g9textid);
+      if (self.g10id > 0)
+        self.RemoveSubPart(self.g10id);
+      if (self.g10textid > 0)
+        self.RemoveSubPart(self.g10textid);
+      if (self.g11id > 0)
+        self.RemoveSubPart(self.g11id);
+      if (self.g11textid > 0)
+        self.RemoveSubPart(self.g11textid);
+      if (self.g12id > 0)
+        self.RemoveSubPart(self.g12id);
+      if (self.g12textid > 0)
+        self.RemoveSubPart(self.g12textid);
+      if (self.g13id > 0)
+        self.RemoveSubPart(self.g13id);
+      if (self.g13textid > 0)
+        self.RemoveSubPart(self.g13textid);
+      if (self.g14id > 0)
+        self.RemoveSubPart(self.g14id);
+      if (self.g14textid > 0)
+        self.RemoveSubPart(self.g14textid);
+      if (self.g15id > 0)
+        self.RemoveSubPart(self.g15id);
+      if (self.g15textid > 0)
         this.RemoveSubPart(this.g15textid);
       if (this.g16id > 0)
         this.RemoveSubPart(this.g16id);
@@ -1760,13 +1760,13 @@ namespace WindowsApplication1
       }
       let mut tsubpart29: SubPartClass =  TextPartClass::new("MoveRedux: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b24textid = this.AddSubPart( tsubpart29, 350, 639, 200, 20, 0);
-      this.ss = "Click to set a possible actionpoint mod. Making it possible to give this sftype more or less than 100ap if fully ready.";
+      this.ss = "Click to set a possible actionpomod: i32. Making it possible to give this sftype more or less than 100ap if fully ready.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart30: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g4id = this.AddSubPart( tsubpart30, 610, 240, 32, 16, 1);
       }
-      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoint Mod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoMod: i32: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g4textid = this.AddSubPart( tsubpart31, 650, 239, 200, 20, 0);
       this.ss = "Click to set howmuch absolute readiness points this sfype loses with each attack";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1808,7 +1808,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart41: SubPartClass =  TextPartClass::new("BattleWAV: " + this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g11textid = this.AddSubPart( tsubpart41, 650, 359, 200, 20, 0);
-      this.ss = "Click to set the number of staff points this sftype has. 1 Staffpoints is needed for each Powerpoint under command.";
+      this.ss = "Click to set the number of staff points this sftype has. 1 Staffpoints is needed for each Powerpounder: i32 command.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart42: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2014,7 +2014,7 @@ namespace WindowsApplication1
       this.tabsheet1b();
     }
 
-    pub void tabsheet1b()
+    pub fn tabsheet1b()
     {
       if (this.B4Id > 0)
         this.RemoveSubPart(this.B4Id);
@@ -2034,7 +2034,7 @@ namespace WindowsApplication1
       this.B4TextId = this.AddSubPart( tsubpart1, 50, 619, 400, 20, 0);
     }
 
-    pub void tabsheet2()
+    pub fn tabsheet2()
     {
       this.ss = "Click to set the initiative of this sftype if attacking and if defending";
       str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Initiative) + " / " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].InitiativeDef);
@@ -2199,7 +2199,7 @@ namespace WindowsApplication1
       this.b28id = this.AddSubPart( tsubpart, 310, 390, 650, 208, 0);
     }
 
-    pub void tabsheet9()
+    pub fn tabsheet9()
     {
       this.ss = "Which regimevar # is used as fuel resource";
       str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar);
@@ -2357,7 +2357,7 @@ namespace WindowsApplication1
       this.c21textid = this.AddSubPart( tsubpart, 750, 479, 200, 20, 0);
     }
 
-    pub void tabsheet3()
+    pub fn tabsheet3()
     {
       this.CombatListObj = ListClass::new();
       if (this.detailnr < -1 | this.detailnr > 99)
@@ -2390,9 +2390,9 @@ namespace WindowsApplication1
         ListClass combatListObj = this.CombatListObj;
         let mut detailnr: i32 = this.detailnr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(combatListObj, 16, 880, detailnr, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
         this.CombatListId = this.AddSubPart( tsubpart, 10, 340, 880, 304, 0);
       }
@@ -2401,9 +2401,9 @@ namespace WindowsApplication1
         ListClass combatListObj = this.CombatListObj;
         let mut detailnr: i32 = this.detailnr;
         let mut game: GameClass = this.game;
-         Bitmap local3 =  this.OwnBitmap;
-        Font font =  null;
-         Font local4 =  font;
+         local3: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local4: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(combatListObj, 12, 880, detailnr, game, true, tbackbitmap: ( local3), bbx: 10, bby: 340, overruleFont: ( local4));
         this.CombatListId = this.AddSubPart( tsubpart, 10, 340, 880, 240, 0);
       }
@@ -2412,7 +2412,7 @@ namespace WindowsApplication1
       this.tabsheet3b();
     }
 
-    pub void tabsheet3b()
+    pub fn tabsheet3b()
     {
       this.ss = "Click to set how favourite this unitgroup is as a target for this sftype. the higher the more favourite.";
       str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[this.detailnr]));
@@ -2521,7 +2521,7 @@ namespace WindowsApplication1
       this.y1textid = this.AddSubPart( tsubpart1, 950, 499, 400, 20, 0);
     }
 
-    pub void tabsheet4()
+    pub fn tabsheet4()
     {
       this.CombatList2Obj = ListClass::new();
       if (this.detailnr < -1 | this.detailnr > this.game.Data.LandscapeTypeCounter)
@@ -2548,9 +2548,9 @@ namespace WindowsApplication1
       ListClass combatList2Obj = this.CombatList2Obj;
       let mut detailnr: i32 = this.detailnr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(combatList2Obj, 12, 580, detailnr, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.CombatList2Id = this.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
       if (this.detailnr <= -1)
@@ -2558,7 +2558,7 @@ namespace WindowsApplication1
       this.tabsheet4b();
     }
 
-    pub void tabsheet4b()
+    pub fn tabsheet4b()
     {
       this.ss = "Click to set the modifier for this sftype if it attacks this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
       str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr]));
@@ -2633,7 +2633,7 @@ namespace WindowsApplication1
       this.t1textid = this.AddSubPart( tsubpart1, 650, 449, 400, 20, 0);
     }
 
-    pub void tabsheet7()
+    pub fn tabsheet7()
     {
       if (this.detailnr2 > 99)
         this.detailnr2 = -1;
@@ -2648,9 +2648,9 @@ namespace WindowsApplication1
       ListClass logoListObj = this.LogoListObj;
       let mut detailnr2: i32 = this.detailnr2;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(logoListObj, 10, 350, detailnr2, game, true, "Logostrings", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.LogoListId = this.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
       if (this.detailnr2 <= -1)
@@ -2666,7 +2666,7 @@ namespace WindowsApplication1
       this.j1textid = this.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
     }
 
-    pub void tabsheet8()
+    pub fn tabsheet8()
     {
       if (this.detailnr2 > this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter)
         this.detailnr2 = -1;
@@ -2691,9 +2691,9 @@ namespace WindowsApplication1
       ListClass preventListObj = this.PreventListObj;
       let mut detailnr2: i32 = this.detailnr2;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(preventListObj, 9, 450, detailnr2, game, true, "#  ON               FROM            PRIORITY    CHANCE   POINTS", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.PreventListId = this.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
       SubPartClass tsubpart2;
@@ -2772,7 +2772,7 @@ namespace WindowsApplication1
       this.p9textid = this.AddSubPart( tsubpart2, 850, 359, 400, 20, 0);
     }
 
-    pub void tabsheet10()
+    pub fn tabsheet10()
     {
       if (this.detailnr2 > this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter)
         this.detailnr2 = -1;
@@ -2791,9 +2791,9 @@ namespace WindowsApplication1
       ListClass variantListObj = this.VariantListObj;
       let mut detailnr2: i32 = this.detailnr2;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(variantListObj, 9, 450, detailnr2, game, true, "#  ALTERATION NAME              CHECK    EXEC", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.VariantListId = this.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
       SubPartClass tsubpart2;
@@ -2839,7 +2839,7 @@ namespace WindowsApplication1
       this.vp5textid = this.AddSubPart( tsubpart2, 550, 379, 400, 20, 0);
     }
 
-    pub void tabsheet5()
+    pub fn tabsheet5()
     {
       if (this.detailnr2 > this.game.Data.ResearchCounter)
         this.detailnr2 = -1;
@@ -2874,9 +2874,9 @@ label_9:
       ListClass resListObj = this.ResListObj;
       let mut detailnr2: i32 = this.detailnr2;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(resListObj, 10, 350, detailnr2, game, true, "NAME           ST   POS   EV   RES  AUTO", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.ResListId = this.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
       SubPartClass tsubpart2;
@@ -3085,11 +3085,11 @@ label_9:
       this.v23textid = this.AddSubPart( tsubpart2, 750, 539, 400, 20, 0);
     }
 
-    pub void tabsheet5b()
+    pub fn tabsheet5b()
     {
     }
 
-    pub void tabsheet6()
+    pub fn tabsheet6()
     {
       this.CombatList4Obj = ListClass::new();
       if (this.detailnr < -1 | this.detailnr > 99)
@@ -3158,9 +3158,9 @@ label_9:
       ListClass combatList4Obj = this.CombatList4Obj;
       let mut tlistselect: i32 = num1;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(combatList4Obj, 12, 580, tlistselect, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.combatlist4id = this.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
       if (this.detailnr <= -1)
@@ -3168,7 +3168,7 @@ label_9:
       this.tabsheet6b();
     }
 
-    pub void tabsheet6b()
+    pub fn tabsheet6b()
     {
       this.ss = "Set the AIRolescore for this sftype. Basicly you set 100 at the role it is supposed to be used at.";
       str: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
@@ -3195,7 +3195,7 @@ label_9:
       this.w11textid = this.AddSubPart( tsubpart1, 650, 379, 400, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -3597,7 +3597,7 @@ label_9:
               if (num24 >= 0 & num24 <= this.game.Data.SFTypeCounter)
               {
                 let mut sfCounter: i32 = this.game.Data.SFCounter;
-                int Number;
+                Number: i32;
                 for (let mut index6: i32 = 0; index6 <= sfCounter; index6 += 1)
                 {
                   if (this.game.Data.SFObj[index6].Type == this.SFtypeNr)
@@ -4130,7 +4130,7 @@ label_9:
             }
             if (num1 == this.y6id)
             {
-              let mut num58: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Color Morph value.", "Shadow Empire : Planetary Conquest")));
+              let mut num58: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Morph: Color value.", "Shadow Empire : Planetary Conquest")));
               if (num58 > -1 & num58 < 7)
               {
                 this.game.Data.SFTypeObj[this.SFtypeNr].BaseColor = num58;
@@ -5444,7 +5444,7 @@ label_9:
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num207;
+              num207: i32;
               if (num1 == this.b36id)
               {
                 float num208 =  Conversion.Val(Interaction.InputBox("Give First Rounds Penalty Mod, please (0.0(gone)-1.0(normal)).", "Shadow Empire : Planetary Conquest"));

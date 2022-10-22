@@ -12,15 +12,15 @@ namespace WindowsApplication1
 {
   pub class MainEditScreenClass : ScreenClass
   {
-     int WEditMenu;
-     int Wmiddle;
-     int wdown;
-     int wleft;
-     int worder;
-     int wup;
-     int OffSetX;
+     WEditMenu: i32;
+     Wmiddle: i32;
+     wdown: i32;
+     wleft: i32;
+     worder: i32;
+     wup: i32;
+     OffSetX: i32;
 
-    pub MainEditScreenClass( GameClass tgame, Form1 tformref)
+    pub MainEditScreenClass( tgame: GameClass, tformref: Form1)
       : base( tgame, tgame.BACKGROUND3MARC, tformref)
     {
       self.OffSetX =  Math.Round( (self.Game.ScreenWidth - 1024) / 2.0);
@@ -83,7 +83,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > self.Game.ScreenWidth - 52 & x < self.Game.ScreenWidth - 28 & y < 25)
@@ -252,7 +252,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > self.Game.ScreenWidth - 52 & x < self.Game.ScreenWidth - 28 & y < 25)
@@ -324,7 +324,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

@@ -71,7 +71,7 @@ namespace WindowsApplication1
      int HQSelect;
      int[] ChainHq;
 
-    pub AirSupplyWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub AirSupplyWindowClass(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.ChainHq = new int[3];
@@ -125,7 +125,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.detailnr = -1;
       this.detailtype = 1;
@@ -221,12 +221,12 @@ namespace WindowsApplication1
       this.Pic1Id = this.AddSubPart(ref tsubpart2, 500, 30, 37, 37, 0);
       tsubpart2 =  new ATTextPartClass("TO", this.game.VicFont2, 55, 20, true, tDescript: "The hex you are transferring too");
       this.Text2Id = this.AddSubPart(ref tsubpart2, 550, 30, 40, 20, 0);
-      CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
+      customBitmapObj: CustomBitmapClass = this.game.CustomBitmapObj;
       let mut targetX: i32 =  this.TargetX;
       let mut targetY: i32 =  this.TargetY;
       let mut targetMap: i32 =  this.TargetMap;
-      Bitmap bitmap1 = (Bitmap) null;
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = (Bitmap) null;
+      ref local2: Bitmap = ref bitmap1;
       bool flag = false;
       ref bool local3 = ref flag;
       tsubpart2 =  ButtonPartClass::new(customBitmapObj.DrawHex(targetX, targetY, targetMap, gBitmap: (ref local2), tFromMapPopup: (ref local3)), "The hex you are transferring too");
@@ -292,8 +292,8 @@ namespace WindowsApplication1
           let mut game: GameClass = this.game;
           let mut max: i32 =  this.max;
           let mut tempNew: i32 =  this.TempNew;
-          Bitmap bitmap2 = (Bitmap) null;
-          ref Bitmap local5 = ref bitmap2;
+          bitmap2: Bitmap = (Bitmap) null;
+          ref local5: Bitmap = ref bitmap2;
           tsubpart2 =  new NumberSliderSubPartClass2(game, "", "x Supply Pts", 300, 0, max, tempNew, tbackbitmap: (ref local5));
           this.sliderID = this.AddSubPart(ref tsubpart2, 360, 115, 300, 40, 0);
         }

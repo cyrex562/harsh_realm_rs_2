@@ -19,70 +19,70 @@ namespace WindowsApplication1
   [StandardModule]
   pub sealed class DrawMod
   {
-    pub const let mut SRCAND: i32 =  8913094;
-    pub const let mut SRCINVERT: i32 =  6684742;
+    pub const SRCAND: i32 =  8913094;
+    pub const SRCINVERT: i32 =  6684742;
     pub const byte AC_SRC_OVER = 0;
     pub const byte AC_SRC_ALPHA = 1;
     pub const byte SW_MINIMIZE = 6;
-     static Font ttfont = Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel);
+     static ttfont: Font = Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel);
     pub static Random RandyNumber;
     pub static bool MouseClicked;
-    pub static GameClass TGame;
+    pub static TGame: GameClass;
     pub static string ModFile;
-    pub static int DPIx;
-    pub static int DPIy;
-    pub static Bitmap tempBmp128;
-    pub static Bitmap tempBmp64;
-    pub static Bitmap tempBmp32;
-    pub static Bitmap tempBmp32by48;
-    pub static Bitmap tempBmp64by64;
-    pub static Bitmap tempBmp64by16;
-    pub static Bitmap tempBmp16by24;
-    pub static Bitmap tempBmp32by12;
-    pub static Bitmap tempBmp32by8;
-    pub static Bitmap tempBmp8by12;
-    pub static Bitmap tempBmp16by6;
-    pub static Bitmap tempBmp16by4;
+    pub static DPIx: i32;
+    pub static DPIy: i32;
+    pub static tempBmp128: Bitmap;
+    pub static tempBmp64: Bitmap;
+    pub static tempBmp32: Bitmap;
+    pub static tempBmp32by48: Bitmap;
+    pub static tempBmp64by64: Bitmap;
+    pub static tempBmp64by16: Bitmap;
+    pub static tempBmp16by24: Bitmap;
+    pub static tempBmp32by12: Bitmap;
+    pub static tempBmp32by8: Bitmap;
+    pub static tempBmp8by12: Bitmap;
+    pub static tempBmp16by6: Bitmap;
+    pub static tempBmp16by4: Bitmap;
 
     [DllImport("GDI32.DLL", CharSet = CharSet.Auto, SetLastError = true)]
      static extern bool BitBlt(
       IntPtr hdcDest,
-      int nXDest,
-      int nYDest,
-      int nWidth,
-      int nHeight,
+      nXDest: i32,
+      nYDest: i32,
+      nWidth: i32,
+      nHeight: i32,
       IntPtr hdcSrc,
-      int nXSrc,
-      int nYSrc,
-      int dwRop);
+      nXSrc: i32,
+      nYSrc: i32,
+      dwRop: i32);
 
     [DllImport("gdi32.dll", EntryPoint = "GdiAlphaBlend", CharSet = CharSet.Auto, SetLastError = true)]
     pub static extern bool AlphaBlend(
       IntPtr hdcDest,
-      int nXOriginDest,
-      int nYOriginDest,
-      int nWidthDest,
-      int nHeightDest,
+      nXOriginDest: i32,
+      nYOriginDest: i32,
+      nWidthDest: i32,
+      nHeightDest: i32,
       IntPtr hdcSrc,
-      int nXOriginSrc,
-      int nYOriginSrc,
-      int nWidthSrc,
-      int nHeightSrc,
+      nXOriginSrc: i32,
+      nYOriginSrc: i32,
+      nWidthSrc: i32,
+      nHeightSrc: i32,
       BLENDFUNCTION blendFunction);
 
     [DllImport("GDI32.DLL", CharSet = CharSet.Auto, SetLastError = true)]
      static extern bool StretchBlt(
       IntPtr hdcDest,
-      int nXOriginDest,
-      int nYOriginDest,
-      int nWidthDest,
-      int nHeightDest,
+      nXOriginDest: i32,
+      nYOriginDest: i32,
+      nWidthDest: i32,
+      nHeightDest: i32,
       IntPtr hdcSrc,
-      int nXOriginSrc,
-      int nYOriginSrc,
-      int nWidthSrc,
-      int nHeightSrc,
-      int dwRop);
+      nXOriginSrc: i32,
+      nYOriginSrc: i32,
+      nWidthSrc: i32,
+      nHeightSrc: i32,
+      dwRop: i32);
 
     [DllImport("gdi32", CharSet = CharSet.Auto, SetLastError = true)]
      static extern long SetStretchBltMode(IntPtr hdc, long nStretchMode);
@@ -103,15 +103,15 @@ namespace WindowsApplication1
 
     pub static void DrawWithArtCode(
       ref Graphics g,
-      ref Bitmap tempBmp,
-      int slotWidth,
-      int slotHeight,
-      int sftypenr,
-      int ppl,
-      int tx,
-      int ty,
-      int tw,
-      int th)
+      ref tempBmp: Bitmap,
+      slotWidth: i32,
+      slotHeight: i32,
+      sftypenr: i32,
+      ppl: i32,
+      tx: i32,
+      ty: i32,
+      tw: i32,
+      th: i32)
     {
       let mut height: i32 =  tempBmp.Height;
       let mut width: i32 =  tempBmp.Width;
@@ -164,13 +164,13 @@ namespace WindowsApplication1
     }
 
     pub static void ModifyColorOfBitmapHighSpeed(
-      ref Bitmap bmp,
-      int fr,
-      int fg,
-      int fb,
-      int tr,
-      int tg,
-      int tb)
+      ref bmp: Bitmap,
+      fr: i32,
+      fg: i32,
+      fb: i32,
+      tr: i32,
+      tg: i32,
+      tb: i32)
     {
       Rectangle rect;
       rect.X = 0;
@@ -206,7 +206,7 @@ namespace WindowsApplication1
       bmp.UnlockBits(bitmapdata);
     }
 
-    pub static void ModifyColorOfBitmapToGrayHighSpeed(ref Bitmap bmp, int effectStrength)
+    pub static void ModifyColorOfBitmapToGrayHighSpeed(ref bmp: Bitmap, effectStrength: i32)
     {
       Rectangle rect;
       rect.X = 0;
@@ -273,18 +273,18 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLineAndGrayscale(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y,
-      int tr,
-      int tg,
-      int tb,
-      int ta)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32,
+      tr: i32,
+      tg: i32,
+      tb: i32,
+      ta: i32)
     {
       let mut width: i32 =  fw;
       let mut height: i32 =  fh;
@@ -384,11 +384,11 @@ namespace WindowsApplication1
     }
 
     pub static void ModifyColorOfGrayscaleBitmap(
-      ref Bitmap bmp,
-      int tr,
-      int tg,
-      int tb,
-      int ta)
+      ref bmp: Bitmap,
+      tr: i32,
+      tg: i32,
+      tb: i32,
+      ta: i32)
     {
       Rectangle rect;
       rect.X = 0;
@@ -441,9 +441,9 @@ namespace WindowsApplication1
 
     pub static void DrawSaturized(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
       float saturation)
     {
       float num1 = 0.3086f;
@@ -486,9 +486,9 @@ namespace WindowsApplication1
 
     pub static void Draw(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
       float r,
       float g,
       float b,
@@ -508,7 +508,7 @@ namespace WindowsApplication1
       objGraphics.DrawImage((Image) objBitmap, destRect, 0, 0, objBitmap.Width, objBitmap.Height, GraphicsUnit.Pixel, imageAttr);
     }
 
-    pub static void DrawGray(ref Graphics objGraphics, ref Bitmap objBitmap, int x, int y)
+    pub static void DrawGray(ref Graphics objGraphics, ref objBitmap: Bitmap, x: i32, y: i32)
     {
       ColorMatrix newColorMatrix = new ColorMatrix(new float[5][]
       {
@@ -526,9 +526,9 @@ namespace WindowsApplication1
 
     pub static void ExpDraw(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
       float r,
       float g,
       float b,
@@ -550,9 +550,9 @@ namespace WindowsApplication1
 
     pub static void Draw2(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
       float r,
       float g,
       float b,
@@ -574,7 +574,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2Coloured(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect,
       float r,
@@ -582,7 +582,7 @@ namespace WindowsApplication1
       float b,
       float a)
     {
-      Bitmap bitmap = new Bitmap(destrect.Width, destrect.Height);
+      bitmap: Bitmap = new Bitmap(destrect.Width, destrect.Height);
       bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.DrawImage((Image) objBitmap, Rectangle::new(0, 0, destrect.Width, destrect.Height), Rectangle::new(srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height), GraphicsUnit.Pixel);
@@ -602,7 +602,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2ColouredOld(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect,
       float r,
@@ -610,7 +610,7 @@ namespace WindowsApplication1
       float b,
       float a)
     {
-      Bitmap bitmap = new Bitmap(destrect.Width, destrect.Height);
+      bitmap: Bitmap = new Bitmap(destrect.Width, destrect.Height);
       bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.DrawImage((Image) objBitmap, Rectangle::new(0, 0, destrect.Width, destrect.Height), Rectangle::new(srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height), GraphicsUnit.Pixel);
@@ -630,14 +630,14 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2ColouredNewFast(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect,
       float r,
       float g,
       float b,
       float a,
-      ref Bitmap destBitmap = null)
+      ref destBitmap: Bitmap = null)
     {
       if ( a == 0.0)
         return;
@@ -648,7 +648,7 @@ namespace WindowsApplication1
       else
       {
         bool flag = false;
-        Bitmap bitmap;
+        bitmap: Bitmap;
         if (srcrect.Width == 128 & srcrect.Height == 96)
         {
           if (Information.IsNothing( DrawMod.tempBmp128))
@@ -736,7 +736,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2ColouredNew(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect,
       float r,
@@ -757,7 +757,7 @@ namespace WindowsApplication1
       objGraphics.DrawImage((Image) objBitmap, destrect, srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height, GraphicsUnit.Pixel, imageAttr);
     }
 
-    pub static void DrawSimple(ref Graphics objGraphics, ref Bitmap objBitmap, int x, int y)
+    pub static void DrawSimple(ref Graphics objGraphics, ref objBitmap: Bitmap, x: i32, y: i32)
     {
       if (Information.IsNothing( objBitmap))
         return;
@@ -770,10 +770,10 @@ namespace WindowsApplication1
 
     pub static void DrawSimpleFastWithAlpha(
       ref Graphics objGraphics,
-      ref Bitmap fromBitmap,
-      ref Bitmap tooBitmap,
-      int x,
-      int y)
+      ref fromBitmap: Bitmap,
+      ref tooBitmap: Bitmap,
+      x: i32,
+      y: i32)
     {
       if (!DrawMod.TGame.EditObj.highGfxSpeedOn | x < 0 | y < 0 | x + fromBitmap.Width > tooBitmap.Width | y + fromBitmap.Height > tooBitmap.Height)
         DrawMod.DrawSimple(ref objGraphics, ref fromBitmap, x, y);
@@ -785,10 +785,10 @@ namespace WindowsApplication1
 
     pub static void DrawSimpleFast(
       ref Graphics objGraphics,
-      ref Bitmap fromBitmap,
-      ref Bitmap tooBitmap,
-      int x,
-      int y)
+      ref fromBitmap: Bitmap,
+      ref tooBitmap: Bitmap,
+      x: i32,
+      y: i32)
     {
       if (!DrawMod.TGame.EditObj.highGfxSpeedOn | x < 0 | y < 0)
         DrawMod.DrawSimple(ref objGraphics, ref fromBitmap, x, y);
@@ -799,14 +799,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLineWithAlpha(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =  fw;
       let mut height: i32 =  fh;
@@ -842,14 +842,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLineOnlyAlpha(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =  fw;
       let mut height: i32 =  fh;
@@ -880,7 +880,7 @@ namespace WindowsApplication1
       from.UnlockBits(bitmapdata2);
     }
 
-    pub static void CopyPerLineWithAlpha(ref Bitmap from, ref Bitmap dest, int x, int y)
+    pub static void CopyPerLineWithAlpha(ref from: Bitmap, ref dest: Bitmap, x: i32, y: i32)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -947,7 +947,7 @@ namespace WindowsApplication1
       from.UnlockBits(bitmapdata2);
     }
 
-    pub static void CopyPerLine(ref Bitmap from, ref Bitmap dest, int x, int y)
+    pub static void CopyPerLine(ref from: Bitmap, ref dest: Bitmap, x: i32, y: i32)
     {
       let mut x1: i32 =  0;
       let mut y1: i32 =  0;
@@ -1001,14 +1001,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLine(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =  fw;
       let mut height: i32 =  fh;
@@ -1034,14 +1034,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLine_DOUBLE(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =  fw * 2;
       let mut height: i32 =  fh * 2;
@@ -1091,14 +1091,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLine_150PERCENT(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =   Math.Round( fw * 1.5);
       let mut height: i32 =   Math.Round( fh * 1.5);
@@ -1145,14 +1145,14 @@ namespace WindowsApplication1
     }
 
     pub static void CopyPerLine_OLD(
-      ref Bitmap from,
-      ref Bitmap dest,
-      int fx,
-      int fy,
-      int fw,
-      int fh,
-      int x,
-      int y)
+      ref from: Bitmap,
+      ref dest: Bitmap,
+      fx: i32,
+      fy: i32,
+      fw: i32,
+      fh: i32,
+      x: i32,
+      y: i32)
     {
       let mut width: i32 =  fw;
       let mut height: i32 =  fh;
@@ -1178,7 +1178,7 @@ namespace WindowsApplication1
       from.UnlockBits(bitmapdata2);
     }
 
-    pub static void Copy(ref Bitmap from, ref Bitmap dest)
+    pub static void Copy(ref from: Bitmap, ref dest: Bitmap)
     {
       if (from.Size != dest.Size)
         throw new FormatException("Pictures are not Equal in Size");
@@ -1186,7 +1186,7 @@ namespace WindowsApplication1
       BitmapData bitmapdata1 = dest.LockBits(rect, ImageLockMode.WriteOnly, PixelFormat.Format32bppPArgb);
       BitmapData bitmapdata2 = from.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
       byte[] numArray = new byte[8192];
-      int num;
+      num: i32;
       for (num = 0;  num <  (bitmapdata1.Stride * bitmapdata1.Height) /  numArray.Length; num += 1)
       {
         IntPtr source = (IntPtr) (bitmapdata2.Scan0.ToInt32() + num * numArray.Length);
@@ -1206,7 +1206,7 @@ namespace WindowsApplication1
       from.UnlockBits(bitmapdata2);
     }
 
-    pub static void CopyToForm(ref Bitmap from, ref Form frm)
+    pub static void CopyToForm(ref from: Bitmap, ref Form frm)
     {
       let mut dwRop: i32 =  13369376;
       Graphics graphics1 = Graphics.FromHwnd(frm.Handle);
@@ -1220,7 +1220,7 @@ namespace WindowsApplication1
       graphics2.Dispose();
     }
 
-    pub static void CopyToForm2(ref Bitmap bmp, ref Form frm)
+    pub static void CopyToForm2(ref bmp: Bitmap, ref Form frm)
     {
       using (Graphics graphics1 = Graphics.FromHwnd(frm.Handle))
       {
@@ -1264,7 +1264,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void CopyToForm2stretch(ref Bitmap bmp, ref Form frm)
+    pub static void CopyToForm2stretch(ref bmp: Bitmap, ref Form frm)
     {
       using (Graphics graphics1 = Graphics.FromHwnd(frm.Handle))
       {
@@ -1304,7 +1304,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void CopyToForm2rect(ref Bitmap bmp, ref Form frm, Rectangle rect)
+    pub static void CopyToForm2rect(ref bmp: Bitmap, ref Form frm, Rectangle rect)
     {
       using (Graphics graphics1 = Graphics.FromHwnd(frm.Handle))
       {
@@ -1344,11 +1344,11 @@ namespace WindowsApplication1
     }
 
     pub static void CopyToBitmapRect(
-      ref Bitmap bmp,
-      ref Bitmap dest,
+      ref bmp: Bitmap,
+      ref dest: Bitmap,
       Rectangle sourcerect,
-      int targetx,
-      int targetY)
+      targetx: i32,
+      targetY: i32)
     {
       using (Graphics graphics1 = Graphics.FromImage((Image) dest))
       {
@@ -1389,11 +1389,11 @@ namespace WindowsApplication1
 
     pub static void DrawScaled(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
-      int w,
-      int h,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
       bool HighQuality = false)
     {
       objGraphics.InterpolationMode = InterpolationMode.NearestNeighbor;
@@ -1406,17 +1406,17 @@ namespace WindowsApplication1
       objGraphics.InterpolationMode = InterpolationMode.Default;
     }
 
-    pub static void MakeFuzzyBorder(ref Bitmap b, int range, let mut special: i32 =  0)
+    pub static void MakeFuzzyBorder(ref b: Bitmap, range: i32, let mut special: i32 =  0)
     {
       if (special == 2)
       {
         let mut num1: i32 =  1;
         do
         {
-          int num2;
-          int num3;
-          int num4;
-          int num5;
+          num2: i32;
+          num3: i32;
+          num4: i32;
+          num5: i32;
           if (num1 == 1)
           {
             num2 = 0;
@@ -1453,7 +1453,7 @@ namespace WindowsApplication1
             let mut num9: i32 =  num5;
             for (let mut x: i32 =  num8; x <= num9; x += 1)
             {
-              Color pixel = b.GetPixel(x, y);
+              pixel: Color = b.GetPixel(x, y);
               let mut alpha: i32 =   byte.MaxValue;
               if (x <= range)
               {
@@ -1496,7 +1496,7 @@ namespace WindowsApplication1
           let mut num15: i32 =  b.Width - 1;
           for (let mut x: i32 =  0; x <= num15; x += 1)
           {
-            Color pixel = b.GetPixel(x, y);
+            pixel: Color = b.GetPixel(x, y);
             let mut alpha: i32 =   byte.MaxValue;
             if (x <= range & special != 1)
             {
@@ -1530,13 +1530,13 @@ namespace WindowsApplication1
 
     pub static void DrawScaledColorized(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
-      int w,
-      int h,
-      int origw,
-      int origh,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
+      origw: i32,
+      origh: i32,
       float r,
       float g,
       float b,
@@ -1563,13 +1563,13 @@ namespace WindowsApplication1
 
     pub static void DrawScaledColorized2(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
-      int x,
-      int y,
-      int w,
-      int h,
-      int origw,
-      int origh,
+      ref objBitmap: Bitmap,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
+      origw: i32,
+      origh: i32,
       float r,
       float g,
       float b,
@@ -1599,7 +1599,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle rect)
     {
       if (!DrawMod.TGame.EmpireStyle | !DrawMod.TGame.EditObj.highGfxSpeedOn | DrawMod.TGame.Data.Product < 6)
@@ -1608,7 +1608,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref objGraphics, ref objBitmap, rect, rect);
     }
 
-    pub static void DrawClear(Graphics objgraphics, ref Bitmap bmp, Color col)
+    pub static void DrawClear(Graphics objgraphics, ref bmp: Bitmap, col: Color)
     {
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( byte.MaxValue,  col.R,  col.G,  col.B));
       objgraphics.FillRectangle((Brush) solidBrush, 0, 0, bmp.Width, bmp.Height);
@@ -1616,7 +1616,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect)
     {
@@ -1634,8 +1634,8 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePart2Fast(
       ref Graphics objGraphics,
-      ref Bitmap sourceBitmap,
-      ref Bitmap destBitmap,
+      ref sourceBitmap: Bitmap,
+      ref destBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect)
     {
@@ -1655,7 +1655,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimplePartAlpha(
       ref Graphics objGraphics,
-      ref Bitmap objBitmap,
+      ref objBitmap: Bitmap,
       Rectangle srcrect,
       Rectangle destrect,
       float alpha)
@@ -1669,14 +1669,14 @@ namespace WindowsApplication1
 
     pub static void DrawBlock(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      int r,
-      int g,
-      int b,
-      int a)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32)
     {
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb(a, r, g, b));
       objGraphics.FillRectangle((Brush) solidBrush, x1, y1, w, h);
@@ -1684,14 +1684,14 @@ namespace WindowsApplication1
 
     pub static void DrawFilledCircle(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      int r,
-      int g,
-      int b,
-      int a)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32)
     {
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb(a, r, g, b));
       objGraphics.FillEllipse((Brush) solidBrush, x1, y1, w, h);
@@ -1699,18 +1699,18 @@ namespace WindowsApplication1
 
     pub static void DrawFilledPolygon(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      int x3,
-      int y3,
-      int x4,
-      int y4,
-      int r,
-      int g,
-      int b,
-      int a)
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      x3: i32,
+      y3: i32,
+      x4: i32,
+      y4: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32)
     {
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb(a, r, g, b));
       Point[] points = new Point[4]
@@ -1725,21 +1725,21 @@ namespace WindowsApplication1
 
     pub static void DrawCircle(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      int r,
-      int g,
-      int b,
-      int a,
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32,
       let mut widdy: i32 =  1)
     {
       Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
       objGraphics.DrawEllipse(pen, x1, y1, w, h);
     }
 
-    pub static void DrawSteveBlock(ref Graphics objGraphics, int x1, int y1, int w, int h)
+    pub static void DrawSteveBlock(ref Graphics objGraphics, x1: i32, y1: i32, w: i32, h: i32)
     {
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( DrawMod.TGame.VicColor4.A,  DrawMod.TGame.VicColor4.R,  DrawMod.TGame.VicColor4.G,  DrawMod.TGame.VicColor4.B));
       objGraphics.FillRectangle((Brush) solidBrush, x1, y1, w, h);
@@ -1747,12 +1747,12 @@ namespace WindowsApplication1
 
     pub static void DrawBlockGradient(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color c1,
-      Color c2)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      c1: Color,
+      c2: Color)
     {
       Rectangle rect = Rectangle::new(x1, y1, w, h);
       if (w == 0 | h == 0)
@@ -1763,12 +1763,12 @@ namespace WindowsApplication1
 
     pub static void DrawBlockGradient2(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color c1,
-      Color c2)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      c1: Color,
+      c2: Color)
     {
       if (w == 0 | h == 0)
         return;
@@ -1778,12 +1778,12 @@ namespace WindowsApplication1
 
     pub static void DrawBlockGradient3(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color c1,
-      Color c2)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      c1: Color,
+      c2: Color)
     {
       LinearGradientBrush linearGradientBrush = new LinearGradientBrush(Rectangle::new(x1, y1, w, h), c1, c2, LinearGradientMode.ForwardDiagonal);
       objGraphics.FillRectangle((Brush) linearGradientBrush, x1, y1, w, h);
@@ -1791,13 +1791,13 @@ namespace WindowsApplication1
 
     pub static void DrawBlockGradient4(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color c1,
-      Color c2,
-      Color c3)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      c1: Color,
+      c2: Color,
+      c3: Color)
     {
       Rectangle rect = Rectangle::new(x1, y1, w, h);
       Color[] colorArray = new Color[3]{ c1, c2, c3 };
@@ -1814,14 +1814,14 @@ namespace WindowsApplication1
 
     pub static void DrawBlockGradient5(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color c1,
-      Color c2,
-      Color c3,
-      Color c4)
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      c1: Color,
+      c2: Color,
+      c3: Color,
+      c4: Color)
     {
       Rectangle rect = Rectangle::new(x1, y1, w, h);
       Color[] colorArray = new Color[4]
@@ -1850,14 +1850,14 @@ namespace WindowsApplication1
 
     pub static void DrawRectangle(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      int r,
-      int g,
-      int b,
-      int a,
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32,
       let mut widdy: i32 =  1)
     {
       if (r >  byte.MaxValue)
@@ -1872,14 +1872,14 @@ namespace WindowsApplication1
 
     pub static void DrawLineVic(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      int r,
-      int g,
-      int b,
-      int a,
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32,
       let mut widdy: i32 =  1)
     {
       if (r >  byte.MaxValue)
@@ -2027,15 +2027,15 @@ namespace WindowsApplication1
 
     pub static void DrawBoxVic(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int w,
-      int h,
-      Color FrontC,
-      Color BackC,
+      x1: i32,
+      y1: i32,
+      w: i32,
+      h: i32,
+      FrontC: Color,
+      BackC: Color,
       bool RectMode = false)
     {
-      Color color = Color::new();
+      color: Color = Color::new();
       color = Color.FromArgb(Math.Min( byte.MaxValue,  BackC.A), Math.Min( byte.MaxValue,  BackC.R + 55), Math.Min( byte.MaxValue,  BackC.G + 55), Math.Min( byte.MaxValue,  BackC.B + 55));
       Rectangle rect = Rectangle::new(x1, y1, w, h);
       Rectangle rectangle = Rectangle::new(x1, y1 +  Math.Round( h / 2.0), w, h -  Math.Round( h / 2.0));
@@ -2050,14 +2050,14 @@ namespace WindowsApplication1
 
     pub static void drawLine(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      int r,
-      int g,
-      int b,
-      int a,
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32,
       let mut widdy: i32 =  1)
     {
       Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
@@ -2067,11 +2067,11 @@ namespace WindowsApplication1
 
     pub static void drawLine(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      Color c,
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      c: Color,
       let mut widdy: i32 =  1)
     {
       Pen pen = new Pen(c,  widdy);
@@ -2080,11 +2080,11 @@ namespace WindowsApplication1
 
     pub static void drawLineDot(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      Color c,
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      c: Color,
       let mut widdy: i32 =  1)
     {
       Pen pen = new Pen(c,  widdy);
@@ -2096,11 +2096,11 @@ namespace WindowsApplication1
 
     pub static void drawLineDash(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      Color c,
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      c: Color,
       let mut widdy: i32 =  1)
     {
       objGraphics.DrawLine(new Pen(c,  widdy)
@@ -2111,35 +2111,35 @@ namespace WindowsApplication1
 
     pub static void drawLine2(
       ref Graphics objGraphics,
-      int x1,
-      int y1,
-      int x2,
-      int y2,
-      int r,
-      int g,
-      int b,
-      int a)
+      x1: i32,
+      y1: i32,
+      x2: i32,
+      y2: i32,
+      r: i32,
+      g: i32,
+      b: i32,
+      a: i32)
     {
       Pen pen = new Pen(Color.FromArgb(a, r, g, b), 6f);
       objGraphics.DrawLine(pen, x1, y1, x2, y2);
     }
 
-    pub static void Clear(ref Graphics objgraphics, int r, int g, int b, let mut a: i32 =  255) => objgraphics.Clear(Color.FromArgb(a, r, g, b));
+    pub static void Clear(ref Graphics objgraphics, r: i32, g: i32, b: i32, let mut a: i32 =  255) => objgraphics.Clear(Color.FromArgb(a, r, g, b));
 
     pub static void ClearTransparent(ref Graphics objgraphics) => objgraphics.Clear(Color.FromArgb(0, 0, 0, 0));
 
     pub static void DrawTextVert(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
       SizeF sizeF1 = SizeF::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      Bitmap bitmap = new Bitmap( Math.Round( sizeF2.Width),  Math.Round( sizeF2.Height) + 1, PixelFormat.Format32bppPArgb);
+      bitmap: Bitmap = new Bitmap( Math.Round( sizeF2.Width),  Math.Round( sizeF2.Height) + 1, PixelFormat.Format32bppPArgb);
       bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.TextContrast = 4;
@@ -2154,9 +2154,9 @@ namespace WindowsApplication1
     pub static void DrawTextVertEasier(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
@@ -2171,9 +2171,9 @@ namespace WindowsApplication1
     pub static void DrawText(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
@@ -2189,9 +2189,9 @@ namespace WindowsApplication1
     pub static void DrawTextOutline(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
@@ -2207,9 +2207,9 @@ namespace WindowsApplication1
     pub static void DrawTextCenter(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
@@ -2225,9 +2225,9 @@ namespace WindowsApplication1
     pub static void DrawTextCenterSmallLabel(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
+      tfont: Font,
+      x: i32,
+      y: i32,
       let mut tcol: i32 =  0)
     {
       if (tfont == null)
@@ -2281,12 +2281,12 @@ namespace WindowsApplication1
     pub static void DrawTextCenterSmallLabelMultiLine(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
+      tfont: Font,
+      x: i32,
+      y: i32,
       let mut tcol: i32 =  0)
     {
-      string[] strArray = tstring.Split(' ');
+      strArray: Vec<String> = tstring.Split(' ');
       let mut num: i32 =  10;
       if (!Information.IsNothing( tfont))
         num =  Math.Round( tfont.Height * 0.75);
@@ -2298,9 +2298,9 @@ namespace WindowsApplication1
     pub static void DrawText2(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y)
+      tfont: Font,
+      x: i32,
+      y: i32)
     {
       if (tfont == null)
         tfont = DrawMod.ttfont;
@@ -2309,7 +2309,7 @@ namespace WindowsApplication1
       objgraphics.DrawString(tstring, tfont, Brushes.Black,  x,  y);
     }
 
-    pub static void DrawFrame2(ref Bitmap b, ref Graphics g, int x, int y, int w, int h)
+    pub static void DrawFrame2(ref b: Bitmap, ref Graphics g, x: i32, y: i32, w: i32, h: i32)
     {
       if (!Information.IsNothing( b))
       {
@@ -2340,32 +2340,32 @@ namespace WindowsApplication1
         g.CompositingMode = CompositingMode.SourceOver;
       }
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, 15, 15);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, 15, 15);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local4: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(15, 0, 10, 15);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y, w - 30, 15);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
       ref Graphics local5 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local6 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local6: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(25, 0, 15, 15);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y, 15, 15);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
       ref Graphics local7 = ref g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local8 = ref bitmap4;
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local8: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, 12, 15, 7);
       let mut srcrect4: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + 15, 15, h - 30);
@@ -2373,7 +2373,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
       ref Graphics local9 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local10 = ref bitmap4;
+      ref local10: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(15, 12, 10, 7);
       let mut srcrect5: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + 15, w - 30, h - 30);
@@ -2381,7 +2381,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
       ref Graphics local11 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local12 = ref bitmap4;
+      ref local12: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(25, 12, 15, 7);
       let mut srcrect6: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + 15, 15, h - 30);
@@ -2389,7 +2389,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect6, destrect6);
       ref Graphics local13 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local14 = ref bitmap4;
+      ref local14: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, 25, 15, 15);
       let mut srcrect7: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - 15, 15, 15);
@@ -2397,7 +2397,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
       ref Graphics local15 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local16 = ref bitmap4;
+      ref local16: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(15, 25, 10, 15);
       let mut srcrect8: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + h - 15, w - 30, 15);
@@ -2405,7 +2405,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect8, destrect8);
       ref Graphics local17 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local18 = ref bitmap4;
+      ref local18: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(25, 25, 15, 15);
       let mut srcrect9: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + h - 15, 15, 15);
@@ -2413,7 +2413,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local17, ref local18, srcrect9, destrect9);
     }
 
-    pub static void DrawLeather(Graphics g, int x, int y, int w, int h)
+    pub static void DrawLeather(Graphics g, x: i32, y: i32, w: i32, h: i32)
     {
       w -= 11;
       h -= 11;
@@ -2435,8 +2435,8 @@ namespace WindowsApplication1
           if (num2 + 192 > h)
             rectangle.Height = 192 - (num2 + 192 - h);
           ref Graphics local1 = ref g;
-          Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LEATHER);
-          ref Bitmap local2 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LEATHER);
+          ref local2: Bitmap = ref bitmap;
           let mut srcrect: &Rectangle = &rectangle
           Rectangle destrect = Rectangle::new(x + num1, y + num2, rectangle.Width, rectangle.Height);
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
@@ -2445,12 +2445,12 @@ namespace WindowsApplication1
     }
 
     pub static void DrawMessFrame(
-      ref Bitmap b,
+      ref b: Bitmap,
       ref Graphics g,
-      int x,
-      int y,
-      int w,
-      int h,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
       let mut watermark: i32 =  -1)
     {
       Rectangle rectangle1;
@@ -2476,8 +2476,8 @@ namespace WindowsApplication1
             if (num2 + 512 > h)
               rectangle2.Height = 512 - (num2 + 512 - h);
             ref Graphics local1 = ref g;
-            Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BACKGROUND3MARC);
-            ref Bitmap local2 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BACKGROUND3MARC);
+            ref local2: Bitmap = ref bitmap;
             let mut srcrect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(x + num1, y + num2, rectangle2.Width, rectangle2.Height);
             let mut destrect: &Rectangle = &rectangle1
@@ -2487,8 +2487,8 @@ namespace WindowsApplication1
         if (watermark > -1)
         {
           ref Graphics local3 = ref g;
-          Bitmap bitmap = BitmapStore.GetBitmap(watermark);
-          ref Bitmap local4 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(watermark);
+          ref local4: Bitmap = ref bitmap;
           let mut w1: i32 =  w;
           let mut h1: i32 =  h;
           let mut width: i32 =  BitmapStore.GetWidth(watermark);
@@ -2524,16 +2524,16 @@ namespace WindowsApplication1
       w += 11;
       h += 11;
       ref Graphics local5 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local6 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local6: Bitmap = ref bitmap1;
       rectangle1 = Rectangle::new(0, 0, 25, 25);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle3 = Rectangle::new(x, y, 25, 25);
       let mut destrect1: &Rectangle = &rectangle3
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect1, destrect1);
       ref Graphics local7 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local8 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local8: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(25, 0, 786, 25);
       let mut srcrect2: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x + 25, y, w - 50, 25);
@@ -2541,7 +2541,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect2, destrect2);
       ref Graphics local9 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local10 = ref bitmap2;
+      ref local10: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(811, 0, 25, 25);
       let mut srcrect3: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x + w - 25, y, 25, 25);
@@ -2549,7 +2549,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect3, destrect3);
       ref Graphics local11 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local12 = ref bitmap2;
+      ref local12: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(811, 25, 25, 350);
       let mut srcrect4: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x + w - 25, y + 25, 25, h - 50);
@@ -2557,7 +2557,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect4, destrect4);
       ref Graphics local13 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local14 = ref bitmap2;
+      ref local14: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(811, 375, 25, 25);
       let mut srcrect5: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x + w - 25, y + h - 25, 25, 25);
@@ -2565,7 +2565,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect5, destrect5);
       ref Graphics local15 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local16 = ref bitmap2;
+      ref local16: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(25, 375, 786, 25);
       let mut srcrect6: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x + 25, y + h - 25, w - 50, 25);
@@ -2573,7 +2573,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect6, destrect6);
       ref Graphics local17 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local18 = ref bitmap2;
+      ref local18: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(0, 375, 25, 25);
       let mut srcrect7: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x, y + h - 25, 25, 25);
@@ -2581,7 +2581,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local17, ref local18, srcrect7, destrect7);
       ref Graphics local19 = ref g;
       bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local20 = ref bitmap2;
+      ref local20: Bitmap = ref bitmap2;
       rectangle3 = Rectangle::new(0, 25, 25, 350);
       let mut srcrect8: &Rectangle = &rectangle3
       rectangle1 = Rectangle::new(x, y + 25, 25, h - 50);
@@ -2590,25 +2590,25 @@ namespace WindowsApplication1
     }
 
     pub static void DrawMessFrameSimplePopup(
-      ref Bitmap b,
+      ref b: Bitmap,
       ref Graphics g,
-      int x,
-      int y,
-      int w,
-      int h,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
       string HeaderString,
       let mut watermark: i32 =  -1)
     {
       if (!Information.IsNothing( b))
       {
-        Color c1 = Color.FromArgb( byte.MaxValue, 40, 80, 120);
-        Color c2 = Color.FromArgb( byte.MaxValue, 100, 140, 180);
+        c1: Color = Color.FromArgb( byte.MaxValue, 40, 80, 120);
+        c2: Color = Color.FromArgb( byte.MaxValue, 100, 140, 180);
         DrawMod.DrawBlockGradient3(ref g, 0, 0, w, h, c1, c2);
         if (watermark > -1)
         {
           ref Graphics local1 = ref g;
-          Bitmap bitmap = BitmapStore.GetBitmap(watermark);
-          ref Bitmap local2 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(watermark);
+          ref local2: Bitmap = ref bitmap;
           let mut w1: i32 =  w;
           let mut h1: i32 =  h;
           let mut width: i32 =  BitmapStore.GetWidth(watermark);
@@ -2648,64 +2648,64 @@ namespace WindowsApplication1
       w += 11;
       h += 11;
       ref Graphics local3 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local4 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local4: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, 25, 25);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, 25, 25);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect1, destrect1);
       ref Graphics local5 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local6 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local6: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(25, 0, 786, 25);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 25, y, w - 50, 25);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect2, destrect2);
       ref Graphics local7 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local8 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local8: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(811, 0, 25, 25);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 25, y, 25, 25);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect3, destrect3);
       ref Graphics local9 = ref g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local10 = ref bitmap4;
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local10: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(811, 25, 25, 350);
       let mut srcrect4: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 25, y + 25, 25, h - 50);
       let mut destrect4: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect4, destrect4);
       ref Graphics local11 = ref g;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local12 = ref bitmap5;
+      bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local12: Bitmap = ref bitmap5;
       rectangle2 = Rectangle::new(811, 375, 25, 25);
       let mut srcrect5: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 25, y + h - 25, 25, 25);
       let mut destrect5: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect5, destrect5);
       ref Graphics local13 = ref g;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local14 = ref bitmap6;
+      bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local14: Bitmap = ref bitmap6;
       rectangle2 = Rectangle::new(25, 375, 786, 25);
       let mut srcrect6: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 25, y + h - 25, w - 50, 25);
       let mut destrect6: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect6, destrect6);
       ref Graphics local15 = ref g;
-      Bitmap bitmap7 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local16 = ref bitmap7;
+      bitmap7: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local16: Bitmap = ref bitmap7;
       rectangle2 = Rectangle::new(0, 375, 25, 25);
       let mut srcrect7: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - 25, 25, 25);
       let mut destrect7: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect7, destrect7);
       ref Graphics local17 = ref g;
-      Bitmap bitmap8 = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
-      ref Bitmap local18 = ref bitmap8;
+      bitmap8: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCMESFRAME);
+      ref local18: Bitmap = ref bitmap8;
       rectangle2 = Rectangle::new(0, 25, 25, 350);
       let mut srcrect8: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + 25, 25, h - 50);
@@ -2714,15 +2714,15 @@ namespace WindowsApplication1
     }
 
     pub static void DrawFrame(
-      ref Bitmap b,
-      ref Bitmap backb,
+      ref b: Bitmap,
+      ref backb: Bitmap,
       ref Graphics g,
-      int x,
-      int y,
-      int w,
-      int h,
-      int sx,
-      int sy)
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
+      sx: i32,
+      sy: i32)
     {
       if (!Information.IsNothing( b))
       {
@@ -2763,64 +2763,64 @@ namespace WindowsApplication1
         }
       }
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, 15, 15);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, 15, 15);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local4: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(15, 0, 10, 15);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y, w - 30, 15);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
       ref Graphics local5 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local6 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local6: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(25, 0, 15, 15);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y, 15, 15);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
       ref Graphics local7 = ref g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local8 = ref bitmap4;
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local8: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, 12, 15, 7);
       let mut srcrect4: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + 15, 15, h - 30);
       let mut destrect4: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
       ref Graphics local9 = ref g;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local10 = ref bitmap5;
+      bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local10: Bitmap = ref bitmap5;
       rectangle2 = Rectangle::new(15, 12, 10, 7);
       let mut srcrect5: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + 15, w - 30, h - 30);
       let mut destrect5: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
       ref Graphics local11 = ref g;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local12 = ref bitmap6;
+      bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local12: Bitmap = ref bitmap6;
       rectangle2 = Rectangle::new(25, 12, 15, 7);
       let mut srcrect6: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + 15, 15, h - 30);
       let mut destrect6: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect6, destrect6);
       ref Graphics local13 = ref g;
-      Bitmap bitmap7 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local14 = ref bitmap7;
+      bitmap7: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local14: Bitmap = ref bitmap7;
       rectangle2 = Rectangle::new(0, 25, 15, 15);
       let mut srcrect7: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - 15, 15, 15);
       let mut destrect7: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
       ref Graphics local15 = ref g;
-      Bitmap bitmap8 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local16 = ref bitmap8;
+      bitmap8: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local16: Bitmap = ref bitmap8;
       rectangle2 = Rectangle::new(15, 25, 10, 15);
       let mut srcrect8: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + h - 15, w - 30, 15);
@@ -2828,7 +2828,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect8, destrect8);
       ref Graphics local17 = ref g;
       bitmap8 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local18 = ref bitmap8;
+      ref local18: Bitmap = ref bitmap8;
       rectangle2 = Rectangle::new(25, 25, 15, 15);
       let mut srcrect9: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + h - 15, 15, 15);
@@ -2837,77 +2837,77 @@ namespace WindowsApplication1
     }
 
     pub static void DrawSimpleFrame(
-      ref int bitmapNr,
+      ref bitmapNr: i32,
       ref Graphics g,
-      int x,
-      int y,
-      int w,
-      int h,
-      int xOffset,
-      int yOffset,
-      int yOffsetBottom)
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
+      xOffset: i32,
+      yOffset: i32,
+      yOffsetBottom: i32)
     {
       let mut width: i32 =  BitmapStore.GetWidth(bitmapNr);
       let mut num: i32 =  BitmapStore.Getheight(bitmapNr);
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, xOffset, yOffset);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, xOffset, yOffset);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local4: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(xOffset, 0, xOffset + 10, yOffset);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + xOffset, y, w - xOffset * 2, yOffset);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
       ref Graphics local5 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local6 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local6: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(width - xOffset, 0, xOffset, yOffset);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - xOffset, y, xOffset, yOffset);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
       ref Graphics local7 = ref g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local8 = ref bitmap4;
+      bitmap4: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local8: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, yOffset, xOffset, 10);
       let mut srcrect4: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + yOffset, xOffset, h - (yOffset + yOffsetBottom));
       let mut destrect4: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
       ref Graphics local9 = ref g;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local10 = ref bitmap5;
+      bitmap5: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local10: Bitmap = ref bitmap5;
       rectangle2 = Rectangle::new(width - xOffset, yOffset, xOffset, 10);
       let mut srcrect5: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - xOffset, y + yOffset, xOffset, h - (yOffset + yOffsetBottom));
       let mut destrect5: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
       ref Graphics local11 = ref g;
-      Bitmap bitmap6 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local12 = ref bitmap6;
+      bitmap6: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local12: Bitmap = ref bitmap6;
       rectangle2 = Rectangle::new(0, num - yOffsetBottom, xOffset, yOffsetBottom);
       let mut srcrect6: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - yOffsetBottom, xOffset, yOffsetBottom);
       let mut destrect6: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect6, destrect6);
       ref Graphics local13 = ref g;
-      Bitmap bitmap7 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local14 = ref bitmap7;
+      bitmap7: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local14: Bitmap = ref bitmap7;
       rectangle2 = Rectangle::new(xOffset, num - yOffsetBottom, xOffset + 10, yOffsetBottom);
       let mut srcrect7: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + xOffset, y + h - yOffsetBottom, w - xOffset * 2, yOffsetBottom);
       let mut destrect7: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
       ref Graphics local15 = ref g;
-      Bitmap bitmap8 = BitmapStore.GetBitmap(bitmapNr);
-      ref Bitmap local16 = ref bitmap8;
+      bitmap8: Bitmap = BitmapStore.GetBitmap(bitmapNr);
+      ref local16: Bitmap = ref bitmap8;
       rectangle2 = Rectangle::new(width - xOffset, num - yOffsetBottom, xOffset, yOffsetBottom);
       let mut srcrect8: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - xOffset, y + h - yOffsetBottom, xOffset, yOffsetBottom);
@@ -2918,10 +2918,10 @@ namespace WindowsApplication1
     pub static void DrawTextColoured(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       SolidBrush solidBrush = new SolidBrush(c);
       objgraphics.TextContrast = 4;
@@ -2932,10 +2932,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredNicely(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       let mut tTextContrast: i32 =  1)
     {
       SolidBrush solidBrush = new SolidBrush(c);
@@ -2948,11 +2948,11 @@ namespace WindowsApplication1
     pub static void DrawTextVic(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color frontc,
-      Color shadec)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      frontc: Color,
+      shadec: Color)
     {
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -2967,11 +2967,11 @@ namespace WindowsApplication1
     pub static void DrawTextVic2(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color frontc,
-      Color shadec)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      frontc: Color,
+      shadec: Color)
     {
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -2984,11 +2984,11 @@ namespace WindowsApplication1
     pub static void DrawTextVic3(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color frontc,
-      Color shadec)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      frontc: Color,
+      shadec: Color)
     {
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -3005,10 +3005,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredMarcCapped(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       bool HardBlack = false,
       let mut maxWidth: i32 =  200)
     {
@@ -3029,10 +3029,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredMarc(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       bool HardBlack = false)
     {
       if (Information.IsNothing( tfont))
@@ -3106,10 +3106,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredConsole(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
@@ -3123,12 +3123,12 @@ namespace WindowsApplication1
     pub static void DrawTextColouredConsoleMultiline(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
-      int w,
-      int h,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
+      w: i32,
+      h: i32,
       bool centerText = false)
     {
       if (Information.IsNothing( tfont))
@@ -3149,10 +3149,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredConsoleCenter(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
@@ -3170,17 +3170,17 @@ namespace WindowsApplication1
     pub static void DrawTextColouredConsoleCenterEmbossed(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      Bitmap objBitmap = new Bitmap( Math.Round( sizeF2.Width) + 8,  Math.Round( sizeF2.Height) + 8, PixelFormat.Format32bppPArgb);
+      objBitmap: Bitmap = new Bitmap( Math.Round( sizeF2.Width) + 8,  Math.Round( sizeF2.Height) + 8, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) objBitmap);
       graphics.Clear(Color.Transparent);
       x =  Math.Round( ( x - sizeF2.Width / 2f));
@@ -3193,18 +3193,18 @@ namespace WindowsApplication1
       let mut num1: i32 =   Math.Round( sizeF2.Width) + 8;
       let mut num2: i32 =   Math.Round( sizeF2.Height) + 8;
       let mut alpha: i32 =  200;
-      Color color1 = DrawMod.LightenColor(c, 100);
-      Color color2 = DrawMod.LightenColor(c, 60);
-      Color color3 = DrawMod.LightenColor(c, -100);
-      Color color4 = DrawMod.LightenColor(c, -40);
+      color1: Color = DrawMod.LightenColor(c, 100);
+      color2: Color = DrawMod.LightenColor(c, 60);
+      color3: Color = DrawMod.LightenColor(c, -100);
+      color4: Color = DrawMod.LightenColor(c, -40);
       color1 = Color.FromArgb(alpha,  color1.R,  color1.G,  color1.B);
       color2 = Color.FromArgb(alpha,  color2.R,  color2.G,  color2.B);
       color3 = Color.FromArgb(alpha,  color3.R,  color3.G,  color3.B);
       color4 = Color.FromArgb(alpha,  color4.R,  color4.G,  color4.B);
-      Color color5 = DrawMod.LightenColor(c, 40);
-      Color color6 = DrawMod.LightenColor(c, -60);
-      Color pixel1;
-      Color pixel2;
+      color5: Color = DrawMod.LightenColor(c, 40);
+      color6: Color = DrawMod.LightenColor(c, -60);
+      pixel1: Color;
+      pixel2: Color;
       for (let mut y1: i32 =  num2 - 2; y1 >= 1; y1 += -1)
       {
         for (let mut x1: i32 =  num1 - 2; x1 >= 1; x1 += -1)
@@ -3269,10 +3269,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredMarcCenter(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       bool HardBlack = false)
     {
       if (Information.IsNothing( tfont))
@@ -3314,10 +3314,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredMarcCenterCinematic(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
@@ -3334,10 +3334,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredMarcCounter(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       bool HardBlack = false)
     {
       if (Information.IsNothing( c))
@@ -3360,10 +3360,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredFuzzy(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color)
     {
       SolidBrush solidBrush = new SolidBrush(c);
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -3375,10 +3375,10 @@ namespace WindowsApplication1
     pub static void DrawTextColouredOutline(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
       bool AntiA = false)
     {
       SolidBrush solidBrush1 = new SolidBrush(c);
@@ -3400,40 +3400,40 @@ namespace WindowsApplication1
 
     pub static void DrawButton(
       ref Graphics g,
-      int x,
-      int y,
-      int width,
-      int height,
+      x: i32,
+      y: i32,
+      width: i32,
+      height: i32,
       bool HighLight,
       string ttext,
       let mut plusy: i32 =  0,
-      Font customfont = null,
+      customfont: Font = null,
       bool allblack = false,
       bool inactive = false)
     {
-      Color c1;
-      Color c2;
+      c1: Color;
+      c2: Color;
       if (!HighLight)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
-        ref Bitmap local2 = ref bitmap1;
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
+        ref local2: Bitmap = ref bitmap1;
         Rectangle rectangle1 = Rectangle::new(7, 0, 220, 35);
         let mut srcrect1: &Rectangle = &rectangle1
         Rectangle rectangle2 = Rectangle::new(x + 7, y + 0, width - 14, height);
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
         ref Graphics local3 = ref g;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
-        ref Bitmap local4 = ref bitmap2;
+        bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
+        ref local4: Bitmap = ref bitmap2;
         rectangle2 = Rectangle::new(0, 0, 7, 35);
         let mut srcrect2: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + 0, y + 0, 7, height);
         let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
         ref Graphics local5 = ref g;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
-        ref Bitmap local6 = ref bitmap3;
+        bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONG);
+        ref local6: Bitmap = ref bitmap3;
         rectangle2 = Rectangle::new(228, 0, 7, 35);
         let mut srcrect3: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + width - 7, y + 0, 7, height);
@@ -3445,24 +3445,24 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local7 = ref g;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
-        ref Bitmap local8 = ref bitmap4;
+        bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
+        ref local8: Bitmap = ref bitmap4;
         Rectangle rectangle3 = Rectangle::new(7, 0, 220, 35);
         let mut srcrect4: &Rectangle = &rectangle3
         Rectangle rectangle4 = Rectangle::new(x + 7, y + 0, width - 14, height);
         let mut destrect4: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
         ref Graphics local9 = ref g;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
-        ref Bitmap local10 = ref bitmap5;
+        bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
+        ref local10: Bitmap = ref bitmap5;
         rectangle3 = Rectangle::new(0, 0, 7, 35);
         let mut srcrect5: &Rectangle = &rectangle3
         rectangle4 = Rectangle::new(x + 0, y + 0, 7, height);
         let mut destrect5: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
         ref Graphics local11 = ref g;
-        Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
-        ref Bitmap local12 = ref bitmap6;
+        bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONLONGHIGH);
+        ref local12: Bitmap = ref bitmap6;
         rectangle3 = Rectangle::new(228, 0, 7, 35);
         let mut srcrect6: &Rectangle = &rectangle3
         rectangle4 = Rectangle::new(x + width - 7, y + 0, 7, height);
@@ -3483,11 +3483,11 @@ namespace WindowsApplication1
         c2 = Color.FromArgb( byte.MaxValue, 128, 128, 128);
       }
       SizeF sizeF1 = SizeF::new();
-      Font font = DrawMod.TGame.VicFont2;
+      font: Font = DrawMod.TGame.VicFont2;
       str: String = ttext;
       if (!Information.IsNothing( customfont))
         font = customfont;
-      int num1;
+      num1: i32;
       let mut num2: i32 =  num1 - 2;
       --plusy;
       SizeF sizeF2 = g.MeasureString(str, font);
@@ -3522,7 +3522,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColoured(ref g, str, font, x5, y5, c2);
     }
 
-    pub static void DrawFrame(ref Bitmap b, ref Graphics g, int x, int y, int w, int h)
+    pub static void DrawFrame(ref b: Bitmap, ref Graphics g, x: i32, y: i32, w: i32, h: i32)
     {
       if (!Information.IsNothing( b))
       {
@@ -3553,32 +3553,32 @@ namespace WindowsApplication1
         g.CompositingMode = CompositingMode.SourceOver;
       }
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, 15, 15);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, 15, 15);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local4: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(15, 0, 310, 15);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y, w - 30, 15);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
       ref Graphics local5 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local6 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local6: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(393, 0, 15, 15);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y, 15, 15);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
       ref Graphics local7 = ref g;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local8 = ref bitmap4;
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
+      ref local8: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, 12, 15, 7);
       let mut srcrect4: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + 15, 15, h - 30);
@@ -3586,7 +3586,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
       ref Graphics local9 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local10 = ref bitmap4;
+      ref local10: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(15, 12, 310, 7);
       let mut srcrect5: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + 15, w - 30, h - 30);
@@ -3594,7 +3594,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
       ref Graphics local11 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local12 = ref bitmap4;
+      ref local12: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(393, 12, 15, 7);
       let mut srcrect6: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + 15, 15, h - 30);
@@ -3602,7 +3602,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local11, ref local12, srcrect6, destrect6);
       ref Graphics local13 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local14 = ref bitmap4;
+      ref local14: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(0, 33, 15, 15);
       let mut srcrect7: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - 15, 15, 15);
@@ -3610,7 +3610,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
       ref Graphics local15 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local16 = ref bitmap4;
+      ref local16: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(15, 33, 310, 15);
       let mut srcrect8: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + h - 15, w - 30, 15);
@@ -3618,7 +3618,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect8, destrect8);
       ref Graphics local17 = ref g;
       bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.FRAME1);
-      ref Bitmap local18 = ref bitmap4;
+      ref local18: Bitmap = ref bitmap4;
       rectangle2 = Rectangle::new(393, 33, 15, 15);
       let mut srcrect9: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + h - 15, 15, 15);
@@ -3626,54 +3626,54 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2(ref local17, ref local18, srcrect9, destrect9);
     }
 
-    pub static void DrawPaperSheet(ref Graphics g, int x, int y, int w, int h)
+    pub static void DrawPaperSheet(ref Graphics g, x: i32, y: i32, w: i32, h: i32)
     {
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle rectangle1 = Rectangle::new(0, 0, 15, 15);
       let mut srcrect1: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(x, y, 15, 15);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local4: Bitmap = ref bitmap2;
       rectangle2 = Rectangle::new(15, 0, 310, 15);
       let mut srcrect2: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y, w - 30, 15);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
       ref Graphics local5 = ref g;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local6 = ref bitmap3;
+      bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local6: Bitmap = ref bitmap3;
       rectangle2 = Rectangle::new(325, 0, 15, 15);
       let mut srcrect3: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y, 15, 15);
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
-      int num;
+      num: i32;
       for (num = 15; num < h - 25; num += 15)
       {
         ref Graphics local7 = ref g;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local8 = ref bitmap4;
+        bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local8: Bitmap = ref bitmap4;
         rectangle2 = Rectangle::new(0, 0, 15, 15);
         let mut srcrect4: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, num + y, 15, 15);
         let mut destrect4: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
         ref Graphics local9 = ref g;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local10 = ref bitmap5;
+        bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local10: Bitmap = ref bitmap5;
         rectangle2 = Rectangle::new(15, 7, 310, 15);
         let mut srcrect5: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + 15, num + y, w - 30, 15);
         let mut destrect5: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local9, ref local10, srcrect5, destrect5);
         ref Graphics local11 = ref g;
-        Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local12 = ref bitmap6;
+        bitmap6: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local12: Bitmap = ref bitmap6;
         rectangle2 = Rectangle::new(325, 7, 15, 15);
         let mut srcrect6: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + w - 15, num + y, 15, 15);
@@ -3684,24 +3684,24 @@ namespace WindowsApplication1
       if (height > 0)
       {
         ref Graphics local13 = ref g;
-        Bitmap bitmap7 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local14 = ref bitmap7;
+        bitmap7: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local14: Bitmap = ref bitmap7;
         rectangle2 = Rectangle::new(0, 0, 15, 15);
         let mut srcrect7: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, num + y, 15, height);
         let mut destrect7: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
         ref Graphics local15 = ref g;
-        Bitmap bitmap8 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local16 = ref bitmap8;
+        bitmap8: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local16: Bitmap = ref bitmap8;
         rectangle2 = Rectangle::new(15, 7, 310, 15);
         let mut srcrect8: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + 15, num + y, w - 30, height);
         let mut destrect8: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect8, destrect8);
         ref Graphics local17 = ref g;
-        Bitmap bitmap9 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-        ref Bitmap local18 = ref bitmap9;
+        bitmap9: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+        ref local18: Bitmap = ref bitmap9;
         rectangle2 = Rectangle::new(325, 7, 15, 15);
         let mut srcrect9: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x + w - 15, num + y, 15, height);
@@ -3709,24 +3709,24 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local17, ref local18, srcrect9, destrect9);
       }
       ref Graphics local19 = ref g;
-      Bitmap bitmap10 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local20 = ref bitmap10;
+      bitmap10: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local20: Bitmap = ref bitmap10;
       rectangle2 = Rectangle::new(15, 34, 310, 6);
       let mut srcrect10: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + 15, y + h - 6, w - 30, 6);
       let mut destrect10: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local19, ref local20, srcrect10, destrect10);
       ref Graphics local21 = ref g;
-      Bitmap bitmap11 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local22 = ref bitmap11;
+      bitmap11: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local22: Bitmap = ref bitmap11;
       rectangle2 = Rectangle::new(0, 34, 15, 6);
       let mut srcrect11: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x, y + h - 6, 15, 6);
       let mut destrect11: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2(ref local21, ref local22, srcrect11, destrect11);
       ref Graphics local23 = ref g;
-      Bitmap bitmap12 = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
-      ref Bitmap local24 = ref bitmap12;
+      bitmap12: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.PAPER1);
+      ref local24: Bitmap = ref bitmap12;
       rectangle2 = Rectangle::new(325, 34, 15, 6);
       let mut srcrect12: &Rectangle = &rectangle2
       rectangle1 = Rectangle::new(x + w - 15, y + h - 6, 15, 6);
@@ -3737,11 +3737,11 @@ namespace WindowsApplication1
     pub static void DrawTextColouredB(
       ref Graphics objgraphics,
       string tstring,
-      Font tfont,
-      int x,
-      int y,
-      Color c,
-      Color bc)
+      tfont: Font,
+      x: i32,
+      y: i32,
+      c: Color,
+      bc: Color)
     {
       SolidBrush solidBrush = new SolidBrush(c);
       SizeF sizeF = objgraphics.MeasureString(tstring, tfont);
@@ -3749,7 +3749,7 @@ namespace WindowsApplication1
       objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
-    pub static int InvColor(int colval)
+    pub static InvColor: i32(colval: i32)
     {
       if (colval >  sbyte.MaxValue)
         colval -= 64;
@@ -3758,7 +3758,7 @@ namespace WindowsApplication1
       return colval;
     }
 
-    pub static int InvColor2(int colval)
+    pub static InvColor2: i32(colval: i32)
     {
       if (colval >  sbyte.MaxValue)
         colval -= 128;
@@ -3767,7 +3767,7 @@ namespace WindowsApplication1
       return colval;
     }
 
-    pub static Color LightenColor(Color col, int ammount)
+    pub static LightenColor: Color(col: Color, ammount: i32)
     {
       let mut r: i32 =   col.R;
       let mut g: i32 =   col.G;
@@ -3791,12 +3791,12 @@ namespace WindowsApplication1
       return col;
     }
 
-    pub static Rectangle GetRectForTab(int tabnr, bool returnoffset = false)
+    pub static Rectangle GetRectForTab(tabnr: i32, bool returnoffset = false)
     {
       Rectangle rectForTab = Rectangle::new();
-      int x;
-      int width;
-      int height;
+      x: i32;
+      width: i32;
+      height: i32;
       if (tabnr == 8)
       {
         x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 300;
@@ -4024,7 +4024,7 @@ namespace WindowsApplication1
       return rectForTab;
     }
 
-    pub static Rectangle DrawBackTab(Graphics g, int w, int h, string s, int tabnr)
+    pub static Rectangle DrawBackTab(Graphics g, w: i32, h: i32, string s, tabnr: i32)
     {
       Rectangle rectForTab;
       if (tabnr > -1)
@@ -4038,9 +4038,9 @@ namespace WindowsApplication1
         rectForTab.Width = w;
         rectForTab.Height = h;
       }
-      int y;
-      int height;
-      Bitmap bitmap;
+      y: i32;
+      height: i32;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (tabnr > -1)
@@ -4054,7 +4054,7 @@ namespace WindowsApplication1
         height = 32;
         ref Graphics local1 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local2 = ref bitmap;
+        ref local2: Bitmap = ref bitmap;
         rectangle1 = Rectangle::new(0, 0, 16, 32);
         let mut srcrect1: &Rectangle = &rectangle1
         rectangle2 = Rectangle::new(0, 0, 16, 32);
@@ -4062,7 +4062,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
         ref Graphics local3 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local4 = ref bitmap;
+        ref local4: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(170, 0, 16, 32);
         let mut srcrect2: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(w - 16, 0, 16, 32);
@@ -4075,7 +4075,7 @@ namespace WindowsApplication1
             width = w - 16 - x;
           ref Graphics local5 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local6 = ref bitmap;
+          ref local6: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(16, 0, 32, 32);
           let mut srcrect3: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, 0, width, 32);
@@ -4089,7 +4089,7 @@ namespace WindowsApplication1
           height = h - 32 - y;
         ref Graphics local7 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local8 = ref bitmap;
+        ref local8: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 20, 8, height);
         let mut srcrect4: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, y, 8, height);
@@ -4097,7 +4097,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local7, ref local8, srcrect4, destrect4);
         ref Graphics local9 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local10 = ref bitmap;
+        ref local10: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(170, 20, 16, height);
         let mut srcrect5: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(w - 16, y, 16, height);
@@ -4110,7 +4110,7 @@ namespace WindowsApplication1
             width = w - 16 - x;
           ref Graphics local11 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local12 = ref bitmap;
+          ref local12: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(10, 20, width, height);
           let mut srcrect6: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, y, width, height);
@@ -4128,14 +4128,14 @@ namespace WindowsApplication1
         rectForTab.Height = 32;
         ref Graphics local13 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local14 = ref bitmap;
+        ref local14: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(55, 122, 75, 32);
         let mut srcrect7: &Rectangle = &rectangle2
         let mut destrect7: &Rectangle = &rectForTab
         DrawMod.DrawSimplePart2(ref local13, ref local14, srcrect7, destrect7);
         ref Graphics local15 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local16 = ref bitmap;
+        ref local16: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 122, 16, 32);
         let mut srcrect8: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, h - 32, 16, 32);
@@ -4143,7 +4143,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local15, ref local16, srcrect8, destrect8);
         ref Graphics local17 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local18 = ref bitmap;
+        ref local18: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(171, 122, 16, 32);
         let mut srcrect9: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(w - 16, h - 32, 16, 32);
@@ -4156,7 +4156,7 @@ namespace WindowsApplication1
             width1 = rectForTab.X - x;
           ref Graphics local19 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local20 = ref bitmap;
+          ref local20: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(16, 122, 32, 32);
           let mut srcrect10: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, h - 32, width1, 32);
@@ -4170,7 +4170,7 @@ namespace WindowsApplication1
             width2 = w - 16 - x;
           ref Graphics local21 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local22 = ref bitmap;
+          ref local22: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(16, 122, 32, 32);
           let mut srcrect11: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, h - 32, width2, 32);
@@ -4187,7 +4187,7 @@ namespace WindowsApplication1
       {
         ref Graphics local23 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local24 = ref bitmap;
+        ref local24: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 122, 16, 32);
         let mut srcrect12: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, h - 32, 16, 32);
@@ -4195,7 +4195,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local23, ref local24, srcrect12, destrect12);
         ref Graphics local25 = ref g;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-        ref Bitmap local26 = ref bitmap;
+        ref local26: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(171, 122, 16, 32);
         let mut srcrect13: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(w - 16, h - 32, 16, 32);
@@ -4208,7 +4208,7 @@ namespace WindowsApplication1
             width3 =  Math.Round( w / 2.0 -  x);
           ref Graphics local27 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local28 = ref bitmap;
+          ref local28: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(16, 122, 32, 32);
           let mut srcrect14: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, h - 32, width3, 32);
@@ -4222,7 +4222,7 @@ namespace WindowsApplication1
             width4 = w - 16 - x;
           ref Graphics local29 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
-          ref Bitmap local30 = ref bitmap;
+          ref local30: Bitmap = ref bitmap;
           rectangle2 = Rectangle::new(16, 122, 32, 32);
           let mut srcrect15: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, h - 32, width4, 32);
@@ -4233,7 +4233,7 @@ namespace WindowsApplication1
       return rectForTab;
     }
 
-    pub static int GetWidthForMiniMap()
+    pub static GetWidthForMiniMap: i32()
     {
       let mut widthForMiniMap: i32 =  DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth <= DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight ? 200 :  Math.Round(200.0 * ( DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth /  DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight));
       if (widthForMiniMap > 300)
@@ -4241,15 +4241,15 @@ namespace WindowsApplication1
       return widthForMiniMap;
     }
 
-    pub static void DrawOfficerATG(Graphics g, int his, int x, int y, int w, int h)
+    pub static void DrawOfficerATG(Graphics g, his: i32, x: i32, y: i32, w: i32, h: i32)
     {
       let mut commanderSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].CommanderSpriteID;
       if (commanderSpriteId <= -1)
         return;
       let mut hqSpriteNr: i32 =  DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.HistoricalUnitObj[his].TempRegime].HQSpriteNr;
       ref Graphics local1 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(hqSpriteNr, 1);
-      ref Bitmap local2 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(hqSpriteNr, 1);
+      ref local2: Bitmap = ref bitmap1;
       Rectangle srcrect = Rectangle::new(24, 8, 25, 30);
       Rectangle destrect = Rectangle::new(x, y, w, h);
       DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
@@ -4259,8 +4259,8 @@ namespace WindowsApplication1
       DrawMod.DrawBlockGradient2(ref g, x, y, w, h, Color.FromArgb(64,  Math.Round( red / 2.0),  Math.Round( green / 2.0),  Math.Round( blue / 2.0)), Color.FromArgb(176,  Math.Round( red / 2.0),  Math.Round( green / 2.0),  Math.Round( blue / 2.0)));
       DrawMod.DrawBlockGradient3(ref g, x, y, w, h, Color.FromArgb(64, 0, 0, 0), Color.FromArgb(176, 0, 0, 0));
       ref Graphics local3 = ref g;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(commanderSpriteId);
-      ref Bitmap local4 = ref bitmap2;
+      bitmap2: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+      ref local4: Bitmap = ref bitmap2;
       let mut x1: i32 =  x;
       let mut y1: i32 =  y;
       let mut w1: i32 =  w;
@@ -4275,8 +4275,8 @@ namespace WindowsApplication1
       {
         let mut overdrawSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID;
         ref Graphics local5 = ref g;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(overdrawSpriteId);
-        ref Bitmap local6 = ref bitmap3;
+        bitmap3: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+        ref local6: Bitmap = ref bitmap3;
         let mut x2: i32 =  x;
         let mut y2: i32 =  y;
         let mut w2: i32 =  w;
@@ -4286,7 +4286,7 @@ namespace WindowsApplication1
       DrawMod.DrawRectangle(ref g, x, y, w, h,  DrawMod.TGame.VicColor3.R,  DrawMod.TGame.VicColor3.G,  DrawMod.TGame.VicColor3.B,  DrawMod.TGame.VicColor3.A);
     }
 
-    pub static void DrawOfficer(Graphics g, int his, int x, int y, int w, int h)
+    pub static void DrawOfficer(Graphics g, his: i32, x: i32, y: i32, w: i32, h: i32)
     {
       let mut commanderSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].CommanderSpriteID;
       if (commanderSpriteId <= -1)
@@ -4294,8 +4294,8 @@ namespace WindowsApplication1
       if (BitmapStore.GetWidth(commanderSpriteId) > w & w != -1)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(commanderSpriteId);
-        ref Bitmap local2 = ref bitmap1;
+        bitmap1: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+        ref local2: Bitmap = ref bitmap1;
         let mut x1: i32 =  x;
         let mut y1: i32 =  y;
         let mut w1: i32 =  w;
@@ -4307,8 +4307,8 @@ namespace WindowsApplication1
         if ( DrawMod.TGame.Data.RuleVar[839] == 1.0)
         {
           ref Graphics local3 = ref g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(overdrawSpriteId);
-          ref Bitmap local4 = ref bitmap2;
+          bitmap2: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+          ref local4: Bitmap = ref bitmap2;
           Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(overdrawSpriteId), BitmapStore.Getheight(overdrawSpriteId));
           Rectangle destrect = Rectangle::new(x, y, w, h);
           DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect, destrect);
@@ -4316,8 +4316,8 @@ namespace WindowsApplication1
         else
         {
           ref Graphics local5 = ref g;
-          Bitmap bitmap3 = BitmapStore.GetBitmap(overdrawSpriteId);
-          ref Bitmap local6 = ref bitmap3;
+          bitmap3: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+          ref local6: Bitmap = ref bitmap3;
           let mut x2: i32 =  x;
           let mut y2: i32 =  y;
           let mut w2: i32 =  w;
@@ -4328,8 +4328,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local7 = ref g;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(commanderSpriteId);
-        ref Bitmap local8 = ref bitmap4;
+        bitmap4: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+        ref local8: Bitmap = ref bitmap4;
         let mut x3: i32 =  x;
         let mut y3: i32 =  y;
         DrawMod.DrawSimple(ref local7, ref local8, x3, y3);
@@ -4337,8 +4337,8 @@ namespace WindowsApplication1
           return;
         let mut overdrawSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID;
         ref Graphics local9 = ref g;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(overdrawSpriteId);
-        ref Bitmap local10 = ref bitmap5;
+        bitmap5: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+        ref local10: Bitmap = ref bitmap5;
         let mut x4: i32 =  x;
         let mut y4: i32 =  y;
         DrawMod.DrawSimple(ref local9, ref local10, x4, y4);
@@ -4347,14 +4347,14 @@ namespace WindowsApplication1
 
     pub static void DrawTutback(
       Graphics g,
-      int x,
-      int y,
-      int w,
-      int h,
-      int r,
-      int gr,
-      int b,
-      int a,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32,
+      r: i32,
+      gr: i32,
+      b: i32,
+      a: i32,
       bool HideOff = false)
     {
       let mut backtut: i32 =  DrawMod.TGame.BACKTUT;
@@ -4387,8 +4387,8 @@ namespace WindowsApplication1
           if (y1 + height - y > h)
             height -= y1 + height - y - h;
           ref Graphics local1 = ref g;
-          Bitmap bitmap = BitmapStore.GetBitmap(backtut);
-          ref Bitmap local2 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(backtut);
+          ref local2: Bitmap = ref bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, width2, height);
           Rectangle destrect = Rectangle::new(x1, y1, width2, height);
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
@@ -4402,8 +4402,8 @@ namespace WindowsApplication1
       if (HideOff)
         return;
       ref Graphics local3 = ref g;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.MARCOFFICER);
-      ref Bitmap local4 = ref bitmap1;
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCOFFICER);
+      ref local4: Bitmap = ref bitmap1;
       let mut x2: i32 =  x + w - 95;
       let mut y2: i32 =  y + 10;
       DrawMod.DrawScaled(ref local3, ref local4, x2, y2, 90, 98);
@@ -4412,11 +4412,11 @@ namespace WindowsApplication1
 
     pub static void DrawRepeatingBackground(
       Graphics g,
-      int bitmapNr,
-      int x,
-      int y,
-      int w,
-      int h)
+      bitmapNr: i32,
+      x: i32,
+      y: i32,
+      w: i32,
+      h: i32)
     {
       let mut nr: i32 =  bitmapNr;
       let mut width1: i32 =  BitmapStore.GetWidth(nr);
@@ -4436,8 +4436,8 @@ namespace WindowsApplication1
           if (y1 + height - y > h)
             height -= y1 + height - y - h;
           ref Graphics local1 = ref g;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
-          ref Bitmap local2 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
+          ref local2: Bitmap = ref bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, width2, height);
           Rectangle destrect = Rectangle::new(x1, y1, width2, height);
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
@@ -4445,12 +4445,12 @@ namespace WindowsApplication1
       }
     }
 
-    pub static Rectangle GetPaintedPartRect(Bitmap bmp)
+    pub static Rectangle GetPaintedPartRect(bmp: Bitmap)
     {
       let mut num1: i32 =  bmp.Width - 1;
-      int x1;
-      int y1;
-      Color pixel;
+      x1: i32;
+      y1: i32;
+      pixel: Color;
       for (x1 = 0; x1 <= num1; x1 += 1)
       {
         let mut num2: i32 =  bmp.Height - 1;
@@ -4468,7 +4468,7 @@ namespace WindowsApplication1
       paintedPartRect.Y = y1;
       let mut y2: i32 =  paintedPartRect.Y;
       let mut num3: i32 =  bmp.Height - 1;
-      int y3;
+      y3: i32;
       for (y3 = y2; y3 <= num3; y3 += 1)
       {
         pixel = bmp.GetPixel(x1, y3);
@@ -4479,7 +4479,7 @@ namespace WindowsApplication1
       let mut y4: i32 =  paintedPartRect.Y;
       let mut x2: i32 =  paintedPartRect.X;
       let mut num4: i32 =  bmp.Width - 1;
-      int x3;
+      x3: i32;
       for (x3 = x2; x3 <= num4; x3 += 1)
       {
         pixel = bmp.GetPixel(x3, y4);

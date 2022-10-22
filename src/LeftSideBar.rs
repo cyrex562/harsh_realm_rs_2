@@ -14,26 +14,26 @@ namespace WindowsApplication1
 {
   pub class LeftSideBar : WindowClass
   {
-     int hideId;
-     int Info1Id;
-     int info2id;
-     int info3id;
-     int info4id;
-     int upId;
-     int downId;
-     int w;
-     int h;
-     int MouseOverWhichTab;
+     hideId: i32;
+     Info1Id: i32;
+     info2id: i32;
+     info3id: i32;
+     info4id: i32;
+     upId: i32;
+     downId: i32;
+     w: i32;
+     h: i32;
+     MouseOverWhichTab: i32;
      string cacheList;
-     int profId;
-     int currentShqNr;
-     int special1id;
-     int special2id;
-     int special3id;
+     profId: i32;
+     currentShqNr: i32;
+     special1id: i32;
+     special2id: i32;
+     special3id: i32;
 
     pub LeftSideBar(
-       GameClass tGame,
-      int theight,
+       tGame: GameClass,
+      theight: i32,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, 185, theight, 8)
@@ -47,7 +47,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       let mut num: i32 =  -1;
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
     pub handleTimer: WindowReturnClass()
     {
@@ -93,16 +93,16 @@ namespace WindowsApplication1
 
     pub Rectangle DrawOneTab(
       Graphics g,
-      int ty,
+      ty: i32,
       bool active,
       bool openSideWindow,
-      int iconSlot,
+      iconSlot: i32,
       bool mouseOverRightNow = false)
     {
       let mut x1: i32 =  11;
       if (openSideWindow)
         x1 = 150;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (mouseOverRightNow)
@@ -218,7 +218,7 @@ namespace WindowsApplication1
       return Rectangle::new(x1, ty, 35, 65);
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.hideId > 0)
       {
@@ -284,7 +284,7 @@ namespace WindowsApplication1
       let mut x1: i32 =  0;
       if (openSideWindow)
         x1 = 145;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (openSideWindow)
       {
         for (let mut h: i32 =  this.h; h > -185; h -= 185)
@@ -361,7 +361,7 @@ namespace WindowsApplication1
           this.Info1Id = this.AddSubPart( tsubpart, 155, y1 + 18, 23, 35, 1);
         }
       }
-      int groupy;
+      groupy: i32;
       double num1;
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 4)
       {
@@ -440,7 +440,7 @@ namespace WindowsApplication1
         let mut num12: i32 =  simpleList1.Counter + 1;
         for (groupy = 0; groupy <= num12; groupy += 1)
         {
-          int index3;
+          index3: i32;
           string str1;
           if (groupy <= simpleList1.Counter)
           {
@@ -640,8 +640,8 @@ namespace WindowsApplication1
               if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
               {
                 num19 += 1;
-                int num25;
-                int num26;
+                num25: i32;
+                num26: i32;
                 if ((num19 + 2) % 2 == 0)
                 {
                   num25 = x1 + 25;
@@ -829,7 +829,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, str4, DrawMod.TGame.MarcFont7, x7 + 65, y8 + 12, DrawMod.TGame.seColGray);
         string ttitle1;
         string ttext1;
-        int tdata;
+        tdata: i32;
         if (index6 == this.game.EditObj.UnitSelected)
         {
           ttitle1 = "SHQ: " + this.game.Data.UnitObj[index6].Name;
@@ -1025,7 +1025,7 @@ namespace WindowsApplication1
         let mut stringListById7: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 291, 0, 0));
         let mut stringListById8: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
         let mut num46: i32 =  9;
-        int num47;
+        num47: i32;
         if (((this.game.ScreenHeight < 1040 ? 1 : 0) | 0) != 0)
         {
           if (Information.IsNothing( this.cacheList))
@@ -1171,7 +1171,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (this.SubPartCounter > -1)
       {
@@ -1211,9 +1211,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PopUpRefresh() => this.DoRefresh();
+    pub fn PopUpRefresh() => this.DoRefresh();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
@@ -1442,6 +1442,6 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new();
   }
 }

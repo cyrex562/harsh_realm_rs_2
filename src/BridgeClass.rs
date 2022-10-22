@@ -13,9 +13,9 @@ namespace WindowsApplication1
   [Serializable]
   pub class BridgeClass : ISerializable
   {
-    pub string[] BasicSpriteFileName;
+    pub BasicSpriteFileName: Vec<String>;
     pub BasicSpriteID: Vec<i32>;
-    pub string[] AlternateSpriteFileName;
+    pub AlternateSpriteFileName: Vec<String>;
     pub AlternateSpriteID: Vec<i32>;
     pub AlternateIfRoadType: i32;
     pub AlternateIfRoadType2: i32;
@@ -118,7 +118,7 @@ namespace WindowsApplication1
       this.AlternateIfRoadType4 = -1;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       let mut index: i32 =  0;
       do
@@ -129,19 +129,19 @@ namespace WindowsApplication1
       while (index <= 5);
     }
 
-    pub void ReplaceBasicSprite(int nr, string filename)
+    pub fn ReplaceBasicSprite(int nr, string filename)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void ReplaceAlternateSprite(int nr, string filename)
+    pub fn ReplaceAlternateSprite(int nr, string filename)
     {
       this.AlternateSpriteFileName[nr] = filename;
       this.AlternateSpriteID[nr] = BitmapStore.ReloadFile(this.AlternateSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       let mut index: i32 =  0;
       do

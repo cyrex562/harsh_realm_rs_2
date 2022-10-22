@@ -18,6 +18,6 @@ namespace WindowsApplication1
     pub py: i32;
     pub tZoomLevel: i32;
     pub regColoring: bool;
-    pub Bitmap tempBitmap;
+    pub tempBitmap: Bitmap;
   }
 }

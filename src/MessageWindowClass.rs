@@ -13,17 +13,17 @@ namespace WindowsApplication1
 {
   pub class MessageWindowClass : WindowClass
   {
-     int okid;
-     int tbacknr;
-     int oktextid;
-     int noteid;
-     int note2id;
-     int cloudid;
-     int Pic1Id;
-     int TAid;
-     int FromMessage;
+     okid: i32;
+     tbacknr: i32;
+     oktextid: i32;
+     noteid: i32;
+     note2id: i32;
+     cloudid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     FromMessage: i32;
 
-    pub MessageWindowClass( GameClass tGame)
+    pub MessageWindowClass( tGame: GameClass)
       : base( tGame, 810, 610, BackSprite: tGame.BACKGROUND2MARC, tBackSpriteScaled: true)
     {
       self.tbacknr = tGame.BACKGROUND2MARC;
@@ -31,7 +31,7 @@ namespace WindowsApplication1
       self.ViewMessage();
     }
 
-    pub MessageWindowClass( GameClass tGame, int TempShit)
+    pub MessageWindowClass( tGame: GameClass, TempShit: i32)
       : base( tGame, 810, 610, 7, tGame.BACKGROUND2MARC, true)
     {
       self.tbacknr = tGame.BACKGROUND2MARC;
@@ -39,7 +39,7 @@ namespace WindowsApplication1
       self.ViewMessage();
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (self.Pic1Id > 0)
         self.RemoveSubPart(self.Pic1Id);
@@ -66,7 +66,7 @@ namespace WindowsApplication1
         SoundMod.STopEventWave();
         SoundMod.PlayEventWave(self.game.AppPath + "sound/" + self.game.Data.RegimeObj[self.game.Data.Turn].MessWav[self.FromMessage],  self.game.EditObj);
       }
-      int num1;
+      num1: i32;
       if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] > -1)
       {
         let mut index: i32 =  self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage];
@@ -114,7 +114,7 @@ namespace WindowsApplication1
           else
           {
              let mut local1: &Graphics = &g;
-            Bitmap bitmap = BitmapStore.GetBitmap(nr);
+            bitmap: Bitmap = BitmapStore.GetBitmap(nr);
              let mut local2: &Bitmap = &bitmap;
             let mut x: i32 =  rectangle.X;
             let mut y: i32 =  rectangle.Y;
@@ -137,7 +137,7 @@ namespace WindowsApplication1
       g.Dispose();
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -156,7 +156,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

@@ -17,35 +17,35 @@ namespace WindowsApplication1
   {
      bool overrule;
      string buttext;
-     int width;
-     int height;
-     Font ourfont;
-     Bitmap backbitmap;
+     width: i32;
+     height: i32;
+     ourfont: Font;
+     backbitmap: Bitmap;
      bool inactive;
      bool pressed;
-     int buttonVersion;
+     buttonVersion: i32;
 
-    pub int Click(int x, int y, let mut b: i32 = 1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
       if (DrawMod.TGame.EmpireStyle)
         SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
-      int num;
+      num: i32;
       return num;
     }
 
     pub TextButtonPartClass2(
-      int tButtonVersion,
+      tButtonVersion: i32,
       string buttontext,
-      int twidth,
+      twidth: i32,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
       bool tinactive = false,
       bool tpressed = false,
       let mut theight: i32 = 35,
       let mut tfontsize: i32 = 13,
-      Font usefont = null)
+      usefont: Font = null)
       : base(twidth, theight)
     {
       self.buttonVersion = 1;
@@ -76,7 +76,7 @@ namespace WindowsApplication1
       self.ourfont = usefont;
     }
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( self.backbitmap))
         return;
@@ -84,7 +84,7 @@ namespace WindowsApplication1
       self.backbitmap = (Bitmap) null;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
@@ -97,7 +97,7 @@ namespace WindowsApplication1
       Expression.SmoothingMode = SmoothingMode.AntiAlias;
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
       Expression.TextContrast = 1;
-      int nr;
+      nr: i32;
       if (self.buttonVersion == 1)
       {
         nr = DrawMod.TGame.MARCBLOCK;
@@ -111,7 +111,7 @@ namespace WindowsApplication1
           nr = DrawMod.TGame.MARCBLOCKPRESSED2;
       }
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(nr);
+      bitmap: Bitmap = BitmapStore.GetBitmap(nr);
        let mut local2: &Bitmap = &bitmap;
       Rectangle rectangle1 = Rectangle::new(0, 0, 50, 4);
       let mut srcrect1: &Rectangle = &rectangle1
@@ -136,7 +136,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       if (self.inactive)
         DrawMod.DrawBlock( Expression, 0, 0, 48, self.height - 2, 0, 0, 0, 96);
-      Color c = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+      c: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       if (!self.pressed)
         c = Color.FromArgb( byte.MaxValue, 175, 175, 175);
       if (self.inactive)
@@ -157,7 +157,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
@@ -170,7 +170,7 @@ namespace WindowsApplication1
       Expression.SmoothingMode = SmoothingMode.AntiAlias;
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
       Expression.TextContrast = 1;
-      int nr;
+      nr: i32;
       if (self.buttonVersion == 1)
       {
         nr = DrawMod.TGame.MARCBLOCKHIGH;
@@ -188,7 +188,7 @@ namespace WindowsApplication1
           nr = DrawMod.TGame.MARCBLOCKPRESSED2;
       }
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(nr);
+      bitmap: Bitmap = BitmapStore.GetBitmap(nr);
        let mut local2: &Bitmap = &bitmap;
       Rectangle rectangle1 = Rectangle::new(0, 0, 50, 4);
       let mut srcrect1: &Rectangle = &rectangle1
@@ -213,7 +213,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       if (self.inactive)
         DrawMod.DrawBlock( Expression, 0, 0, 48, self.height - 2, 0, 0, 0, 96);
-      Color c = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+      c: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       if (!self.pressed)
         c = Color.FromArgb( byte.MaxValue, 175, 175, 175);
       if (self.inactive)

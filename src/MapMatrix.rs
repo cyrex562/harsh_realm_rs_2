@@ -10,9 +10,9 @@ namespace WindowsApplication1
 {
   pub class MapMatrix
   {
-    pub int[,] TempValue;
+    pub TempValue: Vec<i32>;
 
-    pub MapMatrix(int x, int y)
+    pub MapMatrix(x: i32, y: i32)
     {
       this.TempValue = new int[1, 1];
       this.TempValue = new int[x + 1, y + 1];

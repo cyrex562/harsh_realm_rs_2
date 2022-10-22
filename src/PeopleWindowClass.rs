@@ -14,109 +14,109 @@ namespace WindowsApplication1
 {
   pub class PeopleWindowClass : WindowClass
   {
-     int LibListId;
-     int LibNr;
+     LibListId: i32;
+     LibNr: i32;
      ListClass LibListObj;
-     int peopleListId;
+     peopleListId: i32;
      ListClass peopleListObj;
-     int BAddpeopleId;
-     int BAddpeopleTextId;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int highId;
-     int lowId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B4bId;
-     int B4bTextId;
-     int B4cId;
-     int B4cTextId;
-     int z1id;
-     int z1textid;
-     int BRemovepeopleId;
-     int BRemovepeopleTextId;
-     int OptionsListId;
+     BAddpeopleId: i32;
+     BAddpeopleTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     highId: i32;
+     lowId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B4bId: i32;
+     B4bTextId: i32;
+     B4cId: i32;
+     B4cTextId: i32;
+     z1id: i32;
+     z1textid: i32;
+     BRemovepeopleId: i32;
+     BRemovepeopleTextId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int firstListId;
+     firstListId: i32;
      ListClass firstListObj;
-     int lastListId;
+     lastListId: i32;
      ListClass lastListObj;
-     int CombatListId;
+     CombatListId: i32;
      ListClass CombatListObj;
-     int b19id;
-     int b19textid;
-     int b20id;
-     int b20textid;
-     int b18id;
-     int b18textid;
-     int b21id;
-     int b21textid;
-     int b22id;
-     int b22textid;
-     int b23id;
-     int b23textid;
-     int b24id;
-     int b24textid;
-     int b25id;
-     int b25textid;
-     int b26id;
-     int b26textid;
-     int b27id;
-     int b27textid;
-     int b28id;
-     int b28textid;
-     int a1Id;
-     int a1TextId;
-     int a2Id;
-     int a2TextId;
-     int a3Id;
-     int a3TextId;
-     int a4Id;
-     int a4TextId;
-     int a5Id;
-     int a5TextId;
-     int a6Id;
-     int a6TextId;
-     int a7Id;
-     int a7TextId;
-     int a8Id;
-     int a8TextId;
-     int x1id;
-     int x2id;
-     int x3id;
-     int x4id;
-     int x5id;
-     int x6id;
-     int x7id;
-     int x8id;
-     int x9id;
-     int x10id;
-     int x11id;
-     int x12id;
-     int killnameid;
-     int addnameid;
-     int addtext1;
-     int killname2id;
-     int addname2id;
-     int addtext2;
-     int c1id;
-     int OffPicId;
-     int c2id;
-     int c2textid;
-     int peopleNr;
-     int detailnr;
-     int firstdetail;
-     int lastdetail;
-     int offnr;
+     b19id: i32;
+     b19textid: i32;
+     b20id: i32;
+     b20textid: i32;
+     b18id: i32;
+     b18textid: i32;
+     b21id: i32;
+     b21textid: i32;
+     b22id: i32;
+     b22textid: i32;
+     b23id: i32;
+     b23textid: i32;
+     b24id: i32;
+     b24textid: i32;
+     b25id: i32;
+     b25textid: i32;
+     b26id: i32;
+     b26textid: i32;
+     b27id: i32;
+     b27textid: i32;
+     b28id: i32;
+     b28textid: i32;
+     a1Id: i32;
+     a1TextId: i32;
+     a2Id: i32;
+     a2TextId: i32;
+     a3Id: i32;
+     a3TextId: i32;
+     a4Id: i32;
+     a4TextId: i32;
+     a5Id: i32;
+     a5TextId: i32;
+     a6Id: i32;
+     a6TextId: i32;
+     a7Id: i32;
+     a7TextId: i32;
+     a8Id: i32;
+     a8TextId: i32;
+     x1id: i32;
+     x2id: i32;
+     x3id: i32;
+     x4id: i32;
+     x5id: i32;
+     x6id: i32;
+     x7id: i32;
+     x8id: i32;
+     x9id: i32;
+     x10id: i32;
+     x11id: i32;
+     x12id: i32;
+     killnameid: i32;
+     addnameid: i32;
+     addtext1: i32;
+     killname2id: i32;
+     addname2id: i32;
+     addtext2: i32;
+     c1id: i32;
+     OffPicId: i32;
+     c2id: i32;
+     c2textid: i32;
+     peopleNr: i32;
+     detailnr: i32;
+     firstdetail: i32;
+     lastdetail: i32;
+     offnr: i32;
      string ss;
 
-    pub PeopleWindowClass( GameClass tGame)
+    pub PeopleWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Peoples")
     {
       this.peopleNr = -1;
@@ -128,9 +128,9 @@ namespace WindowsApplication1
       this.MakepeopleListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakepeopleTypeItemGUI();
+    pub fn DoRefresh() => this.MakepeopleTypeItemGUI();
 
-     void MakepeopleListGUI(int tpeoplenr)
+     void MakepeopleListGUI(tpeoplenr: i32)
     {
       if (this.LibListId > 0)
         this.RemoveSubPart(this.LibListId);
@@ -151,9 +151,9 @@ namespace WindowsApplication1
       ListClass libListObj = this.LibListObj;
       let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 9, 200, tlistselect1, game1, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 10, bby: 38, overruleFont: ( local2));
       this.LibListId = this.AddSubPart( tsubpart1, 10, 50, 200, 192, 0);
       if (this.peopleListId > 0)
@@ -177,9 +177,9 @@ namespace WindowsApplication1
         ListClass peopleListObj = this.peopleListObj;
         let mut tlistselect2: i32 =  num3;
         let mut game2: GameClass = this.game;
-         Bitmap local3 =  this.OwnBitmap;
+         local3: Bitmap =  this.OwnBitmap;
         font =  null;
-         Font local4 =  font;
+         local4: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(peopleListObj, 9, 200, tlistselect2, game2, tHeader: "Peoples", tbackbitmap: ( local3), bbx: 220, bby: 50, overruleFont: ( local4));
         this.peopleListId = this.AddSubPart( tsubpart2, 220, 50, 200, 192, 0);
         this.peopleNr = tpeoplenr;
@@ -391,7 +391,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart1: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.PeopleObj[this.peopleNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.BNameTextId = this.AddSubPart( tsubpart1, 540, 49, 200, 20, 0);
-      this.ss = "Click to change the colour used to paint counters with these people in them. -1,-1,-1= dont use special colour. Using this, instead of regcol makes the graphics slightly slower.";
+      this.ss = "Click to change the colour used to pacounters: i32 with these people in them. -1,-1,-1= dont use special colour. Using this, instead of regcol makes the graphics slightly slower.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -541,9 +541,9 @@ namespace WindowsApplication1
       ListClass combatListObj = this.CombatListObj;
       let mut detailnr: i32 =  this.detailnr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart15 =  new ListSubPartClass(combatListObj, 12, 580, detailnr, game, true, "Owned by Peoplegroup modifiers", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.CombatListId = this.AddSubPart( tsubpart15, 10, 340, 580, 240, 0);
       if (this.detailnr <= -1)
@@ -551,7 +551,7 @@ namespace WindowsApplication1
       this.maketabsheetnr4b();
     }
 
-    pub void maketabsheetnr4b()
+    pub fn maketabsheetnr4b()
     {
       this.ss = "Click to set basemorale this people have if ruled by a regime of selected peoplegroup";
       str1: String = Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.peopleNr].BaseMorale[this.detailnr]));
@@ -582,7 +582,7 @@ namespace WindowsApplication1
       this.b21textid = this.AddSubPart( tsubpart5, 650, 399, 400, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -752,7 +752,7 @@ namespace WindowsApplication1
               if (colorDialog.ShowDialog() == DialogResult.OK)
               {
                 PeopleClass peopleClass1 = this.game.Data.PeopleObj[this.peopleNr];
-                Color color = colorDialog.Color;
+                color: Color = colorDialog.Color;
                 let mut r: i32 =   color.R;
                 peopleClass1.Red = r;
                 PeopleClass peopleClass2 = this.game.Data.PeopleObj[this.peopleNr];

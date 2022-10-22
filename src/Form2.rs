@@ -16,7 +16,7 @@ namespace WindowsApplication1
 {
   pub class Form2 : Form
   {
-     Form1 formref;
+     formref: Form1;
      IContainer components;
     [AccessedThroughProperty("TextBox1")]
      TextBox _TextBox1;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
     pub type: i32;
     pub nr: i32;
     pub nr2: i32;
-    pub DataClass Data;
+    pub Data: DataClass;
 
     pub Form2(Form tformref)
     {
@@ -164,7 +164,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub void Initialize(DataClass tData, int ttype, int tnr, let mut tnr2: i32 =  -1)
+    pub fn Initialize(tData: DataClass, ttype: i32, tnr: i32, let mut tnr2: i32 =  -1)
     {
       this.type = ttype;
       this.nr = tnr;

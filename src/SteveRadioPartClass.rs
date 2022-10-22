@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class SteveRadioPartClass : SubPartClass
   {
-     Bitmap backbitmap;
-     int colorized;
+     backbitmap: Bitmap;
+     colorized: i32;
      bool selected;
 
     pub SteveRadioPartClass(
-      int tcolorized,
+      tcolorized: i32,
       bool tselected,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1)
       : base(35, 35)
@@ -39,7 +39,7 @@ namespace WindowsApplication1
       graphics.CompositingMode = CompositingMode.SourceOver;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -49,7 +49,7 @@ namespace WindowsApplication1
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
        let mut local1: &Graphics = &objGraphics;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1);
        let mut local2: &Bitmap = &bitmap1;
       DrawMod.DrawSimple( local1,  local2, 0, 0);
       if (self.selected)
@@ -57,14 +57,14 @@ namespace WindowsApplication1
         if (self.colorized == 0)
         {
            let mut local3: &Graphics = &objGraphics;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
            let mut local4: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local4, 2, 2);
         }
         else if (self.colorized == 1)
         {
            let mut local5: &Graphics = &objGraphics;
-          Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
+          bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
            let mut local6: &Bitmap = &bitmap3;
           DrawMod.Draw( local5,  local6, 2, 2, 0.0f, 0.0f, 0.0f, 0.2f);
         }
@@ -72,21 +72,21 @@ namespace WindowsApplication1
       else if (self.colorized == 0)
       {
          let mut local7: &Graphics = &objGraphics;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
          let mut local8: &Bitmap = &bitmap4;
         DrawMod.DrawSimple( local7,  local8, 2, 2);
       }
       else if (self.colorized == 1)
       {
          let mut local9: &Graphics = &objGraphics;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
+        bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
          let mut local10: &Bitmap = &bitmap5;
         DrawMod.Draw( local9,  local10, 2, 2, 0.0f, 0.0f, 0.0f, 0.2f);
       }
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -96,7 +96,7 @@ namespace WindowsApplication1
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
        let mut local1: &Graphics = &objGraphics;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1b);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1b);
        let mut local2: &Bitmap = &bitmap1;
       DrawMod.DrawSimple( local1,  local2, 0, 0);
       if (self.selected)
@@ -104,14 +104,14 @@ namespace WindowsApplication1
         if (self.colorized == 0)
         {
            let mut local3: &Graphics = &objGraphics;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
            let mut local4: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local4, 2, 2);
         }
         else if (self.colorized == 1)
         {
            let mut local5: &Graphics = &objGraphics;
-          Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
+          bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.OKBALL);
            let mut local6: &Bitmap = &bitmap3;
           DrawMod.Draw( local5,  local6, 2, 2, 0.0f, 0.0f, 0.0f, 0.2f);
         }
@@ -119,14 +119,14 @@ namespace WindowsApplication1
       else if (self.colorized == 0)
       {
          let mut local7: &Graphics = &objGraphics;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
          let mut local8: &Bitmap = &bitmap4;
         DrawMod.DrawSimple( local7,  local8, 2, 2);
       }
       else if (self.colorized == 1)
       {
          let mut local9: &Graphics = &objGraphics;
-        Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
+        bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.CANCELBALL);
          let mut local10: &Bitmap = &bitmap5;
         DrawMod.Draw( local9,  local10, 2, 2, 0.0f, 0.0f, 0.0f, 0.2f);
       }

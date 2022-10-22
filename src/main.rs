@@ -7,6 +7,9 @@ mod data_class;
 mod MapClass;
 mod HexClass;
 mod SimpleList;
+mod ai_class;
+mod game_class;
+
 
 fn main() {
     println!("Hello, world!");

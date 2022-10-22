@@ -14,37 +14,37 @@ namespace WindowsApplication1
 {
   pub class SimpleMapReplacementsWindowClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int detailnr;
-     int tabnr;
-     int e1id;
-     int e2id;
-     int e3id;
-     int e4id;
-     int t1id;
-     int t2id;
-     int t3id;
-     int t4id;
-     int t5id;
-     int e1idb;
-     int e2idb;
-     int e3idb;
-     int e4idb;
-     int t1idb;
-     int t2idb;
-     int t3idb;
-     int t4idb;
-     int t5idb;
-     int text1id;
-     int text2id;
-     int text3id;
+     detailnr: i32;
+     tabnr: i32;
+     e1id: i32;
+     e2id: i32;
+     e3id: i32;
+     e4id: i32;
+     t1id: i32;
+     t2id: i32;
+     t3id: i32;
+     t4id: i32;
+     t5id: i32;
+     e1idb: i32;
+     e2idb: i32;
+     e3idb: i32;
+     e4idb: i32;
+     t1idb: i32;
+     t2idb: i32;
+     t3idb: i32;
+     t4idb: i32;
+     t5idb: i32;
+     text1id: i32;
+     text2id: i32;
+     text3id: i32;
      int[] land;
      int[] road;
      int[] river;
      int[] loctype;
 
-    pub SimpleMapReplacementsWindowClass( GameClass tGame)
+    pub SimpleMapReplacementsWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Replacements")
     {
       self.detailnr = -1;
@@ -53,18 +53,18 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       self.Counters();
       self.detailnr = -1;
       self.DoStuff();
     }
 
-    pub void Counters()
+    pub fn Counters()
     {
       self.land = new int[self.game.Data.LandscapeTypeCounter + 1];
       self.road = new int[self.game.Data.RoadTypeCounter + 1];
@@ -128,7 +128,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut val1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.listId > 0)
@@ -330,7 +330,7 @@ namespace WindowsApplication1
       self.e4id = self.AddSubPart( tsubpart4, val1 + 25, num2 + 50, 340, 35, 1);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

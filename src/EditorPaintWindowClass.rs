@@ -15,122 +15,122 @@ namespace WindowsApplication1
 {
   pub class EditorPaintWindowClass : WindowClass
   {
-     int TempText1;
-     int temptext2;
-     int temptext3;
-     int temptext4;
-     int temptext5;
-     int temptext6;
-     int temptext7;
-     int temptext8;
-     int temptext9;
-     int temptext10;
-     int TempText11;
-     int temptext12;
-     int temptext13;
-     int temptext14;
-     int temptext15;
-     int temptext16;
-     int temptext17;
-     int temptext18;
-     int temptext19;
-     int temptext20;
-     int TempText21;
-     int temptext22;
-     int temptext23;
-     int temptext24;
-     int temptext25;
-     int temptext26;
-     int temptext27;
-     int temptext28;
-     int temptext29;
-     int temptext30;
-     int TempText31;
-     int temptext32;
-     int temptext33;
-     int temptext34;
-     int temptext35;
-     int temptext36;
-     int temptext37;
-     int temptext38;
-     int temptext39;
-     int temptext40;
-     int temptext41;
-     int temptext42;
-     int temptext43;
-     int temptext44;
-     int temptext45;
-     int temptext46;
-     int LogoListId;
-     int but1id;
-     int tab1id;
-     int tab2id;
-     int tab3id;
-     int tab4id;
-     int tab5id;
-     int but1textid;
-     int but1bid;
-     int hqbut0;
-     int hqbut1;
-     int hqbut2;
-     int but2id;
-     int but2textid;
-     int but3id;
-     int but3textid;
-     int but4id;
-     int but4textid;
-     int but5id;
-     int but5textid;
-     int but6id;
-     int but6textid;
-     int but7id;
-     int quitid;
-     int but7textid;
-     int descid;
-     int comparenr;
-     int sliderid;
-     int logolist2id;
-     int logolist3id;
+     TempText1: i32;
+     temptext2: i32;
+     temptext3: i32;
+     temptext4: i32;
+     temptext5: i32;
+     temptext6: i32;
+     temptext7: i32;
+     temptext8: i32;
+     temptext9: i32;
+     temptext10: i32;
+     TempText11: i32;
+     temptext12: i32;
+     temptext13: i32;
+     temptext14: i32;
+     temptext15: i32;
+     temptext16: i32;
+     temptext17: i32;
+     temptext18: i32;
+     temptext19: i32;
+     temptext20: i32;
+     TempText21: i32;
+     temptext22: i32;
+     temptext23: i32;
+     temptext24: i32;
+     temptext25: i32;
+     temptext26: i32;
+     temptext27: i32;
+     temptext28: i32;
+     temptext29: i32;
+     temptext30: i32;
+     TempText31: i32;
+     temptext32: i32;
+     temptext33: i32;
+     temptext34: i32;
+     temptext35: i32;
+     temptext36: i32;
+     temptext37: i32;
+     temptext38: i32;
+     temptext39: i32;
+     temptext40: i32;
+     temptext41: i32;
+     temptext42: i32;
+     temptext43: i32;
+     temptext44: i32;
+     temptext45: i32;
+     temptext46: i32;
+     LogoListId: i32;
+     but1id: i32;
+     tab1id: i32;
+     tab2id: i32;
+     tab3id: i32;
+     tab4id: i32;
+     tab5id: i32;
+     but1textid: i32;
+     but1bid: i32;
+     hqbut0: i32;
+     hqbut1: i32;
+     hqbut2: i32;
+     but2id: i32;
+     but2textid: i32;
+     but3id: i32;
+     but3textid: i32;
+     but4id: i32;
+     but4textid: i32;
+     but5id: i32;
+     but5textid: i32;
+     but6id: i32;
+     but6textid: i32;
+     but7id: i32;
+     quitid: i32;
+     but7textid: i32;
+     descid: i32;
+     comparenr: i32;
+     sliderid: i32;
+     logolist2id: i32;
+     logolist3id: i32;
      float tempBlink;
-     int unr;
-     int sfnr;
-     int sftyp;
-     int detailnr;
-     int detailnr2;
-     int detailtype;
-     int ammount;
+     unr: i32;
+     sfnr: i32;
+     sftyp: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailtype: i32;
+     ammount: i32;
      bool hqreach;
-     int passenger;
-     int firstlistId;
+     passenger: i32;
+     firstlistId: i32;
      ATListClass firstlistObj;
-     int medlistId;
+     medlistId: i32;
      ATListClass medListObj;
-     int lastListId;
+     lastListId: i32;
      ATListClass lastListObj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ATListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ATListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ATListClass OptionsList6Obj;
-     int combatListId;
+     combatListId: i32;
      ATListClass combatListObj;
-     int combatList2Id;
+     combatList2Id: i32;
      ATListClass combatList2Obj;
-     int StatTyp;
-     int StatMode;
+     StatTyp: i32;
+     StatMode: i32;
      int[] ChainHq;
-     int HQselect;
-     int infoid;
-     int ltnr;
-     int locnr;
-     int ppl;
-     int spnr;
+     HQselect: i32;
+     infoid: i32;
+     ltnr: i32;
+     locnr: i32;
+     ppl: i32;
+     spnr: i32;
 
     pub handleTimer: WindowReturnClass() => WindowReturnClass::new();
 
-    pub EditorPaintWindowClass(ref GameClass tGame)
-      : base(ref tGame, 1024, 768, 9, tDoBorders: 1, tHeaderString: "Select paint type")
+    pub EditorPaintWindowClass(ref tGame: GameClass)
+      : base(ref tGame, 1024, 768, 9, tDoBorders: 1, tHeaderString: "Select patype: i32")
     {
       this.ChainHq = new int[3];
       this.tempBlink = 0.0f;
@@ -143,7 +143,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -366,7 +366,7 @@ namespace WindowsApplication1
         }
       }
       str2: String = "";
-      int tlistselect2;
+      tlistselect2: i32;
       if ((this.game.EditObj.PaintShortcut1 == 1 | this.game.EditObj.PaintShortcut1 == 10) & this.game.EditObj.PaintShortcut2 > -1)
       {
         this.lastListObj = ATListClass::new();
@@ -489,7 +489,7 @@ namespace WindowsApplication1
       this.lastListId = this.AddSubPart(ref tsubpart2, 650, 50, 250, 624, 0);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -510,7 +510,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

@@ -17,47 +17,47 @@ namespace WindowsApplication1
 {
   pub class SimpleMapDashboardWindowClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int loadMapId;
-     int setdateid;
-     int exportid;
-     int setdescriptid;
-     int setnameid;
-     int setdesignid;
-     int loadMapIdB;
-     int saveId;
-     int newId;
-     int textId;
-     int text2id;
-     int text3id;
-     int detailnr;
-     int currentStep;
-     int loadLayer;
-     int removeLayer;
-     int removeLayerB;
-     int rleft;
-     int rtop;
-     int rbottom;
-     int rright;
-     int aleft;
-     int atop;
-     int abottom;
-     int aright;
-     int e1id;
-     int e2id;
-     int e3id;
+     loadMapId: i32;
+     setdateid: i32;
+     exportid: i32;
+     setdescriptid: i32;
+     setnameid: i32;
+     setdesignid: i32;
+     loadMapIdB: i32;
+     saveId: i32;
+     newId: i32;
+     textId: i32;
+     text2id: i32;
+     text3id: i32;
+     detailnr: i32;
+     currentStep: i32;
+     loadLayer: i32;
+     removeLayer: i32;
+     removeLayerB: i32;
+     rleft: i32;
+     rtop: i32;
+     rbottom: i32;
+     rright: i32;
+     aleft: i32;
+     atop: i32;
+     abottom: i32;
+     aright: i32;
+     e1id: i32;
+     e2id: i32;
+     e3id: i32;
 
-    pub SimpleMapDashboardWindowClass( GameClass tGame)
+    pub SimpleMapDashboardWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Map Options")
     {
       self.detailnr = -1;
       self.DoStuff();
     }
 
-    pub void PopUpRefresh() => self.DoStuff();
+    pub fn PopUpRefresh() => self.DoStuff();
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.loadMapId > 0)
@@ -188,7 +188,7 @@ namespace WindowsApplication1
       self.e2id = self.AddSubPart( tsubpart16, num1 + 25 + 500, y5 + 70, 140, 35, 1);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

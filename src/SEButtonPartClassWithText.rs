@@ -12,20 +12,20 @@ namespace WindowsApplication1
 {
   pub class SEButtonPartClassWithText : SubPartClass
   {
-     int OwnBitmapNr;
-     int iconNr;
-     int width;
-     int height;
+     OwnBitmapNr: i32;
+     iconNr: i32;
+     width: i32;
+     height: i32;
      bool gray;
      string texty;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
     }
 
     pub SEButtonPartClassWithText(
       string ttexty,
-      int tbmpnr,
+      tbmpnr: i32,
       tDescript: String = "",
       let mut twidth: i32 = 35,
       let mut theight: i32 = 35,
@@ -42,10 +42,10 @@ namespace WindowsApplication1
       this.texty = ttexty;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (this.gray)
@@ -151,10 +151,10 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (this.gray)

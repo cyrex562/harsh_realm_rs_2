@@ -13,24 +13,24 @@ namespace WindowsApplication1
 {
   pub class RiverTypeWindowClass : WindowClass
   {
-     int riverListId;
+     riverListId: i32;
      ListClass riverListObj;
-     int BAddriverId;
-     int BAddriverTextId;
-     int BNameId;
-     int BNameTextId;
-     int BCostModId;
-     int BCostModTextid;
-     int OptionsListId;
+     BAddriverId: i32;
+     BAddriverTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BCostModId: i32;
+     BCostModTextid: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int BRemoveriverId;
-     int BRemoveriverTextId;
-     int BDrawId;
-     int b1Id;
-     int BDrawTextId;
-     int txt1;
-     int txt2;
-     int b1TextId;
+     BRemoveriverId: i32;
+     BRemoveriverTextId: i32;
+     BDrawId: i32;
+     b1Id: i32;
+     BDrawTextId: i32;
+     txt1: i32;
+     txt2: i32;
+     b1TextId: i32;
     pub b3id: i32;
     pub b3textid: i32;
     pub b4id: i32;
@@ -40,23 +40,23 @@ namespace WindowsApplication1
     pub b6id: i32;
     pub b6textid: i32;
      ListClass BasicListObj;
-     int BasicListId;
-     int BBasicSpriteId;
-     int BChangeBasicSpriteId;
+     BasicListId: i32;
+     BBasicSpriteId: i32;
+     BChangeBasicSpriteId: i32;
      ListClass BasicList2Obj;
-     int BasicList2Id;
-     int ChangeMvId;
+     BasicList2Id: i32;
+     ChangeMvId: i32;
      ListClass BasicList3Obj;
-     int BasicList3Id;
-     int ChangePenaltyId;
-     int riverNr;
-     int TabSheetNr;
-     int DetailNr;
+     BasicList3Id: i32;
+     ChangePenaltyId: i32;
+     riverNr: i32;
+     TabSheetNr: i32;
+     DetailNr: i32;
      string ss;
 
-    pub void DoRefresh() => this.MakeriverTypeItemGUI();
+    pub fn DoRefresh() => this.MakeriverTypeItemGUI();
 
-    pub RiverTypeWindowClass( GameClass tGame)
+    pub RiverTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "River Types")
     {
       this.riverNr = -1;
@@ -65,7 +65,7 @@ namespace WindowsApplication1
       this.MakeriverListGUI(-1);
     }
 
-     void MakeriverListGUI(int trivernr)
+     void MakeriverListGUI(trivernr: i32)
     {
       if (this.riverListId > 0)
         this.RemoveSubPart(this.riverListId);
@@ -79,9 +79,9 @@ namespace WindowsApplication1
         ListClass riverListObj = this.riverListObj;
         let mut tlistselect: i32 = trivernr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart =  new ListSubPartClass(riverListObj, 9, 200, tlistselect, game, tHeader: "River Types", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         this.riverListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
         this.riverNr = trivernr;
@@ -225,9 +225,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tabSheetNr: i32 = this.TabSheetNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart3 =  new ListSubPartClass(optionsListObj, 3, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 370, bby: 140, overruleFont: ( local2));
         this.OptionsListId = this.AddSubPart( tsubpart3, 370, 140, 300, 96, 0);
       }
@@ -307,9 +307,9 @@ namespace WindowsApplication1
         ListClass basicListObj = this.BasicListObj;
         let mut detailNr: i32 = this.DetailNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
         this.BasicListId = this.AddSubPart( tsubpart2, 10, 350, 300, 208, 0);
         if (this.DetailNr > 5)
@@ -367,9 +367,9 @@ namespace WindowsApplication1
       ListClass basicList2Obj = this.BasicList2Obj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicList2Obj, 10, 300, detailNr, game, tHeader: "Move-over River Penalties", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.BasicList2Id = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
       if (this.DetailNr > 99)
@@ -407,9 +407,9 @@ namespace WindowsApplication1
       ListClass basicList3Obj = this.BasicList3Obj;
       let mut detailNr: i32 = this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicList3Obj, 10, 300, detailNr, game, tHeader: "Attack-over River Penalties", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.BasicList3Id = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
       if (this.DetailNr > 39)
@@ -430,7 +430,7 @@ namespace WindowsApplication1
       this.ChangePenaltyId = this.AddSubPart( tsubpart, 400, 410, 32, 16, 1);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

@@ -6,7 +6,7 @@ namespace CSharp._01.HelloWorld
     class Class1
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Main(args: Vec<String>)
         {
             // start the sound engine with default parameters
             ISoundEngine engine = ISoundEngine::new()

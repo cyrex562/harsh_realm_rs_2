@@ -14,123 +14,123 @@ namespace WindowsApplication1
 {
   pub class OrderWindowClass : WindowClass
   {
-     int Info1Id;
-     int Cancelid;
-     int OkId;
-     int BattleId;
-     int LeftId;
-     int RightId;
-     int KillId;
-     int AllId;
-     int NoneId;
-     int Ok2Id;
-     int Battle2Id;
-     int Kill2Id;
-     int All2Id;
-     int None2Id;
+     Info1Id: i32;
+     Cancelid: i32;
+     OkId: i32;
+     BattleId: i32;
+     LeftId: i32;
+     RightId: i32;
+     KillId: i32;
+     AllId: i32;
+     NoneId: i32;
+     Ok2Id: i32;
+     Battle2Id: i32;
+     Kill2Id: i32;
+     All2Id: i32;
+     None2Id: i32;
      string NotOkText;
-     int lastorderx;
-     int lastordery;
+     lastorderx: i32;
+     lastordery: i32;
      bool TimerUsed;
-     int MoveButtonId;
-     int StatisticsButtonId;
-     int GroupMoveButtonId;
-     int NextButtonId;
-     int PopupButtonId;
-     int NewUnitButtonId;
-     int HqUnitButtonId;
-     int NewUnitButton2Id;
-     int AttackButtonId;
-     int seaAttackButtonId;
-     int PrefsButtonId;
-     int ArtAttackButtonId;
-     int SeaArtAttackButtonId;
-     int TransferButtonId;
-     int AirAttackButtonId;
-     int InterdictButtonId;
-     int StrategicButtonId;
-     int GroupStrategicButtonId;
-     int MakeHQButtonID;
-     int AirReconButtonId;
-     int ParadropButtonId;
-     int LoadButtonId;
-     int UnLoadButtonID;
-     int ResearchId;
-     int DipId;
-     int HistoryId;
-     int SaveId;
-     int QuitID;
-     int HqProdButtonId;
-     int PeopleTransferButtonId;
-     int ProdButtonId;
-     int RecruitButtonId;
-     int SupplyLayerButtonId;
-     int AirSupplyButtonId;
-     int OfficerId;
-     int BlowBridgeButtonId;
-     int BlowLocationButtonId;
-     int ACapButtonId;
-     int InfraButtonId;
-     int BuildButtonId;
-     int HexUnitButtonId;
-     int HexUnitButtonId2;
-     int GiveUnitId;
-     int GiveHexId;
-     int FakeBackButtonId;
-     int ChangeModelId;
-     int ChangeModelId2;
-     int ModelDesignerId;
-     int ModelDesignerId2;
-     int SFDesignButtonId;
-     int MoveButtonId2;
-     int GroupMoveButtonId2;
-     int StatisticsButtonId2;
-     int NextButtonId2;
-     int NewUnitButtonId2;
-     int HqUnitButtonId2;
-     int AttackButtonId2;
-     int seaAttackButtonId2;
-     int PrefsButtonId2;
-     int NewUnitButton2Id2;
-     int ArtAttackButtonId2;
-     int SeaArtAttackButtonId2;
-     int TransferButtonId2;
-     int AirAttackButtonId2;
-     int InterdictButtonId2;
-     int StrategicButtonId2;
-     int GroupStrategicButtonId2;
-     int MakeHQButtonID2;
-     int AirReconButtonId2;
-     int ParadropButtonId2;
-     int LoadButtonId2;
-     int UnLoadButtonID2;
-     int ResearchId2;
-     int DipId2;
-     int HistoryId2;
-     int SaveId2;
-     int QuitID2;
-     int HqProdButtonId2;
-     int OfficerId2;
-     int PeopleTransferButtonId2;
-     int ProdButtonId2;
-     int RecruitButtonId2;
-     int SupplyLayerButtonId2;
-     int AirSupplyButtonId2;
-     int OrderSurrenderButtonId;
-     int ButtonZoomInId;
-     int ButtonZoomOutId;
-     int ButtonStackedUnitId;
-     int OrderSurrenderButtonId2;
-     int ButtonZoomInId2;
-     int ButtonZoomOutId2;
-     int ButtonStackedUnitId2;
-     int BlowBridgeButtonId2;
-     int BlowLocationButtonId2;
-     int GiveUnitId2;
-     int GiveHexId2;
-     int ACapButtonId2;
-     int InfraButtonId2;
-     int BuildButtonId2;
+     MoveButtonId: i32;
+     StatisticsButtonId: i32;
+     GroupMoveButtonId: i32;
+     NextButtonId: i32;
+     PopupButtonId: i32;
+     NewUnitButtonId: i32;
+     HqUnitButtonId: i32;
+     NewUnitButton2Id: i32;
+     AttackButtonId: i32;
+     seaAttackButtonId: i32;
+     PrefsButtonId: i32;
+     ArtAttackButtonId: i32;
+     SeaArtAttackButtonId: i32;
+     TransferButtonId: i32;
+     AirAttackButtonId: i32;
+     InterdictButtonId: i32;
+     StrategicButtonId: i32;
+     GroupStrategicButtonId: i32;
+     MakeHQButtonID: i32;
+     AirReconButtonId: i32;
+     ParadropButtonId: i32;
+     LoadButtonId: i32;
+     UnLoadButtonID: i32;
+     ResearchId: i32;
+     DipId: i32;
+     HistoryId: i32;
+     SaveId: i32;
+     QuitID: i32;
+     HqProdButtonId: i32;
+     PeopleTransferButtonId: i32;
+     ProdButtonId: i32;
+     RecruitButtonId: i32;
+     SupplyLayerButtonId: i32;
+     AirSupplyButtonId: i32;
+     OfficerId: i32;
+     BlowBridgeButtonId: i32;
+     BlowLocationButtonId: i32;
+     ACapButtonId: i32;
+     InfraButtonId: i32;
+     BuildButtonId: i32;
+     HexUnitButtonId: i32;
+     HexUnitButtonId2: i32;
+     GiveUnitId: i32;
+     GiveHexId: i32;
+     FakeBackButtonId: i32;
+     ChangeModelId: i32;
+     ChangeModelId2: i32;
+     ModelDesignerId: i32;
+     ModelDesignerId2: i32;
+     SFDesignButtonId: i32;
+     MoveButtonId2: i32;
+     GroupMoveButtonId2: i32;
+     StatisticsButtonId2: i32;
+     NextButtonId2: i32;
+     NewUnitButtonId2: i32;
+     HqUnitButtonId2: i32;
+     AttackButtonId2: i32;
+     seaAttackButtonId2: i32;
+     PrefsButtonId2: i32;
+     NewUnitButton2Id2: i32;
+     ArtAttackButtonId2: i32;
+     SeaArtAttackButtonId2: i32;
+     TransferButtonId2: i32;
+     AirAttackButtonId2: i32;
+     InterdictButtonId2: i32;
+     StrategicButtonId2: i32;
+     GroupStrategicButtonId2: i32;
+     MakeHQButtonID2: i32;
+     AirReconButtonId2: i32;
+     ParadropButtonId2: i32;
+     LoadButtonId2: i32;
+     UnLoadButtonID2: i32;
+     ResearchId2: i32;
+     DipId2: i32;
+     HistoryId2: i32;
+     SaveId2: i32;
+     QuitID2: i32;
+     HqProdButtonId2: i32;
+     OfficerId2: i32;
+     PeopleTransferButtonId2: i32;
+     ProdButtonId2: i32;
+     RecruitButtonId2: i32;
+     SupplyLayerButtonId2: i32;
+     AirSupplyButtonId2: i32;
+     OrderSurrenderButtonId: i32;
+     ButtonZoomInId: i32;
+     ButtonZoomOutId: i32;
+     ButtonStackedUnitId: i32;
+     OrderSurrenderButtonId2: i32;
+     ButtonZoomInId2: i32;
+     ButtonZoomOutId2: i32;
+     ButtonStackedUnitId2: i32;
+     BlowBridgeButtonId2: i32;
+     BlowLocationButtonId2: i32;
+     GiveUnitId2: i32;
+     GiveHexId2: i32;
+     ACapButtonId2: i32;
+     InfraButtonId2: i32;
+     BuildButtonId2: i32;
      string SFDesignButtonText;
      string MoveButtonText;
      string ButtonZoomInText;
@@ -177,10 +177,10 @@ namespace WindowsApplication1
      string blowbridgebuttontext;
      string infrabuttontext;
      string buildbuttontext;
-     int disbandid;
-     int disbandid2;
+     disbandid: i32;
+     disbandid2: i32;
 
-    pub OrderWindowClass( GameClass tGame)
+    pub OrderWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 40, 8, tBackSpriteScaled: true, tTransBacksprite: true)
     {
       this.lastorderx = -1;
@@ -188,7 +188,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
     pub handleTimer: WindowReturnClass()
     {
@@ -212,7 +212,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       SizeF sizeF1 = SizeF::new();
       if (this.Info1Id > 0)
@@ -1371,7 +1371,7 @@ namespace WindowsApplication1
           this.hqprodbuttontext = "This location does not require a HQ";
           this.prodbuttontext = "Production for this location is automaticly set.";
         }
-        int num1;
+        num1: i32;
         if (this.game.Data.Round > 0 && this.game.SelectX > -1 & this.game.SelectY > -1)
         {
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter == -1)
@@ -1382,8 +1382,8 @@ namespace WindowsApplication1
           else
             num1 = !(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > -1 & this.game.EditObj.UnitSelected > -1) ? 1 : (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime != this.game.Data.Turn ? 1 : 0);
         }
-        int num2;
-        int num3;
+        num2: i32;
+        num3: i32;
         if (num1 == 0)
         {
           if (this.MoveButtonId >= 0)
@@ -1483,8 +1483,8 @@ namespace WindowsApplication1
             num3 += 1;
         }
         let mut num4: i32 =   Math.Round( this.game.ScreenWidth / 2.0 -  (num3 * 18) + 30.0);
-        int num5;
-        int num6;
+        num5: i32;
+        num6: i32;
         if (this.NextButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 50))
         {
           num6 = num5 + 1;
@@ -1497,7 +1497,7 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONNEXT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num6), bby: 4);
           this.NextButtonId = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num6, 4, 30, 30, 0);
         }
-        int num7;
+        num7: i32;
         if (this.ResearchId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 23))
         {
           num7 = num6 + 1;
@@ -1518,7 +1518,7 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONDESIGNSF, tDescript: "Subformationtype Model Design", tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num7), bby: 4);
           this.SFDesignButtonId = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num7, 4, 30, 30, 1);
         }
-        int num8;
+        num8: i32;
         if (this.DipId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 24))
         {
           num8 = num7 + 1;
@@ -1539,7 +1539,7 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONMODELDESIGNER, tDescript: "Model Designer", tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num8), bby: 4);
           this.ModelDesignerId = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num8, 4, 30, 30, 1);
         }
-        int num9;
+        num9: i32;
         if (this.HistoryId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 26))
         {
           num9 = num8 + 1;
@@ -1568,11 +1568,11 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONSURRENDER, 1, this.ordersurrendertext,  this.OwnBitmap, this.game.ScreenWidth - 2 - 32 * num11, 4);
           this.OrderSurrenderButtonId = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num11, 4, 30, 30, 0);
         }
-        int num12;
+        num12: i32;
         SubPartClass tsubpart1;
         if (num1 == 0)
         {
-          int num13;
+          num13: i32;
           if (this.MoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 1))
           {
             num13 = num12 + 1;
@@ -1915,7 +1915,7 @@ namespace WindowsApplication1
               this.SupplyLayerButtonId2 = this.AddSubPart( tsubpart42, num4 + 32 * num13, 4, 30, 30, 0);
             }
           }
-          int num14;
+          num14: i32;
           if (this.HexUnitButtonId > 0 & this.game.EditObj.TutOrder == -1)
           {
             num14 = num13 + 1;
@@ -1941,7 +1941,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONHEX, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num14 * 32), bby: 4);
             this.HexUnitButtonId2 = this.AddSubPart( tsubpart1, num4 + 32 * num14, 4, 30, 30, 0);
           }
-          int num15;
+          num15: i32;
           if (this.ButtonZoomInId > 0 & this.game.EditObj.TutOrder == -1)
           {
             num15 = num14 + 1;
@@ -1962,7 +1962,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONZOOMIN, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num15 * 32), bby: 4);
             this.ButtonZoomInId2 = this.AddSubPart( tsubpart1, num4 + 32 * num15, 4, 30, 30, 0);
           }
-          int num16;
+          num16: i32;
           if (this.ButtonZoomOutId > 0 & this.game.EditObj.TutOrder == -1)
           {
             num16 = num15 + 1;
@@ -1983,7 +1983,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONZOOMOUT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num16 * 32), bby: 4);
             this.ButtonZoomOutId2 = this.AddSubPart( tsubpart1, num4 + 32 * num16, 4, 30, 30, 0);
           }
-          int num17;
+          num17: i32;
           if (this.ButtonStackedUnitId > 0 & this.game.EditObj.TutOrder == -1 & this.game.EditObj.Zoom == 1)
           {
             num17 = num16 + 1;
@@ -2037,7 +2037,7 @@ namespace WindowsApplication1
         }
         else
         {
-          int num20;
+          num20: i32;
           if (this.AttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 2))
           {
             num20 = num12 + 1;
@@ -2052,7 +2052,7 @@ namespace WindowsApplication1
             let mut tsubpart44: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONATTACK, 1, this.AttackButtonText,  this.OwnBitmap, num4 + num20 * 32, 4);
             this.AttackButtonId2 = this.AddSubPart( tsubpart44, num4 + num20 * 32, 4, 30, 30, 0);
           }
-          int num21;
+          num21: i32;
           if (this.ArtAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 11))
           {
             num21 = num20 + 1;
@@ -2069,7 +2069,7 @@ namespace WindowsApplication1
           }
           if ( this.game.Data.RuleVar[511] == 0.0)
           {
-            int num22;
+            num22: i32;
             if (this.seaAttackButtonId > 0)
             {
               num22 = num21 + 1;
@@ -2095,7 +2095,7 @@ namespace WindowsApplication1
               this.SeaArtAttackButtonId2 = this.AddSubPart( tsubpart50, num4 + num21 * 32, 4, 30, 30, 0);
             }
           }
-          int num23;
+          num23: i32;
           if (this.AirAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 14))
           {
             num23 = num21 + 1;
@@ -2182,7 +2182,7 @@ namespace WindowsApplication1
               this.HqUnitButtonId2 = this.AddSubPart( tsubpart1, num4 + num23 * 32, 4, 30, 30, 0);
             }
           }
-          int num24;
+          num24: i32;
           if (this.HexUnitButtonId > 0)
           {
             num24 = num23 + 1;
@@ -2208,7 +2208,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONHEX, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num24 * 32), bby: 4);
             this.HexUnitButtonId2 = this.AddSubPart( tsubpart1, num4 + 32 * num24, 4, 30, 30, 0);
           }
-          int num25;
+          num25: i32;
           if (this.ButtonZoomInId > 0 & this.game.EditObj.TutOrder == -1)
           {
             num25 = num24 + 1;
@@ -2229,7 +2229,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONZOOMIN, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num25 * 32), bby: 4);
             this.ButtonZoomInId2 = this.AddSubPart( tsubpart1, num4 + 32 * num25, 4, 30, 30, 0);
           }
-          int num26;
+          num26: i32;
           if (this.ButtonZoomOutId > 0 & this.game.EditObj.TutOrder == -1)
           {
             num26 = num25 + 1;
@@ -2338,7 +2338,7 @@ namespace WindowsApplication1
           }
           if ( this.game.Data.RuleVar[520] == 0.0)
           {
-            int num27;
+            num27: i32;
             if (this.StrategicButtonId > 0)
             {
               num27 = num26 + 1;
@@ -2368,7 +2368,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int num30;
+        num30: i32;
         let mut num31: i32 =  num30 + 1;
         tsubpart1 =  new SteveButtonPartClass30(this.game.BACKBUTTON, 1, "Currently in main play window",  this.OwnBitmap, num31 * 32 - 30, 4);
         this.FakeBackButtonId = this.AddSubPart( tsubpart1, num31 * 32 - 32, 4, 30, 30, 0);
@@ -2386,7 +2386,7 @@ namespace WindowsApplication1
         }
         if ( this.game.Data.RuleVar[513] == 0.0)
         {
-          int num32;
+          num32: i32;
           if (this.HqProdButtonId > 0)
           {
             num32 = num31 + 1;
@@ -2963,7 +2963,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -3202,9 +3202,9 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void PopUpRefresh() => this.DoRefresh();
+    pub fn PopUpRefresh() => this.DoRefresh();
 
-    pub void HighLightAItest()
+    pub fn HighLightAItest()
     {
       let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
       this.game.EditObj.TempCoordList = CoordList::new();
@@ -3258,9 +3258,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass;
@@ -3812,8 +3812,8 @@ namespace WindowsApplication1
               let mut num7: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
               let mut num8: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
               let mut num9: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
-              int num10;
-              int num11;
+              num10: i32;
+              num11: i32;
               if (this.game.EditObj.Zoom == 0)
               {
                 this.game.EditObj.Zoom = -1;
@@ -3851,8 +3851,8 @@ namespace WindowsApplication1
               let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
               let mut num14: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
               let mut num15: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
-              int num16;
-              int num17;
+              num16: i32;
+              num17: i32;
               if (this.game.EditObj.Zoom == 0)
               {
                 this.game.EditObj.Zoom = 1;
@@ -4585,7 +4585,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.GiveHexId)
                 {
-                  int tnr;
+                  tnr: i32;
                   if (Interaction.MsgBox( "Set a radius of hexes to give? Say no if you only want to give this hex.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                   {
                     tnr =  Math.Round(Conversion.Val(Interaction.InputBox("Give a radius of hexes to give. 1-99", "Shadow Empire : Planetary Conquest")));

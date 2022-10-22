@@ -17,37 +17,37 @@ namespace WindowsApplication1
 {
   pub class UDSPartClass : SubPartClass
   {
-     Font OwnFont;
-     int Width;
-     int Height;
-     GameClass game;
-     Bitmap backbitmap;
-     int bx;
-     int by;
-     int clickscroll;
+     OwnFont: Font;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
+     backbitmap: Bitmap;
+     bx: i32;
+     by: i32;
+     clickscroll: i32;
     pub texty: String;
     pub curY: i32;
-     int maxY;
-     int lastY;
-     Bitmap paper;
+     maxY: i32;
+     lastY: i32;
+     paper: Bitmap;
      bool alwaysBlockScrollBar;
      bool justCheckHeight;
-     int lastElementHigh;
+     lastElementHigh: i32;
      bool allGray;
      bool alwaysShowBackground;
     pub UDSData dyn;
-     int scrollelementclicked;
-     int scrollelementclicked2;
+     scrollelementclicked: i32;
+     scrollelementclicked2: i32;
      Bitmap[] bmp;
      int[] bmpLink;
      Bitmap[] backBmp;
      int[] backBmpLink;
-     int backBitmapCounter;
+     backBitmapCounter: i32;
      bool noBackground;
 
     pub bool UseSourceCopyForPaintSpecific() => true;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       self.unloadAnyStuff();
       if (!Information.IsNothing( self.backbitmap))
@@ -65,7 +65,7 @@ namespace WindowsApplication1
       self.dyn = (UDSData) null;
     }
 
-    pub bool HandleTimerWheel(int x, int y,  WindowClass tWindow)
+    pub bool HandleTimerWheel(x: i32, y: i32,  WindowClass tWindow)
     {
       if (self.game.EditObj.MouseWheel > 0)
       {
@@ -87,11 +87,11 @@ namespace WindowsApplication1
     }
 
     pub UDSPartClass(
-      GameClass tgame,
-      int twidth,
-      int theight,
+      tgame: GameClass,
+      twidth: i32,
+      theight: i32,
       string tTexty,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
       bool talwaysBlockScrollBar = false,
@@ -142,9 +142,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub int HeightUsed() => self.maxY;
+    pub HeightUsed: i32() => self.maxY;
 
-    pub AdjustSliders: bool(int activeSliderNr)
+    pub AdjustSliders: bool(activeSliderNr: i32)
     {
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
@@ -291,7 +291,7 @@ namespace WindowsApplication1
       return true;
     }
 
-    pub bool HandleMouseMove(int x, int y)
+    pub bool HandleMouseMove(x: i32, y: i32)
     {
       let mut i1: i32 = -1;
       bool flag = false;
@@ -308,7 +308,7 @@ namespace WindowsApplication1
             let mut num1: i32 =  Math.Round(Math.Max(20.0,  self.MouseRect[index].Width / 10.0));
             let mut num2: i32 = x - self.MouseRect[index].X;
             let mut num3: i32 = self.MouseRect[index].Width - num1;
-            int num4;
+            num4: i32;
             if ( num2 <  num1 / 2.0)
               num4 = self.dyn.element[activeSliderNr].minvalue;
             else if ( num2 >  self.MouseRect[index].Width -  num1 / 2.0)
@@ -379,7 +379,7 @@ namespace WindowsApplication1
       return flag;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       self.game.EditObj.TipColor = 0;
       let mut mouseCounter: i32 = self.MouseCounter;
@@ -398,7 +398,7 @@ namespace WindowsApplication1
             let mut num1: i32 = y - self.dyn.element[self.MouseData[index1]].y + self.curY;
             if (num1 <= self.dyn.element[self.MouseData[index1]].lineHeight)
             {
-              int index2;
+              index2: i32;
               if (stringListClass.ColWidth[0] > 0)
               {
                 let mut num2: i32 = x - self.dyn.element[self.MouseData[index1]].x;
@@ -454,7 +454,7 @@ namespace WindowsApplication1
               self.game.EditObj.TipButton = false;
               break;
             }
-            int index4;
+            index4: i32;
             if (stringListClass.ColWidth[0] > 0)
             {
               let mut num5: i32 = x - self.dyn.element[self.MouseData[index1]].x;
@@ -514,7 +514,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int DoJustCheckHeight(bool heightIncludingY = false)
+    pub DoJustCheckHeight: i32(bool heightIncludingY = false)
     {
       self.dyn = new UDSData(self.texty, false);
       let mut num1: i32 = 0;
@@ -529,10 +529,10 @@ namespace WindowsApplication1
             let mut game: GameClass = self.game;
             let mut w: i32 = self.dyn.element[index1].w;
             let mut trows: i32 =  Math.Round( self.dyn.element[index1].h /  self.dyn.element[index1].lineHeight);
-            Font tfont = self.game.DynFont[index2];
+            tfont: Font = self.game.DynFont[index2];
             texty: String = self.dyn.element[index1].texty;
             let mut lineHeight: i32 = self.dyn.element[index1].lineHeight;
-            Bitmap bitmap = (Bitmap) null;
+            bitmap: Bitmap = (Bitmap) null;
              let mut local: &Bitmap = &bitmap;
             let mut r: i32 =  self.dyn.element[index1].color.R;
             let mut g: i32 =  self.dyn.element[index1].color.G;
@@ -561,7 +561,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int DoJustCheckWidth()
+    pub DoJustCheckWidth: i32()
     {
       self.dyn = new UDSData(self.texty, false);
       let mut num1: i32 = 0;
@@ -576,10 +576,10 @@ namespace WindowsApplication1
             let mut game: GameClass = self.game;
             let mut w: i32 = self.dyn.element[index1].w;
             let mut trows: i32 =  Math.Round( self.dyn.element[index1].h /  self.dyn.element[index1].lineHeight);
-            Font tfont = self.game.DynFont[index2];
+            tfont: Font = self.game.DynFont[index2];
             texty: String = self.dyn.element[index1].texty;
             let mut lineHeight: i32 = self.dyn.element[index1].lineHeight;
-            Bitmap bitmap = (Bitmap) null;
+            bitmap: Bitmap = (Bitmap) null;
              let mut local: &Bitmap = &bitmap;
             let mut r: i32 =  self.dyn.element[index1].color.R;
             let mut g: i32 =  self.dyn.element[index1].color.G;
@@ -604,7 +604,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub void MakeBitmap()
+    pub fn MakeBitmap()
     {
       self.ClearMouse();
       if (Information.IsNothing( self.dyn))
@@ -666,7 +666,7 @@ namespace WindowsApplication1
       self.paper = new Bitmap(self.Width, self.maxY, PixelFormat.Format32bppPArgb);
       self.paper.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) self.paper);
-      int num4;
+      num4: i32;
       if (!self.noBackground)
       {
         if (!self.alwaysBlockScrollBar)
@@ -674,11 +674,11 @@ namespace WindowsApplication1
           graphics2.CompositingMode = CompositingMode.SourceCopy;
           Rectangle rectangle1;
           Rectangle rectangle2;
-          int y;
+          y: i32;
           for (; y < self.maxY - 1390; y += 1390)
           {
              let mut local1: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
              let mut local2: &Bitmap = &bitmap;
             rectangle1 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 24), 1390);
             let mut srcrect: &Rectangle = &rectangle1
@@ -689,7 +689,7 @@ namespace WindowsApplication1
           if (y < self.maxY)
           {
              let mut local3: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
              let mut local4: &Bitmap = &bitmap;
             rectangle2 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 24), self.maxY - y);
             let mut srcrect: &Rectangle = &rectangle2
@@ -699,7 +699,7 @@ namespace WindowsApplication1
             num4 = y + (self.maxY - y);
           }
            let mut local5: &Graphics = &graphics2;
-           Bitmap local6 =  self.backbitmap;
+           local6: Bitmap =  self.backbitmap;
           rectangle2 = Rectangle::new(0, 0, self.Width, 5);
           let mut rect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart( local5,  local6, rect);
@@ -707,7 +707,7 @@ namespace WindowsApplication1
           if (self.maxY >= 256)
           {
              let mut local7: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER3);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER3);
              let mut local8: &Bitmap = &bitmap;
             rectangle2 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 24), 256);
             let mut srcrect: &Rectangle = &rectangle2
@@ -722,11 +722,11 @@ namespace WindowsApplication1
           graphics2.CompositingMode = CompositingMode.SourceCopy;
           Rectangle rectangle3;
           Rectangle rectangle4;
-          int y;
+          y: i32;
           for (; y < self.maxY - 1390; y += 1390)
           {
              let mut local9: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
              let mut local10: &Bitmap = &bitmap;
             rectangle3 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 0), 1390);
             let mut srcrect: &Rectangle = &rectangle3
@@ -737,7 +737,7 @@ namespace WindowsApplication1
           if (y < self.maxY)
           {
              let mut local11: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
              let mut local12: &Bitmap = &bitmap;
             rectangle3 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 0), self.maxY - y);
             let mut srcrect: &Rectangle = &rectangle3
@@ -750,7 +750,7 @@ namespace WindowsApplication1
           if (self.maxY >= 256)
           {
              let mut local13: &Graphics = &graphics2;
-            Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER3);
+            bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER3);
              let mut local14: &Bitmap = &bitmap;
             rectangle3 = Rectangle::new(0, 0, Math.Min(1126, self.Width - 0), 256);
             let mut srcrect: &Rectangle = &rectangle3
@@ -780,7 +780,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawElement(int i,  Graphics g, bool firstCall, bool high = false)
+    pub fn DrawElement(i: i32,  Graphics g, bool firstCall, bool high = false)
     {
       Graphics Expression;
       Rectangle trect;
@@ -800,7 +800,7 @@ namespace WindowsApplication1
               Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
               Expression.CompositingMode = CompositingMode.SourceCopy;
               Graphics graphics = Expression;
-              Bitmap paper = self.paper;
+              paper: Bitmap = self.paper;
               trect = Rectangle::new(0, 0, self.backBmp[self.backBitmapCounter].Width, self.backBmp[self.backBitmapCounter].Height);
               let mut destRect: &Rectangle = &trect
               rectangle = Rectangle::new(self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
@@ -815,10 +815,10 @@ namespace WindowsApplication1
           let mut game: GameClass = self.game;
           let mut w: i32 = self.dyn.element[i].w;
           let mut trows: i32 =  Math.Round( self.dyn.element[i].h /  self.dyn.element[i].lineHeight);
-          Font tfont = self.game.DynFont[index1];
+          tfont: Font = self.game.DynFont[index1];
           texty: String = self.dyn.element[i].texty;
           let mut lineHeight: i32 = self.dyn.element[i].lineHeight;
-          Bitmap bitmap = (Bitmap) null;
+          bitmap: Bitmap = (Bitmap) null;
            let mut local: &Bitmap = &bitmap;
           let mut num: i32 = self.dyn.element[i].center == 1 ? 1 : 0;
           let mut r: i32 =  self.dyn.element[i].color.R;
@@ -854,7 +854,7 @@ namespace WindowsApplication1
             Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
             Expression.CompositingMode = CompositingMode.SourceCopy;
             Graphics graphics = Expression;
-            Bitmap paper = self.paper;
+            paper: Bitmap = self.paper;
             rectangle = Rectangle::new(0, 0, self.backBmp[self.backBitmapCounter].Width, self.backBmp[self.backBitmapCounter].Height);
             let mut destRect: &Rectangle = &rectangle
             trect = Rectangle::new(self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
@@ -873,10 +873,10 @@ namespace WindowsApplication1
           let mut w: i32 = self.dyn.element[i].w;
           let mut tgame: GameClass = DrawMod.TGame;
           let mut topRow: i32 = self.dyn.element[i].topRow;
-          Bitmap bitmap = (Bitmap) null;
+          bitmap: Bitmap = (Bitmap) null;
            let mut local1: &Bitmap = &bitmap;
           let mut lineHeight: i32 = self.dyn.element[i].lineHeight;
-           Font local2 =  self.game.DynFont[index];
+           local2: Font =  self.game.DynFont[index];
           UDSMatrixSubPartClass matrixSubPartClass = new UDSMatrixSubPartClass(tListobj, tlistsize, w, -1, -1, tgame, tHighlight: false, tTop: topRow, tbackbitmap: ( local1), trowheight: lineHeight, tfontsize: 16, tMarcy: true, customFont: ( local2));
           matrixSubPartClass.Paint();
           g.DrawImage((Image) matrixSubPartClass.OwnBitmap, self.dyn.element[i].x, self.dyn.element[i].y);
@@ -889,7 +889,7 @@ namespace WindowsApplication1
           }
         }
       }
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (self.dyn.element[i].type == UDSType.PictureField)
       {
         if (Information.IsNothing( self.dyn.element[i].mouseOver))
@@ -910,7 +910,7 @@ namespace WindowsApplication1
           if (self.dyn.element[i].color.R == (byte) 0 & self.dyn.element[i].color.G == (byte) 0 & self.dyn.element[i].color.B == (byte) 0)
           {
              let mut local3: &Graphics = &g;
-            Bitmap bitmap2 = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999);
+            bitmap2: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999);
              let mut local4: &Bitmap = &bitmap2;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -919,7 +919,7 @@ namespace WindowsApplication1
           else if (self.dyn.element[i].color.A != byte.MaxValue | self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
           {
              let mut local5: &Graphics = &g;
-            Bitmap bitmap3 = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, true, self.dyn.element[i].subtype);
+            bitmap3: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, true, self.dyn.element[i].subtype);
              let mut local6: &Bitmap = &bitmap3;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -932,7 +932,7 @@ namespace WindowsApplication1
           else
           {
              let mut local7: &Graphics = &g;
-            Bitmap bitmap4 = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, true, self.dyn.element[i].subtype);
+            bitmap4: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(self.dyn.element[i].customBitmapFunction, self.dyn.element[i].w, self.dyn.element[i].h, true, self.dyn.element[i].subtype);
              let mut local8: &Bitmap = &bitmap4;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -958,7 +958,7 @@ namespace WindowsApplication1
           if (self.dyn.element[i].color.R == (byte) 0 & self.dyn.element[i].color.G == (byte) 0 & self.dyn.element[i].color.B == (byte) 0)
           {
              let mut local9: &Graphics = &g;
-            Bitmap bitmap5 = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
+            bitmap5: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
              let mut local10: &Bitmap = &bitmap5;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -967,7 +967,7 @@ namespace WindowsApplication1
           else if (self.dyn.element[i].color.A != byte.MaxValue | self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
           {
              let mut local11: &Graphics = &g;
-            Bitmap bitmap6 = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
+            bitmap6: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
              let mut local12: &Bitmap = &bitmap6;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -980,7 +980,7 @@ namespace WindowsApplication1
           else
           {
              let mut local13: &Graphics = &g;
-            Bitmap bitmap7 = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
+            bitmap7: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(-1, self.dyn.element[i].w, self.dyn.element[i].h, relChange: -999, isPeoplePortraitGroup: isPeoplePortraitGroup, isPeopleId: peopleById, isPeopleType: tv1, isRegId: ox, isAllowHair: isAllowHair, isUniformEventPic: isUniformEventPic, sfNr: sfNr);
              let mut local14: &Bitmap = &bitmap7;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -992,7 +992,7 @@ namespace WindowsApplication1
           let mut sfTypeById: i32 = self.game.HandyFunctionsObj.GetSFTypeByID(self.dyn.element[i].customBitmapFunction2);
           if (sfTypeById > -1)
           {
-            Bitmap objBitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, self.dyn.element[i].ox == 1, self.dyn.element[i].oy, self.dyn.element[i].ow, -1);
+            objBitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, self.dyn.element[i].ox == 1, self.dyn.element[i].oy, self.dyn.element[i].ow, -1);
             if (self.dyn.element[i].w == 76)
             {
               let mut num3: i32 = 0;
@@ -1064,7 +1064,7 @@ namespace WindowsApplication1
           if (self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
           {
              let mut local15: &Graphics = &g;
-            Bitmap bitmap8 = BitmapStore.GetBitmap(self.dyn.element[i].bitmapSlot);
+            bitmap8: Bitmap = BitmapStore.GetBitmap(self.dyn.element[i].bitmapSlot);
              let mut local16: &Bitmap = &bitmap8;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1081,7 +1081,7 @@ namespace WindowsApplication1
           else
           {
              let mut local17: &Graphics = &g;
-            Bitmap bitmap9 = BitmapStore.GetBitmap(self.dyn.element[i].bitmapSlot);
+            bitmap9: Bitmap = BitmapStore.GetBitmap(self.dyn.element[i].bitmapSlot);
              let mut local18: &Bitmap = &bitmap9;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1097,7 +1097,7 @@ namespace WindowsApplication1
             if (self.dyn.element[i].h == 0)
               self.dyn.element[i].h =  Math.Round( BitmapStore.Getheight(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]) * ( self.dyn.element[i].w /  BitmapStore.GetWidth(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx])));
              let mut local19: &Graphics = &g;
-            Bitmap bitmap10 = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]);
+            bitmap10: Bitmap = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]);
              let mut local20: &Bitmap = &bitmap10;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1108,7 +1108,7 @@ namespace WindowsApplication1
           else if (BitmapStore.GetWidth(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]) < self.dyn.element[i].w)
           {
              let mut local21: &Graphics = &g;
-            Bitmap bitmap11 = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx], 1);
+            bitmap11: Bitmap = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx], 1);
              let mut local22: &Bitmap = &bitmap11;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1137,7 +1137,7 @@ namespace WindowsApplication1
         else if (self.dyn.element[i].ow > 0 & self.dyn.element[i].eventPicture > 0)
         {
            let mut local25: &Graphics = &g;
-          Bitmap bitmap12 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
+          bitmap12: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
            let mut local26: &Bitmap = &bitmap12;
           rectangle = Rectangle::new(self.dyn.element[i].ox, self.dyn.element[i].oy, self.dyn.element[i].ow, self.dyn.element[i].oh);
           let mut srcrect: &Rectangle = &rectangle
@@ -1150,7 +1150,7 @@ namespace WindowsApplication1
           if (self.dyn.element[i].color.A != byte.MaxValue)
           {
              let mut local27: &Graphics = &g;
-            Bitmap bitmap13 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
+            bitmap13: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
              let mut local28: &Bitmap = &bitmap13;
             rectangle = Rectangle::new(0, 0, BitmapStore.GetWidth(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]), BitmapStore.Getheight(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]));
             let mut srcrect: &Rectangle = &rectangle
@@ -1162,7 +1162,7 @@ namespace WindowsApplication1
           else if (self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
           {
              let mut local29: &Graphics = &g;
-            Bitmap bitmap14 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
+            bitmap14: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
              let mut local30: &Bitmap = &bitmap14;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1178,7 +1178,7 @@ namespace WindowsApplication1
           else if (self.dyn.element[i].h > 0)
           {
              let mut local31: &Graphics = &g;
-            Bitmap bitmap15 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
+            bitmap15: Bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]);
              let mut local32: &Bitmap = &bitmap15;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
@@ -1227,7 +1227,7 @@ namespace WindowsApplication1
             Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
             Expression.CompositingMode = CompositingMode.SourceCopy;
             Graphics graphics = Expression;
-            Bitmap paper = self.paper;
+            paper: Bitmap = self.paper;
             rectangle = Rectangle::new(0, 0, self.backBmp[self.backBitmapCounter].Width, self.backBmp[self.backBitmapCounter].Height);
             let mut destRect: &Rectangle = &rectangle
             trect = Rectangle::new(self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
@@ -1246,7 +1246,7 @@ namespace WindowsApplication1
           let mut num: i32 = self.dyn.element[i].grayed == 1 ? 1 : 0;
           let mut h: i32 = self.dyn.element[i].h;
           let mut fontSize: i32 = self.dyn.element[i].fontSize;
-          Font usefont = self.game.DynFont[index];
+          usefont: Font = self.game.DynFont[index];
           let mut subtype: i32 = self.dyn.element[i].subtype;
           TextButtonPartClass textButtonPartClass = new TextButtonPartClass(texty, w, mouseOver,  local, tinactive: (num != 0), theight: h, tfontsize: fontSize, usefont: usefont, tudsButton: true, tudsButtonSubType: subtype);
           if (high)
@@ -1306,7 +1306,7 @@ namespace WindowsApplication1
                 str3: String = Strings.Mid(str2, 3, str2.Length - 4);
                 let mut stringListById3: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 169, 0, 0));
                 let mut stringListById4: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 168, 0, 0));
-                EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+                eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
                 let mut id1: i32 = self.game.Data.StringListObj[stringListById4].ID;
                 let mut id2: i32 = self.game.Data.StringListObj[stringListById3].ID;
                 logicString: String = str3;
@@ -1320,7 +1320,7 @@ namespace WindowsApplication1
           let mut game: GameClass = self.game;
           let mut w2: i32 = self.dyn.element[i].w;
           let mut trows: i32 =  Math.Round( self.dyn.element[i].h /  self.dyn.element[i].lineHeight);
-          Font tfont = self.game.DynFont[index];
+          tfont: Font = self.game.DynFont[index];
           tText: String = str1;
           let mut lineHeight2: i32 = self.dyn.element[i].lineHeight;
           bitmap1 = (Bitmap) null;
@@ -1354,7 +1354,7 @@ namespace WindowsApplication1
           Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
           Expression.CompositingMode = CompositingMode.SourceCopy;
           Graphics graphics = Expression;
-          Bitmap paper = self.paper;
+          paper: Bitmap = self.paper;
           rectangle = Rectangle::new(0, 0, self.backBmp[self.backBitmapCounter].Width, self.backBmp[self.backBitmapCounter].Height);
           let mut destRect: &Rectangle = &rectangle
           trect = Rectangle::new(self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
@@ -1431,7 +1431,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -1456,7 +1456,7 @@ namespace WindowsApplication1
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
       Graphics graphics = objGraphics;
-      Bitmap paper = self.paper;
+      paper: Bitmap = self.paper;
       Rectangle rectangle1 = Rectangle::new(0, 0, self.Width, self.Height);
       let mut destRect: &Rectangle = &rectangle1
       Rectangle rectangle2 = Rectangle::new(0, self.curY, self.Width, self.Height);
@@ -1469,7 +1469,7 @@ namespace WindowsApplication1
         if (num > self.Height - 16)
           num = self.Height - 16;
          let mut local1: &Graphics = &objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
          let mut local2: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(0, 3, 20, 4);
         let mut srcrect1: &Rectangle = &rectangle2
@@ -1513,7 +1513,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       if (self.maxY <= self.Height)
         return;
@@ -1523,7 +1523,7 @@ namespace WindowsApplication1
       self.curY = self.maxY - self.Height;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       if (self.maxY <= self.Height)
         return;
@@ -1533,9 +1533,9 @@ namespace WindowsApplication1
       self.curY = 0;
     }
 
-    pub int HandleBLOCKEDMouseUp(int x, int y) => self.HandleMouseUp(x, y);
+    pub HandleBLOCKEDMouseUp: i32(x: i32, y: i32) => self.HandleMouseUp(x, y);
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (self.clickscroll == 1 | self.Scroller)
       {
@@ -1568,7 +1568,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub void SetHiddenAndBaseData(int elementSlotClicked, string tkey, string tval)
+    pub fn SetHiddenAndBaseData(elementSlotClicked: i32, string tkey, string tval)
     {
       if (DrawMod.TGame.EmpireStyle)
         SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
@@ -1606,7 +1606,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int Click(int x, int y, let mut b: i32 = 1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
       self.scrollelementclicked = -1;
       self.scrollelementclicked2 = -1;
@@ -1679,7 +1679,7 @@ namespace WindowsApplication1
               if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            Color color;
+            color: Color;
             if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_RECOLORKEY", false) == 0 & self.dyn.element[ Math.Round( a1)].value.Length > 1)
             {
               self.game.EditObj.interfaceCue = 2;
@@ -1693,7 +1693,7 @@ namespace WindowsApplication1
                   break;
                 }
               }
-              string[] strArray = str1.Split('#');
+              strArray: Vec<String> = str1.Split('#');
               let mut red: i32 =  Math.Round(Conversion.Val(strArray[0]));
               let mut green: i32 =  Math.Round(Conversion.Val(strArray[1]));
               let mut blue: i32 =  Math.Round(Conversion.Val(strArray[2]));
@@ -1788,7 +1788,7 @@ namespace WindowsApplication1
             let mut num1: i32 = y - self.dyn.element[self.MouseData[index1]].y + self.curY;
             if (num1 <= self.dyn.element[self.MouseData[index1]].lineHeight)
             {
-              int col;
+              col: i32;
               if (stringListClass.ColWidth[0] > 0)
               {
                 let mut num2: i32 = x - self.dyn.element[self.MouseData[index1]].x;
@@ -1821,7 +1821,7 @@ namespace WindowsApplication1
             }
             else if (num1 <= self.dyn.element[self.MouseData[index1]].lineHeight * (self.dyn.element[self.MouseData[index1]].rowsPerPage + 1))
             {
-              int index8;
+              index8: i32;
               if (stringListClass.ColWidth[0] > 0)
               {
                 let mut num5: i32 = x - self.dyn.element[self.MouseData[index1]].x;
@@ -1851,7 +1851,7 @@ namespace WindowsApplication1
                 Expression: String = stringListClass.TempDesc[index10, index8];
                 if (!Information.IsNothing( Expression))
                 {
-                  string[] strArray = Expression.Split('#');
+                  strArray: Vec<String> = Expression.Split('#');
                   if (strArray.GetUpperBound(0) >= 1)
                   {
                     if (Operators.CompareString(strArray[1], "HARDXY", false) == 0)
@@ -2026,7 +2026,7 @@ namespace WindowsApplication1
             let mut num13: i32 =  Math.Round(Math.Max(20.0,  self.MouseRect[index1].Width / 10.0));
             let mut num14: i32 = x - self.MouseRect[index1].X;
             let mut num15: i32 = self.MouseRect[index1].Width - num13;
-            int num16;
+            num16: i32;
             if (num14 < self.MouseRect[index1].Height)
             {
               num16 = Conversions.ToInteger(self.dyn.element[ Math.Round( a5)].value) - 1;
@@ -2099,7 +2099,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       if (self.alwaysBlockScrollBar || self.clickscroll != 1)
         return false;
@@ -2115,7 +2115,7 @@ namespace WindowsApplication1
       return true;
     }
 
-    pub void unloadAnyStuff()
+    pub fn unloadAnyStuff()
     {
       let mut index1: i32 = 0;
       do
@@ -2139,7 +2139,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void loadPageStuff()
+    pub fn loadPageStuff()
     {
       str: String = self.game.AppPath + "graphics/";
       self.unloadAnyStuff();
@@ -2166,7 +2166,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void loadSpecificBmp(string s, int slot, int rotate)
+    pub fn loadSpecificBmp(string s, slot: i32, rotate: i32)
     {
       if (!Information.IsNothing( self.bmp[slot]))
       {
@@ -2174,8 +2174,8 @@ namespace WindowsApplication1
         self.bmp[slot] = (Bitmap) null;
       }
       FileStream fileStream = new FileStream(s, FileMode.Open, FileAccess.Read);
-      Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
-      Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
+      bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
+      bitmap2: Bitmap = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       if (rotate > 0)
       {

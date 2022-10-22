@@ -16,34 +16,34 @@ namespace WindowsApplication1
 {
   pub class DynamicCinematicsScreenClass : ScreenClass
   {
-     int pagenr;
-     int lastpagenr;
-     Bitmap fullBmp;
+     pagenr: i32;
+     lastpagenr: i32;
+     fullBmp: Bitmap;
      bool fullBmpCenterScale;
      Bitmap[] bmp;
      int[] bmpLink;
      DateTime lastTime;
-     int textRotateNumber;
-     int textSize;
+     textRotateNumber: i32;
+     textSize: i32;
      bool timerActive;
-     int timerMs;
+     timerMs: i32;
      DateTime timerStart;
      bool udsActive;
      bool firstRenderDone;
-     int UdsId;
+     UdsId: i32;
      WindowClass UdsWindow;
-     int udsX;
-     int udsY;
-     int udsW;
-     int udsH;
-     int udsNewEvent;
+     udsX: i32;
+     udsY: i32;
+     udsW: i32;
+     udsH: i32;
+     udsNewEvent: i32;
      bool udsContainsButton;
-     int udsTv0;
+     udsTv0: i32;
      Cursor tempCursor;
      string fullBmpName;
      SimpleStringList TabList;
 
-    pub DynamicCinematicsScreenClass(ref GameClass tGame, Form1 tformref)
+    pub DynamicCinematicsScreenClass(ref tGame: GameClass, tformref: Form1)
       : base(ref tGame, tFormRef: tformref)
     {
       this.fullBmpCenterScale = false;
@@ -74,15 +74,15 @@ namespace WindowsApplication1
       this.loadPageStuff(this.pagenr);
     }
 
-    pub Bitmap Paint(bool onlyToolTip = false)
+    pub Paint: Bitmap(bool onlyToolTip = false)
     {
       this.textSize = 0;
       Graphics graphics = Graphics.FromImage((Image) this.OwnBackground);
       float num1;
-      int num2;
-      int num3;
-      int num4;
-      int num5;
+      num2: i32;
+      num3: i32;
+      num4: i32;
+      num5: i32;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (!Information.IsNothing( this.fullBmp))
@@ -117,10 +117,10 @@ namespace WindowsApplication1
         let mut y1: i32 =   Math.Round( (this.Game.ScreenHeight - num9) / 2.0);
         let mut width1: i32 =  num8;
         let mut height1: i32 =  num9;
-        int x2;
-        int y2;
-        int width2;
-        int height2;
+        x2: i32;
+        y2: i32;
+        width2: i32;
+        height2: i32;
         if ( num1 >= 1.0)
         {
           x2 = 0;
@@ -147,7 +147,7 @@ namespace WindowsApplication1
         num6 =  width1 /  this.Game.ScreenWidth;
         num7 =  height1 /  this.Game.ScreenHeight;
         ref Graphics local1 = ref graphics;
-        ref Bitmap local2 = ref this.fullBmp;
+        ref local2: Bitmap = ref this.fullBmp;
         rectangle1 = Rectangle::new(x2, y2, width2, height2);
         let mut srcrect: &Rectangle = &rectangle1
         rectangle2 = Rectangle::new(x1, y1, width1, height1);
@@ -161,13 +161,13 @@ namespace WindowsApplication1
       {
         let mut stringListById1: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
         let mut length: i32 =  this.Game.Data.StringListObj[stringListById1].Length;
-        int num15;
+        num15: i32;
         for (let mut index1: i32 =  0; index1 <= length; index1 += 1)
         {
           if ( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 0])) == this.pagenr)
           {
             let mut num16: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]));
-            Bitmap bitmap;
+            bitmap: Bitmap;
             if (num16 != 2 & num14 == 1 | num16 == 2 & num14 == 2)
             {
               if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 2.0)
@@ -175,10 +175,10 @@ namespace WindowsApplication1
                 let mut index2: i32 =  this.bmpLink[index1];
                 if (index2 > -1)
                 {
-                  int x;
-                  int y;
-                  int width;
-                  int height;
+                  x: i32;
+                  y: i32;
+                  width: i32;
+                  height: i32;
                   if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 3.0 | Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 1.0)
                   {
                     let mut integer1: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]);
@@ -221,7 +221,7 @@ namespace WindowsApplication1
                   if (!Information.IsNothing( this.bmp[index2]) && x + width >= 0 & x < this.Game.ScreenWidth && y + height >= 0 & y < this.Game.ScreenHeight)
                   {
                     ref Graphics local3 = ref graphics;
-                    ref Bitmap local4 = ref this.bmp[index2];
+                    ref local4: Bitmap = ref this.bmp[index2];
                     rectangle2 = Rectangle::new(0, 0, this.bmp[index2].Width, this.bmp[index2].Height);
                     let mut srcrect: &Rectangle = &rectangle2
                     rectangle1 = Rectangle::new(x, y, width, height);
@@ -256,7 +256,7 @@ namespace WindowsApplication1
                 DrawMod.DrawBlock(ref graphics, num19, num20, num21, num22, 0, 0, 0, 128);
                 ref Graphics local5 = ref graphics;
                 bitmap = this.Game.CustomBitmapObj.DrawLeaderPortrait( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2])), num21, num22);
-                ref Bitmap local6 = ref bitmap;
+                ref local6: Bitmap = ref bitmap;
                 rectangle2 = Rectangle::new(0, 0, num21, num22);
                 let mut srcrect: &Rectangle = &rectangle2
                 rectangle1 = Rectangle::new(num19, num20, num21, num22);
@@ -282,7 +282,7 @@ namespace WindowsApplication1
                   let mut id: i32 =  this.Game.Data.RegimeObj[this.Game.Data.Turn].id;
                   let mut idValue: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById2].GetData(0, id, 2)));
                   let mut cultureGroupId: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById3].GetData(0, idValue, 1)));
-                  Bitmap objBitmap = this.Game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, this.Game.Data.Turn, -1);
+                  objBitmap: Bitmap = this.Game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, this.Game.Data.Turn, -1);
                   DrawMod.DrawScaled(ref graphics, ref objBitmap, x, y, w, h, true);
                   objBitmap.Dispose();
                 }
@@ -354,7 +354,7 @@ namespace WindowsApplication1
                   this.UdsWindow.FlagAll();
                   ref Graphics local8 = ref graphics;
                   bitmap = this.UdsWindow.Paint();
-                  ref Bitmap local9 = ref bitmap;
+                  ref local9: Bitmap = ref bitmap;
                   let mut x: i32 =  sx;
                   let mut y: i32 =  sy;
                   DrawMod.DrawSimple(ref local8, ref local9, x, y);
@@ -368,7 +368,7 @@ namespace WindowsApplication1
                   this.UdsWindow.FlagAll();
                   ref Graphics local10 = ref graphics;
                   bitmap = this.UdsWindow.Paint();
-                  ref Bitmap local11 = ref bitmap;
+                  ref local11: Bitmap = ref bitmap;
                   let mut x: i32 =  num26;
                   let mut y: i32 =  num27;
                   DrawMod.DrawSimple(ref local10, ref local11, x, y);
@@ -391,7 +391,7 @@ namespace WindowsApplication1
                   {
                     ref Graphics local12 = ref graphics;
                     bitmap = this.Game.CustomBitmapObj.DrawActionCardSe1(this.Game.Data.Turn, nr);
-                    ref Bitmap local13 = ref bitmap;
+                    ref local13: Bitmap = ref bitmap;
                     let mut x: i32 =  x1;
                     let mut y: i32 =  y1;
                     DrawMod.DrawSimple(ref local12, ref local13, x, y);
@@ -436,7 +436,7 @@ namespace WindowsApplication1
                     if (num32 > -1)
                     {
                       String1_1: String = Strings.Mid(str1, num32 + 7, num33 - (num32 + 6));
-                      string[] strArray;
+                      strArray: Vec<String>;
                       if (Strings.InStr(String1_1, "#") > 0)
                         strArray = String1_1.Split(new char[1]
                         {
@@ -482,13 +482,13 @@ namespace WindowsApplication1
                 let mut theight: i32 =  integer;
                 tTexty: String = str2;
                 bitmap = (Bitmap) null;
-                ref Bitmap local14 = ref bitmap;
+                ref local14: Bitmap = ref bitmap;
                 let mut bbx: i32 =  num29;
                 let mut bby: i32 =  num30;
                 UDSPartClass udsPartClass = new UDSPartClass(game, twidth, theight, tTexty, ref local14, bbx, bby, true);
                 ref Graphics local15 = ref graphics;
                 bitmap = udsPartClass.Paint();
-                ref Bitmap local16 = ref bitmap;
+                ref local16: Bitmap = ref bitmap;
                 let mut x: i32 =  num29 - 20;
                 let mut y: i32 =  num30 + 30;
                 DrawMod.DrawSimple(ref local15, ref local16, x, y);
@@ -643,7 +643,7 @@ namespace WindowsApplication1
       return this.OwnBackground;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       let mut num: i32 =  9999999;
@@ -796,7 +796,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
@@ -874,7 +874,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub void unloadAnyStuff()
+    pub fn unloadAnyStuff()
     {
       this.fullBmpCenterScale = false;
       if (!Information.IsNothing( this.fullBmp))
@@ -896,7 +896,7 @@ namespace WindowsApplication1
       this.fullBmpName = "";
     }
 
-    pub void loadPageStuff(int nr)
+    pub fn loadPageStuff(nr: i32)
     {
       str: String = this.Game.AppPath + "graphics/";
       this.fullBmpName = "";
@@ -930,7 +930,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void loadSpecificBmp(string s, int slot, let mut specialRenderMode: i32 =  -1)
+    pub fn loadSpecificBmp(string s, slot: i32, let mut specialRenderMode: i32 =  -1)
     {
       if (!Information.IsNothing( this.bmp[slot]))
       {
@@ -939,8 +939,8 @@ namespace WindowsApplication1
       }
       s = BitmapStore.FileNameOverride(s);
       FileStream fileStream = new FileStream(s, FileMode.Open, FileAccess.Read);
-      Bitmap bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
-      Bitmap bmp = new Bitmap(bitmap.Width, bitmap.Height, PixelFormat.Format32bppPArgb);
+      bitmap: Bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
+      bmp: Bitmap = new Bitmap(bitmap.Width, bitmap.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bmp);
       graphics.DrawImage((Image) bitmap, Rectangle::new(0, 0, bitmap.Width, bitmap.Height));
       if (specialRenderMode == 1)
@@ -953,7 +953,7 @@ namespace WindowsApplication1
       this.bmp[slot] = bmp;
     }
 
-    pub void SpecialRenderMode1(ref Graphics g, ref Bitmap b)
+    pub fn SpecialRenderMode1(ref Graphics g, ref b: Bitmap)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -967,7 +967,7 @@ namespace WindowsApplication1
         let mut num8: i32 =  num3;
         for (let mut x: i32 =  num7; x <= num8; x += 1)
         {
-          Color pixel = b.GetPixel(x, y);
+          pixel: Color = b.GetPixel(x, y);
           let mut green: i32 =   Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
           let mut a: i32 =   pixel.A;
           b.SetPixel(x, y, Color.FromArgb(a, 0, green, 0));
@@ -975,7 +975,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SpecialRenderMode2(ref Graphics g, ref Bitmap b)
+    pub fn SpecialRenderMode2(ref Graphics g, ref b: Bitmap)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -989,7 +989,7 @@ namespace WindowsApplication1
         let mut num8: i32 =  num3;
         for (let mut x: i32 =  num7; x <= num8; x += 1)
         {
-          Color pixel = b.GetPixel(x, y);
+          pixel: Color = b.GetPixel(x, y);
           let mut green: i32 =   Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
           let mut a: i32 =   pixel.A;
           let mut alpha: i32 =  !(x < 20 | x > num3 - 20 | y < 20 | y > num4 - 20) ? a : 0;
@@ -998,7 +998,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void loadSpecificFullBmp(string s)
+    pub fn loadSpecificFullBmp(string s)
     {
       if (!Information.IsNothing( this.fullBmp))
       {
@@ -1008,8 +1008,8 @@ namespace WindowsApplication1
       this.fullBmpName = s;
       s = BitmapStore.FileNameOverride(s);
       FileStream fileStream = new FileStream(s, FileMode.Open, FileAccess.Read);
-      Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
-      Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
+      bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
+      bitmap2: Bitmap = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
@@ -1020,7 +1020,7 @@ namespace WindowsApplication1
       this.fullBmp = bitmap2;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
       ScreenReturnClass screenReturnClass2 = base.HandleMouseMove(x, y);
@@ -1029,7 +1029,7 @@ namespace WindowsApplication1
       return screenReturnClass2;
     }
 
-    pub void HandleTooltip(int x, int y, bool skipReset = false)
+    pub fn HandleTooltip(x: i32, y: i32, bool skipReset = false)
     {
       if (!Information.IsNothing( this.TabList))
       {

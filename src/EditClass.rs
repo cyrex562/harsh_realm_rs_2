@@ -47,8 +47,8 @@ namespace WindowsApplication1
     pub QuestionText: String;
     pub QuestionCard: i32;
     pub AnswerCount: i32;
-    pub string[] AnswerText;
-    pub string[] AnswerTextMouseOver;
+    pub AnswerText: Vec<String>;
+    pub AnswerTextMouseOver: Vec<String>;
     pub AnswerChosen: i32;
     pub nextEventSlot: i32;
     pub RandomUseMaster: String;
@@ -90,8 +90,8 @@ namespace WindowsApplication1
     pub MapMatrix2[] TempValue3;
     pub MapMatrix2[] TempValue4;
     pub MapMatrix2Plus6[] TempAttack;
-    pub int[,] TempAI;
-    pub int[,] TempAI2;
+    pub TempAI: Vec<i32>;
+    pub TempAI2: Vec<i32>;
     pub MapMatrix2[] TempLos;
     pub MapMatrix2[] TempObstruct;
     pub MapMatrix2[] FuzzyPresumed;
@@ -117,8 +117,8 @@ namespace WindowsApplication1
     pub LoadGame: String;
     pub ShownWelcome: bool;
     pub ShowInitialMenu: bool;
-    pub MapMatrix2String[] TempString;
-    pub MapMatrix2String[] TempString2;
+    pub MapMatrix2TempString: Vec<String>;
+    pub MapMatrix2TempString2: Vec<String>;
     pub ApTempString: String;
     pub MapMatrix2Coordinate[] TempCameFrom;
     pub CoordList SupplyPath;
@@ -431,7 +431,7 @@ namespace WindowsApplication1
     pub statsTab_tab: i32;
     pub statsTab_item: i32;
     pub uds_subtab: Vec<i32>;
-    pub int[,] uds_page;
+    pub uds_page: Vec<i32>;
     pub RealTurn: i32;
     pub RealRound: i32;
     pub overruleScreenResWidth: i32;
@@ -444,64 +444,64 @@ namespace WindowsApplication1
     pub usePullCities: bool;
     pub usePullUnits: bool;
     pub matrixSubPart_BlockMouseUpScroller1time: bool;
-    pub const let mut ORDERMOVE: i32 =  1;
-    pub const let mut ORDERATTACK: i32 =  2;
-    pub const let mut ORDERUNITHQ: i32 =  3;
-    pub const let mut ORDERPRODHQ: i32 =  4;
-    pub const let mut ORDERRECRUIT: i32 =  5;
-    pub const let mut ORDERPROD: i32 =  6;
-    pub const let mut ORDERNEWUNIT: i32 =  7;
-    pub const let mut ORDERNEWSF: i32 =  8;
-    pub const let mut ORDERTRANSFER: i32 =  9;
-    pub const let mut ORDERARTATTACK: i32 =  11;
-    pub const let mut ORDERSEAATTACK: i32 =  12;
-    pub const let mut ORDERSEAARTATTACK: i32 =  13;
-    pub const let mut ORDERAIRSTRIKE: i32 =  14;
-    pub const let mut ORDERBOMB: i32 =  15;
-    pub const let mut ORDERINTERNALAA: i32 =  16;
-    pub const let mut ORDERINTERNALDOGFIGHT: i32 =  17;
-    pub const let mut ORDERSTRATEGIC: i32 =  18;
-    pub const let mut ORDERPARADROP: i32 =  19;
-    pub const let mut ORDERLOAD: i32 =  20;
-    pub const let mut ORDERUNLOAD: i32 =  21;
-    pub const let mut ORDERPOOL: i32 =  22;
-    pub const let mut ORDERRESEARCH: i32 =  23;
-    pub const let mut ORDERDIP: i32 =  24;
-    pub const let mut ORDERCONSTRUCT: i32 =  25;
-    pub const let mut ORDERHISTORY: i32 =  26;
-    pub const let mut ORDERHISTORYACAP: i32 =  27;
-    pub const let mut ORDERHISTORYACAP2: i32 =  28;
-    pub const let mut ORDERHISTORYACAP3: i32 =  29;
-    pub const let mut ORDERPREFS: i32 =  30;
-    pub const let mut ORDERINTERNALREBEL: i32 =  31;
-    pub const let mut ORDERSTATS: i32 =  32;
-    pub const let mut ORDERAIRRECON: i32 =  33;
-    pub const let mut ORDERPEOPLETRANSFER: i32 =  34;
-    pub const let mut ORDERBLOW: i32 =  35;
-    pub const let mut ORDERINFRA: i32 =  36;
-    pub const let mut ORDERBUILD: i32 =  37;
-    pub const let mut ORDERVIEWSUPPLY: i32 =  38;
-    pub const let mut ORDERACAP: i32 =  39;
-    pub const let mut ORDERAIRSUPPLY: i32 =  40;
-    pub const let mut ORDERSURRENDER: i32 =  41;
-    pub const let mut ORDERAIRLIFT: i32 =  42;
-    pub const let mut ORDERAITEST: i32 =  43;
-    pub const let mut ORDERNEWUNIT2: i32 =  44;
-    pub const let mut ORDEROFFICER: i32 =  45;
-    pub const let mut ORDERCHANGEMODEL: i32 =  46;
-    pub const let mut ORDERMODELDESIGNER: i32 =  47;
-    pub const let mut ORDERGROUPMOVE: i32 =  48;
-    pub const let mut ORDERGROUPSTRATEGIC: i32 =  49;
-    pub const let mut ORDERNEXT: i32 =  50;
-    pub const let mut ORDERSUPPLYLAYER: i32 =  51;
-    pub const let mut ORDERSFDESIGN: i32 =  52;
-    pub const let mut ORDERTRAFIC: i32 =  53;
-    pub const let mut ORDERZONEBORDER: i32 =  54;
-    pub const let mut ORDERAIRBRIDGE: i32 =  55;
+    pub const ORDERMOVE: i32 =  1;
+    pub const ORDERATTACK: i32 =  2;
+    pub const ORDERUNITHQ: i32 =  3;
+    pub const ORDERPRODHQ: i32 =  4;
+    pub const ORDERRECRUIT: i32 =  5;
+    pub const ORDERPROD: i32 =  6;
+    pub const ORDERNEWUNIT: i32 =  7;
+    pub const ORDERNEWSF: i32 =  8;
+    pub const ORDERTRANSFER: i32 =  9;
+    pub const ORDERARTATTACK: i32 =  11;
+    pub const ORDERSEAATTACK: i32 =  12;
+    pub const ORDERSEAARTATTACK: i32 =  13;
+    pub const ORDERAIRSTRIKE: i32 =  14;
+    pub const ORDERBOMB: i32 =  15;
+    pub const ORDERINTERNALAA: i32 =  16;
+    pub const ORDERINTERNALDOGFIGHT: i32 =  17;
+    pub const ORDERSTRATEGIC: i32 =  18;
+    pub const ORDERPARADROP: i32 =  19;
+    pub const ORDERLOAD: i32 =  20;
+    pub const ORDERUNLOAD: i32 =  21;
+    pub const ORDERPOOL: i32 =  22;
+    pub const ORDERRESEARCH: i32 =  23;
+    pub const ORDERDIP: i32 =  24;
+    pub const ORDERCONSTRUCT: i32 =  25;
+    pub const ORDERHISTORY: i32 =  26;
+    pub const ORDERHISTORYACAP: i32 =  27;
+    pub const ORDERHISTORYACAP2: i32 =  28;
+    pub const ORDERHISTORYACAP3: i32 =  29;
+    pub const ORDERPREFS: i32 =  30;
+    pub const ORDERINTERNALREBEL: i32 =  31;
+    pub const ORDERSTATS: i32 =  32;
+    pub const ORDERAIRRECON: i32 =  33;
+    pub const ORDERPEOPLETRANSFER: i32 =  34;
+    pub const ORDERBLOW: i32 =  35;
+    pub const ORDERINFRA: i32 =  36;
+    pub const ORDERBUILD: i32 =  37;
+    pub const ORDERVIEWSUPPLY: i32 =  38;
+    pub const ORDERACAP: i32 =  39;
+    pub const ORDERAIRSUPPLY: i32 =  40;
+    pub const ORDERSURRENDER: i32 =  41;
+    pub const ORDERAIRLIFT: i32 =  42;
+    pub const ORDERAITEST: i32 =  43;
+    pub const ORDERNEWUNIT2: i32 =  44;
+    pub const ORDEROFFICER: i32 =  45;
+    pub const ORDERCHANGEMODEL: i32 =  46;
+    pub const ORDERMODELDESIGNER: i32 =  47;
+    pub const ORDERGROUPMOVE: i32 =  48;
+    pub const ORDERGROUPSTRATEGIC: i32 =  49;
+    pub const ORDERNEXT: i32 =  50;
+    pub const ORDERSUPPLYLAYER: i32 =  51;
+    pub const ORDERSFDESIGN: i32 =  52;
+    pub const ORDERTRAFIC: i32 =  53;
+    pub const ORDERZONEBORDER: i32 =  54;
+    pub const ORDERAIRBRIDGE: i32 =  55;
     pub CounterAlpha: i32;
     pub CounterAlpha2: i32;
-    pub Bitmap StratMap;
-    pub Bitmap MiniMap;
+    pub StratMap: Bitmap;
+    pub MiniMap: Bitmap;
     pub MiniMapOffset: i32;
     pub ProdFlap: bool;
     pub InEditor: bool;
@@ -536,11 +536,11 @@ namespace WindowsApplication1
     pub UDSpopupText: String;
     pub UDSpopupMode: i32;
     pub UDSinputCounter: i32;
-    pub string[] UDSinputKey;
-    pub string[] UDSinputValue;
+    pub UDSinputKey: Vec<String>;
+    pub UDSinputValue: Vec<String>;
     pub TempUDSinputCounter: i32;
-    pub string[] TempUDSinputKey;
-    pub string[] TempUDSinputValue;
+    pub TempUDSinputKey: Vec<String>;
+    pub TempUDSinputValue: Vec<String>;
     pub interfaceCue: i32;
     pub dssLastDominant: i32;
     pub dssLastEngineAction: i32;
@@ -556,9 +556,9 @@ namespace WindowsApplication1
     pub layerLisPreview_LogMode: i32;
     pub layerLis_LogType: i32;
     pub layerLis_TraficWindowOpen: i32;
-    pub int[,] tempZoneTest;
+    pub tempZoneTest: Vec<i32>;
     pub tempOtherTest: Vec<i32>;
-    pub string[] tempOtherTestText;
+    pub tempOtherTestText: Vec<String>;
     pub layerUnits: bool;
     pub inRandomScreen: bool;
     pub UDSpushedPopupText: String;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
     pub Dc4_RightWindow_Expand8: bool;
     pub Dc4_RightWindow_Expand9: bool;
     pub Dc4_Card_Select_Feedback: String;
-    pub Color dc4_card_select_feedback_Color;
+    pub dc4_card_select_feedback_Color: Color;
     pub dc4_card_select_feedback_short: String;
     pub Dc4_temp_cardtab_cache: bool;
     pub dc4_temp_warning1done: bool;
@@ -590,11 +590,11 @@ namespace WindowsApplication1
     pub se1_map_data3cache_set: bool;
     pub skipGfxDetail: bool;
 
-    pub void UDSClearInput() => this.UDSinputCounter = -1;
+    pub fn UDSClearInput() => this.UDSinputCounter = -1;
 
-    pub void TempUDSClearInput() => this.TempUDSinputCounter = -1;
+    pub fn TempUDSClearInput() => this.TempUDSinputCounter = -1;
 
-    pub void UDSAddInput(string tkey, string tvalue)
+    pub fn UDSAddInput(string tkey, string tvalue)
     {
       this += 1.UDSinputCounter;
       this.UDSinputKey = (string[]) Utils.CopyArray((Array) this.UDSinputKey, (Array) new string[this.UDSinputCounter + 1 + 1]);
@@ -603,7 +603,7 @@ namespace WindowsApplication1
       this.UDSinputValue[this.UDSinputCounter] = tvalue;
     }
 
-    pub void TempUDSAddInput(string tkey, string tvalue)
+    pub fn TempUDSAddInput(string tkey, string tvalue)
     {
       this += 1.TempUDSinputCounter;
       this.TempUDSinputKey = (string[]) Utils.CopyArray((Array) this.TempUDSinputKey, (Array) new string[this.TempUDSinputCounter + 1 + 1]);
@@ -612,7 +612,7 @@ namespace WindowsApplication1
       this.TempUDSinputValue[this.TempUDSinputCounter] = tvalue;
     }
 
-    pub void UDSAddInput(string tkey, int tvalue)
+    pub fn UDSAddInput(string tkey, tvalue: i32)
     {
       let mut udSinputCounter: i32 =  this.UDSinputCounter;
       for (let mut index: i32 =  0; index <= udSinputCounter; index += 1)
@@ -730,7 +730,7 @@ namespace WindowsApplication1
       this.initialSet();
     }
 
-    pub void initialSet()
+    pub fn initialSet()
     {
       this.DoCardSlot = -1;
       this.allowMetrics = false;
@@ -1424,7 +1424,7 @@ namespace WindowsApplication1
       this.useLeftRightClickMode = true;
     }
 
-    pub void Save(string filename)
+    pub fn Save(string filename)
     {
       StreamWriter text = File.CreateText(filename);
       text.WriteLine(this.PrefShowFOW);

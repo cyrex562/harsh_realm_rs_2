@@ -12,13 +12,13 @@ namespace WindowsApplication1
 {
   pub class HistoryScreenClass : ScreenClass
   {
-     int wtop;
-     int wup;
-     int wdown;
-     int wres;
-     int offsetx;
+     wtop: i32;
+     wup: i32;
+     wdown: i32;
+     wres: i32;
+     offsetx: i32;
 
-    pub HistoryScreenClass( GameClass tGame)
+    pub HistoryScreenClass( tGame: GameClass)
       : base( tGame, tGame.BACKGROUND1MARC)
     {
       let mut num: i32 =   Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
@@ -36,7 +36,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -160,7 +160,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

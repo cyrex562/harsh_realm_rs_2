@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.videoMode = tVideoMode;
     }
 
-    pub ButtonPartClass(Bitmap tbmpnr, tDescript: String = "")
+    pub ButtonPartClass(tbmpnr: Bitmap, tDescript: String = "")
       : base(tbmpnr.Width, tbmpnr.Height)
     {
       this.OwnBitmap = (Bitmap) tbmpnr.Clone();
@@ -48,7 +48,7 @@ namespace WindowsApplication1
       this.Descript = tDescript;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!this.overrule)
@@ -58,15 +58,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local1 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local2 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local2: Bitmap = ref bitmap;
             DrawMod.DrawSimple(ref local1, ref local2, 0, 0);
           }
           else
           {
             ref Graphics local3 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local4 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local4: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             DrawMod.DrawScaled(ref local3, ref local4, 0, 0, resizex, resizey);
@@ -77,15 +77,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local5 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local6 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local6: Bitmap = ref bitmap;
             DrawMod.Draw(ref local5, ref local6, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
           }
           else
           {
             ref Graphics local7 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local8 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local8: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -98,15 +98,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local9 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local10 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local10: Bitmap = ref bitmap;
             DrawMod.Draw(ref local9, ref local10, 0, 0, 0.0f, 0.0f, 0.0f, 0.5f);
           }
           else
           {
             ref Graphics local11 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local12 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local12: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -119,15 +119,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local13 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local14 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local14: Bitmap = ref bitmap;
             DrawMod.Draw(ref local13, ref local14, 0, 0, -0.3f, -0.3f, -0.3f, 1f);
           }
           else
           {
             ref Graphics local15 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local16 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local16: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -140,15 +140,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local17 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local18 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local18: Bitmap = ref bitmap;
             DrawMod.Draw(ref local17, ref local18, 0, 0, -0.6f, -0.6f, -0.6f, 1f);
           }
           else
           {
             ref Graphics local19 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local20 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local20: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -196,7 +196,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!this.overrule)
@@ -206,15 +206,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local1 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local2 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local2: Bitmap = ref bitmap;
             DrawMod.Draw(ref local1, ref local2, 0, 0, 0.2f, 0.2f, 0.2f, 1f);
           }
           else
           {
             ref Graphics local3 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local4 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local4: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -227,15 +227,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local5 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local6 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local6: Bitmap = ref bitmap;
             DrawMod.Draw(ref local5, ref local6, 0, 0, 0.0f, 0.0f, 0.0f, 1f);
           }
           else
           {
             ref Graphics local7 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local8 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local8: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
@@ -248,15 +248,15 @@ namespace WindowsApplication1
           if (this.resizex == -1)
           {
             ref Graphics local9 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local10 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local10: Bitmap = ref bitmap;
             DrawMod.Draw(ref local9, ref local10, 0, 0, 0.0f, 0.0f, 0.0f, 1f);
           }
           else
           {
             ref Graphics local11 = ref Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-            ref Bitmap local12 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+            ref local12: Bitmap = ref bitmap;
             let mut resizex: i32 =  this.resizex;
             let mut resizey: i32 =  this.resizey;
             let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);

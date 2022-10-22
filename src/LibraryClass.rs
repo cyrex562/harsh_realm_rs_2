@@ -22,11 +22,11 @@ namespace WindowsApplication1
 
     pub LibraryClass()
     {
-      this.name = "New Lib";
-      this.version = 1;
-      this.creator = "Unknown";
-      this.information = "No info";
-      this.lastFileLocation = "";
+      self.name = "New Lib";
+      self.version = 1;
+      self.creator = "Unknown";
+      self.information = "No info";
+      self.lastFileLocation = "";
     }
 
     pub LibraryClass Clone()
@@ -40,20 +40,20 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("name",  this.name);
-      info.AddValue("version", this.version);
-      info.AddValue("creator",  this.creator);
-      info.AddValue("information",  this.information);
-      info.AddValue("lastFileLocation",  this.lastFileLocation);
+      info.AddValue("name",  self.name);
+      info.AddValue("version", self.version);
+      info.AddValue("creator",  self.creator);
+      info.AddValue("information",  self.information);
+      info.AddValue("lastFileLocation",  self.lastFileLocation);
     }
 
     protected LibraryClass(SerializationInfo info, StreamingContext context)
     {
-      this.name = info.GetString(nameof (name));
-      this.version = info.GetInt32(nameof (version));
-      this.creator = info.GetString(nameof (creator));
-      this.information = info.GetString(nameof (information));
-      this.lastFileLocation = info.GetString(nameof (lastFileLocation));
+      self.name = info.GetString(nameof (name));
+      self.version = info.GetInt32(nameof (version));
+      self.creator = info.GetString(nameof (creator));
+      self.information = info.GetString(nameof (information));
+      self.lastFileLocation = info.GetString(nameof (lastFileLocation));
     }
   }
 }

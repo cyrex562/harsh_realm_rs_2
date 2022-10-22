@@ -12,92 +12,92 @@ namespace WindowsApplication1
 {
   pub class ConnectionWindowClass : WindowClass
   {
-     int ConTypeListId;
+     ConTypeListId: i32;
      ListClass ConTypeListObj;
-     int BAddConTypeId;
-     int BAddConTypeTextId;
-     int BAddConType2Id;
-     int BAddConTypeText2Id;
-     int BNameId;
-     int BNameTextId;
-     int OptionsListId;
+     BAddConTypeId: i32;
+     BAddConTypeTextId: i32;
+     BAddConType2Id: i32;
+     BAddConTypeText2Id: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int BRemoveConTypeId;
-     int BRemoveConTypeTextId;
-     int BRemoveConTypeId2;
-     int BRemoveConTypeTextId2;
-     int BDrawId;
-     int BDrawTextId;
-     int BLTNrId;
-     int BLTTextId;
-     int BLTSpriteId;
-     int BLTSpriteTextId;
-     int BuildGroundListId;
+     BRemoveConTypeId: i32;
+     BRemoveConTypeTextId: i32;
+     BRemoveConTypeId2: i32;
+     BRemoveConTypeTextId2: i32;
+     BDrawId: i32;
+     BDrawTextId: i32;
+     BLTNrId: i32;
+     BLTTextId: i32;
+     BLTSpriteId: i32;
+     BLTSpriteTextId: i32;
+     BuildGroundListId: i32;
      ListClass BuildGroundListObj;
-     int ChangeBGId;
-     int ChangeBGText;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int b7id;
-     int b7textid;
-     int b8id;
-     int b8textid;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int B12Id;
-     int B12TextId;
-     int B13Id;
-     int B13TextId;
-     int B14Id;
-     int B14TextId;
-     int B15Id;
-     int B15TextId;
-     int B16Id;
-     int B16TextId;
-     int B17Id;
-     int B17TextId;
-     int B18Id;
-     int B18TextId;
-     int B19Id;
-     int B19TextId;
-     int B21Id;
-     int B21TextId;
-     int B22Id;
-     int B22TextId;
-     int B23Id;
-     int B23TextId;
+     ChangeBGId: i32;
+     ChangeBGText: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     b7id: i32;
+     b7textid: i32;
+     b8id: i32;
+     b8textid: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     B12Id: i32;
+     B12TextId: i32;
+     B13Id: i32;
+     B13TextId: i32;
+     B14Id: i32;
+     B14TextId: i32;
+     B15Id: i32;
+     B15TextId: i32;
+     B16Id: i32;
+     B16TextId: i32;
+     B17Id: i32;
+     B17TextId: i32;
+     B18Id: i32;
+     B18TextId: i32;
+     B19Id: i32;
+     B19TextId: i32;
+     B21Id: i32;
+     B21TextId: i32;
+     B22Id: i32;
+     B22TextId: i32;
+     B23Id: i32;
+     B23TextId: i32;
      int[] Bitemid;
      int[] bitemtextid;
      int[] Bupgid;
      int[] bupgtextid;
-     int PGListId;
+     PGListId: i32;
      ListClass PGListObj;
-     int B3Id;
-     int B3TextId;
-     int IGListId;
+     B3Id: i32;
+     B3TextId: i32;
+     IGListId: i32;
      ListClass IGListObj;
-     int B4Id;
-     int B4TextId;
-     int LTListId;
+     B4Id: i32;
+     B4TextId: i32;
+     LTListId: i32;
      ListClass LTListObj;
-     int B20Id;
-     int B20TextId;
-     int ConTypeNr;
-     int TabSheetNr;
-     int DetailNr;
+     B20Id: i32;
+     B20TextId: i32;
+     ConTypeNr: i32;
+     TabSheetNr: i32;
+     DetailNr: i32;
      string ss;
 
-    pub ConnectionWindowClass(ref GameClass tGame)
+    pub ConnectionWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Connections")
     {
       this.Bitemid = new int[5];
@@ -110,9 +110,9 @@ namespace WindowsApplication1
       this.MakeConTypeListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeConTypeTypeItemGUI();
+    pub fn DoRefresh() => this.MakeConTypeTypeItemGUI();
 
-     void MakeConTypeListGUI(int tConTypenr)
+     void MakeConTypeListGUI(tConTypenr: i32)
     {
       if (this.ConTypeListId > 0)
         this.RemoveSubPart(this.ConTypeListId);
@@ -132,9 +132,9 @@ namespace WindowsApplication1
         ListClass conTypeListObj = this.ConTypeListObj;
         let mut conTypeNr: i32 =  this.ConTypeNr;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local2 = ref font;
+        ref local1: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local2: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(conTypeListObj, 9, 200, conTypeNr, game, tHeader: "Connections", tbackbitmap: (ref local1), bbx: 10, bby: 50, overruleFont: (ref local2));
         this.ConTypeListId = this.AddSubPart(ref tsubpart, 10, 50, 200, 192, 0);
         this.MakeConTypeTypeItemGUI();
@@ -326,7 +326,7 @@ namespace WindowsApplication1
       this.RemoveSubPart(this.LTListId);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -360,7 +360,7 @@ namespace WindowsApplication1
               let mut x1: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
               if (x1 > -2 & x1 <= this.game.Data.MapObj[map].MapWidth)
               {
-                int y1;
+                y1: i32;
                 if (x1 > -1)
                 {
                   y1 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));
@@ -391,7 +391,7 @@ namespace WindowsApplication1
               let mut x2: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
               if (x2 > -2 & x2 <= this.game.Data.MapObj[map].MapWidth)
               {
-                int y2;
+                y2: i32;
                 if (x2 > -1)
                 {
                   y2 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));

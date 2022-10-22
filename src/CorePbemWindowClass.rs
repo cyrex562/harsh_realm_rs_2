@@ -17,50 +17,50 @@ namespace WindowsApplication1
 {
   pub class CorePbemWindowClass : WindowClass
   {
-     int BackId;
-     int PassId;
-     int PassTextId;
-     int selectedid;
-     int RegisterId;
-     int RegisterId2;
-     int CancelId;
-     int Cancel2Id;
-     int ClaimId;
-     int Claim2Id;
-     int LoginId;
-     int LoginId2;
-     int Refresh2id;
-     int RefreshId;
-     int LogOutId;
-     int LogOut2Id;
-     int challengeId;
-     int challenge2Id;
-     int AcceptChallengeId;
-     int AcceptChallengeId2;
-     int PreviewId;
-     int Preview2Id;
-     int CheckPlayerId;
-     int CheckPlayerId2;
-     int PlayTurnId;
-     int textid;
-     int PlayTurn2id;
-     int ch1;
-     int ch1b;
-     int ch2b;
-     int ch3b;
-     int ch4b;
-     int ch5b;
-     int ch2;
-     int ch3;
-     int ch4;
-     int ch5;
-     int ChallengeListId;
+     BackId: i32;
+     PassId: i32;
+     PassTextId: i32;
+     selectedid: i32;
+     RegisterId: i32;
+     RegisterId2: i32;
+     CancelId: i32;
+     Cancel2Id: i32;
+     ClaimId: i32;
+     Claim2Id: i32;
+     LoginId: i32;
+     LoginId2: i32;
+     Refresh2id: i32;
+     RefreshId: i32;
+     LogOutId: i32;
+     LogOut2Id: i32;
+     challengeId: i32;
+     challenge2Id: i32;
+     AcceptChallengeId: i32;
+     AcceptChallengeId2: i32;
+     PreviewId: i32;
+     Preview2Id: i32;
+     CheckPlayerId: i32;
+     CheckPlayerId2: i32;
+     PlayTurnId: i32;
+     textid: i32;
+     PlayTurn2id: i32;
+     ch1: i32;
+     ch1b: i32;
+     ch2b: i32;
+     ch3b: i32;
+     ch4b: i32;
+     ch5b: i32;
+     ch2: i32;
+     ch3: i32;
+     ch4: i32;
+     ch5: i32;
+     ChallengeListId: i32;
      ListClass ChallengeListObj;
-     int gamenr;
+     gamenr: i32;
      bool AcceptUsePass;
-     int currentTab;
+     currentTab: i32;
 
-    pub CorePbemWindowClass(ref GameClass tGame)
+    pub CorePbemWindowClass(ref tGame: GameClass)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND1MARC)
     {
       this.ChallengeListObj = ListClass::new();
@@ -86,13 +86,13 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.gamenr = -1;
       this.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       SizeF sizeF = SizeF::new();
       this.selectedid = -1;
@@ -338,7 +338,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawYourChallengesTab(Graphics g)
+    pub fn DrawYourChallengesTab(Graphics g)
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
@@ -371,15 +371,15 @@ namespace WindowsApplication1
       ListClass challengeListObj = this.ChallengeListObj;
       let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(challengeListObj, 18, 680, tlistselect, game, tHeaderCenter: false, tShowPair: true, tValueWidth: 490, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 60, bby: 130, tMarcStyle: true, overruleFont: (ref local2));
       this.ChallengeListId = this.AddSubPart(ref tsubpart, 60, 130, 680, 304, 0);
       this.DrawYourChallengesTabRefresh();
     }
 
-    pub void DrawYourChallengesTabRefresh()
+    pub fn DrawYourChallengesTabRefresh()
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.CancelId > 0)
@@ -435,7 +435,7 @@ namespace WindowsApplication1
         if (index1 > -1)
         {
           InputStr: String = Strings.Mid(this.game.EditObj.ServerChallengeList[index1].miscData, 33, 8);
-          int num;
+          num: i32;
           try
           {
             num = (int) Math.Round(Conversion.Val(InputStr));
@@ -467,7 +467,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawOtherChallengesTab(Graphics g)
+    pub fn DrawOtherChallengesTab(Graphics g)
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
@@ -497,15 +497,15 @@ namespace WindowsApplication1
       ListClass challengeListObj = this.ChallengeListObj;
       let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(challengeListObj, 18, 680, tlistselect, game, tHeaderCenter: false, tShowPair: true, tValueWidth: 490, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 60, bby: 130, tMarcStyle: true, overruleFont: (ref local2));
       this.ChallengeListId = this.AddSubPart(ref tsubpart, 60, 130, 680, 304, 0);
       this.DrawOtherChallengesTabRefresh();
     }
 
-    pub void DrawOtherChallengesTabRefresh()
+    pub fn DrawOtherChallengesTabRefresh()
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.AcceptChallengeId > 0)
@@ -559,7 +559,7 @@ namespace WindowsApplication1
         tText = "-error with this challenge-";
         this.game.EditObj.PbemChallengeMiscData = this.game.EditObj.ServerChallengeList[index1].miscData;
         InputStr: String = Strings.Mid(this.game.EditObj.PbemChallengeMiscData, 33, 8);
-        int num;
+        num: i32;
         try
         {
           num = (int) Math.Round(Conversion.Val(InputStr));
@@ -651,7 +651,7 @@ namespace WindowsApplication1
       this.textid = this.AddSubPart(ref tsubpart1, 60, 450, 680, 160, 0);
     }
 
-    pub void DrawCurrentGamesTab(Graphics g)
+    pub fn DrawCurrentGamesTab(Graphics g)
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
@@ -704,15 +704,15 @@ namespace WindowsApplication1
       ListClass challengeListObj = this.ChallengeListObj;
       let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(challengeListObj, 18, 680, tlistselect, game, tHeaderCenter: false, tShowPair: true, tValueWidth: 510, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 60, bby: 130, tMarcStyle: true, overruleFont: (ref local2));
       this.ChallengeListId = this.AddSubPart(ref tsubpart, 60, 130, 680, 304, 0);
       this.DrawCurrentGamesTabRefresh();
     }
 
-    pub void DrawCurrentGamesTabRefresh()
+    pub fn DrawCurrentGamesTabRefresh()
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.PlayTurnId > 0)
@@ -775,7 +775,7 @@ namespace WindowsApplication1
             this.game.EditObj.PbemChallengeMiscData = "";
             if (Operators.CompareString(Strings.UCase(this.game.EditObj.ServerRunningGameList[index].playerToUserName), Strings.UCase(this.game.EditObj.PbemUserName), false) != 0)
               flag3 = true;
-            int num;
+            num: i32;
             try
             {
               num = (int) Math.Round(Conversion.Val(Strings.Mid(this.game.EditObj.ServerRunningGameList[index].MiscData, 33, 8)));
@@ -852,7 +852,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DrawFinishedGamesTab(Graphics g)
+    pub fn DrawFinishedGamesTab(Graphics g)
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
@@ -905,15 +905,15 @@ namespace WindowsApplication1
       ListClass challengeListObj = this.ChallengeListObj;
       let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(challengeListObj, 18, 680, tlistselect, game, tHeaderCenter: false, tShowPair: true, tValueWidth: 510, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 60, bby: 130, tMarcStyle: true, overruleFont: (ref local2));
       this.ChallengeListId = this.AddSubPart(ref tsubpart, 60, 130, 680, 304, 0);
       this.DrawFinishedGamesTabRefresh();
     }
 
-    pub void DrawFinishedGamesTabRefresh()
+    pub fn DrawFinishedGamesTabRefresh()
     {
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.PlayTurnId > 0)
@@ -994,7 +994,7 @@ namespace WindowsApplication1
       this.textid = this.AddSubPart(ref tsubpart, 60, 450, 680, 160, 0);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (nr != 27)
@@ -1004,7 +1004,7 @@ namespace WindowsApplication1
       return windowReturnClass2;
     }
 
-    pub void DrawTab0(Graphics g, bool active = false)
+    pub fn DrawTab0(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =  40;
@@ -1012,8 +1012,8 @@ namespace WindowsApplication1
       if (active)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local2: Bitmap = ref bitmap;
         let mut x2: i32 =  x1;
         let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
@@ -1021,8 +1021,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local4: Bitmap = ref bitmap;
         let mut x3: i32 =  x1;
         let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
@@ -1035,7 +1035,7 @@ namespace WindowsApplication1
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are finished.", 100);
     }
 
-    pub void DrawTab1(Graphics g, bool active = false)
+    pub fn DrawTab1(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =  210;
@@ -1043,8 +1043,8 @@ namespace WindowsApplication1
       if (active)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local2: Bitmap = ref bitmap;
         let mut x2: i32 =  x1;
         let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
@@ -1052,8 +1052,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local4: Bitmap = ref bitmap;
         let mut x3: i32 =  x1;
         let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
@@ -1066,7 +1066,7 @@ namespace WindowsApplication1
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are currently running.", 101);
     }
 
-    pub void DrawTab2(Graphics g, bool active = false)
+    pub fn DrawTab2(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =  380;
@@ -1074,8 +1074,8 @@ namespace WindowsApplication1
       if (active)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local2: Bitmap = ref bitmap;
         let mut x2: i32 =  x1;
         let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
@@ -1083,8 +1083,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local4: Bitmap = ref bitmap;
         let mut x3: i32 =  x1;
         let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
@@ -1097,7 +1097,7 @@ namespace WindowsApplication1
       this.AddMouse(ref trect, "", "See challenges for PBEM games that you issued..", 102);
     }
 
-    pub void DrawTab3(Graphics g, bool active = false)
+    pub fn DrawTab3(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut x1: i32 =  550;
@@ -1105,8 +1105,8 @@ namespace WindowsApplication1
       if (active)
       {
         ref Graphics local1 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local2: Bitmap = ref bitmap;
         let mut x2: i32 =  x1;
         let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
@@ -1114,8 +1114,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        ref local4: Bitmap = ref bitmap;
         let mut x3: i32 =  x1;
         let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
@@ -1253,7 +1253,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)

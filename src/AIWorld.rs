@@ -11,7 +11,7 @@ namespace WindowsApplication1
 {
   pub class AIWorld
   {
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
     pub AIMatrix owner;
     pub AIMatrix frontline;
     pub AIMatrix troops;
@@ -53,7 +53,7 @@ namespace WindowsApplication1
     }
 
     pub AIWorld(
-      ref DC2AIClass tai,
+      ref tai: DC2AIClass,
       AIFrontList tfrontList,
       float tFriendlyMod = 1f,
       float tAbsoluteFriendlyMod = 0.0f,
@@ -100,8 +100,8 @@ namespace WindowsApplication1
         {
           if (this.ai.CustomCalls.HasCustumCalls())
           {
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut index3: i32 =  x;
             let mut index4: i32 =  index3;
             let mut index5: i32 =  y;
@@ -205,7 +205,7 @@ namespace WindowsApplication1
       return aiWorld;
     }
 
-    pub void SetHalfScore(int tround, AIFrontList tPlan) => this.halfScore[tround] = this.GetScore("", false, tPlan, true);
+    pub fn SetHalfScore(int tround, AIFrontList tPlan) => this.halfScore[tround] = this.GetScore("", false, tPlan, true);
 
     pub int SetStartValues()
     {
@@ -375,9 +375,9 @@ namespace WindowsApplication1
       return score;
     }
 
-    pub void SetOwner() => this.owner = this.ai.SetOwnerMatrix(0, 0, this.ai.map.MapWidth, this.ai.map.MapHeight);
+    pub fn SetOwner() => this.owner = this.ai.SetOwnerMatrix(0, 0, this.ai.map.MapWidth, this.ai.map.MapHeight);
 
-    pub void CellularAutomatonSetFriendlySupply()
+    pub fn CellularAutomatonSetFriendlySupply()
     {
       this.friendlySupply = new AIMatrix(ref this.ai);
       this.friendlySupply.SetAllValuesTo(9999);
@@ -392,7 +392,7 @@ namespace WindowsApplication1
       this.friendlySupply.ExpandAsSimplifiedSupplyMatrix(this.ai.VAR_SUPPLY_FRIENDLY_MOVETYPE, ref this.owner, 1, (AICoordinateMatrix) null);
     }
 
-    pub void CellularAutomatonSetFriendlySupplyRoute()
+    pub fn CellularAutomatonSetFriendlySupplyRoute()
     {
       this.friendlySupplyRoute = new AIMatrix(ref this.ai);
       this.friendlySupplyRoute.SetAllValuesTo(9999);
@@ -407,7 +407,7 @@ namespace WindowsApplication1
       this.friendlySupplyRoute.ExpandAsSimplifiedSupplyRouteMatrix(this.ai.VAR_SUPPLY_FRIENDLY_MOVETYPE, ref this.owner, 1);
     }
 
-    pub void CellularAutomatonSetEnemySupply()
+    pub fn CellularAutomatonSetEnemySupply()
     {
       this.enemySupply = new AIMatrix(ref this.ai);
       this.enemySupply.SetAllValuesTo(9999);
@@ -429,15 +429,15 @@ namespace WindowsApplication1
       this.enemySupply.ExpandAsSimplifiedSupplyMatrix(this.ai.VAR_SUPPLY_ENEMY_MOVETYPE, ref this.owner, 2, (AICoordinateMatrix) null);
     }
 
-    pub void CellularAutomatonEnemyNextTurn() => this.CellularAutomatonSetEnemySupply();
+    pub fn CellularAutomatonEnemyNextTurn() => this.CellularAutomatonSetEnemySupply();
 
-    pub void CellularAutomatonFriendlyNextTurn()
+    pub fn CellularAutomatonFriendlyNextTurn()
     {
       this.CellularAutomatonSetFriendlySupply();
       this.CellularAutomatonSetFriendlySupplyRoute();
     }
 
-    pub void CellularAutomatonEnemyForces()
+    pub fn CellularAutomatonEnemyForces()
     {
       if (this.ai.VAR_ENEMYMOVE_PROGNOSIS_MODE <= 1)
       {
@@ -464,7 +464,7 @@ namespace WindowsApplication1
       this.CellularAutomatonMoveEnemyTowardsFront(1, this.ai.VAR_FRONTLINE_DEPTH + 1);
     }
 
-    pub void CellularAutomatonStartXIterations(int iterations)
+    pub fn CellularAutomatonStartXIterations(int iterations)
     {
       let mut num: i32 =  iterations;
       for (let mut iteration: i32 =  1; iteration <= num; iteration += 1)
@@ -483,7 +483,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonSetStats()
+    pub fn CellularAutomatonSetStats()
     {
       let mut counter: i32 =  this.frontList.Counter;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -565,7 +565,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonFriendlyForces(AIFrontList frontList, int iteration)
+    pub fn CellularAutomatonFriendlyForces(AIFrontList frontList, int iteration)
     {
       this.CellularAutomatonMoveTowardsFront(3, this.ai.VAR_FRONTLINE_DEPTH);
       let mut counter: i32 =  frontList.Counter;
@@ -597,7 +597,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonAttack(AIFront front, int MAX_STEPS)
+    pub fn CellularAutomatonAttack(AIFront front, int MAX_STEPS)
     {
       int num1;
       int num2;
@@ -646,8 +646,8 @@ namespace WindowsApplication1
                   let mut lossForAttacker: i32 =  this.CellularAutomatonGetLossForAttacker(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false), this.ai.map.HexObj[x, y].LandscapeType, num3, totalPowerOn1);
                   let mut lossForDefender: i32 =  this.CellularAutomatonGetLossForDefender(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false));
                   this.CellularAutomatonModifyTroopsOn(x, y, front, lossForAttacker, aiMatrix);
-                  int[,] numArray1 = this.troops.Value;
-                  int[,] numArray2 = numArray1;
+                  numArray1: Vec<i32> = this.troops.Value;
+                  numArray2: Vec<i32> = numArray1;
                   let mut index4: i32 =  x;
                   let mut index5: i32 =  index4;
                   let mut index6: i32 =  y;
@@ -680,7 +680,7 @@ namespace WindowsApplication1
       while (num1 > 0 & num2 < MAX_STEPS);
     }
 
-    pub void CellularAutomatonEnemyAttack(float attackForceModifier)
+    pub fn CellularAutomatonEnemyAttack(float attackForceModifier)
     {
       let mut num1: i32 =  3;
       let mut num2: i32 =  2;
@@ -779,8 +779,8 @@ namespace WindowsApplication1
                   let mut num14: i32 =  (int) Math.Round( ( lossForDefender * attackForceModifier));
                   this.CellularAutomatonModifyEnemyTroopsOn(x, y, attLoss, aiMatrix);
                   let mut num15: i32 =  (int) Math.Round( this.troops.Value[x, y] / 2.0);
-                  int[,] numArray1 = this.troops.Value;
-                  int[,] numArray2 = numArray1;
+                  numArray1: Vec<i32> = this.troops.Value;
+                  numArray2: Vec<i32> = numArray1;
                   let mut index5: i32 =  x;
                   let mut index6: i32 =  index5;
                   let mut index7: i32 =  y;
@@ -832,8 +832,8 @@ namespace WindowsApplication1
           if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[coordinate.x, coordinate.y].LandscapeType].AIBlock < 1)
           {
             this.offtroops.Value[coordinate.x, coordinate.y] = (int) Math.Round( this.offtroops.Value[coordinate.x, coordinate.y] /  (this.troops.Value[coordinate.x, coordinate.y] + num2));
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut x1: i32 =  coordinate.x;
             let mut index3: i32 =  x1;
             let mut y1: i32 =  coordinate.y;
@@ -873,8 +873,8 @@ namespace WindowsApplication1
           coordinate = this.ai.TempHexNeighbour[x, y, index2];
           if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1)
           {
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut x1: i32 =  coordinate.x;
             let mut index3: i32 =  x1;
             let mut y1: i32 =  coordinate.y;
@@ -997,7 +997,7 @@ namespace WindowsApplication1
       return power;
     }
 
-    pub void CellularAutomatonMoveIn(int x, int y, AIFront front, AIMatrix blocked)
+    pub fn CellularAutomatonMoveIn(int x, int y, AIFront front, AIMatrix blocked)
     {
       let mut index1: i32 =  0;
       do
@@ -1007,16 +1007,16 @@ namespace WindowsApplication1
         {
           let mut ofEnemyNeighbours: i32 =  this.CellularAutomatonGetNumberOfEnemyNeighbours(coordinate.x, coordinate.y);
           let mut num1: i32 =  (int) Math.Round( this.troops.Value[coordinate.x, coordinate.y] /  (ofEnemyNeighbours + 1));
-          int[,] numArray1 = this.troops.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.troops.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index2: i32 =  x;
           let mut index3: i32 =  index2;
           let mut index4: i32 =  y;
           let mut index5: i32 =  index4;
           let mut num2: i32 =  numArray1[index2, index4] + num1;
           numArray2[index3, index5] = num2;
-          int[,] numArray3 = this.troops.Value;
-          int[,] numArray4 = numArray3;
+          numArray3: Vec<i32> = this.troops.Value;
+          numArray4: Vec<i32> = numArray3;
           let mut x1: i32 =  coordinate.x;
           let mut index6: i32 =  x1;
           let mut y1: i32 =  coordinate.y;
@@ -1029,7 +1029,7 @@ namespace WindowsApplication1
       while (index1 <= 5);
     }
 
-    pub void CellularAutomatonEnemyMoveIn(int x, int y, AIMatrix blocked)
+    pub fn CellularAutomatonEnemyMoveIn(int x, int y, AIMatrix blocked)
     {
       let mut index1: i32 =  0;
       do
@@ -1040,16 +1040,16 @@ namespace WindowsApplication1
           let mut friendlyNeighbours: i32 =  this.CellularAutomatonGetNumberOfFriendlyNeighbours(coordinate.x, coordinate.y);
           let mut num1: i32 =  (int) Math.Round( this.troops.Value[coordinate.x, coordinate.y] /  (friendlyNeighbours + 1));
           this.offtroops.Value[x, y] = (int) Math.Round( (this.offtroops.Value[x, y] * this.troops.Value[x, y] + this.offtroops.Value[coordinate.x, coordinate.y] * num1) /  (num1 + this.troops.Value[x, y]));
-          int[,] numArray1 = this.troops.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.troops.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index2: i32 =  x;
           let mut index3: i32 =  index2;
           let mut index4: i32 =  y;
           let mut index5: i32 =  index4;
           let mut num2: i32 =  numArray1[index2, index4] + num1;
           numArray2[index3, index5] = num2;
-          int[,] numArray3 = this.troops.Value;
-          int[,] numArray4 = numArray3;
+          numArray3: Vec<i32> = this.troops.Value;
+          numArray4: Vec<i32> = numArray3;
           let mut x1: i32 =  coordinate.x;
           let mut index6: i32 =  x1;
           let mut y1: i32 =  coordinate.y;
@@ -1119,8 +1119,8 @@ namespace WindowsApplication1
         coordinate = this.ai.TempHexNeighbour[x, y, index2];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1 && Blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int[,] numArray1 = this.troops.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.troops.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut x1: i32 =  coordinate.x;
           let mut index3: i32 =  x1;
           let mut y1: i32 =  coordinate.y;
@@ -1133,7 +1133,7 @@ namespace WindowsApplication1
       while (index2 <= 5);
     }
 
-    pub void CellularAutomatonModifyEnemyTroopsOn(int x, int y, int attLoss, AIMatrix Blocked)
+    pub fn CellularAutomatonModifyEnemyTroopsOn(int x, int y, int attLoss, AIMatrix Blocked)
     {
       let mut index1: i32 =  0;
       Coordinate coordinate;
@@ -1153,8 +1153,8 @@ namespace WindowsApplication1
         coordinate = this.ai.TempHexNeighbour[x, y, index2];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && Blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int[,] numArray1 = this.troops.Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.troops.Value;
+          numArray2: Vec<i32> = numArray1;
           let mut x1: i32 =  coordinate.x;
           let mut index3: i32 =  x1;
           let mut y1: i32 =  coordinate.y;
@@ -1256,7 +1256,7 @@ namespace WindowsApplication1
       return lossForDefender;
     }
 
-    pub void CellularAutomatonReserveDelivery(AIFront front, int iteration)
+    pub fn CellularAutomatonReserveDelivery(AIFront front, int iteration)
     {
       let mut num1: i32 =  4;
       if (front.tempDelivered || front.Distance >= iteration * num1)
@@ -1291,8 +1291,8 @@ namespace WindowsApplication1
         {
           if (this.frontline.Value[index3, index4] == front.TargetFrontID)
           {
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut index5: i32 =  index3;
             let mut index6: i32 =  index5;
             let mut index7: i32 =  index4;
@@ -1301,8 +1301,8 @@ namespace WindowsApplication1
             numArray2[index6, index8] = num6;
             if ( VBMath.Rnd() <  num5)
             {
-              int[,] numArray3 = this.troops.Value;
-              int[,] numArray4 = numArray3;
+              numArray3: Vec<i32> = this.troops.Value;
+              numArray4: Vec<i32> = numArray3;
               let mut index9: i32 =  index3;
               let mut index10: i32 =  index9;
               let mut index11: i32 =  index4;
@@ -1316,7 +1316,7 @@ namespace WindowsApplication1
       front.tempDelivered = true;
     }
 
-    pub void CellularAutomatonGiveEnemyReinforcements()
+    pub fn CellularAutomatonGiveEnemyReinforcements()
     {
       let mut mapWidth1: i32 =  this.ai.map.MapWidth;
       int num1;
@@ -1340,8 +1340,8 @@ namespace WindowsApplication1
         {
           if (this.owner.Value[index3, index4] == 2 & this.troops.Value[index3, index4] > 0 && this.enemySupply.Value[index3, index4] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
           {
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut index5: i32 =  index3;
             let mut index6: i32 =  index5;
             let mut index7: i32 =  index4;
@@ -1350,8 +1350,8 @@ namespace WindowsApplication1
             numArray2[index6, index8] = num4;
             if ( VBMath.Rnd() <  num3)
             {
-              int[,] numArray3 = this.troops.Value;
-              int[,] numArray4 = numArray3;
+              numArray3: Vec<i32> = this.troops.Value;
+              numArray4: Vec<i32> = numArray3;
               let mut index9: i32 =  index3;
               let mut index10: i32 =  index9;
               let mut index11: i32 =  index4;
@@ -1364,7 +1364,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonGiveFriendlyReinforcements()
+    pub fn CellularAutomatonGiveFriendlyReinforcements()
     {
       let mut mapWidth1: i32 =  this.ai.map.MapWidth;
       int num1;
@@ -1388,8 +1388,8 @@ namespace WindowsApplication1
         {
           if (this.frontline.Value[index3, index4] > 0 && this.owner.Value[index3, index4] == 1 && this.friendlySupply.Value[index3, index4] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
           {
-            int[,] numArray1 = this.troops.Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.troops.Value;
+            numArray2: Vec<i32> = numArray1;
             let mut index5: i32 =  index3;
             let mut index6: i32 =  index5;
             let mut index7: i32 =  index4;
@@ -1398,8 +1398,8 @@ namespace WindowsApplication1
             numArray2[index6, index8] = num4;
             if ( VBMath.Rnd() <  num3)
             {
-              int[,] numArray3 = this.troops.Value;
-              int[,] numArray4 = numArray3;
+              numArray3: Vec<i32> = this.troops.Value;
+              numArray4: Vec<i32> = numArray3;
               let mut index9: i32 =  index3;
               let mut index10: i32 =  index9;
               let mut index11: i32 =  index4;
@@ -1412,7 +1412,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonRemoveFrontsWithoutFrontline(ref AIFrontList frontList)
+    pub fn CellularAutomatonRemoveFrontsWithoutFrontline(ref AIFrontList frontList)
     {
       let mut counter: i32 =  frontList.Counter;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -1461,7 +1461,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonMoveTowardsFront(int range, int mindist)
+    pub fn CellularAutomatonMoveTowardsFront(int range, int mindist)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       AIMatrix aiMatrix2 = this.owner.Clone();
@@ -1516,16 +1516,16 @@ namespace WindowsApplication1
               if (num4 > -1)
               {
                 let mut num11: i32 =  this.troops.Value[x1, y1];
-                int[,] numArray1 = this.troops.Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = this.troops.Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index3: i32 =  x1;
                 let mut index4: i32 =  index3;
                 let mut index5: i32 =  y1;
                 let mut index6: i32 =  index5;
                 let mut num12: i32 =  numArray1[index3, index5] - num11;
                 numArray2[index4, index6] = num12;
-                int[,] numArray3 = aiMatrix3.Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = aiMatrix3.Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index7: i32 =  num4;
                 let mut index8: i32 =  index7;
                 let mut index9: i32 =  num5;
@@ -1546,8 +1546,8 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.ai.map.MapHeight;
         for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
         {
-          int[,] numArray5 = this.troops.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = this.troops.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index13: i32 =  index11;
           let mut index14: i32 =  index13;
           let mut index15: i32 =  index12;
@@ -1558,7 +1558,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonMoveEnemyTowardsFront(int range, int mindist)
+    pub fn CellularAutomatonMoveEnemyTowardsFront(int range, int mindist)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       AIMatrix aiMatrix2 = this.owner.Clone();
@@ -1614,16 +1614,16 @@ namespace WindowsApplication1
               {
                 let mut num9: i32 =  this.troops.Value[x1, y1];
                 this.offtroops.Value[index1, index2] = (int) Math.Round( (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2]) +  (this.offtroops.Value[x1, y1] * num9) /  (this.offtroops.Value[index1, index2] + num9));
-                int[,] numArray1 = this.troops.Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = this.troops.Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index5: i32 =  x1;
                 let mut index6: i32 =  index5;
                 let mut index7: i32 =  y1;
                 let mut index8: i32 =  index7;
                 let mut num10: i32 =  numArray1[index5, index7] - num9;
                 numArray2[index6, index8] = num10;
-                int[,] numArray3 = aiMatrix3.Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = aiMatrix3.Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index9: i32 =  index1;
                 let mut index10: i32 =  index9;
                 let mut index11: i32 =  index2;
@@ -1646,8 +1646,8 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.ai.map.MapHeight;
         for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
-          int[,] numArray5 = this.troops.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = this.troops.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index15: i32 =  index13;
           let mut index16: i32 =  index15;
           let mut index17: i32 =  index14;
@@ -1658,7 +1658,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonSpreadOut(AIFront front, int range)
+    pub fn CellularAutomatonSpreadOut(AIFront front, int range)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       float num1 = 0.2f;
@@ -1749,16 +1749,16 @@ namespace WindowsApplication1
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
                 if (this.frontline.Value[index1, index2] == 0)
                   this.frontline.Value[index1, index2] = front.FrontID;
-                int[,] numArray1 = this.troops.Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = this.troops.Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index5: i32 =  x1;
                 let mut index6: i32 =  index5;
                 let mut index7: i32 =  y1;
                 let mut index8: i32 =  index7;
                 let mut num14: i32 =  numArray1[index5, index7] - num13;
                 numArray2[index6, index8] = num14;
-                int[,] numArray3 = aiMatrix4.Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = aiMatrix4.Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index9: i32 =  index1;
                 let mut index10: i32 =  index9;
                 let mut index11: i32 =  index2;
@@ -1781,8 +1781,8 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.ai.map.MapHeight;
         for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
-          int[,] numArray5 = this.troops.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = this.troops.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index15: i32 =  index13;
           let mut index16: i32 =  index15;
           let mut index17: i32 =  index14;
@@ -1793,7 +1793,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonFallBack(AIFront front, int MAX_NUMBER_OF_STEPS)
+    pub fn CellularAutomatonFallBack(AIFront front, int MAX_NUMBER_OF_STEPS)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       let mut num1: i32 =  99999;
@@ -1839,8 +1839,8 @@ namespace WindowsApplication1
               if (index1 > -1)
               {
                 let mut num10: i32 =  this.troops.Value[x1, y1];
-                int[,] numArray1 = this.troops.Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = this.troops.Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index3: i32 =  x1;
                 let mut index4: i32 =  index3;
                 let mut index5: i32 =  y1;
@@ -1849,8 +1849,8 @@ namespace WindowsApplication1
                 numArray2[index4, index6] = num11;
                 if (0 > this.troops.Value[x1, y1])
                   this.troops.Value[x1, y1] = 0;
-                int[,] numArray3 = aiMatrix3.Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = aiMatrix3.Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index7: i32 =  index1;
                 let mut index8: i32 =  index7;
                 let mut index9: i32 =  index2;
@@ -1875,8 +1875,8 @@ namespace WindowsApplication1
         {
           if (0 > this.troops.Value[index11, index12])
             this.troops.Value[index11, index12] = 0;
-          int[,] numArray5 = this.troops.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = this.troops.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index13: i32 =  index11;
           let mut index14: i32 =  index13;
           let mut index15: i32 =  index12;
@@ -1887,7 +1887,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CellularAutomatonEnemySpreadOut(int range)
+    pub fn CellularAutomatonEnemySpreadOut(int range)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       float num1 = 0.2f;
@@ -1959,8 +1959,8 @@ namespace WindowsApplication1
                 if (num13 < num2)
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
                 this.offtroops.Value[index1, index2] = (int) Math.Round( (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2] + this.offtroops.Value[x1, y1] * this.troops.Value[x1, y1]) /  (this.troops.Value[x1, y1] + this.troops.Value[index1, index2]));
-                int[,] numArray1 = this.troops.Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = this.troops.Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index5: i32 =  x1;
                 let mut index6: i32 =  index5;
                 let mut index7: i32 =  y1;
@@ -1969,8 +1969,8 @@ namespace WindowsApplication1
                 numArray2[index6, index8] = num14;
                 if (this.troops.Value[x1, y1] < 1)
                   this.offtroops.Value[x1, y1] = 0;
-                int[,] numArray3 = aiMatrix3.Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = aiMatrix3.Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index9: i32 =  index1;
                 let mut index10: i32 =  index9;
                 let mut index11: i32 =  index2;
@@ -1993,8 +1993,8 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.ai.map.MapHeight;
         for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
-          int[,] numArray5 = this.troops.Value;
-          int[,] numArray6 = numArray5;
+          numArray5: Vec<i32> = this.troops.Value;
+          numArray6: Vec<i32> = numArray5;
           let mut index15: i32 =  index13;
           let mut index16: i32 =  index15;
           let mut index17: i32 =  index14;

@@ -14,23 +14,23 @@ namespace WindowsApplication1
   pub class TurnInfoPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     GameClass game;
+     game: GameClass;
 
-    pub TurnInfoPartClass(GameClass tgame)
+    pub TurnInfoPartClass(tgame: GameClass)
       : base(200, 50)
     {
       self.game = tgame;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       let mut turn: i32 = self.game.Data.Turn;
       let mut round: i32 = self.game.Data.Round;
-      int red2;
-      int green2;
-      int blue2;
+      red2: i32;
+      green2: i32;
+      blue2: i32;
       if (round > 0)
       {
         let mut red: i32 = self.game.Data.RegimeObj[turn].Red;
@@ -39,19 +39,19 @@ namespace WindowsApplication1
         red2 = self.game.Data.RegimeObj[turn].Red2;
         green2 = self.game.Data.RegimeObj[turn].Green2;
         blue2 = self.game.Data.RegimeObj[turn].Blue2;
-        Color c1 = Color.FromArgb( byte.MaxValue, red, green, blue);
-        Color c2 = Color.FromArgb(150, red, green, blue);
+        c1: Color = Color.FromArgb( byte.MaxValue, red, green, blue);
+        c2: Color = Color.FromArgb(150, red, green, blue);
         DrawMod.DrawBlockGradient( Expression, 0, 0, 200, 50, c1, c2);
       }
       else
       {
-        Color c1 = Color.FromArgb( byte.MaxValue, 180, 180, 180);
-        Color c2 = Color.FromArgb(150, 90, 90, 90);
+        c1: Color = Color.FromArgb( byte.MaxValue, 180, 180, 180);
+        c2: Color = Color.FromArgb(150, 90, 90, 90);
         DrawMod.DrawBlockGradient( Expression, 0, 0, 200, 50, c1, c2);
       }
       if (round > 0)
       {
-        Color c = Color.FromArgb( byte.MaxValue, red2, green2, blue2);
+        c: Color = Color.FromArgb( byte.MaxValue, red2, green2, blue2);
         string str;
         if (self.game.Data.AlternateRound == -1)
         {
@@ -89,7 +89,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Color c = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+        c: Color = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         str: String = "Editor Mode";
         SizeF sizeF2 = Expression.MeasureString(str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel));
         DrawMod.DrawTextColoured( Expression, str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(100.0 -  sizeF2.Width / 2.0), 5, c);
@@ -99,11 +99,11 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( Expression))

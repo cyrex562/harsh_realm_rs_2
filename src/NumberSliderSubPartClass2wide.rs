@@ -14,22 +14,22 @@ namespace WindowsApplication1
 {
   pub class NumberSliderSubPartClass2wide : SubPartClass
   {
-     Font OwnFont;
-     int Width;
+     OwnFont: Font;
+     Width: i32;
      string prefix;
      string suffix;
-     int minval;
-     int maxval;
-     int curval;
-     int smallchange;
-     GameClass game;
-     int bx;
-     int by;
-     Bitmap backbitmap;
-     int clickscroll;
+     minval: i32;
+     maxval: i32;
+     curval: i32;
+     smallchange: i32;
+     game: GameClass;
+     bx: i32;
+     by: i32;
+     backbitmap: Bitmap;
+     clickscroll: i32;
      bool Marc;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -38,16 +38,16 @@ namespace WindowsApplication1
     }
 
     pub NumberSliderSubPartClass2wide(
-      GameClass tgame,
+      tgame: GameClass,
       string tprefix,
       string tsuffix,
-      int twidth,
-      int tminval,
-      int tmaxval,
-      int startval,
+      twidth: i32,
+      tminval: i32,
+      tmaxval: i32,
+      startval: i32,
       bool systemfont = false,
       let mut tsmallchange: i32 =  1,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool tMarc = false)
@@ -81,7 +81,7 @@ namespace WindowsApplication1
         this.OwnFont = this.game.VicFont3;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       if (num2 < 0)
         num2 = 0;
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.VSLIDERBIG);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.VSLIDERBIG);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 =  120 + num2;
       DrawMod.DrawSimple( local1,  local2, x1, 20);
@@ -135,7 +135,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (!(this.Scroller | this.clickscroll == 1))
         return -1;
@@ -151,7 +151,7 @@ namespace WindowsApplication1
       return this.curval;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       if (this.clickscroll != 1)
         return false;
@@ -166,7 +166,7 @@ namespace WindowsApplication1
       return true;
     }
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       let mut curval: i32 =  this.curval;
       this.clickscroll = 0;

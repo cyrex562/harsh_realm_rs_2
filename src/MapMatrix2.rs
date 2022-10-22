@@ -16,7 +16,7 @@ namespace WindowsApplication1
   {
     pub Width: i32;
     pub Height: i32;
-    pub int[,] Value;
+    pub Value: Vec<i32>;
 
     pub MapMatrix2 Clone()
     {
@@ -43,7 +43,7 @@ namespace WindowsApplication1
       this.Value = (int[,]) info.GetValue(nameof (Value), this.Value.GetType());
     }
 
-    pub MapMatrix2(int w, int h)
+    pub MapMatrix2(w: i32, h: i32)
     {
       this.Value = new int[1, 1];
       this.Width = w;

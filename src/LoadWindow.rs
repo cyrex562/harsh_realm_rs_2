@@ -13,11 +13,11 @@ namespace WindowsApplication1
 {
   pub class LoadWindow : WindowClass
   {
-     Thread LoadThread;
+     LoadThread: Thread;
      LoadClass load;
-     int cycle;
+     cycle: i32;
 
-    pub LoadWindow( GameClass tGame)
+    pub LoadWindow( tGame: GameClass)
       : base( tGame, 400, 240, 8)
     {
       this.game.EditObj.LoadString = "Initializing";
@@ -30,7 +30,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(400, 240, -1);

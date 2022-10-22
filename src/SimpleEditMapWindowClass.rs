@@ -15,44 +15,44 @@ namespace WindowsApplication1
 {
   pub class SimpleEditMapWindowClass : WindowClass
   {
-     int listId;
+     listId: i32;
      ListClass listObj;
-     int loadMapId;
-     int loadMapIdB;
-     int textId;
-     int detailnr;
-     int currentStep;
-     int pickid;
-     int opt1id;
-     int opt2id;
-     int opt3id;
-     int opt4id;
-     int opt5id;
-     int opt6id;
-     int opt7id;
-     int opt8id;
-     int opt9id;
-     int opt10id;
-     int opt11id;
-     int opt12id;
+     loadMapId: i32;
+     loadMapIdB: i32;
+     textId: i32;
+     detailnr: i32;
+     currentStep: i32;
+     pickid: i32;
+     opt1id: i32;
+     opt2id: i32;
+     opt3id: i32;
+     opt4id: i32;
+     opt5id: i32;
+     opt6id: i32;
+     opt7id: i32;
+     opt8id: i32;
+     opt9id: i32;
+     opt10id: i32;
+     opt11id: i32;
+     opt12id: i32;
      ListClass VPListOBj;
-     int miniId;
-     int VPListId;
-     int AddVPId;
-     int AddVPIdb;
+     miniId: i32;
+     VPListId: i32;
+     AddVPId: i32;
+     AddVPIdb: i32;
 
-    pub SimpleEditMapWindowClass( GameClass tGame)
+    pub SimpleEditMapWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 300, 9, tDoBorders: 1, tHeaderString: "Map")
     {
       self.detailnr = -1;
       self.DoStuff();
     }
 
-    pub void DoRefresh() => self.DoStuff();
+    pub fn DoRefresh() => self.DoStuff();
 
-    pub void PopUpRefresh() => self.formref.Screeny.FlagAllIncludingRefresh();
+    pub fn PopUpRefresh() => self.formref.Screeny.FlagAllIncludingRefresh();
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -91,10 +91,10 @@ namespace WindowsApplication1
       ListClass vpListObj = self.VPListOBj;
       let mut tlistselect: i32 = num2;
       let mut game: GameClass = self.game;
-       Bitmap local1 =  self.OwnBitmap;
+       local1: Bitmap =  self.OwnBitmap;
       let mut bbx: i32 = 10 + num1;
-      Font font =  null;
-       Font local2 =  font;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(vpListObj, 12, 200, tlistselect, game, true, "Victory Points (VP)", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: 52, tMarcStyle: true, overruleFont: ( local2));
       self.VPListId = self.AddSubPart( tsubpart, 10 + num1, 52, 220, 208, 0);
       let mut num5: i32 = num1 + 250;
@@ -299,7 +299,7 @@ namespace WindowsApplication1
       self.miniId = self.AddSubPart( tsubpart, num1 + 860, 50, 180 + num1, 220, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

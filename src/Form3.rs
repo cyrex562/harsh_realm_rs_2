@@ -18,7 +18,7 @@ namespace WindowsApplication1
 {
   pub class Form3 : Form
   {
-     Form1 formref;
+     formref: Form1;
      WindowClass WindowRef;
      IContainer components;
     [AccessedThroughProperty("Label1")]
@@ -35,8 +35,8 @@ namespace WindowsApplication1
     pub nr: i32;
     pub nr2: i32;
     pub nr3: i32;
-    pub DataClass Data;
-    pub GameClass Game;
+    pub Data: DataClass;
+    pub game: GameClass;
 
     pub Form3(Form tformref)
     {
@@ -210,9 +210,9 @@ namespace WindowsApplication1
     }
 
     pub void Initialize(
-      DataClass tData,
-      int ttype,
-      int tnr,
+      tData: DataClass,
+      ttype: i32,
+      tnr: i32,
       let mut tnr2: i32 =  -1,
       let mut tGame: GameClass = null,
       let mut tnr3: i32 =  -1)
@@ -227,7 +227,7 @@ namespace WindowsApplication1
       this.Button2.Visible = true;
       if (this.type == 130)
         this.Button2.Visible = false;
-      int num1;
+      num1: i32;
       if (this.type == 1)
       {
         let mut num2: i32 =  -1;
@@ -2141,7 +2141,7 @@ namespace WindowsApplication1
       if (this.ListBox1.SelectedIndex >= 0)
       {
         ListItem selectedItem = (ListItem) this.ListBox1.SelectedItem;
-        int num1;
+        num1: i32;
         if (this.type == 1)
           this.Data.LandscapeTypeObj[this.nr].BuildGround = selectedItem.ID;
         else if (this.type == 2)
@@ -2553,7 +2553,7 @@ namespace WindowsApplication1
                       if (DrawMod.TGame.Data.LocObj[locnr].Production[index] == DrawMod.TGame.Data.ItemTypeObj[itemtypenr].Blocks && DrawMod.TGame.HandyFunctionsObj.CanProduceItem(locnr, selectedItem.ID, itemtypenr).result)
                       {
                         DrawMod.TGame.Data.LocObj[locnr].Production[index] = itemtypenr;
-                        int num13;
+                        num13: i32;
                         num13 += 1;
                       }
                       index += 1;

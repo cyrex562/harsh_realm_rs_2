@@ -47,7 +47,7 @@ namespace WindowsApplication1
      int detailnr4;
      int detailnr1;
 
-    pub ATCombatDetailWindowClass(ref GameClass tGame, int thn)
+    pub ATCombatDetailWindowClass(ref tGame: GameClass, int thn)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.FromMessage = tGame.EditObj.FromMessage;
@@ -61,7 +61,7 @@ namespace WindowsApplication1
       this.detailnr1 = -1;
     }
 
-    pub ATCombatDetailWindowClass(ref GameClass tGame, int thn, bool OldGui)
+    pub ATCombatDetailWindowClass(ref tGame: GameClass, int thn, bool OldGui)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.FromMessage = tGame.EditObj.FromMessage;
@@ -75,7 +75,7 @@ namespace WindowsApplication1
       this.detailnr1 = -1;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(int x, int y)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.okid > 0)
       {

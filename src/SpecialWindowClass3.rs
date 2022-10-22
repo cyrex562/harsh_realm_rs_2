@@ -13,11 +13,11 @@ namespace WindowsApplication1
 {
   pub class SpecialWindowClass3 : WindowClass
   {
-     int okId;
-     int useWidth;
-     int useHeight;
+     okId: i32;
+     useWidth: i32;
+     useHeight: i32;
 
-    pub SpecialWindowClass3( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass3( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.useWidth = tUseWidth;
@@ -25,7 +25,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut id1: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -144,9 +144,9 @@ namespace WindowsApplication1
       let mut index1: i32 = 1;
       do
       {
-        int num1;
-        int num2;
-        int num3;
+        num1: i32;
+        num2: i32;
+        num3: i32;
         if (index1 == 1)
         {
           num1 = 1;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
           }
           if (!flag1)
           {
-            EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+            eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
             let mut id2: i32 = self.game.Data.StringListObj[stringListById4].ID;
             let mut id3: i32 = self.game.Data.StringListObj[stringListById3].ID;
             logicString: String = data2;
@@ -590,8 +590,8 @@ namespace WindowsApplication1
               flag2 = false;
           }
           string ttext;
-          Color c;
-          int num11;
+          c: Color;
+          num11: i32;
           if (flag2)
           {
             ttext = "This Model Type could be discovered";
@@ -685,7 +685,7 @@ namespace WindowsApplication1
             let mut num17: i32 = groupRect.Height - num15;
             let mut index8: i32 = 0;
             num11 = self.game.HandyFunctionsObj.GetSFTypeByID(simpleList2.Id[index8]);
-            Bitmap objBitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(num11, false, cultureGroupId, self.game.Data.Turn, -1);
+            objBitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(num11, false, cultureGroupId, self.game.Data.Turn, -1);
             float num18 =  objBitmap.Width /  objBitmap.Height;
             let mut h: i32 = num17;
             let mut w: i32 =  Math.Round( (num18 *  num17));
@@ -706,7 +706,7 @@ namespace WindowsApplication1
       g.Dispose();
     }
 
-    pub Rectangle GetGroupRect(int tgroupX, int tgroupY)
+    pub Rectangle GetGroupRect(tgroupX: i32, tgroupY: i32)
     {
       let mut num1: i32 = 50;
       let mut num2: i32 = 104;
@@ -721,7 +721,7 @@ namespace WindowsApplication1
       return Rectangle::new(x, y, width, height);
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -743,7 +743,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = WindowReturnClass::new();

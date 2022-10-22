@@ -11,7 +11,7 @@ namespace WindowsApplication1
 {
   pub class AIFront
   {
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
     pub FrontID: i32;
     pub AIUnitList strictHQs;
     pub AIUnitList units;
@@ -221,7 +221,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void CopyUnitsFromAIFront(AIFront tempFront)
+    pub fn CopyUnitsFromAIFront(AIFront tempFront)
     {
       this.units = AIUnitList::new();
       let mut counter1: i32 =  tempFront.units.counter;
@@ -235,7 +235,7 @@ namespace WindowsApplication1
         this.orgUnits.add(tempFront.orgUnits.unr[index], tempFront.orgUnits.AIid[index]);
     }
 
-    pub AIFront(ref DC2AIClass tai, int tFrontType)
+    pub AIFront(ref tai: DC2AIClass, int tFrontType)
     {
       this.Coords = new Coordinate[1];
       this.tempEnemyRegime = -1;
@@ -259,9 +259,9 @@ namespace WindowsApplication1
       this.DefensiveZone = -1;
     }
 
-    pub void AddUnit(int unr) => this.units.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
+    pub fn AddUnit(int unr) => this.units.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
 
-    pub void AddCoord(int x, int y)
+    pub fn AddCoord(int x, int y)
     {
       this += 1.coordCount;
       this.Coords = (Coordinate[]) Utils.CopyArray((Array) this.Coords, (Array) new Coordinate[this.coordCount + 1]);
@@ -280,7 +280,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void RemoveCoord(int x, int y)
+    pub fn RemoveCoord(int x, int y)
     {
       let mut num1: i32 =  -1;
       let mut coordCount: i32 =  this.coordCount;
@@ -302,15 +302,15 @@ namespace WindowsApplication1
       this.Coords = (Coordinate[]) Utils.CopyArray((Array) this.Coords, (Array) new Coordinate[this.coordCount + 1]);
     }
 
-    pub void AddArtUnit(int unr) => this.artUnits.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
+    pub fn AddArtUnit(int unr) => this.artUnits.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
 
-    pub void AddOrgUnit(int unr) => this.orgUnits.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
+    pub fn AddOrgUnit(int unr) => this.orgUnits.add(unr, this.ai.game.Data.UnitObj[unr].AIid);
 
-    pub void RemoveUnitAIid(int AIid) => this.units.removeAiId(AIid);
+    pub fn RemoveUnitAIid(int AIid) => this.units.removeAiId(AIid);
 
-    pub void RemoveArtUnitAIid(int AIid) => this.artUnits.removeAiId(AIid);
+    pub fn RemoveArtUnitAIid(int AIid) => this.artUnits.removeAiId(AIid);
 
-    pub void RemoveOrgUnitAIid(int AIid) => this.orgUnits.removeAiId(AIid);
+    pub fn RemoveOrgUnitAIid(int AIid) => this.orgUnits.removeAiId(AIid);
 
     pub int GetPowerUnderCorps(int hq)
     {

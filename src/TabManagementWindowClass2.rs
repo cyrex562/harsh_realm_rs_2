@@ -15,30 +15,30 @@ namespace WindowsApplication1
 {
   pub class TabManagementWindowClass2 : WindowClass
   {
-     int w;
-     int h;
-     int tabnr;
+     w: i32;
+     h: i32;
+     tabnr: i32;
      string tabname;
-     int subtabcount;
-     string[] subtabname;
-     int subtabnr;
+     subtabcount: i32;
+     subtabname: Vec<String>;
+     subtabnr: i32;
      int[] pagecount;
      string[,] pagename;
-     int[,] pagerow;
-     int[,] pageclickable;
-     int pagenr;
-     int stringlistslot;
-     int OptionsListId;
+     pagerow: Vec<i32>;
+     pageclickable: Vec<i32>;
+     pagenr: i32;
+     stringlistslot: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int pageId;
-     int prevPageNr;
+     pageId: i32;
+     prevPageNr: i32;
      string lastEventNr;
-     int prevPageId;
-     int curPageId;
-     int cache_udsManagementOverride;
+     prevPageId: i32;
+     curPageId: i32;
+     cache_udsManagementOverride: i32;
 
     pub TabManagementWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -59,7 +59,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void initTabs()
+    pub fn initTabs()
     {
       bool forUDSRandomTab = false;
       self.subtabcount = 0;
@@ -67,7 +67,7 @@ namespace WindowsApplication1
       self.pagecount = new int[11];
       self.pagename = new string[11, 211];
       self.pagerow = new int[11, 211];
-      int id;
+      id: i32;
       if (self.game.EditObj.SetViewMode2 < 100)
       {
         self.tabnr = self.game.EditObj.SetViewMode2 - 10;
@@ -145,7 +145,7 @@ namespace WindowsApplication1
       self.pagenr = self.game.EditObj.uds_page[self.tabnr, self.subtabnr];
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       self.prevPageNr = self.pagenr;
       if (self.OptionsListId > 0)
@@ -157,7 +157,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       let mut num: i32 = 0;
       self.prevPageNr = self.pagenr;
@@ -223,7 +223,7 @@ namespace WindowsApplication1
       subPart1.MakeBitmap();
     }
 
-    pub void dostuff(bool dontDrawPage = false)
+    pub fn dostuff(bool dontDrawPage = false)
     {
       if (self.stringlistslot == -1)
         return;
@@ -310,7 +310,7 @@ namespace WindowsApplication1
             self.AddMouse( trect2, self.subtabname[index1], "Click to see all pages for this tab.", 1000 + index1);
             if (num10 > width - 20 & Strings.InStr(self.subtabname[index1], " ") > 0)
             {
-              string[] strArray = self.subtabname[index1].Split(' ');
+              strArray: Vec<String> = self.subtabname[index1].Split(' ');
               tstring1: String = "";
               tstring2: String = "";
               let mut upperBound: i32 = strArray.GetUpperBound(0);
@@ -400,11 +400,11 @@ namespace WindowsApplication1
           let mut twidth: i32 = 250 - num11;
           let mut tlistselect: i32 = self.pagenr - 1;
           let mut game: GameClass = self.game;
-           Bitmap local1 =  self.OwnBitmap;
+           local1: Bitmap =  self.OwnBitmap;
           let mut bbx: i32 = num17;
           let mut bby: i32 = num18;
-          Font font =  null;
-           Font local2 =  font;
+          font: Font =  null;
+           local2: Font =  font;
           let mut overruleItemSize2: i32 = overruleItemSize1;
           tsubpart =  new ListSubPartClass(optionsListObj, tlistsize2, twidth, tlistselect, game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: bby, tMarcStyle: true, overruleFont: ( local2), overruleItemSize: overruleItemSize2);
           self.OptionsListId = self.AddSubPart( tsubpart, num17, num18, 250 - num11, (tlistsize1 + 1) * overruleItemSize1, 0);
@@ -507,7 +507,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -534,9 +534,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 = self.MouseCounter;

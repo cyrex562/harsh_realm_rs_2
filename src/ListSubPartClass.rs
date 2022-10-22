@@ -15,29 +15,29 @@ namespace WindowsApplication1
 {
   pub class ListSubPartClass : SubPartClass
   {
-     int ListSize;
-     int ListSelect;
+     ListSize: i32;
+     ListSelect: i32;
     pub TopItem: i32;
      ListClass ListObj;
-     Font OwnFont;
-     Font ownfont2;
+     OwnFont: Font;
+     ownfont2: Font;
      object ItemSize;
-     int ItemFontOffset;
-     int LeftTextOffset;
-     int Width;
-     int Height;
-     GameClass game;
+     ItemFontOffset: i32;
+     LeftTextOffset: i32;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
      string Header;
      bool HeaderCenter;
      bool Highlight;
      bool ShowPair;
-     int ValueWidth;
+     ValueWidth: i32;
      bool DoTopAndBottom;
-     Bitmap backbitmap;
-     int clickscroll;
+     backbitmap: Bitmap;
+     clickscroll: i32;
      bool MarcStyle;
 
-    pub void Refresh(ListClass tListObj, int tlistselect, theader: String = "")
+    pub fn Refresh(ListClass tListObj, tlistselect: i32, theader: String = "")
     {
       self.ListObj = tListObj;
       self.ListSelect = tlistselect;
@@ -50,7 +50,7 @@ namespace WindowsApplication1
       self.Clear();
     }
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( self.backbitmap))
         return;
@@ -60,10 +60,10 @@ namespace WindowsApplication1
 
     pub ListSubPartClass(
       ListClass tListobj,
-      int tlistsize,
-      int twidth,
-      int tlistselect,
-      GameClass tgame,
+      tlistsize: i32,
+      twidth: i32,
+      tlistselect: i32,
+      tgame: GameClass,
       bool systemfont = false,
       tHeader: String = "",
       bool tHeaderCenter = true,
@@ -72,11 +72,11 @@ namespace WindowsApplication1
       bool tShowPair = false,
       let mut tValueWidth: i32 =  50,
       bool tdotopandbottom = true,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool tMarcStyle = false,
-       Font overruleFont = null,
+       overruleFont: Font = null,
       let mut overruleItemSize: i32 =  16)
       : base(twidth, (tlistsize + 3) * overruleItemSize)
     {
@@ -151,11 +151,11 @@ namespace WindowsApplication1
         self.OwnFont =  overruleFont.Clone();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Color.FromArgb(0,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-      Color color = Color.FromArgb(0,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+      color: Color = Color.FromArgb(0,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
@@ -174,7 +174,7 @@ namespace WindowsApplication1
       }
       Rectangle rectangle1;
       Rectangle rectangle2;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (self.MarcStyle)
       {
         if (self.MarcStyle)
@@ -222,7 +222,7 @@ namespace WindowsApplication1
                 if (Operators.ConditionalCompareObjectLess( self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                 {
                    let mut local1: &Graphics = &Expression;
-                   Bitmap local2 =  self.ListObj.ListBmp[index - num3];
+                   local2: Bitmap =  self.ListObj.ListBmp[index - num3];
                   rectangle1 = Rectangle::new(0, 0, 32, self.ListObj.ListBmp[index - num3].Height);
                   let mut srcrect: &Rectangle = &rectangle1
                   rectangle2 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  1),  Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject(self.ItemSize,  self.ListObj.ListBmp[index - num3].Height),  2)))), 32, self.ListObj.ListBmp[index - num3].Height);
@@ -232,7 +232,7 @@ namespace WindowsApplication1
                 else
                 {
                    let mut local3: &Graphics = &Expression;
-                   Bitmap local4 =  self.ListObj.ListBmp[index - num3];
+                   local4: Bitmap =  self.ListObj.ListBmp[index - num3];
                   rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
                   let mut srcrect: &Rectangle = &rectangle2
                   rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3)), 32, Conversions.ToInteger(self.ItemSize));
@@ -258,7 +258,7 @@ namespace WindowsApplication1
                   if (Operators.ConditionalCompareObjectLess( self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                   {
                      let mut local5: &Graphics = &Expression;
-                     Bitmap local6 =  self.ListObj.ListBmp[index - num3];
+                     local6: Bitmap =  self.ListObj.ListBmp[index - num3];
                     rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
                     let mut srcrect: &Rectangle = &rectangle2
                     rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.ListObj.ListBmp[index - num3].Width, Conversions.ToInteger(self.ItemSize));
@@ -268,7 +268,7 @@ namespace WindowsApplication1
                   else
                   {
                      let mut local7: &Graphics = &Expression;
-                     Bitmap local8 =  self.ListObj.ListBmp[index - num3];
+                     local8: Bitmap =  self.ListObj.ListBmp[index - num3];
                     rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
                     let mut srcrect: &Rectangle = &rectangle2
                     rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject( self.ListObj.ListBmp[index - num3].Height, self.ItemSize),  2)))), self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
@@ -289,7 +289,7 @@ namespace WindowsApplication1
                 else
                 {
                    let mut local9: &Graphics = &Expression;
-                   Bitmap local10 =  self.ListObj.ListBmp[index - num3];
+                   local10: Bitmap =  self.ListObj.ListBmp[index - num3];
                   rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
                   let mut srcrect: &Rectangle = &rectangle2
                   rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3)), 32, Conversions.ToInteger(self.ItemSize));
@@ -578,7 +578,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       self += 1.ListSelect;
       if ( self.ListSelect >  self.TopItem +  self.ListSize / 2.0)
@@ -594,7 +594,7 @@ namespace WindowsApplication1
       self.ListSelect = 0;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       --self.ListSelect;
       if ( (self.ListSelect - self.TopItem) <  self.ListSize / 2.0)
@@ -610,11 +610,11 @@ namespace WindowsApplication1
       self.ListSelect = 0;
     }
 
-    pub int GetSelect() => self.ListObj.ListData[self.ListSelect];
+    pub GetSelect: i32() => self.ListObj.ListData[self.ListSelect];
 
-    pub int GetTopItem() => self.TopItem;
+    pub GetTopItem: i32() => self.TopItem;
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       let mut Left: i32 =  y;
       y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject( y, self.ItemSize)));
@@ -678,7 +678,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;
@@ -687,7 +687,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub int HandleBLOCKEDMouseUp(int x, int y)
+    pub HandleBLOCKEDMouseUp: i32(x: i32, y: i32)
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;
@@ -696,7 +696,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       let mut Left: i32 =  y;
       y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject( y, self.ItemSize)));

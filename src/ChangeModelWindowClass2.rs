@@ -50,13 +50,13 @@ namespace WindowsApplication1
      int h;
      int[] Ucnt;
      int[] ModCnt;
-     int[,] ModSubCnt;
-     int[,] SubCnt;
+     ModSubCnt: Vec<i32>;
+     SubCnt: Vec<i32>;
      int[] modelcount;
      bool[] creatable;
-     string[] errors;
+     errors: Vec<String>;
 
-    pub ChangeModelWindowClass2(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub ChangeModelWindowClass2(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       this.Ucnt = new int[1];
@@ -183,10 +183,10 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tlistselect2: i32 =  tlistselect1;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
+        ref local1: Bitmap = ref this.OwnBitmap;
         let mut bbx: i32 =  num1 + 10;
-        Font font =  null;
-        ref Font local2 = ref font;
+        font: Font =  null;
+        ref local2: Font = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 7, 500, tlistselect2, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: bbx, bby: 50, tMarcStyle: true, overruleFont: (ref local2));
         this.OptionsListId = this.AddSubPart(ref tsubpart, num1 + 10, 50, 500, 128, 0);
       }
@@ -239,8 +239,8 @@ namespace WindowsApplication1
           numArray1[index2] = num1;
           if (this.game.Data.UnitObj[index1].HistoricalSubPart > -1)
           {
-            int[,] subCnt = this.SubCnt;
-            int[,] numArray2 = subCnt;
+            subCnt: Vec<i32> = this.SubCnt;
+            numArray2: Vec<i32> = subCnt;
             let mut historical2: i32 =  this.game.Data.UnitObj[index1].Historical;
             let mut index3: i32 =  historical2;
             let mut historicalSubPart: i32 =  this.game.Data.UnitObj[index1].HistoricalSubPart;
@@ -293,8 +293,8 @@ namespace WindowsApplication1
             let mut num: i32 =  modCnt[index9] + 1;
             numArray[index10] = num;
           }
-          int[,] modSubCnt = this.ModSubCnt;
-          int[,] numArray3 = modSubCnt;
+          modSubCnt: Vec<i32> = this.ModSubCnt;
+          numArray3: Vec<i32> = modSubCnt;
           let mut index11: i32 =  index7;
           let mut index12: i32 =  index11;
           let mut index13: i32 =  index8;

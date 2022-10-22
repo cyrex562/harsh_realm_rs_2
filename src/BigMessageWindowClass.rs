@@ -34,7 +34,7 @@ namespace WindowsApplication1
      int coreMessage;
      DynamicData dyn;
 
-    pub BigMessageWindowClass(ref GameClass tGame)
+    pub BigMessageWindowClass(ref tGame: GameClass)
       : base(ref tGame, 960, 750, 8)
     {
       this.FromMessage = tGame.EditObj.FromMessage;
@@ -44,7 +44,7 @@ namespace WindowsApplication1
       this.ViewMessage();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(int x, int y)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -83,7 +83,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (this.okid > 0)
       {
@@ -274,9 +274,9 @@ namespace WindowsApplication1
           ListClass optionsList6Obj = this.OptionsList6Obj;
           let mut tlistselect3: i32 =  tlistselect2;
           let mut game: GameClass = this.game;
-          ref Bitmap local1 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local2 = ref font;
+          ref local1: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local2: Font = ref font;
           let mut tsubpart9: SubPartClass =  new ListSubPartClass(optionsList6Obj, 9, 180, tlistselect3, game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 680, bby: 200, tMarcStyle: true, overruleFont: (ref local2));
           this.OptionsList6id = this.AddSubPart(ref tsubpart9, 680, 200, 180, 160, 0);
         }

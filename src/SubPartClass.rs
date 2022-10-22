@@ -14,23 +14,23 @@ namespace WindowsApplication1
 {
   pub class SubPartClass
   {
-    pub Bitmap OwnBitmap;
+    pub OwnBitmap: Bitmap;
     pub Descript: String;
     pub MouseOver: bool;
     pub Scroller: bool;
     pub Rectangle[] MouseRect;
     pub MouseCounter: i32;
-    pub string[] MouseText;
-    pub string[] MouseTitle;
+    pub MouseText: Vec<String>;
+    pub MouseTitle: Vec<String>;
     pub MouseData: Vec<i32>;
     pub MouseType: Vec<i32>;
     pub oldStyle: bool;
 
     pub virtual bool UseSourceCopyForPaintSpecific() => false;
 
-    pub void ClearMouse() => self.MouseCounter = -1;
+    pub fn ClearMouse() => self.MouseCounter = -1;
 
-    pub void AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut ttype: i32 = 0)
+    pub fn AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut ttype: i32 = 0)
     {
       self += 1.MouseCounter;
       self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       self.MouseType[self.MouseCounter] = ttype;
     }
 
-    pub void Dispose()
+    pub fn Dispose()
     {
       if (!Information.IsNothing( self.OwnBitmap))
         self.OwnBitmap.Dispose();
@@ -57,13 +57,13 @@ namespace WindowsApplication1
     {
     }
 
-    pub int GetMemorySize() =>  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
+    pub GetMemorySize: i32() =>  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
 
-    pub virtual int GetSelect() => -1;
+    pub virtual GetSelect: i32() => -1;
 
-    pub virtual int GetTopItem() => -1;
+    pub virtual GetTopItem: i32() => -1;
 
-    pub SubPartClass(int w, int h)
+    pub SubPartClass(w: i32, h: i32)
     {
       self.oldStyle = false;
       self.MouseCounter = -1;
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       self.MouseOver = false;
     }
 
-    pub void Resize(int w, int h)
+    pub fn Resize(w: i32, h: i32)
     {
       if (!Information.IsNothing( self.OwnBitmap))
         self.OwnBitmap.Dispose();
@@ -92,15 +92,15 @@ namespace WindowsApplication1
       objgraphics.Dispose();
     }
 
-    pub virtual void Refresh(ListClass tListObj, int tlistselect, theader: String = "")
+    pub virtual void Refresh(ListClass tListObj, tlistselect: i32, theader: String = "")
     {
     }
 
-    pub virtual void Refresh(ATListClass tListObj, int tlistselect, theader: String = "")
+    pub virtual void Refresh(ATListClass tListObj, tlistselect: i32, theader: String = "")
     {
     }
 
-    pub virtual void Refresh(StringListClass tListObj, int trow, int tcol)
+    pub virtual void Refresh(StringListClass tListObj, trow: i32, tcol: i32)
     {
     }
 
@@ -108,11 +108,11 @@ namespace WindowsApplication1
     {
     }
 
-    pub virtual int HeightUsed() => self.OwnBitmap.Height;
+    pub virtual HeightUsed: i32() => self.OwnBitmap.Height;
 
     pub virtual string GetText() => "";
 
-    pub void Clear()
+    pub fn Clear()
     {
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
       DrawMod.ClearTransparent( objgraphics);
@@ -121,45 +121,45 @@ namespace WindowsApplication1
       objgraphics.Dispose();
     }
 
-    pub virtual Bitmap Paint()
+    pub virtual Paint: Bitmap()
     {
-      Bitmap bitmap;
+      bitmap: Bitmap;
       return bitmap;
     }
 
-    pub virtual int HandleMouseUp(int x, int y) => -1;
+    pub virtual HandleMouseUp: i32(x: i32, y: i32) => -1;
 
-    pub virtual int HandleBLOCKEDMouseUp(int x, int y) => -1;
+    pub virtual HandleBLOCKEDMouseUp: i32(x: i32, y: i32) => -1;
 
-    pub virtual void HandleToolTip(int x, int y)
+    pub virtual void HandleToolTip(x: i32, y: i32)
     {
     }
 
-    pub virtual bool HandleMouseMove(int x, int y)
+    pub virtual bool HandleMouseMove(x: i32, y: i32)
     {
       bool flag;
       return flag;
     }
 
-    pub virtual bool HandleTimerWheel(int x, int y,  WindowClass tWindow) => false;
+    pub virtual bool HandleTimerWheel(x: i32, y: i32,  WindowClass tWindow) => false;
 
-    pub virtual Bitmap PaintOverlay() => self.Paint();
+    pub virtual PaintOverlay: Bitmap() => self.Paint();
 
-    pub virtual bool MouseMove(int x, int y) => false;
+    pub virtual bool MouseMove(x: i32, y: i32) => false;
 
-    pub virtual int Click(int x, int y, let mut b: i32 = 1)
+    pub virtual Click: i32(x: i32, y: i32, let mut b: i32 = 1)
     {
-      int num;
+      num: i32;
       return num;
     }
 
-    pub virtual Coordinate Click2(int x, int y, let mut b: i32 = 1)
+    pub virtual Coordinate Click2(x: i32, y: i32, let mut b: i32 = 1)
     {
       Coordinate coordinate;
       return coordinate;
     }
 
-    pub virtual Coordinate ClickMap(int x, int y)
+    pub virtual Coordinate ClickMap(x: i32, y: i32)
     {
       Coordinate coordinate;
       return coordinate;
@@ -167,15 +167,15 @@ namespace WindowsApplication1
 
     pub virtual void PaintCoordinate(
       Graphics g,
-      int x,
-      int y,
-      int map,
+      x: i32,
+      y: i32,
+      map: i32,
       let mut counteralpha: i32 = 255,
-       Bitmap gBitmap = null)
+       gBitmap: Bitmap = null)
     {
     }
 
-    pub virtual void DescriptInfo(int x, int y)
+    pub virtual void DescriptInfo(x: i32, y: i32)
     {
     }
 

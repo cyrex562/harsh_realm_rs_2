@@ -14,14 +14,14 @@ namespace WindowsApplication1
 {
   pub class HistoryScreenClass2 : ScreenClass
   {
-     int WMap;
-     int WPlay;
-     int WOrder;
-     int WRes;
-     int WTabs;
-     int OffSetX;
+     WMap: i32;
+     WPlay: i32;
+     WOrder: i32;
+     WRes: i32;
+     WTabs: i32;
+     OffSetX: i32;
 
-    pub HistoryScreenClass2( GameClass tgame, Form1 tformref)
+    pub HistoryScreenClass2( tgame: GameClass, tformref: Form1)
       : base( tgame, -3, tformref)
     {
       this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
@@ -377,7 +377,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.Game.Data.Product != 7)
@@ -446,7 +446,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -503,7 +503,7 @@ namespace WindowsApplication1
             return screenReturnClass;
         }
       }
-      int num;
+      num: i32;
       if (Information.IsNothing( windowReturnClass))
         num = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
@@ -570,7 +570,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

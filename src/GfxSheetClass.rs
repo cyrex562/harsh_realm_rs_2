@@ -15,8 +15,8 @@ namespace WindowsApplication1
   {
     pub Counter: i32;
     pub DirName: String;
-    pub Bitmap Bmp;
-    pub string[] Name;
+    pub Bmp: Bitmap;
+    pub Name: Vec<String>;
     pub Rectangle[] Rect;
 
     pub GfxSheetClass()
@@ -27,7 +27,7 @@ namespace WindowsApplication1
       this.Bmp = (Bitmap) null;
     }
 
-    pub void Load(string tDirName)
+    pub fn Load(string tDirName)
     {
       this.DirName = tDirName;
       StreamReader streamReader = File.OpenText(DrawMod.TGame.AppPath + "graphics/" + this.DirName + "/sheet.txt");

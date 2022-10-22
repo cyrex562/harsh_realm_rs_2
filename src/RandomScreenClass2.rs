@@ -14,13 +14,13 @@ namespace WindowsApplication1
 {
   pub class RandomScreenClass2 : ScreenClass
   {
-     int WMap;
-     int WTop;
-     int WTabs;
-     int WBottom;
-     int OffSetX;
+     WMap: i32;
+     WTop: i32;
+     WTabs: i32;
+     WBottom: i32;
+     OffSetX: i32;
 
-    pub RandomScreenClass2( GameClass tgame, Form1 tformref)
+    pub RandomScreenClass2( tgame: GameClass, tformref: Form1)
       : base( tgame, -3, tformref)
     {
       this.Game.HandyFunctionsObj.RedimTempValue3(9999);
@@ -222,7 +222,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -286,7 +286,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseUp(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseUp(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter > -1)
@@ -316,7 +316,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -373,7 +373,7 @@ namespace WindowsApplication1
             return screenReturnClass;
         }
       }
-      int num;
+      num: i32;
       if (Information.IsNothing( windowReturnClass))
         num = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
@@ -414,7 +414,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleTimerWheel(int x, int y)
+    pub ScreenReturnClass HandleTimerWheel(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
@@ -517,7 +517,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

@@ -18,202 +18,202 @@ namespace WindowsApplication1
 {
   pub class RandomWindowClass : WindowClass
   {
-     int BStartGameID;
-     int BLoadGameID;
-     int BLadderID;
-     int BSaveGameID;
-     int BEditorID;
-     int TempText;
-     int TempText2;
-     int txt1;
-     int txt2;
-     int tab1;
-     int tab2;
-     int tabmode;
-     int txt3;
-     int shrowd;
-     int doshrowd;
-     int maploop;
-     int singlestart;
-     int dosinglestart;
-     int dostats;
-     int optimize;
-     int dooptimize;
-     int optimizetext;
-     int oldkingdomtext;
-     int domaploop;
-     int dooldkingdom;
-     int oldkingdom;
-     int maplooptext;
-     int doallied;
-     int allied;
-     int alliedtext;
-     int shrowdtext;
-     int mirror;
-     int domirror;
-     int mirrortext;
-     int blockcenter;
-     int dofirsttech;
-     int firsttech;
-     int firsttechtext;
-     int doblockcenter;
-     int blockcentertext;
-     int opt1;
-     int opt2;
-     int opt3;
-     int opt4;
-     int opt5;
-     int opt6;
-     int opt7;
-     int opt8;
-     int opt9;
-     int opt10;
-     int opt11;
-     int opt12;
-     int cancelID;
-     int o1;
-     int o2;
-     int o3;
-     int o16;
-     int o17;
-     int o4;
-     int o5;
-     int o18;
-     int o6;
-     int o7;
-     int o8;
-     int o9;
-     int o10;
-     int o11;
-     int o12;
-     int o13;
-     int o14;
-     int o15;
-     int o19;
-     int w1;
-     int w2;
-     int w3;
-     int w4;
-     int w5;
-     int w6;
-     int w7;
-     int w8;
-     int w9;
-     int w10;
-     int w11;
-     int w12;
-     int w13;
-     int w14;
-     int w15;
-     int w16;
-     int w17;
-     int w21;
-     int r1;
-     int r2;
-     int r3;
-     int r4;
-     int r5;
-     int r6;
-     int r7;
-     int r8;
-     int r9;
-     int r10;
-     int r11;
-     int r12;
-     int r13;
-     int r14;
-     int r15;
-     int r16;
-     int r17;
-     int r21;
-     int r26;
-     int r27;
-     int r28;
-     int h1;
-     int h2;
-     int h3;
-     int h4;
-     int h5;
-     int h6;
-     int h7;
-     int h8;
-     int h9;
-     int h10;
-     int h11;
-     int h12;
-     int optr1;
-     int optr2;
-     int optr3;
-     int optr4;
-     int optr5;
-     int optr6;
-     int optr7;
-     int optr8;
-     int z1;
-     int z2;
-     int Srawuse;
+     BStartGameID: i32;
+     BLoadGameID: i32;
+     BLadderID: i32;
+     BSaveGameID: i32;
+     BEditorID: i32;
+     TempText: i32;
+     TempText2: i32;
+     txt1: i32;
+     txt2: i32;
+     tab1: i32;
+     tab2: i32;
+     tabmode: i32;
+     txt3: i32;
+     shrowd: i32;
+     doshrowd: i32;
+     maploop: i32;
+     singlestart: i32;
+     dosinglestart: i32;
+     dostats: i32;
+     optimize: i32;
+     dooptimize: i32;
+     optimizetext: i32;
+     oldkingdomtext: i32;
+     domaploop: i32;
+     dooldkingdom: i32;
+     oldkingdom: i32;
+     maplooptext: i32;
+     doallied: i32;
+     allied: i32;
+     alliedtext: i32;
+     shrowdtext: i32;
+     mirror: i32;
+     domirror: i32;
+     mirrortext: i32;
+     blockcenter: i32;
+     dofirsttech: i32;
+     firsttech: i32;
+     firsttechtext: i32;
+     doblockcenter: i32;
+     blockcentertext: i32;
+     opt1: i32;
+     opt2: i32;
+     opt3: i32;
+     opt4: i32;
+     opt5: i32;
+     opt6: i32;
+     opt7: i32;
+     opt8: i32;
+     opt9: i32;
+     opt10: i32;
+     opt11: i32;
+     opt12: i32;
+     cancelID: i32;
+     o1: i32;
+     o2: i32;
+     o3: i32;
+     o16: i32;
+     o17: i32;
+     o4: i32;
+     o5: i32;
+     o18: i32;
+     o6: i32;
+     o7: i32;
+     o8: i32;
+     o9: i32;
+     o10: i32;
+     o11: i32;
+     o12: i32;
+     o13: i32;
+     o14: i32;
+     o15: i32;
+     o19: i32;
+     w1: i32;
+     w2: i32;
+     w3: i32;
+     w4: i32;
+     w5: i32;
+     w6: i32;
+     w7: i32;
+     w8: i32;
+     w9: i32;
+     w10: i32;
+     w11: i32;
+     w12: i32;
+     w13: i32;
+     w14: i32;
+     w15: i32;
+     w16: i32;
+     w17: i32;
+     w21: i32;
+     r1: i32;
+     r2: i32;
+     r3: i32;
+     r4: i32;
+     r5: i32;
+     r6: i32;
+     r7: i32;
+     r8: i32;
+     r9: i32;
+     r10: i32;
+     r11: i32;
+     r12: i32;
+     r13: i32;
+     r14: i32;
+     r15: i32;
+     r16: i32;
+     r17: i32;
+     r21: i32;
+     r26: i32;
+     r27: i32;
+     r28: i32;
+     h1: i32;
+     h2: i32;
+     h3: i32;
+     h4: i32;
+     h5: i32;
+     h6: i32;
+     h7: i32;
+     h8: i32;
+     h9: i32;
+     h10: i32;
+     h11: i32;
+     h12: i32;
+     optr1: i32;
+     optr2: i32;
+     optr3: i32;
+     optr4: i32;
+     optr5: i32;
+     optr6: i32;
+     optr7: i32;
+     optr8: i32;
+     z1: i32;
+     z2: i32;
+     Srawuse: i32;
      ListClass RegimeListObj;
-     int RegimeListId;
+     RegimeListId: i32;
      float tempBlink;
-     int detailnr;
-     int totvp;
-     int opt1v;
-     int opt2v;
-     int opt3v;
-     int opt4v;
-     int opt5v;
-     int opt6v;
-     int opt7v;
-     int opt8v;
-     int opt9v;
-     int opt10v;
-     int opt11v;
-     int opt12v;
-     int WATER;
+     detailnr: i32;
+     totvp: i32;
+     opt1v: i32;
+     opt2v: i32;
+     opt3v: i32;
+     opt4v: i32;
+     opt5v: i32;
+     opt6v: i32;
+     opt7v: i32;
+     opt8v: i32;
+     opt9v: i32;
+     opt10v: i32;
+     opt11v: i32;
+     opt12v: i32;
+     WATER: i32;
      int[] TownSize;
      bool[] TownCapitol;
-     int GRASS;
-     int HIGHMOUNTAIN;
-     int LOWMOUNTAIN;
-     int LIGHTFOREST;
-     int HEAVYFOREST;
-     int SMALLRIVER;
-     int URBAN;
-     int LIGHTURBAN;
-     int FARMLAND;
-     int BIGRIVER;
-     int SWAMP;
-     int landcur;
-     int mountaincur;
-     int forestcur;
-     int rivercur;
+     GRASS: i32;
+     HIGHMOUNTAIN: i32;
+     LOWMOUNTAIN: i32;
+     LIGHTFOREST: i32;
+     HEAVYFOREST: i32;
+     SMALLRIVER: i32;
+     URBAN: i32;
+     LIGHTURBAN: i32;
+     FARMLAND: i32;
+     BIGRIVER: i32;
+     SWAMP: i32;
+     landcur: i32;
+     mountaincur: i32;
+     forestcur: i32;
+     rivercur: i32;
      int[] tempx;
      int[] tempy;
-     int tempcount;
-     string[] namelist;
-     int namecount;
+     tempcount: i32;
+     namelist: Vec<String>;
+     namecount: i32;
      string domasterfile;
-     int masterfile;
-     int masterfiletext;
+     masterfile: i32;
+     masterfiletext: i32;
      string Flag1;
      string Flag1b;
      int[,,] curriv;
      int[,,] rivstep;
      Coordinate[,,] nextrivstep;
-     int RESOURCESLOT;
-     int Sworldsize;
-     int Splayer;
-     int Swater;
-     int Sclimate;
-     int Scrate;
-     int Spop;
-     int Sraw;
+     RESOURCESLOT: i32;
+     Sworldsize: i32;
+     Splayer: i32;
+     Swater: i32;
+     Sclimate: i32;
+     Scrate: i32;
+     Spop: i32;
+     Sraw: i32;
      int[] RegFavClimate;
      int[] Regid;
      object[,] town;
      object[,] town2;
 
-    pub RandomWindowClass( GameClass tGame, bool Marc)
+    pub RandomWindowClass( tGame: GameClass, bool Marc)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.TownSize = new int[10000];
@@ -232,7 +232,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub RandomWindowClass( GameClass tGame)
+    pub RandomWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.TownSize = new int[10000];
@@ -251,7 +251,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void RandomSetup()
+    pub fn RandomSetup()
     {
       this.tempBlink = 0.0f;
       this.detailnr = -1;
@@ -364,7 +364,7 @@ namespace WindowsApplication1
       this.game.EditObj.ranrawuse = this.Srawuse;
     }
 
-    pub void DoStuffShort()
+    pub fn DoStuffShort()
     {
       if (this.o1 > 0)
         this.RemoveSubPart(this.o1);
@@ -539,7 +539,7 @@ namespace WindowsApplication1
       SubPartClass tsubpart4;
       if (this.tabmode == 0)
       {
-        Font vicFont2 = this.game.VicFont2;
+        vicFont2: Font = this.game.VicFont2;
         if (Strings.InStr(this.game.EditObj.RandomSettingsFromMod, "noworldsize") > 0)
         {
           this.Sworldsize = 0;
@@ -881,7 +881,7 @@ namespace WindowsApplication1
       }
       else if (this.tabmode == 1)
       {
-        Font vicFont2 = this.game.VicFont2;
+        vicFont2: Font = this.game.VicFont2;
         if (Strings.InStr(this.game.EditObj.RandomSettingsFromMod, "nocontinentalsize") > 0)
         {
           this.optr1 = 0;
@@ -1014,7 +1014,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       if (this.game.EditObj.ShortRandomScreen)
       {
@@ -1229,7 +1229,7 @@ namespace WindowsApplication1
         }
         tsubpart =  TextPartClass::new("Allied AIs", Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), 150, 16, false);
         this.alliedtext = this.AddSubPart( tsubpart, 750, 509, 150, 16, 0);
-        Bitmap bitmap = (Bitmap) null;
+        bitmap: Bitmap = (Bitmap) null;
         tsubpart =  new TextButtonPartClass("M", 35, tBackbitmap: ( bitmap));
         this.masterfile = this.AddSubPart( tsubpart, 700, 540, 35, 35, 1);
         tsubpart =  TextPartClass::new("MASTER: " + this.domasterfile, Font::new("Times New Roman", 11f, FontStyle.Regular, GraphicsUnit.Pixel), 150, 16, false);
@@ -1241,7 +1241,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1300,7 +1300,7 @@ namespace WindowsApplication1
               this.game.Data.EditPass = "Heinrici45";
               this.game.Data.Description = "";
               this.game.Data.Description += "This scenario is generated for competitive play. The winner is the player who has most points at the start of round 10. If both players have the same amount of points, a draw is declared.";
-              this.game.Data.Description += "\r\n\r\nPlayers earn points by capturing victory point locations as well as destroying enemy troops. Each victory point held is worth 100 points. Each enemy power point destroyed is worth 1 point.";
+              this.game.Data.Description += "\r\n\r\nPlayers earn points by capturing victory polocations: i32 as well as destroying enemy troops. Each victory poheld: i32 is worth 100 points. Each enemy power podestroyed: i32 is worth 1 point.";
               this.game.Data.Description += "\r\n\r\nBoth players start with 5 producing towns, 1 HQ and a few border divisions.";
               this.game.Data.Description += "\r\n\r\nThe 2nd player has 50% extra production for the production arriving at the start of the second round to offset his disadvantage in being the second player to move.\r\n\r\nGood Luck!";
               this.game.Data.Name = "Random Ladder Scenario";
@@ -2255,7 +2255,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void MakeRandomMap()
+    pub fn MakeRandomMap()
     {
       this.game.EditObj.ranmem = 1;
       this.game.EditObj.ranr1 = this.optr1;
@@ -2686,8 +2686,8 @@ namespace WindowsApplication1
                 let mut landscapeType: i32 = this.game.Data.MapObj[0].HexObj[x, y].LandscapeType;
                 if (landscapeType == this.GRASS | landscapeType == this.LIGHTFOREST | landscapeType == this.HEAVYFOREST | landscapeType == this.SWAMP)
                 {
-                  int x2;
-                  int y2;
+                  x2: i32;
+                  y2: i32;
                   if ( VBMath.Rnd() > 0.5)
                   {
                     x2 =  Math.Round( x + Conversion.Int( VBMath.Rnd() * ( (opt1v + opt2v) / 25.0)));
@@ -2891,7 +2891,7 @@ namespace WindowsApplication1
           this.game.Data.ShrowdOn = true;
         }
         let mut regimeCounter1: i32 = this.game.Data.RegimeCounter;
-        int index22;
+        index22: i32;
         for (index22 = 0; index22 <= regimeCounter1; index22 += 1)
         {
           if (this.game.Data.NoAIAdvice)
@@ -3399,7 +3399,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SmallIslands()
+    pub fn SmallIslands()
     {
       let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut cx: i32 = 0; cx <= mapWidth; cx += 1)
@@ -3455,15 +3455,15 @@ label_15:
       }
     }
 
-    pub void MakeClimates()
+    pub fn MakeClimates()
     {
       let mut index1: i32 =  Math.Round( this.game.Data.RuleVar[481]);
       let mut num1: i32 = 3;
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if ( this.game.Data.RuleVar[498] > 0.0 & this.Sclimate == 0)
         this.game.Data.GameSlot[ Math.Round( this.game.Data.RuleVar[498])] = 1;
-      int num2;
-      int num3;
+      num2: i32;
+      num3: i32;
       if (this.Sclimate == 0)
       {
         num2 = 2;
@@ -3516,8 +3516,8 @@ label_15:
       let mut num6: i32 = num5;
       for (let mut index5: i32 = 1; index5 <= num6; index5 += 1)
       {
-        int num7;
-        int num8;
+        num7: i32;
+        num8: i32;
         if (this.Sclimate == 1)
         {
           num7 =  Math.Round( this.game.Data.MapObj[0].MapHeight * 0.625);
@@ -3620,10 +3620,10 @@ label_15:
       }
     }
 
-    pub void PlaceResources()
+    pub fn PlaceResources()
     {
       SimpleList simpleList = SimpleList::new();
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       let mut stringListById: i32 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[452]));
       if (stringListById == -1)
         return;
@@ -3646,7 +3646,7 @@ label_15:
         let mut num1: i32 = this.game.HandyFunctionsObj.CountLandHexesOnMap(0);
         let mut num2: i32 =  Math.Round(Conversion.Int( integer9 * ( num1 / 1000.0)));
         let mut regimeCounter: i32 = this.game.Data.RegimeCounter;
-        int index2;
+        index2: i32;
         Coordinate coordinate;
         for (let mut index3: i32 = 0; index3 <= regimeCounter; index3 += 1)
         {
@@ -3657,7 +3657,7 @@ label_15:
           if (integer8 % 2 > 0 &  VBMath.Rnd() > 0.5)
             num4 += 1;
           let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
-          int index4;
+          index4: i32;
           for (index4 = 0; index4 <= mapWidth; index4 += 1)
           {
             let mut mapHeight: i32 = this.game.Data.MapObj[0].MapHeight;
@@ -3753,7 +3753,7 @@ label_15:
             long num12 = 0;
             num9 += 1;
             let mut num13: i32 = 1;
-            int index9;
+            index9: i32;
             do
             {
               index9 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (this.game.Data.MapObj[0].MapWidth + 1)));
@@ -3799,7 +3799,7 @@ label_15:
             while (num13 <= 100);
             if (index7 > -1)
             {
-              int num17;
+              num17: i32;
               if (this.domirror == 1)
               {
                 if (num10 == -1)
@@ -3895,13 +3895,13 @@ label_15:
       }
     }
 
-    pub void EqualizeResources()
+    pub fn EqualizeResources()
     {
       SimpleList simpleList1 = SimpleList::new();
-      int[,] numArray1 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray1: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       int[] numArray2 = new int[this.game.Data.RegimeCounter + 1];
       let mut num1: i32 =  Math.Round( this.game.Data.RuleVar[481]);
-      int num2;
+      num2: i32;
       while (num2 == 0 & num1 > 0)
       {
         num2 = 1;
@@ -3995,10 +3995,10 @@ label_15:
       }
     }
 
-    pub void DoSwamps()
+    pub fn DoSwamps()
     {
       SimpleList simpleList = SimpleList::new();
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if (this.opt12v <= 0)
         return;
       let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
@@ -4056,10 +4056,10 @@ label_15:
       }
     }
 
-    pub void EnsureMountainPasses()
+    pub fn EnsureMountainPasses()
     {
       SimpleList simpleList = SimpleList::new();
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 = 0; index1 <= mapWidth; index1 += 1)
       {
@@ -4109,10 +4109,10 @@ label_15:
       }
     }
 
-    pub void EnsureMountainPasses2()
+    pub fn EnsureMountainPasses2()
     {
       SimpleList simpleList = SimpleList::new();
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut x: i32 = 0; x <= mapWidth; x += 1)
       {
@@ -4125,10 +4125,10 @@ label_15:
       }
     }
 
-    pub void HarbourAssurance()
+    pub fn HarbourAssurance()
     {
       SimpleList simpleList = SimpleList::new();
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if (this.opt4v == 100)
         return;
       let mut num1: i32 = 1;
@@ -4233,7 +4233,7 @@ label_15:
       }
     }
 
-    pub void MirrorTheMap()
+    pub fn MirrorTheMap()
     {
       SimpleList simpleList = SimpleList::new();
       int[] numArray1 = new int[6];
@@ -4311,7 +4311,7 @@ label_15:
       }
     }
 
-    pub void MakeRoads2(int x, int y, int roads)
+    pub fn MakeRoads2(x: i32, y: i32, roads: i32)
     {
       let mut movetype: i32 =  Math.Round( this.game.Data.RuleVar[99]);
       if ( this.game.Data.RuleVar[478] > 0.0)
@@ -4340,7 +4340,7 @@ label_15:
         {
           this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.MapObj[0].HexObj[x, y].Regime, movetype, 0, roads * 250, simpleList.Data1[index1], simpleList.Data2[index1], 0, false, muststartonairfield: false, SeaBlock: true, BlockAllSea: true, NoBridgePenalty: true, BridgeAP: 40);
           let mut index2: i32 = x;
-          int y1;
+          y1: i32;
           for (let mut index3: i32 = y; !(index2 == simpleList.Data1[index1] & index3 == simpleList.Data2[index1]); index3 = y1)
           {
             let mut tfacing1: i32 = -1;
@@ -4396,7 +4396,7 @@ label_15:
       }
     }
 
-    pub void MakeRoads(int x, int y, int roads, bool secondroads, bool verysmall = false)
+    pub fn MakeRoads(x: i32, y: i32, roads: i32, bool secondroads, bool verysmall = false)
     {
       let mut movetype: i32 =  Math.Round( this.game.Data.RuleVar[99]);
       if ( this.game.Data.RuleVar[478] > 0.0)
@@ -4464,7 +4464,7 @@ label_15:
               if (secondroads)
               {
                 let mut index2: i32 = x;
-                int y2;
+                y2: i32;
                 for (let mut index3: i32 = y; !(index2 == simpleList.Data1[index1] & index3 == simpleList.Data2[index1]); index3 = y2)
                 {
                   let mut tfacing1: i32 = -1;
@@ -4519,7 +4519,7 @@ label_15:
               else
               {
                 let mut index10: i32 = simpleList.Data1[index1];
-                int y3;
+                y3: i32;
                 for (let mut index11: i32 = simpleList.Data2[index1]; !(index10 == x & index11 == y); index11 = y3)
                 {
                   let mut tfacing4: i32 = -1;
@@ -4578,7 +4578,7 @@ label_15:
       }
     }
 
-    pub void PlaceRegimes(int x, int y, int regmax)
+    pub fn PlaceRegimes(x: i32, y: i32, regmax: i32)
     {
       let mut num1: i32 = -1;
       if (this.doblockcenter == 1)
@@ -4661,7 +4661,7 @@ label_15:
           let mut index5: i32 = num4;
           let mut index6: i32 = num5;
           predef += 1;
-          int num11;
+          num11: i32;
           if (this.domirror == 1)
           {
             if (num1 == -1)
@@ -4814,7 +4814,7 @@ label_15:
       }
     }
 
-    pub void PlaceRegimes2()
+    pub fn PlaceRegimes2()
     {
       if ( this.game.Data.RuleVar[461] != 1.0)
         return;
@@ -4864,7 +4864,7 @@ label_15:
           if (numArray1[index] != numArray1[index + 1])
             num5 = 1;
         }
-        int num7;
+        num7: i32;
         if (num5 == 0)
           num7 += 1;
         let mut num8: i32 = 0;
@@ -4996,7 +4996,7 @@ label_15:
       }
     }
 
-    pub void PlaceRegimes3()
+    pub fn PlaceRegimes3()
     {
       let mut mapWidth1: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut x: i32 = 0; x <= mapWidth1; x += 1)
@@ -5163,7 +5163,7 @@ label_15:
       }
     }
 
-    pub void OptimizeForAI()
+    pub fn OptimizeForAI()
     {
       let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 = 0; index1 <= mapWidth; index1 += 1)
@@ -5209,7 +5209,7 @@ label_15:
       }
     }
 
-    pub void PlaceTowns(int x, int y, let mut overrule: i32 = -1)
+    pub fn PlaceTowns(x: i32, y: i32, let mut overrule: i32 = -1)
     {
       if ( this.game.Data.RuleVar[413] == -1.0 ||  this.game.Data.RuleVar[414] == -1.0 ||  this.game.Data.RuleVar[415] == -1.0 ||  this.game.Data.RuleVar[416] == -1.0)
         return;
@@ -5297,7 +5297,7 @@ label_15:
           }
           let mut x1: i32 = num4;
           let mut y1: i32 = num5;
-          int num11;
+          num11: i32;
           if (this.domirror == 1)
           {
             if (num1 == -1)
@@ -5358,7 +5358,7 @@ label_15:
             float num20 = VBMath.Rnd();
             float num21 = VBMath.Rnd();
             float num22 = VBMath.Rnd();
-            int index5;
+            index5: i32;
             if ( num19 <=  num15)
             {
               index5 =  Math.Round( this.game.Data.RuleVar[413]);
@@ -5385,7 +5385,7 @@ label_15:
             }
             if (overrule > -1)
               index5 = overrule;
-            int num23;
+            num23: i32;
             if (num1 == -1 & this.domirror == 1)
               index5 = num23;
             else
@@ -5412,7 +5412,7 @@ label_15:
       }
     }
 
-    pub void MakeLakes(int x, int y)
+    pub fn MakeLakes(x: i32, y: i32)
     {
       let mut num1: i32 = x;
       for (let mut cx: i32 = 0; cx <= num1; cx += 1)
@@ -5461,18 +5461,18 @@ label_15:
       }
     }
 
-    pub string GetRandomRegimeName(int regnr)
+    pub string GetRandomRegimeName(regnr: i32)
     {
-      string[] strArray = new string[1001];
+      strArray: Vec<String> = new string[1001];
       Random random = Random::new();
       this.Flag1 = "";
       this.Flag1b = "";
       this.RegFavClimate = (int[]) Utils.CopyArray((Array) this.RegFavClimate, (Array) new int[this.game.Data.RegimeCounter + 1]);
       string Right;
-      int num1;
+      num1: i32;
       if ( this.game.Data.RuleVar[424] > 0.0)
       {
-        int num2;
+        num2: i32;
         while (num2 < 100)
         {
           num2 += 1;
@@ -5654,14 +5654,14 @@ label_15:
       return Right;
     }
 
-    pub string GetRandomName(int townsize, int townppl, bool IsCapitol = false)
+    pub string GetRandomName(townsize: i32, townppl: i32, bool IsCapitol = false)
     {
-      string[] strArray = new string[10000];
+      strArray: Vec<String> = new string[10000];
       Random random = Random::new();
       string Right;
       if ( this.game.Data.RuleVar[440 + townsize] > 0.0)
       {
-        int num1;
+        num1: i32;
         while (num1 < 1000)
         {
           num1 += 1;
@@ -5691,7 +5691,7 @@ label_15:
       {
         Right = "";
         let mut num4: i32 = 0;
-        int index4;
+        index4: i32;
         if (DrawMod.RandyNumber.Next(0, 100) < 20)
         {
           strArray[0] = "High ";
@@ -5944,7 +5944,7 @@ label_15:
       return Right;
     }
 
-    pub void DrawARiverAddRiver(int x, int y, int z, int steppy, int ox, int oy, int oz)
+    pub fn DrawARiverAddRiver(x: i32, y: i32, z: i32, steppy: i32, ox: i32, oy: i32, oz: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if (this.game.Data.MapObj[0].HexObj[x, y].RiverType[z] == -1)
@@ -5983,9 +5983,9 @@ label_15:
       this.nextrivstep[coordinate.x, coordinate.y, index1].data1 = z;
     }
 
-    pub void TraceRiver(int x, int y, int z, int ox, int oy, int oz)
+    pub fn TraceRiver(x: i32, y: i32, z: i32, ox: i32, oy: i32, oz: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       Coordinate coordinate;
       coordinate.onmap = false;
       let mut num1: i32 = 1;
@@ -6008,9 +6008,9 @@ label_15:
       }
     }
 
-    pub void DrawARiver2(int x, int y, int z)
+    pub fn DrawARiver2(x: i32, y: i32, z: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       this.curriv = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 6];
       let mut index1: i32 = z + 1;
       if (index1 > 5)
@@ -6047,7 +6047,7 @@ label_15:
       coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(x, y, 0, z + 1);
       if (coordinate1.onmap)
         numArray[coordinate1.x, coordinate1.y] = 1;
-      int steppy;
+      steppy: i32;
       while (this.game.EditObj.TempValue[0].Value[x, y] > 0 & steppy < 200)
       {
         num1 = 0;
@@ -6057,7 +6057,7 @@ label_15:
         Coordinate coordinate2;
         coordinate2.onmap = false;
         let mut num3: i32 = 0;
-        int num4;
+        num4: i32;
         do
         {
           coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(x, y, 0, num3 + 1);
@@ -6169,7 +6169,7 @@ label_15:
       }
     }
 
-    pub void DrawARiver(int x, int y, int z)
+    pub fn DrawARiver(x: i32, y: i32, z: i32)
     {
       object[,,] objArray = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 6];
       float num1 = VBMath.Rnd();
@@ -6192,8 +6192,8 @@ label_15:
         }
         if (this.game.EditObj.TempValue[0].Value[x, y] > 1)
         {
-          int[,] numArray1 = this.game.EditObj.TempValue[0].Value;
-          int[,] numArray2 = numArray1;
+          numArray1: Vec<i32> = this.game.EditObj.TempValue[0].Value;
+          numArray2: Vec<i32> = numArray1;
           let mut index1: i32 = x;
           let mut index2: i32 = index1;
           let mut index3: i32 = y;
@@ -6209,8 +6209,8 @@ label_15:
         {
           if (this.game.EditObj.TempValue[0].Value[coordinate1.x, coordinate1.y] > 1)
           {
-            int[,] numArray3 = this.game.EditObj.TempValue[0].Value;
-            int[,] numArray4 = numArray3;
+            numArray3: Vec<i32> = this.game.EditObj.TempValue[0].Value;
+            numArray4: Vec<i32> = numArray3;
             let mut x1: i32 = coordinate1.x;
             let mut index6: i32 = x1;
             let mut y1: i32 = coordinate1.y;
@@ -6415,7 +6415,7 @@ label_15:
       this.game.EditObj.TempValue[0].Value[x, y] = 0;
     }
 
-    pub void MakeHeightTable()
+    pub fn MakeHeightTable()
     {
       this.game.EditObj.TempValue = new MapMatrix2[1];
       this.game.EditObj.TempValue2 = new MapMatrix2[1];
@@ -6445,16 +6445,16 @@ label_15:
           }
           if ( this.game.Data.RuleVar[481] > 0.0 && this.game.Data.MapObj[0].HexObj[index1, index2].AreaCode[ Math.Round( this.game.Data.RuleVar[481])] == 99)
           {
-            int[,] numArray1 = this.game.EditObj.TempValue[0].Value;
-            int[,] numArray2 = numArray1;
+            numArray1: Vec<i32> = this.game.EditObj.TempValue[0].Value;
+            numArray2: Vec<i32> = numArray1;
             let mut index3: i32 = index1;
             let mut index4: i32 = index3;
             let mut index5: i32 = index2;
             let mut index6: i32 = index5;
             let mut num1: i32 = numArray1[index3, index5] * 2;
             numArray2[index4, index6] = num1;
-            int[,] numArray3 = this.game.EditObj.TempValue[0].Value;
-            int[,] numArray4 = numArray3;
+            numArray3: Vec<i32> = this.game.EditObj.TempValue[0].Value;
+            numArray4: Vec<i32> = numArray3;
             let mut index7: i32 = index1;
             let mut index8: i32 = index7;
             let mut index9: i32 = index2;
@@ -6573,18 +6573,18 @@ label_15:
       }
     }
 
-    pub void MakeLandBlob(int x, int y, int sizy)
+    pub fn MakeLandBlob(x: i32, y: i32, sizy: i32)
     {
       let mut num1: i32 = 0;
       this.game.Data.MapObj[0].HexObj[x, y].LandscapeType = this.GRASS;
       this += 1.landcur;
       if ( VBMath.Rnd() * 100.0 <  this.opt6v)
         num1 =  VBMath.Rnd() >= 0.3 ? ( VBMath.Rnd() >= 0.5 ? 3 : 2) : 1;
-      int num2;
+      num2: i32;
       do
       {
         num2 = 0;
-        int num3;
+        num3: i32;
         num3 += 1;
         let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
         for (let mut x2: i32 = 0; x2 <= mapWidth; x2 += 1)
@@ -6655,7 +6655,7 @@ label_15:
       while (num2 == 1);
     }
 
-    pub void MakeMountainRange(int x, int y, int x2, int y2)
+    pub fn MakeMountainRange(x: i32, y: i32, x2: i32, y2: i32)
     {
       let mut mapWidth1: i32 = this.game.Data.MapObj[0].MapWidth;
       Coordinate coordinate;
@@ -6692,7 +6692,7 @@ label_15:
           }
         }
       }
-      int num1;
+      num1: i32;
       num1 += 1;
       let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut cx: i32 = 0; cx <= mapWidth2; cx += 1)
@@ -6722,9 +6722,9 @@ label_15:
       }
     }
 
-    pub void FinalizeLadder()
+    pub fn FinalizeLadder()
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       this.game.Data.AddPeople();
       this.game.Data.PeopleObj[this.game.Data.PeopleCounter].PeopleGroup = 1;
       this.game.Data.PeopleObj[this.game.Data.PeopleCounter].Name = "2nd Player";
@@ -6766,9 +6766,9 @@ label_15:
       }
     }
 
-    pub void FinalizeLadderPre()
+    pub fn FinalizeLadderPre()
     {
-      int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth1: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 = 0; index1 <= mapWidth1; index1 += 1)
       {

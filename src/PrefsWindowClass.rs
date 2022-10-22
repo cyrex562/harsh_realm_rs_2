@@ -12,52 +12,52 @@ namespace WindowsApplication1
 {
   pub class PrefsWindowClass : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int saveid;
-     int quitid;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int B12Id;
-     int B12TextId;
-     int B13Id;
-     int B13TextId;
-     int B14Id;
-     int B14TextId;
-     int B15Id;
-     int B15TextId;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     saveid: i32;
+     quitid: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     B12Id: i32;
+     B12TextId: i32;
+     B13Id: i32;
+     B13TextId: i32;
+     B14Id: i32;
+     B14TextId: i32;
+     B15Id: i32;
+     B15TextId: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
-     int detailnr;
-     int regnr;
+     detailnr: i32;
+     regnr: i32;
 
-    pub PrefsWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
+    pub PrefsWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.regnr = this.game.Data.Turn;
@@ -306,7 +306,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -439,8 +439,8 @@ namespace WindowsApplication1
                 let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
                 let mut num6: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
                 let mut num7: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
-                int num8;
-                int num9;
+                num8: i32;
+                num9: i32;
                 if (this.game.EditObj.Zoom == 0)
                 {
                   this.game.EditObj.Zoom = 1;

@@ -72,7 +72,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub ResearchClass(int hardcoded)
+    pub ResearchClass(hardcoded: i32)
     {
       this.PointCost = new int[100];
       if (hardcoded != 0)
@@ -95,11 +95,11 @@ namespace WindowsApplication1
       this.TechLevel = -1;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

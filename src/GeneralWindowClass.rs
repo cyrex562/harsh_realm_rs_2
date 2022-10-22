@@ -21,177 +21,177 @@ namespace WindowsApplication1
 {
   pub class GeneralWindowClass : WindowClass
   {
-     int OptionsListId;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int StringListId;
+     StringListId: i32;
      ListClass StringListObj;
-     int libListId;
+     libListId: i32;
      ListClass libListObj;
-     int StringList2Id;
+     StringList2Id: i32;
      ListClass StringList2Obj;
-     int exp1id;
-     int exp1textid;
-     int rrid;
-     int rrtextid;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int b4id;
-     int b4textid;
-     int a1Id;
-     int a1TextId;
-     int a2Id;
-     int a2TextId;
-     int a3Id;
-     int a3TextId;
-     int a4Id;
-     int a4TextId;
-     int a5Id;
-     int a5TextId;
-     int a6Id;
-     int a6TextId;
-     int a7Id;
-     int a7TextId;
-     int a8Id;
-     int a8TextId;
-     int a9Id;
-     int a9TextId;
-     int a10Id;
-     int a10TextId;
-     int a11Id;
-     int a11TextId;
-     int a12Id;
-     int a12TextId;
-     int a13Id;
-     int a13TextId;
-     int a14Id;
-     int a14TextId;
-     int a15Id;
-     int a15TextId;
-     int a16Id;
-     int a16TextId;
-     int a17Id;
-     int a17TextId;
-     int a18Id;
-     int a18TextId;
-     int a19Id;
-     int a19TextId;
-     int a20Id;
-     int a20TextId;
-     int a21Id;
-     int a21TextId;
-     int a22Id;
-     int a22TextId;
-     int a22bId;
-     int a22bTextId;
-     int a23Id;
-     int a23TextId;
-     int a23bId;
-     int a23bTextId;
-     int a24Id;
-     int a24TextId;
-     int a25Id;
-     int a25TextId;
-     int a26Id;
-     int a26TextId;
-     int a27Id;
-     int a27TextId;
-     int a28Id;
-     int a28TextId;
-     int a29Id;
-     int a29TextId;
-     int a30Id;
-     int a30TextId;
-     int a31Id;
-     int a31TextId;
-     int a32Id;
-     int a32TextId;
-     int a33Id;
-     int a33TextId;
-     int a34Id;
-     int a34TextId;
-     int a35id;
-     int a35TextId;
-     int a36id;
-     int a36TextId;
-     int a36bid;
-     int a36bTextId;
-     int a37id;
-     int a37TextId;
-     int a38id;
-     int a38TextId;
-     int a38bid;
-     int a38bTextId;
-     int a39id;
-     int a39TextId;
-     int a40id;
-     int a40TextId;
-     int a41id;
-     int a41TextId;
-     int a42id;
-     int a42TextId;
-     int a43id;
-     int a43TextId;
-     int a44id;
-     int a44TextId;
-     int a45id;
-     int a45TextId;
-     int a46id;
-     int a46TextId;
-     int a47id;
-     int a47TextId;
-     int a48id;
-     int a48TextId;
-     int a49id;
-     int a49TextId;
-     int a50id;
-     int a50TextId;
-     int a51id;
-     int a51TextId;
-     int a52id;
-     int a52TextId;
-     int a53id;
-     int a53TextId;
-     int p1id;
-     int p1TextId;
-     int p2id;
-     int p2TextId;
-     int p3id;
-     int p3TextId;
-     int p4id;
-     int p4TextId;
-     int l1id;
-     int l1TextId;
-     int l2id;
-     int l2TextId;
+     exp1id: i32;
+     exp1textid: i32;
+     rrid: i32;
+     rrtextid: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     b4id: i32;
+     b4textid: i32;
+     a1Id: i32;
+     a1TextId: i32;
+     a2Id: i32;
+     a2TextId: i32;
+     a3Id: i32;
+     a3TextId: i32;
+     a4Id: i32;
+     a4TextId: i32;
+     a5Id: i32;
+     a5TextId: i32;
+     a6Id: i32;
+     a6TextId: i32;
+     a7Id: i32;
+     a7TextId: i32;
+     a8Id: i32;
+     a8TextId: i32;
+     a9Id: i32;
+     a9TextId: i32;
+     a10Id: i32;
+     a10TextId: i32;
+     a11Id: i32;
+     a11TextId: i32;
+     a12Id: i32;
+     a12TextId: i32;
+     a13Id: i32;
+     a13TextId: i32;
+     a14Id: i32;
+     a14TextId: i32;
+     a15Id: i32;
+     a15TextId: i32;
+     a16Id: i32;
+     a16TextId: i32;
+     a17Id: i32;
+     a17TextId: i32;
+     a18Id: i32;
+     a18TextId: i32;
+     a19Id: i32;
+     a19TextId: i32;
+     a20Id: i32;
+     a20TextId: i32;
+     a21Id: i32;
+     a21TextId: i32;
+     a22Id: i32;
+     a22TextId: i32;
+     a22bId: i32;
+     a22bTextId: i32;
+     a23Id: i32;
+     a23TextId: i32;
+     a23bId: i32;
+     a23bTextId: i32;
+     a24Id: i32;
+     a24TextId: i32;
+     a25Id: i32;
+     a25TextId: i32;
+     a26Id: i32;
+     a26TextId: i32;
+     a27Id: i32;
+     a27TextId: i32;
+     a28Id: i32;
+     a28TextId: i32;
+     a29Id: i32;
+     a29TextId: i32;
+     a30Id: i32;
+     a30TextId: i32;
+     a31Id: i32;
+     a31TextId: i32;
+     a32Id: i32;
+     a32TextId: i32;
+     a33Id: i32;
+     a33TextId: i32;
+     a34Id: i32;
+     a34TextId: i32;
+     a35id: i32;
+     a35TextId: i32;
+     a36id: i32;
+     a36TextId: i32;
+     a36bid: i32;
+     a36bTextId: i32;
+     a37id: i32;
+     a37TextId: i32;
+     a38id: i32;
+     a38TextId: i32;
+     a38bid: i32;
+     a38bTextId: i32;
+     a39id: i32;
+     a39TextId: i32;
+     a40id: i32;
+     a40TextId: i32;
+     a41id: i32;
+     a41TextId: i32;
+     a42id: i32;
+     a42TextId: i32;
+     a43id: i32;
+     a43TextId: i32;
+     a44id: i32;
+     a44TextId: i32;
+     a45id: i32;
+     a45TextId: i32;
+     a46id: i32;
+     a46TextId: i32;
+     a47id: i32;
+     a47TextId: i32;
+     a48id: i32;
+     a48TextId: i32;
+     a49id: i32;
+     a49TextId: i32;
+     a50id: i32;
+     a50TextId: i32;
+     a51id: i32;
+     a51TextId: i32;
+     a52id: i32;
+     a52TextId: i32;
+     a53id: i32;
+     a53TextId: i32;
+     p1id: i32;
+     p1TextId: i32;
+     p2id: i32;
+     p2TextId: i32;
+     p3id: i32;
+     p3TextId: i32;
+     p4id: i32;
+     p4TextId: i32;
+     l1id: i32;
+     l1TextId: i32;
+     l2id: i32;
+     l2TextId: i32;
      int[] vari;
      int[] variText;
      int[] vare;
-     int rl1id;
-     int rl2id;
-     int rl1TextId;
-     int rl2TextId;
-     int rl3id;
-     int rl3TextId;
-     int rRemoveId;
-     int addId;
-     int RemoveId;
-     int LoadId;
-     int ChangeId;
-     int PicId;
-     int TabSheetNr;
-     int libNr;
-     int DetailNr;
-     int detailnr2;
+     rl1id: i32;
+     rl2id: i32;
+     rl1TextId: i32;
+     rl2TextId: i32;
+     rl3id: i32;
+     rl3TextId: i32;
+     rRemoveId: i32;
+     addId: i32;
+     RemoveId: i32;
+     LoadId: i32;
+     ChangeId: i32;
+     PicId: i32;
+     TabSheetNr: i32;
+     libNr: i32;
+     DetailNr: i32;
+     detailnr2: i32;
      string ss;
-     int SheetCount;
-     string[] SheetName;
+     SheetCount: i32;
+     SheetName: Vec<String>;
      Rectangle[] SheetRect;
 
-    pub GeneralWindowClass( GameClass tGame)
+    pub GeneralWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Settings")
     {
       this.vari = new int[12];
@@ -206,7 +206,7 @@ namespace WindowsApplication1
       this.MakeFirst();
     }
 
-    pub void DoRefresh() => this.MakeFirst();
+    pub fn DoRefresh() => this.MakeFirst();
 
      void MakeFirst()
     {
@@ -497,9 +497,9 @@ namespace WindowsApplication1
       ListClass optionsListObj = this.OptionsListObj;
       let mut tabSheetNr: i32 =  this.TabSheetNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(optionsListObj, 4, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
       this.OptionsListId = this.AddSubPart( tsubpart1, 10, 50, 300, 112, 0);
       this.ss = "Click to set the name for this scenario.. not the filename but the title";
@@ -527,7 +527,7 @@ namespace WindowsApplication1
       this.a6Id = this.AddSubPart( tsubpart10, 350, 130, 32, 16, 1);
       let mut tsubpart11: SubPartClass =  TextPartClass::new((this.game.Data.MasterFile.Length <= 1 ? "NO MASTERFILE " : "MASTERFILE: ") + this.game.Data.MasterFile, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.a6TextId = this.AddSubPart( tsubpart11, 390, 129, 200, 20, 0);
-      this.ss = "Set the ammount of Victory Points needed to win. -1 = no victory point condition win";
+      this.ss = "Set the ammount of Victory Points needed to win. -1 = no victory pocondition: i32 win";
       let mut tsubpart12: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.a7Id = this.AddSubPart( tsubpart12, 350, 150, 32, 16, 1);
       let mut tsubpart13: SubPartClass =  TextPartClass::new("VP Win: " + Conversion.Str( this.game.Data.VPWin), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
@@ -1074,9 +1074,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.StringListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(stringListObj, 19, 300, detailNr, game, tHeader: "Group Names", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringListId = this.AddSubPart( tsubpart, 10, 300, 300, 352, 0);
       if (this.DetailNr <= -1)
@@ -1114,9 +1114,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.StringListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(stringListObj, 12, 300, detailNr, game, tHeader: "Gameslot Names", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringListId = this.AddSubPart( tsubpart, 10, 300, 300, 240, 0);
       if (this.DetailNr <= -1)
@@ -1163,9 +1163,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.StringListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(stringListObj, 12, 300, detailNr, game, tHeader: "Regimeslots", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringListId = this.AddSubPart( tsubpart, 10, 300, 300, 240, 0);
       if (this.DetailNr <= -1)
@@ -1263,9 +1263,9 @@ namespace WindowsApplication1
       ListClass stringList2Obj = this.StringList2Obj;
       let mut tlistselect1: i32 =  num2;
       let mut game1: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(stringList2Obj, 18, 250, tlistselect1, game1, tHeader: "Rulevar Groups", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringList2Id = this.AddSubPart( tsubpart1, 10, 300, 250, 336, 0);
       this.StringListObj = ListClass::new();
@@ -1288,9 +1288,9 @@ namespace WindowsApplication1
       let mut twidth: i32 =  700 + (this.game.ScreenWidth - 1024);
       let mut tlistselect2: i32 =  num4;
       let mut game2: GameClass = this.game;
-       Bitmap local3 =  this.OwnBitmap;
+       local3: Bitmap =  this.OwnBitmap;
       font =  null;
-       Font local4 =  font;
+       local4: Font =  font;
       let mut tsubpart2: SubPartClass =  new ListSubPartClass(stringListObj, 13, twidth, tlistselect2, game2, tHeader: "Rulevars", tbackbitmap: ( local3), bbx: 300, bby: 345, overruleFont: ( local4));
       this.StringListId = this.AddSubPart( tsubpart2, 300, 345, 700 + (this.game.ScreenWidth - 1024), 256, 0);
       if (this.DetailNr <= -1)
@@ -1310,8 +1310,8 @@ namespace WindowsApplication1
      void maketabsheetnr4()
     {
       this.libListObj = ListClass::new();
-      int num1;
-      Font font;
+      num1: i32;
+      font: Font;
       SubPartClass tsubpart;
       if (this.game.Data.LibraryCounter > -1)
       {
@@ -1337,9 +1337,9 @@ namespace WindowsApplication1
         let mut tlistsize: i32 =  12 + num3;
         let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
+         local1: Bitmap =  this.OwnBitmap;
         font =  null;
-         Font local2 =  font;
+         local2: Font =  font;
         tsubpart =  new ListSubPartClass(libListObj, tlistsize, 300, tlistselect, game, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 910, bby: 300, overruleFont: ( local2));
         this.libListId = this.AddSubPart( tsubpart, 910, 300, 300, (15 + num3) * 16, 0);
       }
@@ -1376,9 +1376,9 @@ namespace WindowsApplication1
       let mut tlistsize1: i32 =  12 + num6;
       let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
-       Bitmap local3 =  this.OwnBitmap;
+       local3: Bitmap =  this.OwnBitmap;
       font =  null;
-       Font local4 =  font;
+       local4: Font =  font;
       tsubpart =  new ListSubPartClass(stringListObj, tlistsize1, 300, tlistselect1, game1, tHeader: "Event graphics", tbackbitmap: ( local3), bbx: 10, bby: 300, overruleFont: ( local4));
       this.StringListId = this.AddSubPart( tsubpart, 10, 300, 300, (15 + num6) * 16, 0);
       if (this.DetailNr > -1)
@@ -1444,9 +1444,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.StringListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(stringListObj, 12, 300, detailNr, game, tHeader: "Small Gfx", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringListId = this.AddSubPart( tsubpart1, 10, 300, 300, 240, 0);
       if (this.DetailNr > -1)
@@ -1505,9 +1505,9 @@ namespace WindowsApplication1
       ListClass stringListObj = this.StringListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(stringListObj, 12, 550, detailNr, game, tHeader: "Reinforcement Types", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
       this.StringListId = this.AddSubPart( tsubpart, 10, 340, 550, 240, 0);
       if (this.DetailNr > -1)
@@ -1589,7 +1589,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -3518,7 +3518,7 @@ label_645:
       return true;
     }
 
-    pub void MakeSheet()
+    pub fn MakeSheet()
     {
       str1: String = Interaction.InputBox("Give a directory under the graphics dir please", "Shadow Empire : Planetary Conquest");
       if (!Directory.Exists(this.game.AppPath + "graphics/" + str1))
@@ -3561,7 +3561,7 @@ label_645:
             }
           }
           let mut sheetCount2: i32 =  this.SheetCount;
-          int index3;
+          index3: i32;
           for (index3 = 1; index3 <= sheetCount2; index3 += 1)
           {
             let mut num5: i32 =  this.SheetRect[index3].Width * this.SheetRect[index3].Height;
@@ -3570,7 +3570,7 @@ label_645:
             {
               if (this.SheetRect[index4].Width * this.SheetRect[index4].Height > num5)
               {
-                Bitmap bitmap = bitmapArray[index3];
+                bitmap: Bitmap = bitmapArray[index3];
                 Rectangle rectangle = this.SheetRect[index3];
                 str2: String = this.SheetName[index3];
                 bitmapArray[index3] = bitmapArray[index4];
@@ -3585,9 +3585,9 @@ label_645:
           let mut num7: i32 =  index3;
           let mut num8: i32 =  0;
           let mut num9: i32 =  0;
-          int sheetCount3;
-          int width;
-          int height;
+          sheetCount3: i32;
+          width: i32;
+          height: i32;
           Rectangle rectangle1;
           for (sheetCount3 = this.SheetCount; sheetCount3 >= 1; sheetCount3 += -1)
           {
@@ -3670,7 +3670,7 @@ label_645:
                   }
                   else
                   {
-                    int num13;
+                    num13: i32;
                     if (num13 == 0)
                     {
                       num13 = 1;
@@ -3687,16 +3687,16 @@ label_645:
             }
           }
           num7 = sheetCount3;
-          Bitmap tmpbmp = new Bitmap(width, height, PixelFormat.Format32bppPArgb);
+          tmpbmp: Bitmap = new Bitmap(width, height, PixelFormat.Format32bppPArgb);
           tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           Graphics graphics = Graphics.FromImage((Image) tmpbmp);
           graphics.CompositingMode = CompositingMode.SourceCopy;
           let mut sheetCount5: i32 =  this.SheetCount;
-          int index6;
+          index6: i32;
           for (index6 = 1; index6 <= sheetCount5; index6 += 1)
           {
              let mut local1: &Graphics = &graphics;
-             Bitmap local2 =  bitmapArray[index6];
+             local2: Bitmap =  bitmapArray[index6];
             rectangle1 = Rectangle::new(0, 0, this.SheetRect[index6].Width, this.SheetRect[index6].Height);
             let mut srcrect: &Rectangle = &rectangle1
             Rectangle destrect = this.SheetRect[index6];
@@ -3740,7 +3740,7 @@ label_645:
       return true;
     }
 
-    pub void PdfUnitModels()
+    pub fn PdfUnitModels()
     {
       bool flag1 = false;
       if (Interaction.MsgBox( "Also read reinforcements from tv3,4,5 variables (like in vanilla Case Blue)?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
@@ -3760,7 +3760,7 @@ label_645:
       listClass.SortWithRefOnWeightAndName(0);
       if (listClass.ListCount < 0)
         return;
-      string[] strArray1 = new string[listClass.ListCount + 1];
+      strArray1: Vec<String> = new string[listClass.ListCount + 1];
       SimpleList simpleList1 = SimpleList::new();
       let mut listCount1: i32 =  listClass.ListCount;
       for (let mut index1: i32 =  0; index1 <= listCount1; index1 += 1)
@@ -3806,8 +3806,8 @@ label_645:
             {
               if (Operators.CompareString(strArray1[index1], "", false) == 0)
               {
-                string[] strArray2 = strArray1;
-                string[] strArray3 = strArray2;
+                strArray2: Vec<String> = strArray1;
+                strArray3: Vec<String> = strArray2;
                 let mut index6: i32 =  index1;
                 let mut index7: i32 =  index6;
                 str3: String = strArray2[index6] + this.game.Data.HistoricalUnitObj[index4].Name;
@@ -3815,8 +3815,8 @@ label_645:
               }
               else
               {
-                string[] strArray4 = strArray1;
-                string[] strArray5 = strArray4;
+                strArray4: Vec<String> = strArray1;
+                strArray5: Vec<String> = strArray4;
                 let mut index8: i32 =  index1;
                 let mut index9: i32 =  index8;
                 str4: String = strArray4[index8] + ", " + this.game.Data.HistoricalUnitObj[index4].Name;
@@ -3827,7 +3827,7 @@ label_645:
         }
         strArray1[index1] = Operators.CompareString(strArray1[index1], "", false) == 0 ? "Starting units: -" : "Starting units: " + strArray1[index1] + ".";
       }
-      string[] strArray6 = new string[listClass.ListCount + 1];
+      strArray6: Vec<String> = new string[listClass.ListCount + 1];
       if (flag1)
       {
         SimpleList simpleList2 = SimpleList::new();
@@ -3861,8 +3861,8 @@ label_645:
             {
               if (Operators.CompareString(strArray6[index10], "", false) == 0)
               {
-                string[] strArray7 = strArray6;
-                string[] strArray8 = strArray7;
+                strArray7: Vec<String> = strArray6;
+                strArray8: Vec<String> = strArray7;
                 let mut index14: i32 =  index10;
                 let mut index15: i32 =  index14;
                 str5: String = strArray7[index14] + this.game.Data.HistoricalUnitObj[index13].Name + "(" + this.game.Data.HistoricalUnitObj[index13].TempVar5.ToString() + " " + Strings.Left(this.game.HandyFunctionsObj.GetMonth(this.game.Data.HistoricalUnitObj[index13].TempVar4), 3) + " " + this.game.Data.HistoricalUnitObj[index13].TempVar3.ToString() + ")";
@@ -3870,8 +3870,8 @@ label_645:
               }
               else
               {
-                string[] strArray9 = strArray6;
-                string[] strArray10 = strArray9;
+                strArray9: Vec<String> = strArray6;
+                strArray10: Vec<String> = strArray9;
                 let mut index16: i32 =  index10;
                 let mut index17: i32 =  index16;
                 str6: String = strArray9[index16] + ", " + this.game.Data.HistoricalUnitObj[index13].Name + "(" + this.game.Data.HistoricalUnitObj[index13].TempVar5.ToString() + " " + Strings.Left(this.game.HandyFunctionsObj.GetMonth(this.game.Data.HistoricalUnitObj[index13].TempVar4), 3) + " " + this.game.Data.HistoricalUnitObj[index13].TempVar3.ToString() + ")";
@@ -3883,11 +3883,11 @@ label_645:
         }
       }
       PdfDocument pdfDocument = PdfDocument::new();
-      XFont xfont1 = new XFont("Arial", 8.0, XFontStyle.Italic);
-      XFont xfont2 = new XFont("Arial", 10.0, XFontStyle.Regular);
-      XFont xfont3 = new XFont("Arial", 8.0, XFontStyle.Regular);
-      XFont xfont4 = new XFont("Arial", 20.0, XFontStyle.Bold);
-      XFont xfont5 = new XFont("Arial", 40.0, XFontStyle.Bold);
+      Xxfont1: Font = new XFont("Arial", 8.0, XFontStyle.Italic);
+      Xxfont2: Font = new XFont("Arial", 10.0, XFontStyle.Regular);
+      Xxfont3: Font = new XFont("Arial", 8.0, XFontStyle.Regular);
+      Xxfont4: Font = new XFont("Arial", 20.0, XFontStyle.Bold);
+      Xxfont5: Font = new XFont("Arial", 40.0, XFontStyle.Bold);
       XPen xpen = new XPen(XColors.Black, 2.0);
       XPen pen = new XPen(XColors.Gray, 4.0);
       XBrush xbrush1 = (XBrush) new XSolidBrush(XColors.Gray);
@@ -3901,7 +3901,7 @@ label_645:
       str7: String = str2;
       XGraphics xgraphics2 = xgraphics1;
       text1: String = str7;
-      XFont font1 = xfont4;
+      Xfont1: Font = xfont4;
       XBrush brush1 = xbrush3;
       XRect xrect = new XRect(0.0, 40.0,  pdfPage1.Width,  pdfPage1.Height + 40.0);
       XRect layoutRectangle1 = xrect;
@@ -3910,7 +3910,7 @@ label_645:
       str8: String = "Order of Battle Guide";
       XGraphics xgraphics3 = xgraphics1;
       text2: String = str8;
-      XFont font2 = xfont5;
+      Xfont2: Font = xfont5;
       XBrush brush2 = xbrush3;
       xrect = new XRect(0.0, -40.0,  pdfPage1.Width,  pdfPage1.Height - 40.0);
       XRect layoutRectangle2 = xrect;
@@ -3919,7 +3919,7 @@ label_645:
       str9: String = "for";
       XGraphics xgraphics4 = xgraphics1;
       text3: String = str9;
-      XFont font3 = xfont4;
+      Xfont3: Font = xfont4;
       XBrush brush3 = xbrush3;
       xrect = new XRect(0.0, 0.0,  pdfPage1.Width,  pdfPage1.Height + 0.0);
       XRect layoutRectangle3 = xrect;
@@ -3928,7 +3928,7 @@ label_645:
       str10: String = str1;
       XGraphics xgraphics5 = xgraphics1;
       text4: String = str10;
-      XFont font4 = xfont2;
+      Xfont4: Font = xfont2;
       XBrush brush4 = xbrush3;
       xrect = new XRect(0.0, 80.0,  pdfPage1.Width,  pdfPage1.Height + 80.0);
       XRect layoutRectangle4 = xrect;
@@ -3944,7 +3944,7 @@ label_645:
       let mut num2: i32 =  0;
       XGraphics xgraphics7 = xgraphics6;
       text5: String = str11;
-      XFont font5 = xfont4;
+      Xfont5: Font = xfont4;
       XBrush brush5 = xbrush3;
       xrect = new XRect(0.0, 0.0,  pdfPage2.Width, 40.0);
       XRect layoutRectangle5 = xrect;
@@ -3964,7 +3964,7 @@ label_645:
         }
         XGraphics xgraphics8 = xgraphics6;
         text6: String = str12;
-        XFont font6 = xfont3;
+        Xfont6: Font = xfont3;
         XBrush brush6 = xbrush3;
         xrect = new XRect( (40 + num1 * 180),  (35 + num2 * 10), 110.0, 10.0);
         XRect layoutRectangle6 = xrect;
@@ -3972,7 +3972,7 @@ label_645:
         xgraphics8.DrawString(text6, font6, brush6, layoutRectangle6, topLeft);
         XGraphics xgraphics9 = xgraphics6;
         text7: String = (index + 3).ToString();
-        XFont font7 = xfont3;
+        Xfont7: Font = xfont3;
         XBrush brush7 = xbrush3;
         xrect = new XRect( (40 + num1 * 180 + 115),  (35 + num2 * 10), 30.0, 10.0);
         XRect layoutRectangle7 = xrect;
@@ -3994,7 +3994,7 @@ label_645:
         xgraphics6 = XGraphics.FromPdfPage(pdfPage3);
         XGraphics xgraphics10 = xgraphics6;
         text8: String = "ORDER OF BATTLE GUIDE : " + Strings.UCase(str2);
-        XFont font8 = xfont1;
+        Xfont8: Font = xfont1;
         XBrush brush9 = xbrush1;
         xrect = new XRect(0.0, 5.0,  pdfPage3.Width, 10.0);
         XRect layoutRectangle8 = xrect;
@@ -4004,7 +4004,7 @@ label_645:
         pdfOutline.Outlines.Add(name1, pdfPage3, true);
         XGraphics xgraphics11 = xgraphics6;
         text9: String = name1;
-        XFont font9 = xfont4;
+        Xfont9: Font = xfont4;
         XBrush brush10 = xbrush3;
         xrect = new XRect(0.0, 30.0,  pdfPage3.Width, 30.0);
         XRect layoutRectangle9 = xrect;
@@ -4014,7 +4014,7 @@ label_645:
         str13: String = historicalsSubUnitCount1 != 1 ? "formation has " + historicalsSubUnitCount1.ToString() + " subunits." : "formation has " + historicalsSubUnitCount1.ToString() + " subunit.";
         XGraphics xgraphics12 = xgraphics6;
         text10: String = str13;
-        XFont font10 = xfont2;
+        Xfont10: Font = xfont2;
         XBrush brush11 = xbrush3;
         xrect = new XRect(0.0, 70.0,  pdfPage3.Width, 15.0);
         XRect layoutRectangle10 = xrect;
@@ -4042,7 +4042,7 @@ label_645:
         xgraphics6.DrawRoundedRectangle(pen, brush8, 40, num3, 515, height1, 20, 20);
         xgraphics6.DrawLine(pen, 257.5,  num3, 257.5,  (num3 + height1));
         let mut index20: i32 =  0;
-        int num6;
+        num6: i32;
         do
         {
           if (this.game.Data.HistoricalUnitObj[hisnr].SubParts[index20] > -1)
@@ -4088,7 +4088,7 @@ label_645:
               name2: String = this.game.Data.UnitObj[preDef].Name;
               XGraphics xgraphics13 = xgraphics6;
               text11: String = name2;
-              XFont font11 = xfont2;
+              Xfont11: Font = xfont2;
               XBrush brush12 = xbrush3;
               xrect = new XRect( x1,  num3,  width1,  height2);
               XRect layoutRectangle11 = xrect;
@@ -4105,7 +4105,7 @@ label_645:
                 str14: String = (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].Ratio).ToString() + "x " + this.game.Data.ReinfName[this.game.Data.SFTypeObj[type].ReinforcementType] + " (" + this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].Name + ")";
                 XGraphics xgraphics14 = xgraphics6;
                 text12: String = str14;
-                XFont font12 = xfont2;
+                Xfont12: Font = xfont2;
                 XBrush brush13 = xbrush3;
                 xrect = new XRect( x2,  num3,  width2,  height3);
                 XRect layoutRectangle12 = xrect;
@@ -4126,9 +4126,9 @@ label_645:
         let mut width3: i32 =  700;
         let mut height4: i32 =  15;
         let mut game1: GameClass = this.game;
-        Font tfont1 = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
+        tfont1: Font = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
         tText1: String = strArray1[index18];
-        Bitmap bitmap1 = (Bitmap) null;
+        bitmap1: Bitmap = (Bitmap) null;
          let mut local1: &Bitmap = &bitmap1;
         TextAreaClass2 textAreaClass2_1 = new TextAreaClass2(game1, 740, 5, tfont1, tText1, tbackbitmap: ( local1));
         let mut listCount5: i32 =  textAreaClass2_1.ListObj[0].ListCount;
@@ -4136,7 +4136,7 @@ label_645:
         {
           XGraphics xgraphics15 = xgraphics6;
           text13: String = textAreaClass2_1.ListObj[0].ListName[index22];
-          XFont font13 = xfont3;
+          Xfont13: Font = xfont3;
           XBrush brush14 = xbrush3;
           xrect = new XRect( x3,  y1,  width3,  height4);
           XRect layoutRectangle13 = xrect;
@@ -4149,9 +4149,9 @@ label_645:
         let mut width4: i32 =  700;
         let mut height5: i32 =  15;
         let mut game2: GameClass = this.game;
-        Font tfont2 = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
+        tfont2: Font = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
         tText2: String = strArray6[index18];
-        Bitmap bitmap2 = (Bitmap) null;
+        bitmap2: Bitmap = (Bitmap) null;
          let mut local2: &Bitmap = &bitmap2;
         TextAreaClass2 textAreaClass2_2 = new TextAreaClass2(game2, 740, 5, tfont2, tText2, tbackbitmap: ( local2));
         let mut listCount6: i32 =  textAreaClass2_2.ListObj[0].ListCount;
@@ -4159,7 +4159,7 @@ label_645:
         {
           XGraphics xgraphics16 = xgraphics6;
           text14: String = textAreaClass2_2.ListObj[0].ListName[index23];
-          XFont font14 = xfont3;
+          Xfont14: Font = xfont3;
           XBrush brush15 = xbrush3;
           xrect = new XRect( x4,  y2,  width4,  height5);
           XRect layoutRectangle14 = xrect;
@@ -4169,7 +4169,7 @@ label_645:
         }
         XGraphics xgraphics17 = xgraphics6;
         text15: String = "page " + pdfDocument.PageCount.ToString();
-        XFont font15 = xfont1;
+        Xfont15: Font = xfont1;
         XBrush brush16 = xbrush1;
         xrect = new XRect(0.0, pdfPage3.Height.Value - 15.0,  pdfPage3.Width, 10.0);
         XRect layoutRectangle15 = xrect;
@@ -4182,7 +4182,7 @@ label_645:
       pdfDocument.Dispose();
     }
 
-    pub void PdfReinforcements()
+    pub fn PdfReinforcements()
     {
       str1: String = Interaction.InputBox("Give version number please, or leave blank", "Shadow Empire : Planetary Conquest");
       str2: String = Interaction.InputBox("Give title", "Shadow Empire : Planetary Conquest");
@@ -4200,12 +4200,12 @@ label_645:
         simpleListArray[index].Sort();
       }
       PdfDocument pdfDocument = PdfDocument::new();
-      XFont xfont1 = new XFont("Arial", 8.0, XFontStyle.Italic);
-      XFont xfont2 = new XFont("Arial", 10.0, XFontStyle.Regular);
-      XFont xfont3 = new XFont("Arial", 10.0, XFontStyle.Bold);
-      XFont xfont4 = new XFont("Arial", 8.0, XFontStyle.Regular);
-      XFont xfont5 = new XFont("Arial", 20.0, XFontStyle.Bold);
-      XFont xfont6 = new XFont("Arial", 40.0, XFontStyle.Bold);
+      Xxfont1: Font = new XFont("Arial", 8.0, XFontStyle.Italic);
+      Xxfont2: Font = new XFont("Arial", 10.0, XFontStyle.Regular);
+      Xxfont3: Font = new XFont("Arial", 10.0, XFontStyle.Bold);
+      Xxfont4: Font = new XFont("Arial", 8.0, XFontStyle.Regular);
+      Xxfont5: Font = new XFont("Arial", 20.0, XFontStyle.Bold);
+      Xxfont6: Font = new XFont("Arial", 40.0, XFontStyle.Bold);
       XPen xpen1 = new XPen(XColors.Black, 2.0);
       XPen xpen2 = new XPen(XColors.Gray, 4.0);
       XBrush xbrush1 = (XBrush) new XSolidBrush(XColors.Gray);
@@ -4219,7 +4219,7 @@ label_645:
       str3: String = str2;
       XGraphics xgraphics2 = xgraphics1;
       text1: String = str3;
-      XFont font1 = xfont5;
+      Xfont1: Font = xfont5;
       XBrush brush1 = xbrush3;
       XRect xrect = new XRect(0.0, 40.0,  pdfPage1.Width,  pdfPage1.Height + 40.0);
       XRect layoutRectangle1 = xrect;
@@ -4228,7 +4228,7 @@ label_645:
       str4: String = "Reinforcement Units Guide";
       XGraphics xgraphics3 = xgraphics1;
       text2: String = str4;
-      XFont font2 = xfont6;
+      Xfont2: Font = xfont6;
       XBrush brush2 = xbrush3;
       xrect = new XRect(0.0, -40.0,  pdfPage1.Width,  pdfPage1.Height - 40.0);
       XRect layoutRectangle2 = xrect;
@@ -4237,7 +4237,7 @@ label_645:
       str5: String = "for";
       XGraphics xgraphics4 = xgraphics1;
       text3: String = str5;
-      XFont font3 = xfont5;
+      Xfont3: Font = xfont5;
       XBrush brush3 = xbrush3;
       xrect = new XRect(0.0, 0.0,  pdfPage1.Width,  pdfPage1.Height + 0.0);
       XRect layoutRectangle3 = xrect;
@@ -4246,7 +4246,7 @@ label_645:
       str6: String = str1;
       XGraphics xgraphics5 = xgraphics1;
       text4: String = str6;
-      XFont font4 = xfont2;
+      Xfont4: Font = xfont2;
       XBrush brush4 = xbrush3;
       xrect = new XRect(0.0, 80.0,  pdfPage1.Width,  pdfPage1.Height + 80.0);
       XRect layoutRectangle4 = xrect;
@@ -4269,7 +4269,7 @@ label_645:
           xgraphics1 = XGraphics.FromPdfPage(pdfPage2);
           XGraphics xgraphics6 = xgraphics1;
           text5: String = "REINFORCEMENT UNITS GUIDE : " + Strings.UCase(str2);
-          XFont font5 = xfont1;
+          Xfont5: Font = xfont1;
           XBrush brush5 = xbrush1;
           xrect = new XRect(0.0, 5.0,  pdfPage2.Width, 10.0);
           XRect layoutRectangle5 = xrect;
@@ -4277,7 +4277,7 @@ label_645:
           xgraphics6.DrawString(text5, font5, brush5, layoutRectangle5, center5);
           XGraphics xgraphics7 = xgraphics1;
           text6: String = "page " + pdfDocument.PageCount.ToString();
-          XFont font6 = xfont1;
+          Xfont6: Font = xfont1;
           XBrush brush6 = xbrush1;
            XRect local1 =  xrect;
           XUnit height = pdfPage2.Height;
@@ -4290,7 +4290,7 @@ label_645:
           pdfOutline.Outlines.Add(this.game.Data.RegimeObj[index].Name, pdfPage2, true);
           XGraphics xgraphics8 = xgraphics1;
           name: String = this.game.Data.RegimeObj[index].Name;
-          XFont font7 = xfont5;
+          Xfont7: Font = xfont5;
           XBrush brush7 = xbrush3;
           xrect = new XRect(40.0, 25.0,  pdfPage2.Width, 30.0);
           XRect layoutRectangle7 = xrect;
@@ -4306,7 +4306,7 @@ label_645:
             str7: String = simpleListArray[index].Data3[0].ToString() + "-" + this.game.HandyFunctionsObj.GetMonth(simpleListArray[index].Data2[0]) + "-" + simpleListArray[index].Data1[0].ToString();
             XGraphics xgraphics9 = xgraphics1;
             text7: String = str7;
-            XFont font8 = xfont3;
+            Xfont8: Font = xfont3;
             XBrush brush8 = xbrush3;
             xrect = new XRect( x,  y3,  pdfPage2.Width, 10.0);
             XRect layoutRectangle8 = xrect;
@@ -4321,7 +4321,7 @@ label_645:
                 str8: String = "-" + this.game.Data.HistoricalUnitObj[simpleListArray[index].Id[counter]].Name;
                 XGraphics xgraphics10 = xgraphics1;
                 text8: String = str8;
-                XFont font9 = xfont2;
+                Xfont9: Font = xfont2;
                 XBrush brush9 = xbrush3;
                 xrect = new XRect( x,  y2,  pdfPage2.Width, 10.0);
                 XRect layoutRectangle9 = xrect;
@@ -4342,7 +4342,7 @@ label_645:
                   xgraphics1 = XGraphics.FromPdfPage(pdfPage2);
                   XGraphics xgraphics11 = xgraphics1;
                   text9: String = "REINFORCEMENT UNITS GUIDE : " + Strings.UCase(str2);
-                  XFont font10 = xfont1;
+                  Xfont10: Font = xfont1;
                   XBrush brush10 = xbrush1;
                   xrect = new XRect(0.0, 5.0,  pdfPage2.Width, 10.0);
                   XRect layoutRectangle10 = xrect;
@@ -4350,7 +4350,7 @@ label_645:
                   xgraphics11.DrawString(text9, font10, brush10, layoutRectangle10, center7);
                   XGraphics xgraphics12 = xgraphics1;
                   text10: String = "page " + pdfDocument.PageCount.ToString();
-                  XFont font11 = xfont1;
+                  Xfont11: Font = xfont1;
                   XBrush brush11 = xbrush1;
                    XRect local2 =  xrect;
                   height = pdfPage2.Height;
@@ -4377,7 +4377,7 @@ label_645:
               xgraphics1 = XGraphics.FromPdfPage(pdfPage2);
               XGraphics xgraphics13 = xgraphics1;
               text11: String = "HISTORICAL REINFORCEMENT SCHEDULE BOOKLET FOR " + Strings.UCase(this.game.Data.Name.ToString());
-              XFont font12 = xfont1;
+              Xfont12: Font = xfont1;
               XBrush brush12 = xbrush1;
               xrect = new XRect(0.0, 5.0,  pdfPage2.Width, 10.0);
               XRect layoutRectangle12 = xrect;
@@ -4385,7 +4385,7 @@ label_645:
               xgraphics13.DrawString(text11, font12, brush12, layoutRectangle12, center9);
               XGraphics xgraphics14 = xgraphics1;
               text12: String = "page " + pdfDocument.PageCount.ToString();
-              XFont font13 = xfont1;
+              Xfont13: Font = xfont1;
               XBrush brush13 = xbrush1;
                XRect local3 =  xrect;
               height = pdfPage2.Height;

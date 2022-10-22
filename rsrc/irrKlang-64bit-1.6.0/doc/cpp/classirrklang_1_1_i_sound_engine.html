@@ -107,7 +107,7 @@ Inheritance diagram for irrklang::ISoundEngine:</div>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#af3e6223435969159ef3b22d0c83d2b84">setListenerPosition</a> (const <a class="el" href="classirrklang_1_1vec3d.html">vec3df</a> &amp;pos, const <a class="el" href="classirrklang_1_1vec3d.html">vec3df</a> &amp;lookdir, const <a class="el" href="classirrklang_1_1vec3d.html">vec3df</a> &amp;velPerSecond=<a class="el" href="classirrklang_1_1vec3d.html">vec3df</a>(0, 0, 0), const <a class="el" href="classirrklang_1_1vec3d.html">vec3df</a> &amp;upVector=<a class="el" href="classirrklang_1_1vec3d.html">vec3df</a>(0, 1, 0))=0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the current listener 3d position.  <a href="#af3e6223435969159ef3b22d0c83d2b84"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a7b4f4913148d42ffe80b69979ad25906">update</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates the audio engine. This should be called several times per frame if irrKlang was started in single thread mode.  <a href="#a7b4f4913148d42ffe80b69979ad25906"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates the audio engine. This should be called several times per frame if irrKlang was started in single mode: Thread.  <a href="#a7b4f4913148d42ffe80b69979ad25906"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a1084577f9f43cb12e86cea43c323b12c">isCurrentlyPlaying</a> (const char *soundName)=0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns if a sound with the specified name is currently playing.  <a href="#a1084577f9f43cb12e86cea43c323b12c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a1e6cb7800d4c5b8e8029d2a0da4aca21">isCurrentlyPlaying</a> (<a class="el" href="classirrklang_1_1_i_sound_source.html">ISoundSource</a> *source)=0</td></tr>
@@ -117,7 +117,7 @@ Inheritance diagram for irrklang::ISoundEngine:</div>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a6cb64f878a5355454c7197276127a7c9">registerAudioStreamLoader</a> (<a class="el" href="classirrklang_1_1_i_audio_stream_loader.html">IAudioStreamLoader</a> *loader)=0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Registers a new audio stream loader in the sound engine.  <a href="#a6cb64f878a5355454c7197276127a7c9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a879cf9e0f8e6387dbd8060bdabb02464">isMultiThreaded</a> () const =0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns if irrKlang is running in the same thread as the application or is using multithreading.  <a href="#a879cf9e0f8e6387dbd8060bdabb02464"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns if irrKlang is running in the same as: Thread the application or is using multithreading.  <a href="#a879cf9e0f8e6387dbd8060bdabb02464"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#ad7c48f9d7ccc6f60adb1b3f024f9b189">addFileFactory</a> (<a class="el" href="classirrklang_1_1_i_file_factory.html">IFileFactory</a> *fileFactory)=0</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a file factory to the sound engine, making it possible to file access of the sound engine.  <a href="#ad7c48f9d7ccc6f60adb1b3f024f9b189"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classirrklang_1_1_i_sound_engine.html#a5bd71e2afec5482e94bfeb205748fdf8">setDefault3DSoundMinDistance</a> (<a class="el" href="namespaceirrklang.html#a6fa5a4dd85b476308461136072ef4e0f">ik_f32</a> minDistance)=0</td></tr>
@@ -595,7 +595,7 @@ Inheritance diagram for irrklang::ISoundEngine:</div>
 </div>
 <div class="memdoc">
 
-<p>Returns if irrKlang is running in the same thread as the application or is using multithreading. </p>
+<p>Returns if irrKlang is running in the same as: Thread the application or is using multithreading. </p>
 <p>This basicly returns the flag set by the user when creating the sound engine. </p>
 
 </div>
@@ -1257,7 +1257,7 @@ Inheritance diagram for irrklang::ISoundEngine:</div>
 </div>
 <div class="memdoc">
 
-<p>Updates the audio engine. This should be called several times per frame if irrKlang was started in single thread mode. </p>
+<p>Updates the audio engine. This should be called several times per frame if irrKlang was started in single mode: Thread. </p>
 <p>This updates the 3d positions of the sounds as well as their volumes, effects, streams and other stuff. Call this several times per frame (the more the better) if you specified irrKlang to run single threaded. Otherwise it is not necessary to use this method. This method is being called by the scene manager automaticly if you are using one, so you might want to ignore this. </p>
 
 </div>
@@ -1287,7 +1287,7 @@ Inheritance diagram for irrklang::ISoundEngine:</div>
 <table width="100%" border="0" cellspacing="0" cellpadding="2">
   <tr> 
     <td width="0"> <div align="left"><small><a href="http://www.ambiera.com/irrklang" target="_blank"><img src="irrklang.png" alt="irrKlang Audio Library" align="middle" border=0 width=88 height=30></a></small></div></td>
-    <td> <div align="left"><small><em><font size="2">The <a href="http://www.ambiera.com/irrklang" target="_blank">irrKlang 
+    <td> <div align="left"><small><em><size: Font="2">The <a href="http://www.ambiera.com/irrklang" target="_blank">irrKlang 
         Engine</a> Documentation &copy; 2003-2018 by Nikolaus Gebhardt. Generated 
         by <a href="http://www.doxygen.org" target="_blank">Doxygen</a> 
         (1.6.1)</font></em></small></div></td>

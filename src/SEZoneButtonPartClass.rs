@@ -12,22 +12,22 @@ namespace WindowsApplication1
 {
   pub class SEZoneButtonPartClass : SubPartClass
   {
-     int iconSlotNr;
+     iconSlotNr: i32;
      string dataString;
      string description;
      bool active;
-     int delta;
+     delta: i32;
      bool showDelta;
-     int eventpicslotPos;
-     int eventpicslotNeg;
-     int eventpicslotZero;
+     eventpicslotPos: i32;
+     eventpicslotNeg: i32;
+     eventpicslotZero: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
     }
 
     pub SEZoneButtonPartClass(
-      int tIconSlotNr,
+      tIconSlotNr: i32,
       string tDataString,
       string tDescript,
       bool tactive,
@@ -35,29 +35,29 @@ namespace WindowsApplication1
       let mut tdelta: i32 = 0)
       : base(220, 40)
     {
-      this.iconSlotNr = tIconSlotNr;
-      this.Descript = tDescript;
-      this.dataString = tDataString;
-      this.active = tactive;
-      this.showDelta = tshowDelta;
-      this.delta = tdelta;
-      this.eventpicslotPos = DrawMod.TGame.Data.FindEventPic("", 8, "SE_Present");
-      this.eventpicslotNeg = DrawMod.TGame.Data.FindEventPic("", 9, "SE_Present");
-      this.eventpicslotZero = DrawMod.TGame.Data.FindEventPic("", 11, "SE_Present");
+      self.iconSlotNr = tIconSlotNr;
+      self.Descript = tDescript;
+      self.dataString = tDataString;
+      self.active = tactive;
+      self.showDelta = tshowDelta;
+      self.delta = tdelta;
+      self.eventpicslotPos = DrawMod.TGame.Data.FindEventPic("", 8, "SE_Present");
+      self.eventpicslotNeg = DrawMod.TGame.Data.FindEventPic("", 9, "SE_Present");
+      self.eventpicslotZero = DrawMod.TGame.Data.FindEventPic("", 11, "SE_Present");
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
-      Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
-      if (!this.active)
+      Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
+      bitmap: Bitmap;
+      if (!self.active)
       {
          let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTON);
          let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTONHIGH);
@@ -66,37 +66,37 @@ namespace WindowsApplication1
       }
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if (!this.active)
+      if (!self.active)
       {
          let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local6: &Bitmap = &bitmap;
-        rectangle1 = Rectangle::new(this.iconSlotNr * 42, 0, 42, 32);
+        rectangle1 = Rectangle::new(self.iconSlotNr * 42, 0, 42, 32);
         let mut srcrect: &Rectangle = &rectangle1
         rectangle2 = Rectangle::new(0, 3, 48, 32);
         let mut destrect: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local8: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconSlotNr * 42, 32, 42, 32);
+        rectangle2 = Rectangle::new(self.iconSlotNr * 42, 32, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, 3, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
       }
-      if (!this.active)
-        DrawMod.DrawTextColouredConsole( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColGray);
-      if (this.active)
-        DrawMod.DrawTextColouredConsole( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColWhite);
-      if (this.showDelta)
+      if (!self.active)
+        DrawMod.DrawTextColouredConsole( objgraphics, self.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColGray);
+      if (self.active)
+        DrawMod.DrawTextColouredConsole( objgraphics, self.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColWhite);
+      if (self.showDelta)
       {
         bool flag = false;
         SizeF sizeF = SizeF::new();
-        let mut num1: i32 = this.delta;
+        let mut num1: i32 = self.delta;
         if (num1 < 0)
         {
           num1 = Math.Abs(num1);
@@ -104,11 +104,11 @@ namespace WindowsApplication1
         }
         str: String = num1.ToString();
         let mut num2: i32 =  Math.Round(210.0 - ( objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
-        let mut index: i32 = this.eventpicslotZero;
+        let mut index: i32 = self.eventpicslotZero;
         if (flag)
-          index = this.eventpicslotNeg;
-        else if (this.delta > 0)
-          index = this.eventpicslotPos;
+          index = self.eventpicslotNeg;
+        else if (self.delta > 0)
+          index = self.eventpicslotPos;
          let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.EventPicNr[index]);
          let mut local10: &Bitmap = &bitmap;
@@ -119,14 +119,14 @@ namespace WindowsApplication1
       }
       if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
-      Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
-      if (!this.active)
+      Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
+      bitmap: Bitmap;
+      if (!self.active)
       {
          let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTON);
@@ -137,7 +137,7 @@ namespace WindowsApplication1
          let mut local4: &Bitmap = &bitmap;
         DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTONHIGH);
@@ -146,37 +146,37 @@ namespace WindowsApplication1
       }
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if (!this.active)
+      if (!self.active)
       {
          let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local8: &Bitmap = &bitmap;
-        rectangle1 = Rectangle::new(this.iconSlotNr * 42, 0, 42, 32);
+        rectangle1 = Rectangle::new(self.iconSlotNr * 42, 0, 42, 32);
         let mut srcrect: &Rectangle = &rectangle1
         rectangle2 = Rectangle::new(0, 3, 48, 32);
         let mut destrect: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local10: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconSlotNr * 42, 32, 42, 32);
+        rectangle2 = Rectangle::new(self.iconSlotNr * 42, 32, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, 3, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
       }
-      if (!this.active)
-        DrawMod.DrawTextColouredConsole( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColGray);
-      if (this.active)
-        DrawMod.DrawTextColouredConsole( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColWhite);
-      if (this.showDelta)
+      if (!self.active)
+        DrawMod.DrawTextColouredConsole( objgraphics, self.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColGray);
+      if (self.active)
+        DrawMod.DrawTextColouredConsole( objgraphics, self.dataString, DrawMod.TGame.MarcFont16, 51, 11, DrawMod.TGame.seColWhite);
+      if (self.showDelta)
       {
         bool flag = false;
         SizeF sizeF = SizeF::new();
-        let mut num1: i32 = this.delta;
+        let mut num1: i32 = self.delta;
         if (num1 < 0)
         {
           num1 = Math.Abs(num1);
@@ -184,11 +184,11 @@ namespace WindowsApplication1
         }
         str: String = num1.ToString();
         let mut num2: i32 =  Math.Round(210.0 - ( objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
-        let mut index: i32 = this.eventpicslotZero;
+        let mut index: i32 = self.eventpicslotZero;
         if (flag)
-          index = this.eventpicslotNeg;
-        else if (this.delta > 0)
-          index = this.eventpicslotPos;
+          index = self.eventpicslotNeg;
+        else if (self.delta > 0)
+          index = self.eventpicslotPos;
          let mut local11: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.EventPicNr[index]);
          let mut local12: &Bitmap = &bitmap;
@@ -202,7 +202,7 @@ namespace WindowsApplication1
         objgraphics.Dispose();
         objgraphics = (Graphics) null;
       }
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
   }
 }

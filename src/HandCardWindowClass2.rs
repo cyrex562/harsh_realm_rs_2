@@ -14,21 +14,21 @@ namespace WindowsApplication1
 {
   pub class HandCardWindowClass2 : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
 
-    pub HandCardWindowClass2( GameClass tGame)
+    pub HandCardWindowClass2( tGame: GameClass)
       : base( tGame, 380, 380, 8)
     {
       this.His = tGame.Data.UnitObj[tGame.EditObj.UnitSelected].Historical;
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       this.ViewCard();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -77,7 +77,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewCard()
+    pub fn ViewCard()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(380, 380, -1);
@@ -95,7 +95,7 @@ namespace WindowsApplication1
         this.cancelid = 0;
       }
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.Card);
+      bitmap: Bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.Card);
        let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 95, 30);
       if (this.game.Data.ActionCardObj[this.Card].MouseOver.Length > 0)
@@ -119,7 +119,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -145,7 +145,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -202,7 +202,7 @@ namespace WindowsApplication1
                 return windowReturnClass;
               }
               let mut locCounter: i32 =  this.game.Data.LocCounter;
-              int Number;
+              Number: i32;
               for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
               {
                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)

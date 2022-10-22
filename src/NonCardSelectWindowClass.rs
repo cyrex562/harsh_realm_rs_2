@@ -14,42 +14,42 @@ namespace WindowsApplication1
 {
   pub class NonCardSelectWindowClass : WindowClass
   {
-     int okid;
-     int ok2id;
-     int cancelid;
-     int cancel2id;
-     int resultMesOkId;
-     int oktextid;
-     int subId;
-     int quitId;
-     int deselectId;
-     int deselectid2;
-     int tMiniWidth;
-     int tMiniHeight;
-     int Pic1Id;
-     int FinalId;
-     int unitheaderid;
-     int unitsfid;
-     int mapid;
-     int tUnitSelected;
-     int tcx;
-     int tcy;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
+     okid: i32;
+     ok2id: i32;
+     cancelid: i32;
+     cancel2id: i32;
+     resultMesOkId: i32;
+     oktextid: i32;
+     subId: i32;
+     quitId: i32;
+     deselectId: i32;
+     deselectid2: i32;
+     tMiniWidth: i32;
+     tMiniHeight: i32;
+     Pic1Id: i32;
+     FinalId: i32;
+     unitheaderid: i32;
+     unitsfid: i32;
+     mapid: i32;
+     tUnitSelected: i32;
+     tcx: i32;
+     tcy: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
      SimpleList UL;
      CoordList HL;
-     int OptionsListId;
-     int textAreaId;
+     OptionsListId: i32;
+     textAreaId: i32;
      ListClass OptionsListObj;
      SelectUsageMode usageMode;
-     int targetUnitSelected;
+     targetUnitSelected: i32;
      bool subordinatesToo;
      string resultString;
 
-    pub NonCardSelectWindowClass( GameClass tGame, SelectUsageMode tUsageMode)
+    pub NonCardSelectWindowClass( tGame: GameClass, SelectUsageMode tUsageMode)
       : base( tGame, 1280, 768, 8)
     {
       self.targetUnitSelected = -1;
@@ -205,7 +205,7 @@ namespace WindowsApplication1
       self.ViewMessage();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -240,7 +240,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage()
+    pub fn ViewMessage()
     {
       if (self.Pic1Id > 0)
       {
@@ -358,14 +358,14 @@ namespace WindowsApplication1
              let mut local1: &Graphics = &graphics;
             let mut num3: i32 =  self.UL.Counter + 1;
             tstring1: String = num3.ToString() + " units selectable.";
-            Font marcFont3_1 = self.game.MarcFont3;
-            Color white1 = Color.White;
+            marcFont3_1: Font = self.game.MarcFont3;
+            white1: Color = Color.White;
             DrawMod.DrawTextColouredMarc( local1, tstring1, marcFont3_1, 970, 11, white1);
              let mut local2: &Graphics = &graphics;
             num3 = self.game.EditObj.TempUnitList.counter + 1;
             tstring2: String = num3.ToString() + " selected.";
-            Font marcFont3_2 = self.game.MarcFont3;
-            Color white2 = Color.White;
+            marcFont3_2: Font = self.game.MarcFont3;
+            white2: Color = Color.White;
             DrawMod.DrawTextColouredMarc( local2, tstring2, marcFont3_2, 970, 31, white2);
           }
           let mut tsubpart3: SubPartClass =  new TextButtonPartClass("Back", 86, "Click to go back to the combat setup window [ESC].",  self.BackBitmap, 1210, 11, theight: 43, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -615,7 +615,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -644,7 +644,7 @@ namespace WindowsApplication1
               if (index2 > -1)
               {
                 self.SubpartNr(self.mapid);
-                int index3;
+                index3: i32;
                 if (self.usageMode == SelectUsageMode.autoMove)
                 {
                   self.game.SelectX = self.HL.coord[index2].x;
@@ -922,7 +922,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut cornerX: i32 =  self.game.CornerX;
@@ -934,7 +934,7 @@ namespace WindowsApplication1
       return nr == 32 & self.cancelid > 0 ? self.HandleMouseClick(self.SubPartX[self.SubpartNr(self.cancelid)] + 1, self.SubPartY[self.SubpartNr(self.cancelid)] + 1, 1) : windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;

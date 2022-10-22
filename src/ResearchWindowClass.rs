@@ -14,47 +14,47 @@ namespace WindowsApplication1
 {
   pub class ResearchWindowClass : WindowClass
   {
-     int ResearchListId;
+     ResearchListId: i32;
      ListClass ResearchListObj;
-     int BAddResearchId;
-     int BAddResearchTextId;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int BRemoveResearchId;
-     int BRemoveResearchTextId;
-     int BRemoveResearchId2;
-     int BRemoveResearchTextId2;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int PGListId;
+     BAddResearchId: i32;
+     BAddResearchTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     BRemoveResearchId: i32;
+     BRemoveResearchTextId: i32;
+     BRemoveResearchId2: i32;
+     BRemoveResearchTextId2: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     PGListId: i32;
      ListClass PGListObj;
-     int B3bId;
-     int B3bTextId;
-     int ResearchNr;
-     int detailnr;
+     B3bId: i32;
+     B3bTextId: i32;
+     ResearchNr: i32;
+     detailnr: i32;
      string ss;
 
-    pub ResearchWindowClass( GameClass tGame)
+    pub ResearchWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Decision Room")
     {
       this.ResearchNr = -1;
@@ -62,9 +62,9 @@ namespace WindowsApplication1
       this.MakeResearchListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeResearchTypeItemGUI();
+    pub fn DoRefresh() => this.MakeResearchTypeItemGUI();
 
-     void MakeResearchListGUI(int tResearchnr)
+     void MakeResearchListGUI(tResearchnr: i32)
     {
       if (this.ResearchListId > 0)
         this.RemoveSubPart(this.ResearchListId);
@@ -78,9 +78,9 @@ namespace WindowsApplication1
         ListClass researchListObj = this.ResearchListObj;
         let mut tlistselect: i32 = tResearchnr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart =  new ListSubPartClass(researchListObj, 9, 200, tlistselect, game, tHeader: "Researchfields", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         this.ResearchListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
         this.ResearchNr = tResearchnr;
@@ -306,9 +306,9 @@ namespace WindowsApplication1
       ListClass pgListObj = this.PGListObj;
       let mut detailnr: i32 = this.detailnr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart8 =  new ListSubPartClass(pgListObj, 6, 200, detailnr, game, tHeader: "Research Cost", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.PGListId = this.AddSubPart( tsubpart8, 10, 350, 200, 144, 0);
       this.maketabsheet3b();
@@ -334,7 +334,7 @@ namespace WindowsApplication1
       this.B3bTextId = this.AddSubPart( tsubpart1, 250, 349, 200, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -500,7 +500,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.B3bId)
               {
-                let mut num12: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new point cost for this peoplegroup 0-9999 (-1 or 9999 = impossible) ", "Shadow Empire : Planetary Conquest")));
+                let mut num12: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new pocost: i32 for this peoplegroup 0-9999 (-1 or 9999 = impossible) ", "Shadow Empire : Planetary Conquest")));
                 if (num12 < -1 | num12 > 9999)
                 {
                   let mut num13: i32 =  Interaction.MsgBox( "Between 0 and 1000 please!", Title: ( "Shadow Empire : Planetary Conquest"));

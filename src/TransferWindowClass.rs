@@ -13,72 +13,72 @@ namespace WindowsApplication1
 {
   pub class TransferWindowClass : WindowClass
   {
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B5Id;
-     int B6Id;
-     int x1id;
-     int x2id;
-     int SwitchId;
-     int Type1Id;
-     int Type2Id;
-     int Type3Id;
-     int text4id;
-     int text5id;
-     int text6id;
-     int text7id;
-     int text8id;
-     int text9id;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Pic1Id;
-     int Pic2Id;
-     int detailnr;
-     int detailtype;
-     int OrderTextId;
-     int OrderText2Id;
-     int OrderUpId;
-     int OrderDownId;
-     int ExtraId;
-     int OptionsListId;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B5Id: i32;
+     B6Id: i32;
+     x1id: i32;
+     x2id: i32;
+     SwitchId: i32;
+     Type1Id: i32;
+     Type2Id: i32;
+     Type3Id: i32;
+     text4id: i32;
+     text5id: i32;
+     text6id: i32;
+     text7id: i32;
+     text8id: i32;
+     text9id: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Pic1Id: i32;
+     Pic2Id: i32;
+     detailnr: i32;
+     detailtype: i32;
+     OrderTextId: i32;
+     OrderText2Id: i32;
+     OrderUpId: i32;
+     OrderDownId: i32;
+     ExtraId: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int OrderOKId;
-     int OrderOKTextId;
-     int OrderALLId;
-     int OrderALLTextId;
-     int YesId;
-     int sliderID;
-     int CapTheater;
-     int TempNew;
+     OrderOKId: i32;
+     OrderOKTextId: i32;
+     OrderALLId: i32;
+     OrderALLTextId: i32;
+     YesId: i32;
+     sliderID: i32;
+     CapTheater: i32;
+     TempNew: i32;
      object LandCost;
      object NavyCost;
      object AirCost;
-     int RemLandCost;
-     int RemNavyCost;
-     int RemAirCost;
-     int unr;
-     int unrT;
-     int hq;
-     int nothq;
-     int overrulehq;
-     int OwnPowerTransfer;
+     RemLandCost: i32;
+     RemNavyCost: i32;
+     RemAirCost: i32;
+     unr: i32;
+     unrT: i32;
+     hq: i32;
+     nothq: i32;
+     overrulehq: i32;
+     OwnPowerTransfer: i32;
      MapMatrix2[] templand;
      MapMatrix2[] tempnavy;
      MapMatrix2[] tempair;
-     int seltheater;
-     int tempSfType;
+     seltheater: i32;
+     tempSfType: i32;
      bool AirCarrier;
      bool HasAirCarrier;
 
-    pub TransferWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
+    pub TransferWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       self.templand = new MapMatrix2[1];
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void DoNewStuff()
+    pub fn DoNewStuff()
     {
       self.templand = new MapMatrix2[self.game.Data.MapCounter + 1];
       self.tempnavy = new MapMatrix2[self.game.Data.MapCounter + 1];
@@ -185,7 +185,7 @@ namespace WindowsApplication1
       self.RemNavyCost = Conversions.ToInteger(self.NavyCost);
     }
 
-    pub void SetTempValue()
+    pub fn SetTempValue()
     {
       let mut mapCounter: i32 = self.game.Data.MapCounter;
       for (let mut index1: i32 = 0; index1 <= mapCounter; index1 += 1)
@@ -207,7 +207,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       bool flag = false;
       self.detailtype = 1;
@@ -522,7 +522,7 @@ namespace WindowsApplication1
             tsubpart8 =  ButtonPartClass::new(self.game.CustomBitmapObj.DrawUnit(self.hq), "Cap by " + self.game.Data.UnitObj[self.hq].Name + ". Click to switch HQ that providdes Capacity for transfer.");
             self.SwitchId = self.AddSubPart( tsubpart8, 160, 157, 37, 37, 0);
           }
-          int Number1;
+          Number1: i32;
           if (self.CapTheater == 0)
             Number1 = Conversions.ToInteger(self.LandCost);
           if (self.CapTheater == 1)
@@ -532,8 +532,8 @@ namespace WindowsApplication1
           if (self.detailnr > -1 | self.detailnr == -2)
           {
             float weight;
-            int moveType;
-            int ap;
+            moveType: i32;
+            ap: i32;
             if (self.detailnr == -2)
             {
               weight = self.game.Data.RuleVar[33];
@@ -551,9 +551,9 @@ namespace WindowsApplication1
             let mut integer3: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.AirCost,  self.TempNew),  weight)));
             if (self.detailnr != -2 && self.detailtype == 1)
               self.seltheater = self.game.Data.SFTypeObj[self.tempSfType].Theater;
-            int Number2;
-            int Number3;
-            int Number4;
+            Number2: i32;
+            Number3: i32;
+            Number4: i32;
             bool flag3;
             bool flag4;
             bool flag5;
@@ -615,7 +615,7 @@ namespace WindowsApplication1
               if (self.CapTheater == 2)
                 num9 = Number4;
             }
-            int num10;
+            num10: i32;
             if (self.CapTheater == 0)
               num10 = integer1;
             if (self.CapTheater == 1)
@@ -907,7 +907,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();
@@ -1128,7 +1128,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();

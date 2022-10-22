@@ -13,18 +13,18 @@ namespace WindowsApplication1
 {
   pub class ItemTypeWindowClass : WindowClass
   {
-     int ItemTypeListId;
+     ItemTypeListId: i32;
      ListClass ItemTypeListObj;
-     int BAddItemTypeId;
-     int BAddItemTypeTextId;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
+     BAddItemTypeId: i32;
+     BAddItemTypeTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
      int[] Bgameslotid;
      int[] Bgameslottextid;
      int[] Bregimeslotid;
@@ -35,55 +35,55 @@ namespace WindowsApplication1
      int[] bitemtextid;
      int[] BresId;
      int[] BResTextId;
-     int BRemoveItemTypeId;
-     int BRemoveItemTypeTextId;
-     int BRemoveItemType2Id;
-     int BRemoveItemTypeText2Id;
-     int BCloneItemTypeId;
-     int BCloneItemTypeTextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int B12Id;
-     int B12TextId;
-     int B13Id;
-     int B13TextId;
-     int B14Id;
-     int B14TextId;
-     int B15Id;
-     int B15TextId;
-     int B16Id;
-     int B16TextId;
-     int B17Id;
-     int B17TextId;
-     int B18Id;
-     int B18TextId;
-     int B19Id;
-     int B19TextId;
-     int B20Id;
-     int B20TextId;
-     int PGListId;
+     BRemoveItemTypeId: i32;
+     BRemoveItemTypeTextId: i32;
+     BRemoveItemType2Id: i32;
+     BRemoveItemTypeText2Id: i32;
+     BCloneItemTypeId: i32;
+     BCloneItemTypeTextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     B12Id: i32;
+     B12TextId: i32;
+     B13Id: i32;
+     B13TextId: i32;
+     B14Id: i32;
+     B14TextId: i32;
+     B15Id: i32;
+     B15TextId: i32;
+     B16Id: i32;
+     B16TextId: i32;
+     B17Id: i32;
+     B17TextId: i32;
+     B18Id: i32;
+     B18TextId: i32;
+     B19Id: i32;
+     B19TextId: i32;
+     B20Id: i32;
+     B20TextId: i32;
+     PGListId: i32;
      ListClass PGListObj;
-     int B3bId;
-     int B3bTextId;
-     int ItemTypeNr;
-     int detailnr;
+     B3bId: i32;
+     B3bTextId: i32;
+     ItemTypeNr: i32;
+     detailnr: i32;
      string ss;
 
-    pub ItemTypeWindowClass( GameClass tGame)
+    pub ItemTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Item Types")
     {
       this.Bgameslotid = new int[5];
@@ -101,9 +101,9 @@ namespace WindowsApplication1
       this.MakeItemTypeListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeItemTypeTypeItemGUI();
+    pub fn DoRefresh() => this.MakeItemTypeTypeItemGUI();
 
-     void MakeItemTypeListGUI(int tItemTypenr)
+     void MakeItemTypeListGUI(tItemTypenr: i32)
     {
       if (this.ItemTypeListId > 0)
         this.RemoveSubPart(this.ItemTypeListId);
@@ -117,9 +117,9 @@ namespace WindowsApplication1
         ListClass itemTypeListObj = this.ItemTypeListObj;
         let mut tlistselect: i32 =  tItemTypenr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart =  new ListSubPartClass(itemTypeListObj, 9, 200, tlistselect, game, tHeader: "Item Types", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         this.ItemTypeListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
         this.ItemTypeNr = tItemTypenr;
@@ -562,9 +562,9 @@ namespace WindowsApplication1
       ListClass pgListObj = this.PGListObj;
       let mut detailnr: i32 =  this.detailnr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart3 =  new ListSubPartClass(pgListObj, 6, 200, detailnr, game, tHeader: "Who must own?", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.PGListId = this.AddSubPart( tsubpart3, 10, 350, 200, 144, 0);
       this.maketabsheet3b();
@@ -590,7 +590,7 @@ namespace WindowsApplication1
       this.B3bTextId = this.AddSubPart( tsubpart1, 250, 349, 200, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

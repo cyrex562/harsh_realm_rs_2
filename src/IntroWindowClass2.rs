@@ -17,49 +17,49 @@ namespace WindowsApplication1
 {
   pub class IntroWindowClass2 : WindowClass
   {
-     int BStartGameID;
-     int Bstartgame2id;
-     int BLoadGameID;
-     int BSaveGameID;
-     int BRandomID;
-     int BEditorID;
-     int BSimpleId;
-     int BEditorIDb;
-     int BSimpleIdb;
-     int TempText;
-     int TempText2;
-     int txt1;
-     int txt2;
-     int txt3;
-     int pass;
-     int passText;
-     int title;
-     int opt1;
-     int opt2;
-     int opt3;
-     int opt4;
-     int opt5;
-     int opt6;
-     int opt7;
-     int txt7;
-     int txt4;
-     int txt5;
-     int txt6;
-     int txt8;
-     int opt8;
-     int txt9;
-     int opt9;
-     int opt10;
-     int cancelID;
+     BStartGameID: i32;
+     Bstartgame2id: i32;
+     BLoadGameID: i32;
+     BSaveGameID: i32;
+     BRandomID: i32;
+     BEditorID: i32;
+     BSimpleId: i32;
+     BEditorIDb: i32;
+     BSimpleIdb: i32;
+     TempText: i32;
+     TempText2: i32;
+     txt1: i32;
+     txt2: i32;
+     txt3: i32;
+     pass: i32;
+     passText: i32;
+     title: i32;
+     opt1: i32;
+     opt2: i32;
+     opt3: i32;
+     opt4: i32;
+     opt5: i32;
+     opt6: i32;
+     opt7: i32;
+     txt7: i32;
+     txt4: i32;
+     txt5: i32;
+     txt6: i32;
+     txt8: i32;
+     opt8: i32;
+     txt9: i32;
+     opt9: i32;
+     opt10: i32;
+     cancelID: i32;
      int[] vari;
      int[] varitext;
      ListClass RegimeListObj;
-     int RegimeListId;
+     RegimeListId: i32;
      float tempBlink;
-     int detailnr;
-     int selectedid;
+     detailnr: i32;
+     selectedid: i32;
 
-    pub IntroWindowClass2( GameClass tGame)
+    pub IntroWindowClass2( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND1MARC)
     {
       this.vari = new int[12];
@@ -123,8 +123,8 @@ namespace WindowsApplication1
       if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.MakingChallenge)
       {
         let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
-        int num3;
-        int num4;
+        num3: i32;
+        num4: i32;
         for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
         {
           if (this.game.Data.RegimeObj[index].PbemPlayer <= 0)
@@ -200,7 +200,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (nr == 40)
@@ -234,7 +234,7 @@ namespace WindowsApplication1
       return windowReturnClass2;
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       SizeF sizeF1 = SizeF::new();
       string str;
@@ -358,7 +358,7 @@ namespace WindowsApplication1
       }
       DrawMod.DrawBlock( graphics, 180, 60, 775, 3,  this.game.MarcCol4.R,  this.game.MarcCol4.G,  this.game.MarcCol4.B,  this.game.MarcCol4.A);
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
        let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 20, 21);
       if (this.game.Data.CampaignRoom == -1)
@@ -477,8 +477,8 @@ namespace WindowsApplication1
         tsubpart3 =  new MarcButtonPartClass(this.game.BACKBUTTON, tBackbitmap: ( this.OwnBitmap), bbx: 20, bby: 710);
         this.cancelID = this.AddSubPart( tsubpart3, 20, 710, 35, 35, 1);
         let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
-        int num2;
-        int num3;
+        num2: i32;
+        num3: i32;
         for (let mut index2: i32 =  0; index2 <= regimeCounter; index2 += 1)
         {
           if (!this.game.Data.RegimeObj[index2].AI & !this.game.Data.RegimeObj[index2].Sleep)
@@ -558,7 +558,7 @@ namespace WindowsApplication1
           string tDescript;
           if (Strings.InStr(String1, ",") > 0)
           {
-            string[] strArray = String1.Split(',');
+            strArray: Vec<String> = String1.Split(',');
             String1 = strArray[0];
             tDescript = strArray[1];
           }
@@ -631,7 +631,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void doregimelist()
+    pub fn doregimelist()
     {
       if (!this.game.Data.NoPlayChoice)
       {
@@ -686,9 +686,9 @@ namespace WindowsApplication1
         {
           ListClass regimeListObj = this.RegimeListObj;
           let mut game: GameClass = this.game;
-           Bitmap local1 =  this.OwnBitmap;
-          Font font =  null;
-           Font local2 =  font;
+           local1: Bitmap =  this.OwnBitmap;
+          font: Font =  null;
+           local2: Font =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(regimeListObj, 6, 250, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 80, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 90, bby: 285, tMarcStyle: true, overruleFont: ( local2));
           this.RegimeListId = this.AddSubPart( tsubpart, 90, 285, 250, 112, 0);
         }
@@ -701,7 +701,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 =  this.MouseCounter;
       for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -729,7 +729,7 @@ namespace WindowsApplication1
               str: String = "Please check the scenario description for info on this variant.";
               if (Strings.InStr(String1, ",") > 0)
               {
-                string[] strArray = String1.Split(',');
+                strArray: Vec<String> = String1.Split(',');
                 String1 = strArray[0];
                 str = strArray[1];
               }
@@ -793,13 +793,13 @@ namespace WindowsApplication1
             this.game.EditObj.TipText = "The AI gets an advantage on you.\r\nCurrent bonuses:\r\n";
             if (this.game.Data.RegimeCounter > -1)
             {
-              EditClass editObj1 = this.game.EditObj;
+              editObj1: EditClass = this.game.EditObj;
               editObj1.TipText = editObj1.TipText + "Movement bonus: " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[0].AIHelpMove)) + "%\r\n";
-              EditClass editObj2 = this.game.EditObj;
+              editObj2: EditClass = this.game.EditObj;
               editObj2.TipText = editObj2.TipText + "Combat bonus: " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[0].AIHelpCombat)) + "%\r\n";
               if ( this.game.Data.RuleVar[976] < 1.0 & this.game.Data.Product < 6)
               {
-                EditClass editObj3 = this.game.EditObj;
+                editObj3: EditClass = this.game.EditObj;
                 editObj3.TipText = editObj3.TipText + "Transfer bonus: " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[0].AIHelpStrategic)) + "%\r\n";
               }
             }
@@ -834,7 +834,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1 & b == 1)

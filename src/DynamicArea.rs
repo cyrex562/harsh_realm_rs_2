@@ -14,23 +14,23 @@ namespace WindowsApplication1
 {
   pub class DynamicArea : SubPartClass
   {
-     Font OwnFont;
-     int Width;
-     int Height;
-     GameClass game;
-     Bitmap backbitmap;
-     int bx;
-     int by;
-     int clickscroll;
+     OwnFont: Font;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
+     backbitmap: Bitmap;
+     bx: i32;
+     by: i32;
+     clickscroll: i32;
     pub texty: String;
-     int curY;
-     int maxY;
-     int lastY;
-     Bitmap paper;
+     curY: i32;
+     maxY: i32;
+     lastY: i32;
+     paper: Bitmap;
      bool alwaysBlockScrollBar;
      bool useActualWidth;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (!Information.IsNothing( this.backbitmap))
       {
@@ -43,7 +43,7 @@ namespace WindowsApplication1
       this.paper = (Bitmap) null;
     }
 
-    pub bool HandleTimerWheel(int x, int y, ref WindowClass tWindow)
+    pub bool HandleTimerWheel(x: i32, y: i32, ref WindowClass tWindow)
     {
       if (this.game.EditObj.MouseWheel > 0)
       {
@@ -65,11 +65,11 @@ namespace WindowsApplication1
     }
 
     pub DynamicArea(
-      GameClass tgame,
-      int twidth,
-      int theight,
+      tgame: GameClass,
+      twidth: i32,
+      theight: i32,
       string tTexty,
-      ref Bitmap tbackbitmap = null,
+      ref tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       bool talwaysBlockScrollBar = false,
@@ -100,9 +100,9 @@ namespace WindowsApplication1
       this.MakeBitmap();
     }
 
-    pub int HeightUsed() => this.maxY;
+    pub HeightUsed: i32() => this.maxY;
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       this.game.EditObj.TipColor = 0;
       let mut mouseCounter: i32 =  this.MouseCounter;
@@ -122,14 +122,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub int DoJustCheckHeight()
+    pub DoJustCheckHeight: i32()
     {
       DynamicData dynamicData = new DynamicData(this.texty);
       let mut num1: i32 =  0;
       let mut elementCounter: i32 =  dynamicData.elementCounter;
       for (let mut index1: i32 =  0; index1 <= elementCounter; index1 += 1)
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         if (dynamicData.element[index1].type == DynamicType.TextField)
         {
           if (Strings.InStr(dynamicData.element[index1].fontName, "courier") > 0)
@@ -137,11 +137,11 @@ namespace WindowsApplication1
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index1].w;
             let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
-            Font marcFont4b = this.game.MarcFont4b;
+            marcFont4b: Font = this.game.MarcFont4b;
             texty: String = dynamicData.element[index1].texty;
             let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
             bitmap = (Bitmap) null;
-            ref Bitmap local = ref bitmap;
+            ref local: Bitmap = ref bitmap;
             let mut r: i32 =   dynamicData.element[index1].color.R;
             let mut g: i32 =   dynamicData.element[index1].color.G;
             let mut b: i32 =   dynamicData.element[index1].color.B;
@@ -158,11 +158,11 @@ namespace WindowsApplication1
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
               let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
-              Font tfont = this.game.DynFont[index2];
+              tfont: Font = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
               bitmap = (Bitmap) null;
-              ref Bitmap local = ref bitmap;
+              ref local: Bitmap = ref bitmap;
               let mut r: i32 =   dynamicData.element[index1].color.R;
               let mut g: i32 =   dynamicData.element[index1].color.G;
               let mut b: i32 =   dynamicData.element[index1].color.B;
@@ -183,7 +183,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub void MakeBitmap()
+    pub fn MakeBitmap()
     {
       this.ClearMouse();
       DynamicData dynamicData = new DynamicData(this.texty);
@@ -200,11 +200,11 @@ namespace WindowsApplication1
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index1].w;
             let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
-            Font marcFont4 = this.game.MarcFont4;
+            marcFont4: Font = this.game.MarcFont4;
             texty: String = dynamicData.element[index1].texty;
             let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
-            Bitmap bitmap = (Bitmap) null;
-            ref Bitmap local = ref bitmap;
+            bitmap: Bitmap = (Bitmap) null;
+            ref local: Bitmap = ref bitmap;
             let mut r: i32 =   dynamicData.element[index1].color.R;
             let mut g: i32 =   dynamicData.element[index1].color.G;
             let mut b: i32 =   dynamicData.element[index1].color.B;
@@ -223,11 +223,11 @@ namespace WindowsApplication1
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
               let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
-              Font tfont = this.game.DynFont[index2];
+              tfont: Font = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
-              Bitmap bitmap = (Bitmap) null;
-              ref Bitmap local = ref bitmap;
+              bitmap: Bitmap = (Bitmap) null;
+              ref local: Bitmap = ref bitmap;
               let mut r: i32 =   dynamicData.element[index1].color.R;
               let mut g: i32 =   dynamicData.element[index1].color.G;
               let mut b: i32 =   dynamicData.element[index1].color.B;
@@ -239,11 +239,11 @@ namespace WindowsApplication1
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
               let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
-              Font tfont = this.game.DynFont[index2];
+              tfont: Font = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
-              Bitmap bitmap = (Bitmap) null;
-              ref Bitmap local = ref bitmap;
+              bitmap: Bitmap = (Bitmap) null;
+              ref local: Bitmap = ref bitmap;
               let mut r: i32 =   dynamicData.element[index1].color.R;
               let mut g: i32 =   dynamicData.element[index1].color.G;
               let mut b: i32 =   dynamicData.element[index1].color.B;
@@ -312,11 +312,11 @@ namespace WindowsApplication1
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index3].w;
             let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
-            Font marcFont4b = this.game.MarcFont4b;
+            marcFont4b: Font = this.game.MarcFont4b;
             texty: String = dynamicData.element[index3].texty;
             let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
-            Bitmap bitmap = (Bitmap) null;
-            ref Bitmap local = ref bitmap;
+            bitmap: Bitmap = (Bitmap) null;
+            ref local: Bitmap = ref bitmap;
             let mut r: i32 =   dynamicData.element[index3].color.R;
             let mut g2: i32 =   dynamicData.element[index3].color.G;
             let mut b: i32 =   dynamicData.element[index3].color.B;
@@ -340,11 +340,11 @@ namespace WindowsApplication1
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index3].w;
               let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
-              Font tfont = this.game.DynFont[index4];
+              tfont: Font = this.game.DynFont[index4];
               texty: String = dynamicData.element[index3].texty;
               let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
-              Bitmap bitmap = (Bitmap) null;
-              ref Bitmap local = ref bitmap;
+              bitmap: Bitmap = (Bitmap) null;
+              ref local: Bitmap = ref bitmap;
               let mut r: i32 =   dynamicData.element[index3].color.R;
               let mut g3: i32 =   dynamicData.element[index3].color.G;
               let mut b: i32 =   dynamicData.element[index3].color.B;
@@ -356,11 +356,11 @@ namespace WindowsApplication1
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index3].w;
               let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
-              Font tfont = this.game.DynFont[index4];
+              tfont: Font = this.game.DynFont[index4];
               texty: String = dynamicData.element[index3].texty;
               let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
-              Bitmap bitmap = (Bitmap) null;
-              ref Bitmap local = ref bitmap;
+              bitmap: Bitmap = (Bitmap) null;
+              ref local: Bitmap = ref bitmap;
               let mut r: i32 =   dynamicData.element[index3].color.R;
               let mut g4: i32 =   dynamicData.element[index3].color.G;
               let mut b: i32 =   dynamicData.element[index3].color.B;
@@ -394,8 +394,8 @@ namespace WindowsApplication1
           else if (dynamicData.element[index3].w > 0)
           {
             ref Graphics local1 = ref g1;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
-            ref Bitmap local2 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
+            ref local2: Bitmap = ref bitmap;
             let mut x: i32 =  dynamicData.element[index3].x;
             let mut y: i32 =  dynamicData.element[index3].y;
             let mut w: i32 =  dynamicData.element[index3].w;
@@ -411,8 +411,8 @@ namespace WindowsApplication1
           else if (dynamicData.element[index3].color.R == byte.MaxValue & dynamicData.element[index3].color.G == byte.MaxValue & dynamicData.element[index3].color.B == byte.MaxValue & dynamicData.element[index3].color.A == byte.MaxValue)
           {
             ref Graphics local3 = ref g1;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
-            ref Bitmap local4 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
+            ref local4: Bitmap = ref bitmap;
             let mut x: i32 =  dynamicData.element[index3].x;
             let mut y: i32 =  dynamicData.element[index3].y;
             DrawMod.DrawSimple(ref local3, ref local4, x, y);
@@ -420,8 +420,8 @@ namespace WindowsApplication1
           else
           {
             ref Graphics local5 = ref g1;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
-            ref Bitmap local6 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]);
+            ref local6: Bitmap = ref bitmap;
             let mut x: i32 =  dynamicData.element[index3].x;
             let mut y: i32 =  dynamicData.element[index3].y;
             double r =  ( dynamicData.element[index3].color.R /  byte.MaxValue);
@@ -435,7 +435,7 @@ namespace WindowsApplication1
       g1.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -468,7 +468,7 @@ namespace WindowsApplication1
           if (!this.alwaysBlockScrollBar)
           {
             Graphics graphics = objGraphics;
-            Bitmap paper = this.paper;
+            paper: Bitmap = this.paper;
             rectangle1 = Rectangle::new(0, 0, this.Width - 30, this.Height);
             let mut destRect: &Rectangle = &rectangle1
             rectangle2 = Rectangle::new(0, this.curY, this.Width - 30, this.Height);
@@ -478,7 +478,7 @@ namespace WindowsApplication1
           else
           {
             Graphics graphics = objGraphics;
-            Bitmap paper = this.paper;
+            paper: Bitmap = this.paper;
             rectangle2 = Rectangle::new(0, 0, this.Width, this.Height);
             let mut destRect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(0, this.curY, this.Width, this.Height);
@@ -489,7 +489,7 @@ namespace WindowsApplication1
         else
         {
           Graphics graphics = objGraphics;
-          Bitmap paper = this.paper;
+          paper: Bitmap = this.paper;
           rectangle2 = Rectangle::new(0, 0, 540, this.Height);
           let mut destRect: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(0, this.curY, 540, this.Height);
@@ -500,7 +500,7 @@ namespace WindowsApplication1
       else
       {
         Graphics graphics = objGraphics;
-        Bitmap paper = this.paper;
+        paper: Bitmap = this.paper;
         rectangle2 = Rectangle::new(0, 0, this.Width, this.Height);
         let mut destRect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(0, this.curY, this.Width, this.Height);
@@ -514,8 +514,8 @@ namespace WindowsApplication1
         if (num > this.Height - 16)
           num = this.Height - 16;
         ref Graphics local1 = ref objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
+        ref local2: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 3, 20, 4);
         let mut srcrect1: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x1, 3, 20, this.Height);
@@ -523,7 +523,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
         ref Graphics local3 = ref objGraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-        ref Bitmap local4 = ref bitmap;
+        ref local4: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 0, 20, 3);
         let mut srcrect2: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x1, 0, 20, 3);
@@ -531,7 +531,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect2, destrect2);
         ref Graphics local5 = ref objGraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-        ref Bitmap local6 = ref bitmap;
+        ref local6: Bitmap = ref bitmap;
         rectangle2 = Rectangle::new(0, 7, 20, 3);
         let mut srcrect3: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x1, this.Height - 8, 20, 3);
@@ -539,18 +539,18 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect3, destrect3);
         ref Graphics local7 = ref objGraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTUP);
-        ref Bitmap local8 = ref bitmap;
+        ref local8: Bitmap = ref bitmap;
         let mut x2: i32 =  x1;
         DrawMod.DrawSimple(ref local7, ref local8, x2, 0);
         ref Graphics local9 = ref objGraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTDOWN);
-        ref Bitmap local10 = ref bitmap;
+        ref local10: Bitmap = ref bitmap;
         let mut x3: i32 =  x1;
         let mut y1: i32 =  this.Height - 8;
         DrawMod.DrawSimple(ref local9, ref local10, x3, y1);
         ref Graphics local11 = ref objGraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBLOCK);
-        ref Bitmap local12 = ref bitmap;
+        ref local12: Bitmap = ref bitmap;
         let mut x4: i32 =  x1;
         let mut y2: i32 =  num;
         DrawMod.DrawSimple(ref local11, ref local12, x4, y2);
@@ -558,7 +558,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       if (this.maxY <= this.Height)
         return;
@@ -568,7 +568,7 @@ namespace WindowsApplication1
       this.curY = this.maxY - this.Height;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       if (this.maxY <= this.Height)
         return;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
       this.curY = 0;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (!(this.clickscroll == 1 | this.Scroller))
         return -1;
@@ -587,11 +587,11 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       if (this.alwaysBlockScrollBar || this.maxY <= this.Height || x <= this.Width - 20)
       {
-        int num;
+        num: i32;
         return num;
       }
       if (y >= 0 & y <= 8)
@@ -620,7 +620,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       if (this.alwaysBlockScrollBar || this.clickscroll != 1)
         return false;

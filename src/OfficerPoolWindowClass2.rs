@@ -13,31 +13,31 @@ namespace WindowsApplication1
 {
   pub class OfficerPoolWindowClass2 : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int b1bid;
-     int B1TextId;
-     int B2Id;
-     int b2bid;
-     int B2TextId;
-     int B3Id;
-     int b3bid;
-     int B3TextId;
-     int B4Id;
-     int b4bid;
-     int B4TextId;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     b1bid: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     b2bid: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     b3bid: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     b4bid: i32;
+     B4TextId: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int detailnr;
-     int w;
-     int h;
+     detailnr: i32;
+     w: i32;
+     h: i32;
 
-    pub OfficerPoolWindowClass2( GameClass tGame)
+    pub OfficerPoolWindowClass2( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       this.w = tGame.ScreenWidth;
@@ -47,7 +47,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.OptionsListId > 0)
       {
@@ -88,7 +88,7 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      int index1;
+      index1: i32;
       if (this.game.EditObj.OrderUnit > -1)
       {
         index1 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
@@ -102,8 +102,8 @@ namespace WindowsApplication1
       let mut num2: i32 =  -1;
       let mut num3: i32 =  -1;
       DrawMod.DrawTextColouredMarc( graphics, "OFFICER POOL", this.game.MarcFont8b, num1 + 10, 14, Color.White);
-      int num4;
-      Bitmap bitmap;
+      num4: i32;
+      bitmap: Bitmap;
       if (this.OptionsListId == 0)
       {
         this.OptionsListObj = ListClass::new();
@@ -152,10 +152,10 @@ namespace WindowsApplication1
             ListClass optionsListObj = this.OptionsListObj;
             let mut tlistselect: i32 =  num4;
             let mut game: GameClass = this.game;
-             Bitmap local1 =  this.OwnBitmap;
+             local1: Bitmap =  this.OwnBitmap;
             let mut bbx: i32 =  num1 + 5;
-            Font font =  null;
-             Font local2 =  font;
+            font: Font =  null;
+             local2: Font =  font;
             let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 10, 350, tlistselect, game, tShowPair: true, tValueWidth: 80, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: 34, tMarcStyle: true, overruleFont: ( local2));
             this.OptionsListId = this.AddSubPart( tsubpart, num1 + 5, 34, 350, 208, 0);
           }
@@ -166,10 +166,10 @@ namespace WindowsApplication1
           this.OptionsListObj = ListClass::new();
           ListClass optionsListObj = this.OptionsListObj;
           let mut game: GameClass = this.game;
-           Bitmap local3 =  this.OwnBitmap;
+           local3: Bitmap =  this.OwnBitmap;
           let mut bbx: i32 =  num1;
-          Font font =  null;
-           Font local4 =  font;
+          font: Font =  null;
+           local4: Font =  font;
           let mut subPartClass: SubPartClass =  new ListSubPartClass(optionsListObj, 10, 350, -1, game, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx, bby: 34, tMarcStyle: true, overruleFont: ( local4));
            let mut local5: &Graphics = &graphics;
           bitmap = subPartClass.Paint();
@@ -181,7 +181,7 @@ namespace WindowsApplication1
         }
       }
       DrawMod.DrawTextColouredMarc( graphics, "Base cost: " + this.game.Data.RuleVar[904].ToString() + "PP.", this.game.MarcFont4, num1 + 870, 24, Color.White);
-      int num7;
+      num7: i32;
       let mut num8: i32 =   Math.Round( ( num7 + this.game.Data.RuleVar[904]));
       if (index1 > -1)
       {
@@ -245,7 +245,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT (" + num8.ToString() + "pp)", 140, "You dont have the PP to appoint this officer or the PP to remove the officer in the unit.",  this.OwnBitmap, num1 + 870, 150, true, theight: 65, useshadow: true, tMarcStyle: true);
+                let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT (" + num8.ToString() + "pp)", 140, "You dont have the PP to appothis: i32 officer or the PP to remove the officer in the unit.",  this.OwnBitmap, num1 + 870, 150, true, theight: 65, useshadow: true, tMarcStyle: true);
                 this.b2bid = this.AddSubPart( tsubpart, num1 + 870, 150, 140, 65, 0);
               }
             }
@@ -257,12 +257,12 @@ namespace WindowsApplication1
               num11 += this.game.Data.HistoricalUnitObj[this.detailnr].PP;
             if (this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= num11)
             {
-              let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT", 140, "Click to appoint officer to selected HQ without any officer",  this.OwnBitmap, num1 + 870, 150, theight: 65, useshadow: true, tMarcStyle: true);
+              let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT", 140, "Click to appoofficer: i32 to selected HQ without any officer",  this.OwnBitmap, num1 + 870, 150, theight: 65, useshadow: true, tMarcStyle: true);
               this.B4Id = this.AddSubPart( tsubpart, num1 + 870, 150, 100, 65, 1);
             }
             else
             {
-              let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT", 140, "You dont have the PP to appoint this officer..",  this.OwnBitmap, num1 + 870, 150, true, theight: 65, useshadow: true, tMarcStyle: true);
+              let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT", 140, "You dont have the PP to appothis: i32 officer..",  this.OwnBitmap, num1 + 870, 150, true, theight: 65, useshadow: true, tMarcStyle: true);
               this.b2bid = this.AddSubPart( tsubpart, num1 + 870, 150, 100, 65, 0);
             }
           }
@@ -334,7 +334,7 @@ namespace WindowsApplication1
           while (num13 < 365)
           {
             DrawMod.DrawBlockGradient2( graphics, num12 + num13, 68, 2, 41, this.game.MarcCol3, this.game.MarcCol2);
-            int index2;
+            index2: i32;
             if (this.game.Data.HistoricalUnitObj[his].HisVarCount >= index2)
             {
               bool flag = true;
@@ -430,7 +430,7 @@ namespace WindowsApplication1
           for (; num17 < 365; num17 += 35)
           {
             DrawMod.DrawBlockGradient2( graphics, num16 + num17, num15 + 68, 2, 41, this.game.MarcCol3, this.game.MarcCol2);
-            int index3;
+            index3: i32;
             if (this.game.Data.HistoricalUnitObj[detailnr].HisVarCount >= index3)
             {
               bool flag = true;
@@ -476,7 +476,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 =  this.MouseCounter;
@@ -570,7 +570,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
   }

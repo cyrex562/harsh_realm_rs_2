@@ -179,7 +179,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub ItemTypeClass(int hardcoded)
+    pub ItemTypeClass(hardcoded: i32)
     {
       this.GameSlotsNeeded = new int[5];
       this.GameSlotsNeededQty = new int[5];
@@ -225,11 +225,11 @@ namespace WindowsApplication1
       this.IsRegimeSlot = -1;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

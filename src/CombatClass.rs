@@ -13,14 +13,14 @@ namespace WindowsApplication1
 {
   pub class CombatClass
   {
-    pub GameClass game;
+    pub game: GameClass;
     pub previewMode: bool;
     pub CombatStep: i32;
     pub CombatRound: i32;
     pub DetailCounter: i32;
-    pub string[] DetailString;
-    pub string[] RepText;
-    pub string[] RepTitle;
+    pub DetailString: Vec<String>;
+    pub RepText: Vec<String>;
+    pub RepTitle: Vec<String>;
     pub RepFrom: Vec<i32>;
     pub RepRound: Vec<i32>;
     pub RepType: Vec<i32>;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
     pub BattleCounter: i32;
     pub object[] BattleString;
     pub AllDetailCounter: i32;
-    pub string[] AllDetailString;
+    pub AllDetailString: Vec<String>;
     pub CoordList HexList;
     pub UCounter: i32;
     pub BattleUnit[] UList;
@@ -40,20 +40,20 @@ namespace WindowsApplication1
     pub CombatType: i32;
     pub CombatType2: i32;
     pub IDcounter: i32;
-    pub const let mut LANDATTACK: i32 =  1;
-    pub const let mut LANDSURPRISE: i32 =  11;
-    pub const let mut AIRRECON: i32 =  13;
-    pub const let mut SEAATTACK: i32 =  2;
-    pub const let mut ARTATTACK: i32 =  3;
-    pub const let mut AIRSTRIKE: i32 =  5;
-    pub const let mut SEAARTATTACK: i32 =  4;
-    pub const let mut BOMB: i32 =  6;
-    pub const let mut PARADROP: i32 =  9;
-    pub const let mut AMPH: i32 =  10;
-    pub const let mut REBEL: i32 =  12;
-    pub const let mut AIRSUPPLY: i32 =  14;
-    pub const let mut AIRLIFT: i32 =  15;
-    pub const let mut AIRBRIDGE: i32 =  16;
+    pub const LANDATTACK: i32 =  1;
+    pub const LANDSURPRISE: i32 =  11;
+    pub const AIRRECON: i32 =  13;
+    pub const SEAATTACK: i32 =  2;
+    pub const ARTATTACK: i32 =  3;
+    pub const AIRSTRIKE: i32 =  5;
+    pub const SEAARTATTACK: i32 =  4;
+    pub const BOMB: i32 =  6;
+    pub const PARADROP: i32 =  9;
+    pub const AMPH: i32 =  10;
+    pub const REBEL: i32 =  12;
+    pub const AIRSUPPLY: i32 =  14;
+    pub const AIRLIFT: i32 =  15;
+    pub const AIRBRIDGE: i32 =  16;
     pub InterceptFire: bool;
     pub Coordinate CombatTarget;
     pub float AttackCrowding;
@@ -93,7 +93,7 @@ namespace WindowsApplication1
     pub CustomCombatCalls customCombatObj;
     pub allowHistoryOwnRegime: bool;
 
-    pub CombatClass(GameClass tgame, bool tPreviewMode = false)
+    pub CombatClass(tgame: GameClass, bool tPreviewMode = false)
     {
       this.previewMode = false;
       this.DetailString = new string[1];
@@ -131,9 +131,9 @@ namespace WindowsApplication1
 
     pub OrderResult Init(
       Coordinate Target,
-      int Type,
+      Type: i32,
       UnitList Units,
-      int attacktype,
+      attacktype: i32,
       bool tDontUseSfx = false,
       bool tallowHistoryOwnRegime = false)
     {
@@ -341,7 +341,7 @@ namespace WindowsApplication1
             let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
             for (let mut index8: i32 =  0; index8 <= regimeCounter; index8 += 1)
             {
-              int num3;
+              num3: i32;
               if (numArray1[index8] > num3)
               {
                 index6 = index8;
@@ -534,7 +534,7 @@ namespace WindowsApplication1
         {
           if (this.game.HandyFunctionsObj.GetHQsInUnitList() > 1)
           {
-            HandyFunctionsclass handyFunctionsObj = this.game.HandyFunctionsObj;
+            handyFunctionsObj: HandyFunctionsclass = this.game.HandyFunctionsObj;
             ref Neighbours local1 = ref neighbour;
             bool flag2 = true;
             ref bool local2 = ref flag2;
@@ -543,7 +543,7 @@ namespace WindowsApplication1
           }
           else
           {
-            HandyFunctionsclass handyFunctionsObj = this.game.HandyFunctionsObj;
+            handyFunctionsObj: HandyFunctionsclass = this.game.HandyFunctionsObj;
             ref Neighbours local3 = ref neighbour;
             bool flag3 = false;
             ref bool local4 = ref flag3;
@@ -583,8 +583,8 @@ namespace WindowsApplication1
       if (!this.previewMode && this.customCombatObj.HasCustumCalls())
       {
         CustomCombatCalls customCombatObj = this.customCombatObj;
-        CombatClass combatClass = this;
-        ref CombatClass local = ref combatClass;
+        combatClass: CombatClass = this;
+        ref local: CombatClass = ref combatClass;
         let mut game: GameClass = this.game;
         customCombatObj.PreCombatCall(ref local, game);
       }
@@ -592,7 +592,7 @@ namespace WindowsApplication1
       return orderResult;
     }
 
-    pub void PayForSimplifiedSupplyRules()
+    pub fn PayForSimplifiedSupplyRules()
     {
       if (this.CombatRound < 1)
         this.CombatRound = 1;
@@ -715,7 +715,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PayForLis()
+    pub fn PayForLis()
     {
       let mut index1: i32 =  (int) Math.Round( this.game.Data.RuleVar[407]) + 2;
       let mut index2: i32 =  (int) Math.Round( this.game.Data.RuleVar[407]) + 3;
@@ -800,7 +800,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void InitLis()
+    pub fn InitLis()
     {
       let mut index1: i32 =  (int) Math.Round( this.game.Data.RuleVar[407]) + 2;
       let mut index2: i32 =  (int) Math.Round( this.game.Data.RuleVar[407]) + 3;
@@ -873,7 +873,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub CheckEnoughFuelAmmo: bool(int unr, bool forAA)
+    pub CheckEnoughFuelAmmo: bool(unr: i32, bool forAA)
     {
       let mut num1: i32 =  this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, this.TargetX, this.TargetY, 0);
       let mut val2: i32 =  10;
@@ -922,7 +922,7 @@ namespace WindowsApplication1
       return  num7 >= 1.0 &  num10 >= 1.0;
     }
 
-    pub void InitSimplifiedSupply()
+    pub fn InitSimplifiedSupply()
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut index1: i32 =  0; index1 <= ucounter; index1 += 1)
@@ -1069,7 +1069,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckSeaAttackBreakOff()
+    pub fn CheckSeaAttackBreakOff()
     {
       if (this.CombatType != 2 || this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.TargetMap].HexObj[this.TargetX, this.TargetY].LandscapeType].IsSea)
         return;
@@ -1085,7 +1085,7 @@ namespace WindowsApplication1
       this.BattleEnded = 1;
     }
 
-    pub void DoRound()
+    pub fn DoRound()
     {
       this.CheckSeaAttackBreakOff();
       if (this.BattleEnded > 0)
@@ -1194,8 +1194,8 @@ namespace WindowsApplication1
       if (this.customCombatObj.HasCustumCalls())
       {
         CustomCombatCalls customCombatObj = this.customCombatObj;
-        CombatClass combatClass = this;
-        ref CombatClass local = ref combatClass;
+        combatClass: CombatClass = this;
+        ref local: CombatClass = ref combatClass;
         let mut game: GameClass = this.game;
         let mut combatRound: i32 =  this.CombatRound;
         customCombatObj.StartCombatRound(ref local, game, combatRound);
@@ -1344,7 +1344,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PlayRelevantSound()
+    pub fn PlayRelevantSound()
     {
       if (this.previewMode || this.dontUseSfx || this.ICounter < 0)
         return;
@@ -1427,7 +1427,7 @@ namespace WindowsApplication1
       SoundMod.PlayAWave(this.game.AppPath + "sound/" + this.game.Data.SFTypeObj[index1].BattleWAV, ref this.game.EditObj);
     }
 
-    pub void CombatReconEndOfRound()
+    pub fn CombatReconEndOfRound()
     {
       if ( this.game.Data.RuleVar[431] < 1.0)
         return;
@@ -1473,7 +1473,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void FinishStats()
+    pub fn FinishStats()
     {
       this.AddDetail("");
       this.AddDetail("DEFENDER INDIVIDUALS:");
@@ -1494,13 +1494,13 @@ namespace WindowsApplication1
       this.AddDetail("");
     }
 
-    pub void DoBattle()
+    pub fn DoBattle()
     {
       while (this.BattleEnded == 0)
         this.DoRound();
     }
 
-    pub void CheckAutoDestroy()
+    pub fn CheckAutoDestroy()
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut index: i32 =  0; index <= icounter; index += 1)
@@ -1519,11 +1519,11 @@ namespace WindowsApplication1
       return  newval ==  oldval ? "0%" : "-" + Strings.Trim(Conversion.Str( (int) Math.Round(100.0 -  newval * 100.0 /  oldval))) + "%";
     }
 
-    pub int GetEffectiveReconOnHexOfTargettedIndividual(int inr)
+    pub GetEffectiveReconOnHexOfTargettedIndividual: i32(inr: i32)
     {
       let mut x: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X;
       let mut y: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y;
-      int Index;
+      Index: i32;
       if (this.IList[inr].IAttacker == 1)
       {
         Index = this.DefenderRegime;
@@ -1540,7 +1540,7 @@ namespace WindowsApplication1
       return rawRecon;
     }
 
-    pub int GetUnmodifiedReconOnHexOfTargettedIndividual(int inr)
+    pub GetUnmodifiedReconOnHexOfTargettedIndividual: i32(inr: i32)
     {
       let mut x: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X;
       let mut y: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y;
@@ -1548,7 +1548,7 @@ namespace WindowsApplication1
       return Index == -1 ? 0 : this.game.Data.MapObj[0].HexObj[x, y].get_ReconPts(Index);
     }
 
-    pub int GetIndividualHide(int inr)
+    pub GetIndividualHide: i32(inr: i32)
     {
       let mut individualHide: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X, this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y].LandscapeType].HidePts + this.game.Data.SFTypeObj[this.IList[inr].ISFType].HidePts;
       if ( this.game.Data.RuleVar[419] > 0.0)
@@ -1577,7 +1577,7 @@ namespace WindowsApplication1
       return individualHide;
     }
 
-    pub int GetMaxAttacked(int defnr, int attnr)
+    pub GetMaxAttacked: i32(defnr: i32, attnr: i32)
     {
       if (this.game.Data.Product != 6)
         return this.game.Data.SFTypeObj[this.IList[defnr].ISFType].MaxAttacked;
@@ -1593,7 +1593,7 @@ namespace WindowsApplication1
       return maxAttacked;
     }
 
-    pub void DoActualAttack(int attnr, int defnr, bool counterattack = false)
+    pub fn DoActualAttack(attnr: i32, defnr: i32, bool counterattack = false)
     {
       string[,] matrx = new string[61, 6];
       bool flag1 = !(!this.game.Data.FOWOn | this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.IList[attnr].IUnr].Regime, this.game.Data.Turn));
@@ -1659,12 +1659,12 @@ namespace WindowsApplication1
         let mut landscapeType1: i32 =  this.game.Data.MapObj[this.CombatTarget.map].HexObj[this.CombatTarget.x, this.CombatTarget.y].LandscapeType;
         s1: String = "BEFORE MOD: Attval=" + Conversion.Str( num1) + ", DefVal= " + Conversion.Str( Number1);
         str2: String = "attack=" + Strings.Trim(Conversion.Str( num1)) + " VS defense = " + Strings.Trim(Conversion.Str( Number1));
-        int num2;
+        num2: i32;
         let mut index1: i32 =  num2 + 1;
         matrx[index1, 0] = "Start Att Score";
         matrx[index1, 1] = "";
         matrx[index1, 2] = Strings.Trim(Conversion.Str( num1));
-        int num3;
+        num3: i32;
         let mut index2: i32 =  num3 + 1;
         matrx[index2, 3] = "Start Def Score";
         matrx[index2, 4] = "";
@@ -1672,7 +1672,7 @@ namespace WindowsApplication1
         this.AddDetail(s1);
         float powerPts1 =  this.game.Data.SFTypeObj[this.IList[attnr].ISFType].PowerPts;
         float powerPts2 =  this.game.Data.SFTypeObj[this.IList[defnr].ISFType].PowerPts;
-        int index3;
+        index3: i32;
         if ( this.game.Data.RuleVar[407] < 1.0 &  this.game.Data.RuleVar[434] < 1.0)
         {
           if ( this.game.Data.RuleVar[435] > 0.0)
@@ -1688,7 +1688,7 @@ namespace WindowsApplication1
                 this.IList[attnr].IAttackMod = 1f;
                 index3 = this.game.Data.SFTypeObj[this.IList[attnr].ISFType].FuelForAttack;
                 let mut fuelRegimeVar1: i32 =  this.game.Data.SFTypeObj[this.IList[attnr].ISFType].FuelRegimeVar;
-                int num4;
+                num4: i32;
                 if (index3 > 0)
                 {
                   if (this.IList[attnr].IAttacker == 0)
@@ -1884,8 +1884,8 @@ namespace WindowsApplication1
           float oldval = num1;
           let mut udice1: i32 =  this.UList[this.IList[attnr].IUlistNr].UDice;
           let mut udice2: i32 =  this.UList[this.IList[defnr].IUlistNr].UDice;
-          int num7;
-          int num8;
+          num7: i32;
+          num8: i32;
           if (this.IList[attnr].IAttacker == 1)
           {
             num7 = udice1 + this.AttackerDice;
@@ -2033,7 +2033,7 @@ namespace WindowsApplication1
           matrx[index17, 1] = "?";
           matrx[index17, 2] = "?";
         }
-        CombatClass combatClass;
+        combatClass: CombatClass;
         if (!this.previewMode)
         {
           index17 += 1;
@@ -2045,7 +2045,7 @@ namespace WindowsApplication1
             str3: String = "";
             CustomCombatCalls customCombatObj = this.customCombatObj;
             combatClass = this;
-            ref CombatClass local1 = ref combatClass;
+            ref local1: CombatClass = ref combatClass;
             let mut game: GameClass = this.game;
             let mut attnr1: i32 =  attnr;
             let mut defnr1: i32 =  defnr;
@@ -2171,7 +2171,7 @@ namespace WindowsApplication1
               let mut num19: i32 =  (int) Math.Round( (this.game.Data.SFTypeObj[this.IList[attnr].ISFType].CombatModDef[landscapeType1] * 100f));
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local3 = ref combatClass;
+              ref local3: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr2: i32 =  attnr;
               let mut defnr2: i32 =  defnr;
@@ -2186,7 +2186,7 @@ namespace WindowsApplication1
               let mut num22: i32 =  (int) Math.Round( (this.game.Data.SFTypeObj[this.game.Data.SFTypeObj[this.IList[attnr].ISFType].ArtSFType].CombatModAtt[landscapeType1] * 100f));
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local5 = ref combatClass;
+              ref local5: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr3: i32 =  attnr;
               let mut defnr3: i32 =  defnr;
@@ -2201,7 +2201,7 @@ namespace WindowsApplication1
               let mut num25: i32 =  (int) Math.Round( (this.game.Data.SFTypeObj[this.IList[attnr].ISFType].CombatModAtt[landscapeType1] * 100f));
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local7 = ref combatClass;
+              ref local7: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr4: i32 =  attnr;
               let mut defnr4: i32 =  defnr;
@@ -2343,7 +2343,7 @@ namespace WindowsApplication1
         }
         if ( this.game.Data.RuleVar[407] > 0.0 |  this.game.Data.RuleVar[434] > 0.0 && !this.previewMode | !flag3)
         {
-          int index21;
+          index21: i32;
           if ( this.IList[attnr].ILisAmmoMod < 1.0)
           {
             index21 = index20 + 1;
@@ -2684,7 +2684,7 @@ namespace WindowsApplication1
           {
             CustomCombatCalls customCombatObj = this.customCombatObj;
             combatClass = this;
-            ref CombatClass local = ref combatClass;
+            ref local: CombatClass = ref combatClass;
             let mut forNr: i32 =  attnr;
             let mut againstNr: i32 =  defnr;
             let mut tHelpCombat: i32 =  num33;
@@ -2713,7 +2713,7 @@ namespace WindowsApplication1
             {
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local = ref combatClass;
+              ref local: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr5: i32 =  attnr;
               let mut defnr5: i32 =  defnr;
@@ -2775,8 +2775,8 @@ namespace WindowsApplication1
           float oldval33 = num34;
           let mut udice3: i32 =  this.UList[this.IList[attnr].IUlistNr].UDice;
           let mut udice4: i32 =  this.UList[this.IList[defnr].IUlistNr].UDice;
-          int num35;
-          int num36;
+          num35: i32;
+          num36: i32;
           if (this.IList[attnr].IAttacker == 1)
           {
             num35 = udice3 + this.AttackerDice;
@@ -2847,7 +2847,7 @@ namespace WindowsApplication1
                 let mut oldval36: i32 =  (int) Math.Round( num34);
                 CustomCombatCalls customCombatObj = this.customCombatObj;
                 combatClass = this;
-                ref CombatClass local = ref combatClass;
+                ref local: CombatClass = ref combatClass;
                 let mut indNr: i32 =  defnr;
                 let mut x: i32 =  this.CombatTarget.x;
                 let mut y: i32 =  this.CombatTarget.y;
@@ -3126,7 +3126,7 @@ namespace WindowsApplication1
           {
             CustomCombatCalls customCombatObj = this.customCombatObj;
             combatClass = this;
-            ref CombatClass local = ref combatClass;
+            ref local: CombatClass = ref combatClass;
             let mut forNr: i32 =  defnr;
             let mut againstNr: i32 =  attnr;
             let mut tHelpCombat: i32 =  num43;
@@ -3157,7 +3157,7 @@ namespace WindowsApplication1
             {
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local = ref combatClass;
+              ref local: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr6: i32 =  attnr;
               let mut defnr6: i32 =  defnr;
@@ -3196,7 +3196,7 @@ namespace WindowsApplication1
               str5: String = "";
               CustomCombatCalls customCombatObj = this.customCombatObj;
               combatClass = this;
-              ref CombatClass local9 = ref combatClass;
+              ref local9: CombatClass = ref combatClass;
               let mut game: GameClass = this.game;
               let mut attnr7: i32 =  attnr;
               let mut defnr7: i32 =  defnr;
@@ -3385,7 +3385,7 @@ namespace WindowsApplication1
             CustomCombatCalls customCombatObj = this.customCombatObj;
             let mut modNr: i32 =  index3;
             combatClass = this;
-            ref CombatClass local11 = ref combatClass;
+            ref local11: CombatClass = ref combatClass;
             let mut game: GameClass = this.game;
             let mut attnr8: i32 =  attnr;
             let mut defnr8: i32 =  defnr;
@@ -3421,7 +3421,7 @@ namespace WindowsApplication1
             CustomCombatCalls customCombatObj = this.customCombatObj;
             let mut modNr: i32 =  index3;
             combatClass = this;
-            ref CombatClass local13 = ref combatClass;
+            ref local13: CombatClass = ref combatClass;
             let mut game: GameClass = this.game;
             let mut attnr2: i32 =  attnr;
             let mut defnr9: i32 =  defnr;
@@ -3648,7 +3648,7 @@ namespace WindowsApplication1
             CustomCombatCalls customCombatObj = this.customCombatObj;
             let mut result: i32 =  num60;
             combatClass = this;
-            ref CombatClass local15 = ref combatClass;
+            ref local15: CombatClass = ref combatClass;
             let mut game: GameClass = this.game;
             let mut attnr9: i32 =  attnr;
             let mut defnr10: i32 =  defnr;
@@ -3994,7 +3994,7 @@ namespace WindowsApplication1
           str14: String = "";
           CustomCombatCalls customCombatObj = this.customCombatObj;
           combatClass = this;
-          ref CombatClass local17 = ref combatClass;
+          ref local17: CombatClass = ref combatClass;
           let mut game: GameClass = this.game;
           let mut attnr10: i32 =  attnr;
           let mut defnr11: i32 =  defnr;
@@ -4075,7 +4075,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckCapitulation(bool afterStepsCheck)
+    pub fn CheckCapitulation(bool afterStepsCheck)
     {
       if (afterStepsCheck && this.game.Data.Product >= 6 && this.CombatType == 3 | this.CombatType == 1 | this.CombatType == 2 | this.CombatType == 9 | this.CombatType == 10 | this.CombatType == 11 | this.CombatType == 12)
       {
@@ -4090,9 +4090,9 @@ namespace WindowsApplication1
           }
         }
       }
-      int isfType;
-      int num1;
-      int num2;
+      isfType: i32;
+      num1: i32;
+      num2: i32;
       if (this.CombatType == 1 | this.CombatType == 2 | this.CombatType == 9 | this.CombatType == 10 | this.CombatType == 11 | this.CombatType == 12)
       {
         let mut icounter: i32 =  this.ICounter;
@@ -4177,7 +4177,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int FindISlot(int iId)
+    pub FindISlot: i32(iId: i32)
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut islot: i32 =  0; islot <= icounter; islot += 1)
@@ -4188,7 +4188,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindUSlot(int unr)
+    pub FindUSlot: i32(unr: i32)
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut uslot: i32 =  0; uslot <= ucounter; uslot += 1)
@@ -4199,7 +4199,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindPreventer(int defnr, int attnr)
+    pub FindPreventer: i32(defnr: i32, attnr: i32)
     {
       if (defnr == -1)
         return -1;
@@ -4291,7 +4291,7 @@ namespace WindowsApplication1
       return preventer;
     }
 
-    pub void DoSteps()
+    pub fn DoSteps()
     {
       if (this.previewMode)
         VBMath.Randomize( (int) Math.Round( (this.game.Data.GameID * this.TargetX) /  (this.TargetY + 1)));
@@ -4635,8 +4635,8 @@ namespace WindowsApplication1
               {
                 str: String = "";
                 CustomCombatCalls customCombatObj = this.customCombatObj;
-                CombatClass combatClass = this;
-                ref CombatClass local1 = ref combatClass;
+                combatClass: CombatClass = this;
+                ref local1: CombatClass = ref combatClass;
                 let mut game: GameClass = this.game;
                 let mut attnr: i32 =  index4;
                 ref local2: String = ref str;
@@ -4652,8 +4652,8 @@ namespace WindowsApplication1
     }
 
     pub void AddUnitToUnits(
-      int tunr,
-      int tattacker,
+      tunr: i32,
+      tattacker: i32,
       Coordinate tretreat,
       Coordinate tfrom,
       Coordinate ttoo,
@@ -4821,7 +4821,7 @@ namespace WindowsApplication1
       this.UList[this.UCounter].UVisibility = reconMinusHide;
     }
 
-    pub void AddToI()
+    pub fn AddToI()
     {
       Random random = new Random((int) Math.Round( this.game.Data.GameID /  (this.TargetX + 1) *  (this.TargetY + 1)));
       bool flag1 = false;
@@ -4843,7 +4843,7 @@ namespace WindowsApplication1
       for (let mut index1: i32 =  0; index1 <= ucounter2; index1 += 1)
       {
         let mut unr: i32 =  this.UList[index1].UNr;
-        int maxDist;
+        maxDist: i32;
         if ( this.game.Data.RuleVar[419] > 0.0)
         {
           if ((this.CombatType == 3 | flag1) & this.UList[index1].Uattacker == 1)
@@ -4993,12 +4993,12 @@ namespace WindowsApplication1
             {
               let mut num4: i32 =  this.game.Data.SFObj[sf].Qty;
               let mut num5: i32 =  -1;
-              int averageRdn;
-              int averageMor;
-              int averageXp;
-              int averageEntrench;
+              averageRdn: i32;
+              averageMor: i32;
+              averageXp: i32;
+              averageEntrench: i32;
               Coordinate reconMinusHide;
-              int i2;
+              i2: i32;
               if (this.previewMode)
               {
                 averageRdn = this.game.HandyFunctionsObj.GetAverageRdn(unr);
@@ -5112,7 +5112,7 @@ namespace WindowsApplication1
                 {
                   if ( this.game.Data.RuleVar[419] > 0.0)
                   {
-                    int num12;
+                    num12: i32;
                     if (this.CombatType == 3 | this.CombatType == 4)
                     {
                       let mut maxValue: i32 =  (int) Math.Round( this.game.Data.RuleVar[55]) + (int) Math.Round( ((int) Math.Round( this.game.Data.RuleVar[56]) - (int) Math.Round( this.game.Data.RuleVar[55])) / 2.0);
@@ -5336,7 +5336,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub OtherSideStillFighting: bool(int seenfromside)
+    pub OtherSideStillFighting: bool(seenfromside: i32)
     {
       let mut num: i32 =  0;
       let mut icounter: i32 =  this.ICounter;
@@ -5348,7 +5348,7 @@ namespace WindowsApplication1
       return num > 0;
     }
 
-    pub void CheckOutOfAP()
+    pub fn CheckOutOfAP()
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -5453,13 +5453,13 @@ namespace WindowsApplication1
           }
           let mut num3: i32 =  2;
           CustomCombatCalls customCombatObj1 = this.customCombatObj;
-          CombatClass combatClass1 = this;
-          ref CombatClass local1 = ref combatClass1;
+          combatClass1: CombatClass = this;
+          ref local1: CombatClass = ref combatClass1;
           if (customCombatObj1.AlterCombatLastRound(ref local1) > 0)
           {
             CustomCombatCalls customCombatObj2 = this.customCombatObj;
-            CombatClass combatClass2 = this;
-            ref CombatClass local2 = ref combatClass2;
+            combatClass2: CombatClass = this;
+            ref local2: CombatClass = ref combatClass2;
             num3 = customCombatObj2.AlterCombatLastRound(ref local2);
           }
           if ((this.CombatType == 13 | this.CombatType == 14 | this.CombatType == 15) & this.CombatRound == num3)
@@ -5560,11 +5560,11 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoParaDropperCasualties()
+    pub fn DoParaDropperCasualties()
     {
       let mut icounter1: i32 =  this.ICounter;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= icounter1; index += 1)
       {
         if (this.IList[index].IAttacker == 1 && !this.IList[index].IParadropper)
@@ -5586,7 +5586,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckSafeRetreat()
+    pub fn CheckSafeRetreat()
     {
       let mut icounter1: i32 =  this.ICounter;
       for (let mut index: i32 =  0; index <= icounter1; index += 1)
@@ -5626,7 +5626,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PreBattleStuff()
+    pub fn PreBattleStuff()
     {
       let mut num1: i32 =  num1;
       if (this.game.EditObj.CombatSim)
@@ -5638,7 +5638,7 @@ namespace WindowsApplication1
         {
           let mut num2: i32 =  0;
           let mut icounter: i32 =  this.ICounter;
-          int num3;
+          num3: i32;
           for (let mut index2: i32 =  0; index2 <= icounter; index2 += 1)
           {
             if (this.IList[index2].IUnr == this.UList[index1].UNr && !(this.CombatType == 12 | this.CombatType == 10) & !this.IList[index2].IParadropper)
@@ -5728,16 +5728,16 @@ namespace WindowsApplication1
       }
     }
 
-    pub void MoraleTest()
+    pub fn MoraleTest()
     {
     }
 
     pub void AddReport(
-      int type,
+      type: i32,
       string title,
       string txt,
-      int fromy,
-      int round,
+      fromy: i32,
+      round: i32,
       string[,] matrx = null)
     {
       if (this.RepCounter > 60000)
@@ -5774,7 +5774,7 @@ namespace WindowsApplication1
       while (index1 <= 60);
     }
 
-    pub void CheckOrderlyUnitRetreat()
+    pub fn CheckOrderlyUnitRetreat()
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut fromy: i32 =  0; fromy <= ucounter; fromy += 1)
@@ -5920,12 +5920,12 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckPanicUnitRetreat()
+    pub fn CheckPanicUnitRetreat()
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut fromy: i32 =  0; fromy <= ucounter; fromy += 1)
       {
-        int num1;
+        num1: i32;
         if (!this.UList[fromy].UCanRetreat.onmap)
         {
           num1 = 100 - 2 * this.game.HandyFunctionsObj.GetAverageMor(this.UList[fromy].UNr);
@@ -6049,7 +6049,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckBreak()
+    pub fn CheckBreak()
     {
       if ( this.game.Data.RuleVar[354] == 0.0)
         return;
@@ -6108,7 +6108,7 @@ namespace WindowsApplication1
               }
               if (this.game.HandyFunctionsObj.CheckIsBattlegroup(this.UList[fromy].UNr))
                 num5 = 999999;
-              txt: String = str1 + "\r\n" + "Breakpoint is at " + Strings.Trim(Conversion.Str( Number1)) + "% left of original size. Current size is " + Strings.Trim(Conversion.Str( (int) Math.Round( (num3 * 100) /  num5))) + "%.";
+              txt: String = str1 + "\r\n" + "Breakpois: i32 at " + Strings.Trim(Conversion.Str( Number1)) + "% left of original size. Current size is " + Strings.Trim(Conversion.Str( (int) Math.Round( (num3 * 100) /  num5))) + "%.";
               if (num5 > 0 && (int) Math.Round( (num3 * 100) /  num5) <= Number1)
               {
                 str2: String = txt + "\r\n" + "Unit qualifies for a break-test.";
@@ -6179,7 +6179,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void FillEditObjHisLoss(let mut forReg: i32 =  -1)
+    pub fn FillEditObjHisLoss(let mut forReg: i32 =  -1)
     {
       this.game.EditObj.HisLossCounter = -1;
       this.game.EditObj.HisLossAttacker = new int[1];
@@ -6318,17 +6318,17 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckVictory()
+    pub fn CheckVictory()
     {
       let mut location1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.TargetX, this.TargetY].Location;
-      int num1;
+      num1: i32;
       if (this.game.Data.Product >= 6 &&  this.game.Data.RuleVar[431] > 0.0 && this.CombatType == 3 &&  this.game.Data.RuleVar[55] >  this.game.Data.MapObj[0].HexObj[this.TargetX, this.TargetY].MaxRecon)
       {
-        int num2;
+        num2: i32;
         num1 = num2 + 1;
       }
       let mut icounter1: i32 =  this.ICounter;
-      int num3;
+      num3: i32;
       for (let mut index: i32 =  0; index <= icounter1; index += 1)
       {
         if (this.IList[index].IRetreated == 0 & this.IList[index].IKilled == 0 & this.IList[index].IAA <= 0)
@@ -6356,8 +6356,8 @@ namespace WindowsApplication1
         if (this.customCombatObj.HasCustumCalls())
         {
           CustomCombatCalls customCombatObj = this.customCombatObj;
-          CombatClass combatClass = this;
-          ref CombatClass local = ref combatClass;
+          combatClass: CombatClass = this;
+          ref local: CombatClass = ref combatClass;
           let mut game: GameClass = this.game;
           let mut antiStrucDam: i32 =  this.AntiStrucDam;
           customCombatObj.StartCombatRound(ref local, game, antiStrucDam);
@@ -6367,8 +6367,8 @@ namespace WindowsApplication1
           if (this.customCombatObj.HasCustumCalls())
           {
             CustomCombatCalls customCombatObj = this.customCombatObj;
-            CombatClass combatClass = this;
-            ref CombatClass local = ref combatClass;
+            combatClass: CombatClass = this;
+            ref local: CombatClass = ref combatClass;
             let mut game: GameClass = this.game;
             let mut damPts: i32 =  dam;
             customCombatObj.DoStructuralDamageCall(ref local, game, damPts);
@@ -6466,7 +6466,7 @@ namespace WindowsApplication1
         this.se1carryPointsTotal = 0;
         this.se1damagePercentage = 0;
         let mut icounter7: i32 =  this.ICounter;
-        int num8;
+        num8: i32;
         for (let mut index: i32 =  0; index <= icounter7; index += 1)
         {
           if (this.IList[index].IAttacker == 1)
@@ -6502,7 +6502,7 @@ namespace WindowsApplication1
             num10 += this.game.Data.SFTypeObj[this.IList[index].ISFType].CarryCap;
         }
         let mut num11: i32 =  (int) Math.Round( Conversion.Int( num10 /  this.game.EditObj.AirSupplyCarry *  this.game.EditObj.AirSupplyPts));
-        int num12;
+        num12: i32;
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Location > -1)
         {
           let mut location2: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Location;
@@ -6668,17 +6668,17 @@ namespace WindowsApplication1
       if (this.BattleEnded <= 0 || !this.customCombatObj.HasCustumCalls())
         return;
       CustomCombatCalls customCombatObj1 = this.customCombatObj;
-      CombatClass combatClass1 = this;
-      ref CombatClass local1 = ref combatClass1;
+      combatClass1: CombatClass = this;
+      ref local1: CombatClass = ref combatClass1;
       let mut game1: GameClass = this.game;
       customCombatObj1.EndCombatCall(ref local1, game1);
     }
 
-    pub void CombatLogBattles(int tBattleEnded)
+    pub fn CombatLogBattles(tBattleEnded: i32)
     {
       if ( this.game.Data.RuleVar[955] <= 0.0)
         return;
-      int num;
+      num: i32;
       if (tBattleEnded == 1)
         num = this.AttackerRegime;
       if (tBattleEnded == 2)
@@ -6703,7 +6703,7 @@ namespace WindowsApplication1
       this.game.Data.StringListObj[stringListById].SetItem(length, 10, ((int) Math.Round( (this.bestConcentricBonus * 100f))).ToString());
     }
 
-    pub void SetConcentricBonus()
+    pub fn SetConcentricBonus()
     {
       Neighbours neighbours = Neighbours::new();
       UnitList UL = UnitList::new();
@@ -6727,7 +6727,7 @@ namespace WindowsApplication1
         flag1 = this.game.Data.RegimeObj[this.AttackerRegime].AI;
       if (Operators.ConditionalCompareObjectGreater(this.game.HandyFunctionsObj.GetHQsInUnitList(ref UL),  1, false))
       {
-        HandyFunctionsclass handyFunctionsObj = this.game.HandyFunctionsObj;
+        handyFunctionsObj: HandyFunctionsclass = this.game.HandyFunctionsObj;
         ref Neighbours local1 = ref neighbours;
         bool flag2 = true;
         ref bool local2 = ref flag2;
@@ -6736,7 +6736,7 @@ namespace WindowsApplication1
       }
       else
       {
-        HandyFunctionsclass handyFunctionsObj = this.game.HandyFunctionsObj;
+        handyFunctionsObj: HandyFunctionsclass = this.game.HandyFunctionsObj;
         ref Neighbours local3 = ref neighbours;
         bool flag3 = false;
         ref bool local4 = ref flag3;
@@ -6748,15 +6748,15 @@ namespace WindowsApplication1
       this.bestConcentricBonus = this.ConcentricBonus;
     }
 
-    pub void EndBattle()
+    pub fn EndBattle()
     {
       UnitList UL = UnitList::new();
       this.game.EditObj.se1_map_data3cache_set = false;
       if (this.customCombatObj.HasCustumCalls())
       {
         CustomCombatCalls customCombatObj = this.customCombatObj;
-        CombatClass combatClass = this;
-        ref CombatClass local = ref combatClass;
+        combatClass: CombatClass = this;
+        ref local: CombatClass = ref combatClass;
         let mut game: GameClass = this.game;
         customCombatObj.EndBattleCall(ref local, game);
       }
@@ -7016,8 +7016,8 @@ namespace WindowsApplication1
               if (this.customCombatObj.HasCustumCalls())
               {
                 CustomCombatCalls customCombatObj = this.customCombatObj;
-                CombatClass combatClass = this;
-                ref CombatClass local = ref combatClass;
+                combatClass: CombatClass = this;
+                ref local: CombatClass = ref combatClass;
                 let mut game: GameClass = this.game;
                 let mut orderTarget: i32 =  this.game.EditObj.OrderTarget;
                 customCombatObj.UnitLost(ref local, game, orderTarget);
@@ -7277,7 +7277,7 @@ namespace WindowsApplication1
       this.WriteToFileLog();
     }
 
-    pub void ReformUnit(int tunr)
+    pub fn ReformUnit(tunr: i32)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -7288,8 +7288,8 @@ namespace WindowsApplication1
         return;
       let mut unr: i32 =  this.UList[tunr].UNr;
       let mut index1: i32 =  -1;
-      int length;
-      int index2;
+      length: i32;
+      index2: i32;
       if ( this.game.Data.RuleVar[956] > 0.0)
       {
         index1 = this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round( this.game.Data.RuleVar[956]));
@@ -7394,8 +7394,8 @@ namespace WindowsApplication1
               if (this.game.Data.SFObj[this.IList[inr].ISFNr].Qty > 0)
                 num16 = (int) Math.Round( num16 +  this.game.Data.SFObj[this.IList[inr].ISFNr].EP /  this.game.Data.SFObj[this.IList[inr].ISFNr].Qty);
               let mut isfType: i32 =  this.IList[inr].ISFType;
-              int index6;
-              int index7;
+              index6: i32;
+              index7: i32;
               if (this.IList[inr].IAttacker == 1)
               {
                 index6 = this.AttackerRegime;
@@ -7410,8 +7410,8 @@ namespace WindowsApplication1
               {
                 if (index7 > -1)
                 {
-                  int[,] skills = this.game.Data.RegimeObj[index7].SKills;
-                  int[,] numArray = skills;
+                  skills: Vec<i32> = this.game.Data.RegimeObj[index7].SKills;
+                  numArray: Vec<i32> = skills;
                   index2 = isfType;
                   let mut index8: i32 =  index2;
                   let mut index9: i32 =  this.game.Data.Round + 1;
@@ -7422,8 +7422,8 @@ namespace WindowsApplication1
               }
               else if (index7 > -1)
               {
-                int[,] skills = this.game.Data.RegimeObj[index7].SKills;
-                int[,] numArray = skills;
+                skills: Vec<i32> = this.game.Data.RegimeObj[index7].SKills;
+                numArray: Vec<i32> = skills;
                 let mut index11: i32 =  isfType;
                 let mut index12: i32 =  index11;
                 index2 = this.game.Data.Round;
@@ -7433,8 +7433,8 @@ namespace WindowsApplication1
               }
               if ( this.game.Data.RuleVar[841] == 0.0 & index6 < this.AttackerRegime)
               {
-                int[,] sloss = this.game.Data.RegimeObj[index6].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index6].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index14: i32 =  isfType;
                 let mut index15: i32 =  index14;
                 index2 = this.game.Data.Round + 1;
@@ -7444,8 +7444,8 @@ namespace WindowsApplication1
               }
               else
               {
-                int[,] sloss = this.game.Data.RegimeObj[index6].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index6].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index17: i32 =  isfType;
                 let mut index18: i32 =  index17;
                 index2 = this.game.Data.Round;
@@ -7455,8 +7455,8 @@ namespace WindowsApplication1
               }
               if (index6 == this.AttackerRegime)
               {
-                int[,] sloss = this.game.Data.RegimeObj[index6].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index6].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index20: i32 =  isfType;
                 let mut index21: i32 =  index20;
                 index2 = 0;
@@ -7466,8 +7466,8 @@ namespace WindowsApplication1
               }
               if (index7 == this.AttackerRegime)
               {
-                int[,] skills = this.game.Data.RegimeObj[index7].SKills;
-                int[,] numArray = skills;
+                skills: Vec<i32> = this.game.Data.RegimeObj[index7].SKills;
+                numArray: Vec<i32> = skills;
                 let mut index23: i32 =  isfType;
                 let mut index24: i32 =  index23;
                 index2 = 0;
@@ -7484,7 +7484,7 @@ namespace WindowsApplication1
           let mut num29: i32 =  (int) Math.Round(Conversion.Int( num12 /  num14));
           let mut num30: i32 =  (int) Math.Round(Conversion.Int( num17 /  num14));
           let mut num31: i32 =  (int) Math.Round(Conversion.Int( num19 /  num14));
-          int num32;
+          num32: i32;
           if (this.UList[tunr].Uattacker == 1)
           {
             if (this.UList[tunr].UApSpend < this.UList[tunr].UApMoveCost)
@@ -7638,7 +7638,7 @@ namespace WindowsApplication1
       }
       if (this.UList[tunr].UDead != 1)
         this.game.ProcessingObj.MaxReadinessRule(unr);
-      int index34;
+      index34: i32;
       if (index1 > -1)
       {
         this.game.Data.StringListObj[index1].SetItem(length, 6, this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr).ToString());
@@ -7729,7 +7729,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub issfthere: bool(int sfnr)
+    pub issfthere: bool(sfnr: i32)
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut index: i32 =  0; index <= icounter; index += 1)
@@ -7740,7 +7740,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void killairandnavy(int tunr)
+    pub fn killairandnavy(tunr: i32)
     {
       if (this.game.EditObj.CombatSim)
         return;
@@ -7767,8 +7767,8 @@ namespace WindowsApplication1
               this.IList[this.ICounter].IUnr = unr;
               this.IList[this.ICounter].ICapitulate = true;
               let mut isfType: i32 =  this.IList[this.ICounter].ISFType;
-              int index3;
-              int index4;
+              index3: i32;
+              index4: i32;
               if (this.IList[this.ICounter].IAttacker == 1)
               {
                 index3 = this.AttackerRegime;
@@ -7781,8 +7781,8 @@ namespace WindowsApplication1
               }
               if ( this.game.Data.RuleVar[841] == 0.0 & index4 < this.AttackerRegime)
               {
-                int[,] skills = this.game.Data.RegimeObj[index4].SKills;
-                int[,] numArray = skills;
+                skills: Vec<i32> = this.game.Data.RegimeObj[index4].SKills;
+                numArray: Vec<i32> = skills;
                 let mut index5: i32 =  isfType;
                 let mut index6: i32 =  index5;
                 let mut index7: i32 =  this.game.Data.Round + 1;
@@ -7792,8 +7792,8 @@ namespace WindowsApplication1
               }
               else
               {
-                int[,] skills = this.game.Data.RegimeObj[index4].SKills;
-                int[,] numArray = skills;
+                skills: Vec<i32> = this.game.Data.RegimeObj[index4].SKills;
+                numArray: Vec<i32> = skills;
                 let mut index9: i32 =  isfType;
                 let mut index10: i32 =  index9;
                 let mut round: i32 =  this.game.Data.Round;
@@ -7803,8 +7803,8 @@ namespace WindowsApplication1
               }
               if ( this.game.Data.RuleVar[841] == 0.0 & index3 < this.AttackerRegime)
               {
-                int[,] sloss = this.game.Data.RegimeObj[index3].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index3].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index12: i32 =  isfType;
                 let mut index13: i32 =  index12;
                 let mut index14: i32 =  this.game.Data.Round + 1;
@@ -7814,8 +7814,8 @@ namespace WindowsApplication1
               }
               else
               {
-                int[,] sloss = this.game.Data.RegimeObj[index3].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index3].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index16: i32 =  isfType;
                 let mut index17: i32 =  index16;
                 let mut round: i32 =  this.game.Data.Round;
@@ -7825,8 +7825,8 @@ namespace WindowsApplication1
               }
               if (index3 == this.AttackerRegime)
               {
-                int[,] sloss = this.game.Data.RegimeObj[index3].SLoss;
-                int[,] numArray = sloss;
+                sloss: Vec<i32> = this.game.Data.RegimeObj[index3].SLoss;
+                numArray: Vec<i32> = sloss;
                 let mut index19: i32 =  isfType;
                 let mut index20: i32 =  index19;
                 let mut index21: i32 =  0;
@@ -7836,8 +7836,8 @@ namespace WindowsApplication1
               }
               if (index4 == this.AttackerRegime)
               {
-                int[,] skills = this.game.Data.RegimeObj[index4].SKills;
-                int[,] numArray = skills;
+                skills: Vec<i32> = this.game.Data.RegimeObj[index4].SKills;
+                numArray: Vec<i32> = skills;
                 let mut index23: i32 =  isfType;
                 let mut index24: i32 =  index23;
                 let mut index25: i32 =  0;
@@ -7857,8 +7857,8 @@ namespace WindowsApplication1
                 this.IList[index27].IKilled = 1;
                 this.IList[index27].ICapitulate = true;
                 let mut isfType: i32 =  this.IList[index27].ISFType;
-                int index28;
-                int index29;
+                index28: i32;
+                index29: i32;
                 if (this.IList[index27].IAttacker == 1)
                 {
                   index28 = this.AttackerRegime;
@@ -7871,8 +7871,8 @@ namespace WindowsApplication1
                 }
                 if (index29 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
                 {
-                  int[,] skills = this.game.Data.RegimeObj[index29].SKills;
-                  int[,] numArray = skills;
+                  skills: Vec<i32> = this.game.Data.RegimeObj[index29].SKills;
+                  numArray: Vec<i32> = skills;
                   let mut index30: i32 =  isfType;
                   let mut index31: i32 =  index30;
                   let mut index32: i32 =  this.game.Data.Round + 1;
@@ -7882,8 +7882,8 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int[,] skills = this.game.Data.RegimeObj[index29].SKills;
-                  int[,] numArray = skills;
+                  skills: Vec<i32> = this.game.Data.RegimeObj[index29].SKills;
+                  numArray: Vec<i32> = skills;
                   let mut index34: i32 =  isfType;
                   let mut index35: i32 =  index34;
                   let mut round: i32 =  this.game.Data.Round;
@@ -7893,8 +7893,8 @@ namespace WindowsApplication1
                 }
                 if (index28 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
                 {
-                  int[,] sloss = this.game.Data.RegimeObj[index28].SLoss;
-                  int[,] numArray = sloss;
+                  sloss: Vec<i32> = this.game.Data.RegimeObj[index28].SLoss;
+                  numArray: Vec<i32> = sloss;
                   let mut index37: i32 =  isfType;
                   let mut index38: i32 =  index37;
                   let mut index39: i32 =  this.game.Data.Round + 1;
@@ -7904,8 +7904,8 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int[,] sloss = this.game.Data.RegimeObj[index28].SLoss;
-                  int[,] numArray = sloss;
+                  sloss: Vec<i32> = this.game.Data.RegimeObj[index28].SLoss;
+                  numArray: Vec<i32> = sloss;
                   let mut index41: i32 =  isfType;
                   let mut index42: i32 =  index41;
                   let mut round: i32 =  this.game.Data.Round;
@@ -7915,8 +7915,8 @@ namespace WindowsApplication1
                 }
                 if (index28 == this.AttackerRegime)
                 {
-                  int[,] sloss = this.game.Data.RegimeObj[index28].SLoss;
-                  int[,] numArray = sloss;
+                  sloss: Vec<i32> = this.game.Data.RegimeObj[index28].SLoss;
+                  numArray: Vec<i32> = sloss;
                   let mut index44: i32 =  isfType;
                   let mut index45: i32 =  index44;
                   let mut index46: i32 =  0;
@@ -7926,8 +7926,8 @@ namespace WindowsApplication1
                 }
                 if (index29 == this.AttackerRegime)
                 {
-                  int[,] skills = this.game.Data.RegimeObj[index29].SKills;
-                  int[,] numArray = skills;
+                  skills: Vec<i32> = this.game.Data.RegimeObj[index29].SKills;
+                  numArray: Vec<i32> = skills;
                   let mut index48: i32 =  isfType;
                   let mut index49: i32 =  index48;
                   let mut index50: i32 =  0;
@@ -7962,14 +7962,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub void KillUnit(int unr)
+    pub fn KillUnit(unr: i32)
     {
       this.AddBiggy("Unit has been destroyed " + this.game.Data.UnitObj[unr].Name);
       if (this.customCombatObj.HasCustumCalls())
       {
         CustomCombatCalls customCombatObj = this.customCombatObj;
-        CombatClass combatClass = this;
-        ref CombatClass local = ref combatClass;
+        combatClass: CombatClass = this;
+        ref local: CombatClass = ref combatClass;
         let mut game: GameClass = this.game;
         let mut unr1: i32 =  unr;
         customCombatObj.UnitLost(ref local, game, unr1);
@@ -7977,7 +7977,7 @@ namespace WindowsApplication1
       this.game.Data.RemoveUnit(unr, ref this.game);
     }
 
-    pub void DoRetreat(int tunr)
+    pub fn DoRetreat(tunr: i32)
     {
       if (this.game.EditObj.CombatSim || this.UList[tunr].UDead == 1)
         return;
@@ -8002,7 +8002,7 @@ namespace WindowsApplication1
       }
       if ( this.game.Data.RuleVar[894] > 0.0 && this.game.Data.UnitObj[unr].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type == 8 && this.UList[tunr].Uattacker == 0 && this.CombatType == 1 | this.CombatType == 12)
         this.UList[tunr].UCanRetreat.onmap = false;
-      int num1;
+      num1: i32;
       if (this.UList[tunr].UCanRetreat.onmap)
       {
         try
@@ -8063,7 +8063,7 @@ namespace WindowsApplication1
               neighbour.data[num2 - 1] = 1;
           }
           let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-          int sf1;
+          sf1: i32;
           for (let mut index1: i32 =  0; index1 <= sfCount1; index1 += 1)
           {
             sf1 = this.game.Data.UnitObj[unr].SFList[index1];
@@ -8230,8 +8230,8 @@ namespace WindowsApplication1
                     }
                   }
                   let mut type2: i32 =  this.game.Data.SFObj[sf1].Type;
-                  int index18;
-                  int index19;
+                  index18: i32;
+                  index19: i32;
                   if (this.UList[tunr].Uattacker == 1)
                   {
                     index18 = this.AttackerRegime;
@@ -8244,8 +8244,8 @@ namespace WindowsApplication1
                   }
                   if (index19 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
                   {
-                    int[,] skills = this.game.Data.RegimeObj[index19].SKills;
-                    int[,] numArray = skills;
+                    skills: Vec<i32> = this.game.Data.RegimeObj[index19].SKills;
+                    numArray: Vec<i32> = skills;
                     let mut index20: i32 =  type2;
                     let mut index21: i32 =  index20;
                     let mut index22: i32 =  this.game.Data.Round + 1;
@@ -8255,8 +8255,8 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int[,] skills = this.game.Data.RegimeObj[index19].SKills;
-                    int[,] numArray = skills;
+                    skills: Vec<i32> = this.game.Data.RegimeObj[index19].SKills;
+                    numArray: Vec<i32> = skills;
                     let mut index24: i32 =  type2;
                     let mut index25: i32 =  index24;
                     let mut round: i32 =  this.game.Data.Round;
@@ -8266,8 +8266,8 @@ namespace WindowsApplication1
                   }
                   if (index18 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
                   {
-                    int[,] sloss = this.game.Data.RegimeObj[index18].SLoss;
-                    int[,] numArray = sloss;
+                    sloss: Vec<i32> = this.game.Data.RegimeObj[index18].SLoss;
+                    numArray: Vec<i32> = sloss;
                     let mut index27: i32 =  type2;
                     let mut index28: i32 =  index27;
                     let mut index29: i32 =  this.game.Data.Round + 1;
@@ -8277,8 +8277,8 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int[,] sloss = this.game.Data.RegimeObj[index18].SLoss;
-                    int[,] numArray = sloss;
+                    sloss: Vec<i32> = this.game.Data.RegimeObj[index18].SLoss;
+                    numArray: Vec<i32> = sloss;
                     let mut index31: i32 =  type2;
                     let mut index32: i32 =  index31;
                     let mut round: i32 =  this.game.Data.Round;
@@ -8288,8 +8288,8 @@ namespace WindowsApplication1
                   }
                   if (index18 == this.AttackerRegime)
                   {
-                    int[,] sloss = this.game.Data.RegimeObj[index18].SLoss;
-                    int[,] numArray = sloss;
+                    sloss: Vec<i32> = this.game.Data.RegimeObj[index18].SLoss;
+                    numArray: Vec<i32> = sloss;
                     let mut index34: i32 =  type2;
                     let mut index35: i32 =  index34;
                     let mut index36: i32 =  0;
@@ -8299,8 +8299,8 @@ namespace WindowsApplication1
                   }
                   if (index19 == this.AttackerRegime)
                   {
-                    int[,] skills = this.game.Data.RegimeObj[index19].SKills;
-                    int[,] numArray = skills;
+                    skills: Vec<i32> = this.game.Data.RegimeObj[index19].SKills;
+                    numArray: Vec<i32> = skills;
                     let mut index38: i32 =  type2;
                     let mut index39: i32 =  index38;
                     let mut index40: i32 =  0;
@@ -8476,8 +8476,8 @@ namespace WindowsApplication1
             }
           }
           let mut type4: i32 =  this.game.Data.SFObj[sf].Type;
-          int index50;
-          int index51;
+          index50: i32;
+          index51: i32;
           if (this.UList[tunr].Uattacker == 1)
           {
             index50 = this.AttackerRegime;
@@ -8490,8 +8490,8 @@ namespace WindowsApplication1
           }
           if (index51 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
           {
-            int[,] skills = this.game.Data.RegimeObj[index51].SKills;
-            int[,] numArray = skills;
+            skills: Vec<i32> = this.game.Data.RegimeObj[index51].SKills;
+            numArray: Vec<i32> = skills;
             let mut index52: i32 =  type4;
             let mut index53: i32 =  index52;
             let mut index54: i32 =  this.game.Data.Round + 1;
@@ -8501,8 +8501,8 @@ namespace WindowsApplication1
           }
           else
           {
-            int[,] skills = this.game.Data.RegimeObj[index51].SKills;
-            int[,] numArray = skills;
+            skills: Vec<i32> = this.game.Data.RegimeObj[index51].SKills;
+            numArray: Vec<i32> = skills;
             let mut index56: i32 =  type4;
             let mut index57: i32 =  index56;
             let mut round: i32 =  this.game.Data.Round;
@@ -8512,8 +8512,8 @@ namespace WindowsApplication1
           }
           if (index50 < this.AttackerRegime &  this.game.Data.RuleVar[841] == 0.0)
           {
-            int[,] sloss = this.game.Data.RegimeObj[index50].SLoss;
-            int[,] numArray = sloss;
+            sloss: Vec<i32> = this.game.Data.RegimeObj[index50].SLoss;
+            numArray: Vec<i32> = sloss;
             let mut index59: i32 =  type4;
             let mut index60: i32 =  index59;
             let mut index61: i32 =  this.game.Data.Round + 1;
@@ -8523,8 +8523,8 @@ namespace WindowsApplication1
           }
           else
           {
-            int[,] sloss = this.game.Data.RegimeObj[index50].SLoss;
-            int[,] numArray = sloss;
+            sloss: Vec<i32> = this.game.Data.RegimeObj[index50].SLoss;
+            numArray: Vec<i32> = sloss;
             let mut index63: i32 =  type4;
             let mut index64: i32 =  index63;
             let mut round: i32 =  this.game.Data.Round;
@@ -8534,8 +8534,8 @@ namespace WindowsApplication1
           }
           if (index50 == this.AttackerRegime)
           {
-            int[,] sloss = this.game.Data.RegimeObj[index50].SLoss;
-            int[,] numArray = sloss;
+            sloss: Vec<i32> = this.game.Data.RegimeObj[index50].SLoss;
+            numArray: Vec<i32> = sloss;
             let mut index66: i32 =  type4;
             let mut index67: i32 =  index66;
             let mut index68: i32 =  0;
@@ -8545,8 +8545,8 @@ namespace WindowsApplication1
           }
           if (index51 == this.AttackerRegime)
           {
-            int[,] skills = this.game.Data.RegimeObj[index51].SKills;
-            int[,] numArray = skills;
+            skills: Vec<i32> = this.game.Data.RegimeObj[index51].SKills;
+            numArray: Vec<i32> = skills;
             let mut index70: i32 =  type4;
             let mut index71: i32 =  index70;
             let mut index72: i32 =  0;
@@ -8564,11 +8564,11 @@ namespace WindowsApplication1
       }
     }
 
-    pub void CheckBreakthrough()
+    pub fn CheckBreakthrough()
     {
       let mut icounter1: i32 =  this.ICounter;
-      int num1;
-      int num2;
+      num1: i32;
+      num2: i32;
       for (let mut index: i32 =  0; index <= icounter1; index += 1)
       {
         if (this.IList[index].IKilled == 0 & this.IList[index].IRetreat == 0)
@@ -8619,7 +8619,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReduceRdn(int inr, int percent)
+    pub fn ReduceRdn(inr: i32, percent: i32)
     {
       let mut num: i32 =  (int) Math.Round(Conversion.Int( this.IList[inr].IRdn * ( percent / 100.0)));
       if (num == 0)
@@ -8634,7 +8634,7 @@ namespace WindowsApplication1
       this.IList[inr].IRdn = 0;
     }
 
-    pub void ReduceAbsRdn(int inr, int absnumber)
+    pub fn ReduceAbsRdn(inr: i32, absnumber: i32)
     {
       Individual[] ilist = this.IList;
       Individual[] individualArray = ilist;
@@ -8646,7 +8646,7 @@ namespace WindowsApplication1
       this.IList[inr].IRdn = 0;
     }
 
-    pub void ReduceEntr(int inr, int percent)
+    pub fn ReduceEntr(inr: i32, percent: i32)
     {
       let mut num: i32 =  (int) Math.Round(Conversion.Int( this.IList[inr].IEntrench * ( percent / 100.0)));
       if (num == 0)
@@ -8661,7 +8661,7 @@ namespace WindowsApplication1
       this.IList[inr].IEntrench = 0;
     }
 
-    pub void ReduceEntr_AdvancedCombatRecon(int attNr, int inr, int percent)
+    pub fn ReduceEntr_AdvancedCombatRecon(attNr: i32, inr: i32, percent: i32)
     {
       bool flag = false;
       if (!(this.CombatType == 3 | this.CombatType == 4 | this.InterceptFire))
@@ -8714,7 +8714,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReduceMor(int inr, int percent)
+    pub fn ReduceMor(inr: i32, percent: i32)
     {
       let mut num: i32 =  (int) Math.Round(Conversion.Int( this.IList[inr].IMor * ( percent / 100.0)));
       if (num == 0)
@@ -8722,8 +8722,8 @@ namespace WindowsApplication1
       if (num > 0 & this.customCombatObj.HasCustumCalls())
       {
         CustomCombatCalls customCombatObj = this.customCombatObj;
-        CombatClass combatClass = this;
-        ref CombatClass local = ref combatClass;
+        combatClass: CombatClass = this;
+        ref local: CombatClass = ref combatClass;
         let mut inr1: i32 =  inr;
         let mut morMod: i32 =  num;
         num = customCombatObj.IndividualMORMod(ref local, inr1, morMod);
@@ -8738,7 +8738,7 @@ namespace WindowsApplication1
       this.IList[inr].IMor = 0;
     }
 
-    pub void AddMor(int inr, int percent)
+    pub fn AddMor(inr: i32, percent: i32)
     {
       let mut num: i32 =  (int) Math.Round(Conversion.Int( this.IList[inr].IMor * ( percent / 100.0)));
       Individual[] ilist = this.IList;
@@ -8751,7 +8751,7 @@ namespace WindowsApplication1
       this.IList[inr].IMor = 100;
     }
 
-    pub int IsUnitFighting(int nr)
+    pub IsUnitFighting: i32(nr: i32)
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut index: i32 =  0; index <= ucounter; index += 1)
@@ -8762,11 +8762,11 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub void AddXp(int inr, int pointstot)
+    pub fn AddXp(inr: i32, pointstot: i32)
     {
       if (this.game.EditObj.CombatSim)
         return;
-      int num1;
+      num1: i32;
       if (pointstot > 0)
       {
         let mut num2: i32 =  pointstot;
@@ -8796,8 +8796,8 @@ namespace WindowsApplication1
           if ( a > 0.0 & this.customCombatObj.HasCustumCalls())
           {
             CustomCombatCalls customCombatObj = this.customCombatObj;
-            CombatClass combatClass = this;
-            ref CombatClass local = ref combatClass;
+            combatClass: CombatClass = this;
+            ref local: CombatClass = ref combatClass;
             let mut inr1: i32 =  inr;
             let mut xpToBeGiven: i32 =  (int) Math.Round( a);
             a =  customCombatObj.IndividualXPMod(ref local, inr1, xpToBeGiven);
@@ -8853,7 +8853,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddXp2(int inr, int pointstot)
+    pub fn AddXp2(inr: i32, pointstot: i32)
     {
       if (pointstot <= 0)
         return;
@@ -8884,8 +8884,8 @@ namespace WindowsApplication1
         if ( a > 0.0 & this.customCombatObj.HasCustumCalls())
         {
           CustomCombatCalls customCombatObj = this.customCombatObj;
-          CombatClass combatClass = this;
-          ref CombatClass local = ref combatClass;
+          combatClass: CombatClass = this;
+          ref local: CombatClass = ref combatClass;
           let mut inr1: i32 =  inr;
           let mut xpToBeGiven: i32 =  (int) Math.Round( a);
           a =  customCombatObj.IndividualXPMod(ref local, inr1, xpToBeGiven);
@@ -8901,7 +8901,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddXp3(int sfnr, int pointstot)
+    pub fn AddXp3(sfnr: i32, pointstot: i32)
     {
       if (pointstot <= 0)
         return;
@@ -8932,8 +8932,8 @@ namespace WindowsApplication1
         if ( a > 0.0 & this.customCombatObj.HasCustumCalls())
         {
           CustomCombatCalls customCombatObj = this.customCombatObj;
-          CombatClass combatClass = this;
-          ref CombatClass local = ref combatClass;
+          combatClass: CombatClass = this;
+          ref local: CombatClass = ref combatClass;
           let mut xpToBeGiven: i32 =  (int) Math.Round( a);
           let mut sfnr1: i32 =  sfnr;
           a =  customCombatObj.IndividualXPMod(ref local, -1, xpToBeGiven, sfnr1);
@@ -8949,14 +8949,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddXpUnit(int unr, int pointstot)
+    pub fn AddXpUnit(unr: i32, pointstot: i32)
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return;
       let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
       object[] objArray1 = new object[this.game.Data.UnitObj[unr].SFCount + 1];
       let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
-      int Right;
+      Right: i32;
       for (let mut index1: i32 =  0; index1 <= sfCount1; index1 += 1)
       {
         let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index1]].Type;
@@ -8994,7 +8994,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ParticipateUnitNr(int unr)
+    pub fn ParticipateUnitNr(unr: i32)
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut index: i32 =  0; index <= ucounter; index += 1)
@@ -9004,7 +9004,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int FindOpponent(int inr)
+    pub FindOpponent: i32(inr: i32)
     {
       let mut favTargetTries: i32 =  this.game.Data.SFTypeObj[this.IList[inr].ISFType].FavTargetTries;
       if (this.CombatType == 3 | this.CombatType == 4 && this.IList[inr].IAttacker == 0)
@@ -9028,10 +9028,10 @@ namespace WindowsApplication1
         let mut num1: i32 =  num1;
       }
       let mut num2: i32 =  1;
-      int num3;
-      int opponent;
-      int num4;
-      int num5;
+      num3: i32;
+      opponent: i32;
+      num4: i32;
+      num5: i32;
       do
       {
         num3 = 0;
@@ -9180,7 +9180,7 @@ namespace WindowsApplication1
       return opponent;
     }
 
-    pub void ThrowInitiative()
+    pub fn ThrowInitiative()
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut inr: i32 =  0; inr <= icounter; inr += 1)
@@ -9202,9 +9202,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub TestAttack: bool(int inr) => this.IList[inr].IAttacker == 1 & this.CombatType == 13 ? this.game.Data.SFTypeObj[this.IList[inr].ISFType].AutoDestroy : !(this.IList[inr].IAttacker == 0 & this.InterceptFire) && this.IList[inr].IKilled == 0 && this.IList[inr].IRetreat == 0 && this.IList[inr].IRetreated == 0 && this.IList[inr].AttackCount < this.game.Data.SFTypeObj[this.IList[inr].ISFType].Attacks;
+    pub TestAttack: bool(inr: i32) => this.IList[inr].IAttacker == 1 & this.CombatType == 13 ? this.game.Data.SFTypeObj[this.IList[inr].ISFType].AutoDestroy : !(this.IList[inr].IAttacker == 0 & this.InterceptFire) && this.IList[inr].IKilled == 0 && this.IList[inr].IRetreat == 0 && this.IList[inr].IRetreated == 0 && this.IList[inr].AttackCount < this.game.Data.SFTypeObj[this.IList[inr].ISFType].Attacks;
 
-    pub TestTarget: bool(int attnr, int defnr)
+    pub TestTarget: bool(attnr: i32, defnr: i32)
     {
       if (this.IList[attnr].IAttacker == this.IList[defnr].IAttacker || this.InterceptFire && this.IList[attnr].IAttacker == 0)
         return false;
@@ -9259,7 +9259,7 @@ namespace WindowsApplication1
                 {
                   let mut num2: i32 =  this.game.Data.MapObj[0].HexObj[x3, y3].HeightLevel - this.game.Data.MapObj[0].HexObj[x4, y4].HeightLevel;
                   let mut num3: i32 =  70 - (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[x4, y4].LandscapeType].HidePts + 10) * (3 - num2);
-                  int num4;
+                  num4: i32;
                   if (!Information.IsNothing( this.UList[this.IList[attnr].IUlistNr].ULos))
                     num4 = (int) Math.Round( (num3 * this.UList[this.IList[attnr].IUlistNr].ULos[this.IList[defnr].IUlistNr]) / 100.0);
                   if (new Random(attnr * this.CombatRound).Next(1, 100) >= num4)
@@ -9273,7 +9273,7 @@ namespace WindowsApplication1
                     let mut num6: i32 =  70 - (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[x4, y4].LandscapeType].HidePts + 10) * (3 - num5);
                     if (num6 < 0)
                       num6 = 0;
-                    int num7;
+                    num7: i32;
                     if (!Information.IsNothing( this.UList[this.IList[attnr].IUlistNr].ULos))
                       num7 = (int) Math.Round( (num6 * this.UList[this.IList[attnr].IUlistNr].ULos[this.IList[defnr].IUlistNr]) / 100.0);
                     if (new Random(attnr * this.CombatRound).Next(1, 100) >= num7)
@@ -9334,7 +9334,7 @@ namespace WindowsApplication1
       return num1 == 1;
     }
 
-    pub void SortOnInitiative()
+    pub fn SortOnInitiative()
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut index1: i32 =  0; index1 <= icounter; index1 += 1)
@@ -9352,7 +9352,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddDetail(string s)
+    pub fn AddDetail(string s)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;
@@ -9362,7 +9362,7 @@ namespace WindowsApplication1
       this.AddAllDetail(s);
     }
 
-    pub void AddAllDetail(string s)
+    pub fn AddAllDetail(string s)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;
@@ -9371,7 +9371,7 @@ namespace WindowsApplication1
       this.AllDetailString[this.AllDetailCounter] = s;
     }
 
-    pub void AddBiggy(string s)
+    pub fn AddBiggy(string s)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;
@@ -9381,13 +9381,13 @@ namespace WindowsApplication1
       this.BattleString[this.BattleCounter] =  s;
     }
 
-    pub void ClearDetail()
+    pub fn ClearDetail()
     {
       this.DetailCounter = -1;
       this.DetailString = new string[1];
     }
 
-    pub void WriteToFileLog()
+    pub fn WriteToFileLog()
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;

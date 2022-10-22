@@ -44,7 +44,7 @@ namespace WindowsApplication1
       return (SAClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub void AddNeighbour(int nr)
+    pub fn AddNeighbour(nr: i32)
     {
       let mut neighbourCount: i32 = this.NeighbourCount;
       for (let mut index: i32 = 1; index <= neighbourCount; index += 1)
@@ -57,7 +57,7 @@ namespace WindowsApplication1
       this.Neighbour[this.NeighbourCount] = nr;
     }
 
-    pub IsNeighbour: bool(int nr)
+    pub IsNeighbour: bool(nr: i32)
     {
       if (this.NeighbourCount <= 0)
         return false;
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void AddSeaNeighbour(int nr)
+    pub fn AddSeaNeighbour(nr: i32)
     {
       let mut seaNeighbourCount: i32 = this.SeaNeighbourCount;
       for (let mut index: i32 = 1; index <= seaNeighbourCount; index += 1)
@@ -83,7 +83,7 @@ namespace WindowsApplication1
       this.SeaNeighbour[this.SeaNeighbourCount] = nr;
     }
 
-    pub IsSeaNeighbour: bool(int nr)
+    pub IsSeaNeighbour: bool(nr: i32)
     {
       if (this.SeaNeighbourCount <= 0)
         return false;
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub void AddConstitutant(int nr)
+    pub fn AddConstitutant(nr: i32)
     {
       let mut constitutantCount: i32 = this.ConstitutantCount;
       for (let mut index: i32 = 1; index <= constitutantCount; index += 1)
@@ -109,7 +109,7 @@ namespace WindowsApplication1
       this.Constitutant[this.ConstitutantCount] = nr;
     }
 
-    pub IsConstitutant: bool(int nr)
+    pub IsConstitutant: bool(nr: i32)
     {
       if (this.ConstitutantCount <= 0)
         return false;

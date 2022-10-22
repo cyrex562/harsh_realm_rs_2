@@ -35,7 +35,7 @@ namespace WindowsApplication1
       return aiMoveList;
     }
 
-    pub void AddMove(ref AIMove tempMove)
+    pub fn AddMove(ref AIMove tempMove)
     {
       this += 1.Counter;
       this.Move = (AIMove[]) Utils.CopyArray((Array) this.Move, (Array) new AIMove[this.Counter + 1]);

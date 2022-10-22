@@ -46,7 +46,7 @@ namespace WindowsApplication1
      ListClass OptionsList2Obj;
      bool Hq;
 
-    pub ChangeModelWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub ChangeModelWindowClass(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.LocNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -161,9 +161,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tlistselect2: i32 =  tlistselect1;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local2 = ref font;
+        ref local1: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local2: Font = ref font;
         tsubpart =  new ListSubPartClass(optionsListObj, 9, 500, tlistselect2, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: 310, bby: 55, overruleFont: (ref local2));
         this.OptionsListId = this.AddSubPart(ref tsubpart, 10, 30, 500, 160, 0);
       }

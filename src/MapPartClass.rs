@@ -13,21 +13,21 @@ namespace WindowsApplication1
 {
   pub class MapPartClass : SubPartClass
   {
-     GameClass game;
+     game: GameClass;
      bool noshader;
-     int OffSetX;
-     int OffSetY;
-     int tZoomLevel;
-     int t53;
-     int t48;
-     int t64;
-     int t11;
+     OffSetX: i32;
+     OffSetY: i32;
+     tZoomLevel: i32;
+     t53: i32;
+     t48: i32;
+     t64: i32;
+     t11: i32;
      bool fromPopupMap;
 
     pub MapPartClass(
-      int width,
-      int height,
-      GameClass tgame,
+      width: i32,
+      height: i32,
+      tgame: GameClass,
       bool tnoshaders = false,
       let mut ZoomLevel: i32 =  -2,
       bool tFromPopupMap = false)
@@ -86,7 +86,7 @@ namespace WindowsApplication1
       tgame.CustomBitmapObj.InitializeTextureRelatedStuff();
     }
 
-    pub void ShiftLeft()
+    pub fn ShiftLeft()
     {
       if (this.game.Data.PermanentOverlayUse)
       {
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap = new Bitmap(this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
+        bitmap: Bitmap = new Bitmap(this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
         bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics objGraphics = Graphics.FromImage((Image) bitmap);
         Rectangle rectangle1 = Rectangle::new(this.t53, 0, this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height);
@@ -136,7 +136,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Cleary(Graphics g, int shift)
+    pub fn Cleary(Graphics g, shift: i32)
     {
       DrawMod.DrawClear(g,  this.OwnBitmap, Color.FromArgb( byte.MaxValue, 60, 60, 60));
       Pen pen = new Pen(Color.FromArgb( byte.MaxValue, 80, 80, 80));
@@ -152,7 +152,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ShiftRight()
+    pub fn ShiftRight()
     {
       if (this.game.Data.PermanentOverlayUse)
       {
@@ -160,7 +160,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap = new Bitmap(this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
+        bitmap: Bitmap = new Bitmap(this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
         bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics objGraphics = Graphics.FromImage((Image) bitmap);
         Rectangle rectangle1 = Rectangle::new(0, 0, this.OwnBitmap.Width - this.t53, this.OwnBitmap.Height);
@@ -203,7 +203,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       if (this.game.Data.PermanentOverlayUse)
       {
@@ -211,7 +211,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48, PixelFormat.Format32bppPArgb);
+        bitmap: Bitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48, PixelFormat.Format32bppPArgb);
         bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics objGraphics = Graphics.FromImage((Image) bitmap);
         Rectangle rectangle1 = Rectangle::new(0, this.t48, this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48);
@@ -253,7 +253,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       if (this.game.Data.PermanentOverlayUse)
       {
@@ -261,7 +261,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48, PixelFormat.Format32bppPArgb);
+        bitmap: Bitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48, PixelFormat.Format32bppPArgb);
         bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics objGraphics = Graphics.FromImage((Image) bitmap);
         Rectangle rectangle1 = Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height - this.t48);
@@ -304,7 +304,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       let mut num1: i32 =  this.game.EditObj.OverlayMode;
       if (this.game.Data.Round > 0)
@@ -365,7 +365,7 @@ namespace WindowsApplication1
           y = 0;
         Rectangle rectangle2 = Rectangle::new(x, y, width2, height2);
          let mut local1: &Graphics = &graphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.PermanentOverlaySpriteID);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.PermanentOverlaySpriteID);
          let mut local2: &Bitmap = &bitmap;
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(offSetX, offSetY, width1, height1);
@@ -374,7 +374,7 @@ namespace WindowsApplication1
       }
       let mut num11: i32 =   Math.Round(Conversion.Int( this.OwnBitmap.Width /  this.t53));
       let mut num12: i32 =   Math.Round(Conversion.Int( this.OwnBitmap.Height /  this.t48));
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (!this.game.EditObj.TempCoordList.active |  this.game.EditObj.TempCoordList.counter >  (num12 * num11) / 2.0 | this.game.Data.Round == 0)
       {
         let mut num13: i32 =  0;
@@ -388,7 +388,7 @@ namespace WindowsApplication1
             let mut cy: i32 =  this.game.CornerY + index2;
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop &  this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0 & cx > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
               cx = this.game.CornerX + index1 - (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
-            int num16;
+            num16: i32;
             if (cx > -1 & cy > -1 & cx <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth & cy <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
             {
               num13 += 1;
@@ -473,7 +473,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub void PaintOverlayHex(Graphics g, int x1, int y1, int screenx, int screeny, int zoomy)
+    pub fn PaintOverlayHex(Graphics g, x1: i32, y1: i32, screenx: i32, screeny: i32, zoomy: i32)
     {
       let mut num1: i32 =  x1 * this.t53;
       let mut num2: i32 =  y1 * this.t48;
@@ -489,7 +489,7 @@ namespace WindowsApplication1
       let mut height2: i32 =   Math.Round( height1 /  num6 *  BitmapStore.Getheight(this.game.Data.PermanentOverlaySpriteID));
       if ((x1 + 20) % 2 != 0)
         y2 =  Math.Round( y2 +  height2 / 2.0);
-      Bitmap bitmap = new Bitmap(width1, height1);
+      bitmap: Bitmap = new Bitmap(width1, height1);
       Rectangle srcRect = Rectangle::new(x2, y2, width2, height2);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.PermanentOverlaySpriteID), Rectangle::new(0, 0, width1, height1), srcRect, GraphicsUnit.Pixel);
@@ -499,7 +499,7 @@ namespace WindowsApplication1
         let mut num8: i32 =  bitmap.Width - 1;
         for (let mut x3: i32 =  0; x3 <= num8; x3 += 1)
         {
-          Color pixel;
+          pixel: Color;
           switch (zoomy)
           {
             case -1:
@@ -523,11 +523,11 @@ namespace WindowsApplication1
 
     pub void PaintCoordinate(
       Graphics g,
-      int x,
-      int y,
-      int map,
+      x: i32,
+      y: i32,
+      map: i32,
       let mut counteralpha: i32 =  255,
-       Bitmap gBitmap = null)
+       gBitmap: Bitmap = null)
     {
       if (map != this.game.EditObj.MapSelected)
         return;
@@ -564,7 +564,7 @@ namespace WindowsApplication1
             if (this.game.EditObj.BattleTimerActive & this.game.EditObj.BattleAnimNr > 0 && num5 == this.game.EditObj.TargetX & num6 == this.game.EditObj.TargetY)
             {
                let mut local1: &Graphics = &g;
-              Bitmap bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, this.game.EditObj.Zoom);
+              bitmap: Bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, this.game.EditObj.Zoom);
                let mut local2: &Bitmap = &bitmap;
               Rectangle srcrect = Rectangle::new(this.t64 * (this.game.EditObj.BattleAnimNr - 1), 0, this.t64, this.t48);
               Rectangle destrect = Rectangle::new(num7 + this.OffSetX, num8 + this.OffSetY, this.t64, this.t48);
@@ -579,7 +579,7 @@ namespace WindowsApplication1
           if ((num5 + 10) % 2 > 0)
             num10 =  Math.Round( num10 +  this.t48 / 2.0);
            let mut local3: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.BLACKHEX, this.tZoomLevel);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.BLACKHEX, this.tZoomLevel);
            let mut local4: &Bitmap = &bitmap;
           let mut x1: i32 =  num9 + this.OffSetX;
           let mut y1: i32 =  num10 + this.OffSetY;
@@ -592,7 +592,7 @@ namespace WindowsApplication1
       g = (Graphics) null;
     }
 
-    pub Coordinate ClickMap(int x, int y)
+    pub Coordinate ClickMap(x: i32, y: i32)
     {
       let mut num1: i32 =   Math.Round(1.0 + Conversion.Int( this.OwnBitmap.Width / 42.0));
       let mut num2: i32 =   Math.Round(1.0 + Conversion.Int( this.OwnBitmap.Height /  (24 * (this.tZoomLevel + 2))));

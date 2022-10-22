@@ -14,41 +14,41 @@ namespace WindowsApplication1
 {
   pub class LibraryWindowClass : WindowClass
   {
-     int LibListId;
+     LibListId: i32;
      ListClass LibListObj;
-     int AddLibId;
-     int AddLibTextId;
-     int RemoveLibId;
-     int RemoveLibTextId;
-     int LibVarListId;
+     AddLibId: i32;
+     AddLibTextId: i32;
+     RemoveLibId: i32;
+     RemoveLibTextId: i32;
+     LibVarListId: i32;
      ListClass LibVarListObj;
-     int AddLibVarId;
-     int AddLibVarTextId;
-     int RemoveLibVarId;
-     int RemoveLibVarTextId;
-     int LibVarTypeId;
-     int LibVarTypeTextId;
-     int LibVarNameId;
-     int LibVarNameTextId;
-     int LibVarInfoId;
-     int LibVarInfoTextId;
-     int LibVarValueTypeId;
-     int LibVarValueTypeTextId;
-     int BNameId;
-     int BNameTextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int LibId;
-     int LibVarId;
+     AddLibVarId: i32;
+     AddLibVarTextId: i32;
+     RemoveLibVarId: i32;
+     RemoveLibVarTextId: i32;
+     LibVarTypeId: i32;
+     LibVarTypeTextId: i32;
+     LibVarNameId: i32;
+     LibVarNameTextId: i32;
+     LibVarInfoId: i32;
+     LibVarInfoTextId: i32;
+     LibVarValueTypeId: i32;
+     LibVarValueTypeTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     LibId: i32;
+     LibVarId: i32;
      string ss;
 
-    pub LibraryWindowClass( GameClass tGame)
+    pub LibraryWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Libraries")
     {
       this.LibId = -1;
@@ -56,9 +56,9 @@ namespace WindowsApplication1
       this.MakeLibListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeLibItemGUI();
+    pub fn DoRefresh() => this.MakeLibItemGUI();
 
-     void MakeLibListGUI(int tLibNr)
+     void MakeLibListGUI(tLibNr: i32)
     {
       if (this.LibListId > 0)
         this.RemoveSubPart(this.LibListId);
@@ -76,9 +76,9 @@ namespace WindowsApplication1
       ListClass libListObj = this.LibListObj;
       let mut libId: i32 =  this.LibId;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 19, 400, libId, game, tHeader: "Libraries", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
       this.LibListId = this.AddSubPart( tsubpart1, 10, 50, 400, 352, 0);
       this.MakeLibItemGUI();
@@ -178,9 +178,9 @@ namespace WindowsApplication1
         ListClass libVarListObj = this.LibVarListObj;
         let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart13: SubPartClass =  new ListSubPartClass(libVarListObj, 14, 400, tlistselect, game, tHeader: "LibVars", tbackbitmap: ( local1), bbx: 470, bby: 200, overruleFont: ( local2));
         this.LibVarListId = this.AddSubPart( tsubpart13, 470, 200, 400, 272, 0);
         if (this.AddLibVarId > 0)
@@ -250,7 +250,7 @@ namespace WindowsApplication1
       this.RemoveLibVarTextId = this.AddSubPart( tsubpart2, 520, 519, 200, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

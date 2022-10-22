@@ -12,16 +12,16 @@ namespace WindowsApplication1
 {
   pub class PlaySecondMainWindowClass : WindowClass
   {
-     int HexInfoId;
-     int hexinfoid2;
-     int MiniMapId;
-     int minwidth;
-     int detailnr;
-     int MapId;
+     HexInfoId: i32;
+     hexinfoid2: i32;
+     MiniMapId: i32;
+     minwidth: i32;
+     detailnr: i32;
+     MapId: i32;
      ListClass MapListObj;
-     int b1id;
+     b1id: i32;
 
-    pub PlaySecondMainWindowClass( GameClass tGame, let mut tminwidth: i32 = 0)
+    pub PlaySecondMainWindowClass( tGame: GameClass, let mut tminwidth: i32 = 0)
       : base( tGame, 220, tGame.ScreenHeight - (305 + tminwidth), 8)
     {
       this.minwidth = tminwidth;
@@ -30,13 +30,13 @@ namespace WindowsApplication1
       this.mainframe = false;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.detailnr = this.game.EditObj.MapSelected;
       this.MakeShit();
     }
 
-    pub string WindowDescription(int x, int y)
+    pub string WindowDescription(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -49,9 +49,9 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub void PopUpRefresh() => this.MakeShit();
+    pub fn PopUpRefresh() => this.MakeShit();
 
-    pub void MakeShit()
+    pub fn MakeShit()
     {
       SizeF sizeF = SizeF::new();
       bool flag;
@@ -82,11 +82,11 @@ namespace WindowsApplication1
       Graphics.FromImage((Image) this.OwnBitmap);
     }
 
-    pub void MakeShit0(Graphics g, int ty, bool Attack)
+    pub fn MakeShit0(Graphics g, ty: i32, bool Attack)
     {
     }
 
-    pub void MakeShit1(Graphics g, int ty)
+    pub fn MakeShit1(Graphics g, ty: i32)
     {
       Rectangle rect2;
       DrawMod.MakeFullBoxVic2( g, Rectangle::new(10, ty + 161, 200, 14), "MINIMAP", rect2, "");
@@ -123,14 +123,14 @@ namespace WindowsApplication1
       ListClass mapListObj = this.MapListObj;
       let mut tlistselect: i32 = num1;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart =  new ListSubPartClass(mapListObj, 6, 180, tlistselect, game, tHeader: "Maps", tbackbitmap: ( local1), bbx: 10, bby: 355, overruleFont: ( local2));
       this.MapId = this.AddSubPart( tsubpart, 10, 355, 120, 144, 0);
     }
 
-    pub void MakeShit2(Graphics g, int ty)
+    pub fn MakeShit2(Graphics g, ty: i32)
     {
       if (this.game.SelectX == -1 | this.game.SelectY == -1)
         return;
@@ -268,7 +268,7 @@ namespace WindowsApplication1
       while (index1 <= 3);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 = this.MouseCounter;

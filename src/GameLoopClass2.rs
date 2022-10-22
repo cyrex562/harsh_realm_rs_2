@@ -16,16 +16,16 @@ namespace WindowsApplication1
   pub class GameLoopClass2
   {
      bool DoingAI;
-     GameClass game;
+     game: GameClass;
     pub text: String;
     pub text2: String;
     pub value1: i32;
     pub value2: i32;
     pub value3: i32;
 
-    pub GameLoopClass2(ref GameClass GameRef) => this.game = GameRef;
+    pub GameLoopClass2(ref game: GameClassRef) => this.game = GameRef;
 
-    pub void Setup()
+    pub fn Setup()
     {
       if (this.game.Data.Turn > -1 && !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
@@ -48,7 +48,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void handleTimer()
+    pub fn handleTimer()
     {
       if (this.game.Data.Turn > -1 && !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
@@ -117,7 +117,7 @@ namespace WindowsApplication1
                 }
                 this.game.EditObj.LayerSupplyOn = false;
               }
-              int index1;
+              index1: i32;
               if (this.game.EditObj.Test == 1)
               {
                 if (this.game.Data.Turn > -1 & this.game.Data.Round != 0 && this.game.Data.RegimeObj[this.game.Data.Turn].AI)
@@ -431,8 +431,8 @@ namespace WindowsApplication1
                   this.game.AIRunning = true;
                   this.game.AIThreadRunning = true;
                   let mut game: GameClass = this.game;
-                  DC2AIClass dc2AiObj = this.game.DC2AIObj;
-                  Thread thread = new Thread((ParameterizedThreadStart) (a0 => dc2AiObj.InitAI(Conversions.ToBoolean(a0))));
+                  dc2AiObj: DC2AIClass = this.game.DC2AIObj;
+                  thread: Thread = new Thread((ParameterizedThreadStart) (a0 => dc2AiObj.InitAI(Conversions.ToBoolean(a0))));
                   game.AIThread = thread;
                   this.game.AIThread.Name = "AI Init Thread";
                   this.game.AIThread.Start( true);
@@ -502,7 +502,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ExitTheLoopSub(string s)
+    pub fn ExitTheLoopSub(string s)
     {
       this.game.se1Running = false;
       if (!(this.game.EditObj.Test == 9 | this.game.EditObj.Test == 10))
@@ -513,7 +513,7 @@ namespace WindowsApplication1
       this.game.EditObj.RealTurn = this.game.Data.Turn;
     }
 
-    pub void DoPresentStats()
+    pub fn DoPresentStats()
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
@@ -536,8 +536,8 @@ namespace WindowsApplication1
           for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
           {
             let mut sf: i32 =  this.game.Data.UnitObj[index3].SFList[index4];
-            int[,] spresent = this.game.Data.RegimeObj[regime].SPresent;
-            int[,] numArray = spresent;
+            spresent: Vec<i32> = this.game.Data.RegimeObj[regime].SPresent;
+            numArray: Vec<i32> = spresent;
             let mut type: i32 =  this.game.Data.SFObj[sf].Type;
             let mut index5: i32 =  type;
             let mut round: i32 =  this.game.Data.Round;

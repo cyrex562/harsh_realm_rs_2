@@ -14,33 +14,33 @@ namespace WindowsApplication1
 {
   pub class TabSMapWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int CurrentView;
-     int detailnr;
-     int regnr;
-     int subtab;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int b3Id;
-     int b3textid;
-     int b4Id;
-     int b4textid;
-     int OptionsListId;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     detailnr: i32;
+     regnr: i32;
+     subtab: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     b3Id: i32;
+     b3textid: i32;
+     b4Id: i32;
+     b4textid: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ListClass OptionsList3Obj;
      int[] regimesToBeShown;
      int[] zonesToBeShown;
 
     pub TabSMapWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -70,9 +70,9 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut num1: i32 = -1;
@@ -125,8 +125,8 @@ namespace WindowsApplication1
         bool flag2 = false;
         if (flag1)
         {
-          int num4;
-          int num5;
+          num4: i32;
+          num5: i32;
           if (self.subtab == 1)
           {
             let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
@@ -214,7 +214,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
       let mut stringListById2: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 288, 0, 0));
@@ -486,11 +486,11 @@ namespace WindowsApplication1
       }
       Rectangle rectangle1;
       Rectangle trect2;
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (self.subtab == 2)
       {
          let mut local1: &Graphics = &objgraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap2;
         Rectangle rectangle2 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
         let mut srcrect1: &Rectangle = &rectangle2
@@ -498,7 +498,7 @@ namespace WindowsApplication1
         let mut destrect1: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &objgraphics;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap3;
         rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
         let mut srcrect2: &Rectangle = &rectangle1
@@ -763,7 +763,7 @@ namespace WindowsApplication1
       self.game.EditObj.se1_StrategyTab = self.subtab;
     }
 
-    pub handleTimerWheel: WindowReturnClass(int x, int y)
+    pub handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -796,7 +796,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -824,7 +824,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 = self.MouseCounter;
@@ -961,8 +961,8 @@ namespace WindowsApplication1
               bool flag2 = false;
               if (flag1)
               {
-                int num5;
-                int num6;
+                num5: i32;
+                num6: i32;
                 if (self.subtab == 1)
                 {
                   let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
@@ -1131,8 +1131,8 @@ namespace WindowsApplication1
               }
               else
               {
-                int num10;
-                int num11;
+                num10: i32;
+                num11: i32;
                 if (self.subtab == 1)
                 {
                   let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
@@ -1230,7 +1230,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void prepareTempValue4()
+    pub fn prepareTempValue4()
     {
       self.regimesToBeShown = new int[self.game.Data.RegimeCounter + 1];
       self.game.HandyFunctionsObj.RedimTempValue4(-1);

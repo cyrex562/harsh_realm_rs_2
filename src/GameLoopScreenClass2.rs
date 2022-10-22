@@ -16,9 +16,9 @@ namespace WindowsApplication1
 {
   pub class GameLoopScreenClass2 : ScreenClass
   {
-     int lastRegime;
+     lastRegime: i32;
 
-    pub GameLoopScreenClass2( GameClass tGame, Form1 tformref, bool NewGfx)
+    pub GameLoopScreenClass2( tGame: GameClass, tformref: Form1, bool NewGfx)
       : base( tGame, tGame.BACKGROUND5MARC, tformref)
     {
       this.lastRegime = -1;
@@ -30,7 +30,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       return screenReturnClass1;
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       objGraphics.CompositingMode = CompositingMode.SourceCopy;
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       objGraphics.Dispose();
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

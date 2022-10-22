@@ -19,7 +19,7 @@ namespace WindowsApplication1
     pub riverHeightApplied: Vec<i32>;
     pub seaHex: bool;
 
-    pub HexHeightMapData( GameClass game, int cx, int cy, int cmap, bool forInteriorSea)
+    pub HexHeightMapData( game: GameClass, cx: i32, cy: i32, cmap: i32, bool forInteriorSea)
     {
       this.neighbourCoord = new Coordinate[7];
       this.neighbourHeight = new int[7];

@@ -16,56 +16,56 @@ namespace WindowsApplication1
 {
   pub class CombatResultWindowClass2 : WindowClass
   {
-     int okid;
-     int tbacknr;
-     int typeid;
-     int oktextid;
-     int detailid;
-     int noteid;
-     int note2id;
-     int cloudid;
-     int Pic1Id;
-     int TAid;
-     int showdetail;
+     okid: i32;
+     tbacknr: i32;
+     typeid: i32;
+     oktextid: i32;
+     detailid: i32;
+     noteid: i32;
+     note2id: i32;
+     cloudid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     showdetail: i32;
      DateTime lasttime;
      DateTime lastAnimTime;
-     int FromMessage;
+     FromMessage: i32;
      bool ForwardKey;
      bool LastDrawAfterEnd;
-     int Hn;
-     int resolveId;
+     Hn: i32;
+     resolveId: i32;
      int[] StartRdn;
      int[] StartEntr;
      int[] StartMor;
      int[] StartXp;
-     int useWidth;
-     int useHeight;
-     int useZoom;
+     useWidth: i32;
+     useHeight: i32;
+     useZoom: i32;
      int[,,,] crm;
      bool crmSet;
-     int attPage;
-     int maxAttPage;
-     int defPage;
-     int maxDefPage;
-     int slotCulture;
-     int slotChar;
-     int slotCharSkill;
-     int slotSkillType;
-     int slotUnitFeats;
-     int[,] tabid;
+     attPage: i32;
+     maxAttPage: i32;
+     defPage: i32;
+     maxDefPage: i32;
+     slotCulture: i32;
+     slotChar: i32;
+     slotCharSkill: i32;
+     slotSkillType: i32;
+     slotUnitFeats: i32;
+     tabid: Vec<i32>;
      int[] tabup;
      int[] tabdown;
-     int zoom1id;
-     int zoom0id;
+     zoom1id: i32;
+     zoom0id: i32;
      bool playBattle;
-     int mesId;
-     int roundId;
-     int playId;
-     int crmSetOnRound;
+     mesId: i32;
+     roundId: i32;
+     playId: i32;
+     crmSetOnRound: i32;
      SimpleList animList;
-     Bitmap bufferBitmap;
+     bufferBitmap: Bitmap;
 
-    pub CombatResultWindowClass2(ref GameClass tGame, int thn)
+    pub CombatResultWindowClass2(ref tGame: GameClass, thn: i32)
       : base(ref tGame, 1, 1, 8)
     {
       this.StartRdn = new int[2];
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       this.tabdown = new int[2];
     }
 
-    pub CombatResultWindowClass2(ref GameClass tGame, int tUseWidth, int tUseHeight)
+    pub CombatResultWindowClass2(ref tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base(ref tGame, tUseWidth, tUseHeight, 8)
     {
       this.StartRdn = new int[2];
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -146,7 +146,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub string GetUnitDescription(int unr)
+    pub string GetUnitDescription(unr: i32)
     {
       let mut uslot: i32 =  this.game.TempCombat.FindUSlot(unr);
       string unitDescription;
@@ -181,7 +181,7 @@ namespace WindowsApplication1
       return unitDescription;
     }
 
-    pub Color GetUnitColor(int unr)
+    pub GetUnitColor: Color(unr: i32)
     {
       let mut uslot: i32 =  this.game.TempCombat.FindUSlot(unr);
       Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue);
@@ -263,13 +263,13 @@ namespace WindowsApplication1
 
     pub void DrawIndividual(
       Graphics g,
-      int tx,
-      int ty,
-      int iid,
-      int tw,
-      int th,
+      tx: i32,
+      ty: i32,
+      iid: i32,
+      tw: i32,
+      th: i32,
       bool useColMod,
-      Color colMod,
+      colMod: Color,
       bool mirror)
     {
       let mut regimeNr: i32 =  -1;
@@ -284,7 +284,7 @@ namespace WindowsApplication1
         regimeNr = this.game.TempCombat.AttackerRegime;
       if (this.game.TempCombat.IList[islot].IAttacker < 1)
         regimeNr = this.game.TempCombat.DefenderRegime;
-      Bitmap objBitmap;
+      objBitmap: Bitmap;
       if (this.game.Data.SFTypeObj[type].SFTypeVar[89] < 1)
       {
         if (this.game.Data.SFTypeObj[type].SFTypeVar[82] > 0)
@@ -293,14 +293,14 @@ namespace WindowsApplication1
           objBitmap = new Bitmap(76, 76, PixelFormat.Format32bppPArgb);
           Graphics graphics = Graphics.FromImage((Image) objBitmap);
           graphics.Clear(Color.Transparent);
-          Bitmap bitmap;
+          bitmap: Bitmap;
           Rectangle rectangle1;
           Rectangle rectangle2;
           if (this.game.Data.SFTypeObj[type].artCode[0] == 1)
           {
             ref Graphics local1 = ref graphics;
             bitmap = BitmapStore.GetBitmap(this.game.Data.SFTypeObj[type].SidewaysSpriteID);
-            ref Bitmap local2 = ref bitmap;
+            ref local2: Bitmap = ref bitmap;
             rectangle1 = Rectangle::new(0, 0, 76, 76);
             let mut srcrect: &Rectangle = &rectangle1
             rectangle2 = Rectangle::new(0, y1, 76, 76);
@@ -314,7 +314,7 @@ namespace WindowsApplication1
           {
             ref Graphics local3 = ref graphics;
             bitmap = BitmapStore.GetBitmap(this.game.Data.SFTypeObj[type].SidewaysSpriteID);
-            ref Bitmap local4 = ref bitmap;
+            ref local4: Bitmap = ref bitmap;
             let mut y2: i32 =  y1;
             DrawMod.DrawSimple(ref local3, ref local4, 0, y2);
           }
@@ -322,7 +322,7 @@ namespace WindowsApplication1
           {
             ref Graphics local5 = ref graphics;
             bitmap = BitmapStore.GetBitmap(this.game.Data.SFTypeObj[type].SymbolColBigSprite2ID);
-            ref Bitmap local6 = ref bitmap;
+            ref local6: Bitmap = ref bitmap;
             rectangle2 = Rectangle::new(0, 0, 76, 76);
             let mut srcrect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(0, y1, 76, 76);
@@ -415,7 +415,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       if (this.okid > 0)
       {
@@ -522,15 +522,15 @@ namespace WindowsApplication1
       Rectangle rectangle3 = Rectangle::new(35, 12, 370, 140);
       Rectangle rectangle4 = Rectangle::new(this.useWidth - 413, 12, 370, 140);
       Rectangle rectangle5 = Rectangle::new((int) Math.Round( this.useWidth / 2.0) - 185, 0, 371, 90);
-      int num2;
-      int num3;
-      int num4;
-      int num5;
-      int num6;
-      int num7;
-      int num8;
-      int num9;
-      int num10;
+      num2: i32;
+      num3: i32;
+      num4: i32;
+      num5: i32;
+      num6: i32;
+      num7: i32;
+      num8: i32;
+      num9: i32;
+      num10: i32;
       if (this.useZoom == 1)
       {
         num2 = 85;
@@ -572,7 +572,7 @@ namespace WindowsApplication1
           if (this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon >= 0)
             flagArray[index2] = true;
           let mut icounter: i32 =  this.game.TempCombat.ICounter;
-          int num14;
+          num14: i32;
           for (let mut index3: i32 =  0; index3 <= icounter; index3 += 1)
           {
             if (this.game.TempCombat.IList[index3].IUnr == this.game.TempCombat.UList[index2].UNr)
@@ -872,7 +872,7 @@ namespace WindowsApplication1
         let mut num21: i32 =  index5;
         for (let mut index12: i32 =  0; index12 <= num21; index12 += 1)
         {
-          int[,] numArray = new int[num4 + 1, 5];
+          numArray: Vec<i32> = new int[num4 + 1, 5];
           let mut num22: i32 =  num4 - 1;
           for (let mut index13: i32 =  0; index13 <= num22; index13 += 1)
           {
@@ -980,7 +980,7 @@ namespace WindowsApplication1
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
       let mut counter1: i32 =  this.game.TempCombat.customCombatObj.logLeaderBonus.Counter;
-      int num31;
+      num31: i32;
       for (let mut index30: i32 =  0; index30 <= counter1; index30 += 1)
       {
         let mut tid: i32 =  this.game.TempCombat.customCombatObj.logLeaderBonus.Id[index30];
@@ -1099,8 +1099,8 @@ namespace WindowsApplication1
       if (flag1)
         DrawMod.DrawBlockGradient2(ref graphics, 38, 46, this.useWidth - 82, this.useHeight - 64, Color.FromArgb(125, (int) byte.MaxValue, 0, 0), Color.FromArgb(0, (int) byte.MaxValue, 0, 0));
       ref Graphics local1 = ref graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBAR1);
-      ref Bitmap local2 = ref bitmap;
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBAR1);
+      ref local2: Bitmap = ref bitmap;
       let mut x1: i32 =  rectangle3.X;
       let mut y1: i32 =  rectangle3.Y;
       DrawMod.DrawSimple(ref local1, ref local2, x1, y1);
@@ -1110,7 +1110,7 @@ namespace WindowsApplication1
       graphics.Transform = matrix1;
       ref Graphics local3 = ref graphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBAR1);
-      ref Bitmap local4 = ref bitmap;
+      ref local4: Bitmap = ref bitmap;
       let mut x2: i32 =  -(rectangle4.X + BitmapStore.GetWidth(this.game.SE1_COMBATBAR1));
       let mut y2: i32 =  rectangle3.Y;
       DrawMod.DrawSimple(ref local3, ref local4, x2, y2);
@@ -1149,7 +1149,7 @@ namespace WindowsApplication1
           {
             ref Graphics local5 = ref graphics;
             bitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(simpleList1.Id[index39], w1, num43);
-            ref Bitmap local6 = ref bitmap;
+            ref local6: Bitmap = ref bitmap;
             let mut x4: i32 =  num45;
             let mut y3: i32 =  num44;
             DrawMod.DrawSimple(ref local5, ref local6, x4, y3);
@@ -1187,7 +1187,7 @@ namespace WindowsApplication1
         {
           ref Graphics local7 = ref graphics;
           bitmap = this.game.CustomBitmapObj.DrawLeaderPortrait(simpleList1.Id[index39], w1, num43);
-          ref Bitmap local8 = ref bitmap;
+          ref local8: Bitmap = ref bitmap;
           let mut x5: i32 =  num47;
           let mut y4: i32 =  num44;
           DrawMod.DrawSimple(ref local7, ref local8, x5, y4);
@@ -1269,10 +1269,10 @@ namespace WindowsApplication1
         ;
       let mut x6: i32 =  num47 + 40;
       let mut num55: i32 =  1;
-      int index43;
-      int num56;
-      int index44;
-      int index45;
+      index43: i32;
+      num56: i32;
+      index44: i32;
+      index45: i32;
       do
       {
         DrawMod.DrawBlock(ref graphics, num45, num44, 45, 62, 0, 0, 0, 128);
@@ -1500,7 +1500,7 @@ namespace WindowsApplication1
             {
               ref Graphics local9 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local10 = ref bitmap;
+              ref local10: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num71 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(num45 + 2, num44 + 3, 42, 32);
@@ -1531,7 +1531,7 @@ namespace WindowsApplication1
             {
               ref Graphics local11 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local12 = ref bitmap;
+              ref local12: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num71 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(x6 + 2, num44 + 3, 42, 32);
@@ -1575,7 +1575,7 @@ namespace WindowsApplication1
             {
               ref Graphics local13 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local14 = ref bitmap;
+              ref local14: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num72 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(num45 + 2, num44 + 3, 42, 32);
@@ -1606,7 +1606,7 @@ namespace WindowsApplication1
             {
               ref Graphics local15 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local16 = ref bitmap;
+              ref local16: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num72 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(x6 + 2, num44 + 3, 42, 32);
@@ -1650,7 +1650,7 @@ namespace WindowsApplication1
             {
               ref Graphics local17 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local18 = ref bitmap;
+              ref local18: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num73 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(num45 + 2, num44 + 3, 42, 32);
@@ -1681,7 +1681,7 @@ namespace WindowsApplication1
             {
               ref Graphics local19 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local20 = ref bitmap;
+              ref local20: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num73 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(x6 + 2, num44 + 3, 42, 32);
@@ -1725,7 +1725,7 @@ namespace WindowsApplication1
             {
               ref Graphics local21 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local22 = ref bitmap;
+              ref local22: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num74 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(num45 + 2, num44 + 3, 42, 32);
@@ -1756,7 +1756,7 @@ namespace WindowsApplication1
             {
               ref Graphics local23 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local24 = ref bitmap;
+              ref local24: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num74 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(x6 + 2, num44 + 3, 42, 32);
@@ -1800,7 +1800,7 @@ namespace WindowsApplication1
             {
               ref Graphics local25 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local26 = ref bitmap;
+              ref local26: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num75 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(num45 + 2, num44 + 3, 42, 32);
@@ -1831,7 +1831,7 @@ namespace WindowsApplication1
             {
               ref Graphics local27 = ref graphics;
               bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-              ref Bitmap local28 = ref bitmap;
+              ref local28: Bitmap = ref bitmap;
               trect2 = Rectangle::new(num75 * 42, 0, 42, 32);
               let mut srcrect: &Rectangle = &trect2
               trect1 = Rectangle::new(x6 + 2, num44 + 3, 42, 32);
@@ -1891,10 +1891,10 @@ namespace WindowsApplication1
             rectangle6 = Rectangle::new(rectangle3.X + 100, rectangle3.Y + 44, 240, 30);
           if (index49 == 0)
             rectangle6 = Rectangle::new(rectangle4.X + rectangle4.Width - 340, rectangle4.Y + 44, 240, 30);
-          Color color1 = Color.FromArgb((int) byte.MaxValue, 55, 155, 55);
-          Color color2 = Color.FromArgb((int) byte.MaxValue, 55, 105, 155);
-          Color color3 = Color.FromArgb((int) byte.MaxValue, 105, 105, 105);
-          Color color4 = Color.FromArgb((int) byte.MaxValue, 155, 55, 55);
+          color1: Color = Color.FromArgb((int) byte.MaxValue, 55, 155, 55);
+          color2: Color = Color.FromArgb((int) byte.MaxValue, 55, 105, 155);
+          color3: Color = Color.FromArgb((int) byte.MaxValue, 105, 105, 105);
+          color4: Color = Color.FromArgb((int) byte.MaxValue, 155, 55, 55);
           let mut num76: i32 =  rectangle6.Width - 8;
           if (numArray1[index49] > 0)
           {
@@ -1979,7 +1979,7 @@ namespace WindowsApplication1
           let mut bannerSpriteNr: i32 =  this.game.Data.RegimeObj[index44].BannerSpriteNr;
           ref Graphics local29 = ref graphics;
           bitmap = BitmapStore.GetBitmap(bannerSpriteNr);
-          ref Bitmap local30 = ref bitmap;
+          ref local30: Bitmap = ref bitmap;
           let mut x7: i32 =  num45;
           let mut y5: i32 =  num91;
           double r1 =  ( red /  byte.MaxValue) - 1.0;
@@ -1991,7 +1991,7 @@ namespace WindowsApplication1
           {
             ref Graphics local31 = ref graphics;
             bitmap = BitmapStore.GetBitmap(bannerSpriteNr2);
-            ref Bitmap local32 = ref bitmap;
+            ref local32: Bitmap = ref bitmap;
             let mut x8: i32 =  num45;
             let mut y6: i32 =  num91;
             double r2 =  ( red2 /  byte.MaxValue) - 1.0;
@@ -2004,7 +2004,7 @@ namespace WindowsApplication1
           {
             ref Graphics local33 = ref graphics;
             bitmap = BitmapStore.GetBitmap(hqSpriteNr2);
-            ref Bitmap local34 = ref bitmap;
+            ref local34: Bitmap = ref bitmap;
             let mut x9: i32 =  num45 + 20;
             let mut y7: i32 =  num91 + 20;
             double r3 =  ( this.game.Data.RegimeObj[index44].Red3 /  byte.MaxValue) - 1.0;
@@ -2018,7 +2018,7 @@ namespace WindowsApplication1
           let mut bannerSpriteNr: i32 =  this.game.Data.RegimeObj[index44].BannerSpriteNr;
           ref Graphics local35 = ref graphics;
           bitmap = BitmapStore.GetBitmap(bannerSpriteNr);
-          ref Bitmap local36 = ref bitmap;
+          ref local36: Bitmap = ref bitmap;
           let mut x10: i32 =  num45;
           let mut y8: i32 =  num91;
           double r4 =  ( red /  byte.MaxValue) - 1.0;
@@ -2030,7 +2030,7 @@ namespace WindowsApplication1
           {
             ref Graphics local37 = ref graphics;
             bitmap = BitmapStore.GetBitmap(bannerSpriteNr2);
-            ref Bitmap local38 = ref bitmap;
+            ref local38: Bitmap = ref bitmap;
             let mut x11: i32 =  num45;
             let mut y9: i32 =  num91;
             double r5 =  ( red2 /  byte.MaxValue) - 1.0;
@@ -2043,7 +2043,7 @@ namespace WindowsApplication1
           {
             ref Graphics local39 = ref graphics;
             bitmap = BitmapStore.GetBitmap(hqSpriteNr2);
-            ref Bitmap local40 = ref bitmap;
+            ref local40: Bitmap = ref bitmap;
             let mut x12: i32 =  num45 + 20;
             let mut y10: i32 =  num91 + 44;
             double r6 =  ( this.game.Data.RegimeObj[index44].Red3 /  byte.MaxValue) - 1.0;
@@ -2071,8 +2071,8 @@ namespace WindowsApplication1
             let mut num94: i32 =  num4 - 1;
             for (let mut index51: i32 =  0; index51 <= num94; index51 += 1)
             {
-              int num95;
-              int index52;
+              num95: i32;
+              index52: i32;
               if (num92 == 1)
               {
                 num95 = this.crm[1, index51, index50 + this.attPage * num3, 0];
@@ -2083,8 +2083,8 @@ namespace WindowsApplication1
                 num95 = this.crm[0, index51, index50 + this.defPage * num3, 0];
                 index52 = this.crm[0, index51, index50 + this.defPage * num3, 1];
               }
-              Color color = Color.White;
-              Color colMod = Color.White;
+              color: Color = Color.White;
+              colMod: Color = Color.White;
               str2: String = "";
               let mut nr9: i32 =  -1;
               switch (num95)
@@ -2159,8 +2159,8 @@ namespace WindowsApplication1
                     break;
                   break;
               }
-              int x13;
-              int y11;
+              x13: i32;
+              y11: i32;
               if (num92 == 1)
               {
                 x13 = rectangle1.X + num2 * index51 + num5;
@@ -2176,7 +2176,7 @@ namespace WindowsApplication1
                 case 0:
                   ref Graphics local41 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK3, this.useZoom);
-                  ref Bitmap local42 = ref bitmap;
+                  ref local42: Bitmap = ref bitmap;
                   let mut x14: i32 =  x13;
                   let mut y12: i32 =  y11;
                   DrawMod.DrawSimple(ref local41, ref local42, x14, y12);
@@ -2184,7 +2184,7 @@ namespace WindowsApplication1
                 case 1:
                   ref Graphics local43 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK1B, this.useZoom);
-                  ref Bitmap local44 = ref bitmap;
+                  ref local44: Bitmap = ref bitmap;
                   let mut x15: i32 =  x13;
                   let mut y13: i32 =  y11;
                   double r7 =  ( color.R /  byte.MaxValue) - 1.0;
@@ -2194,7 +2194,7 @@ namespace WindowsApplication1
                   DrawMod.Draw(ref local43, ref local44, x15, y13,  r7,  g7,  b7,  a1);
                   ref Graphics local45 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK2B, this.useZoom);
-                  ref Bitmap local46 = ref bitmap;
+                  ref local46: Bitmap = ref bitmap;
                   let mut x16: i32 =  x13;
                   let mut y14: i32 =  y11;
                   DrawMod.DrawSimple(ref local45, ref local46, x16, y14);
@@ -2207,7 +2207,7 @@ namespace WindowsApplication1
                     {
                       ref Graphics local47 = ref graphics;
                       bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK1, this.useZoom);
-                      ref Bitmap local48 = ref bitmap;
+                      ref local48: Bitmap = ref bitmap;
                       let mut x17: i32 =  x13;
                       let mut y15: i32 =  y11;
                       DrawMod.DrawSimple(ref local47, ref local48, x17, y15);
@@ -2216,7 +2216,7 @@ namespace WindowsApplication1
                     {
                       ref Graphics local49 = ref graphics;
                       bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK1, this.useZoom);
-                      ref Bitmap local50 = ref bitmap;
+                      ref local50: Bitmap = ref bitmap;
                       let mut x18: i32 =  x13;
                       let mut y16: i32 =  y11;
                       double r8 =  ( color.R /  byte.MaxValue) - 1.0;
@@ -2227,7 +2227,7 @@ namespace WindowsApplication1
                     }
                     ref Graphics local51 = ref graphics;
                     bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK2, this.useZoom);
-                    ref Bitmap local52 = ref bitmap;
+                    ref local52: Bitmap = ref bitmap;
                     let mut x19: i32 =  x13;
                     let mut y17: i32 =  y11;
                     DrawMod.DrawSimple(ref local51, ref local52, x19, y17);
@@ -2303,10 +2303,10 @@ namespace WindowsApplication1
                             str5 = " and " + str5;
                           str4 += str5;
                           let mut nr10: i32 =  this.game.Data.EventPicNr[index54];
-                          int num96;
-                          int num97;
-                          int num98;
-                          int num99;
+                          num96: i32;
+                          num97: i32;
+                          num98: i32;
+                          num99: i32;
                           if (this.useZoom == 1 & index53 == 0)
                           {
                             num96 = 2;
@@ -2339,7 +2339,7 @@ namespace WindowsApplication1
                           BitmapStore.Getheight(nr10);
                           ref Graphics local53 = ref graphics;
                           bitmap = BitmapStore.GetBitmap(nr10);
-                          ref Bitmap local54 = ref bitmap;
+                          ref local54: Bitmap = ref bitmap;
                           let mut x20: i32 =  x13 + num96;
                           let mut y18: i32 =  y11 + num97;
                           let mut w2: i32 =  num98;
@@ -2360,7 +2360,7 @@ namespace WindowsApplication1
                 if (nr9 > -1)
                 {
                   bool flag3 = num92 == 1;
-                  int num100;
+                  num100: i32;
                   if (this.useZoom == 1)
                     num100 = 76;
                   if (this.useZoom == 0)
@@ -2374,14 +2374,14 @@ namespace WindowsApplication1
                   }
                   ref Graphics local55 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr9, this.useZoom);
-                  ref Bitmap local56 = ref bitmap;
+                  ref local56: Bitmap = ref bitmap;
                   let mut x21: i32 =  x13 + num7;
                   let mut y19: i32 =  y11 + num8;
                   DrawMod.DrawSimple(ref local55, ref local56, x21, y19);
                   if (flag3)
                     graphics.ResetTransform();
                 }
-                int num101;
+                num101: i32;
                 if (this.useZoom == 1)
                 {
                   if (this.game.TempCombat.IList[index43].ItotalKills > 0 & this.game.TempCombat.IList[index43].ItotalHits > 0)
@@ -2498,10 +2498,10 @@ namespace WindowsApplication1
                 data: String = this.game.Data.StringListObj[this.slotUnitFeats].GetData(0, iunitFeatStart, 2);
                 ttext: String = this.game.Data.StringListObj[this.slotUnitFeats].GetData(0, iunitFeatStart, 12);
                 let mut nr11: i32 =  this.game.Data.EventPicNr[index55];
-                int num107;
-                int num108;
-                int num109;
-                int num110;
+                num107: i32;
+                num108: i32;
+                num109: i32;
+                num110: i32;
                 if (this.useZoom == 1)
                 {
                   num107 = 0;
@@ -2527,7 +2527,7 @@ namespace WindowsApplication1
                 {
                   ref Graphics local57 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr11);
-                  ref Bitmap local58 = ref bitmap;
+                  ref local58: Bitmap = ref bitmap;
                   let mut x22: i32 =  x13 + num107 + (int) Math.Round( (num109 - num111) / 2.0);
                   let mut y20: i32 =  y11 + num108 + (int) Math.Round( (num110 - num112) * 0.0) - 12;
                   double r10 =  ( colMod.R /  byte.MaxValue) - 1.0;
@@ -2540,7 +2540,7 @@ namespace WindowsApplication1
                 {
                   ref Graphics local59 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr11);
-                  ref Bitmap local60 = ref bitmap;
+                  ref local60: Bitmap = ref bitmap;
                   let mut x23: i32 =  x13 + num107 + (int) Math.Round( (num109 - num111) / 2.0);
                   let mut y21: i32 =  y11 + num108 + (int) Math.Round( (num110 - num112) * 0.0) - 4;
                   let mut w4: i32 =  num109;
@@ -2567,7 +2567,7 @@ namespace WindowsApplication1
                   }
                   ref Graphics local61 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr9, this.useZoom);
-                  ref Bitmap local62 = ref bitmap;
+                  ref local62: Bitmap = ref bitmap;
                   let mut x24: i32 =  x13 + num7;
                   let mut y22: i32 =  y11 + num8;
                   DrawMod.DrawSimple(ref local61, ref local62, x24, y22);
@@ -2588,7 +2588,7 @@ namespace WindowsApplication1
       }
       ref Graphics local63 = ref graphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBAR2);
-      ref Bitmap local64 = ref bitmap;
+      ref local64: Bitmap = ref bitmap;
       let mut x25: i32 =  rectangle5.X;
       let mut y23: i32 =  rectangle5.Y;
       DrawMod.DrawSimple(ref local63, ref local64, x25, y23);
@@ -2608,7 +2608,7 @@ namespace WindowsApplication1
       }
       ref Graphics local65 = ref graphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-      ref Bitmap local66 = ref bitmap;
+      ref local66: Bitmap = ref bitmap;
       let mut x27: i32 =  x26;
       let mut y25: i32 =  y24;
       DrawMod.DrawSimple(ref local65, ref local66, x27, y25);
@@ -2665,7 +2665,7 @@ namespace WindowsApplication1
             }
             ref Graphics local67 = ref graphics;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-            ref Bitmap local68 = ref bitmap;
+            ref local68: Bitmap = ref bitmap;
             let mut x29: i32 =  x28;
             let mut y27: i32 =  y26;
             DrawMod.DrawSimple(ref local67, ref local68, x29, y27);
@@ -2694,7 +2694,7 @@ namespace WindowsApplication1
         this.zoom0id = this.AddSubPart(ref tsubpart4, 150, this.Hn - 51, 90, 36, 0);
       }
       let mut num115: i32 =  250;
-      int num116;
+      num116: i32;
       SubPartClass tsubpart5;
       if (this.game.TempCombat.BattleEnded > 0)
       {
@@ -2725,7 +2725,7 @@ namespace WindowsApplication1
         tsubpart5 =  new TextButtonPartClass("GRAPHIC", 90, "Click to switch to a graphical combat overview.", ref this.OwnBitmap, this.useWidth - 256, this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
         this.typeid = this.AddSubPart(ref tsubpart5, this.useWidth - 256, this.Hn - 51, 90, 36, 1);
       }
-      int index56;
+      index56: i32;
       if (this.maxAttPage > 3)
       {
         let mut num117: i32 =  num115 + 30;
@@ -2778,7 +2778,7 @@ namespace WindowsApplication1
           {
             if (index57 != this.attPage)
             {
-              int[,] tabid = this.tabid;
+              tabid: Vec<i32> = this.tabid;
               let mut index58: i32 =  index57;
               index56 = index57 + 1;
               tsubpart5 =  new TextButtonPartClass("Pg " + index56.ToString(), 50, "Click to see this page.", ref this.OwnBitmap, num125, num126, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -2787,7 +2787,7 @@ namespace WindowsApplication1
             }
             else
             {
-              int[,] tabid = this.tabid;
+              tabid: Vec<i32> = this.tabid;
               let mut index59: i32 =  index57;
               index56 = index57 + 1;
               tsubpart5 =  new TextButtonPartClass("Pg " + index56.ToString(), 50, "This page is currently selected.", ref this.OwnBitmap, num125, num126, true, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -2850,7 +2850,7 @@ namespace WindowsApplication1
           {
             if (index60 != this.defPage)
             {
-              int[,] tabid = this.tabid;
+              tabid: Vec<i32> = this.tabid;
               let mut index61: i32 =  index60;
               index56 = index60 + 1;
               tsubpart5 =  new TextButtonPartClass("Pg " + index56.ToString(), 50, "Click to see this page.", ref this.OwnBitmap, num137, num138, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -2859,7 +2859,7 @@ namespace WindowsApplication1
             }
             else
             {
-              int[,] tabid = this.tabid;
+              tabid: Vec<i32> = this.tabid;
               let mut index62: i32 =  index60;
               index56 = index60 + 1;
               tsubpart5 =  new TextButtonPartClass("Pg " + index56.ToString(), 50, "This page is currently selected.", ref this.OwnBitmap, num137, num138, true, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -2958,9 +2958,9 @@ namespace WindowsApplication1
           }
         }
       }
-      int[,] numArray20 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      int[,] numArray21 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      int[,] numArray22 = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray20: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray21: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray22: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
       int[] numArray23 = new int[2];
       int[] numArray24 = new int[2];
       int[] numArray25 = new int[2];
@@ -3057,8 +3057,8 @@ namespace WindowsApplication1
             num56 += 1;
           if (this.game.TempCombat.IList[index79].IKilled > 0)
           {
-            int[,] numArray40 = numArray20;
-            int[,] numArray41 = numArray40;
+            numArray40: Vec<i32> = numArray20;
+            numArray41: Vec<i32> = numArray40;
             let mut index92: i32 =  isfType;
             let mut index93: i32 =  index92;
             let mut index94: i32 =  iattacker;
@@ -3074,8 +3074,8 @@ namespace WindowsApplication1
           }
           else if (this.game.TempCombat.IList[index79].IRetreat > 0)
           {
-            int[,] numArray44 = numArray21;
-            int[,] numArray45 = numArray44;
+            numArray44: Vec<i32> = numArray21;
+            numArray45: Vec<i32> = numArray44;
             let mut index98: i32 =  isfType;
             let mut index99: i32 =  index98;
             let mut index100: i32 =  iattacker;
@@ -3091,8 +3091,8 @@ namespace WindowsApplication1
           }
           else
           {
-            int[,] numArray48 = numArray22;
-            int[,] numArray49 = numArray48;
+            numArray48: Vec<i32> = numArray22;
+            numArray49: Vec<i32> = numArray48;
             let mut index104: i32 =  isfType;
             let mut index105: i32 =  index104;
             let mut index106: i32 =  iattacker;
@@ -3568,24 +3568,24 @@ namespace WindowsApplication1
     }
 
     pub void DrawBlockies(
-      int qty1,
-      int qty2,
-      Color col1,
-      Color col2,
+      qty1: i32,
+      qty2: i32,
+      col1: Color,
+      col2: Color,
       Graphics g,
-      int x,
-      int y)
+      x: i32,
+      y: i32)
     {
       if (this.game.EditObj.CombatNumbers)
       {
         SizeF sizeF1 = SizeF::new();
         let mut num1: i32 =  0;
-        int num2;
+        num2: i32;
         if (qty1 > 0)
         {
           text: String = Strings.Trim(Conversion.Str( qty1));
           SizeF sizeF2 = g.MeasureString(text, this.game.MarcFont11);
-          int num3;
+          num3: i32;
           num2 = (int) Math.Round( ( num3 + sizeF2.Width));
         }
         if (qty2 > 0)
@@ -3594,7 +3594,7 @@ namespace WindowsApplication1
           SizeF sizeF3 = g.MeasureString(text, this.game.MarcFont11);
           num2 = (int) Math.Round( ( num2 + sizeF3.Width));
         }
-        int num4;
+        num4: i32;
         if (num2 < 20)
           num4 = (int) Math.Round( (20 - num2) / 2.0);
         x += num4;
@@ -3744,7 +3744,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub int GetSfNrBitmap(int sfnr, int att)
+    pub GetSfNrBitmap: i32(sfnr: i32, att: i32)
     {
       let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
       let mut symbolSprite2Id: i32 =  this.game.Data.SFTypeObj[type].SymbolSprite2ID;
@@ -3777,7 +3777,7 @@ namespace WindowsApplication1
       return symbolSprite2Id;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -3832,7 +3832,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = WindowReturnClass::new();
@@ -4149,8 +4149,8 @@ namespace WindowsApplication1
           {
             Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
             ref Graphics local1 = ref graphics;
-            ref Bitmap local2 = ref this.bufferBitmap;
-            ref Bitmap local3 = ref this.OwnBitmap;
+            ref local2: Bitmap = ref this.bufferBitmap;
+            ref local3: Bitmap = ref this.OwnBitmap;
             Rectangle rectangle1 = Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height - 55);
             let mut srcrect1: &Rectangle = &rectangle1
             Rectangle rectangle2 = Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height - 55);
@@ -4164,8 +4164,8 @@ namespace WindowsApplication1
                 if (this.animList.Data5[counter] == 1)
                 {
                   ref Graphics local4 = ref graphics;
-                  Bitmap bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, 1);
-                  ref Bitmap local5 = ref bitmap;
+                  bitmap: Bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, 1);
+                  ref local5: Bitmap = ref bitmap;
                   rectangle2 = Rectangle::new(128 * (num1 - 1), 0, 128, 96);
                   let mut srcrect2: &Rectangle = &rectangle2
                   rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round( this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round( this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
@@ -4178,8 +4178,8 @@ namespace WindowsApplication1
                   if (num1 < 23)
                     num2 = 1f - Math.Min(1f,  (23 - num1) / 6f);
                   ref Graphics local6 = ref graphics;
-                  Bitmap bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, 1);
-                  ref Bitmap local7 = ref bitmap;
+                  bitmap: Bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, 1);
+                  ref local7: Bitmap = ref bitmap;
                   rectangle2 = Rectangle::new(128 * (num1 - 1), 0, 128, 96);
                   let mut srcrect3: &Rectangle = &rectangle2
                   rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round( this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round( this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
@@ -4200,7 +4200,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.AreaSlot = -1;
       this.game.EditObj.AreaX = -1;

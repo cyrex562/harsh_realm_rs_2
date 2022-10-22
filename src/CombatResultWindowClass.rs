@@ -15,50 +15,50 @@ namespace WindowsApplication1
 {
   pub class CombatResultWindowClass : WindowClass
   {
-     int Info1Id;
-     int info2id;
-     int b1textid;
-     int b2textid;
-     int txt1id;
-     int txt2id;
-     int txt3id;
-     int txt4id;
-     int txt5id;
-     int txt6id;
-     int txt7id;
-     int txt8id;
-     int CombatListId;
+     Info1Id: i32;
+     info2id: i32;
+     b1textid: i32;
+     b2textid: i32;
+     txt1id: i32;
+     txt2id: i32;
+     txt3id: i32;
+     txt4id: i32;
+     txt5id: i32;
+     txt6id: i32;
+     txt7id: i32;
+     txt8id: i32;
+     CombatListId: i32;
      ListClass CombatListObj;
-     int ResolveId;
-     int CombatListDId;
+     ResolveId: i32;
+     CombatListDId: i32;
      ListClass CombatListDObj;
-     int detailnr;
-     int detailnr2;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int DetailId;
-     int showdetail;
+     detailnr: i32;
+     detailnr2: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     DetailId: i32;
+     showdetail: i32;
      DateTime lasttime;
      int[] modid;
-     string[] LogTxt;
-     int LogCounter;
-     int[,] UnitA;
-     int[,] UnitL;
+     LogTxt: Vec<String>;
+     LogCounter: i32;
+     UnitA: Vec<i32>;
+     UnitL: Vec<i32>;
      Bitmap[,] UnitBitMap;
-     int UnitC;
+     UnitC: i32;
      int[] StartRdn;
      int[] StartEntr;
      int[] StartMor;
      int[] StartXp;
      bool ForwardKey;
 
-    pub CombatResultWindowClass(ref GameClass tGame)
+    pub CombatResultWindowClass(ref tGame: GameClass)
       : base(ref tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.modid = new int[61];
@@ -79,9 +79,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       new CombatAnalysis(this.game).analyse(false, true);
       if (this.CombatListId > 0)
@@ -244,9 +244,9 @@ namespace WindowsApplication1
       SubPartClass tsubpart;
       if (!this.game.EditObj.CombatSim)
       {
-        int[,] numArray1 = new int[this.game.Data.SFTypeCounter + 1, 2];
-        int[,] numArray2 = new int[this.game.Data.SFTypeCounter + 1, 2];
-        int[,] numArray3 = new int[this.game.Data.SFTypeCounter + 1, 2];
+        numArray1: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+        numArray2: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+        numArray3: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
         int[] numArray4 = new int[2];
         int[] numArray5 = new int[2];
         int[] numArray6 = new int[2];
@@ -274,15 +274,15 @@ namespace WindowsApplication1
         numArray11[0] = 0;
         numArray11[1] = 0;
         let mut icounter1: i32 =  this.game.TempCombat.ICounter;
-        int index12;
+        index12: i32;
         for (let mut index13: i32 =  0; index13 <= icounter1; index13 += 1)
         {
           let mut iattacker: i32 =  this.game.TempCombat.IList[index13].IAttacker;
           index12 = this.game.TempCombat.IList[index13].ISFType;
           if (this.game.TempCombat.IList[index13].IKilled > 0)
           {
-            int[,] numArray12 = numArray1;
-            int[,] numArray13 = numArray12;
+            numArray12: Vec<i32> = numArray1;
+            numArray13: Vec<i32> = numArray12;
             let mut index14: i32 =  index12;
             let mut index15: i32 =  index14;
             let mut index16: i32 =  iattacker;
@@ -298,8 +298,8 @@ namespace WindowsApplication1
           }
           else if (this.game.TempCombat.IList[index13].IRetreat > 0)
           {
-            int[,] numArray16 = numArray2;
-            int[,] numArray17 = numArray16;
+            numArray16: Vec<i32> = numArray2;
+            numArray17: Vec<i32> = numArray16;
             let mut index20: i32 =  index12;
             let mut index21: i32 =  index20;
             let mut index22: i32 =  iattacker;
@@ -315,8 +315,8 @@ namespace WindowsApplication1
           }
           else
           {
-            int[,] numArray20 = numArray3;
-            int[,] numArray21 = numArray20;
+            numArray20: Vec<i32> = numArray3;
+            numArray21: Vec<i32> = numArray20;
             let mut index26: i32 =  index12;
             let mut index27: i32 =  index26;
             let mut index28: i32 =  iattacker;
@@ -447,12 +447,12 @@ namespace WindowsApplication1
         if (this.showdetail == 0)
         {
           let mut num26: i32 =  185;
-          Bitmap bitmap;
+          bitmap: Bitmap;
           if (this.game.TempCombat.DefenderRegime > -1)
           {
             ref Graphics local1 = ref Expression1;
             bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
-            ref Bitmap local2 = ref bitmap;
+            ref local2: Bitmap = ref bitmap;
             let mut y: i32 =  num26;
             double r =  this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Red /  byte.MaxValue - 1.0;
             double g =  this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Green /  byte.MaxValue - 1.0;
@@ -463,14 +463,14 @@ namespace WindowsApplication1
           {
             ref Graphics local3 = ref Expression1;
             bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
-            ref Bitmap local4 = ref bitmap;
+            ref local4: Bitmap = ref bitmap;
             let mut y: i32 =  num26;
             DrawMod.Draw(ref local3, ref local4, 150, y, -0.4980392f, -0.4980392f, -0.4980392f, 1f);
           }
           let mut num27: i32 =  495;
           ref Graphics local5 = ref Expression1;
           bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
-          ref Bitmap local6 = ref bitmap;
+          ref local6: Bitmap = ref bitmap;
           let mut y1: i32 =  num27;
           double r1 =  ( this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Red /  byte.MaxValue);
           double g1 =  ( this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Green /  byte.MaxValue);
@@ -689,8 +689,8 @@ namespace WindowsApplication1
                         let mut num41: i32 =  (num40 + num39) * index54;
                         if (index54 > 0)
                           num41 =  Math.Round( num41 + 100.0 /  (this.UnitC + 1) *  index54);
-                        int num42;
-                        int num43;
+                        num42: i32;
+                        num43: i32;
                         if (num38 <= num40)
                         {
                           num42 = 0;
@@ -721,7 +721,7 @@ namespace WindowsApplication1
                           case 0:
                             ref Graphics local7 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-                            ref Bitmap local8 = ref bitmap;
+                            ref local8: Bitmap = ref bitmap;
                             let mut x1: i32 =  num41 + 150 + num37 * num33 - num42;
                             let mut y2: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local7, ref local8, x1, y2);
@@ -729,13 +729,13 @@ namespace WindowsApplication1
                           case 1:
                             ref Graphics local9 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-                            ref Bitmap local10 = ref bitmap;
+                            ref local10: Bitmap = ref bitmap;
                             let mut x2: i32 =  num41 + 150 + num37 * num33 - num42;
                             let mut y3: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local9, ref local10, x2, y3);
                             ref Graphics local11 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(this.game.WHITEFLAG);
-                            ref Bitmap local12 = ref bitmap;
+                            ref local12: Bitmap = ref bitmap;
                             let mut x3: i32 =  num41 + 157 + num37 * num33 - num42;
                             let mut y4: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local11, ref local12, x3, y4);
@@ -743,7 +743,7 @@ namespace WindowsApplication1
                           case 2:
                             ref Graphics local13 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-                            ref Bitmap local14 = ref bitmap;
+                            ref local14: Bitmap = ref bitmap;
                             let mut x4: i32 =  num41 + 150 + num37 * num33 - num42;
                             let mut y5: i32 =  num32 + num43;
                             DrawMod.Draw(ref local13, ref local14, x4, y5, 0.0f, 0.0f, -1f, 1f);
@@ -1206,7 +1206,7 @@ namespace WindowsApplication1
       if (this.showdetail == 0 & !this.game.EditObj.CombatSim)
       {
         SizeF sizeF1 = SizeF::new();
-        Font vicFont1 = this.game.VicFont1;
+        vicFont1: Font = this.game.VicFont1;
         str62: String = "DEFENDERS";
         SizeF sizeF2 = Expression1.MeasureString(str62, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str62, vicFont1,  Math.Round( (140f - sizeF2.Width)), 180, this.game.VicColor2, this.game.VicColor1Shade);
@@ -1271,9 +1271,9 @@ namespace WindowsApplication1
             this.CombatListObj.add(this.LogTxt[index64], 0);
           ListClass combatListObj = this.CombatListObj;
           let mut game: GameClass = this.game;
-          ref Bitmap local18 = ref this.OwnBitmap;
-          Font font =  null;
-          ref Font local19 = ref font;
+          ref local18: Bitmap = ref this.OwnBitmap;
+          font: Font =  null;
+          ref local19: Font = ref font;
           tsubpart =  new ListSubPartClass(combatListObj, 30, 800, -1, game, true, tbackbitmap: (ref local18), bbx: 10, bby: 50, overruleFont: (ref local19));
           this.CombatListId = this.AddSubPart(ref tsubpart, 10, 50, 800, 528, 0);
         }
@@ -1372,7 +1372,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.AreaSlot = -1;
       this.game.EditObj.AreaX = -1;
@@ -1382,7 +1382,7 @@ namespace WindowsApplication1
       this.DoRefresh();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1425,7 +1425,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1441,7 +1441,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1537,25 +1537,25 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoCombatSim()
+    pub fn DoCombatSim()
     {
       let mut Number1: i32 =  200;
-      int[,] numArray1 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      int[,] numArray2 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      int[,] numArray3 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      int[,] numArray4 = new int[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray5 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray6 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray7 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray8 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray9 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray10 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray11 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      float[,] numArray12 = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray1: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray2: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray3: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray4: Vec<i32> = new int[this.game.Data.SFTypeCounter + 1, 2];
+      numArray5: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray6: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray7: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray8: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray9: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray10: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray11: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
+      numArray12: Vec<f32> = new float[this.game.Data.SFTypeCounter + 1, 2];
       let mut num1: i32 =  Number1;
-      int Number2;
-      int Number3;
-      int Number4;
+      Number2: i32;
+      Number3: i32;
+      Number4: i32;
       float num2;
       for (let mut index1: i32 =  1; index1 <= num1; index1 += 1)
       {
@@ -1571,8 +1571,8 @@ namespace WindowsApplication1
           let mut isfType: i32 =  this.game.TempCombat.IList[index2].ISFType;
           if (this.game.TempCombat.IList[index2].IKilled > 0)
           {
-            int[,] numArray13 = numArray1;
-            int[,] numArray14 = numArray13;
+            numArray13: Vec<i32> = numArray1;
+            numArray14: Vec<i32> = numArray13;
             let mut index3: i32 =  isfType;
             let mut index4: i32 =  index3;
             let mut index5: i32 =  iattacker;
@@ -1582,8 +1582,8 @@ namespace WindowsApplication1
           }
           else if (this.game.TempCombat.IList[index2].IRetreat > 0)
           {
-            int[,] numArray15 = numArray2;
-            int[,] numArray16 = numArray15;
+            numArray15: Vec<i32> = numArray2;
+            numArray16: Vec<i32> = numArray15;
             let mut index7: i32 =  isfType;
             let mut index8: i32 =  index7;
             let mut index9: i32 =  iattacker;
@@ -1593,8 +1593,8 @@ namespace WindowsApplication1
           }
           else
           {
-            int[,] numArray17 = numArray3;
-            int[,] numArray18 = numArray17;
+            numArray17: Vec<i32> = numArray3;
+            numArray18: Vec<i32> = numArray17;
             let mut index11: i32 =  isfType;
             let mut index12: i32 =  index11;
             let mut index13: i32 =  iattacker;
@@ -1602,32 +1602,32 @@ namespace WindowsApplication1
             let mut num5: i32 =  numArray17[index11, index13] + 1;
             numArray18[index12, index14] = num5;
           }
-          int[,] numArray19 = numArray4;
-          int[,] numArray20 = numArray19;
+          numArray19: Vec<i32> = numArray4;
+          numArray20: Vec<i32> = numArray19;
           let mut index15: i32 =  isfType;
           let mut index16: i32 =  index15;
           let mut index17: i32 =  iattacker;
           let mut index18: i32 =  index17;
           let mut num6: i32 =  numArray19[index15, index17] + this.game.TempCombat.IList[index2].IRdn;
           numArray20[index16, index18] = num6;
-          float[,] numArray21 = numArray9;
-          float[,] numArray22 = numArray21;
+          numArray21: Vec<f32> = numArray9;
+          numArray22: Vec<f32> = numArray21;
           let mut index19: i32 =  isfType;
           let mut index20: i32 =  index19;
           let mut index21: i32 =  iattacker;
           let mut index22: i32 =  index21;
           double num7 =  numArray21[index19, index21] + 1.0;
           numArray22[index20, index22] =  num7;
-          float[,] numArray23 = numArray11;
-          float[,] numArray24 = numArray23;
+          numArray23: Vec<f32> = numArray11;
+          numArray24: Vec<f32> = numArray23;
           let mut index23: i32 =  isfType;
           let mut index24: i32 =  index23;
           let mut index25: i32 =  iattacker;
           let mut index26: i32 =  index25;
           double num8 =  numArray23[index23, index25] +  this.game.TempCombat.IList[index2].IMor;
           numArray24[index24, index26] =  num8;
-          float[,] numArray25 = numArray12;
-          float[,] numArray26 = numArray25;
+          numArray25: Vec<f32> = numArray12;
+          numArray26: Vec<f32> = numArray25;
           let mut index27: i32 =  isfType;
           let mut index28: i32 =  index27;
           let mut index29: i32 =  iattacker;
@@ -1705,14 +1705,14 @@ namespace WindowsApplication1
       this.WriteLog();
     }
 
-    pub void AddLog(string s)
+    pub fn AddLog(string s)
     {
       this += 1.LogCounter;
       this.LogTxt = (string[]) Utils.CopyArray((Array) this.LogTxt, (Array) new string[this.LogCounter + 1]);
       this.LogTxt[this.LogCounter] = s;
     }
 
-    pub void WriteLog()
+    pub fn WriteLog()
     {
       StreamWriter text = File.CreateText(this.game.AppPath + "logs\\combatsim.txt");
       let mut logCounter: i32 =  this.LogCounter;

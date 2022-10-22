@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class SteveButtonPartClass30b : SubPartClass
   {
-     int OwnBitmapNr;
-     int colorized;
-     Bitmap backbitmap;
+     OwnBitmapNr: i32;
+     colorized: i32;
+     backbitmap: Bitmap;
 
     pub SteveButtonPartClass30b(
-      int tbmpnr,
+      tbmpnr: i32,
       let mut tcolorized: i32 = 0,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1)
       : base(32, 32)
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -54,22 +54,22 @@ namespace WindowsApplication1
       if (self.colorized == 0)
       {
          let mut local1: &Graphics = &objGraphics;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2);
          let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
          let mut local3: &Graphics = &objGraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 2, 2);
       }
       else if (self.colorized == 1)
       {
          let mut local5: &Graphics = &objGraphics;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2);
          let mut local6: &Bitmap = &bitmap3;
         DrawMod.Draw( local5,  local6, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
          let mut local7: &Graphics = &objGraphics;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local8: &Bitmap = &bitmap4;
         DrawMod.Draw( local7,  local8, 2, 2, 0.0f, 0.0f, 0.0f, 0.4f);
       }
@@ -81,7 +81,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (!Information.IsNothing( self.backbitmap))
@@ -93,22 +93,22 @@ namespace WindowsApplication1
       if (self.colorized == 0)
       {
          let mut local1: &Graphics = &objGraphics;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2B);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2B);
          let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
          let mut local3: &Graphics = &objGraphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 2, 2);
       }
       else if (self.colorized == 1)
       {
          let mut local5: &Graphics = &objGraphics;
-        Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2B);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE2B);
          let mut local6: &Bitmap = &bitmap3;
         DrawMod.Draw( local5,  local6, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
          let mut local7: &Graphics = &objGraphics;
-        Bitmap bitmap4 = BitmapStore.GetBitmap(self.OwnBitmapNr);
+        bitmap4: Bitmap = BitmapStore.GetBitmap(self.OwnBitmapNr);
          let mut local8: &Bitmap = &bitmap4;
         DrawMod.Draw( local7,  local8, 2, 2, 0.0f, 0.0f, 0.0f, 0.4f);
       }

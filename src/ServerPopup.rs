@@ -16,22 +16,22 @@ namespace WindowsApplication1
 {
   pub class ServerPopup : WindowClass
   {
-     int okid;
-     int cancelid;
-     int cancel2id;
-     int stateid;
-     int textid;
+     okid: i32;
+     cancelid: i32;
+     cancel2id: i32;
+     stateid: i32;
+     textid: i32;
      ServerClass Server;
      bool ServerThRunning;
-     Thread ServerThread;
+     ServerThread: Thread;
      bool doLog;
      bool Finished;
-     int newWindow;
-     int animTimer;
+     newWindow: i32;
+     animTimer: i32;
      string TextSoFar;
      bool RequestRefresh;
 
-    pub ServerPopup( GameClass tGame)
+    pub ServerPopup( tGame: GameClass)
       : base( tGame, 600, 400, 8)
     {
       this.doLog = true;
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void Ready()
+    pub fn Ready()
     {
       this.game.EditObj.ServerUploadSize = 0L;
       this.game.EditObj.ServerDownloadSize = 0L;
@@ -198,11 +198,11 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void Clear()
+    pub fn Clear()
     {
     }
 
-    pub void View()
+    pub fn View()
     {
       Graphics g;
       this.DoHeader(g);
@@ -230,7 +230,7 @@ namespace WindowsApplication1
       this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
     }
 
-    pub void ViewRegister()
+    pub fn ViewRegister()
     {
       Graphics g;
       this.DoHeader(g);
@@ -277,7 +277,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewInitialize()
+    pub fn ViewInitialize()
     {
       Graphics g;
       this.DoHeader(g);
@@ -325,7 +325,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewLogin()
+    pub fn ViewLogin()
     {
       Graphics g;
       this.DoHeader(g);
@@ -353,7 +353,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewTimeOut()
+    pub fn ViewTimeOut()
     {
       Graphics g;
       this.DoHeader(g);
@@ -370,7 +370,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewLogOut()
+    pub fn ViewLogOut()
     {
       Graphics g;
       this.DoHeader(g);
@@ -393,7 +393,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewRefresh()
+    pub fn ViewRefresh()
     {
       Graphics g;
       this.DoHeader(g);
@@ -416,7 +416,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewChallenge()
+    pub fn ViewChallenge()
     {
       Graphics g;
       this.DoHeader(g);
@@ -444,7 +444,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewUploadInstance()
+    pub fn ViewUploadInstance()
     {
       Graphics g;
       this.DoHeader(g);
@@ -482,7 +482,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewPlayTurn()
+    pub fn ViewPlayTurn()
     {
       Graphics g;
       this.DoHeader(g);
@@ -505,7 +505,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewCancelChallenge()
+    pub fn ViewCancelChallenge()
     {
       Graphics g;
       this.DoHeader(g);
@@ -533,7 +533,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewClaim()
+    pub fn ViewClaim()
     {
       Graphics g;
       this.DoHeader(g);
@@ -561,7 +561,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewCheckPlayer()
+    pub fn ViewCheckPlayer()
     {
       Graphics g;
       this.DoHeader(g);
@@ -589,7 +589,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void ViewAcceptChallenge()
+    pub fn ViewAcceptChallenge()
     {
       Graphics g;
       this.DoHeader(g);
@@ -617,7 +617,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
-    pub void DoHeader(Graphics g)
+    pub fn DoHeader(Graphics g)
     {
       if (this.cancelid > 0)
         this.RemoveSubPart(this.cancelid);
@@ -680,7 +680,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -770,7 +770,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub string GetExactErrorString(int err)
+    pub string GetExactErrorString(err: i32)
     {
       str: String = "";
       if (err == 900)

@@ -27,7 +27,7 @@ namespace WindowsApplication1
       this.maxcounter = 99;
     }
 
-    pub void AddCoord(int x, int y, int tMoveType)
+    pub fn AddCoord(x: i32, y: i32, tMoveType: i32)
     {
       while (this.blocked)
         Thread.Sleep(1);
@@ -47,7 +47,7 @@ namespace WindowsApplication1
       this.blocked = false;
     }
 
-    pub Exists: bool(int x, int y, int tMoveType)
+    pub Exists: bool(x: i32, y: i32, tMoveType: i32)
     {
       while (this.blocked)
         Thread.Sleep(1);

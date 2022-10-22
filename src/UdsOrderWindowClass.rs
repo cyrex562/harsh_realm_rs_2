@@ -17,30 +17,30 @@ namespace WindowsApplication1
     pub h: i32;
     pub lastorderx: i32;
     pub lastordery: i32;
-     int exitId;
-     int tab1;
-     int tab2;
-     int tab3;
-     int tab4;
-     int tab51;
-     int tab52;
-     int tab53;
-     int tab54;
-     int tab6;
-     int currentview;
-     int butCount;
+     exitId: i32;
+     tab1: i32;
+     tab2: i32;
+     tab3: i32;
+     tab4: i32;
+     tab51: i32;
+     tab52: i32;
+     tab53: i32;
+     tab54: i32;
+     tab6: i32;
+     currentview: i32;
+     butCount: i32;
      int[] butId;
-     string[] butString;
+     butString: Vec<String>;
      int[] butEvent;
-     string[] butMouseOver;
+     butMouseOver: Vec<String>;
      int[] butSmallGfx;
      int[] butTempVar0;
      int[] butTempVar1;
      int[] butTempVarStringlistId;
-     int MouseOverWhichTab;
+     MouseOverWhichTab: i32;
 
     pub UdsOrderWindowClass(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, tGame.ScreenWidth, 90)
@@ -64,7 +64,7 @@ namespace WindowsApplication1
       self.DoRefresh();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (self.game.EditObj.OrderType == 0)
       {
@@ -74,7 +74,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub handleTimerWheel: WindowReturnClass(int x, int y)
+    pub handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -115,7 +115,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoTabs( Graphics g)
+    pub fn DoTabs( Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
       self.tab1 = -1;
@@ -129,7 +129,7 @@ namespace WindowsApplication1
       self.tab6 = -1;
       if (self.game.EditObj.GuiDown)
         return;
-      int num1;
+      num1: i32;
       if (self.game.EditObj.UnitSelected == -1)
       {
         if (self.game.Data.ExtraTabName.Length <= 0)
@@ -159,7 +159,7 @@ namespace WindowsApplication1
         if (self.game.EditObj.SetViewModeExtraNr == 0)
         {
           let mut x1: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
-          Bitmap bitmap;
+          bitmap: Bitmap;
           SizeF sizeF2;
           Rectangle trect1;
           Rectangle trect2;
@@ -232,7 +232,7 @@ namespace WindowsApplication1
         else
         {
           let mut x7: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
-          Bitmap bitmap;
+          bitmap: Bitmap;
           string upper;
           SizeF sizeF3;
           Rectangle rectangle;
@@ -397,7 +397,7 @@ namespace WindowsApplication1
           if (self.game.EditObj.SetViewModeExtraNr == 0)
           {
             let mut x15: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             SizeF sizeF4;
             Rectangle rectangle;
             if (self.game.Data.ExtraTabName4.Length > 0)
@@ -482,7 +482,7 @@ namespace WindowsApplication1
           else
           {
             let mut x23: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             SizeF sizeF5;
             Rectangle rectangle;
             if (self.game.Data.ExtraTabName4.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 4)
@@ -630,7 +630,7 @@ namespace WindowsApplication1
         {
           let mut x33: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
            let mut local41: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
            let mut local42: &Bitmap = &bitmap;
           let mut x34: i32 = x33;
           DrawMod.DrawSimple( local41,  local42, x34, 66);
@@ -746,11 +746,11 @@ namespace WindowsApplication1
       Graphics g,
       bool wideTab,
       bool active,
-      int tx,
+      tx: i32,
       string sHeader,
       string sText,
-      int spriteSlot,
-      int iconSlot,
+      spriteSlot: i32,
+      iconSlot: i32,
       let mut smallNumber: i32 = -1,
       bool grayedOut = false,
       let mut textOffsetX: i32 = 0,
@@ -758,7 +758,7 @@ namespace WindowsApplication1
       bool tMousingOverNow = false)
     {
       let mut y1: i32 = 24;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (tMousingOverNow)
       {
         if (active & wideTab)
@@ -889,8 +889,8 @@ namespace WindowsApplication1
         }
       }
       SizeF sizeF = g.MeasureString(sText, DrawMod.TGame.MarcFont16);
-      Color c1;
-      Color c2;
+      c1: Color;
+      c2: Color;
       if (active)
       {
         c1 = self.game.seColWhite;
@@ -912,7 +912,7 @@ namespace WindowsApplication1
         {
           if ( sizeF.Width > 150.0)
           {
-            string[] strArray = sText.Split(new char[1]
+            strArray: Vec<String> = sText.Split(new char[1]
             {
               ' '
             }, StringSplitOptions.RemoveEmptyEntries);
@@ -961,7 +961,7 @@ namespace WindowsApplication1
       {
         if ( sizeF.Width > 150.0)
         {
-          string[] strArray = sText.Split(new char[1]{ ' ' }, StringSplitOptions.RemoveEmptyEntries);
+          strArray: Vec<String> = sText.Split(new char[1]{ ' ' }, StringSplitOptions.RemoveEmptyEntries);
           sText = "";
           let mut num: i32 = -1;
           let mut upperBound: i32 = strArray.GetUpperBound(0);
@@ -991,7 +991,7 @@ namespace WindowsApplication1
       return rectangle;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       self.currentview = self.game.EditObj.SetViewMode;
       self.ClearMouse();
@@ -1005,7 +1005,7 @@ namespace WindowsApplication1
       bool flag = false;
       if (self.game.EditObj.leftSideBarMode > 0)
         flag = true;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle trect1;
       Rectangle rectangle;
       if (flag)
@@ -1082,8 +1082,8 @@ namespace WindowsApplication1
         if (hexLibVarValue1 > 0)
           num4 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue1, 13)));
         let mut num5: i32 =  Math.Round( num4 /  num2);
-        int eventPicOrigSlot1;
-        int eventPicOrigSlot2;
+        eventPicOrigSlot1: i32;
+        eventPicOrigSlot2: i32;
         if (stringListById1 > -1)
         {
           eventPicOrigSlot1 = num5 >= 50 ? (num5 >= 500 ?  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].GetData(0, idValue, 3))) :  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].GetData(0, idValue, 2)))) :  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].GetData(0, idValue, 1)));
@@ -1097,8 +1097,8 @@ namespace WindowsApplication1
         let mut eventPic1: i32 = self.game.Data.FindEventPic(eventPicOrigSlot1, "SE_Present");
         let mut x1: i32 = self.w - 274;
         let mut y1: i32 = 6;
-        int num6;
-        int num7;
+        num6: i32;
+        num7: i32;
         if (eventPic1 > -1)
         {
           let mut nr: i32 = self.game.Data.EventPicNr[eventPic1];
@@ -1179,7 +1179,7 @@ namespace WindowsApplication1
           trect1 = rectangle;
           self.AddMouse( trect1, ttitle, ttext);
           str7: String = "";
-          int regime;
+          regime: i32;
           if (self.game.EditObj.OrderType == 26)
           {
             if (self.game.EditObj.HisOwner[self.game.EditObj.MapSelected].Value[self.game.SelectX, self.game.SelectY] > -1)
@@ -1370,7 +1370,7 @@ namespace WindowsApplication1
       objgraphics = (Graphics) null;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.BattleTimerActive)
@@ -1721,7 +1721,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff2(Graphics g)
+    pub fn dostuff2(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
@@ -1773,7 +1773,7 @@ namespace WindowsApplication1
           else if (self.game.EditObj.OrderSubType == 8)
             str1 = " Road Demolition Mode";
           str2 = self.game.EditObj.udsOrderBarFeedbackString;
-          Color color;
+          color: Color;
           if (self.game.EditObj.udsOrderBarFeedbackColor <= 1)
           {
             color = Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0);
@@ -1937,36 +1937,36 @@ namespace WindowsApplication1
         str5 = str5 + ": " + str2;
       SizeF sizeF2 = g.MeasureString(str5, DrawMod.TGame.MarcFont16);
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_BLACKGRADIENT);
+      bitmap: Bitmap = BitmapStore.GetBitmap(self.game.SE1_BLACKGRADIENT);
        let mut local2: &Bitmap = &bitmap;
       let mut x: i32 =  Math.Round( ( self.w -  (270.0 +  sizeF2.Width + 100.0)));
       let mut w: i32 =  Math.Round( (sizeF2.Width + 100f));
       DrawMod.DrawScaled( local1,  local2, x, 3, w, 28, true);
-      Color c = !flag1 ? (!flag2 ? self.game.seColWhite : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 175, 100)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 100, 100);
+      c: Color = !flag1 ? (!flag2 ? self.game.seColWhite : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 175, 100)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 100, 100);
       DrawMod.DrawTextColouredConsole( g, str5, self.game.MarcFont16,  Math.Round( ( self.w -  (270.0 +  sizeF2.Width + 20.0))), 7, c);
     }
 
-    pub void DoTabs1( Graphics g, bool Active = false)
+    pub fn DoTabs1( Graphics g, bool Active = false)
     {
       SizeF sizeF = SizeF::new();
     }
 
-    pub void DoTabs1B( Graphics g, bool Active = false)
+    pub fn DoTabs1B( Graphics g, bool Active = false)
     {
       SizeF sizeF = SizeF::new();
     }
 
-    pub void DoTabs2( Graphics g, bool Active = false)
+    pub fn DoTabs2( Graphics g, bool Active = false)
     {
       SizeF sizeF = SizeF::new();
     }
 
-    pub void DoTabs2B( Graphics g, bool Active = false)
+    pub fn DoTabs2B( Graphics g, bool Active = false)
     {
       SizeF sizeF = SizeF::new();
     }
 
-    pub void DoTabs3( Graphics g, bool Active = false)
+    pub fn DoTabs3( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       if (self.game.Data.Round == 0)
@@ -1975,7 +1975,7 @@ namespace WindowsApplication1
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -1983,7 +1983,7 @@ namespace WindowsApplication1
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -1998,14 +1998,14 @@ namespace WindowsApplication1
       self.tab3 = self.MouseCounter;
     }
 
-    pub void DoTabs4( Graphics g, bool Active = false)
+    pub fn DoTabs4( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 0 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -2013,7 +2013,7 @@ namespace WindowsApplication1
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 0 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -2028,14 +2028,14 @@ namespace WindowsApplication1
       self.tab4 = self.MouseCounter;
     }
 
-    pub void DoTabs4B( Graphics g, bool Active = false)
+    pub fn DoTabs4B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -2043,7 +2043,7 @@ namespace WindowsApplication1
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -2058,7 +2058,7 @@ namespace WindowsApplication1
       self.tab4 = self.MouseCounter;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter <= -1)
@@ -2076,7 +2076,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       if (y > 18 &&  self.w / 2.0 - 500.0 <  x &  x <  self.w / 2.0 + 500.0)
@@ -2109,9 +2109,9 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
-      int[,] numArray = new int[self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth + 1, self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight + 1];
+      numArray: Vec<i32> = new int[self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth + 1, self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight + 1];
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.BattleTimerActive)
         return windowReturnClass;
@@ -2244,7 +2244,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void PopUpRefresh() => self.DoRefresh();
+    pub fn PopUpRefresh() => self.DoRefresh();
 
     pub actionZoomOut: WindowReturnClass()
     {
@@ -2256,8 +2256,8 @@ namespace WindowsApplication1
       let mut num3: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 106.0));
       let mut num4: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 53.0));
       let mut num5: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 106.0));
-      int num6;
-      int num7;
+      num6: i32;
+      num7: i32;
       if (self.game.EditObj.Zoom == 0)
       {
         self.game.EditObj.Zoom = -1;
@@ -2320,8 +2320,8 @@ namespace WindowsApplication1
       let mut num3: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 106.0));
       let mut num4: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 53.0));
       let mut num5: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 106.0));
-      int num6;
-      int num7;
+      num6: i32;
+      num7: i32;
       if (self.game.EditObj.Zoom == 0)
       {
         self.game.EditObj.Zoom = 1;

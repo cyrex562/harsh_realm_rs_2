@@ -126,7 +126,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub SFClass(int hardcoded)
+    pub SFClass(hardcoded: i32)
     {
       this.Type = -1;
       this.MoveType = -1;
@@ -134,11 +134,11 @@ namespace WindowsApplication1
       this.Vigor = 100;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

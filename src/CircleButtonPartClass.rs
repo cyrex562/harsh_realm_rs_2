@@ -17,13 +17,13 @@ namespace WindowsApplication1
      int OwnBitmapNr;
      Rectangle useRect;
      Rectangle bmpRect;
-     Color useCol;
-     Color useColHigh;
-     Bitmap backbitmap;
+     useCol: Color;
+     useColHigh: Color;
+     backbitmap: Bitmap;
      int drawArtCodeSfType;
      int drawArtCodePpl;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -35,10 +35,10 @@ namespace WindowsApplication1
       int tbmpnr,
       Rectangle tbmpRect,
       Rectangle trect,
-      Color tUseCol,
-      Color tUseColHigh,
+      tUseCol: Color,
+      tUseColHigh: Color,
       tDescript: String = "",
-      ref Bitmap tBackbitmap = null,
+      ref tBackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       let mut tArtCodeSfType: i32 =  -1,
@@ -66,7 +66,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -86,8 +86,8 @@ namespace WindowsApplication1
         let mut num1: i32 =  (int) Math.Round( (this.useRect.Width - 35) / 2.0);
         let mut num2: i32 =  (int) Math.Round( (this.useRect.Height - 17) / 2.0);
         ref Graphics local1 = ref objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+        ref local2: Bitmap = ref bitmap;
         let mut drawArtCodeSfType: i32 =  this.drawArtCodeSfType;
         let mut drawArtCodePpl: i32 =  this.drawArtCodePpl;
         let mut tx: i32 =  num1;
@@ -97,8 +97,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+        ref local4: Bitmap = ref bitmap;
         Rectangle bmpRect = this.bmpRect;
         Rectangle destrect = Rectangle::new(x, y, this.bmpRect.Width, this.bmpRect.Height);
         DrawMod.DrawSimplePart2(ref local3, ref local4, bmpRect, destrect);
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -131,8 +131,8 @@ namespace WindowsApplication1
         let mut num1: i32 =  (int) Math.Round( (this.useRect.Width - 35) / 2.0);
         let mut num2: i32 =  (int) Math.Round( (this.useRect.Height - 17) / 2.0);
         ref Graphics local1 = ref objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-        ref Bitmap local2 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+        ref local2: Bitmap = ref bitmap;
         let mut drawArtCodeSfType: i32 =  this.drawArtCodeSfType;
         let mut drawArtCodePpl: i32 =  this.drawArtCodePpl;
         let mut tx: i32 =  num1;
@@ -142,8 +142,8 @@ namespace WindowsApplication1
       else
       {
         ref Graphics local3 = ref objGraphics;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-        ref Bitmap local4 = ref bitmap;
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
+        ref local4: Bitmap = ref bitmap;
         Rectangle bmpRect = this.bmpRect;
         Rectangle destrect = Rectangle::new(x, y, this.bmpRect.Width, this.bmpRect.Height);
         DrawMod.DrawSimplePart2(ref local3, ref local4, bmpRect, destrect);

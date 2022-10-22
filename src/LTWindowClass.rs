@@ -14,121 +14,121 @@ namespace WindowsApplication1
 {
   pub class LTWindowClass : WindowClass
   {
-     int TempText1;
-     int temptext2;
-     int temptext3;
-     int temptext4;
-     int temptext5;
-     int temptext6;
-     int temptext7;
-     int temptext8;
-     int temptext9;
-     int temptext10;
-     int TempText11;
-     int temptext12;
-     int temptext13;
-     int temptext14;
-     int temptext15;
-     int temptext16;
-     int temptext17;
-     int temptext18;
-     int temptext19;
-     int temptext20;
-     int TempText21;
-     int temptext22;
-     int temptext23;
-     int temptext24;
-     int temptext25;
-     int temptext26;
-     int temptext27;
-     int temptext28;
-     int temptext29;
-     int temptext30;
-     int TempText31;
-     int temptext32;
-     int temptext33;
-     int temptext34;
-     int temptext35;
-     int temptext36;
-     int temptext37;
-     int temptext38;
-     int temptext39;
-     int temptext40;
-     int temptext41;
-     int temptext42;
-     int temptext43;
-     int temptext44;
-     int temptext45;
-     int temptext46;
-     int LogoListId;
-     int but1id;
-     int tab1id;
-     int tab2id;
-     int tab3id;
-     int tab4id;
-     int tab5id;
-     int but1textid;
-     int but1bid;
-     int hqbut0;
-     int hqbut1;
-     int hqbut2;
-     int but2id;
-     int but2textid;
-     int but3id;
-     int but3textid;
-     int but4id;
-     int but4textid;
-     int but5id;
-     int but5textid;
-     int but6id;
-     int but6textid;
-     int but7id;
-     int quitid;
-     int but7textid;
-     int descid;
-     int comparenr;
-     int sliderid;
-     int logolist2id;
-     int logolist3id;
+     TempText1: i32;
+     temptext2: i32;
+     temptext3: i32;
+     temptext4: i32;
+     temptext5: i32;
+     temptext6: i32;
+     temptext7: i32;
+     temptext8: i32;
+     temptext9: i32;
+     temptext10: i32;
+     TempText11: i32;
+     temptext12: i32;
+     temptext13: i32;
+     temptext14: i32;
+     temptext15: i32;
+     temptext16: i32;
+     temptext17: i32;
+     temptext18: i32;
+     temptext19: i32;
+     temptext20: i32;
+     TempText21: i32;
+     temptext22: i32;
+     temptext23: i32;
+     temptext24: i32;
+     temptext25: i32;
+     temptext26: i32;
+     temptext27: i32;
+     temptext28: i32;
+     temptext29: i32;
+     temptext30: i32;
+     TempText31: i32;
+     temptext32: i32;
+     temptext33: i32;
+     temptext34: i32;
+     temptext35: i32;
+     temptext36: i32;
+     temptext37: i32;
+     temptext38: i32;
+     temptext39: i32;
+     temptext40: i32;
+     temptext41: i32;
+     temptext42: i32;
+     temptext43: i32;
+     temptext44: i32;
+     temptext45: i32;
+     temptext46: i32;
+     LogoListId: i32;
+     but1id: i32;
+     tab1id: i32;
+     tab2id: i32;
+     tab3id: i32;
+     tab4id: i32;
+     tab5id: i32;
+     but1textid: i32;
+     but1bid: i32;
+     hqbut0: i32;
+     hqbut1: i32;
+     hqbut2: i32;
+     but2id: i32;
+     but2textid: i32;
+     but3id: i32;
+     but3textid: i32;
+     but4id: i32;
+     but4textid: i32;
+     but5id: i32;
+     but5textid: i32;
+     but6id: i32;
+     but6textid: i32;
+     but7id: i32;
+     quitid: i32;
+     but7textid: i32;
+     descid: i32;
+     comparenr: i32;
+     sliderid: i32;
+     logolist2id: i32;
+     logolist3id: i32;
      float tempBlink;
-     int unr;
-     int sfnr;
-     int sftyp;
-     int detailnr;
-     int detailnr2;
-     int detailtype;
-     int ammount;
+     unr: i32;
+     sfnr: i32;
+     sftyp: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailtype: i32;
+     ammount: i32;
      bool hqreach;
-     int passenger;
-     int OptionsListId;
+     passenger: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ATListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ATListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ATListClass OptionsList5Obj;
-     int OptionsList6Id;
+     OptionsList6Id: i32;
      ATListClass OptionsList6Obj;
-     int combatListId;
+     combatListId: i32;
      ATListClass combatListObj;
-     int combatList2Id;
+     combatList2Id: i32;
      ATListClass combatList2Obj;
-     int StatTyp;
-     int StatMode;
+     StatTyp: i32;
+     StatMode: i32;
      int[] ChainHq;
-     int HQselect;
-     int infoid;
-     int ltnr;
-     int locnr;
-     int ppl;
-     int spnr;
+     HQselect: i32;
+     infoid: i32;
+     ltnr: i32;
+     locnr: i32;
+     ppl: i32;
+     spnr: i32;
 
     pub handleTimer: WindowReturnClass() => WindowReturnClass::new();
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.comparenr = this.game.EditObj.SFCompare;
       if (this.descid > 0)
@@ -179,7 +179,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub LTWindowClass( GameClass tGame)
+    pub LTWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.ChainHq = new int[3];
@@ -211,7 +211,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND2MARC);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -398,7 +398,7 @@ namespace WindowsApplication1
         {
           let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].BasicPicID[this.spnr];
            let mut local3: &Graphics = &Expression;
-          Bitmap bitmap = BitmapStore.GetBitmap(nr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local4: &Bitmap = &bitmap;
           let mut x3: i32 =  num2;
           let mut y3: i32 =  num3;
@@ -410,7 +410,7 @@ namespace WindowsApplication1
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID1[this.spnr];
              let mut local5: &Graphics = &Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(nr);
+            bitmap: Bitmap = BitmapStore.GetBitmap(nr);
              let mut local6: &Bitmap = &bitmap;
             let mut x4: i32 =  num2;
             let mut y4: i32 =  num3;
@@ -418,14 +418,14 @@ namespace WindowsApplication1
           }
           let mut nr1: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID2[this.spnr];
            let mut local7: &Graphics = &Expression;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(nr1);
+          bitmap1: Bitmap = BitmapStore.GetBitmap(nr1);
            let mut local8: &Bitmap = &bitmap1;
           let mut x5: i32 =  num2;
           let mut y5: i32 =  num3;
           DrawMod.DrawScaled( local7,  local8, x5, y5, 250, 103);
           let mut nr2: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID3[this.spnr];
            let mut local9: &Graphics = &Expression;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(nr2);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(nr2);
            let mut local10: &Bitmap = &bitmap2;
           let mut x6: i32 =  num2;
           let mut y6: i32 =  num3;
@@ -437,7 +437,7 @@ namespace WindowsApplication1
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
              let mut local11: &Graphics = &Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(nr);
+            bitmap: Bitmap = BitmapStore.GetBitmap(nr);
              let mut local12: &Bitmap = &bitmap;
             let mut x7: i32 =  num2;
             let mut y7: i32 =  num3;
@@ -449,7 +449,7 @@ namespace WindowsApplication1
             {
               let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
                let mut local13: &Graphics = &Expression;
-              Bitmap bitmap = BitmapStore.GetBitmap(nr);
+              bitmap: Bitmap = BitmapStore.GetBitmap(nr);
                let mut local14: &Bitmap = &bitmap;
               let mut x8: i32 =  num2;
               let mut y8: i32 =  num3;
@@ -457,14 +457,14 @@ namespace WindowsApplication1
             }
             let mut nr3: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID2[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
              let mut local15: &Graphics = &Expression;
-            Bitmap bitmap3 = BitmapStore.GetBitmap(nr3);
+            bitmap3: Bitmap = BitmapStore.GetBitmap(nr3);
              let mut local16: &Bitmap = &bitmap3;
             let mut x9: i32 =  num2;
             let mut y9: i32 =  num3;
             DrawMod.DrawScaled( local15,  local16, x9, y9, 250, 103);
             let mut nr4: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID3[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
              let mut local17: &Graphics = &Expression;
-            Bitmap bitmap4 = BitmapStore.GetBitmap(nr4);
+            bitmap4: Bitmap = BitmapStore.GetBitmap(nr4);
              let mut local18: &Bitmap = &bitmap4;
             let mut x10: i32 =  num2;
             let mut y10: i32 =  num3;
@@ -546,9 +546,9 @@ namespace WindowsApplication1
         this.StatMode = 0;
       DrawMod.DrawBlock( Expression, num10 + 50, num9 + 55, 890, 355,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  Expression, num10 + 50, num9 + 55, 890, 355, -1, -1);
-      int num11;
-      int num12;
-      int num13;
+      num11: i32;
+      num12: i32;
+      num13: i32;
       Rectangle rectangle3;
       if (this.StatMode == 0)
       {
@@ -1035,7 +1035,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub object ReturnSFSpriteNr(int typ, int regnr, int pplnr)
+    pub object ReturnSFSpriteNr(typ: i32, regnr: i32, pplnr: i32)
     {
       let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[typ].SymbolSpriteID;
       if (regnr > -1)
@@ -1071,7 +1071,7 @@ namespace WindowsApplication1
       return  symbolSpriteId;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -1092,7 +1092,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1144,7 +1144,7 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int num2;
+            num2: i32;
             if (num1 == this.OptionsListId)
             {
               num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);

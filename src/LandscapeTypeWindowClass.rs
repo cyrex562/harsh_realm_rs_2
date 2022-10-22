@@ -17,157 +17,157 @@ namespace WindowsApplication1
 {
   pub class LandscapeTypeWindowClass : WindowClass
   {
-     int LTListId;
+     LTListId: i32;
      ListClass LTListObj;
-     int BAddLTId;
-     int BAddLTTextId;
-     int BCloneLTId;
-     int BCloneLTTextId;
-     int BNameId;
-     int BNameTextId;
-     int TxtId;
-     int TxtStrId;
-     int BSLId;
-     int BSLTextId;
-     int BSL2Id;
-     int BSL2TextId;
-     int OptionsListId;
+     BAddLTId: i32;
+     BAddLTTextId: i32;
+     BCloneLTId: i32;
+     BCloneLTTextId: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     TxtId: i32;
+     TxtStrId: i32;
+     BSLId: i32;
+     BSLTextId: i32;
+     BSL2Id: i32;
+     BSL2TextId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int BRemoveLtId;
-     int BRemoveLtTextId;
-     int BBuildRoadId;
-     int BBuildRoadTextId;
-     int e1id;
-     int e1textid;
-     int e2id;
-     int e2textid;
-     int e3id;
-     int e3textid;
-     int e4id;
-     int e4textid;
-     int e5id;
-     int e5textid;
-     int e6id;
-     int e6textid;
-     int e7id;
-     int e7textid;
-     int e7bid;
-     int e7btextid;
-     int e8id;
-     int e8textid;
-     int e9id;
-     int e9textid;
-     int e10id;
-     int e10textid;
-     int e11id;
-     int e11textid;
-     int e12id;
-     int e12textid;
-     int e13id;
-     int e13textid;
-     int e14id;
-     int e14textid;
-     int e15id;
-     int e15textid;
-     int e77id;
-     int e77textid;
-     int e80id;
-     int e80textid;
-     int e81id;
-     int e81textid;
-     int e82id;
-     int e82textid;
-     int e83id;
-     int e83textid;
-     int e84id;
-     int e84textid;
-     int e85id;
-     int e85textid;
-     int e86id;
-     int e86textid;
-     int e87id;
-     int e87textid;
+     BRemoveLtId: i32;
+     BRemoveLtTextId: i32;
+     BBuildRoadId: i32;
+     BBuildRoadTextId: i32;
+     e1id: i32;
+     e1textid: i32;
+     e2id: i32;
+     e2textid: i32;
+     e3id: i32;
+     e3textid: i32;
+     e4id: i32;
+     e4textid: i32;
+     e5id: i32;
+     e5textid: i32;
+     e6id: i32;
+     e6textid: i32;
+     e7id: i32;
+     e7textid: i32;
+     e7bid: i32;
+     e7btextid: i32;
+     e8id: i32;
+     e8textid: i32;
+     e9id: i32;
+     e9textid: i32;
+     e10id: i32;
+     e10textid: i32;
+     e11id: i32;
+     e11textid: i32;
+     e12id: i32;
+     e12textid: i32;
+     e13id: i32;
+     e13textid: i32;
+     e14id: i32;
+     e14textid: i32;
+     e15id: i32;
+     e15textid: i32;
+     e77id: i32;
+     e77textid: i32;
+     e80id: i32;
+     e80textid: i32;
+     e81id: i32;
+     e81textid: i32;
+     e82id: i32;
+     e82textid: i32;
+     e83id: i32;
+     e83textid: i32;
+     e84id: i32;
+     e84textid: i32;
+     e85id: i32;
+     e85textid: i32;
+     e86id: i32;
+     e86textid: i32;
+     e87id: i32;
+     e87textid: i32;
      ListClass BasicListObj;
-     int BasicListId;
-     int BBasicSpriteId;
-     int BBasicSpriteId2;
-     int bbasicspriteid3;
-     int BBasicPicId;
-     int BPreHexPicId;
-     int BChangePreHexPicId;
-     int BChangeBasicSpriteId;
-     int BChangeBasicSpriteId2;
-     int Bchangebasicspriteid3;
-     int BChangeBasicPicId;
-     int BPlotLastId;
-     int BPlotLastTextId;
-     int BRandomId;
-     int BRandomTextId;
-     int BAddBasicId;
-     int BAddBasicTextId;
-     int BRemoveBasicId;
-     int BRemoveBasicTextId;
-     int BDrawId;
-     int BDrawTextId;
+     BasicListId: i32;
+     BBasicSpriteId: i32;
+     BBasicSpriteId2: i32;
+     bbasicspriteid3: i32;
+     BBasicPicId: i32;
+     BPreHexPicId: i32;
+     BChangePreHexPicId: i32;
+     BChangeBasicSpriteId: i32;
+     BChangeBasicSpriteId2: i32;
+     Bchangebasicspriteid3: i32;
+     BChangeBasicPicId: i32;
+     BPlotLastId: i32;
+     BPlotLastTextId: i32;
+     BRandomId: i32;
+     BRandomTextId: i32;
+     BAddBasicId: i32;
+     BAddBasicTextId: i32;
+     BRemoveBasicId: i32;
+     BRemoveBasicTextId: i32;
+     BDrawId: i32;
+     BDrawTextId: i32;
      ListClass MoveListObj;
-     int MoveListId;
-     int BMoveCostId;
-     int BChangeMoveCostId;
-     int BBuildGroundId;
-     int BBuildGroundTextId;
-     int BIsSeaId;
-     int BIsSeaTextId;
-     int c1id;
-     int c1textid;
-     int c2id;
-     int c2textid;
-     int c3id;
-     int c3textid;
-     int c4id;
-     int c4textid;
-     int c5id;
-     int c5textid;
-     int c6id;
-     int c6textid;
+     MoveListId: i32;
+     BMoveCostId: i32;
+     BChangeMoveCostId: i32;
+     BBuildGroundId: i32;
+     BBuildGroundTextId: i32;
+     BIsSeaId: i32;
+     BIsSeaTextId: i32;
+     c1id: i32;
+     c1textid: i32;
+     c2id: i32;
+     c2textid: i32;
+     c3id: i32;
+     c3textid: i32;
+     c4id: i32;
+     c4textid: i32;
+     c5id: i32;
+     c5textid: i32;
+     c6id: i32;
+     c6textid: i32;
      ListClass SpecialListObj;
-     int SpecialListId;
-     int BSpecialSpriteId;
-     int BChangeSpecialSpriteId;
-     int CombatListId;
+     SpecialListId: i32;
+     BSpecialSpriteId: i32;
+     BChangeSpecialSpriteId: i32;
+     CombatListId: i32;
      ListClass CombatListObj;
-     int b19id;
-     int b19textid;
-     int b20id;
-     int b20textid;
-     int b18id;
-     int b18textid;
-     int b21id;
-     int b21textid;
-     int killoverrideId;
-     int addoverrideId;
-     int addoverrideID2;
-     int killoverrideId2;
-     int zoverrideId;
-     int zoverridetextId;
+     b19id: i32;
+     b19textid: i32;
+     b20id: i32;
+     b20textid: i32;
+     b18id: i32;
+     b18textid: i32;
+     b21id: i32;
+     b21textid: i32;
+     killoverrideId: i32;
+     addoverrideId: i32;
+     addoverrideID2: i32;
+     killoverrideId2: i32;
+     zoverrideId: i32;
+     zoverridetextId: i32;
      ListClass SpecialList2Obj;
      ListClass specialList3Obj;
-     int SpecialList2Id;
-     int speciallist3id;
-     int i1id;
-     int i2id;
-     int i3id;
-     int i1change;
-     int i2change;
-     int i3change;
-     int LTNr;
-     int TabSheetNr;
-     int DetailNr;
-     int Detailnr2;
-     int OverIsTopId;
-     int OverIsTopTextId;
+     SpecialList2Id: i32;
+     speciallist3id: i32;
+     i1id: i32;
+     i2id: i32;
+     i3id: i32;
+     i1change: i32;
+     i2change: i32;
+     i3change: i32;
+     LTNr: i32;
+     TabSheetNr: i32;
+     DetailNr: i32;
+     Detailnr2: i32;
+     OverIsTopId: i32;
+     OverIsTopTextId: i32;
      string ss;
 
-    pub LandscapeTypeWindowClass( GameClass tGame)
+    pub LandscapeTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Landscape Types")
     {
       this.LTNr = -1;
@@ -177,9 +177,9 @@ namespace WindowsApplication1
       this.MakeLTListGUI(-1);
     }
 
-    pub void DoRefresh() => this.MakeLandscapeTypeItemGUI();
+    pub fn DoRefresh() => this.MakeLandscapeTypeItemGUI();
 
-     void MakeLTListGUI(int tltnr)
+     void MakeLTListGUI(tltnr: i32)
     {
       if (this.game.Data.LandscapeTypeCounter > -1)
       {
@@ -192,9 +192,9 @@ namespace WindowsApplication1
         ListClass ltListObj = this.LTListObj;
         let mut tlistselect: i32 =  tltnr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(ltListObj, 9, 200, tlistselect, game, tHeader: "LandscapeTypes", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
         this.LTListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
         this.LTNr = tltnr;
@@ -476,7 +476,7 @@ namespace WindowsApplication1
         }
         tsubpart11 =  TextPartClass::new("CanAmph: " + Conversion.Str( this.game.Data.LandscapeTypeObj[this.LTNr].CanAmph), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.e5textid = this.AddSubPart( tsubpart11, 650, 89, 200, 20, 0);
-        this.ss = "Click to set color for landscapetype on minimap. press cancel for no color.";
+        this.ss = "Click to set for: Color landscapetype on minimap. press cancel for no color.";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           tsubpart11 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -559,7 +559,7 @@ namespace WindowsApplication1
         }
         tsubpart11 =  TextPartClass::new("PreHexBorder=" + Conversion.Str( this.game.Data.LandscapeTypeObj[this.LTNr].PreHexBorder), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.e12textid = this.AddSubPart( tsubpart11, 880, 259, 200, 20, 0);
-        this.ss = "If LT shows up in info or editor paint selection windows ingame or not.";
+        this.ss = "If LT shows up in info or editor paselection: i32 windows ingame or not.";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           tsubpart11 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -669,9 +669,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tabSheetNr: i32 =  this.TabSheetNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart11 =  new ListSubPartClass(optionsListObj, 4, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 370, bby: 150, overruleFont: ( local2));
         this.OptionsListId = this.AddSubPart( tsubpart11, 370, 150, 300, 112, 0);
         this.ss = "Click to change the prehex sprite. current file = " + this.game.Data.LandscapeTypeObj[this.LTNr].PreHexPicFileName;
@@ -832,9 +832,9 @@ namespace WindowsApplication1
       ListClass basicListObj = this.BasicListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.BasicListId = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
       if (this.DetailNr > this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter)
@@ -883,9 +883,9 @@ namespace WindowsApplication1
         ListClass basicListObj = this.BasicListObj;
         let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
         this.BasicListId = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
         if (this.DetailNr > this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter)
@@ -1035,9 +1035,9 @@ namespace WindowsApplication1
       let mut tlistsize: i32 =  10 + num;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(moveListObj, tlistsize, 300, detailNr, game, tHeader: "Movecost for MoveTypes", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
       this.MoveListId = this.AddSubPart( tsubpart1, 10, 350, 300, (13 + num) * 16, 0);
       if (this.DetailNr > 99)
@@ -1115,9 +1115,9 @@ namespace WindowsApplication1
         ListClass specialListObj = this.SpecialListObj;
         let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(specialListObj, 15, 300, detailNr, game, tHeader: "64 Special Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
         this.SpecialListId = this.AddSubPart( tsubpart, 10, 350, 300, 288, 0);
         if (this.DetailNr > 63)
@@ -1154,10 +1154,10 @@ namespace WindowsApplication1
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
         this.BChangeSpecialSpriteId = this.AddSubPart( tsubpart2, 400, 410, 32, 16, 1);
       }
-      this.ss = "Click to set color for landscapetype on minimap. press cancel for no color.";
+      this.ss = "Click to set for: Color landscapetype on minimap. press cancel for no color.";
     }
 
-    pub void maketabsheetnr3()
+    pub fn maketabsheetnr3()
     {
       if (this.killoverrideId > 0)
         this.RemoveSubPart(this.killoverrideId);
@@ -1186,9 +1186,9 @@ namespace WindowsApplication1
         ListClass specialList2Obj = this.SpecialList2Obj;
         let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(specialList2Obj, 15, 300, detailNr, game, tHeader: "Graphic overrides", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
         this.SpecialList2Id = this.AddSubPart( tsubpart, 10, 350, 300, 288, 0);
       }
@@ -1226,9 +1226,9 @@ namespace WindowsApplication1
         ListClass specialList3Obj = this.specialList3Obj;
         let mut detailnr2: i32 =  this.Detailnr2;
         let mut game: GameClass = this.game;
-         Bitmap local3 =  this.OwnBitmap;
-        Font font =  null;
-         Font local4 =  font;
+         local3: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local4: Font =  font;
         tsubpart1 =  new ListSubPartClass(specialList3Obj, 15, 300, detailnr2, game, tHeader: "Overrides for ExtraExterior", tbackbitmap: ( local3), bbx: 10, bby: 350, overruleFont: ( local4));
         this.speciallist3id = this.AddSubPart( tsubpart1, 510, 350, 300, 288, 0);
       }
@@ -1248,7 +1248,7 @@ namespace WindowsApplication1
       this.addoverrideID2 = this.AddSubPart( tsubpart1, 900, 430, 32, 16, 1);
     }
 
-    pub void maketabsheetnr4()
+    pub fn maketabsheetnr4()
     {
       this.CombatListObj = ListClass::new();
       if (this.DetailNr < -1 | this.DetailNr > 99)
@@ -1269,9 +1269,9 @@ namespace WindowsApplication1
       ListClass combatListObj = this.CombatListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(combatListObj, 11, 580, detailNr, game, true, "Entrench per Unitgroup", tbackbitmap: ( local1), bbx: 10, bby: 360, overruleFont: ( local2));
       this.CombatListId = this.AddSubPart( tsubpart, 10, 360, 580, 224, 0);
       if (this.DetailNr <= -1)
@@ -1279,7 +1279,7 @@ namespace WindowsApplication1
       this.maketabsheetnr4b();
     }
 
-    pub void maketabsheetnr4b()
+    pub fn maketabsheetnr4b()
     {
       this.ss = "Click to change the AutoEntrench the selected unitgroup will receive in this landscape";
       str1: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.LTNr].DefBonus[this.DetailNr]));
@@ -1301,7 +1301,7 @@ namespace WindowsApplication1
       this.b19textid = this.AddSubPart( tsubpart3, 650, 359, 400, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1377,7 +1377,7 @@ namespace WindowsApplication1
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                   LandscapeTypeClass landscapeTypeClass1 = this.game.Data.LandscapeTypeObj[this.LTNr];
-                  Color color = colorDialog.Color;
+                  color: Color = colorDialog.Color;
                   let mut r: i32 =   color.R;
                   landscapeTypeClass1.Red = r;
                   LandscapeTypeClass landscapeTypeClass2 = this.game.Data.LandscapeTypeObj[this.LTNr];
@@ -2204,10 +2204,10 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void ConstructTileset2(string s)
+    pub fn ConstructTileset2(string s)
     {
-      string[] strArray = new string[65];
-      Bitmap bitmap = new Bitmap(1280, 1280);
+      strArray: Vec<String> = new string[65];
+      bitmap: Bitmap = new Bitmap(1280, 1280);
       bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics objGraphics = Graphics.FromImage((Image) bitmap);
       objGraphics.CompositingMode = CompositingMode.SourceCopy;
@@ -2244,16 +2244,16 @@ namespace WindowsApplication1
       bitmap.Dispose();
     }
 
-    pub void ConstructTileset(string s)
+    pub fn ConstructTileset(string s)
     {
-      string[] strArray = new string[65];
+      strArray: Vec<String> = new string[65];
       if (Interaction.MsgBox( "Make alternate vicFormat?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
       {
         this.ConstructTileset2(s);
       }
       else
       {
-        Bitmap bitmap1 = new Bitmap(384, 528);
+        bitmap1: Bitmap = new Bitmap(384, 528);
         bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
         graphics1.CompositingMode = CompositingMode.SourceCopy;
@@ -2270,7 +2270,7 @@ namespace WindowsApplication1
         bitmap1.Save((Stream) fileStream1, ImageFormat.Png);
         fileStream1.Close();
         graphics1.Dispose();
-        Bitmap bitmap2 = new Bitmap(768, 1056);
+        bitmap2: Bitmap = new Bitmap(768, 1056);
         bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics2 = Graphics.FromImage((Image) bitmap2);
         graphics2.CompositingMode = CompositingMode.SourceCopy;
@@ -2291,11 +2291,11 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DeconstructTileset(string s)
+    pub fn DeconstructTileset(string s)
     {
-      string[] strArray = new string[65];
+      strArray: Vec<String> = new string[65];
       let mut num1: i32 =  1;
-      int num2;
+      num2: i32;
       do
       {
         num2 = num1;
@@ -2368,11 +2368,11 @@ namespace WindowsApplication1
       strArray[62] = str1 + "/f2" + str2;
       strArray[63] = str1 + "/f1" + str2;
       strArray[64] = str1 + "/g1" + str2;
-      Bitmap bitmap1 = new Bitmap(s);
+      bitmap1: Bitmap = new Bitmap(s);
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
-      Bitmap bitmap2;
-      int width;
-      int height;
+      bitmap2: Bitmap;
+      width: i32;
+      height: i32;
       if (bitmap1.Width < 500)
       {
         bitmap2 = new Bitmap(64, 48);
@@ -2419,7 +2419,7 @@ namespace WindowsApplication1
       while (num3 <= 10);
     }
 
-    pub void ClearPixels(string s)
+    pub fn ClearPixels(string s)
     {
       s = s.Replace("\\", "/");
       let mut num1: i32 =  0;
@@ -2452,12 +2452,12 @@ namespace WindowsApplication1
       let mut num2: i32 =   Interaction.MsgBox( ("Finished. Revised " + Strings.Trim(Conversion.Str( Number1)) + " files in " + Strings.Trim(Conversion.Str( Number2)) + " directories."), Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub void ClearPixelsOperation(string s)
+    pub fn ClearPixelsOperation(string s)
     {
-      Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
+      bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
-      Bitmap bitmap2;
-      int num1;
+      bitmap2: Bitmap;
+      num1: i32;
       if (bitmap1.Width % 32 == 0 & bitmap1.Height == 24)
       {
         bitmap2 = BitmapStore.GetBitmap(this.game.SHADEDHEX, -1);
@@ -2470,7 +2470,7 @@ namespace WindowsApplication1
       }
       else if (bitmap1.Width % 128 == 0 & bitmap1.Height == 96)
       {
-        Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SHADEDHEX, 1);
+        bitmap3: Bitmap = BitmapStore.GetBitmap(this.game.SHADEDHEX, 1);
         let mut num2: i32 =  128;
         let mut num3: i32 =  bitmap3.Height - 1;
         for (let mut y: i32 =  0; y <= num3; y += 1)
@@ -2479,8 +2479,8 @@ namespace WindowsApplication1
           for (let mut x1: i32 =  0; x1 <= num4; x1 += 1)
           {
             let mut x2: i32 =  (num2 + x1) % num2;
-            Color pixel1 = bitmap3.GetPixel(x2, y);
-            Color pixel2;
+            pixel1: Color = bitmap3.GetPixel(x2, y);
+            pixel2: Color;
             if (x2 == 0)
             {
               pixel2 = bitmap1.GetPixel(x1, y);
@@ -2512,9 +2512,9 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap4;
-        int num5;
-        int num6;
+        bitmap4: Bitmap;
+        num5: i32;
+        num6: i32;
         if (bitmap1.Width == 192 & bitmap1.Height == 264)
         {
           bitmap4 = BitmapStore.GetBitmap(this.game.SHADEDHEX, -1);
@@ -2555,8 +2555,8 @@ namespace WindowsApplication1
           {
             let mut x4: i32 =  (num5 + x3) % num5;
             let mut y2: i32 =  (num6 + y1) % num6;
-            Color pixel3 = bitmap4.GetPixel(x4, y2);
-            Color pixel4;
+            pixel3: Color = bitmap4.GetPixel(x4, y2);
+            pixel4: Color;
             if (pixel3.A == (byte) 0)
               bitmap1.SetPixel(x3, y1, Color.FromArgb(0, 0, 0, 0));
             else if (x4 == 0)
@@ -2597,10 +2597,10 @@ namespace WindowsApplication1
       bitmap2 = (Bitmap) null;
     }
 
-    pub void ClearPixelFormat()
+    pub fn ClearPixelFormat()
     {
       let mut counter: i32 =  BitmapStore.Counter;
-      int Number;
+      Number: i32;
       for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         str1: String = this.game.AppPath + "graphics/" + BitmapStore.tmpFileName[index];
@@ -2617,11 +2617,11 @@ namespace WindowsApplication1
       let mut num: i32 =   Interaction.MsgBox( ("Finished. Revised " + Strings.Trim(Conversion.Str( Number)) + " files in "), Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub void SetPixelFormatOperations(string s)
+    pub fn SetPixelFormatOperations(string s)
     {
-      Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
+      bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
-      Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
+      bitmap2: Bitmap = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImageUnscaled((Image) bitmap1, 0, 0);
       graphics.Dispose();

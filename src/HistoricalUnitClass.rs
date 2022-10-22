@@ -676,7 +676,7 @@ namespace WindowsApplication1
       this.OffLibId = LibIdClass::new();
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       this.CommanderSpriteID = Operators.CompareString(this.CommanderFileName, "", false) == 0 ? -1 : BitmapStore.AddFile(this.CommanderFileName, false);
       if (Operators.CompareString(this.OverdrawFileName, "", false) != 0)
@@ -685,7 +685,7 @@ namespace WindowsApplication1
         this.OverdrawSpriteID = -1;
     }
 
-    pub int GiveHisVarValue(int typ)
+    pub GiveHisVarValue: i32(typ: i32)
     {
       let mut hisVarCount: i32 =  this.HisVarCount;
       for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
@@ -696,7 +696,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub void SetHisVarValue(int typ, int value, int smallGfx)
+    pub fn SetHisVarValue(typ: i32, value: i32, smallGfx: i32)
     {
       let mut hisVarCount: i32 =  this.HisVarCount;
       for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
@@ -719,10 +719,10 @@ namespace WindowsApplication1
       this.HisVarSmall[this.HisVarCount] = smallGfx;
     }
 
-    pub void SetHisVarValue(int typ, int value)
+    pub fn SetHisVarValue(typ: i32, value: i32)
     {
       let mut hisVarCount: i32 =  this.HisVarCount;
-      int index;
+      index: i32;
       for (index = 0; index <= hisVarCount; index += 1)
       {
         if (this.HisVarType[index] == typ)
@@ -742,7 +742,7 @@ namespace WindowsApplication1
       this.HisVarSmall[this.HisVarCount] = -1;
     }
 
-    pub void ReplaceSprite1(string s)
+    pub fn ReplaceSprite1(string s)
     {
       if (Operators.CompareString(s, "", false) == 0)
       {
@@ -764,7 +764,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ReplaceSprite2(string s2)
+    pub fn ReplaceSprite2(string s2)
     {
       if (Operators.CompareString(s2, "", false) == 0)
       {

@@ -19,7 +19,7 @@ namespace WindowsApplication1
     pub UDSData(string datastring, bool allGray)
     {
       self.element = new UDSElement[1000];
-      string[] strArray1 = new string[10000];
+      strArray1: Vec<String> = new string[10000];
       self.elementCounter = -1;
       let mut num1: i32 = 1;
       while (num1 == 1)
@@ -184,7 +184,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray2 = InputStr.Split(',');
+                    strArray2: Vec<String> = InputStr.Split(',');
                     if (strArray2.GetUpperBound(0) >= 3)
                       self.element[index].color = Color.FromArgb( Math.Round(Conversion.Val(strArray2[3])),  Math.Round(Conversion.Val(strArray2[0])),  Math.Round(Conversion.Val(strArray2[1])),  Math.Round(Conversion.Val(strArray2[2])));
                     else if (strArray2.GetUpperBound(0) >= 2)
@@ -221,7 +221,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray3 = InputStr.Split(',');
+                    strArray3: Vec<String> = InputStr.Split(',');
                     if (strArray3.GetUpperBound(0) >= 4)
                     {
                       self.element[index].x =  Math.Round(Conversion.Val(strArray3[0]));
@@ -249,7 +249,7 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    string[] strArray4 = InputStr.Split(',');
+                    strArray4: Vec<String> = InputStr.Split(',');
                     if (strArray4.GetUpperBound(0) >= 1)
                     {
                       self.element[index].optiontempvarOn[ Math.Round(Conversion.Val(strArray4[0]))] = true;
@@ -453,12 +453,12 @@ namespace WindowsApplication1
 
     pub void AddChildButtonForTable(
       string texty,
-      int tparentSlot,
-      int tChildType,
-      int tx,
-      int ty,
-      int tw,
-      int th)
+      tparentSlot: i32,
+      tChildType: i32,
+      tx: i32,
+      ty: i32,
+      tw: i32,
+      th: i32)
     {
       self += 1.elementCounter;
       let mut elementCounter: i32 = self.elementCounter;
@@ -488,12 +488,12 @@ namespace WindowsApplication1
 
     pub void AddChildTextForTable(
       string texty,
-      int tparentSlot,
-      int tChildType,
-      int tx,
-      int ty,
-      int tw,
-      int th)
+      tparentSlot: i32,
+      tChildType: i32,
+      tx: i32,
+      ty: i32,
+      tw: i32,
+      th: i32)
     {
       self += 1.elementCounter;
       let mut elementCounter: i32 = self.elementCounter;
@@ -514,7 +514,7 @@ namespace WindowsApplication1
       self.element[elementCounter].color = Color.Black;
     }
 
-    pub int GetTablePages(int slot)
+    pub GetTablePages: i32(slot: i32)
     {
       StringListClass stringListClass = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))];
       let mut num1: i32 = stringListClass.Length + 1;
@@ -522,12 +522,12 @@ namespace WindowsApplication1
       return  Math.Round(Math.Floor( Math.Max(0, stringListClass.Length - 1) /  num2)) + 1;
     }
 
-    pub int GetRowsPerPage(int slot)
+    pub GetRowsPerPage: i32(slot: i32)
     {
       let mut num: i32 = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
       return  Math.Round(Math.Floor( self.element[slot].h /  self.element[slot].lineHeight)) - 1;
     }
 
-    pub int GetTotalRows(int slot) => DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
+    pub GetTotalRows: i32(slot: i32) => DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
   }
 }

@@ -28,9 +28,9 @@ namespace WindowsApplication1
     pub type: i32;
     pub nr: i32;
     pub nr2: i32;
-    pub DataClass Data;
-    pub GameClass Game;
-     Form1 formref;
+    pub Data: DataClass;
+    pub game: GameClass;
+     formref: Form1;
 
     pub Form4(Form tformref)
     {
@@ -165,13 +165,13 @@ namespace WindowsApplication1
     {
     }
 
-    pub void Initialize(GameClass tGame)
+    pub fn Initialize(tGame: GameClass)
     {
       this.BringToFront();
       this.Game = tGame;
       foreach (FileInfo file in new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "mods/").GetFiles("*.txt"))
       {
-        int ID;
+        ID: i32;
         ID += 1;
         StreamReader streamReader = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + "mods/" + file.Name);
         Name: String = streamReader.ReadLine();

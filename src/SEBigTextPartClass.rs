@@ -15,15 +15,15 @@ namespace WindowsApplication1
      string description;
      bool active;
      string texty;
-     int tw;
-     int th;
+     tw: i32;
+     th: i32;
 
     pub SEBigTextPartClass(
       string tTexty,
       string tDescript,
       bool tactive,
-      int twidth,
-      int theight)
+      twidth: i32,
+      theight: i32)
       : base(twidth, theight)
     {
       this.Descript = tDescript;
@@ -33,10 +33,10 @@ namespace WindowsApplication1
       this.th = theight;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (!this.active)
@@ -120,10 +120,10 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (!this.active)

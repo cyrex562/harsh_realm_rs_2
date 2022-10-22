@@ -12,15 +12,15 @@ namespace WindowsApplication1
 {
   pub class ResourceWindowClass : WindowClass
   {
-     int AllId;
-     int info2id;
-     int b2id;
+     AllId: i32;
+     info2id: i32;
+     b2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
+     w: i32;
+     h: i32;
 
-    pub ResourceWindowClass( GameClass tGame, int morewidth)
+    pub ResourceWindowClass( tGame: GameClass, morewidth: i32)
       : base( tGame, tGame.ScreenWidth - 220 + morewidth, 35, 8)
     {
       this.w = tGame.ScreenWidth - 220 + morewidth;
@@ -28,11 +28,11 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void PopUpRefresh() => this.dostuff();
+    pub fn PopUpRefresh() => this.dostuff();
 
-    pub string WindowDescription(int x, int y)
+    pub string WindowDescription(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.AllId > 0)
       {
@@ -82,7 +82,7 @@ namespace WindowsApplication1
       DrawMod.DrawBlock( Expression, 0, 0, this.w, this.h,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       this.ClearMouse();
       SizeF sizeF2;
-      int num4;
+      num4: i32;
       if (this.game.Data.Round > 0)
       {
         name: String = this.game.Data.RegimeObj[this.game.Data.Turn].Name;
@@ -91,7 +91,7 @@ namespace WindowsApplication1
         sizeF2 = Expression.MeasureString("CURRENT REGIME", this.game.VicFont5);
         if ( sizeF2.Width + 20.0 >  num5)
           num5 =  Math.Round( (sizeF2.Width + 20f));
-        int num6;
+        num6: i32;
         let mut num7: i32 = num6 + num5 + 20;
         text1: String = Strings.Left(this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].Name, 3);
         sizeF2 = Expression.MeasureString(text1, this.game.VicFont2);
@@ -380,7 +380,7 @@ namespace WindowsApplication1
           if (this.game.Data.RegimeSlotNato[index10] > 0)
           {
              let mut local5: &Graphics = &Expression;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.RegimeSlotNato[index10]]);
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.RegimeSlotNato[index10]]);
              let mut local6: &Bitmap = &bitmap;
             let mut x5: i32 = x1;
             DrawMod.DrawSimple( local5,  local6, x5, 0);
@@ -456,7 +456,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -500,7 +500,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       currentDescript: String = this.game.EditObj.CurrentDescript;

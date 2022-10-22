@@ -23,7 +23,7 @@ namespace WindowsApplication1
      static ISound eventsoundbg;
     pub static bool NOSOUND;
     pub static bool SYSTEMFAILURE = false;
-    pub static int dssSoundCounter;
+    pub static dssSoundCounter: i32;
     pub static let mut dssSoundMaxCounter: i32 = 9;
      static ISound[] dssSoundRef = new ISound[10];
      static int[] dssStatus = new int[10];
@@ -53,7 +53,7 @@ namespace WindowsApplication1
 
     pub static void PlayAWave(
       string Soundfile,
-       EditClass teditobj,
+       teditobj: EditClass,
       bool overrule = false,
       let mut volumeMod: i32 = 0)
     {
@@ -82,7 +82,7 @@ namespace WindowsApplication1
         SoundMod.eventsound.Volume =  teditobj.Volume2 / 100f;
     }
 
-    pub static void PlayEventWave(string Soundfile,  EditClass teditobj)
+    pub static void PlayEventWave(string Soundfile,  teditobj: EditClass)
     {
       if (SoundMod.NOSOUND || SoundMod.SYSTEMFAILURE)
         return;
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       SoundMod.eventsound.Stop();
     }
 
-    pub static void RestartLastBackground( EditClass teditobj)
+    pub static void RestartLastBackground( teditobj: EditClass)
     {
       if (SoundMod.NOSOUND || SoundMod.SYSTEMFAILURE || Information.IsNothing( SoundMod.LastSong))
         return;
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       SoundMod.PlayEventBackground(lastSong,  teditobj);
     }
 
-    pub static void PlayEventBackground(string Soundfile,  EditClass teditobj)
+    pub static void PlayEventBackground(string Soundfile,  teditobj: EditClass)
     {
       if (SoundMod.NOSOUND || SoundMod.SYSTEMFAILURE)
         return;
@@ -166,7 +166,7 @@ namespace WindowsApplication1
       SoundMod.eventsoundbg.Volume =  teditobj.Volume / 100f;
     }
 
-    pub static void ChangeEventSoundBg(EditClass teditobj)
+    pub static void ChangeEventSoundBg(teditobj: EditClass)
     {
       if (SoundMod.SYSTEMFAILURE)
         return;
@@ -182,7 +182,7 @@ namespace WindowsApplication1
       while (index <= 9);
     }
 
-    pub static void ChangeEventSound(EditClass teditobj)
+    pub static void ChangeEventSound(teditobj: EditClass)
     {
       if (SoundMod.SYSTEMFAILURE || Information.IsNothing( SoundMod.eventsound))
         return;
@@ -223,7 +223,7 @@ namespace WindowsApplication1
       SoundMod.engine.RemoveAllSoundSources();
     }
 
-    pub static void dssTimer( EditClass teditobj)
+    pub static void dssTimer( teditobj: EditClass)
     {
       if (teditobj.IntroSoundOn & SoundMod.NOSOUND & !SoundMod.SYSTEMFAILURE)
         SoundMod.NOSOUND = false;
@@ -285,7 +285,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void dssEnd( EditClass teditobj)
+    pub static void dssEnd( teditobj: EditClass)
     {
       let mut num: i32 =  Math.Round((DateAndTime.Now - SoundMod.startDatetime).TotalMilliseconds);
       for (let mut dssSoundCounter: i32 = SoundMod.dssSoundCounter; dssSoundCounter >= 0; dssSoundCounter += -1)
@@ -298,7 +298,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void dssAdjust( EditClass teditobj)
+    pub static void dssAdjust( teditobj: EditClass)
     {
       bool flag1 = true;
       bool flag2 = true;
@@ -374,7 +374,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void dssNew( EditClass teditobj)
+    pub static void dssNew( teditobj: EditClass)
     {
       let mut id: i32 =  Math.Round( DrawMod.TGame.Data.RuleVar[447]);
       let mut stringListById: i32 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(id);
@@ -396,7 +396,7 @@ namespace WindowsApplication1
         if (flag)
           simpleList.Add(tid, DrawMod.RandyNumber.Next(0, 100));
       }
-      int index;
+      index: i32;
       if (simpleList.Counter > -1)
       {
         simpleList.Sort();
@@ -415,13 +415,13 @@ namespace WindowsApplication1
     }
 
     pub static void dssStartSound(
-       EditClass teditobj,
-      int dssSlotNr,
+       teditobj: EditClass,
+      dssSlotNr: i32,
       string Soundfile,
-      int tStatus,
-      int tType,
+      tStatus: i32,
+      tType: i32,
       float tVolume,
-      int tId,
+      tId: i32,
       bool tLoop)
     {
       Soundfile = Soundfile.Replace("\\", "/");
@@ -467,7 +467,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void dssRemoveSoundSlot(int slot)
+    pub static void dssRemoveSoundSlot(slot: i32)
     {
       if (slot < 0)
       {

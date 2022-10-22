@@ -13,35 +13,35 @@ namespace WindowsApplication1
 {
   pub class SupplyLayerWindowClass : WindowClass
   {
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int w;
-     int h;
-     int detailnr;
-     int detailnr2;
-     int OptionsListId;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     w: i32;
+     h: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsListId2;
+     OptionsListId2: i32;
      ListClass OptionsListObj2;
      bool firstCall;
-     int curMode;
-     int curModeX;
-     int curModeY;
+     curMode: i32;
+     curModeX: i32;
+     curModeY: i32;
      SimpleList CacheL;
      SimpleList CacheL2;
      bool firstCallOnNew;
 
-    pub SupplyLayerWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
+    pub SupplyLayerWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
       : base( tGame, tGame.ScreenWidth, 150, BackSprite: tGame.MARCBOTBAR)
     {
       self.curMode = 0;
@@ -76,8 +76,8 @@ namespace WindowsApplication1
       self.CacheL = SimpleList::new();
       self.CacheL2 = SimpleList::new();
       let mut mapWidth: i32 = self.game.Data.MapObj[0].MapWidth;
-      int tdata1;
-      int tdata2;
+      tdata1: i32;
+      tdata2: i32;
       Coordinate coordinate1;
       Coordinate coordinate2;
       for (tdata1 = 0; tdata1 <= mapWidth; tdata1 += 1)
@@ -439,7 +439,7 @@ namespace WindowsApplication1
         self.game.EditObj.SupplyPath = CoordList::new();
         let mut x1: i32 = self.game.SelectX;
         let mut y1: i32 = self.game.SelectY;
-        int map1;
+        map1: i32;
         for (let mut map2: i32 = 0; self.game.EditObj.TempSupCameFrom[map2].Value[x1, y1].onmap; map2 = map1)
         {
           self.game.EditObj.SupplyPath.AddCoord(x1, y1, map2);
@@ -478,7 +478,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();
@@ -490,8 +490,8 @@ namespace WindowsApplication1
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
             let mut num1: i32 = self.SubPartID[index];
-            int selectX;
-            int selectY;
+            selectX: i32;
+            selectY: i32;
             if (num1 == self.OptionsListId)
             {
               let mut num2: i32 = self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);

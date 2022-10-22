@@ -20,10 +20,10 @@ namespace WindowsApplication1
     pub Length: i32;
     pub Width: i32;
     pub string[,] Data;
-    pub string[] ColumnName;
+    pub ColumnName: Vec<String>;
     pub ID: i32;
-    pub int[,] TempBmp;
-    pub string[] TempColumBmp;
+    pub TempBmp: Vec<i32>;
+    pub TempColumBmp: Vec<String>;
     pub string[,] TempDesc;
     pub LookUpCol: Vec<i32>;
     pub LookUpId: i32;
@@ -67,7 +67,7 @@ namespace WindowsApplication1
       info.AddValue("SSID",  self.SSID);
     }
 
-    pub int GetRandomId(int idInCol, int weightInCol)
+    pub GetRandomId: i32(idInCol: i32, weightInCol: i32)
     {
       SimpleList simpleList = SimpleList::new();
       let mut length: i32 = self.Length;
@@ -82,7 +82,7 @@ namespace WindowsApplication1
       return simpleList.Id[index1];
     }
 
-    pub int GetHighestValue(int col, bool return0ifNoneFound = false)
+    pub GetHighestValue: i32(col: i32, bool return0ifNoneFound = false)
     {
       let mut highestValue: i32 = -99999;
       let mut length: i32 = self.Length;
@@ -96,7 +96,7 @@ namespace WindowsApplication1
       return highestValue;
     }
 
-    pub FindValue: bool(int col, int tval)
+    pub FindValue: bool(col: i32, tval: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -107,7 +107,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub FindValue2: bool(int col, string tval, int col2, string tval2)
+    pub FindValue2: bool(col: i32, string tval, col2: i32, string tval2)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -118,7 +118,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub FindValue2: bool(int col, int tval, int col2, int tval2)
+    pub FindValue2: bool(col: i32, tval: i32, col2: i32, tval2: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -129,7 +129,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int FindRow(int col, int tval)
+    pub FindRow: i32(col: i32, tval: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut row: i32 = 0; row <= length; row += 1)
@@ -140,7 +140,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindRow(int col, string tval)
+    pub FindRow: i32(col: i32, string tval)
     {
       let mut length: i32 = self.Length;
       for (let mut row: i32 = 0; row <= length; row += 1)
@@ -151,7 +151,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindRow2(int col, int tval, int col2, int tval2)
+    pub FindRow2: i32(col: i32, tval: i32, col2: i32, tval2: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut row2: i32 = 0; row2 <= length; row2 += 1)
@@ -162,7 +162,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindRow3(int col, int tval, int col2, int tval2, int col3, int tval3)
+    pub FindRow3: i32(col: i32, tval: i32, col2: i32, tval2: i32, col3: i32, tval3: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut row3: i32 = 0; row3 <= length; row3 += 1)
@@ -173,7 +173,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindValue: bool(int col, int tval, int col2, int tval2)
+    pub FindValue: bool(col: i32, tval: i32, col2: i32, tval2: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -184,7 +184,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub string GetData(int idInCol, int idValue, int returnCol)
+    pub string GetData(idInCol: i32, idValue: i32, returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -195,10 +195,10 @@ namespace WindowsApplication1
       return Conversions.ToString(-1);
     }
 
-    pub int GetDataCount(int idInCol, int idValue)
+    pub GetDataCount: i32(idInCol: i32, idValue: i32)
     {
       let mut length: i32 = self.Length;
-      int dataCount;
+      dataCount: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue)
@@ -207,10 +207,10 @@ namespace WindowsApplication1
       return dataCount;
     }
 
-    pub int GetData2Count(int idInCol, int idValue, int idInCol2, int idValue2)
+    pub GetData2Count: i32(idInCol: i32, idValue: i32, idInCol2: i32, idValue2: i32)
     {
       let mut length: i32 = self.Length;
-      int data2Count;
+      data2Count: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue &&  Math.Round(Conversion.Val(self.Data[index, idInCol2])) == idValue2)
@@ -219,10 +219,10 @@ namespace WindowsApplication1
       return data2Count;
     }
 
-    pub int GetDataCountWeight(int idInCol, int idValue, int weightCol)
+    pub GetDataCountWeight: i32(idInCol: i32, idValue: i32, weightCol: i32)
     {
       let mut length: i32 = self.Length;
-      int dataCountWeight;
+      dataCountWeight: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue)
@@ -231,15 +231,15 @@ namespace WindowsApplication1
       return dataCountWeight;
     }
 
-    pub int GetData2CountWeight(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int weightCol)
+    pub GetData2CountWeight: i32(
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      weightCol: i32)
     {
       let mut length: i32 = self.Length;
-      int data2CountWeight;
+      data2CountWeight: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue &&  Math.Round(Conversion.Val(self.Data[index, idInCol2])) == idValue2)
@@ -248,17 +248,17 @@ namespace WindowsApplication1
       return data2CountWeight;
     }
 
-    pub int GetData3CountWeight(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int weightCol)
+    pub GetData3CountWeight: i32(
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      weightCol: i32)
     {
       let mut length: i32 = self.Length;
-      int data3CountWeight;
+      data3CountWeight: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue &&  Math.Round(Conversion.Val(self.Data[index, idInCol2])) == idValue2 &&  Math.Round(Conversion.Val(self.Data[index, idInCol3])) == idValue3)
@@ -267,19 +267,19 @@ namespace WindowsApplication1
       return data3CountWeight;
     }
 
-    pub int GetData4CountWeight(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int idInCol4,
-      int idValue4,
-      int weightCol)
+    pub GetData4CountWeight: i32(
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      idInCol4: i32,
+      idValue4: i32,
+      weightCol: i32)
     {
       let mut length: i32 = self.Length;
-      int data4CountWeight;
+      data4CountWeight: i32;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(self.Data[index, idInCol])) == idValue &&  Math.Round(Conversion.Val(self.Data[index, idInCol2])) == idValue2 &&  Math.Round(Conversion.Val(self.Data[index, idInCol3])) == idValue3 &&  Math.Round(Conversion.Val(self.Data[index, idInCol4])) == idValue4)
@@ -288,7 +288,7 @@ namespace WindowsApplication1
       return data4CountWeight;
     }
 
-    pub string GetData(int idInCol, string idValue, int returnCol)
+    pub string GetData(idInCol: i32, string idValue, returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -299,7 +299,7 @@ namespace WindowsApplication1
       return Conversions.ToString(0);
     }
 
-    pub string GetData2(int idInCol, int idValue, int idInCol2, int idValue2, int returnCol)
+    pub string GetData2(idInCol: i32, idValue: i32, idInCol2: i32, idValue2: i32, returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -311,11 +311,11 @@ namespace WindowsApplication1
     }
 
     pub string GetData2(
-      int idInCol,
+      idInCol: i32,
       string idValue,
-      int idInCol2,
-      int idValue2,
-      int returnCol)
+      idInCol2: i32,
+      idValue2: i32,
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -327,13 +327,13 @@ namespace WindowsApplication1
     }
 
     pub string GetData3(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
       string idValue3,
-      int returnCol)
+      returnCol: i32)
     {
       if (self.Length == -1)
         return "0";
@@ -347,13 +347,13 @@ namespace WindowsApplication1
     }
 
     pub string GetData3(
-      int idInCol,
-      int idValue,
-      int idInCol2,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
       string idValue2,
-      int idInCol3,
-      int idValue3,
-      int returnCol)
+      idInCol3: i32,
+      idValue3: i32,
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -365,13 +365,13 @@ namespace WindowsApplication1
     }
 
     pub string GetData3(
-      int idInCol,
+      idInCol: i32,
       string idValue,
-      int idInCol2,
+      idInCol2: i32,
       string idValue2,
-      int idInCol3,
+      idInCol3: i32,
       string idValue3,
-      int returnCol)
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -383,15 +383,15 @@ namespace WindowsApplication1
     }
 
     pub string GetData4(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int idInCol4,
-      int idValue4,
-      int returnCol)
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      idInCol4: i32,
+      idValue4: i32,
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -403,17 +403,17 @@ namespace WindowsApplication1
     }
 
     pub string GetData5(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int idInCol4,
-      int idValue4,
-      int idInCol5,
-      int idValue5,
-      int returnCol)
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      idInCol4: i32,
+      idValue4: i32,
+      idInCol5: i32,
+      idValue5: i32,
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -425,15 +425,15 @@ namespace WindowsApplication1
     }
 
     pub string GetData4(
-      int idInCol,
+      idInCol: i32,
       string idValue,
-      int idInCol2,
+      idInCol2: i32,
       string idValue2,
-      int idInCol3,
+      idInCol3: i32,
       string idValue3,
-      int idInCol4,
+      idInCol4: i32,
       string idValue4,
-      int returnCol)
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -445,13 +445,13 @@ namespace WindowsApplication1
     }
 
     pub string GetData3(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int returnCol)
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -463,11 +463,11 @@ namespace WindowsApplication1
     }
 
     pub string GetData2(
-      int idInCol,
-      int idValue,
-      int idInCol2,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
       string idValue2,
-      int returnCol)
+      returnCol: i32)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -507,19 +507,19 @@ namespace WindowsApplication1
       self.SetRowData(self.Length, s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20);
     }
 
-    pub void AddRowWithData(string s0, string s1, string s2, string s3, string s4)
+    pub fn AddRowWithData(string s0, string s1, string s2, string s3, string s4)
     {
       self.AddRowFast(self.Length);
       self.SetRowData(self.Length, s0, s1, s2, s3, s4);
     }
 
-    pub void AddRowWithDataFast(string s0, string s1, string s2, string s3, string s4)
+    pub fn AddRowWithDataFast(string s0, string s1, string s2, string s3, string s4)
     {
       self.AddRowFast(self.Length);
       self.SetRowData(self.Length, s0, s1, s2, s3, s4);
     }
 
-    pub void SetRowData(int rowNr, string s0, string s1, string s2, string s3, string s4)
+    pub fn SetRowData(rowNr: i32, string s0, string s1, string s2, string s3, string s4)
     {
       self.Data[rowNr, 0] = s0;
       self.Data[rowNr, 1] = s1;
@@ -531,7 +531,7 @@ namespace WindowsApplication1
     }
 
     pub void SetRowData(
-      int rowNr,
+      rowNr: i32,
       string s0,
       s1: String = "",
       s2: String = "",
@@ -599,7 +599,7 @@ namespace WindowsApplication1
       self.Data[rowNr, 20] = s20;
     }
 
-    pub void SetData(int idInCol, int idValue, int setCol, int setValue, bool allowAdd = false)
+    pub fn SetData(idInCol: i32, idValue: i32, setCol: i32, setValue: i32, bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -617,7 +617,7 @@ namespace WindowsApplication1
       self.Data[self.Length, setCol] = setValue.ToString();
     }
 
-    pub void SetData(int idInCol, string idValue, int setCol, int setValue, bool allowAdd = false)
+    pub fn SetData(idInCol: i32, string idValue, setCol: i32, setValue: i32, bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -635,7 +635,7 @@ namespace WindowsApplication1
       self.Data[self.Length, setCol] = setValue.ToString();
     }
 
-    pub void SetData(int idInCol, string idValue, int setCol, string setValue, bool allowAdd = false)
+    pub fn SetData(idInCol: i32, string idValue, setCol: i32, string setValue, bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -654,12 +654,12 @@ namespace WindowsApplication1
     }
 
     pub void SetData2(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int setCol,
-      int setValue,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -680,14 +680,14 @@ namespace WindowsApplication1
     }
 
     pub void SetData3(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int setCol,
-      int setValue,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -709,14 +709,14 @@ namespace WindowsApplication1
     }
 
     pub void SetData3(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
       string idValue3,
-      int setCol,
-      int setValue,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -738,16 +738,16 @@ namespace WindowsApplication1
     }
 
     pub void SetData4(
-      int idInCol,
-      int idValue,
-      int idInCol2,
-      int idValue2,
-      int idInCol3,
-      int idValue3,
-      int idInCol4,
-      int idValue4,
-      int setCol,
-      int setValue,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
+      idValue2: i32,
+      idInCol3: i32,
+      idValue3: i32,
+      idInCol4: i32,
+      idValue4: i32,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -770,16 +770,16 @@ namespace WindowsApplication1
     }
 
     pub void SetData4(
-      int idInCol,
+      idInCol: i32,
       string idValue,
-      int idInCol2,
+      idInCol2: i32,
       string idValue2,
-      int idInCol3,
+      idInCol3: i32,
       string idValue3,
-      int idInCol4,
+      idInCol4: i32,
       string idValue4,
-      int setCol,
-      int setValue,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -802,12 +802,12 @@ namespace WindowsApplication1
     }
 
     pub void SetData2(
-      int idInCol,
-      int idValue,
-      int idInCol2,
+      idInCol: i32,
+      idValue: i32,
+      idInCol2: i32,
       string idValue2,
-      int setCol,
-      int setValue,
+      setCol: i32,
+      setValue: i32,
       bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
@@ -827,7 +827,7 @@ namespace WindowsApplication1
       self.Data[self.Length, setCol] = setValue.ToString();
     }
 
-    pub void SetData(int idInCol, int idValue, int setCol, string setValue, bool allowAdd = false)
+    pub fn SetData(idInCol: i32, idValue: i32, setCol: i32, string setValue, bool allowAdd = false)
     {
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
@@ -964,7 +964,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub StringListClass(int tid)
+    pub StringListClass(tid: i32)
     {
       self.Data = new string[1, 1];
       self.ColumnName = new string[1];
@@ -1004,13 +1004,13 @@ namespace WindowsApplication1
       self.SSID[0] = 0;
     }
 
-    pub void ClearAllRows()
+    pub fn ClearAllRows()
     {
       self.Length = -1;
       self.Data = new string[self.Width + 1, 1];
     }
 
-    pub void Clear()
+    pub fn Clear()
     {
       while (self.Length > -1)
         self.RemoveRow(self.Length);
@@ -1018,7 +1018,7 @@ namespace WindowsApplication1
         self.RemoveCol(self.Width);
     }
 
-    pub LibVarClass GetValue( DataClass tData, int row, int col, let mut useLibSlot: i32 = -1)
+    pub LibVarClass GetValue( tData: DataClass, row: i32, col: i32, let mut useLibSlot: i32 = -1)
     {
       LibVarClass libVarClass = new LibVarClass(-1);
       if (col > -1)
@@ -1261,11 +1261,11 @@ namespace WindowsApplication1
       return libVarClass;
     }
 
-    pub void SetItem(int row, int col, string s)
+    pub fn SetItem(row: i32, col: i32, string s)
     {
       while (row > self.Length)
         self.AddRow(self.Length);
-      int num;
+      num: i32;
       if (col > self.Width)
       {
         self.Width = col;
@@ -1288,9 +1288,9 @@ namespace WindowsApplication1
       self.Data[row, col] = s;
     }
 
-    pub void SetColName(int col, string s)
+    pub fn SetColName(col: i32, string s)
     {
-      int num;
+      num: i32;
       if (col > self.Width)
       {
         self.Width = col;
@@ -1317,7 +1317,7 @@ namespace WindowsApplication1
       self.logEnabled[col] = false;
     }
 
-    pub void Sort(int col)
+    pub fn Sort(col: i32)
     {
       self.ColSort[col] = self.ColSort[col] > 1 ? 1 : 2;
       bool flag1 = true;
@@ -1379,7 +1379,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveRow(int row)
+    pub fn RemoveRow(row: i32)
     {
       object[,] objArray = new object[self.Length + 1, self.Width + 1];
       let mut length1: i32 = self.Length;
@@ -1411,7 +1411,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveMultipleRow(bool[] flaggy)
+    pub fn RemoveMultipleRow(bool[] flaggy)
     {
       object[,] objArray = new object[self.Length + 1, self.Width + 1];
       let mut index1: i32 = -1;
@@ -1452,7 +1452,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void RemoveCol(int col)
+    pub fn RemoveCol(col: i32)
     {
       object[,] objArray = new object[self.Length + 1, self.Width + 1];
       let mut length1: i32 = self.Length;
@@ -1502,7 +1502,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddRow(int row)
+    pub fn AddRow(row: i32)
     {
       if (row >= self.Length)
       {
@@ -1599,7 +1599,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddRowFast(int row)
+    pub fn AddRowFast(row: i32)
     {
       if (row < self.Length)
       {
@@ -1683,7 +1683,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddCol(int col, tname: String = "New Col")
+    pub fn AddCol(col: i32, tname: String = "New Col")
     {
       self.ColumnName = (string[]) Utils.CopyArray((Array) self.ColumnName, (Array) new string[self.Width + 1 + 1]);
       self.logEnabled = (bool[]) Utils.CopyArray((Array) self.logEnabled, (Array) new bool[self.Width + 1 + 1]);

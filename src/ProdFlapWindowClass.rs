@@ -13,44 +13,44 @@ namespace WindowsApplication1
 {
   pub class ProdFlapWindowClass : WindowClass
   {
-     int Info1Id;
-     int info2id;
-     int b1textid;
-     int b2textid;
-     int curheight;
-     int detailnr;
-     int butup;
-     int OptionsListId;
+     Info1Id: i32;
+     info2id: i32;
+     b1textid: i32;
+     b2textid: i32;
+     curheight: i32;
+     detailnr: i32;
+     butup: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int detailnr2;
-     int butdown;
+     detailnr2: i32;
+     butdown: i32;
      int[] butpage;
      int[] butdata;
-     int butcount;
-     int curbut;
-     int butres;
-     int resmode;
-     int txt1id;
-     int txt2id;
-     int txt3id;
-     int txt4id;
-     int txt5id;
-     int txt6id;
-     int txt7id;
-     int txt8id;
+     butcount: i32;
+     curbut: i32;
+     butres: i32;
+     resmode: i32;
+     txt1id: i32;
+     txt2id: i32;
+     txt3id: i32;
+     txt4id: i32;
+     txt5id: i32;
+     txt6id: i32;
+     txt7id: i32;
+     txt8id: i32;
      int[] mzx;
      int[] mzy;
      int[] mzx2;
      int[] mzy2;
      int[] mznr;
-     int mzcount;
+     mzcount: i32;
 
     pub ProdFlapWindowClass(
-       GameClass tGame,
-      int theight,
-      Bitmap screenbitmap = null,
+       tGame: GameClass,
+      theight: i32,
+      screenbitmap: Bitmap = null,
       let mut sx: i32 = -1,
       let mut sy: i32 = -1,
       let mut tl1: i32 = -1,
@@ -72,9 +72,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       float[] numArray1 = new float[this.game.Data.ItemTypeCounter + 1];
       let mut num1: i32 = 0;
@@ -143,7 +143,7 @@ namespace WindowsApplication1
         }
       }
       this.butcount =  Math.Round( (this.curheight - 110) / 50.0);
-      int num6;
+      num6: i32;
       if (simpleList2.Counter > -1)
       {
         simpleList2.Sort();
@@ -190,15 +190,15 @@ namespace WindowsApplication1
                 DrawMod.DrawTextVic2( graphics, this.game.Data.UnitObj[nr1].Name, this.game.VicFont3, num5 + 45, num14 + 15, this.game.VicColor2, this.game.VicColor2Shade);
               }
                let mut local1: &Graphics = &graphics;
-              CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
+              customBitmapObj: CustomBitmapClass = this.game.CustomBitmapObj;
               let mut cx: i32 = num11;
               let mut cy: i32 = num12;
               let mut cmap: i32 = num13;
-              Bitmap bitmap1 = (Bitmap) null;
+              bitmap1: Bitmap = (Bitmap) null;
                let mut local2: &Bitmap = &bitmap1;
               bool flag = false;
                bool local3 =  flag;
-              Bitmap bitmap2 = customBitmapObj.DrawHex(cx, cy, cmap, true, gBitmap: ( local2), tFromMapPopup: ( local3));
+              bitmap2: Bitmap = customBitmapObj.DrawHex(cx, cy, cmap, true, gBitmap: ( local2), tFromMapPopup: ( local3));
                let mut local4: &Bitmap = &bitmap2;
               let mut x1: i32 = num5 + 200;
               let mut y1: i32 = num14;
@@ -219,7 +219,7 @@ namespace WindowsApplication1
                       tstring = "PP";
                     if (this.game.Data.ItemTypeObj[index6].IsSFType > -1 & regime > -1)
                     {
-                      int symbolSpriteId;
+                      symbolSpriteId: i32;
                       if (this.game.Data.RegimeObj[regime].ExtraGraphicUse > -1 & this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index6].IsSFType].ExtraCounter > -1 & this.game.Data.Round > 0)
                       {
                         let mut isSfType: i32 = this.game.Data.ItemTypeObj[index6].IsSFType;
@@ -243,7 +243,7 @@ namespace WindowsApplication1
                       else
                         symbolSpriteId = this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index6].IsSFType].SymbolSpriteID;
                        let mut local5: &Graphics = &graphics;
-                      Bitmap bitmap3 = BitmapStore.GetBitmap(symbolSpriteId);
+                      bitmap3: Bitmap = BitmapStore.GetBitmap(symbolSpriteId);
                        let mut local6: &Bitmap = &bitmap3;
                       let mut x2: i32 = num5 + 440 + index5 * 50;
                       let mut y2: i32 = num14 + 5;
@@ -439,7 +439,7 @@ namespace WindowsApplication1
         ;
       if (num2 != 1)
         ;
-      int num33;
+      num33: i32;
       if (Conversion.Int(1.0 +  simpleList2.Counter /  this.butcount) > 1.0)
       {
         DrawMod.DrawTextVic( graphics, "PAGE", this.game.VicFont2, 684 + num4, 30, this.game.VicColor1, this.game.VicColor1Shade);
@@ -560,7 +560,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mzcount: i32 = this.mzcount;

@@ -13,10 +13,10 @@ namespace WindowsApplication1
   {
     pub Counter: i32;
     pub AIFront[] Front;
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
      int idCounter;
 
-    pub AIFrontList(ref DC2AIClass tai)
+    pub AIFrontList(ref tai: DC2AIClass)
     {
       this.Front = new AIFront[1];
       this.ai = tai;
@@ -90,7 +90,7 @@ namespace WindowsApplication1
       return this.Front[this.Counter];
     }
 
-    pub void AddFront(AIFront tFront, bool autoSetId)
+    pub fn AddFront(AIFront tFront, bool autoSetId)
     {
       this += 1.Counter;
       this.Front = (AIFront[]) Utils.CopyArray((Array) this.Front, (Array) new AIFront[this.Counter + 1]);
@@ -102,7 +102,7 @@ namespace WindowsApplication1
       this.Front[this.Counter].FrontID = this.idCounter;
     }
 
-    pub void RemoveFront(int frontID)
+    pub fn RemoveFront(int frontID)
     {
       let mut counter: i32 =  this.Counter;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -153,7 +153,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub void RemoveAllUnitsUnderCorpsFromFront(int hq, int fromFrontID, int toFrontID)
+    pub fn RemoveAllUnitsUnderCorpsFromFront(int hq, int fromFrontID, int toFrontID)
     {
       AIFront front1 = this.FindFront(fromFrontID);
       AIFront front2 = this.FindFront(toFrontID);
@@ -221,7 +221,7 @@ namespace WindowsApplication1
       return aiFrontList;
     }
 
-    pub void CopyUnitsFromAIFrontList(ref AIFrontList tempList)
+    pub fn CopyUnitsFromAIFrontList(ref AIFrontList tempList)
     {
       let mut counter1: i32 =  tempList.Counter;
       for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
@@ -235,7 +235,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ResetStats()
+    pub fn ResetStats()
     {
       let mut counter: i32 =  this.Counter;
       for (let mut index: i32 =  0; index <= counter; index += 1)

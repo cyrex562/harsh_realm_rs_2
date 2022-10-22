@@ -18,7 +18,7 @@ namespace WindowsApplication1
     pub SAClass TooArea;
     pub SAClass RetreatTooArea;
     pub FlankCoverCounter: i32;
-    pub SAClass[] FlankCover;
+    pub FlankCover: Vec<SAClass>;
     pub WeightStrategic: i32;
     pub float WeightEnemyForce;
     pub float WeightEnemyForceUnMod;
@@ -91,7 +91,7 @@ namespace WindowsApplication1
       this.HQ = -1;
     }
 
-    pub void AddFlankCover(SAClass nr)
+    pub fn AddFlankCover(SAClass nr)
     {
       this += 1.FlankCoverCounter;
       this.FlankCover = (SAClass[]) Utils.CopyArray((Array) this.FlankCover, (Array) new SAClass[this.FlankCoverCounter + 1]);

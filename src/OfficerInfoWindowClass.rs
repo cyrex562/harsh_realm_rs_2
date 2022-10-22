@@ -14,23 +14,23 @@ namespace WindowsApplication1
 {
   pub class OfficerInfoWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
 
-    pub OfficerInfoWindowClass( GameClass tGame)
+    pub OfficerInfoWindowClass( tGame: GameClass)
       : base( tGame, 810, 610, BackSprite: tGame.BACKGROUND2MARC, tBackSpriteScaled: true)
     {
       this.His = this.game.EditObj.TempHisUnit <= -1 ? tGame.Data.UnitObj[tGame.EditObj.UnitSelected].Historical : this.game.EditObj.TempHisUnit;
       this.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       if (this.Pic1Id > 0)
         this.RemoveSubPart(this.Pic1Id);
@@ -51,7 +51,7 @@ namespace WindowsApplication1
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       let mut commanderSpriteId: i32 =  this.game.Data.HistoricalUnitObj[this.His].CommanderSpriteID;
-      int num;
+      num: i32;
       if (commanderSpriteId > -1)
       {
         SizeF sizeF1 = SizeF::new();
@@ -82,7 +82,7 @@ namespace WindowsApplication1
       objgraphics = (Graphics) null;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -102,7 +102,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

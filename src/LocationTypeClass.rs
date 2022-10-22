@@ -405,7 +405,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub LocationTypeClass(int hardcoded)
+    pub LocationTypeClass(hardcoded: i32)
     {
       this.BuildgroundType = new bool[100];
       this.PeopleGroup = new bool[100];
@@ -483,11 +483,11 @@ namespace WindowsApplication1
       return (LocationTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

@@ -255,7 +255,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub PeopleClass(int hardcoded)
+    pub PeopleClass(hardcoded: i32)
     {
       this.BaseMorale = new int[100];
       this.ProdMod = new float[100];
@@ -301,7 +301,7 @@ namespace WindowsApplication1
       this.artCode = 0;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       if (this.SidewaysSpriteID > 0)
       {
@@ -329,37 +329,37 @@ namespace WindowsApplication1
       this.NationalSpriteID = -1;
     }
 
-    pub void ReplaceSidewaysSprite(string filename)
+    pub fn ReplaceSidewaysSprite(string filename)
     {
       this.SidewaysFileName = filename;
       this.SidewaysSpriteID = BitmapStore.ReloadFile(this.SidewaysSpriteID, this.SidewaysFileName);
     }
 
-    pub void ReplaceSidewaysSprite2(string filename)
+    pub fn ReplaceSidewaysSprite2(string filename)
     {
       this.SidewaysFileName2 = filename;
       this.SidewaysSpriteID2 = BitmapStore.ReloadFile(this.SidewaysSpriteID2, this.SidewaysFileName2);
     }
 
-    pub void ReplaceSidewaysSprite3(string filename)
+    pub fn ReplaceSidewaysSprite3(string filename)
     {
       this.SidewaysFileName3 = filename;
       this.SidewaysSpriteID3 = BitmapStore.ReloadFile(this.SidewaysSpriteID3, this.SidewaysFileName3);
     }
 
-    pub void ReplaceSidewaysSprite4(string filename)
+    pub fn ReplaceSidewaysSprite4(string filename)
     {
       this.SidewaysFileName4 = filename;
       this.SidewaysSpriteID4 = BitmapStore.ReloadFile(this.SidewaysSpriteID4, this.SidewaysFileName4);
     }
 
-    pub void ReplaceNationalSprite(string filename)
+    pub fn ReplaceNationalSprite(string filename)
     {
       this.NationalFileName = filename;
       this.NationalSpriteID = BitmapStore.ReloadFile(this.NationalSpriteID, this.NationalFileName, IsBig: true);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       this.SidewaysSpriteID = BitmapStore.AddFile(this.SidewaysFileName, false);
       this.NationalSpriteID = BitmapStore.AddFile(this.NationalFileName, false, true);

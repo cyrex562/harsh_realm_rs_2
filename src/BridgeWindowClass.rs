@@ -34,7 +34,7 @@ namespace WindowsApplication1
      int DetailNr;
      string ss;
 
-    pub BridgeWindowClass(ref GameClass tGame)
+    pub BridgeWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Bridge")
     {
       this.Bitemid = new int[5];
@@ -96,9 +96,9 @@ namespace WindowsApplication1
         ListClass optionsListObj = this.OptionsListObj;
         let mut tabSheetNr: i32 =  this.TabSheetNr;
         let mut game: GameClass = this.game;
-        ref Bitmap local1 = ref this.OwnBitmap;
-        Font font =  null;
-        ref Font local2 = ref font;
+        ref local1: Bitmap = ref this.OwnBitmap;
+        font: Font =  null;
+        ref local2: Font = ref font;
         let mut tsubpart7: SubPartClass =  new ListSubPartClass(optionsListObj, 3, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: (ref local1), bbx: 370, bby: 140, overruleFont: (ref local2));
         this.OptionsListId = this.AddSubPart(ref tsubpart7, 370, 140, 300, 96, 0);
       }
@@ -141,9 +141,9 @@ namespace WindowsApplication1
       ListClass basicListObj = this.BasicListObj;
       let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: (ref local1), bbx: 10, bby: 350, overruleFont: (ref local2));
       this.BasicListId = this.AddSubPart(ref tsubpart, 10, 350, 300, 208, 0);
       if (this.DetailNr > 5)

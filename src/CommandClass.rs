@@ -49,7 +49,7 @@ namespace WindowsApplication1
     protected CommandClass(SerializationInfo info, StreamingContext context)
     {
       this.Data = new string[3, 31];
-      int[,] numArray1 = new int[3, 31];
+      numArray1: Vec<i32> = new int[3, 31];
       this.type = info.GetInt32("Type");
       try
       {
@@ -124,7 +124,7 @@ namespace WindowsApplication1
         catch (Exception ex2)
         {
           ProjectData.SetProjectError(ex2);
-          int[,] numArray2 = (int[,]) info.GetValue(nameof (Data), numArray1.GetType());
+          numArray2: Vec<i32> = (int[,]) info.GetValue(nameof (Data), numArray1.GetType());
           let mut index5: i32 =  0;
           do
           {
@@ -154,7 +154,7 @@ namespace WindowsApplication1
       return (CommandClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub CommandClass(int hardcoded)
+    pub CommandClass(hardcoded: i32)
     {
       this.Data = new string[3, 31];
       this.type = 0;

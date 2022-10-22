@@ -15,18 +15,18 @@ namespace WindowsApplication1
 {
   pub class MapWindowClass2 : WindowClass
   {
-     int MapId;
-     int minheight;
-     int minwidth;
-     int ZoomTimer;
+     MapId: i32;
+     minheight: i32;
+     minwidth: i32;
+     ZoomTimer: i32;
      float LastZoom;
      DateTime lastclickleft;
      DateTime lastscroll;
-     int lastMouseOverX;
-     int lastMouseOverY;
-     int lastUnitSelected;
+     lastMouseOverX: i32;
+     lastMouseOverY: i32;
+     lastUnitSelected: i32;
 
-    pub MapWindowClass2( GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
+    pub MapWindowClass2( tGame: GameClass, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
       : base( tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.game.EditObj.se1_map_data3cache_set = false;
@@ -44,7 +44,7 @@ namespace WindowsApplication1
       this.lastUnitSelected = -1;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
     }
 
@@ -140,7 +140,7 @@ namespace WindowsApplication1
         let mut targetX: i32 =  this.game.EditObj.TargetX;
         let mut targetY: i32 =  this.game.EditObj.TargetY;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
-        Bitmap bitmap = (Bitmap) null;
+        bitmap: Bitmap = (Bitmap) null;
          let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, targetX, targetY, mapSelected, gBitmap: ( local));
         this.game.EditObj.TempCoordList = CoordList::new();
@@ -163,7 +163,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -223,8 +223,8 @@ namespace WindowsApplication1
           this.game.CornerY = -1;
         flag = true;
       }
-      int cornerX2;
-      int cornerY2;
+      cornerX2: i32;
+      cornerY2: i32;
       if (nr == 57 & this.game.EditObj.layerUnits)
       {
         let mut index1: i32 =  this.game.HandyFunctionsObj.NextCycleUnit(this.game.EditObj.UnitSelected, true);
@@ -298,7 +298,7 @@ namespace WindowsApplication1
       {
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].cycleOrder == 0L)
           this.game.HandyFunctionsObj.SetCycleOrder(this.game.EditObj.UnitSelected);
-        int num;
+        num: i32;
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].cycleOrder < 0L)
         {
           num = 1;
@@ -398,7 +398,7 @@ namespace WindowsApplication1
         this.SubPartList[this.SubpartNr(this.MapId)].ShiftUp();
       if (nr == 38)
         this.SubPartList[this.SubpartNr(this.MapId)].ShiftDown();
-      int index5;
+      index5: i32;
       Coordinate coordinate = this.SubPartList[index5].ClickMap(this.game.FormRef.LastMouseX - this.SubPartX[0], this.game.FormRef.LastMouseY - this.SubPartY[0]);
       if (coordinate.onmap)
       {
@@ -425,7 +425,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.game.Data.Round == 0)
         this.game.EditObj.se1_map_data3cache_set = false;
@@ -543,7 +543,7 @@ namespace WindowsApplication1
       this.game.EditObj.udsReturnFromPopup = false;
     }
 
-    pub object UdsClickUnit(int tx, int ty, int tmap, bool outOfWindowCall)
+    pub object UdsClickUnit(tx: i32, ty: i32, tmap: i32, bool outOfWindowCall)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag1 = false;
@@ -1192,7 +1192,7 @@ namespace WindowsApplication1
       return  windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult1 = OrderResult::new();
@@ -1250,7 +1250,7 @@ namespace WindowsApplication1
               this.game.EditObj.UnitSelected = num1;
               if (!this.game.EditObj.layerUnits)
                 this.game.EditObj.UnitSelected = -1;
-              Bitmap bitmap;
+              bitmap: Bitmap;
               if (this.game.SelectX > -1 & this.game.SelectY > -1 & this.game.SelectX <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth & this.game.SelectY <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
               {
                 let mut subPart: SubPartClass = this.SubPartList[this.SubpartNr(this.MapId)];
@@ -1858,7 +1858,7 @@ namespace WindowsApplication1
                       this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
                       let mut x3: i32 =  this.game.EditObj.RightClickX;
                       let mut y3: i32 =  this.game.EditObj.RightCLickY;
-                      int map1;
+                      map1: i32;
                       for (let mut map2: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].onmap; map2 = map1)
                       {
                         this.game.EditObj.SupplyPath.AddCoord(x3, y3, map2);
@@ -2541,7 +2541,7 @@ namespace WindowsApplication1
                   this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
                   let mut x5: i32 =  this.game.EditObj.RightClickX;
                   let mut y5: i32 =  this.game.EditObj.RightCLickY;
-                  int map3;
+                  map3: i32;
                   for (let mut map4: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].onmap; map4 = map3)
                   {
                     this.game.EditObj.SupplyPath.AddCoord(x5, y5, map4);
@@ -2674,7 +2674,7 @@ namespace WindowsApplication1
             let mut num2: i32 =  this.game.HandyFunctionsObj.GetUnitBestArtRange(this.game.EditObj.UnitSelected, this.game.Data) + 1;
             this.game.HandyFunctionsObj.RedimTempValue(9999);
             let mut num3: i32 =  Math.Max(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X - num2);
-            int num4;
+            num4: i32;
             let mut num5: i32 =  Math.Min(this.game.Data.MapObj[0].MapWidth, num4 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X + num2);
             for (let mut index1: i32 =  num3; index1 <= num5; index1 += 1)
             {
@@ -2776,7 +2776,7 @@ namespace WindowsApplication1
       }
       else
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         if (this.game.EditObj.ShowSameHistorical)
         {
           if (this.game.EditObj.OldUnit > -1 && !this.game.Data.UnitObj[this.game.EditObj.OldUnit].IsHQ & this.game.Data.UnitObj[this.game.EditObj.OldUnit].Regime == this.game.Data.Turn & this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ > -1)
@@ -2855,7 +2855,7 @@ namespace WindowsApplication1
       return flag1;
     }
 
-    pub CheckMovePath: bool(int subpartMapSlot)
+    pub CheckMovePath: bool(subpartMapSlot: i32)
     {
       if ( this.game.Data.RuleVar[540] == 1.0 & this.game.Data.Round > 0 && !(this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving))
       {
@@ -2974,7 +2974,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       currentDescript: String = this.game.EditObj.CurrentDescript;
@@ -3017,7 +3017,7 @@ namespace WindowsApplication1
 
     pub object EditorPlaceLocation()
     {
-      int num1;
+      num1: i32;
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == -1)
       {
         str: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give People # for town...", "Shadow Empire : Planetary Conquest")));
@@ -3057,7 +3057,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub object hexLibVarFill(int slot, int code)
+    pub object hexLibVarFill(slot: i32, code: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -3067,7 +3067,7 @@ namespace WindowsApplication1
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -3096,7 +3096,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub object regimeFill(int newreg)
+    pub object regimeFill(newreg: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -3106,7 +3106,7 @@ namespace WindowsApplication1
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -3135,7 +3135,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub object areacodeFill(int slot, int code)
+    pub object areacodeFill(slot: i32, code: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -3145,7 +3145,7 @@ namespace WindowsApplication1
       while (num2 == 1)
       {
         num2 = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -3174,7 +3174,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub object landscapeFill(int newland, int newspr)
+    pub object landscapeFill(newland: i32, newspr: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -3184,7 +3184,7 @@ namespace WindowsApplication1
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
@@ -3218,7 +3218,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub object specialFill(int newland, int newspr)
+    pub object specialFill(newland: i32, newspr: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -3228,7 +3228,7 @@ namespace WindowsApplication1
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
@@ -3259,7 +3259,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       if (Information.IsNothing( this.game))
         this.game = DrawMod.TGame;

@@ -13,22 +13,22 @@ namespace WindowsApplication1
 {
   pub class SystemMessageWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int TAid;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     TAid: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
 
-    pub SystemMessageWindowClass( GameClass tGame)
+    pub SystemMessageWindowClass( tGame: GameClass)
       : base( tGame, 600, 200, 8)
     {
       self.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       self.ClearMouse();
       self.NewBackGroundAndClearAll(600, 200, -1);
@@ -66,7 +66,7 @@ namespace WindowsApplication1
       self.AddMouse( trect, "", "Close this message");
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -86,7 +86,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

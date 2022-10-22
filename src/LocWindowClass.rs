@@ -14,140 +14,140 @@ namespace WindowsApplication1
 {
   pub class LocWindowClass : WindowClass
   {
-     int locNr;
-     int BNameId;
-     int BNameTextId;
-     int BPopId;
-     int BPopTextId;
-     int BPplId;
-     int BPplTextId;
-     int BRemoveId;
-     int BRemoveTextid;
-     int BRemoveAreaId;
-     int BAddAreaId;
-     int BAreaId;
-     int bareatextid;
-     int impid;
-     int expid;
-     int a1id;
-     int a1bid;
-     int a2id;
-     int a2bid;
-     int a3id;
-     int a3bid;
-     int a4id;
-     int a4bid;
-     int a5id;
-     int a5bid;
-     int a6id;
-     int a6bid;
-     int a7id;
-     int a7bid;
-     int a8id;
-     int a8bid;
-     int a9id;
-     int a9bid;
-     int x1id;
-     int x1bid;
-     int x2id;
-     int x2bid;
-     int x3id;
-     int x3bid;
-     int x4id;
-     int x4bid;
-     int x5id;
-     int x5bid;
-     int x6id;
-     int x6bid;
-     int a10id;
-     int a10bid;
-     int a11id;
-     int a11bid;
-     int aa11id;
-     int aa11bid;
-     int a12id;
-     int a12bid;
-     int a13id;
-     int a13bid;
-     int a14id;
-     int a14bid;
-     int a15id;
-     int a15bid;
-     int a16id;
-     int a16bid;
-     int a20id;
-     int a20bid;
-     int a17id;
-     int a17bid;
-     int a18id;
-     int a18bid;
-     int a19id;
-     int a19bid;
-     int a21id;
-     int a21bid;
-     int a22id;
-     int a22bid;
-     int a23id;
-     int a23bid;
-     int a24id;
-     int a24bid;
-     int a25id;
-     int a25bid;
-     int a26id;
-     int a26bid;
-     int a27id;
-     int a27bid;
-     int a28id;
-     int a28bid;
-     int a29id;
-     int a29bid;
-     int a30id;
-     int a30bid;
-     int a31id;
-     int a31bid;
-     int a32id;
-     int a32bid;
-     int a33id;
-     int a33bid;
-     int a38id;
-     int a38bid;
-     int a34id;
-     int a34bid;
-     int a35id;
-     int a35bid;
-     int a36id;
-     int a36bid;
-     int a37id;
-     int a37bid;
-     int a39id;
-     int a39bid;
-     int a40id;
-     int a40bid;
-     int HisListId;
+     locNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BPopId: i32;
+     BPopTextId: i32;
+     BPplId: i32;
+     BPplTextId: i32;
+     BRemoveId: i32;
+     BRemoveTextid: i32;
+     BRemoveAreaId: i32;
+     BAddAreaId: i32;
+     BAreaId: i32;
+     bareatextid: i32;
+     impid: i32;
+     expid: i32;
+     a1id: i32;
+     a1bid: i32;
+     a2id: i32;
+     a2bid: i32;
+     a3id: i32;
+     a3bid: i32;
+     a4id: i32;
+     a4bid: i32;
+     a5id: i32;
+     a5bid: i32;
+     a6id: i32;
+     a6bid: i32;
+     a7id: i32;
+     a7bid: i32;
+     a8id: i32;
+     a8bid: i32;
+     a9id: i32;
+     a9bid: i32;
+     x1id: i32;
+     x1bid: i32;
+     x2id: i32;
+     x2bid: i32;
+     x3id: i32;
+     x3bid: i32;
+     x4id: i32;
+     x4bid: i32;
+     x5id: i32;
+     x5bid: i32;
+     x6id: i32;
+     x6bid: i32;
+     a10id: i32;
+     a10bid: i32;
+     a11id: i32;
+     a11bid: i32;
+     aa11id: i32;
+     aa11bid: i32;
+     a12id: i32;
+     a12bid: i32;
+     a13id: i32;
+     a13bid: i32;
+     a14id: i32;
+     a14bid: i32;
+     a15id: i32;
+     a15bid: i32;
+     a16id: i32;
+     a16bid: i32;
+     a20id: i32;
+     a20bid: i32;
+     a17id: i32;
+     a17bid: i32;
+     a18id: i32;
+     a18bid: i32;
+     a19id: i32;
+     a19bid: i32;
+     a21id: i32;
+     a21bid: i32;
+     a22id: i32;
+     a22bid: i32;
+     a23id: i32;
+     a23bid: i32;
+     a24id: i32;
+     a24bid: i32;
+     a25id: i32;
+     a25bid: i32;
+     a26id: i32;
+     a26bid: i32;
+     a27id: i32;
+     a27bid: i32;
+     a28id: i32;
+     a28bid: i32;
+     a29id: i32;
+     a29bid: i32;
+     a30id: i32;
+     a30bid: i32;
+     a31id: i32;
+     a31bid: i32;
+     a32id: i32;
+     a32bid: i32;
+     a33id: i32;
+     a33bid: i32;
+     a38id: i32;
+     a38bid: i32;
+     a34id: i32;
+     a34bid: i32;
+     a35id: i32;
+     a35bid: i32;
+     a36id: i32;
+     a36bid: i32;
+     a37id: i32;
+     a37bid: i32;
+     a39id: i32;
+     a39bid: i32;
+     a40id: i32;
+     a40bid: i32;
+     HisListId: i32;
      ListClass HisListObj;
-     int AreaListId;
+     AreaListId: i32;
      ListClass AreaListObj;
-     int DeckListId;
+     DeckListId: i32;
      ListClass deckListObj;
-     int AutoListId;
+     AutoListId: i32;
      ListClass AutoListObj;
-     int BAddHisId;
-     int bUpId;
-     int bDownId;
-     int BAddHisTextId;
-     int SPListId;
+     BAddHisId: i32;
+     bUpId: i32;
+     bDownId: i32;
+     BAddHisTextId: i32;
+     SPListId: i32;
      ListClass SPListObj;
-     int BRemoveHisId;
-     int BRemoveHisTextId;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int detailnr4;
-     int detailnr5;
-     int DescBox;
+     BRemoveHisId: i32;
+     BRemoveHisTextId: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     detailnr4: i32;
+     detailnr5: i32;
+     DescBox: i32;
      string ss;
 
-    pub LocWindowClass( GameClass tGame)
+    pub LocWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Hex")
     {
       this.locNr = !(this.game.SelectX > -1 & this.game.SelectY > -1) ? -1 : this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -160,7 +160,7 @@ namespace WindowsApplication1
       this.showinfo();
     }
 
-    pub void MakeAreaList()
+    pub fn MakeAreaList()
     {
       if (this.AreaListId > 0)
         this.RemoveSubPart(this.AreaListId);
@@ -187,9 +187,9 @@ namespace WindowsApplication1
         ListClass areaListObj = this.AreaListObj;
         let mut tlistselect: i32 = num1;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(areaListObj, 15, 300, tlistselect, game, tHeader: "Areas", tbackbitmap: ( local1), bbx: 10, bby: 400, overruleFont: ( local2));
         this.AreaListId = this.AddSubPart( tsubpart, 10, 400, 300, 288, 0);
       }
@@ -200,7 +200,7 @@ namespace WindowsApplication1
       this.BAddAreaId = this.AddSubPart( tsubpart1, 330, 450, 32, 16, 1);
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.MakeAreaList();
       this.showinfo();
@@ -543,7 +543,7 @@ namespace WindowsApplication1
       this.a9bid = this.AddSubPart( tsubpart1, 50, 379, 300, 20, 0);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

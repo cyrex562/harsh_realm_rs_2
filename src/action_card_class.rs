@@ -11,6 +11,8 @@
 // using System.Runtime.Serialization,
 // using System.Runtime.Serialization.Formatters.Binary,
 
+use crate::lib_id_class::LibIdClass;
+
 // namespace WindowsApplication1
 // {
 // [Serializable]

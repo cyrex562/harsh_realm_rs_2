@@ -26,8 +26,8 @@ namespace WindowsApplication1
     pub IInitThrow: i32;
     pub IID: i32;
     pub IHistoricInit: Vec<i32>;
-    pub string[] IHistoricState;
-    pub string[] IHistoricState2;
+    pub IHistoricState: Vec<String>;
+    pub IHistoricState2: Vec<String>;
     pub IRetreat: i32;
     pub IRetreatMode: i32;
     pub IRetreated: i32;

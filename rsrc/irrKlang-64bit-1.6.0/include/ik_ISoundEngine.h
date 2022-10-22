@@ -321,7 +321,7 @@ class ISoundEngine : pub virtual irrklang::IRefCounted {
                                                                    0)) = 0;
 
   //! Updates the audio engine. This should be called several times per frame if
-  //! irrKlang was started in single thread mode.
+  //! irrKlang was started in single mode: Thread.
   /** This updates the 3d positions of the sounds as well as their volumes,
   effects, streams and other stuff. Call this several times per frame (the more
   the better) if you specified irrKlang to run single threaded. Otherwise it is
@@ -344,7 +344,7 @@ class ISoundEngine : pub virtual irrklang::IRefCounted {
   with this method */
   virtual void registerAudioStreamLoader(IAudioStreamLoader *loader) = 0;
 
-  //! Returns if irrKlang is running in the same thread as the application or is
+  //! Returns if irrKlang is running in the same as: Thread the application or is
   //! using multithreading.
   /** This basicly returns the flag set by the user when creating the sound
    * engine.*/

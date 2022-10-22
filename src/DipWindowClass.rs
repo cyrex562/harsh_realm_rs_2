@@ -14,45 +14,45 @@ namespace WindowsApplication1
 {
   pub class DipWindowClass : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int Tab1id;
-     int tab2id;
-     int tab3id;
-     int F1id;
-     int F2id;
-     int F3id;
-     int F4id;
-     int F5id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     Tab1id: i32;
+     tab2id: i32;
+     tab3id: i32;
+     F1id: i32;
+     F2id: i32;
+     F3id: i32;
+     F4id: i32;
+     F5id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int OptionsList3Id;
+     OptionsList3Id: i32;
      ATListClass OptionsList3Obj;
-     int OptionsList4Id;
+     OptionsList4Id: i32;
      ATListClass OptionsList4Obj;
-     int OptionsList5Id;
+     OptionsList5Id: i32;
      ATListClass OptionsList5Obj;
-     int detailnr;
-     int regnr;
-     int tabsheet;
+     detailnr: i32;
+     regnr: i32;
+     tabsheet: i32;
 
-    pub DipWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub DipWindowClass(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.fixshade = true;
@@ -63,7 +63,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.game.EditObj.CurrentMiniX > -1 & this.game.EditObj.CurrentMiniY > -1 & this.game.EditObj.MapSelected > -1)
       {
@@ -461,7 +461,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -663,7 +663,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num6;
+              num6: i32;
               if (num1 == this.OptionsList2Id)
               {
                 num6 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);

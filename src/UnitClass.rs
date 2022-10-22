@@ -173,7 +173,7 @@ namespace WindowsApplication1
     pub autoMoveX: i32;
     pub autoMoveY: i32;
     pub txtLog: String;
-    pub Bitmap tempSFTypeBitmap;
+    pub tempSFTypeBitmap: Bitmap;
     pub long cycleOrder;
 
     pub UnitClass Clone()
@@ -776,7 +776,7 @@ namespace WindowsApplication1
       self.TempCapHQ = -1;
     }
 
-    pub void AddLog(int type, int data1, int data2, int data3)
+    pub fn AddLog(type: i32, data1: i32, data2: i32, data3: i32)
     {
       let mut num1: i32 = -1;
       if (Strings.InStr(self.Name, "LVIII") > 0)
@@ -815,7 +815,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetLog(int type, int data1, int data2, int data3)
+    pub fn SetLog(type: i32, data1: i32, data2: i32, data3: i32)
     {
       let mut index1: i32 = -1;
       let mut logCounter: i32 = self.LogCounter;
@@ -843,7 +843,7 @@ namespace WindowsApplication1
         self.LogData3[index1] = data3;
     }
 
-    pub int CheckLogReturnData3(int type, int data1)
+    pub CheckLogReturnData3: i32(type: i32, data1: i32)
     {
       let mut logCounter: i32 = self.LogCounter;
       for (let mut index: i32 = 0; index <= logCounter; index += 1)
@@ -854,7 +854,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub void ClearLogs()
+    pub fn ClearLogs()
     {
       self.LogCounter = -1;
       self.LogType = (int[]) Utils.CopyArray((Array) self.LogType, (Array) new int[1]);
@@ -863,14 +863,14 @@ namespace WindowsApplication1
       self.LogData3 = (int[]) Utils.CopyArray((Array) self.LogData3, (Array) new int[1]);
     }
 
-    pub void AddSF(int sfnr)
+    pub fn AddSF(sfnr: i32)
     {
       self += 1.SFCount;
       self.SFList = (int[]) Utils.CopyArray((Array) self.SFList, (Array) new int[self.SFCount + 1]);
       self.SFList[self.SFCount] = sfnr;
     }
 
-    pub void RemoveSF(int sfnr)
+    pub fn RemoveSF(sfnr: i32)
     {
       let mut sfCount: i32 = self.SFCount;
       for (let mut index1: i32 = 0; index1 <= sfCount; index1 += 1)
@@ -891,14 +891,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddPassenger(int pnr)
+    pub fn AddPassenger(pnr: i32)
     {
       self += 1.PassengerCounter;
       self.PassengerList = (int[]) Utils.CopyArray((Array) self.PassengerList, (Array) new int[self.PassengerCounter + 1]);
       self.PassengerList[self.PassengerCounter] = pnr;
     }
 
-    pub void RemovePassenger(int pnr)
+    pub fn RemovePassenger(pnr: i32)
     {
       let mut passengerCounter: i32 = self.PassengerCounter;
       for (let mut index1: i32 = 0; index1 <= passengerCounter; index1 += 1)
@@ -919,14 +919,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddTransport(int pnr)
+    pub fn AddTransport(pnr: i32)
     {
       self += 1.TransportCounter;
       self.TransportList = (int[]) Utils.CopyArray((Array) self.TransportList, (Array) new int[self.TransportCounter + 1]);
       self.TransportList[self.TransportCounter] = pnr;
     }
 
-    pub void RemoveTransport(int pnr)
+    pub fn RemoveTransport(pnr: i32)
     {
       let mut transportCounter: i32 = self.TransportCounter;
       for (let mut index1: i32 = 0; index1 <= transportCounter; index1 += 1)
@@ -947,7 +947,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub UnitClass(int hardcoded)
+    pub UnitClass(hardcoded: i32)
     {
       self.SFList = new int[1];
       self.PassengerList = new int[1];
@@ -1013,7 +1013,7 @@ namespace WindowsApplication1
       self.lisInstructions = SimpleList::new();
     }
 
-    pub void ResetAI()
+    pub fn ResetAI()
     {
       self.AIAttack = -1;
       self.AIDefend = -1;
@@ -1023,12 +1023,12 @@ namespace WindowsApplication1
       self.AIFollowup = -1;
     }
 
-    pub int RealX( GameClass game) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].X : self.X;
+    pub RealX: i32( game: GameClass) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].X : self.X;
 
-    pub int RealY( GameClass game) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].Y : self.Y;
+    pub RealY: i32( game: GameClass) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].Y : self.Y;
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void Kill()
+    pub fn Kill()
     {
       if (self.SFCount <= -1)
         return;
@@ -1036,7 +1036,7 @@ namespace WindowsApplication1
       ProjectData.EndApp();
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

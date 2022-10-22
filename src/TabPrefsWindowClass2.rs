@@ -16,110 +16,110 @@ namespace WindowsApplication1
 {
   pub class TabPrefsWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int CurrentView;
-     int currentCat;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int saveid;
-     int quitid;
-     int minId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int B12Id;
-     int B12TextId;
-     int B13Id;
-     int B13TextId;
-     int B14Id;
-     int B14TextId;
-     int B15Id;
-     int B15TextId;
-     int B16Id;
-     int B16TextId;
-     int B17Id;
-     int B17TextId;
-     int B17bId;
-     int B17bTextId;
-     int B17cId;
-     int B17cTextId;
-     int B17dId;
-     int B17dTextId;
-     int B17eId;
-     int B17eTextId;
-     int B17fId;
-     int B17fTextId;
-     int B18Id;
-     int B18TextId;
-     int B19Id;
-     int B19TextId;
-     int B20Id;
-     int B20TextId;
-     int B21Id;
-     int B21TextId;
-     int B22Id;
-     int B22TextId;
-     int B23Id;
-     int B23TextId;
-     int B24Id;
-     int B24TextId;
-     int b25id;
-     int b25Textid;
-     int b26id;
-     int b26Textid;
-     int b27id;
-     int b27Textid;
-     int b28id;
-     int b28Textid;
-     int b29id;
-     int b29Textid;
-     int b30id;
-     int b30Textid;
-     int b31id;
-     int b31Textid;
-     int b32id;
-     int b32Textid;
-     int b33id;
-     int b33Textid;
-     int b34id;
-     int b34Textid;
-     int b35id;
-     int b35Textid;
-     int b36id;
-     int b36Textid;
-     int slider1id;
-     int slider2id;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     currentCat: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     saveid: i32;
+     quitid: i32;
+     minId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     B12Id: i32;
+     B12TextId: i32;
+     B13Id: i32;
+     B13TextId: i32;
+     B14Id: i32;
+     B14TextId: i32;
+     B15Id: i32;
+     B15TextId: i32;
+     B16Id: i32;
+     B16TextId: i32;
+     B17Id: i32;
+     B17TextId: i32;
+     B17bId: i32;
+     B17bTextId: i32;
+     B17cId: i32;
+     B17cTextId: i32;
+     B17dId: i32;
+     B17dTextId: i32;
+     B17eId: i32;
+     B17eTextId: i32;
+     B17fId: i32;
+     B17fTextId: i32;
+     B18Id: i32;
+     B18TextId: i32;
+     B19Id: i32;
+     B19TextId: i32;
+     B20Id: i32;
+     B20TextId: i32;
+     B21Id: i32;
+     B21TextId: i32;
+     B22Id: i32;
+     B22TextId: i32;
+     B23Id: i32;
+     B23TextId: i32;
+     B24Id: i32;
+     B24TextId: i32;
+     b25id: i32;
+     b25Textid: i32;
+     b26id: i32;
+     b26Textid: i32;
+     b27id: i32;
+     b27Textid: i32;
+     b28id: i32;
+     b28Textid: i32;
+     b29id: i32;
+     b29Textid: i32;
+     b30id: i32;
+     b30Textid: i32;
+     b31id: i32;
+     b31Textid: i32;
+     b32id: i32;
+     b32Textid: i32;
+     b33id: i32;
+     b33Textid: i32;
+     b34id: i32;
+     b34Textid: i32;
+     b35id: i32;
+     b35Textid: i32;
+     b36id: i32;
+     b36Textid: i32;
+     slider1id: i32;
+     slider2id: i32;
      ListClass OptionsListObj;
-     int optionsListId;
-     int detailnr;
+     optionsListId: i32;
+     detailnr: i32;
      SimpleList resList;
 
     pub TabPrefsWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -135,9 +135,9 @@ namespace WindowsApplication1
       self.detailnr = -1;
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (self.B1Id > 0)
         self.RemoveSubPart(self.B1Id);
@@ -404,7 +404,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( g, "VERY SLOW AI PROCESSING - Level 250", self.game.MarcFont4, num3 + 50, num10 + 8, Color.White);
         num4 = num10 + num5;
       }
-      int num11;
+      num11: i32;
       if (self.currentCat == 3)
       {
         if (!self.game.EditObj.IntroSoundOn)
@@ -945,7 +945,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( g, "2/1 RESOLUTION (50% DPI)", self.game.MarcFont4, num3 + 50, num27 + 8, Color.White);
         num11 = num27 + num5;
       }
-      int num28;
+      num28: i32;
       if (!( self.game.RealScreenWidth >=  num25 * 1.25 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24))
       {
         num28 = num7 + num5 + num5;
@@ -1095,7 +1095,7 @@ namespace WindowsApplication1
       num11 = num33 + num5;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -1124,7 +1124,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();
@@ -1165,7 +1165,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)

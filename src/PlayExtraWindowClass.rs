@@ -14,70 +14,70 @@ namespace WindowsApplication1
 {
   pub class PlayExtraWindowClass : WindowClass
   {
-     int UnitHeaderId;
-     int UnitsfId;
-     int OfficerId;
-     int QuickInfoId;
-     int StatsId;
-     int ReportId;
-     int DisbandId;
-     int SfButtonId;
-     int DisbandTroopsId;
-     int DisbandItemsId;
-     int ItemsButtonId;
-     int CurrentView;
-     int NewSFId;
-     int SOA1Id;
-     int SOA2Id;
-     int SOA3Id;
-     int SOA4Id;
-     int SOATextId;
-     int SOB1Id;
-     int SOB2Id;
-     int SOB3Id;
-     int SOB4Id;
-     int SOBTextid;
-     int OptionsListId;
+     UnitHeaderId: i32;
+     UnitsfId: i32;
+     OfficerId: i32;
+     QuickInfoId: i32;
+     StatsId: i32;
+     ReportId: i32;
+     DisbandId: i32;
+     SfButtonId: i32;
+     DisbandTroopsId: i32;
+     DisbandItemsId: i32;
+     ItemsButtonId: i32;
+     CurrentView: i32;
+     NewSFId: i32;
+     SOA1Id: i32;
+     SOA2Id: i32;
+     SOA3Id: i32;
+     SOA4Id: i32;
+     SOATextId: i32;
+     SOB1Id: i32;
+     SOB2Id: i32;
+     SOB3Id: i32;
+     SOB4Id: i32;
+     SOBTextid: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
-     int AttackPercentId;
-     int DefendPercentID;
-     int ReplacementID;
-     int RequestSupID;
+     AttackPercentId: i32;
+     DefendPercentID: i32;
+     ReplacementID: i32;
+     RequestSupID: i32;
      ATListClass ListObj;
-     int CancelButtonId;
-     int CancelTextId;
-     int OrderTextId;
-     int AsId;
-     int OrderText2Id;
-     int OrderText3Id;
-     int OrderText4Id;
-     int ClearId;
-     int ClearTextId;
-     int OrderUpId;
-     int OrderDownId;
-     int OrderOkId;
-     int OrderOkTextId;
-     int OrderOk2Id;
-     int DitchId;
-     int ReserveId;
-     int OrderOk2TextId;
-     int ExtraId;
-     int SliderButtonId;
-     int AcapId;
-     int DefId;
-     int SupplyId;
-     int InterceptId;
-     int detail1;
-     int detail2;
-     int detail2a;
-     int detailSkill;
-     int detail2b;
-     int detail1b;
+     CancelButtonId: i32;
+     CancelTextId: i32;
+     OrderTextId: i32;
+     AsId: i32;
+     OrderText2Id: i32;
+     OrderText3Id: i32;
+     OrderText4Id: i32;
+     ClearId: i32;
+     ClearTextId: i32;
+     OrderUpId: i32;
+     OrderDownId: i32;
+     OrderOkId: i32;
+     OrderOkTextId: i32;
+     OrderOk2Id: i32;
+     DitchId: i32;
+     ReserveId: i32;
+     OrderOk2TextId: i32;
+     ExtraId: i32;
+     SliderButtonId: i32;
+     AcapId: i32;
+     DefId: i32;
+     SupplyId: i32;
+     InterceptId: i32;
+     detail1: i32;
+     detail2: i32;
+     detail2a: i32;
+     detailSkill: i32;
+     detail2b: i32;
+     detail1b: i32;
      SubPartClass listy;
 
-    pub PlayExtraWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub PlayExtraWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, tGame.ScreenWidth, 210, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.CurrentView = 1;
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (!this.formref.RightMousePressed)
         return;
@@ -102,7 +102,7 @@ namespace WindowsApplication1
       this.game.EditObj.TipText = "You can inspect your units here.";
     }
 
-    pub string WindowDescription(int x, int y)
+    pub string WindowDescription(x: i32, y: i32)
     {
       str: String = "";
       let mut mouseCounter: i32 =  this.MouseCounter;
@@ -115,9 +115,9 @@ namespace WindowsApplication1
       return str;
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff_backup()
+    pub fn dostuff_backup()
     {
       if (this.UnitHeaderId > 0)
         this.RemoveSubPart(this.UnitHeaderId);
@@ -272,7 +272,7 @@ namespace WindowsApplication1
       num = 0;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.UnitHeaderId > 0)
         this.RemoveSubPart(this.UnitHeaderId);
@@ -444,8 +444,8 @@ namespace WindowsApplication1
         DrawMod.drawLine( Expression, num4 + 295 + 48, num2, this.game.ScreenWidth, num2,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
         DrawMod.drawLine( Expression, num4 + 295, num2, num4 + 295, num2 + h,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
         DrawMod.drawLine( Expression, num4 + 343, num2, num4 + 343, num2 + h,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
-        Color c2_1 = Color.FromArgb(0, 100, 100, 100);
-        Color c1_1 = Color.FromArgb(100, 100, 100, 100);
+        c2_1: Color = Color.FromArgb(0, 100, 100, 100);
+        c1_1: Color = Color.FromArgb(100, 100, 100, 100);
         if (this.game.EditObj.SetViewMode2 == 0)
         {
           c2_1 = Color.FromArgb(60,  this.game.viccolor7.R,  this.game.viccolor7.G,  this.game.viccolor7.B);
@@ -455,8 +455,8 @@ namespace WindowsApplication1
         DrawMod.DrawTextVic( Expression, "SFs", this.game.VicFont5, num4 + 294 + 5 + 10, 56, this.game.VicColor1, this.game.VicColor1Shade);
         trect1 = Rectangle::new(num4 + 294 + 8, 42, 35, 40);
         this.AddMouse( trect1, "", "View subformations", 1);
-        Color c2_2 = Color.FromArgb(0, 100, 100, 100);
-        Color c1_2 = Color.FromArgb(100, 100, 100, 100);
+        c2_2: Color = Color.FromArgb(0, 100, 100, 100);
+        c1_2: Color = Color.FromArgb(100, 100, 100, 100);
         if (this.game.EditObj.SetViewMode2 == 1)
         {
           c2_2 = Color.FromArgb(60,  this.game.viccolor7.R,  this.game.viccolor7.G,  this.game.viccolor7.B);
@@ -467,8 +467,8 @@ namespace WindowsApplication1
         trect1 = Rectangle::new(num4 + 294 + 8, 89, 35, 40);
         let mut trect3: &Rectangle = &trect1
         this.AddMouse( trect3, "", "View logistical statistics", 2);
-        Color c2_3 = Color.FromArgb(0, 100, 100, 100);
-        Color c1_3 = Color.FromArgb(100, 100, 100, 100);
+        c2_3: Color = Color.FromArgb(0, 100, 100, 100);
+        c1_3: Color = Color.FromArgb(100, 100, 100, 100);
         if (this.game.EditObj.SetViewMode2 == 2)
         {
           c2_3 = Color.FromArgb(60,  this.game.viccolor7.R,  this.game.viccolor7.G,  this.game.viccolor7.B);
@@ -497,7 +497,7 @@ namespace WindowsApplication1
       else
         coordinate.x = 3;
       string tname;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (num1 == 1 && this.game.EditObj.UnitSelected > -1 & this.game.EditObj.UnitSelected <= this.game.Data.UnitCounter && this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.EditObj.UnitSelected, this.game.Data.Turn) > 0 & coordinate.x >= 2)
       {
         let mut num5: i32 =  x1 - 691;
@@ -558,7 +558,7 @@ namespace WindowsApplication1
         }
         let mut num7: i32 =  num5 + 691;
         let mut num8: i32 =  num6 - 35;
-        int tlistselect;
+        tlistselect: i32;
         SubPartClass tsubpart4;
         if (this.game.EditObj.SetViewMode2 == 0)
         {
@@ -794,7 +794,7 @@ namespace WindowsApplication1
               let mut num11: i32 =  x3 + 100;
               tsubpart4 =  new TextButtonPartClass("DITCH", 100, "Allows you to ditch a specific ammount of supply points",  this.OwnBitmap, num11, 25);
               this.DitchId = this.AddSubPart( tsubpart4, num11, 25, 100, 32, 1);
-              tsubpart4 =  new TextButtonPartClass("RESERVE", 100, "Set the reserve supply point ammount the HQ should try to build up",  this.OwnBitmap, num11, 70);
+              tsubpart4 =  new TextButtonPartClass("RESERVE", 100, "Set the reserve supply poammount: i32 the HQ should try to build up",  this.OwnBitmap, num11, 70);
               this.ReserveId = this.AddSubPart( tsubpart4, num11, 70, 100, 32, 1);
             }
           }
@@ -832,7 +832,7 @@ namespace WindowsApplication1
               numArray6[index3] = num13;
             }
             let mut index: i32 =  0;
-            int num14;
+            num14: i32;
             do
             {
               if (numArray1[index] > 0)
@@ -1001,13 +1001,13 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.HandCard = -1;
       this.DoRefresh();
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -1065,8 +1065,8 @@ namespace WindowsApplication1
               }
               if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.Turn) | !this.game.Data.FOWOn | this.game.Data.Round == 0)
               {
-                int index2;
-                int index3;
+                index2: i32;
+                index3: i32;
                 if (num2 > 50 & num3 > 107 & num2 < 350 & num3 < 177)
                 {
                   this.game.EditObj.PopupValue = 4;
@@ -1158,7 +1158,7 @@ namespace WindowsApplication1
                   {
                     this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Blue =  colorDialog.Color.B;
                     UnitClass unitClass1 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected];
-                    Color color = colorDialog.Color;
+                    color: Color = colorDialog.Color;
                     let mut g: i32 =   color.G;
                     unitClass1.Green = g;
                     UnitClass unitClass2 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected];

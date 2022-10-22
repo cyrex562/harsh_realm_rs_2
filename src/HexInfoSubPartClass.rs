@@ -14,17 +14,17 @@ namespace WindowsApplication1
   pub class HexInfoSubPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     int x;
-     int y;
-     GameClass game;
+     x: i32;
+     y: i32;
+     game: GameClass;
      int[] mzx;
      int[] mzy;
      int[] mznr;
-     int mzcount;
-     int prod;
+     mzcount: i32;
+     prod: i32;
      bool IgnoreAttack;
 
-    pub HexInfoSubPartClass(int tx, int ty, GameClass tgame, bool tIgnoreAttack = false)
+    pub HexInfoSubPartClass(tx: i32, ty: i32, tgame: GameClass, bool tIgnoreAttack = false)
       : base(210, 85)
     {
       this.mzx = new int[401];
@@ -37,7 +37,7 @@ namespace WindowsApplication1
       this.IgnoreAttack = tIgnoreAttack;
     }
 
-    pub void DescriptInfo(int ix, int iy)
+    pub fn DescriptInfo(ix: i32, iy: i32)
     {
       Coordinate coordinate = Coordinate::new();
       if (this.x == -1 | this.y == -1 || this.game.Data.Round == 0)
@@ -62,7 +62,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       bool flag;
       if (this.game.EditObj.OrderType == 14)
@@ -84,7 +84,7 @@ namespace WindowsApplication1
       }
       if (this.x == -1 | this.y == -1 || this.game.SelectX == -1 | this.game.SelectY == -1)
       {
-        Bitmap bitmap;
+        bitmap: Bitmap;
         return bitmap;
       }
       Graphics toG = Graphics.FromImage((Image) this.OwnBitmap);
@@ -103,7 +103,7 @@ namespace WindowsApplication1
       {
         let mut nr1: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].BasicPicID[spriteNr];
          let mut local1: &Graphics = &toG;
-        Bitmap bitmap = BitmapStore.GetBitmap(nr1);
+        bitmap: Bitmap = BitmapStore.GetBitmap(nr1);
          let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local1,  local2, 3, 3, 205, 80);
         if (this.game.Data.MapObj[0].HexObj[this.x, this.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT > -1)
@@ -141,8 +141,8 @@ namespace WindowsApplication1
             let mut num6: i32 =   Math.Round(Conversion.Int( (unitCounter2 + 1) / 2.0));
             if (num6 < 4)
               num6 = 4;
-            int ty;
-            int tx;
+            ty: i32;
+            tx: i32;
             if (index < num6)
             {
               ty = 4;
@@ -212,7 +212,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       if (this.mzcount <= -1)
         return -1;
@@ -224,11 +224,11 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return this.OwnBitmap;

@@ -14,28 +14,28 @@ namespace WindowsApplication1
 {
   pub class UdsUnitOpsWindowClass : WindowClass
   {
-     int but1;
-     int but2;
-     int but3;
-     int but4;
-     int but5;
-     int but6;
-     int but7;
-     int but8;
-     int but9;
-     int but10;
-     int but11;
-     int cancelid;
+     but1: i32;
+     but2: i32;
+     but3: i32;
+     but4: i32;
+     but5: i32;
+     but6: i32;
+     but7: i32;
+     but8: i32;
+     but9: i32;
+     but10: i32;
+     but11: i32;
+     cancelid: i32;
      int[] udsBut;
-     int udsButCounter;
-     int zoneId;
+     udsButCounter: i32;
+     zoneId: i32;
      SimpleStringList SL;
 
     pub UdsUnitOpsWindowClass(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
-       int useHeight)
+       useHeight: i32)
       : base( tGame, 200, useHeight, 8)
     {
       self.udsBut = new int[100];
@@ -48,7 +48,7 @@ namespace WindowsApplication1
       self.View();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -83,7 +83,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (self.cancelid > 0)
       {
@@ -187,7 +187,7 @@ namespace WindowsApplication1
       self.cancelid = self.AddSubPart( tsubpart12, 50, self.LowerRect.Height - 55, 100, 40, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -208,9 +208,9 @@ namespace WindowsApplication1
     }
 
     pub HandleMouseClickOutsideWindow: WindowReturnClass(
-      int x,
-      int y,
-      int b)
+      x: i32,
+      y: i32,
+      b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
@@ -226,7 +226,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

@@ -12,15 +12,15 @@ namespace WindowsApplication1
 {
   pub class StatsScreenClass : ScreenClass
   {
-     int wtop;
+     wtop: i32;
 
-    pub StatsScreenClass( GameClass tGame)
+    pub StatsScreenClass( tGame: GameClass)
       : base( tGame, tGame.BACKGROUND1MARC)
     {
       self.wtop = self.AddWindow((WindowClass) new StatsWindowClass( tGame),  Math.Round( self.Game.ScreenWidth / 2.0 - 500.0),  Math.Round( self.Game.ScreenHeight / 2.0 - 375.0), 1024, 768);
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > self.Game.ScreenWidth - 52 & x < self.Game.ScreenWidth - 28 & y < 25)
@@ -62,7 +62,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

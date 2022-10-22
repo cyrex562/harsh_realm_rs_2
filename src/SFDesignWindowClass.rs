@@ -12,61 +12,61 @@ namespace WindowsApplication1
 {
   pub class SFDesignWindowClass : WindowClass
   {
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int b7bid;
-     int B7TextId;
-     int B8Id;
-     int b8bid;
-     int B8TextId;
-     int B9Id;
-     int b9bid;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int off1id;
-     int detailnr;
-     int optnr;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Pic1Id;
-     int detailnr2;
-     int OrderTextId;
-     int OrderText2Id;
-     int OrderUpId;
-     int OrderDownId;
-     int ExtraId;
-     int steppy;
-     int typpy;
-     int OptionsListId;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     b7bid: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     b8bid: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     b9bid: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     off1id: i32;
+     detailnr: i32;
+     optnr: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Pic1Id: i32;
+     detailnr2: i32;
+     OrderTextId: i32;
+     OrderText2Id: i32;
+     OrderUpId: i32;
+     OrderDownId: i32;
+     ExtraId: i32;
+     steppy: i32;
+     typpy: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
      bool Hq;
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.game.HandyFunctionsObj.CalculateSFDesignCosts();
       this.dostuff();
     }
 
     pub SFDesignWindowClass(
-       GameClass tGame,
-      Bitmap screenbitmap = null,
+       tGame: GameClass,
+      screenbitmap: Bitmap = null,
       let mut sx: i32 = -1,
       let mut sy: i32 = -1,
       let mut tl1: i32 = -1,
@@ -270,9 +270,9 @@ namespace WindowsApplication1
       ListClass optionsListObj = this.OptionsListObj;
       let mut tlistselect: i32 = num1;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       tsubpart1 =  new ListSubPartClass(optionsListObj, 8, 220, tlistselect, game, tHeader: "Subformationtype Models", tShowPair: true, tValueWidth: 100, tbackbitmap: ( local1), bbx: 110, bby: 5, overruleFont: ( local2));
       this.OptionsListId = this.AddSubPart( tsubpart1, 110, 5, 220, 176, 0);
       if (this.detailnr > -1)
@@ -289,7 +289,7 @@ namespace WindowsApplication1
           }
         }
          let mut local3: &Graphics = &Expression;
-        Bitmap bitmap = BitmapStore.GetBitmap(picSpriteId);
+        bitmap: Bitmap = BitmapStore.GetBitmap(picSpriteId);
          let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local3,  local4, 350, 30, 100, 75);
         DrawMod.DrawRectangle( Expression, 350, 30, 100, 75, 0, 0, 0,  byte.MaxValue);
@@ -478,7 +478,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();
@@ -633,11 +633,11 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void AutoChangeProdLine(int newi)
+    pub fn AutoChangeProdLine(newi: i32)
     {
       SimpleList simpleList = SimpleList::new();
       let mut itemTypeCounter: i32 = this.game.Data.ItemTypeCounter;
-      int Number;
+      Number: i32;
       for (let mut itemtypenr: i32 = 0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
       {
         if (itemtypenr == newi && this.game.Data.ItemTypeObj[itemtypenr].Blocks > -1)

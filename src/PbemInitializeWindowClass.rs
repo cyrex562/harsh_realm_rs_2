@@ -14,7 +14,7 @@ namespace WindowsApplication1
     pub object SteamQuestionPosed;
     pub object SteamQuestionAnswered;
 
-    pub PbemInitializeWindowClass( GameClass tGame)
+    pub PbemInitializeWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND1MARC)
     {
       this.Started = false;
@@ -22,7 +22,7 @@ namespace WindowsApplication1
       this.SteamQuestionAnswered =  false;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       if (!Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(this.SteamQuestionAnswered,  false, false), Operators.CompareObjectEqual(this.SteamQuestionPosed,  true, false))))
         return;

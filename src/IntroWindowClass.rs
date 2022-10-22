@@ -17,43 +17,43 @@ namespace WindowsApplication1
 {
   pub class IntroWindowClass : WindowClass
   {
-     int BStartGameID;
-     int BLoadGameID;
-     int BSaveGameID;
-     int BRandomID;
-     int BEditorID;
-     int bWebsiteID;
-     int TempText;
-     int TempText2;
-     int txt1;
-     int txt2;
-     int txt3;
-     int minimapid;
-     int opt1;
-     int opt2;
-     int opt3;
-     int opt4;
-     int opt5;
-     int opt6;
-     int opt7;
-     int txt7;
-     int txt4;
-     int txt5;
-     int txt6;
-     int txt8;
-     int opt8;
-     int txt9;
-     int opt9;
-     int txt10;
-     int cancelID;
+     BStartGameID: i32;
+     BLoadGameID: i32;
+     BSaveGameID: i32;
+     BRandomID: i32;
+     BEditorID: i32;
+     bWebsiteID: i32;
+     TempText: i32;
+     TempText2: i32;
+     txt1: i32;
+     txt2: i32;
+     txt3: i32;
+     minimapid: i32;
+     opt1: i32;
+     opt2: i32;
+     opt3: i32;
+     opt4: i32;
+     opt5: i32;
+     opt6: i32;
+     opt7: i32;
+     txt7: i32;
+     txt4: i32;
+     txt5: i32;
+     txt6: i32;
+     txt8: i32;
+     opt8: i32;
+     txt9: i32;
+     opt9: i32;
+     txt10: i32;
+     cancelID: i32;
      int[] vari;
      int[] varitext;
      ATListClass RegimeListObj;
-     int RegimeListId;
+     RegimeListId: i32;
      float tempBlink;
-     int detailnr;
+     detailnr: i32;
 
-    pub IntroWindowClass( GameClass tGame)
+    pub IntroWindowClass( tGame: GameClass)
       : base( tGame, 1024, 768, BackSprite: tGame.BACKGROUND2MARC)
     {
       this.vari = new int[13];
@@ -64,7 +64,7 @@ namespace WindowsApplication1
       this.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       SizeF sizeF1 = SizeF::new();
       if (this.TempText > 0)
@@ -144,7 +144,7 @@ namespace WindowsApplication1
       let mut num2: i32 =  25;
       let mut index2: i32 =  0;
       SubPartClass tsubpart;
-      int num3;
+      num3: i32;
       do
       {
         if (this.game.Data.Variants[index2] > -1)
@@ -324,7 +324,7 @@ namespace WindowsApplication1
       this.txt9 = this.AddSubPart( tsubpart, 140, 227, 110, 16, 0);
     }
 
-    pub void doregimelist()
+    pub fn doregimelist()
     {
       if (!this.game.Data.NoPlayChoice)
       {
@@ -369,7 +369,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

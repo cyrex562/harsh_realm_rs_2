@@ -13,22 +13,22 @@ namespace WindowsApplication1
 {
   pub class TabReportsWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int detailnr;
-     int CurrentView;
-     int OptionsList5id;
-     int Text1Id;
-     int Text2Id;
+     w: i32;
+     h: i32;
+     detailnr: i32;
+     CurrentView: i32;
+     OptionsList5id: i32;
+     Text1Id: i32;
+     Text2Id: i32;
      ListClass OptionsList5Obj;
-     int okId;
+     okId: i32;
 
     pub TabReportsWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 40)
@@ -99,11 +99,11 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
-    pub void PopUpRefresh() => self.DoRefresh();
+    pub fn PopUpRefresh() => self.DoRefresh();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (self.okId > 0)
       {
@@ -184,9 +184,9 @@ namespace WindowsApplication1
           let mut tlistsize: i32 =  Math.Round(9.0 + Conversion.Int( num2 / 16.0));
           let mut tlistselect2: i32 = tlistselect1;
           let mut game: GameClass = self.game;
-           Bitmap local1 =  self.OwnBitmap;
-          Font font =  null;
-           Font local2 =  font;
+           local1: Bitmap =  self.OwnBitmap;
+          font: Font =  null;
+           local2: Font =  font;
           tsubpart =  new ListSubPartClass(optionsList5Obj, tlistsize, 250, tlistselect2, game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 25, bby: 17, tMarcStyle: true, overruleFont: ( local2));
           self.OptionsList5id = self.AddSubPart( tsubpart, 25, 17, 250,  Math.Round((10.0 + Conversion.Int( num2 / 16.0)) * 16.0), 0);
         }
@@ -221,7 +221,7 @@ namespace WindowsApplication1
               if (self.game.Data.RegimeObj[self.game.Data.Turn].MesNote2[self.detailnr].Length > 0)
               {
                  let mut local3: &Graphics = &g;
-                Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+                bitmap: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
                  let mut local4: &Bitmap = &bitmap;
                 trect2 = Rectangle::new(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
                 let mut srcrect: &Rectangle = &trect2
@@ -232,7 +232,7 @@ namespace WindowsApplication1
               else
               {
                  let mut local5: &Graphics = &g;
-                Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
+                bitmap: Bitmap = BitmapStore.GetBitmap(commanderSpriteId);
                  let mut local6: &Bitmap = &bitmap;
                 trect2 = Rectangle::new(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
                 let mut srcrect: &Rectangle = &trect2
@@ -248,7 +248,7 @@ namespace WindowsApplication1
                   if (overdrawSpriteId > -1)
                   {
                      let mut local7: &Graphics = &g;
-                    Bitmap bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+                    bitmap: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
                      let mut local8: &Bitmap = &bitmap;
                     let mut y: i32 = 215 + num2;
                     let mut w: i32 = num4;
@@ -259,7 +259,7 @@ namespace WindowsApplication1
                 else if (overdrawSpriteId > -1)
                 {
                    let mut local9: &Graphics = &g;
-                  Bitmap bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
+                  bitmap: Bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
                    let mut local10: &Bitmap = &bitmap;
                   let mut y: i32 = 200 + num2;
                   let mut w: i32 = num4;
@@ -309,7 +309,7 @@ namespace WindowsApplication1
         DrawMod.DrawText( g, "No reports available.", self.game.GameFont1, 10, 150);
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -344,7 +344,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

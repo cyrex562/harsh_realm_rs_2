@@ -15,175 +15,175 @@ namespace WindowsApplication1
 {
   pub class EditHisWindowClass : WindowClass
   {
-     int locNr;
-     int BNameId;
-     int BNameTextId;
-     int BPopId;
-     int BPopTextId;
-     int BPplId;
-     int BPplTextId;
-     int BRemoveId;
-     int BRemoveTextid;
-     int apoolid;
-     int apoolbid;
-     int impid;
-     int expid;
-     int a1id;
-     int a1bid;
-     int a2id;
-     int a2bid;
-     int a3id;
-     int a3bid;
-     int a4id;
-     int a4bid;
-     int a5id;
-     int a5bid;
-     int a6id;
-     int a6bid;
-     int a7id;
-     int a7bid;
-     int a8id;
-     int a8bid;
-     int a9id;
-     int a9bid;
-     int x1id;
-     int x1bid;
-     int x2id;
-     int x2bid;
-     int x3id;
-     int x3bid;
-     int x4id;
-     int x4bid;
-     int x5id;
-     int x5bid;
-     int x6id;
-     int x6bid;
-     int x7id;
-     int x7bid;
-     int xx7id;
-     int xx7bid;
-     int a10id;
-     int a10bid;
-     int a11id;
-     int a11bid;
-     int aa11id;
-     int aa11bid;
-     int ab11id;
-     int ab11bid;
-     int a12id;
-     int a12bid;
-     int a13id;
-     int a13bid;
-     int a14id;
-     int a14bid;
-     int a15id;
-     int a15bid;
-     int a16id;
-     int a16bid;
-     int a20id;
-     int a20bid;
-     int a17id;
-     int a17bid;
-     int a18id;
-     int a18bid;
-     int a19id;
-     int a19bid;
-     int a21id;
-     int a21bid;
-     int v19id;
-     int v19bid;
-     int v21id;
-     int v21bid;
-     int v22id;
-     int v22bid;
-     int v23id;
-     int v23bid;
-     int v20id;
-     int v20bid;
-     int a22id;
-     int a22bid;
-     int a221id;
-     int a221bid;
-     int a23id;
-     int a23bid;
-     int a24id;
-     int a24bid;
-     int a25id;
-     int a25bid;
-     int a26id;
-     int a26bid;
-     int a27id;
-     int a27bid;
-     int a28id;
-     int a28bid;
-     int a29id;
-     int a29bid;
-     int a30id;
-     int a30bid;
-     int a31id;
-     int a31bid;
-     int a32id;
-     int a32bid;
-     int a320id;
-     int a320bid;
-     int a33id;
-     int a33bid;
-     int a38id;
-     int a38bid;
-     int a34id;
-     int a34bid;
-     int a35id;
-     int a35bid;
-     int a36id;
-     int a36bid;
-     int a37id;
-     int a37bid;
-     int a39id;
-     int a39bid;
-     int a40id;
-     int a40bid;
-     int a440id;
-     int a440bid;
-     int a41id;
-     int a41bid;
-     int a42id;
-     int a42bid;
-     int a43id;
-     int a43bid;
-     int a45id;
-     int a45bid;
-     int asid;
-     int asidb;
-     int a44id;
-     int HisListId;
+     locNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     BPopId: i32;
+     BPopTextId: i32;
+     BPplId: i32;
+     BPplTextId: i32;
+     BRemoveId: i32;
+     BRemoveTextid: i32;
+     apoolid: i32;
+     apoolbid: i32;
+     impid: i32;
+     expid: i32;
+     a1id: i32;
+     a1bid: i32;
+     a2id: i32;
+     a2bid: i32;
+     a3id: i32;
+     a3bid: i32;
+     a4id: i32;
+     a4bid: i32;
+     a5id: i32;
+     a5bid: i32;
+     a6id: i32;
+     a6bid: i32;
+     a7id: i32;
+     a7bid: i32;
+     a8id: i32;
+     a8bid: i32;
+     a9id: i32;
+     a9bid: i32;
+     x1id: i32;
+     x1bid: i32;
+     x2id: i32;
+     x2bid: i32;
+     x3id: i32;
+     x3bid: i32;
+     x4id: i32;
+     x4bid: i32;
+     x5id: i32;
+     x5bid: i32;
+     x6id: i32;
+     x6bid: i32;
+     x7id: i32;
+     x7bid: i32;
+     xx7id: i32;
+     xx7bid: i32;
+     a10id: i32;
+     a10bid: i32;
+     a11id: i32;
+     a11bid: i32;
+     aa11id: i32;
+     aa11bid: i32;
+     ab11id: i32;
+     ab11bid: i32;
+     a12id: i32;
+     a12bid: i32;
+     a13id: i32;
+     a13bid: i32;
+     a14id: i32;
+     a14bid: i32;
+     a15id: i32;
+     a15bid: i32;
+     a16id: i32;
+     a16bid: i32;
+     a20id: i32;
+     a20bid: i32;
+     a17id: i32;
+     a17bid: i32;
+     a18id: i32;
+     a18bid: i32;
+     a19id: i32;
+     a19bid: i32;
+     a21id: i32;
+     a21bid: i32;
+     v19id: i32;
+     v19bid: i32;
+     v21id: i32;
+     v21bid: i32;
+     v22id: i32;
+     v22bid: i32;
+     v23id: i32;
+     v23bid: i32;
+     v20id: i32;
+     v20bid: i32;
+     a22id: i32;
+     a22bid: i32;
+     a221id: i32;
+     a221bid: i32;
+     a23id: i32;
+     a23bid: i32;
+     a24id: i32;
+     a24bid: i32;
+     a25id: i32;
+     a25bid: i32;
+     a26id: i32;
+     a26bid: i32;
+     a27id: i32;
+     a27bid: i32;
+     a28id: i32;
+     a28bid: i32;
+     a29id: i32;
+     a29bid: i32;
+     a30id: i32;
+     a30bid: i32;
+     a31id: i32;
+     a31bid: i32;
+     a32id: i32;
+     a32bid: i32;
+     a320id: i32;
+     a320bid: i32;
+     a33id: i32;
+     a33bid: i32;
+     a38id: i32;
+     a38bid: i32;
+     a34id: i32;
+     a34bid: i32;
+     a35id: i32;
+     a35bid: i32;
+     a36id: i32;
+     a36bid: i32;
+     a37id: i32;
+     a37bid: i32;
+     a39id: i32;
+     a39bid: i32;
+     a40id: i32;
+     a40bid: i32;
+     a440id: i32;
+     a440bid: i32;
+     a41id: i32;
+     a41bid: i32;
+     a42id: i32;
+     a42bid: i32;
+     a43id: i32;
+     a43bid: i32;
+     a45id: i32;
+     a45bid: i32;
+     asid: i32;
+     asidb: i32;
+     a44id: i32;
+     HisListId: i32;
      ListClass HisListObj;
-     int LibListId;
+     LibListId: i32;
      ListClass LibListObj;
-     int VarListId;
+     VarListId: i32;
      ListClass VarListObj;
-     int DeckListId;
+     DeckListId: i32;
      ListClass deckListObj;
-     int AutoListId;
+     AutoListId: i32;
      ListClass AutoListObj;
-     int BAddHisId;
-     int bUpId;
-     int bDownId;
-     int BAddHisTextId;
-     int SPListId;
+     BAddHisId: i32;
+     bUpId: i32;
+     bDownId: i32;
+     BAddHisTextId: i32;
+     SPListId: i32;
      ListClass SPListObj;
-     int BRemoveHisId;
-     int BRemoveHisTextId;
-     int libnr;
-     int detailnr;
-     int detailnr2;
-     int detailnr3;
-     int detailnr4;
-     int detailnr5;
-     int detailnr6;
-     int DescBox;
+     BRemoveHisId: i32;
+     BRemoveHisTextId: i32;
+     libnr: i32;
+     detailnr: i32;
+     detailnr2: i32;
+     detailnr3: i32;
+     detailnr4: i32;
+     detailnr5: i32;
+     detailnr6: i32;
+     DescBox: i32;
      string ss;
 
-    pub EditHisWindowClass(ref GameClass tGame)
+    pub EditHisWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Historical Units (&officers)")
     {
       this.locNr = !(this.game.SelectX > -1 & this.game.SelectY > -1) ? -1 : this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -197,7 +197,7 @@ namespace WindowsApplication1
       this.showinfo();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       switch (nr)
@@ -245,7 +245,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void MakeHisList()
+    pub fn MakeHisList()
     {
       int[] numArray1 = new int[this.game.Data.HistoricalUnitCounter + 1];
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -286,9 +286,9 @@ namespace WindowsApplication1
       ListClass libListObj = this.LibListObj;
       let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
-      ref Bitmap local1 = ref this.OwnBitmap;
-      Font font =  null;
-      ref Font local2 = ref font;
+      ref local1: Bitmap = ref this.OwnBitmap;
+      font: Font =  null;
+      ref local2: Font = ref font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(libListObj, 16, 200, tlistselect1, game1, tHeader: "Libraries", tbackbitmap: (ref local1), bbx: 5, bby: 50, overruleFont: (ref local2));
       this.LibListId = this.AddSubPart(ref tsubpart1, 5, 50, 200, 304, 0);
       if (this.game.Data.HistoricalUnitCounter > -1)
@@ -336,9 +336,9 @@ namespace WindowsApplication1
         ListClass hisListObj = this.HisListObj;
         let mut tlistselect2: i32 =  num3;
         let mut game2: GameClass = this.game;
-        ref Bitmap local3 = ref this.OwnBitmap;
+        ref local3: Bitmap = ref this.OwnBitmap;
         font =  null;
-        ref Font local4 = ref font;
+        ref local4: Font = ref font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(hisListObj, 16, 580, tlistselect2, game2, tHeader: "HisUnits ID+Name                                                                    Level           SmlGf,Nato,Sh        Regime      Units", tShowPair: true, tValueWidth: 250, tbackbitmap: (ref local3), bbx: 215, bby: 50, overruleFont: (ref local4));
         this.HisListId = this.AddSubPart(ref tsubpart2, 215, 50, 580, 304, 0);
       }
@@ -353,7 +353,7 @@ namespace WindowsApplication1
       this.BAddHisTextId = this.AddSubPart(ref tsubpart4, 880, 50, 300, 20, 0);
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.MakeHisList();
       this.showinfo();
@@ -744,11 +744,11 @@ namespace WindowsApplication1
         }
         let mut game: GameClass = this.game;
         let mut twidth: i32 =  Math.Min(300, this.game.ScreenWidth - 830);
-        Font tfont = Font::new(this.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel);
+        tfont: Font = Font::new(this.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel);
         tText: String = str1;
-        Color white = Color.White;
-        Bitmap bitmap = (Bitmap) null;
-        ref Bitmap local = ref bitmap;
+        white: Color = Color.White;
+        bitmap: Bitmap = (Bitmap) null;
+        ref local: Bitmap = ref bitmap;
         tsubpart21 =  new TextAreaClass(game, twidth, 3, tfont, "Map units attached", true, tText, white, tbackbitmap: (ref local));
         this.DescBox = this.AddSubPart(ref tsubpart21, 830, 160, Math.Min(300, this.game.ScreenWidth - 830), 48, 0);
       }
@@ -807,7 +807,7 @@ namespace WindowsApplication1
         this.a41id = this.AddSubPart(ref tsubpart21, 150, 480, 32, 16, 1);
         tsubpart21 =  TextPartClass::new("MaxPresent=" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].MaxPresent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 120, 20, false, tDescript: this.ss);
         this.a41bid = this.AddSubPart(ref tsubpart21, 190, 479, 120, 20, 0);
-        this.ss = "Set color blender -255 to +255, it adds or diminishes from the counter color";
+        this.ss = "Set blender: Color -255 to +255, it adds or diminishes from the counter color";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.x2id = this.AddSubPart(ref tsubpart21, 410, 540, 32, 16, 1);
         tsubpart21 =  TextPartClass::new("Color = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Red) + "," + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Green) + "," + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Blue), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
@@ -824,10 +824,10 @@ namespace WindowsApplication1
         ListClass spListObj = this.SPListObj;
         let mut detailnr5: i32 =  this.detailnr5;
         let mut game1: GameClass = this.game;
-        Bitmap bitmap1 = (Bitmap) null;
-        ref Bitmap local1 = ref bitmap1;
-        Font font1 =  null;
-        ref Font local2 = ref font1;
+        bitmap1: Bitmap = (Bitmap) null;
+        ref local1: Bitmap = ref bitmap1;
+        font1: Font =  null;
+        ref local2: Font = ref font1;
         tsubpart21 =  new ListSubPartClass(spListObj, 3, 400, detailnr5, game1, tHeader: "Subpart Units             smallGfx,Nato", tbackbitmap: (ref local1), overruleFont: (ref local2));
         this.SPListId = this.AddSubPart(ref tsubpart21, 410, 360, 400, 80, 0);
         if (this.detailnr5 > -1)
@@ -873,10 +873,10 @@ namespace WindowsApplication1
         ListClass varListObj = this.VarListObj;
         let mut detailnr6: i32 =  this.detailnr6;
         let mut game2: GameClass = this.game;
-        Bitmap bitmap2 = (Bitmap) null;
-        ref Bitmap local3 = ref bitmap2;
-        Font font2 =  null;
-        ref Font local4 = ref font2;
+        bitmap2: Bitmap = (Bitmap) null;
+        ref local3: Bitmap = ref bitmap2;
+        font2: Font =  null;
+        ref local4: Font = ref font2;
         tsubpart21 =  new ListSubPartClass(varListObj, 3, 300, detailnr6, game2, tHeader: "HisVar List", tbackbitmap: (ref local3), overruleFont: (ref local4));
         this.VarListId = this.AddSubPart(ref tsubpart21, 50, 504, 300, 80, 0);
         this.ss = "Add hisvar type+value";
@@ -1048,10 +1048,10 @@ namespace WindowsApplication1
         let mut twidth: i32 =  Math.Min(300, this.game.ScreenWidth - 830);
         let mut detailnr4: i32 =  this.detailnr4;
         let mut game3: GameClass = this.game;
-        Bitmap bitmap3 = (Bitmap) null;
-        ref Bitmap local5 = ref bitmap3;
-        Font font3 =  null;
-        ref Font local6 = ref font3;
+        bitmap3: Bitmap = (Bitmap) null;
+        ref local5: Bitmap = ref bitmap3;
+        font3: Font =  null;
+        ref local6: Font = ref font3;
         tsubpart21 =  new ListSubPartClass(deckListObj, 4, twidth, detailnr4, game3, tHeader: "Actioncard List", tbackbitmap: (ref local5), overruleFont: (ref local6));
         this.DeckListId = this.AddSubPart(ref tsubpart21, 830, 515, Math.Min(300, this.game.ScreenWidth - 830), 96, 0);
         this.ss = "Add Card";
@@ -1080,7 +1080,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -2177,7 +2177,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void AutoDetectHistoricals()
+    pub fn AutoDetectHistoricals()
     {
       for (let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
         this.game.Data.RemoveHistoricalUnit(historicalUnitCounter);
@@ -2247,7 +2247,7 @@ namespace WindowsApplication1
       this.SortHis();
     }
 
-    pub void SortHis()
+    pub fn SortHis()
     {
       let mut num1: i32 =  1;
       while (num1 == 1)

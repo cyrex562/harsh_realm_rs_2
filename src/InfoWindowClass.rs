@@ -12,14 +12,14 @@ namespace WindowsApplication1
 {
   pub class InfoWindowClass : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
+     w: i32;
+     h: i32;
 
-    pub InfoWindowClass( GameClass tGame)
+    pub InfoWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 20, 8)
     {
       this.w = tGame.ScreenWidth;
@@ -27,9 +27,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -63,7 +63,7 @@ namespace WindowsApplication1
         {
           if (this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical)
           {
-            int num;
+            num: i32;
             num += 1;
           }
         }
@@ -111,7 +111,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

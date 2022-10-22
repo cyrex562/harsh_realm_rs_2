@@ -30,7 +30,7 @@ namespace WindowsApplication1
       this.maxcounter = 999;
     }
 
-    pub CoordList(int whatEverBigCounter9999)
+    pub CoordList(whatEverBigCounter9999: i32)
     {
       this.coord = new Coordinate[1000];
       this.noPresized = false;
@@ -51,7 +51,7 @@ namespace WindowsApplication1
       this.coord = (Coordinate[]) Utils.CopyArray((Array) this.coord, (Array) new Coordinate[1]);
     }
 
-    pub void AddCoord(int x, int y, int map)
+    pub fn AddCoord(x: i32, y: i32, map: i32)
     {
       this.active = true;
       this += 1.counter;
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       this.coord[this.counter].onmap = true;
     }
 
-    pub void AddCoord(int x, int y, int map, int dat1, int dat2)
+    pub fn AddCoord(x: i32, y: i32, map: i32, dat1: i32, dat2: i32)
     {
       this.active = true;
       this += 1.counter;
@@ -89,7 +89,7 @@ namespace WindowsApplication1
       this.coord[this.counter].data2 = dat2;
     }
 
-    pub void AddList(ref CoordList listy)
+    pub fn AddList(ref CoordList listy)
     {
       let mut counter: i32 =  listy.counter;
       for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -99,9 +99,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DeActivate() => this.active = false;
+    pub fn DeActivate() => this.active = false;
 
-    pub void RemoveCoord(int nr)
+    pub fn RemoveCoord(nr: i32)
     {
       if (nr < this.counter)
       {
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       this.coord = (Coordinate[]) Utils.CopyArray((Array) this.coord, (Array) new Coordinate[this.maxcounter + 1]);
     }
 
-    pub void RemoveCoordQuick(int nr)
+    pub fn RemoveCoordQuick(nr: i32)
     {
       if (nr < this.counter)
       {
@@ -128,7 +128,7 @@ namespace WindowsApplication1
       --this.counter;
     }
 
-    pub Exists: bool(int x, int y, int map)
+    pub Exists: bool(x: i32, y: i32, map: i32)
     {
       if (this.counter == -1)
         return false;
@@ -141,7 +141,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int FindSlot(int x, int y, int map)
+    pub FindSlot: i32(x: i32, y: i32, map: i32)
     {
       if (this.counter == -1)
         return -1;
@@ -154,7 +154,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub int FindSlot(int x, int y, int map, int tdata1, int tdata2)
+    pub FindSlot: i32(x: i32, y: i32, map: i32, tdata1: i32, tdata2: i32)
     {
       if (this.counter == -1)
         return -1;

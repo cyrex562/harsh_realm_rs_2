@@ -15,7 +15,7 @@ namespace WindowsApplication1
     pub fontSize: i32;
     pub fontStyle: i32;
     pub lineHeight: i32;
-    pub Color color;
+    pub color: Color;
     pub eventPicture: i32;
     pub bitmapSlot: i32;
     pub historicalUnitPortrait: i32;

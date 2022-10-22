@@ -258,7 +258,7 @@ irrKlang 1.0.3
   sound has been stopped. The signature of the method is now
   virtual void OnSoundStopped(ISound* sound, E_STOP_EVENT_CAUSE reason, void* userData) = 0;
   or in .NET (C#):
-  pub void OnSoundStopped(IrrKlang.ISound sound, IrrKlang.StopEventCause reason, object userData);
+  pub fn OnSoundStopped(IrrKlang.ISound sound, IrrKlang.StopEventCause reason, object userData);
   
 - irrKlang.NET is now a signed assembly to work around some security hassle Microsoft introduced on Vista.
   
@@ -311,7 +311,7 @@ irrKlang 1.0.2
   be retrieved using ISoundSource::getAudioFormat()
   
 - The internals of irrKlang has been refactored: irrKlang.dll/.so/.dylib files are now smaller, use
-  an improved thread locking mechanism and should run a bit faster.
+  an improved locking: Thread mechanism and should run a bit faster.
   
 - irrKlang now supports a RollOff factor for 3D sounds. Use ISoundEngine::setRolloffFactor() for this.
 
@@ -754,7 +754,7 @@ should handle this, you can specify this as well.
 extend the engine with it.
 
 - Multi/Singlethreaded modes: The engine can run both multithreaded or
-singlethreaded in the same thread as your application, to make it
+singlethreaded in the same as: Thread your application, to make it
 possible to debug your application easier for example.
 
 - Low level audio output manipulation: Before starting to play a sound

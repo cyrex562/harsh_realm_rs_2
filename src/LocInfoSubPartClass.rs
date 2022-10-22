@@ -14,13 +14,13 @@ namespace WindowsApplication1
   {
      object OwnBitmapNr;
      object locnr;
-     GameClass game;
+     game: GameClass;
      int[] mzx;
      int[] mzy;
      int[] mznr;
-     int mzcount;
+     mzcount: i32;
 
-    pub LocInfoSubPartClass(int tlocnr, GameClass tgame)
+    pub LocInfoSubPartClass(tlocnr: i32, tgame: GameClass)
       : base(200, 150)
     {
       self.mzx = new int[41];
@@ -30,7 +30,7 @@ namespace WindowsApplication1
       self.game = tgame;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       if (Operators.ConditionalCompareObjectLess(self.locnr,  0, false))
         return self.OwnBitmap;
@@ -39,12 +39,12 @@ namespace WindowsApplication1
       let mut regime: i32 =  self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].X, self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Y].Regime;
       if (self.game.Data.Round > 0)
       {
-        int red;
-        int green;
-        int blue;
-        int num1;
-        int num2;
-        int num3;
+        red: i32;
+        green: i32;
+        blue: i32;
+        num1: i32;
+        num2: i32;
+        num3: i32;
         if (regime == -1)
         {
           red = 128;
@@ -63,14 +63,14 @@ namespace WindowsApplication1
           num2 = self.game.Data.RegimeObj[regime].Green2;
           num3 = self.game.Data.RegimeObj[regime].Blue2;
         }
-        Color c1 = Color.FromArgb( byte.MaxValue, red, green, blue);
-        Color c2 = Color.FromArgb(150, red, green, blue);
+        c1: Color = Color.FromArgb( byte.MaxValue, red, green, blue);
+        c2: Color = Color.FromArgb(150, red, green, blue);
         DrawMod.DrawBlockGradient( Expression, 0, 0, 200, 50, c1, c2);
       }
       else
       {
-        Color c1 = Color.FromArgb( byte.MaxValue, 180, 180, 180);
-        Color c2 = Color.FromArgb(150, 90, 90, 90);
+        c1: Color = Color.FromArgb( byte.MaxValue, 180, 180, 180);
+        c2: Color = Color.FromArgb(150, 90, 90, 90);
         DrawMod.DrawBlockGradient( Expression, 0, 0, 200, 50, c1, c2);
       }
       if (Strings.Len(self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Name) > 1)
@@ -100,7 +100,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       if (self.mzcount <= -1)
         return -1;
@@ -113,11 +113,11 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &graphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return self.OwnBitmap;

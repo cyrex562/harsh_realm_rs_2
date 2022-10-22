@@ -16,149 +16,149 @@ namespace WindowsApplication1
   pub class OrderWindowClass2 : WindowClass
   {
      bool TimerUsed;
-     int w;
-     int h;
-     int CurrentView;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
      bool EndingTurn;
      bool Surrendering;
      bool RealSurrendering;
      bool JustAMessage;
      bool AskingAboutMetrics;
-     int Info1Id;
-     int Cancelid;
-     int OkId;
-     int BattleId;
-     int LeftId;
-     int RightId;
-     int KillId;
-     int AllId;
-     int NoneId;
-     int Ok2Id;
-     int Battle2Id;
-     int Kill2Id;
-     int All2Id;
-     int None2Id;
+     Info1Id: i32;
+     Cancelid: i32;
+     OkId: i32;
+     BattleId: i32;
+     LeftId: i32;
+     RightId: i32;
+     KillId: i32;
+     AllId: i32;
+     NoneId: i32;
+     Ok2Id: i32;
+     Battle2Id: i32;
+     Kill2Id: i32;
+     All2Id: i32;
+     None2Id: i32;
      string NotOkText;
-     int tab1;
-     int tab2;
-     int tab3;
-     int tab4;
-     int tab51;
-     int tab52;
-     int tab53;
-     int tab6;
-     int tab101;
-     int lastorderx;
-     int lastordery;
-     int LastAirSupplyNeed;
-     int LastAirSupplyMax;
-     int LastAirSupplyTarget;
-     int MoveButtonId;
-     int StatisticsButtonId;
-     int GroupMoveButtonId;
-     int NextButtonId;
-     int PopupButtonId;
-     int NewUnitButtonId;
-     int HqUnitButtonId;
-     int NewUnitButton2Id;
-     int AttackButtonId;
-     int seaAttackButtonId;
-     int PrefsButtonId;
-     int ArtAttackButtonId;
-     int SeaArtAttackButtonId;
-     int TransferButtonId;
-     int AirAttackButtonId;
-     int InterdictButtonId;
-     int StrategicButtonId;
-     int GroupStrategicButtonId;
-     int MakeHQButtonID;
-     int AirReconButtonId;
-     int ParadropButtonId;
-     int LoadButtonId;
-     int UnLoadButtonID;
-     int ResearchId;
-     int DipId;
-     int HistoryId;
-     int SaveId;
-     int QuitID;
-     int HqProdButtonId;
-     int PeopleTransferButtonId;
-     int ProdButtonId;
-     int RecruitButtonId;
-     int SupplyLayerButtonId;
-     int AirSupplyButtonId;
-     int OfficerId;
-     int BlowBridgeButtonId;
-     int BlowLocationButtonId;
-     int ACapButtonId;
-     int InfraButtonId;
-     int BuildButtonId;
-     int HexUnitButtonId;
-     int HexUnitButtonId2;
-     int GiveUnitId;
-     int GiveHexId;
-     int ShowAsId;
-     int ShowAsId2;
-     int FakeBackButtonId;
-     int ChangeModelId;
-     int ChangeModelId2;
-     int ModelDesignerId;
-     int ModelDesignerId2;
-     int SFDesignButtonId;
-     int GuiDownId;
-     int MoveButtonId2;
-     int GroupMoveButtonId2;
-     int StatisticsButtonId2;
-     int NextButtonId2;
-     int NewUnitButtonId2;
-     int HqUnitButtonId2;
-     int AttackButtonId2;
-     int seaAttackButtonId2;
-     int PrefsButtonId2;
-     int NewUnitButton2Id2;
-     int ArtAttackButtonId2;
-     int SeaArtAttackButtonId2;
-     int TransferButtonId2;
-     int AirAttackButtonId2;
-     int InterdictButtonId2;
-     int StrategicButtonId2;
-     int GroupStrategicButtonId2;
-     int MakeHQButtonID2;
-     int AirReconButtonId2;
-     int ParadropButtonId2;
-     int LoadButtonId2;
-     int UnLoadButtonID2;
-     int ResearchId2;
-     int DipId2;
-     int HistoryId2;
-     int SaveId2;
-     int QuitID2;
-     int HqProdButtonId2;
-     int OfficerId2;
-     int PeopleTransferButtonId2;
-     int ProdButtonId2;
-     int RecruitButtonId2;
-     int SupplyLayerButtonId2;
-     int AirSupplyButtonId2;
-     int OrderSurrenderButtonId;
-     int ButtonZoomInId;
-     int ButtonZoomOutId;
-     int ButtonStackedUnitId;
-     int OrderSurrenderButtonId2;
-     int ButtonZoomInId2;
-     int ButtonZoomOutId2;
-     int ButtonStackedUnitId2;
-     int BlowBridgeButtonId2;
-     int BlowLocationButtonId2;
-     int GiveUnitId2;
-     int GiveHexId2;
-     int ACapButtonId2;
-     int InfraButtonId2;
-     int BuildButtonId2;
-     int TransportButtonId;
-     int TransportButtonId2;
-     int BattleGroupButtonId;
-     int BattleGroupButtonId2;
+     tab1: i32;
+     tab2: i32;
+     tab3: i32;
+     tab4: i32;
+     tab51: i32;
+     tab52: i32;
+     tab53: i32;
+     tab6: i32;
+     tab101: i32;
+     lastorderx: i32;
+     lastordery: i32;
+     LastAirSupplyNeed: i32;
+     LastAirSupplyMax: i32;
+     LastAirSupplyTarget: i32;
+     MoveButtonId: i32;
+     StatisticsButtonId: i32;
+     GroupMoveButtonId: i32;
+     NextButtonId: i32;
+     PopupButtonId: i32;
+     NewUnitButtonId: i32;
+     HqUnitButtonId: i32;
+     NewUnitButton2Id: i32;
+     AttackButtonId: i32;
+     seaAttackButtonId: i32;
+     PrefsButtonId: i32;
+     ArtAttackButtonId: i32;
+     SeaArtAttackButtonId: i32;
+     TransferButtonId: i32;
+     AirAttackButtonId: i32;
+     InterdictButtonId: i32;
+     StrategicButtonId: i32;
+     GroupStrategicButtonId: i32;
+     MakeHQButtonID: i32;
+     AirReconButtonId: i32;
+     ParadropButtonId: i32;
+     LoadButtonId: i32;
+     UnLoadButtonID: i32;
+     ResearchId: i32;
+     DipId: i32;
+     HistoryId: i32;
+     SaveId: i32;
+     QuitID: i32;
+     HqProdButtonId: i32;
+     PeopleTransferButtonId: i32;
+     ProdButtonId: i32;
+     RecruitButtonId: i32;
+     SupplyLayerButtonId: i32;
+     AirSupplyButtonId: i32;
+     OfficerId: i32;
+     BlowBridgeButtonId: i32;
+     BlowLocationButtonId: i32;
+     ACapButtonId: i32;
+     InfraButtonId: i32;
+     BuildButtonId: i32;
+     HexUnitButtonId: i32;
+     HexUnitButtonId2: i32;
+     GiveUnitId: i32;
+     GiveHexId: i32;
+     ShowAsId: i32;
+     ShowAsId2: i32;
+     FakeBackButtonId: i32;
+     ChangeModelId: i32;
+     ChangeModelId2: i32;
+     ModelDesignerId: i32;
+     ModelDesignerId2: i32;
+     SFDesignButtonId: i32;
+     GuiDownId: i32;
+     MoveButtonId2: i32;
+     GroupMoveButtonId2: i32;
+     StatisticsButtonId2: i32;
+     NextButtonId2: i32;
+     NewUnitButtonId2: i32;
+     HqUnitButtonId2: i32;
+     AttackButtonId2: i32;
+     seaAttackButtonId2: i32;
+     PrefsButtonId2: i32;
+     NewUnitButton2Id2: i32;
+     ArtAttackButtonId2: i32;
+     SeaArtAttackButtonId2: i32;
+     TransferButtonId2: i32;
+     AirAttackButtonId2: i32;
+     InterdictButtonId2: i32;
+     StrategicButtonId2: i32;
+     GroupStrategicButtonId2: i32;
+     MakeHQButtonID2: i32;
+     AirReconButtonId2: i32;
+     ParadropButtonId2: i32;
+     LoadButtonId2: i32;
+     UnLoadButtonID2: i32;
+     ResearchId2: i32;
+     DipId2: i32;
+     HistoryId2: i32;
+     SaveId2: i32;
+     QuitID2: i32;
+     HqProdButtonId2: i32;
+     OfficerId2: i32;
+     PeopleTransferButtonId2: i32;
+     ProdButtonId2: i32;
+     RecruitButtonId2: i32;
+     SupplyLayerButtonId2: i32;
+     AirSupplyButtonId2: i32;
+     OrderSurrenderButtonId: i32;
+     ButtonZoomInId: i32;
+     ButtonZoomOutId: i32;
+     ButtonStackedUnitId: i32;
+     OrderSurrenderButtonId2: i32;
+     ButtonZoomInId2: i32;
+     ButtonZoomOutId2: i32;
+     ButtonStackedUnitId2: i32;
+     BlowBridgeButtonId2: i32;
+     BlowLocationButtonId2: i32;
+     GiveUnitId2: i32;
+     GiveHexId2: i32;
+     ACapButtonId2: i32;
+     InfraButtonId2: i32;
+     BuildButtonId2: i32;
+     TransportButtonId: i32;
+     TransportButtonId2: i32;
+     BattleGroupButtonId: i32;
+     BattleGroupButtonId2: i32;
      string SFDesignButtonText;
      string MoveButtonText;
      string ButtonZoomInText;
@@ -210,13 +210,13 @@ namespace WindowsApplication1
      int[] ActionButtonId;
      int[] ActionButtonId2;
      int[] ActionButtonCardSlot;
-     int disbandid;
-     int disbandid2;
+     disbandid: i32;
+     disbandid2: i32;
      bool pdfAsked;
-     int lastHideUnit;
+     lastHideUnit: i32;
 
     pub OrderWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect)
       : base( tGame, tGame.ScreenWidth, 90)
@@ -239,7 +239,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.game.EditObj.OrderType == 0)
       {
@@ -249,7 +249,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub handleTimerWheel: WindowReturnClass(int x, int y)
+    pub handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -362,7 +362,7 @@ label_10:
       return windowReturnClass1;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.CurrentView = this.game.EditObj.SetViewMode;
       this.ClearMouse();
@@ -371,7 +371,7 @@ label_10:
       if (!this.game.EditObj.useLeftRightClickMode |  this.game.Data.RuleVar[701] < 1.0 | this.game.EditObj.OrderType == 26)
       {
         let mut num1: i32 =   Math.Round( this.game.ScreenWidth / 116.0);
-        Bitmap bitmap;
+        bitmap: Bitmap;
         for (let mut index: i32 =  0; index <= num1; index += 1)
         {
            let mut local1: &Graphics = &g;
@@ -411,7 +411,7 @@ label_10:
         for (let mut index: i32 =  0; index <= num; index += 1)
         {
            let mut local7: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARFRAME);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARFRAME);
            let mut local8: &Bitmap = &bitmap;
           let mut x: i32 =  index * 116;
           DrawMod.DrawSimple( local7,  local8, x, 87);
@@ -434,7 +434,7 @@ label_10:
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -605,8 +605,8 @@ label_10:
           let mut num5: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
           let mut num6: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 53.0));
           let mut num7: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 106.0));
-          int num8;
-          int num9;
+          num8: i32;
+          num9: i32;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = 1;
@@ -655,8 +655,8 @@ label_10:
           let mut num11: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
           let mut num12: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 53.0));
           let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 106.0));
-          int num14;
-          int num15;
+          num14: i32;
+          num15: i32;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = -1;
@@ -930,7 +930,7 @@ label_10:
       return windowReturnClass1;
     }
 
-    pub void dostuff2(Graphics g)
+    pub fn dostuff2(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num1: i32 =  31;
@@ -1574,7 +1574,7 @@ label_10:
         if (this.game.EditObj.udsUnitOrderMode == 1)
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local2: &Bitmap = &bitmap;
           Rectangle srcrect = Rectangle::new(0, 0, 75, height - 3);
           rectangle = Rectangle::new(x, 20, 75, height - 3);
@@ -1588,7 +1588,7 @@ label_10:
         {
           height = 40;
            let mut local3: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local4: &Bitmap = &bitmap;
           rectangle = Rectangle::new(0, 0, 75, height - 3);
           let mut srcrect: &Rectangle = &rectangle
@@ -1611,7 +1611,7 @@ label_10:
         if (this.game.EditObj.udsUnitOrderMode == 48)
         {
            let mut local5: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local6: &Bitmap = &bitmap;
           rectangle = Rectangle::new(0, 0, 75, height - 3);
           let mut srcrect: &Rectangle = &rectangle
@@ -1626,7 +1626,7 @@ label_10:
         {
           height = 40;
            let mut local7: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local8: &Bitmap = &bitmap;
           rectangle = Rectangle::new(0, 0, 75, height - 3);
           let mut srcrect: &Rectangle = &rectangle
@@ -1650,7 +1650,7 @@ label_10:
         if (this.game.EditObj.udsUnitOrderMode < 1)
         {
            let mut local9: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local10: &Bitmap = &bitmap;
           rectangle = Rectangle::new(0, 0, 75, height - 3);
           let mut srcrect: &Rectangle = &rectangle
@@ -1665,7 +1665,7 @@ label_10:
         {
           height = 40;
            let mut local11: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
            let mut local12: &Bitmap = &bitmap;
           rectangle = Rectangle::new(0, 0, 75, height - 3);
           let mut srcrect: &Rectangle = &rectangle
@@ -2422,7 +2422,7 @@ label_10:
           this.hqprodbuttontext = "You have to select a friendly location that can produce stuff.";
         if (this.ProdButtonId == 0)
           this.prodbuttontext = "You have to select a friendly location that can produce stuff.";
-        int num18;
+        num18: i32;
         if (this.game.Data.Round > 0 && this.game.SelectX > -1 & this.game.SelectY > -1)
         {
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter == -1)
@@ -2509,8 +2509,8 @@ label_10:
           this.ChangeModelText = "Cannot use this order in free movement phase.";
         }
         let mut num19: i32 =  800 + num2;
-        int num20;
-        int num21;
+        num20: i32;
+        num21: i32;
         if ( this.game.Data.RuleVar[343] == 1.0)
         {
           if (this.OfficerId > 0)
@@ -2526,7 +2526,7 @@ label_10:
             this.OfficerId2 = this.AddSubPart( tsubpart, num19 + num21 * 33, num1, 29, 29, 0);
           }
         }
-        int num22;
+        num22: i32;
         if (this.HistoryId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 26))
         {
           num22 = num21 + 1;
@@ -2541,7 +2541,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONHISTORY, 1, this.historytext,  this.OwnBitmap, num19 + num22 * 33, num1, 4, 29);
           this.HistoryId2 = this.AddSubPart( tsubpart, num19 + num22 * 33, num1, 29, 29, 0);
         }
-        int num23;
+        num23: i32;
         if (this.OrderSurrenderButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 41))
         {
           num23 = num22 + 1;
@@ -2556,7 +2556,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONSURRENDER, 1, this.ordersurrendertext,  this.OwnBitmap, num19 + num23 * 33, num1, 4, 29);
           this.OrderSurrenderButtonId2 = this.AddSubPart( tsubpart, num19 + num23 * 33, num1, 29, 29, 0);
         }
-        int num24;
+        num24: i32;
         if (this.SaveId > 0 & !this.game.Data.PBEM & this.game.EditObj.TutOrder == -1)
         {
           num24 = num23 + 1;
@@ -2582,8 +2582,8 @@ label_10:
           this.NextButtonId = this.AddSubPart( tsubpart, num19 + num26 * 33, num1, 29, 29, 0);
         }
         let mut num27: i32 =  40 + num2;
-        int num28;
-        int num29;
+        num28: i32;
+        num29: i32;
         if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
         {
           if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
@@ -3147,7 +3147,7 @@ label_10:
           }
           if ( this.game.Data.RuleVar[511] == 0.0)
           {
-            int num58;
+            num58: i32;
             if (this.seaAttackButtonId > 0 & this.game.EditObj.TutOrder == -1)
             {
               num58 = num29 + 1;
@@ -3229,7 +3229,7 @@ label_10:
         }
         let mut num60: i32 =  num2 + 600;
         let mut num61: i32 =  -1;
-        int num62;
+        num62: i32;
         if (this.HexUnitButtonId > 0 & this.game.EditObj.TutOrder == -1)
         {
           num62 = num61 + 1;
@@ -3255,7 +3255,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONHEX, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num62 * 33), bby: num1, totherback: 3, tsize: 29);
           this.HexUnitButtonId2 = this.AddSubPart( tsubpart, num60 + 36 * num62, num1, 29, 29, 0);
         }
-        int num63;
+        num63: i32;
         if (this.ShowAsId > 0 & this.game.EditObj.TutOrder == -1)
         {
           num63 = num62 + 1;
@@ -3276,7 +3276,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONHEXINFO, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num63 * 33), bby: num1, totherback: 3, tsize: 29);
           this.ShowAsId2 = this.AddSubPart( tsubpart, num60 + 36 * num63, num1, 29, 29, 0);
         }
-        int num64;
+        num64: i32;
         if (this.ButtonZoomOutId > 0 & this.game.EditObj.TutOrder == -1)
         {
           num64 = num63 + 1;
@@ -3297,7 +3297,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONZOOMOUT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num64 * 33), bby: num1, totherback: 3, tsize: 29);
           this.ButtonZoomOutId2 = this.AddSubPart( tsubpart, num60 + 36 * num64, num1, 29, 29, 0);
         }
-        int num65;
+        num65: i32;
         if (this.ButtonZoomInId > 0 & this.game.EditObj.TutOrder == -1)
         {
           num65 = num64 + 1;
@@ -3318,7 +3318,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONZOOMIN, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num65 * 33), bby: num1, totherback: 3, tsize: 29);
           this.ButtonZoomInId2 = this.AddSubPart( tsubpart, num60 + 36 * num65, num1, 29, 29, 0);
         }
-        int num66;
+        num66: i32;
         if (this.ButtonStackedUnitId > 0 & this.game.EditObj.TutOrder == -1 & this.game.EditObj.Zoom == 1)
         {
           num66 = num65 + 1;
@@ -3712,7 +3712,7 @@ label_10:
         {
           this.PopupButtonId = 1;
           let mut unitCounter: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitCounter;
-          int num71;
+          num71: i32;
           for (let mut index15: i32 =  0; index15 <= unitCounter; index15 += 1)
           {
             let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitList[index15];
@@ -4080,7 +4080,7 @@ label_10:
       }
     }
 
-    pub void DoTabs( Graphics g)
+    pub fn DoTabs( Graphics g)
     {
       if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         return;
@@ -4104,7 +4104,7 @@ label_10:
       this.tab101 = -1;
       if (this.game.EditObj.GuiDown)
         return;
-      int num1;
+      num1: i32;
       if (this.game.EditObj.UnitSelected == -1)
       {
         if (flag1)
@@ -4115,7 +4115,7 @@ label_10:
             num2 += 240;
           let mut x1: i32 =   Math.Round( num2 +  this.game.ScreenWidth / 2.0 - 480.0) - (width - 0);
            let mut local1: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
            let mut local2: &Bitmap = &bitmap;
           let mut x2: i32 =  x1;
           let mut w: i32 =  width;
@@ -4151,7 +4151,7 @@ label_10:
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
             let mut x3: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
             {
@@ -4205,7 +4205,7 @@ label_10:
           else
           {
             let mut x8: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             string upper;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
@@ -4331,7 +4331,7 @@ label_10:
           {
             let mut x15: i32 =  num7 + (width - 34) - (width - 24);
              let mut local17: &Graphics = &g;
-            Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+            bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
              let mut local18: &Bitmap = &bitmap1;
             let mut x16: i32 =  x15;
             let mut w3: i32 =  width;
@@ -4345,7 +4345,7 @@ label_10:
             this.tab101 = this.MouseCounter;
             let mut x17: i32 =  x15 - (width - 12);
              let mut local19: &Graphics = &g;
-            Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+            bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
              let mut local20: &Bitmap = &bitmap2;
             let mut x18: i32 =  x17;
             let mut w4: i32 =  width;
@@ -4361,7 +4361,7 @@ label_10:
           {
             let mut x19: i32 =  num7 - (width - 0);
              let mut local21: &Graphics = &g;
-            Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+            bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
              let mut local22: &Bitmap = &bitmap;
             let mut x20: i32 =  x19;
             let mut w5: i32 =  width;
@@ -4410,7 +4410,7 @@ label_10:
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
             let mut x23: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
             {
@@ -4477,7 +4477,7 @@ label_10:
           else
           {
             let mut x30: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
-            Bitmap bitmap;
+            bitmap: Bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
             {
@@ -4599,7 +4599,7 @@ label_10:
             num11 += 120;
           let mut x39: i32 =   Math.Round( num11 +  this.game.ScreenWidth / 2.0 - 480.0);
            let mut local43: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
            let mut local44: &Bitmap = &bitmap;
           let mut x40: i32 =  x39;
           DrawMod.DrawSimple( local43,  local44, x40, 66);
@@ -4727,14 +4727,14 @@ label_10:
       }
     }
 
-    pub void DoTabs1( Graphics g, bool Active = false)
+    pub fn DoTabs1( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4742,7 +4742,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4762,14 +4762,14 @@ label_10:
       this.tab1 = this.MouseCounter;
     }
 
-    pub void DoTabs1B( Graphics g, bool Active = false)
+    pub fn DoTabs1B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 420 + 170;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4777,7 +4777,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 420 + 170;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4797,7 +4797,7 @@ label_10:
       this.tab1 = this.MouseCounter;
     }
 
-    pub void DoTabs2( Graphics g, bool Active = false)
+    pub fn DoTabs2( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
@@ -4806,7 +4806,7 @@ label_10:
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4814,7 +4814,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4829,7 +4829,7 @@ label_10:
       this.tab2 = this.MouseCounter;
     }
 
-    pub void DoTabs2B( Graphics g, bool Active = false)
+    pub fn DoTabs2B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
@@ -4838,7 +4838,7 @@ label_10:
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4846,7 +4846,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4861,7 +4861,7 @@ label_10:
       this.tab2 = this.MouseCounter;
     }
 
-    pub void DoTabs3( Graphics g, bool Active = false)
+    pub fn DoTabs3( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
@@ -4870,7 +4870,7 @@ label_10:
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4878,7 +4878,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4893,14 +4893,14 @@ label_10:
       this.tab3 = this.MouseCounter;
     }
 
-    pub void DoTabs4( Graphics g, bool Active = false)
+    pub fn DoTabs4( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 0 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4908,7 +4908,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 0 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4923,14 +4923,14 @@ label_10:
       this.tab4 = this.MouseCounter;
     }
 
-    pub void DoTabs4B( Graphics g, bool Active = false)
+    pub fn DoTabs4B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
@@ -4938,7 +4938,7 @@ label_10:
       else
       {
          let mut local3: &Graphics = &g;
-        Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
+        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
          let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
@@ -4953,7 +4953,7 @@ label_10:
       this.tab4 = this.MouseCounter;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter <= -1)
@@ -4971,7 +4971,7 @@ label_10:
       }
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
       if (y > 18 &&  this.w / 2.0 - 500.0 <  x &  x <  this.w / 2.0 + 500.0)
@@ -4981,9 +4981,9 @@ label_10:
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
-      int[,] numArray = new int[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
+      numArray: Vec<i32> = new int[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass1;
@@ -6010,7 +6010,7 @@ label_10:
                       return windowReturnClass2;
                     }
                     let mut messCounter1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
-                    int num8;
+                    num8: i32;
                     for (let mut index19: i32 =  0; index19 <= messCounter1; index19 += 1)
                     {
                       if (Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[index19], "YOUR MESSAGE TO") > 0)
@@ -6115,8 +6115,8 @@ label_10:
                     let mut num12: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
                     let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num10)) / 53.0));
                     let mut num14: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num10)) / 106.0));
-                    int num15;
-                    int num16;
+                    num15: i32;
+                    num16: i32;
                     if (this.game.EditObj.Zoom == 0)
                     {
                       this.game.EditObj.Zoom = -1;
@@ -6159,8 +6159,8 @@ label_10:
                     let mut num19: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
                     let mut num20: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num17)) / 53.0));
                     let mut num21: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num17)) / 106.0));
-                    int num22;
-                    int num23;
+                    num22: i32;
+                    num23: i32;
                     if (this.game.EditObj.Zoom == 0)
                     {
                       this.game.EditObj.Zoom = 1;
@@ -6828,7 +6828,7 @@ label_10:
       return windowReturnClass1;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode && !this.game.EditObj.battleTimerPopupRefreshDoesntStartIt)
       {
@@ -7005,7 +7005,7 @@ label_10:
       return windowReturnClass;
     }
 
-    pub void HighLightAItest()
+    pub fn HighLightAItest()
     {
       let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
       this.game.EditObj.TempCoordList = CoordList::new();

@@ -15,39 +15,39 @@ namespace WindowsApplication1
 {
   pub class UDSMatrixSubPartClass : SubPartClass
   {
-     int ListSize;
-     int ListSelect;
-     int ColSelect;
+     ListSize: i32;
+     ListSelect: i32;
+     ColSelect: i32;
     pub TopItemX: i32;
     pub TopItemY: i32;
      StringListClass ListObj;
-     Font OwnFont;
-     Font ownfont2;
-     int ItemSize;
+     OwnFont: Font;
+     ownfont2: Font;
+     ItemSize: i32;
      const let mut ItemFontOffset: i32 = 1;
      const let mut LeftTextOffset: i32 = 5;
-     int Width;
-     int Height;
-     GameClass game;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
      bool Highlight;
-     int bx;
-     int by;
-     Bitmap backbitmap;
-     int clickscroll;
-     int rowheight;
-     int fontsize;
-     int fontoffsety;
+     bx: i32;
+     by: i32;
+     backbitmap: Bitmap;
+     clickscroll: i32;
+     rowheight: i32;
+     fontsize: i32;
+     fontoffsety: i32;
      bool nolines;
      bool Marcy;
-     int colWidth;
-     int minimumColWidth;
-     int totalColWidth;
-     int twoColumnVariant;
-     int slotRegimes;
-     int slotPortrait;
-     int slotCharacter;
+     colWidth: i32;
+     minimumColWidth: i32;
+     totalColWidth: i32;
+     twoColumnVariant: i32;
+     slotRegimes: i32;
+     slotPortrait: i32;
+     slotCharacter: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( self.backbitmap))
         return;
@@ -55,7 +55,7 @@ namespace WindowsApplication1
       self.backbitmap = (Bitmap) null;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       --self.ListSelect;
       if (self.ListSelect - self.TopItemY >= 0)
@@ -63,7 +63,7 @@ namespace WindowsApplication1
       --self.TopItemY;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       self += 1.ListSelect;
       if (self.ListSelect - self.TopItemY <= self.ListSize)
@@ -71,7 +71,7 @@ namespace WindowsApplication1
       self += 1.TopItemY;
     }
 
-    pub void ShiftLeft()
+    pub fn ShiftLeft()
     {
       --self.ColSelect;
       if (self.ColSelect - self.TopItemX >= 0)
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       --self.TopItemX;
     }
 
-    pub void ShiftRight()
+    pub fn ShiftRight()
     {
       let mut num1: i32 =  Math.Round(Conversion.Int( (self.Width - 0) /  (self.ListObj.Width + 1)));
       if (num1 < self.colWidth)
@@ -93,7 +93,7 @@ namespace WindowsApplication1
       self += 1.TopItemX;
     }
 
-    pub void Refresh(StringListClass tListObj, int tlistselect, int tcolselect)
+    pub fn Refresh(StringListClass tListObj, tlistselect: i32, tcolselect: i32)
     {
       self.ListObj = tListObj;
       self.ListSelect = tlistselect;
@@ -105,7 +105,7 @@ namespace WindowsApplication1
       self.Clear();
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (self.game.Data.Round < 1)
         return;
@@ -123,15 +123,15 @@ namespace WindowsApplication1
 
     pub UDSMatrixSubPartClass(
       StringListClass tListobj,
-      int tlistsize,
-      int twidth,
-      int tlistselect,
-      int tcolselect,
-      GameClass tgame,
+      tlistsize: i32,
+      twidth: i32,
+      tlistselect: i32,
+      tcolselect: i32,
+      tgame: GameClass,
       bool systemfont = false,
       bool tHighlight = true,
       let mut tTop: i32 = 0,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
       let mut trowheight: i32 = 16,
@@ -141,7 +141,7 @@ namespace WindowsApplication1
       bool tMarcy = false,
       let mut tMinColValue: i32 = -1,
       let mut tTwoColumnVariant: i32 = 0,
-       Font customFont = null)
+       customFont: Font = null)
       : base(twidth, (tlistsize + 3) * trowheight)
     {
       self.nolines = tnolines;
@@ -240,7 +240,7 @@ namespace WindowsApplication1
       self.totalColWidth = self.colWidth * (self.ListObj.Width + 1);
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Color.FromArgb(0,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
@@ -281,7 +281,7 @@ namespace WindowsApplication1
       for (let mut index1: i32 = topItemY; index1 <= num7; index1 += 1)
       {
         num6 += 1;
-        Bitmap bitmap;
+        bitmap: Bitmap;
         if (num6 == 0)
         {
           if (self.ListObj.Width > -1)
@@ -374,7 +374,7 @@ namespace WindowsApplication1
               {
                 str1: String = self.ListObj.Data[self.ListSelect, self.ColSelect];
               }
-              string[] strArray1 = self.ListObj.Data[index1 - num5, index4].Split('#');
+              strArray1: Vec<String> = self.ListObj.Data[index1 - num5, index4].Split('#');
               if (strArray1.GetUpperBound(0) > 0)
               {
                 SizeF sizeF2;
@@ -497,7 +497,7 @@ namespace WindowsApplication1
                   for (let mut index9: i32 = 1; index9 <= upperBound; index9 += 5)
                   {
                     let mut num22: i32 =  Math.Round(Conversion.Val(strArray1[index9]));
-                    Bitmap objBitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(self.game.HandyFunctionsObj.GetSFTypeByID(num22),  Math.Round(Conversion.Val(strArray1[index9 + 2])) == 1,  Math.Round(Conversion.Val(strArray1[index9 + 3])),  Math.Round(Conversion.Val(strArray1[index9 + 4])), -1);
+                    objBitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(self.game.HandyFunctionsObj.GetSFTypeByID(num22),  Math.Round(Conversion.Val(strArray1[index9 + 2])) == 1,  Math.Round(Conversion.Val(strArray1[index9 + 3])),  Math.Round(Conversion.Val(strArray1[index9 + 4])), -1);
                     let mut num23: i32 = 0;
                     let mut num24: i32 = 2;
                     let mut w: i32 = 64;
@@ -651,8 +651,8 @@ namespace WindowsApplication1
                     self.Hardcoded_DrawPortrait(graphics, x3 - 5, self.ItemSize * num6,  Math.Round( (self.ItemSize * 10) / 14.0), self.ItemSize,  Math.Round(Conversion.Val(self.ListObj.Data[index1 - num5, index4])));
                   if (nr == 1000001)
                   {
-                    string[] strArray2 = self.ListObj.Data[index1 - num5, index4].Split(',');
-                    Bitmap objBitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(self.game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(strArray2[0]))),  Math.Round(Conversion.Val(strArray2[1])) == 1,  Math.Round(Conversion.Val(strArray2[2])),  Math.Round(Conversion.Val(strArray2[3])), -1);
+                    strArray2: Vec<String> = self.ListObj.Data[index1 - num5, index4].Split(',');
+                    objBitmap: Bitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(self.game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(strArray2[0]))),  Math.Round(Conversion.Val(strArray2[1])) == 1,  Math.Round(Conversion.Val(strArray2[2])),  Math.Round(Conversion.Val(strArray2[3])), -1);
                     let mut num41: i32 = 0;
                     let mut num42: i32 = 2;
                     let mut w: i32 = self.ItemSize * 2;
@@ -688,7 +688,7 @@ namespace WindowsApplication1
                 str3: String = "";
                 if ( (num2 * 2) >=  self.ItemSize / 2.0 &  graphics.MeasureString(str2, self.ownfont2).Width >  num10)
                 {
-                  int Length;
+                  Length: i32;
                   for (;  graphics.MeasureString(str2, self.ownfont2).Width >  (num10 - 4); str2 = Strings.Left(str2, Length))
                   {
                     Length = str2.LastIndexOf(" ");
@@ -726,18 +726,18 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void Hardcoded_DrawPortrait(Graphics g, int x, int y, int w, int h, int charId)
+    pub fn Hardcoded_DrawPortrait(Graphics g, x: i32, y: i32, w: i32, h: i32, charId: i32)
     {
       let mut num: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotCharacter].GetData(0, charId, 12)));
        let mut local1: &Graphics = &g;
-      Bitmap bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(charId, w, h);
+      bitmap: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(charId, w, h);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 = x;
       let mut y1: i32 = y;
       DrawMod.DrawSimple( local1,  local2, x1, y1);
     }
 
-    pub Coordinate Click2(int x, int y, let mut b: i32 = 1)
+    pub Coordinate Click2(x: i32, y: i32, let mut b: i32 = 1)
     {
       y =  Math.Round(Conversion.Int( y /  self.ItemSize));
       self.Scroller = true;
@@ -819,7 +819,7 @@ namespace WindowsApplication1
       return coordinate3;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (self.clickscroll == 1 | self.Scroller)
       {
@@ -834,7 +834,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       let mut num1: i32 = y;
       y =  Math.Round(Conversion.Int( y /  self.ItemSize));

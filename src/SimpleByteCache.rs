@@ -28,19 +28,19 @@ namespace WindowsApplication1
 
     pub SimpleByteCache()
     {
-      this.cacheBig = new byte[1, 1];
-      this.cacheMed = new byte[1, 1];
-      this.cacheSmall = new byte[1, 1];
-      this.singleFredCacheBig = new byte[65, 1];
-      this.singleFredCacheMed = new byte[65, 1];
-      this.singleFredCacheSmall = new byte[65, 1];
+      self.cacheBig = new byte[1, 1];
+      self.cacheMed = new byte[1, 1];
+      self.cacheSmall = new byte[1, 1];
+      self.singleFredCacheBig = new byte[65, 1];
+      self.singleFredCacheMed = new byte[65, 1];
+      self.singleFredCacheSmall = new byte[65, 1];
     }
 
     pub void SetSingleFredAlphaCache(
-       Bitmap bmp,
-       Bitmap bmpBig,
-       Bitmap bmpSmall,
-      int bitmapNr)
+       bmp: Bitmap,
+       bmpBig: Bitmap,
+       bmpSmall: Bitmap,
+      bitmapNr: i32)
     {
       s: String = BitmapStore.tmpFileName[bitmapNr];
       if (Information.IsNothing( bmp))
@@ -54,7 +54,7 @@ namespace WindowsApplication1
         bmpSmall = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + str2);
         bmpSmall.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
-      this.singleFredCacheMed = new byte[65, 3072];
+      self.singleFredCacheMed = new byte[65, 3072];
       let mut index1: i32 = 1;
       IntPtr scan0;
       do
@@ -79,7 +79,7 @@ namespace WindowsApplication1
             let mut num4: i32 = num2 - 1;
             for (let mut index4: i32 = 3; index4 <= num4; index4 += 4)
             {
-              this.singleFredCacheMed[index1, index2] = destination[index4];
+              self.singleFredCacheMed[index1, index2] = destination[index4];
               index2 += 1;
             }
           }
@@ -95,8 +95,8 @@ namespace WindowsApplication1
             let mut num8: i32 = x1 + 63;
             for (let mut x2: i32 = num7; x2 <= num8; x2 += 1)
             {
-              Color pixel = bmp.GetPixel(x2, y2);
-              this.singleFredCacheMed[index1, index2] = pixel.A;
+              pixel: Color = bmp.GetPixel(x2, y2);
+              self.singleFredCacheMed[index1, index2] = pixel.A;
               index2 += 1;
             }
           }
@@ -104,7 +104,7 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 64);
-      this.singleFredCacheBig = new byte[65, 12288];
+      self.singleFredCacheBig = new byte[65, 12288];
       let mut index5: i32 = 1;
       do
       {
@@ -128,7 +128,7 @@ namespace WindowsApplication1
             let mut num12: i32 = num10 - 1;
             for (let mut index8: i32 = 3; index8 <= num12; index8 += 4)
             {
-              this.singleFredCacheBig[index5, index6] = destination[index8];
+              self.singleFredCacheBig[index5, index6] = destination[index8];
               index6 += 1;
             }
           }
@@ -144,8 +144,8 @@ namespace WindowsApplication1
             let mut num16: i32 = x3 +  sbyte.MaxValue;
             for (let mut x4: i32 = num15; x4 <= num16; x4 += 1)
             {
-              Color pixel = bmpBig.GetPixel(x4, y4);
-              this.singleFredCacheBig[index5, index6] = pixel.A;
+              pixel: Color = bmpBig.GetPixel(x4, y4);
+              self.singleFredCacheBig[index5, index6] = pixel.A;
               index6 += 1;
             }
           }
@@ -153,7 +153,7 @@ namespace WindowsApplication1
         index5 += 1;
       }
       while (index5 <= 64);
-      this.singleFredCacheSmall = new byte[65, 768];
+      self.singleFredCacheSmall = new byte[65, 768];
       let mut index9: i32 = 1;
       do
       {
@@ -177,7 +177,7 @@ namespace WindowsApplication1
             let mut num20: i32 = num18 - 1;
             for (let mut index12: i32 = 3; index12 <= num20; index12 += 4)
             {
-              this.singleFredCacheSmall[index9, index10] = destination[index12];
+              self.singleFredCacheSmall[index9, index10] = destination[index12];
               index10 += 1;
             }
           }
@@ -193,8 +193,8 @@ namespace WindowsApplication1
             let mut num24: i32 = x5 + 31;
             for (let mut x6: i32 = num23; x6 <= num24; x6 += 1)
             {
-              Color pixel = bmpSmall.GetPixel(x6, y6);
-              this.singleFredCacheSmall[index9, index10] = pixel.A;
+              pixel: Color = bmpSmall.GetPixel(x6, y6);
+              self.singleFredCacheSmall[index9, index10] = pixel.A;
               index10 += 1;
             }
           }
@@ -205,9 +205,9 @@ namespace WindowsApplication1
       BitmapStore.Dispose(bitmapNr);
     }
 
-    pub void SetSingleAlphaCache( Bitmap bmp,  Bitmap bmpBig,  Bitmap bmpSmall)
+    pub fn SetSingleAlphaCache( bmp: Bitmap,  bmpBig: Bitmap,  bmpSmall: Bitmap)
     {
-      this.singleCacheMed = new byte[bmp.Width * bmp.Height - 1 + 1];
+      self.singleCacheMed = new byte[bmp.Width * bmp.Height - 1 + 1];
       let mut index1: i32 = 0;
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
@@ -219,12 +219,12 @@ namespace WindowsApplication1
         let mut num6: i32 = num1 + 63;
         for (let mut x: i32 = num5; x <= num6; x += 1)
         {
-          Color pixel = bmp.GetPixel(x, y);
-          this.singleCacheMed[index1] = pixel.A;
+          pixel: Color = bmp.GetPixel(x, y);
+          self.singleCacheMed[index1] = pixel.A;
           index1 += 1;
         }
       }
-      this.singleCacheSmall = new byte[bmpSmall.Width * bmpSmall.Height - 1 + 1];
+      self.singleCacheSmall = new byte[bmpSmall.Width * bmpSmall.Height - 1 + 1];
       let mut index2: i32 = 0;
       let mut num7: i32 = num2;
       let mut num8: i32 = num2 + 23;
@@ -234,12 +234,12 @@ namespace WindowsApplication1
         let mut num10: i32 = num1 + 31;
         for (let mut x: i32 = num9; x <= num10; x += 1)
         {
-          Color pixel = bmpSmall.GetPixel(x, y);
-          this.singleCacheSmall[index2] = pixel.A;
+          pixel: Color = bmpSmall.GetPixel(x, y);
+          self.singleCacheSmall[index2] = pixel.A;
           index2 += 1;
         }
       }
-      this.singleCacheBig = new byte[bmpBig.Width * bmpBig.Height - 1 + 1];
+      self.singleCacheBig = new byte[bmpBig.Width * bmpBig.Height - 1 + 1];
       let mut index3: i32 = 0;
       let mut num11: i32 = num2;
       let mut num12: i32 = num2 + 95;
@@ -249,21 +249,21 @@ namespace WindowsApplication1
         let mut num14: i32 = num1 +  sbyte.MaxValue;
         for (let mut x: i32 = num13; x <= num14; x += 1)
         {
-          Color pixel = bmpBig.GetPixel(x, y);
-          this.singleCacheBig[index3] = pixel.A;
+          pixel: Color = bmpBig.GetPixel(x, y);
+          self.singleCacheBig[index3] = pixel.A;
           index3 += 1;
         }
       }
     }
 
     pub void SetMultiRGBCache(
-       Bitmap bmp,
-       Bitmap bmpBig,
-       Bitmap bmpSmall,
-      int bitmapNr)
+       bmp: Bitmap,
+       bmpBig: Bitmap,
+       bmpSmall: Bitmap,
+      bitmapNr: i32)
     {
       s: String = BitmapStore.tmpFileName[bitmapNr];
-      int width1;
+      width1: i32;
       try
       {
         width1 = bmp.Width;
@@ -311,14 +311,14 @@ namespace WindowsApplication1
       }
       let mut width2: i32 = bmp.Width;
       let mut height1: i32 = bmp.Height;
-      int num1;
+      num1: i32;
       if (width2 == 424)
         num1 = 8;
-      this.cacheTotal = num1;
-      this.cacheMed = new byte[num1 * num1 + 1, 12288];
+      self.cacheTotal = num1;
+      self.cacheMed = new byte[num1 * num1 + 1, 12288];
       let mut num2: i32 = 0;
       let mut num3: i32 = num1 - 1;
-      Color pixel;
+      pixel: Color;
       for (let mut index1: i32 = 0; index1 <= num3; index1 += 1)
       {
         let mut num4: i32 = num1 - 1;
@@ -344,7 +344,7 @@ namespace WindowsApplication1
               Marshal.Copy((IntPtr) (bitmapdata.Scan0.ToInt64() + (long) (index4 * bitmapdata.Stride)), destination, 0, destination.Length);
               let mut num8: i32 = num6 - 1;
               for (let mut index5: i32 = 0; index5 <= num8; index5 += 1)
-                this.cacheMed[index1 * 8 + index2, index3 + index5] = destination[index5];
+                self.cacheMed[index1 * 8 + index2, index3 + index5] = destination[index5];
               index3 += num6;
             }
             bmp.UnlockBits(bitmapdata);
@@ -366,10 +366,10 @@ namespace WindowsApplication1
                 if (y2 > bmp.Height - 1)
                   y2 -= bmp.Height;
                 pixel = bmp.GetPixel(x2, y2);
-                this.cacheMed[index1 * 8 + index2, index3] = pixel.B;
-                this.cacheMed[index1 * 8 + index2, index3 + 1] = pixel.G;
-                this.cacheMed[index1 * 8 + index2, index3 + 2] = pixel.R;
-                this.cacheMed[index1 * 8 + index2, index3 + 3] = pixel.A;
+                self.cacheMed[index1 * 8 + index2, index3] = pixel.B;
+                self.cacheMed[index1 * 8 + index2, index3 + 1] = pixel.G;
+                self.cacheMed[index1 * 8 + index2, index3 + 2] = pixel.R;
+                self.cacheMed[index1 * 8 + index2, index3 + 3] = pixel.A;
                 index3 += 4;
               }
             }
@@ -378,7 +378,7 @@ namespace WindowsApplication1
       }
       width1 = bmpBig.Width;
       height1 = bmpBig.Height;
-      this.cacheBig = new byte[num1 * num1 + 1, 49152];
+      self.cacheBig = new byte[num1 * num1 + 1, 49152];
       num2 = 0;
       let mut num13: i32 = num1 - 1;
       for (let mut index8: i32 = 0; index8 <= num13; index8 += 1)
@@ -406,7 +406,7 @@ namespace WindowsApplication1
               Marshal.Copy((IntPtr) (bitmapdata.Scan0.ToInt64() + (long) (index11 * bitmapdata.Stride)), destination, 0, destination.Length);
               let mut num18: i32 = num16 - 1;
               for (let mut index12: i32 = 0; index12 <= num18; index12 += 1)
-                this.cacheBig[index8 * 8 + index9, index10 + index12] = destination[index12];
+                self.cacheBig[index8 * 8 + index9, index10 + index12] = destination[index12];
               index10 += num16;
             }
             bmpBig.UnlockBits(bitmapdata);
@@ -428,10 +428,10 @@ namespace WindowsApplication1
                 if (y4 > bmpBig.Height - 1)
                   y4 -= bmpBig.Height;
                 pixel = bmpBig.GetPixel(x4, y4);
-                this.cacheBig[index8 * 8 + index9, index10] = pixel.B;
-                this.cacheBig[index8 * 8 + index9, index10 + 1] = pixel.G;
-                this.cacheBig[index8 * 8 + index9, index10 + 2] = pixel.R;
-                this.cacheBig[index8 * 8 + index9, index10 + 3] = pixel.A;
+                self.cacheBig[index8 * 8 + index9, index10] = pixel.B;
+                self.cacheBig[index8 * 8 + index9, index10 + 1] = pixel.G;
+                self.cacheBig[index8 * 8 + index9, index10 + 2] = pixel.R;
+                self.cacheBig[index8 * 8 + index9, index10 + 3] = pixel.A;
                 index10 += 4;
               }
             }
@@ -440,7 +440,7 @@ namespace WindowsApplication1
       }
       width1 = bmpSmall.Width;
       height1 = bmpSmall.Height;
-      this.cacheSmall = new byte[num1 * num1 + 1, 3072];
+      self.cacheSmall = new byte[num1 * num1 + 1, 3072];
       num2 = 0;
       let mut num23: i32 = num1 - 1;
       for (let mut index15: i32 = 0; index15 <= num23; index15 += 1)
@@ -468,7 +468,7 @@ namespace WindowsApplication1
               Marshal.Copy((IntPtr) (bitmapdata.Scan0.ToInt64() + (long) (index18 * bitmapdata.Stride)), destination, 0, destination.Length);
               let mut num28: i32 = num26 - 1;
               for (let mut index19: i32 = 0; index19 <= num28; index19 += 1)
-                this.cacheSmall[index15 * 8 + index16, index17 + index19] = destination[index19];
+                self.cacheSmall[index15 * 8 + index16, index17 + index19] = destination[index19];
               index17 += num26;
             }
             bmpSmall.UnlockBits(bitmapdata);
@@ -490,10 +490,10 @@ namespace WindowsApplication1
                 if (y6 > bmpSmall.Height - 1)
                   y6 -= bmpSmall.Height;
                 pixel = bmpSmall.GetPixel(x6, y6);
-                this.cacheSmall[index15 * 8 + index16, index17] = pixel.B;
-                this.cacheSmall[index15 * 8 + index16, index17 + 1] = pixel.G;
-                this.cacheSmall[index15 * 8 + index16, index17 + 2] = pixel.R;
-                this.cacheSmall[index15 * 8 + index16, index17 + 3] = pixel.A;
+                self.cacheSmall[index15 * 8 + index16, index17] = pixel.B;
+                self.cacheSmall[index15 * 8 + index16, index17 + 1] = pixel.G;
+                self.cacheSmall[index15 * 8 + index16, index17 + 2] = pixel.R;
+                self.cacheSmall[index15 * 8 + index16, index17 + 3] = pixel.A;
                 index17 += 4;
               }
             }

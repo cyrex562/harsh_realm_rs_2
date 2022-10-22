@@ -14,61 +14,61 @@ namespace WindowsApplication1
 {
   pub class TabCardsWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
-     int w;
-     int h;
-     int detailnr;
-     int hovernr;
-     int lastActualCard;
-     int currentCat;
-     int OptionsListId;
+     Info1Id: i32;
+     info2id: i32;
+     w: i32;
+     h: i32;
+     detailnr: i32;
+     hovernr: i32;
+     lastActualCard: i32;
+     currentCat: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
-     int pageId;
-     int miniId;
-     int tSelectX;
-     int tSelectY;
-     int tSelectMap;
-     int tCornerX;
-     int tCornerY;
-     int categoryCount;
-     string[] categoryName;
+     pageId: i32;
+     miniId: i32;
+     tSelectX: i32;
+     tSelectY: i32;
+     tSelectMap: i32;
+     tCornerX: i32;
+     tCornerY: i32;
+     categoryCount: i32;
+     categoryName: Vec<String>;
      int[] categorySelectMode;
-     int maxMiniSelectValue;
-     int miniSelectX;
-     int miniSelectY;
-     int miniSelectValue;
-     int miniUnitSelect;
-     int miniSelectLeader;
-     int miniCatSelectValue;
+     maxMiniSelectValue: i32;
+     miniSelectX: i32;
+     miniSelectY: i32;
+     miniSelectValue: i32;
+     miniUnitSelect: i32;
+     miniSelectLeader: i32;
+     miniCatSelectValue: i32;
      bool[,] cardPlayable;
      string[,] cardWhyNot;
      bool donePrepareCardPlayable;
      AIMatrix zones;
-     string[] zoneName;
+     zoneName: Vec<String>;
      bool[] zoneVisible;
      int[] zoneRegimeId;
-     int mouseOverWhichTab;
-     int viewMode;
+     mouseOverWhichTab: i32;
+     viewMode: i32;
      string rememberExtraS;
-     int pageNr;
-     int nextId;
-     int prevId;
-     int next2Id;
-     int prev2Id;
-     int sizeId;
-     int scrapId;
-     int buyScrapId;
-     int buyScrapId2;
+     pageNr: i32;
+     nextId: i32;
+     prevId: i32;
+     next2Id: i32;
+     prev2Id: i32;
+     sizeId: i32;
+     scrapId: i32;
+     buyScrapId: i32;
+     buyScrapId2: i32;
      bool first;
      bool scrapMode;
-     int scrapMouseOver;
-     int cardSize;
+     scrapMouseOver: i32;
+     cardSize: i32;
 
     pub TabCardsWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -281,7 +281,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void CopyToEditObj()
+    pub fn CopyToEditObj()
     {
       self.game.EditObj.se1_CardsCategory = self.currentCat;
       if (self.categorySelectMode[self.currentCat] == 4)
@@ -305,7 +305,7 @@ namespace WindowsApplication1
       self.game.EditObj.se1_CardsSelectY = self.miniSelectY;
     }
 
-    pub void prepareTempValue4()
+    pub fn prepareTempValue4()
     {
       self.game.HandyFunctionsObj.RedimTempValue4(-1);
       self.game.HandyFunctionsObj.RedimTempValue3(-1);
@@ -497,7 +497,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void prepareCardPlayable(SimpleList SL)
+    pub fn prepareCardPlayable(SimpleList SL)
     {
       let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 196, 0, 0));
       self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 277, 0, 0));
@@ -518,7 +518,7 @@ namespace WindowsApplication1
         let mut index2: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[cardinhandnr];
         if (self.game.Data.ActionCardObj[index2].AreaSlot > -1)
         {
-          int index3;
+          index3: i32;
           if (Strings.InStr(self.game.Data.ActionCardObj[index2].Title, "Zoo") > 0)
             index3 = index3;
           self.game.EditObj.DoCardSlot = cardinhandnr;
@@ -687,7 +687,7 @@ namespace WindowsApplication1
       self.donePrepareCardPlayable = true;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (self.detailnr <= -1 || self.lastActualCard == -1)
         return;
@@ -715,7 +715,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       let mut num1: i32 = self.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
       self.game.HandyFunctionsObj.GetStringListByID(num1);
@@ -922,12 +922,12 @@ namespace WindowsApplication1
           trect3 = trect2;
           self.AddMouse( trect3, "Stratagem Category " + self.categoryName[index], "Click to see all stratagems in this category", 100000 + index);
           let mut num10: i32 = 50 * index;
-          Color color = self.game.seColWhite;
+          color: Color = self.game.seColWhite;
           if (index != self.currentCat)
             color = self.game.seColGray;
           if (numArray1[index] < 1)
           {
-            Color c = DrawMod.LightenColor(color, -50);
+            c: Color = DrawMod.LightenColor(color, -50);
             DrawMod.DrawTextColouredMarcCenter( g, self.categoryName[index], self.game.MarcFont4, 106, num10 + 10, c);
           }
           else
@@ -1175,7 +1175,7 @@ namespace WindowsApplication1
         self.detailnr = -1;
       if (self.hovernr > self.game.Data.RegimeObj[self.game.Data.Turn].ActionCardCounter)
         self.hovernr = -1;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (self.viewMode == 1)
       {
         let mut num24: i32 = 186;
@@ -1198,10 +1198,10 @@ namespace WindowsApplication1
         let mut num32: i32 = num30;
         let mut num33: i32 = num31;
         let mut num34: i32 = 1;
-        int num35;
-        int num36;
-        int num37;
-        int num38;
+        num35: i32;
+        num36: i32;
+        num37: i32;
+        num38: i32;
         do
         {
           num35 = num32;
@@ -2418,7 +2418,7 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextColouredConsoleCenter( g, tstring7, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
           let mut y19: i32 = y18 + 16;
-          int num90;
+          num90: i32;
           if (flag4)
           {
             DrawMod.DrawTextColouredConsoleCenter( g, tstring8, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y19, self.game.seColRed);
@@ -2488,7 +2488,7 @@ namespace WindowsApplication1
                     Random random;
                     if (str6.Length > 1)
                     {
-                      EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+                      eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
                       let mut id2: i32 = self.game.Data.StringListObj[stringListById9].ID;
                       let mut id3: i32 = self.game.Data.StringListObj[stringListById8].ID;
                       logicString: String = str6;
@@ -2508,7 +2508,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        EventRelatedClass eventRelatedObj = self.game.EventRelatedObj;
+                        eventRelatedObj: EventRelatedClass = self.game.EventRelatedObj;
                         let mut id4: i32 = self.game.Data.StringListObj[stringListById9].ID;
                         let mut id5: i32 = self.game.Data.StringListObj[stringListById8].ID;
                         logicString: String = str7;
@@ -2760,7 +2760,7 @@ namespace WindowsApplication1
       self.CopyToEditObj();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -2799,7 +2799,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub handleTimerWheel: WindowReturnClass(int x, int y)
+    pub handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -2907,7 +2907,7 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass2: WindowReturnClass = base.HandleMouseMove(x, y);
@@ -2989,7 +2989,7 @@ namespace WindowsApplication1
       return windowReturnClass2;
     }
 
-    pub void Before_DoRefresh_Called_By_FlagAllIncludingRefresh()
+    pub fn Before_DoRefresh_Called_By_FlagAllIncludingRefresh()
     {
       let mut mapWidth: i32 = self.game.Data.MapObj[0].MapWidth;
       let mut mapHeight: i32 = self.game.Data.MapObj[0].MapHeight;
@@ -3108,14 +3108,14 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       self.DoRefresh();
       self.prepareTempValue4();
       self.donePrepareCardPlayable = false;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
@@ -3743,25 +3743,25 @@ namespace WindowsApplication1
       Graphics g,
       bool wideTab,
       bool active,
-      int tx,
-      int ty,
+      tx: i32,
+      ty: i32,
       string sHeader,
       string sText,
-      int spriteSlot,
-      int iconSlot,
+      spriteSlot: i32,
+      iconSlot: i32,
       let mut smallNumber: i32 = -1,
       bool grayedOut = false,
       let mut textOffsetX: i32 = 0,
       let mut spriteOffsetY: i32 = 0,
       bool tMousingOverNow = false)
     {
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (tMousingOverNow)
       {
         if (active & wideTab)
         {
            let mut local1: &Graphics = &g;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
            let mut local2: &Bitmap = &bitmap2;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
@@ -3770,7 +3770,7 @@ namespace WindowsApplication1
         if (!active & wideTab)
         {
            let mut local3: &Graphics = &g;
-          Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
+          bitmap3: Bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
            let mut local4: &Bitmap = &bitmap3;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
@@ -3850,8 +3850,8 @@ namespace WindowsApplication1
         }
       }
       g.MeasureString(sText, DrawMod.TGame.MarcFont16);
-      Color c;
-      Color color;
+      c: Color;
+      color: Color;
       if (active)
       {
         c = self.game.seColWhite;

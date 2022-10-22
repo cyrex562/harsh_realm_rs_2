@@ -17,8 +17,8 @@ namespace WindowsApplication1
   pub class WindowClass
   {
     pub SubPartClass[] SubPartList;
-    protected int SubPartCounter;
-    protected int SubPartIDCounter;
+    protected SubPartCounter: i32;
+    protected SubPartIDCounter: i32;
     protected int[] SubPartX;
     protected int[] SubPartY;
     protected int[] SubPartW;
@@ -26,24 +26,24 @@ namespace WindowsApplication1
     protected int[] SubPartID;
     protected int[] SubPartOverlay;
     protected bool[] SubPartFlag;
-    pub Bitmap OwnBitmap;
-    pub Bitmap BackBitmap;
+    pub OwnBitmap: Bitmap;
+    pub BackBitmap: Bitmap;
     pub HeaderString: String;
-    pub Color BackColor;
-    pub Color BackColor2;
+    pub BackColor: Color;
+    pub BackColor2: Color;
      bool NoPartDraw;
      bool DoGradient;
-     int DoBorders;
-     int LastOverlaySubPart;
-    pub GameClass game;
+     DoBorders: i32;
+     LastOverlaySubPart: i32;
+    pub game: GameClass;
     protected bool mapframe;
     protected bool downframe;
     protected bool mainframe;
     protected bool extrabackground;
-    pub Form1 formref;
+    pub formref: Form1;
     pub fixshade: bool;
     pub shade: bool;
-    pub Bitmap screenbackref;
+    pub screenbackref: Bitmap;
     pub screenx: i32;
     pub screeny: i32;
     pub screenw: i32;
@@ -57,8 +57,8 @@ namespace WindowsApplication1
     pub DoShowRect: bool;
     pub Rectangle[] MouseRect;
     pub MouseCounter: i32;
-    pub string[] MouseText;
-    pub string[] MouseTitle;
+    pub MouseText: Vec<String>;
+    pub MouseTitle: Vec<String>;
     pub MouseData: Vec<i32>;
     pub MouseData2: Vec<i32>;
     pub BlockBlit: bool;
@@ -73,9 +73,9 @@ namespace WindowsApplication1
     pub form3_data1: i32;
     pub form3_data2: i32;
 
-    pub void ClearMouse() => self.MouseCounter = -1;
+    pub fn ClearMouse() => self.MouseCounter = -1;
 
-    pub void AddQuickRect(Rectangle trect)
+    pub fn AddQuickRect(Rectangle trect)
     {
       if (self.QuickRectCount >= self.QuickRectMax)
       {
@@ -89,13 +89,13 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ResetQuickRect()
+    pub fn ResetQuickRect()
     {
       self.QuickDrawMode = false;
       self.QuickRectCount = -1;
     }
 
-    pub void AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut tdata2: i32 = -1)
+    pub fn AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut tdata2: i32 = -1)
     {
       self += 1.MouseCounter;
       self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       self.MouseData2[self.MouseCounter] = tdata2;
     }
 
-    pub int GetMemorySize()
+    pub GetMemorySize: i32()
     {
       let mut memorySize: i32 =  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -119,7 +119,7 @@ namespace WindowsApplication1
       return memorySize;
     }
 
-    pub int SubpartNr(int id)
+    pub SubpartNr: i32(id: i32)
     {
       if (self.SubPartCounter <= -1)
         return -1;
@@ -152,9 +152,9 @@ namespace WindowsApplication1
     }
 
     pub WindowClass(
-       GameClass tGame,
-      int w,
-      int h,
+       tGame: GameClass,
+      w: i32,
+      h: i32,
       let mut backcolornr: i32 = -1,
       let mut BackSprite: i32 = -1,
       bool tBackSpriteScaled = false,
@@ -162,7 +162,7 @@ namespace WindowsApplication1
       bool tDoGradient = true,
       tHeaderString: String = "",
       bool tShade = true,
-      Bitmap screenbitmap = null,
+      screenbitmap: Bitmap = null,
       let mut sx: i32 = -1,
       let mut sy: i32 = -1,
       bool tTransBacksprite = false)
@@ -238,7 +238,7 @@ namespace WindowsApplication1
         if (backcolornr == 99 & !Information.IsNothing( self.screenbackref))
         {
            let mut local1: &Graphics = &graphics;
-           Bitmap local2 =  self.screenbackref;
+           local2: Bitmap =  self.screenbackref;
           rectangle1 = Rectangle::new(self.screenx, self.screeny, self.screenw, self.screenh);
           let mut srcrect: &Rectangle = &rectangle1
           rectangle2 = Rectangle::new(0, 0, self.screenw, self.screenh);
@@ -269,7 +269,7 @@ namespace WindowsApplication1
           if (BitmapStore.GetWidth(BackSprite) > w)
           {
              let mut local3: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(BackSprite);
              let mut local4: &Bitmap = &bitmap;
             rectangle2 = Rectangle::new( Math.Round( BitmapStore.GetWidth(BackSprite) / 2.0 -  w / 2.0), 0, w, h);
             let mut srcrect: &Rectangle = &rectangle2
@@ -280,7 +280,7 @@ namespace WindowsApplication1
           else
           {
              let mut local5: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(BackSprite);
              let mut local6: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local5,  local6, 0, 0);
           }
@@ -288,7 +288,7 @@ namespace WindowsApplication1
         else
         {
            let mut local7: &Graphics = &graphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
+          bitmap: Bitmap = BitmapStore.GetBitmap(BackSprite);
            let mut local8: &Bitmap = &bitmap;
           let mut w1: i32 = w;
           let mut h1: i32 = h;
@@ -305,7 +305,7 @@ namespace WindowsApplication1
       graphics.Dispose();
     }
 
-    pub void FlagAll()
+    pub fn FlagAll()
     {
       if (self.SubPartCounter < 0)
         return;
@@ -314,7 +314,7 @@ namespace WindowsApplication1
         self.SubPartFlag[index] = true;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       if (Information.IsNothing( self.OwnBitmap))
       {
@@ -329,7 +329,7 @@ namespace WindowsApplication1
       }
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       let mut subPartCounter: i32 = self.SubPartCounter;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
       {
         if ((!Information.IsNothing( self.LowerWindow) | self.BlockBlit) & !self.SubPartList[index].oldStyle)
@@ -341,7 +341,7 @@ namespace WindowsApplication1
                let mut local1: &Graphics = &objGraphics;
               bitmap = self.SubPartList[index].PaintOverlay();
                let mut local2: &Bitmap = &bitmap;
-               Bitmap local3 =  self.OwnBitmap;
+               local3: Bitmap =  self.OwnBitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
               DrawMod.DrawSimpleFast( local1,  local2,  local3, x, y);
@@ -351,7 +351,7 @@ namespace WindowsApplication1
                let mut local4: &Graphics = &objGraphics;
               bitmap = self.SubPartList[index].Paint();
                let mut local5: &Bitmap = &bitmap;
-               Bitmap local6 =  self.OwnBitmap;
+               local6: Bitmap =  self.OwnBitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
               DrawMod.DrawSimpleFast( local4,  local5,  local6, x, y);
@@ -389,7 +389,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub void PaintSpecific(int id)
+    pub fn PaintSpecific(id: i32)
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -401,7 +401,7 @@ namespace WindowsApplication1
           {
             Expression.CompositingMode = CompositingMode.SourceCopy;
              let mut local1: &Graphics = &Expression;
-            Bitmap bitmap = self.SubPartList[index].Paint();
+            bitmap: Bitmap = self.SubPartList[index].Paint();
              let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
@@ -411,7 +411,7 @@ namespace WindowsApplication1
           else
           {
              let mut local3: &Graphics = &Expression;
-            Bitmap bitmap = self.SubPartList[index].Paint();
+            bitmap: Bitmap = self.SubPartList[index].Paint();
              let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
@@ -434,7 +434,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub void PaintCurrentBitmap(int id)
+    pub fn PaintCurrentBitmap(id: i32)
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -452,7 +452,7 @@ namespace WindowsApplication1
           else
           {
              let mut local1: &Graphics = &Expression;
-            Bitmap bitmap = self.SubPartList[index].Paint();
+            bitmap: Bitmap = self.SubPartList[index].Paint();
              let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
@@ -465,7 +465,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub void PaintCurrentBitmapScaled(int id)
+    pub fn PaintCurrentBitmapScaled(id: i32)
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -479,7 +479,7 @@ namespace WindowsApplication1
       objGraphics.Dispose();
     }
 
-    pub Bitmap PaintSpecificOverlay(int id)
+    pub PaintSpecificOverlay: Bitmap(id: i32)
     {
       let mut subPartCounter: i32 = self.SubPartCounter;
       Graphics Expression;
@@ -489,7 +489,7 @@ namespace WindowsApplication1
         {
           Expression = Graphics.FromImage((Image) self.OwnBitmap);
            let mut local1: &Graphics = &Expression;
-          Bitmap bitmap = self.SubPartList[index].PaintOverlay();
+          bitmap: Bitmap = self.SubPartList[index].PaintOverlay();
            let mut local2: &Bitmap = &bitmap;
           let mut x: i32 = self.SubPartX[index];
           let mut y: i32 = self.SubPartY[index];
@@ -505,7 +505,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub MouseOverSpecific: bool(int id)
+    pub MouseOverSpecific: bool(id: i32)
     {
       let mut subPartCounter: i32 = self.SubPartCounter;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
@@ -518,7 +518,7 @@ namespace WindowsApplication1
             if (self.SubPartList[index].MouseMove( Math.Round( ( Cursor.Position.X * self.formref.doubleModX -  (self.SubPartX[index] + self.screenx))),  Math.Round( ( Cursor.Position.Y * self.formref.doubleModY -  (self.SubPartY[index] + self.screeny)))))
             {
                let mut local1: &Graphics = &graphics;
-              Bitmap bitmap = self.SubPartList[index].Paint();
+              bitmap: Bitmap = self.SubPartList[index].Paint();
                let mut local2: &Bitmap = &bitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
@@ -529,7 +529,7 @@ namespace WindowsApplication1
           else if (self.SubPartList[index].MouseMove(Cursor.Position.X - (self.SubPartX[index] + self.screenx), Cursor.Position.Y - (self.SubPartY[index] + self.screeny)))
           {
              let mut local3: &Graphics = &graphics;
-            Bitmap bitmap = self.SubPartList[index].Paint();
+            bitmap: Bitmap = self.SubPartList[index].Paint();
              let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
@@ -542,7 +542,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int AddSubPart( SubPartClass tsubpart, int x, int y, int w, int h, int overlay)
+    pub AddSubPart: i32( SubPartClass tsubpart, x: i32, y: i32, w: i32, h: i32, overlay: i32)
     {
       self += 1.SubPartCounter;
       self += 1.SubPartIDCounter;
@@ -565,7 +565,7 @@ namespace WindowsApplication1
       return self.SubPartIDCounter;
     }
 
-    pub void NewBackGroundAndClearAll(int w, int h, int backsprite)
+    pub fn NewBackGroundAndClearAll(w: i32, h: i32, backsprite: i32)
     {
       if (Information.IsNothing( self.BackBitmap))
       {
@@ -580,7 +580,7 @@ namespace WindowsApplication1
         if (self.useparentscreenbitmap)
         {
            let mut local1: &Graphics = &graphics;
-           Bitmap local2 =  self.screenbackref;
+           local2: Bitmap =  self.screenbackref;
           rectangle1 = Rectangle::new(self.screenx, self.screeny, self.screenw, self.screenh);
           let mut srcrect: &Rectangle = &rectangle1
           rectangle2 = Rectangle::new(0, 0, self.screenw, self.screenh);
@@ -594,7 +594,7 @@ namespace WindowsApplication1
             if (self.LowerWindow.GetType().Equals(typeof (MapWindowClass)) | self.LowerWindow.GetType().Equals(typeof (MapWindowClass2)))
             {
                let mut local3: &Graphics = &graphics;
-               Bitmap local4 =  self.LowerWindow.SubPartList[0].OwnBitmap;
+               local4: Bitmap =  self.LowerWindow.SubPartList[0].OwnBitmap;
               Rectangle lowerRect = self.LowerRect;
               rectangle2 = Rectangle::new(0, 0, w, h);
               let mut destrect: &Rectangle = &rectangle2
@@ -603,7 +603,7 @@ namespace WindowsApplication1
             else
             {
                let mut local5: &Graphics = &graphics;
-               Bitmap local6 =  self.LowerWindow.OwnBitmap;
+               local6: Bitmap =  self.LowerWindow.OwnBitmap;
               Rectangle lowerRect = self.LowerRect;
               rectangle2 = Rectangle::new(0, 0, w, h);
               let mut destrect: &Rectangle = &rectangle2
@@ -613,7 +613,7 @@ namespace WindowsApplication1
           else if (!Information.IsNothing( self.LowerWindow))
           {
              let mut local7: &Graphics = &graphics;
-             Bitmap local8 =  self.LowerWindow.OwnBitmap;
+             local8: Bitmap =  self.LowerWindow.OwnBitmap;
             Rectangle lowerRect = self.LowerRect;
             rectangle2 = Rectangle::new(0, 0, w, h);
             let mut destrect: &Rectangle = &rectangle2
@@ -643,7 +643,7 @@ namespace WindowsApplication1
           if (BitmapStore.GetWidth(backsprite) > w)
           {
              let mut local9: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(backsprite);
              let mut local10: &Bitmap = &bitmap;
             rectangle2 = Rectangle::new( Math.Round( BitmapStore.GetWidth(backsprite) / 2.0 -  w / 2.0), 0, w, h);
             let mut srcrect: &Rectangle = &rectangle2
@@ -654,7 +654,7 @@ namespace WindowsApplication1
           else if (BitmapStore.GetWidth(backsprite) < w)
           {
              let mut local11: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(backsprite);
              let mut local12: &Bitmap = &bitmap;
             rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(backsprite), BitmapStore.Getheight(backsprite));
             let mut srcrect: &Rectangle = &rectangle2
@@ -665,7 +665,7 @@ namespace WindowsApplication1
           else
           {
              let mut local13: &Graphics = &graphics;
-            Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
+            bitmap: Bitmap = BitmapStore.GetBitmap(backsprite);
              let mut local14: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local13,  local14, 0, 0);
           }
@@ -673,7 +673,7 @@ namespace WindowsApplication1
         else
         {
            let mut local15: &Graphics = &graphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
+          bitmap: Bitmap = BitmapStore.GetBitmap(backsprite);
            let mut local16: &Bitmap = &bitmap;
           let mut w1: i32 = w;
           let mut h1: i32 = h;
@@ -700,7 +700,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub void RemoveSubPart(int id)
+    pub fn RemoveSubPart(id: i32)
     {
       if (self.SubPartCounter <= -1)
         return;
@@ -749,17 +749,17 @@ namespace WindowsApplication1
       }
     }
 
-    pub virtual HandleMouseClick: WindowReturnClass(int x, int y, int b) => WindowReturnClass::new();
+    pub virtual HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32) => WindowReturnClass::new();
 
     pub virtual HandleMouseClickOutsideWindow: WindowReturnClass(
-      int x,
-      int y,
-      int b)
+      x: i32,
+      y: i32,
+      b: i32)
     {
       return WindowReturnClass::new();
     }
 
-    pub virtual HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub virtual HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -781,7 +781,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub virtual HandleBLOCKEDMouseUp: WindowReturnClass(int x, int y, int b)
+    pub virtual HandleBLOCKEDMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -808,17 +808,17 @@ namespace WindowsApplication1
       self.LastOverlaySubPart = 0;
     }
 
-    pub virtual HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new()
+    pub virtual HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false) => WindowReturnClass::new()
     {
       Flag = false
     };
 
-    pub virtual HandleKeyup: WindowReturnClass(int nr) => WindowReturnClass::new()
+    pub virtual HandleKeyup: WindowReturnClass(nr: i32) => WindowReturnClass::new()
     {
       Flag = false
     };
 
-    pub virtual handleTimerWheel: WindowReturnClass(int x, int y)
+    pub virtual handleTimerWheel: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       windowReturnClass.Flag = false;
@@ -851,7 +851,7 @@ namespace WindowsApplication1
       Flag = false
     };
 
-    pub virtual void HandleToolTip(int x, int y)
+    pub virtual void HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -881,9 +881,9 @@ namespace WindowsApplication1
       }
     }
 
-    pub virtual string WindowDescription(int x, int y) => "";
+    pub virtual string WindowDescription(x: i32, y: i32) => "";
 
-    pub virtual HandleMouseMove: WindowReturnClass(int x, int y)
+    pub virtual HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

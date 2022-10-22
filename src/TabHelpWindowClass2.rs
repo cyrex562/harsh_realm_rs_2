@@ -15,17 +15,17 @@ namespace WindowsApplication1
 {
   pub class TabHelpWindowClass2 : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int CurrentView;
-     int currentHelp;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     currentHelp: i32;
 
     pub TabHelpWindowClass2(
-       GameClass tGame,
+       tGame: GameClass,
        WindowClass tLowerWindow,
        Rectangle tLowerRect,
       Rectangle trect)
@@ -39,9 +39,9 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (self.Info1Id > 0)
         self.RemoveSubPart(self.Info1Id);
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       self.Info1Id = self.AddSubPart( tsubpart, 179, num + 24, BitmapStore.GetWidth(index1), BitmapStore.Getheight(index1), 1);
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
@@ -123,7 +123,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 40)
@@ -153,7 +153,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 = self.MouseCounter;

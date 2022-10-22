@@ -16,34 +16,34 @@ namespace WindowsApplication1
 {
   pub class SimpleMapImportWindow : WindowClass
   {
-     DataClass TData;
-     int but1id;
-     int but2id;
-     int LibListId;
+     TData: DataClass;
+     but1id: i32;
+     but2id: i32;
+     LibListId: i32;
      ListClass LibListObj;
-     int LibId;
-     int ImpId;
-     int but2idb;
-     int but3id;
-     int but3idb;
-     int textid;
-     int switchid;
+     LibId: i32;
+     ImpId: i32;
+     but2idb: i32;
+     but3id: i32;
+     but3idb: i32;
+     textid: i32;
+     switchid: i32;
      bool[] import;
-     int impCount;
-     int OpListId;
+     impCount: i32;
+     OpListId: i32;
      ListClass OpListObj;
-     int OpId;
-     int ChangeId;
-     int Op2ListId;
+     OpId: i32;
+     ChangeId: i32;
+     Op2ListId: i32;
      ListClass Op2ListObj;
-     int Op2Id;
-     int Change2Id;
+     Op2Id: i32;
+     Change2Id: i32;
      int[] subReg;
      int[] subPpl;
      int[] subLib;
      bool[] usePpl;
 
-    pub SimpleMapImportWindow( GameClass tGame)
+    pub SimpleMapImportWindow( tGame: GameClass)
       : base( tGame, 1024, 768, 9)
     {
       self.import = new bool[2];
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (self.game.EditObj.TempPeopleSlot != -1)
       {
@@ -104,7 +104,7 @@ namespace WindowsApplication1
       self.DoStuff();
     }
 
-    pub void DoStuff()
+    pub fn DoStuff()
     {
       self.NewBackGroundAndClearAll(1024, 768, 9);
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -144,7 +144,7 @@ namespace WindowsApplication1
         let mut tsubpart4: SubPartClass =  new TextButtonPartClass("Insert Map", 200, "Cannot insert since the map we attempt to load is either (almost) wider of higher.",  self.OwnBitmap, 748, 680, true, theight: 45, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
         self.but3idb = self.AddSubPart( tsubpart4, 748, 680, 200, 45, 0);
       }
-      int num1;
+      num1: i32;
       let mut y1: i32 = num1 + 70;
       tstring1: String = "Current map: " + self.game.Data.MapObj[0].MapWidth.ToString() + "x" + self.game.Data.MapObj[0].MapHeight.ToString() + " : " + self.game.Data.MapName + " by " + self.game.Data.MapDesigner + ", version " + self.game.Data.MapVersion.ToString();
       DrawMod.DrawTextColouredMarcCenter( graphics, tstring1, self.game.MarcFont4, 512, y1, Color.White);
@@ -212,10 +212,10 @@ namespace WindowsApplication1
       ListClass op2ListObj = self.Op2ListObj;
       let mut tlistselect: i32 = num3;
       let mut game: GameClass = self.game;
-       Bitmap local1 =  self.OwnBitmap;
+       local1: Bitmap =  self.OwnBitmap;
       let mut bby: i32 = y5;
-      Font font =  null;
-       Font local2 =  font;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart5: SubPartClass =  new ListSubPartClass(op2ListObj, 9, 750, tlistselect, game, true, "Peoples", false, tShowPair: true, tValueWidth: 225, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 100, bby: bby, tMarcStyle: true, overruleFont: ( local2));
       self.Op2ListId = self.AddSubPart( tsubpart5, 100, y5, 750, 192, 0);
       let mut tsubpart6: SubPartClass =  new TextButtonPartClass("Change", 130, tBackbitmap: ( self.OwnBitmap), bbx: 870, bby: (y5 + 10), theight: 45, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
@@ -236,7 +236,7 @@ namespace WindowsApplication1
       return true;
     }
 
-    pub void ActuallyImportLibs()
+    pub fn ActuallyImportLibs()
     {
       let mut peopleCounter: i32 = self.TData.PeopleCounter;
       for (let mut index1: i32 = 0; index1 <= peopleCounter; index1 += 1)
@@ -263,7 +263,7 @@ namespace WindowsApplication1
             self.game.Data.PeopleObj[self.game.Data.PeopleCounter].id = self.game.Data.PeopleIdCounter;
             if (self.TData.PeopleObj[index1].LibId.libSlot > -1)
             {
-              int num;
+              num: i32;
               if (self.game.Data.FindLibrary(self.TData.LibraryObj[self.TData.PeopleObj[index1].LibId.libSlot].name) == -1)
               {
                 self.game.Data.AddLibrary();
@@ -301,7 +301,7 @@ namespace WindowsApplication1
           return;
         flag4 = true;
       }
-      if (flag1 && Interaction.MsgBox( "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+      if (flag1 && Interaction.MsgBox( "Do you want to overwrite the current Victory Posettings: i32 on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
         flag2 = true;
       if (self.TData.LocTypeCounter > data.LocTypeCounter && Interaction.MsgBox( "Do you want to add extra locationtypes present in the map file (that are not present in the master)?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         flag3 = true;
@@ -444,7 +444,7 @@ namespace WindowsApplication1
       self.game.Data.LoadGraphics(self.formref);
     }
 
-    pub void ActuallyImportLibs2()
+    pub fn ActuallyImportLibs2()
     {
       let mut peopleCounter: i32 = self.TData.PeopleCounter;
       for (let mut index1: i32 = 0; index1 <= peopleCounter; index1 += 1)
@@ -471,7 +471,7 @@ namespace WindowsApplication1
             self.game.Data.PeopleObj[self.game.Data.PeopleCounter].id = self.game.Data.PeopleIdCounter;
             if (self.TData.PeopleObj[index1].LibId.libSlot > -1)
             {
-              int num;
+              num: i32;
               if (self.game.Data.FindLibrary(self.TData.LibraryObj[self.TData.PeopleObj[index1].LibId.libSlot].name) == -1)
               {
                 self.game.Data.AddLibrary();
@@ -512,7 +512,7 @@ namespace WindowsApplication1
       else
       {
         bool flag = false;
-        if (Interaction.MsgBox( "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+        if (Interaction.MsgBox( "Do you want to overwrite the current Victory Posettings: i32 on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
           flag = true;
         let mut num6: i32 = integer1;
         let mut num7: i32 = num1;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

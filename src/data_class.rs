@@ -254,7 +254,7 @@ pub struct DataClass
 
 
 
-    pub void SetEventNames()
+    pub fn SetEventNames()
     {
       this.CheckCategoryName[1] = "Game & Map globals";
       this.CheckCategoryName[2] = "Regimes";
@@ -1427,7 +1427,7 @@ pub struct DataClass
       this.CheckTypeVarName[226, 2] = "Number square roots";
       this.CheckTypeVarName[226, 3] = "Multiply result by";
       this.CheckCategory[226] = 3;
-      this.CheckDesc[226] = "Returns the square root of the number. Allow for betting calculation of floating point numbers.";
+      this.CheckDesc[226] = "Returns the square root of the number. Allow for betting calculation of floating ponumbers: i32.";
       this.CheckTypeNames[227] = "CheckDecimal";
       this.CheckTypeVarCount[227] = 3;
       this.CheckTypeVarName[227, 1] = "Number";
@@ -1485,7 +1485,7 @@ pub struct DataClass
       this.CheckTypeVarName[235, 3] = "Number of square roots";
       this.CheckTypeVarName[235, 4] = "Multiply by number c";
       this.CheckCategory[235] = 3;
-      this.CheckDesc[235] = "Returns (the square root of (the number a / number b)) multiplied by number c. Allow for betting calculation of floating point numbers.";
+      this.CheckDesc[235] = "Returns (the square root of (the number a / number b)) multiplied by number c. Allow for betting calculation of floating ponumbers: i32.";
       this.CheckTypeNames[236] = "CheckPowerLong";
       this.CheckTypeVarCount[236] = 1;
       this.CheckTypeVarName[236, 1] = "Number";
@@ -2237,7 +2237,7 @@ pub struct DataClass
       this.ExecTypeVarName[100, 3] = "People (-1=all)";
       this.ExecTypeVarName[100, 4] = "SFTypeGroup (-1=all) (>=100 = specific sftype -100) (9001=only for artRange>0)";
       this.ExecCategory[100] = 8;
-      this.ExecDesc[100] = "Change stats of subformations in a specified unit. If you set modifier to 0 it resets the offmod to 0. Each point is a percentage point. If you specify a sftypegroup >=100 then you are actually specifiying a specific SFType Nr.";
+      this.ExecDesc[100] = "Change stats of subformations in a specified unit. If you set modifier to 0 it resets the offmod to 0. Each pois: i32 a percentage point. If you specify a sftypegroup >=100 then you are actually specifiying a specific SFType Nr.";
       this.ExecTypeNames[101] = "ExecUnitDefensiveBonus";
       this.ExecTypeVarCount[101] = 4;
       this.ExecTypeVarName[101, 1] = "Unit #";
@@ -2245,7 +2245,7 @@ pub struct DataClass
       this.ExecTypeVarName[101, 3] = "People (-1=all)";
       this.ExecTypeVarName[101, 4] = "SFTypeGroup (-1=all)  (>=100 = specific sftype -100)";
       this.ExecCategory[101] = 8;
-      this.ExecDesc[101] = "Change stats of subformations in a specified unit. If you set the modifier to 0 it resets the defmod to 0. Each point is a percentage point.  If you specify a sftypegroup >=100 then you are actually specifiying a specific SFType Nr.";
+      this.ExecDesc[101] = "Change stats of subformations in a specified unit. If you set the modifier to 0 it resets the defmod to 0. Each pois: i32 a percentage point.  If you specify a sftypegroup >=100 then you are actually specifiying a specific SFType Nr.";
       this.ExecTypeNames[102] = "ExecUnitSelectable";
       this.ExecTypeVarCount[102] = 1;
       this.ExecTypeVarName[102, 1] = "Unit #";
@@ -2297,7 +2297,7 @@ pub struct DataClass
       this.ExecTypeVarName[109, 3] = "Green (0-255)";
       this.ExecTypeVarName[109, 4] = "Blue (0-255)";
       this.ExecCategory[109] = 1;
-      this.ExecDesc[109] = "Sets the color of the regime. And you can overwrite the Name if you want too. Leave string blank to keep name.";
+      this.ExecDesc[109] = "Sets the of: Color the regime. And you can overwrite the Name if you want too. Leave string blank to keep name.";
       this.ExecTypeString[109] = 2;
       this.ExecTypeNames[110] = "ExecAddHistoricalUnit";
       this.ExecTypeVarCount[110] = 4;
@@ -2970,7 +2970,7 @@ pub struct DataClass
       this.ExecTypeVarName[216, 3] = "NavyCap Pts +/-";
       this.ExecTypeVarName[216, 3] = "RailCap Pts +/-";
       this.ExecCategory[216] = 8;
-      this.ExecDesc[216] = "Allows you to remove or add capacity points to a unit. Use in late turn so the unit Cap point gain has already been processed before use of this exec.";
+      this.ExecDesc[216] = "Allows you to remove or add capacity points to a unit. Use in late turn so the unit Cap pogain: i32 has already been processed before use of this exec.";
       this.ExecTypeNames[217] = "ExecRemoveTroopsUnderHistorical";
       this.ExecTypeVarCount[217] = 4;
       this.ExecTypeVarName[217, 1] = "SFType group (-1=all)";
@@ -3536,7 +3536,7 @@ pub struct DataClass
       this.ExecTypeVarName[295, 3] = "Stringlist ID for Translation Table";
       this.ExecTypeVarName[295, 4] = "Last call 0=no, 1=yes";
       this.ExecCategory[295] = 22;
-      this.ExecDesc[295] = "The last call sets the origLandscapes. and is the point were we should save the vegetation into them. ";
+      this.ExecDesc[295] = "The last call sets the origLandscapes. and is the powere: i32 we should save the vegetation into them. ";
       this.ExecTypeNames[296] = "ExecMakeZones";
       this.ExecTypeVarCount[296] = 4;
       this.ExecTypeVarName[296, 1] = "Stringlist ID for Planetary Data";
@@ -3778,7 +3778,7 @@ pub struct DataClass
       this.ExecTypeVarName[291, 3] = "Green modifier";
       this.ExecTypeVarName[291, 4] = "Blue modifier";
       this.ExecCategory[291] = 13;
-      this.ExecDesc[291] = "Remember you cannot set the color using Historical unit colors, only the modifier to the regime or people color of the counter. For example -50 or +100. ";
+      this.ExecDesc[291] = "Remember you cannot set the using: Color Historical unit colors, only the modifier to the regime or people of: Color the counter. For example -50 or +100. ";
       this.ExecTypeNames[298] = "ExecCopyStringlist";
       this.ExecTypeVarCount[298] = 4;
       this.ExecTypeVarName[298, 1] = "From ID";
@@ -3917,7 +3917,7 @@ pub struct DataClass
       this.ExecTypeCount = 360;
     }
 
-    pub void SetDefaultRules(bool namesonly = false)
+    pub fn SetDefaultRules(bool namesonly = false)
     {
       let mut ruleCounter: i32 =  this.RuleCounter;
       for (let mut index: i32 =  0; index <= ruleCounter; index += 1)
@@ -3980,7 +3980,7 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[2] = 2f;
       this.RuleGroup[2] = 1;
-      this.RuleString[3] = "Supply Action Point Range";
+      this.RuleString[3] = "Supply Action PoRange: i32";
       if (!namesonly)
         this.RuleVar[3] = 250f;
       this.RuleGroup[3] = 1;
@@ -3988,7 +3988,7 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[38] = 0.0f;
       this.RuleGroup[38] = 1;
-      this.RuleString[78] = "Transfer Action Point Range";
+      this.RuleString[78] = "Transfer Action PoRange: i32";
       if (!namesonly)
         this.RuleVar[78] = 1000f;
       this.RuleGroup[78] = 1;
@@ -4004,11 +4004,11 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[149] = 1f;
       this.RuleGroup[149] = 14;
-      this.RuleString[302] = "Highlighted hex color white (0) - black(1)";
+      this.RuleString[302] = "Highlighted hex white: Color (0) - black(1)";
       if (!namesonly)
         this.RuleVar[302] = 0.0f;
       this.RuleGroup[302] = 14;
-      this.RuleString[306] = "Highlighted hex color alpha value (default 0.3 put higher for more color)";
+      this.RuleString[306] = "Highlighted hex alpha: Color value (default 0.3 put higher for more color)";
       if (!namesonly)
         this.RuleVar[306] = 0.3f;
       this.RuleGroup[306] = 14;
@@ -4161,27 +4161,27 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[41] = 0.0f;
       this.RuleGroup[41] = 3;
-      this.RuleString[51] = "only 75% supply at Action Point distance";
+      this.RuleString[51] = "only 75% supply at Action Podistance: i32";
       if (!namesonly)
         this.RuleVar[51] = 100f;
       this.RuleGroup[51] = 3;
-      this.RuleString[52] = "only 50% supply at Action Point distance";
+      this.RuleString[52] = "only 50% supply at Action Podistance: i32";
       if (!namesonly)
         this.RuleVar[52] = 150f;
       this.RuleGroup[52] = 3;
-      this.RuleString[53] = "only 25% supply at Action Point distance";
+      this.RuleString[53] = "only 25% supply at Action Podistance: i32";
       if (!namesonly)
         this.RuleVar[53] = 200f;
       this.RuleGroup[53] = 3;
-      this.RuleString[77] = "1 Supply Point Costs X Production Points (for calculation of upgrade cost)";
+      this.RuleString[77] = "1 Supply PoCosts: i32 X Production Points (for calculation of upgrade cost)";
       if (!namesonly)
         this.RuleVar[77] = 3f;
       this.RuleGroup[77] = 3;
-      this.RuleString[82] = "ActionPoint penalty for  from sea to land without port";
+      this.RuleString[82] = "ActionPopenalty: i32 for  from sea to land without port";
       if (!namesonly)
         this.RuleVar[82] = 100f;
       this.RuleGroup[82] = 3;
-      this.RuleString[303] = "Anti Supply Point Multiplier if on sea hex next to enemy port.";
+      this.RuleString[303] = "Anti Supply PoMultiplier: i32 if on sea hex next to enemy port.";
       if (!namesonly)
         this.RuleVar[302] = 20f;
       this.RuleGroup[303] = 3;
@@ -4289,7 +4289,7 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[42] = 5f;
       this.RuleGroup[42] = 6;
-      this.RuleString[63] = "Free XP up to xp point limit";
+      this.RuleString[63] = "Free XP up to xp polimit: i32";
       if (!namesonly)
         this.RuleVar[63] = 40f;
       this.RuleGroup[63] = 6;
@@ -4469,11 +4469,11 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[116] = 0.25f;
       this.RuleGroup[116] = 9;
-      this.RuleString[117] = "Minimal xp modifier due to powerpoint difference";
+      this.RuleString[117] = "Minimal xp modifier due to powerpodifference: i32";
       if (!namesonly)
         this.RuleVar[117] = 0.1f;
       this.RuleGroup[117] = 9;
-      this.RuleString[118] = "Maximal xp modifier due to powerpoint difference";
+      this.RuleString[118] = "Maximal xp modifier due to powerpodifference: i32";
       if (!namesonly)
         this.RuleVar[118] = 3f;
       this.RuleGroup[118] = 9;
@@ -4781,7 +4781,7 @@ pub struct DataClass
       if (!namesonly)
         this.RuleVar[879] = 0.0f;
       this.RuleGroup[879] = 14;
-      this.RuleString[860] = "Show locations power point bar and HQ on map with color code. 1=yes, 0=no.";
+      this.RuleString[860] = "Show locations power pobar: i32 and HQ on map with code: Color. 1=yes, 0=no.";
       if (!namesonly)
         this.RuleVar[860] = 0.0f;
       this.RuleGroup[860] = 14;
@@ -5604,15 +5604,15 @@ pub struct DataClass
         if (!namesonly)
           this.RuleVar[422] = 0.0f;
         this.RuleGroup[422] = 21;
-        this.RuleString[423] = "Advanced Recon Rules. XP Level switch point penalty and bonus on Recon/Hide Pts";
+        this.RuleString[423] = "Advanced Recon Rules. XP Level switch popenalty: i32 and bonus on Recon/Hide Pts";
         if (!namesonly)
           this.RuleVar[423] = 0.0f;
         this.RuleGroup[423] = 21;
-        this.RuleString[424] = "Height Map Rules. Base Height Level Defending Units Hitpoint Modifier for being lower";
+        this.RuleString[424] = "Height Map Rules. Base Height Level Defending Units HitpoModifier: i32 for being lower";
         if (!namesonly)
           this.RuleVar[424] = 0.0f;
         this.RuleGroup[424] = 21;
-        this.RuleString[425] = "Height Map Rules. Base Height Level Defending Units Hitpoint Modifier for being higher";
+        this.RuleString[425] = "Height Map Rules. Base Height Level Defending Units HitpoModifier: i32 for being higher";
         if (!namesonly)
           this.RuleVar[425] = 0.0f;
         this.RuleGroup[425] = 21;
@@ -5640,7 +5640,7 @@ pub struct DataClass
         if (!namesonly)
           this.RuleVar[431] = 0.0f;
         this.RuleGroup[431] = 21;
-        this.RuleString[432] = "Combat Recon: Hitpoint Maximum Increase Factor (*X)";
+        this.RuleString[432] = "Combat Recon: HitpoMaximum: i32 Increase Factor (*X)";
         if (!namesonly)
           this.RuleVar[432] = 0.0f;
         this.RuleGroup[432] = 21;
@@ -5788,7 +5788,7 @@ pub struct DataClass
         if (!namesonly)
           this.RuleVar[496] = 0.0f;
         this.RuleGroup[496] = 21;
-        this.RuleString[497] = "Extra Morale impact based on power point loss and kill ratio of Unit…. 1dX …. Base = 6";
+        this.RuleString[497] = "Extra Morale impact based on power poloss: i32 and kill ratio of Unit…. 1dX …. Base = 6";
         if (!namesonly)
           this.RuleVar[497] = 0.0f;
         this.RuleGroup[497] = 21;
@@ -6031,14 +6031,14 @@ pub struct DataClass
       this.RuleGroup[966] = 12;
     }
 
-    pub void SetDefaultTempStrings()
+    pub fn SetDefaultTempStrings()
     {
       let mut stringCounter: i32 =  this.StringCounter;
       for (let mut index: i32 =  0; index <= stringCounter; index += 1)
         this.TempString[index] = "";
     }
 
-    pub DataClass Clone()
+    pub Clone: DataClass()
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
@@ -6047,7 +6047,7 @@ pub struct DataClass
       return (DataClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub int FindUnit(ref UnitClass uni, string libName)
+    pub FindUnit: i32(ref UnitClass uni, string libName)
     {
       let mut unitCounter: i32 =  this.UnitCounter;
       for (let mut unit: i32 =  0; unit <= unitCounter; unit += 1)
@@ -6058,7 +6058,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindPredef(int id)
+    pub FindPredef: i32(id: i32)
     {
       let mut unitCounter: i32 =  this.UnitCounter;
       for (let mut predef: i32 =  0; predef <= unitCounter; predef += 1)
@@ -6069,7 +6069,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int AddUnit(int x, int y, int map)
+    pub AddUnit: i32(x: i32, y: i32, map: i32)
     {
       this += 1.UnitCounter;
       this += 1.AIUnitCounter;
@@ -6088,7 +6088,7 @@ pub struct DataClass
       return this.UnitCounter;
     }
 
-    pub void RemoveUnit(int nr, ref let mut tgame: GameClass = null, bool deleteRegimeMod = false)
+    pub fn RemoveUnit(nr: i32, ref let mut tgame: GameClass = null, bool deleteRegimeMod = false)
     {
       if (this.UnitObj[nr].X > -1 & !Information.IsNothing( tgame))
         tgame.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(this.UnitObj[nr].X, this.UnitObj[nr].Y, this.UnitObj[nr].Map, -1, -1, -1, this.UnitObj[nr].Regime, nr);
@@ -6147,9 +6147,9 @@ pub struct DataClass
     }
 
     pub void ChangeUnitNr(
-      int Oldnr,
-      int Newnr,
-      ref GameClass tgame,
+      Oldnr: i32,
+      Newnr: i32,
+      ref tgame: GameClass,
       bool skipmap,
       bool DeleteRegimeMode = false)
     {
@@ -6286,7 +6286,7 @@ pub struct DataClass
       }
     }
 
-    pub int AddSF(int unr)
+    pub AddSF: i32(unr: i32)
     {
       this += 1.SFCounter;
       this.SFObj = (SFClass[]) Utils.CopyArray((Array) this.SFObj, (Array) new SFClass[this.SFCounter + 1]);
@@ -6296,7 +6296,7 @@ pub struct DataClass
       return this.SFCounter;
     }
 
-    pub void RemoveSF(int nr)
+    pub fn RemoveSF(nr: i32)
     {
       this.SFObj[nr].Kill();
       this.ChangeSFNr(nr, -1);
@@ -6314,7 +6314,7 @@ pub struct DataClass
       this.SFObj = (SFClass[]) Utils.CopyArray((Array) this.SFObj, (Array) new SFClass[this.SFCounter + 1]);
     }
 
-    pub void MassChangeSFNr(int FromNr)
+    pub fn MassChangeSFNr(FromNr: i32)
     {
       if (this.UnitCounter <= -1)
         return;
@@ -6333,7 +6333,7 @@ pub struct DataClass
       }
     }
 
-    pub void ChangeSFNr(int Oldnr, int Newnr)
+    pub fn ChangeSFNr(Oldnr: i32, Newnr: i32)
     {
       if (this.UnitCounter <= -1)
         return;
@@ -6360,7 +6360,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindSFType(ref SFTypeClass sft, string libName, bool thisIsHistoricalImport = false)
+    pub FindSFType: i32(ref SFTypeClass sft, string libName, bool thisIsHistoricalImport = false)
     {
       let mut sfTypeCounter: i32 =  this.SFTypeCounter;
       for (let mut sfType: i32 =  0; sfType <= sfTypeCounter; sfType += 1)
@@ -6379,7 +6379,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindSFType(string libName, int libId)
+    pub FindSFType: i32(string libName, libId: i32)
     {
       let mut sfTypeCounter: i32 =  this.SFTypeCounter;
       for (let mut sfType: i32 =  0; sfType <= sfTypeCounter; sfType += 1)
@@ -6390,7 +6390,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindSFTypeAlien(string libName, int libId, int buildGround)
+    pub FindSFTypeAlien: i32(string libName, libId: i32, buildGround: i32)
     {
       let mut num: i32 =  -1;
       SimpleList simpleList = SimpleList::new();
@@ -6411,7 +6411,7 @@ pub struct DataClass
       return num > -1 ? num : -1;
     }
 
-    pub void AddSFType(bool temporary = false)
+    pub fn AddSFType(bool temporary = false)
     {
       this += 1.SFTypeCounter;
       this.SFTypeObj = (SFTypeClass[]) Utils.CopyArray((Array) this.SFTypeObj, (Array) new SFTypeClass[this.SFTypeCounter + 1]);
@@ -6466,7 +6466,7 @@ pub struct DataClass
       this.SFTypeObj[this.SFTypeCounter].Id = this.SFTypeIdCounter;
     }
 
-    pub void RemoveSFType(int nr)
+    pub fn RemoveSFType(nr: i32)
     {
       this.SFTypeObj[nr].Kill();
       this.ChangeSFTypeNr(nr, -1);
@@ -6486,10 +6486,10 @@ pub struct DataClass
       this.SFTypeObj = (SFTypeClass[]) Utils.CopyArray((Array) this.SFTypeObj, (Array) new SFTypeClass[this.SFTypeCounter + 1]);
     }
 
-    pub void ChangeSFTypeNr(int Oldnr, int Newnr)
+    pub fn ChangeSFTypeNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int nr;
+      nr: i32;
       for (let mut index1: i32 =  0; index1 <= stringListCounter; index1 += 1)
       {
         let mut width: i32 =  this.StringListObj[index1].Width;
@@ -6562,7 +6562,7 @@ pub struct DataClass
       }
     }
 
-    pub void ThreadBlock()
+    pub fn ThreadBlock()
     {
       if (!DrawMod.TGame.se1ThreadBlock)
         return;
@@ -6572,9 +6572,9 @@ pub struct DataClass
       DrawMod.TGame.se1ThreadBlock = true;
     }
 
-    pub void ThreadRelease() => DrawMod.TGame.se1ThreadBlock = false;
+    pub fn ThreadRelease() => DrawMod.TGame.se1ThreadBlock = false;
 
-    pub void AddLandscapeType()
+    pub fn AddLandscapeType()
     {
       this += 1.LandscapeTypeCounter;
       this.LandscapeTypeObj = (LandscapeTypeClass[]) Utils.CopyArray((Array) this.LandscapeTypeObj, (Array) new LandscapeTypeClass[this.LandscapeTypeCounter + 1]);
@@ -6592,7 +6592,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveLandscapeType(int nr)
+    pub fn RemoveLandscapeType(nr: i32)
     {
       this.LandscapeTypeObj[nr].Kill();
       this.ChangeLandscapeNr(nr, -1);
@@ -6650,10 +6650,10 @@ pub struct DataClass
       }
     }
 
-    pub void ChangeLandscapeNr(int Oldnr, int Newnr)
+    pub fn ChangeLandscapeNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -6771,7 +6771,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveLandscapeBasicSprite(int ltnr, int nr)
+    pub fn RemoveLandscapeBasicSprite(ltnr: i32, nr: i32)
     {
       this.LandscapeTypeObj[ltnr].BasicSpriteFileName[nr] = "";
       this.LandscapeTypeObj[ltnr].BasicSpriteFileName2[nr] = "";
@@ -6809,7 +6809,7 @@ pub struct DataClass
       this.LandscapeTypeObj[ltnr].PlotLast = (bool[]) Utils.CopyArray((Array) this.LandscapeTypeObj[ltnr].PlotLast, (Array) new bool[this.LandscapeTypeObj[ltnr].BasicSpriteCounter + 1]);
     }
 
-    pub void ChangeLandscapeSpriteNr(int LTnr, int OldNr, int NewNr)
+    pub fn ChangeLandscapeSpriteNr(LTnr: i32, OldNr: i32, NewNr: i32)
     {
       let mut mapCounter: i32 =  this.MapCounter;
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
@@ -6835,7 +6835,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindLibrary(string libName)
+    pub FindLibrary: i32(string libName)
     {
       let mut libraryCounter: i32 =  this.LibraryCounter;
       for (let mut library: i32 =  0; library <= libraryCounter; library += 1)
@@ -6846,7 +6846,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindLibraryLowCase(string libName)
+    pub FindLibraryLowCase: i32(string libName)
     {
       libName = Strings.LCase(libName);
       let mut libraryCounter: i32 =  this.LibraryCounter;
@@ -6858,14 +6858,14 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddLibrary()
+    pub fn AddLibrary()
     {
       this += 1.LibraryCounter;
       this.LibraryObj = (LibraryClass[]) Utils.CopyArray((Array) this.LibraryObj, (Array) new LibraryClass[this.LibraryCounter + 1]);
       this.LibraryObj[this.LibraryCounter] = LibraryClass::new();
     }
 
-    pub void RemoveLibrary(int nr)
+    pub fn RemoveLibrary(nr: i32)
     {
       this.ChangeLibraryNr(nr, -1);
       if (nr < this.LibraryCounter)
@@ -6884,7 +6884,7 @@ pub struct DataClass
       this.LibraryObj = (LibraryClass[]) Utils.CopyArray((Array) this.LibraryObj, (Array) new LibraryClass[this.LibraryCounter + 1]);
     }
 
-    pub void ChangeLibraryNr(int Oldnr, int Newnr)
+    pub fn ChangeLibraryNr(Oldnr: i32, Newnr: i32)
     {
       for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
@@ -7063,7 +7063,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindLibVar(ref LibVarClass tlv, string libName)
+    pub FindLibVar: i32(ref LibVarClass tlv, string libName)
     {
       libName = Strings.LCase(libName);
       let mut libVarCounter: i32 =  this.LibVarCounter;
@@ -7075,7 +7075,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindLibVar(ref string libvarname, string libName)
+    pub FindLibVar: i32(ref string libvarname, string libName)
     {
       libvarname = Strings.LCase(libvarname);
       libName = Strings.LCase(libName);
@@ -7088,14 +7088,14 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddLibVar(int libSlot)
+    pub fn AddLibVar(libSlot: i32)
     {
       this += 1.LibVarCounter;
       this.LibVarObj = (LibVarClass[]) Utils.CopyArray((Array) this.LibVarObj, (Array) new LibVarClass[this.LibVarCounter + 1]);
       this.LibVarObj[this.LibVarCounter] = new LibVarClass(libSlot);
     }
 
-    pub void RemoveLibVar(int nr)
+    pub fn RemoveLibVar(nr: i32)
     {
       this.ChangeLibVarNr(nr, -1);
       if (nr < this.LibVarCounter)
@@ -7114,7 +7114,7 @@ pub struct DataClass
       this.LibVarObj = (LibVarClass[]) Utils.CopyArray((Array) this.LibVarObj, (Array) new LibVarClass[this.LibVarCounter + 1]);
     }
 
-    pub void ChangeLibVarNr(int Oldnr, int Newnr)
+    pub fn ChangeLibVarNr(Oldnr: i32, Newnr: i32)
     {
       let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
       for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
@@ -7136,7 +7136,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddRoadType()
+    pub fn AddRoadType()
     {
       this += 1.RoadTypeCounter;
       this.RoadTypeObj = (RoadTypeClass[]) Utils.CopyArray((Array) this.RoadTypeObj, (Array) new RoadTypeClass[this.RoadTypeCounter + 1]);
@@ -7144,7 +7144,7 @@ pub struct DataClass
       this.RoadTypeObj[this.RoadTypeCounter].LoadSprites();
     }
 
-    pub void RemoveRoadType(int nr)
+    pub fn RemoveRoadType(nr: i32)
     {
       this.RoadTypeObj[nr].Kill();
       this.ChangeRoadNr(nr, -1);
@@ -7164,10 +7164,10 @@ pub struct DataClass
       this.RoadTypeObj = (RoadTypeClass[]) Utils.CopyArray((Array) this.RoadTypeObj, (Array) new RoadTypeClass[this.RoadTypeCounter + 1]);
     }
 
-    pub void ChangeRoadNr(int Oldnr, int Newnr)
+    pub fn ChangeRoadNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -7228,7 +7228,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddRiverType()
+    pub fn AddRiverType()
     {
       this += 1.RiverTypeCounter;
       this.RiverTypeObj = (RiverTypeClass[]) Utils.CopyArray((Array) this.RiverTypeObj, (Array) new RiverTypeClass[this.RiverTypeCounter + 1]);
@@ -7236,7 +7236,7 @@ pub struct DataClass
       this.RiverTypeObj[this.RiverTypeCounter].LoadSprites();
     }
 
-    pub void RemoveRiverType(int nr)
+    pub fn RemoveRiverType(nr: i32)
     {
       this.RiverTypeObj[nr].Kill();
       this.ChangeRiverNr(nr, -1);
@@ -7256,10 +7256,10 @@ pub struct DataClass
       this.RiverTypeObj = (RiverTypeClass[]) Utils.CopyArray((Array) this.RiverTypeObj, (Array) new RiverTypeClass[this.RiverTypeCounter + 1]);
     }
 
-    pub void ChangeRiverNr(int Oldnr, int Newnr)
+    pub fn ChangeRiverNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -7320,7 +7320,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddArea()
+    pub fn AddArea()
     {
       this += 1.AreaCounter;
       this.AreaObj = (AreaClass[]) Utils.CopyArray((Array) this.AreaObj, (Array) new AreaClass[this.AreaCounter + 1]);
@@ -7329,7 +7329,7 @@ pub struct DataClass
       this.AreaObj[this.AreaCounter].ID = this.AreaIDCounter;
     }
 
-    pub void RemoveArea(int nr)
+    pub fn RemoveArea(nr: i32)
     {
       if (nr < this.AreaCounter)
       {
@@ -7344,7 +7344,7 @@ pub struct DataClass
       this.AreaObj = (AreaClass[]) Utils.CopyArray((Array) this.AreaObj, (Array) new AreaClass[this.AreaCounter + 1]);
     }
 
-    pub int FindHistorical(ref HistoricalUnitClass his, string libName)
+    pub FindHistorical: i32(ref HistoricalUnitClass his, string libName)
     {
       let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (let mut historical: i32 =  0; historical <= historicalUnitCounter; historical += 1)
@@ -7355,7 +7355,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindHistoricalFromSameLib(ref HistoricalUnitClass his, string libName)
+    pub FindHistoricalFromSameLib: i32(ref HistoricalUnitClass his, string libName)
     {
       let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (let mut historicalFromSameLib: i32 =  0; historicalFromSameLib <= historicalUnitCounter; historicalFromSameLib += 1)
@@ -7366,7 +7366,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindOffHistorical(ref HistoricalUnitClass his, string libName)
+    pub FindOffHistorical: i32(ref HistoricalUnitClass his, string libName)
     {
       let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (let mut offHistorical: i32 =  0; offHistorical <= historicalUnitCounter; offHistorical += 1)
@@ -7377,7 +7377,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindOffHistoricalBySameLib(ref HistoricalUnitClass his, string libName)
+    pub FindOffHistoricalBySameLib: i32(ref HistoricalUnitClass his, string libName)
     {
       let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (let mut historicalBySameLib: i32 =  0; historicalBySameLib <= historicalUnitCounter; historicalBySameLib += 1)
@@ -7388,7 +7388,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddHistoricalUnit()
+    pub fn AddHistoricalUnit()
     {
       this += 1.HistoricalUnitCounter;
       this.HistoricalUnitObj = (HistoricalUnitClass[]) Utils.CopyArray((Array) this.HistoricalUnitObj, (Array) new HistoricalUnitClass[this.HistoricalUnitCounter + 1]);
@@ -7403,7 +7403,7 @@ pub struct DataClass
       this.HistoricalUnitObj[this.HistoricalUnitCounter].ID = this.HistoricalIDCounter;
     }
 
-    pub void RemoveHistoricalUnit(int nr)
+    pub fn RemoveHistoricalUnit(nr: i32)
     {
       this.ThreadBlock();
       this.ChangeHistoricalUnitNr(nr, -1);
@@ -7423,10 +7423,10 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void ChangeHistoricalUnitNr(int Oldnr, int Newnr, bool QuickMode = false)
+    pub fn ChangeHistoricalUnitNr(Oldnr: i32, Newnr: i32, bool QuickMode = false)
     {
       QuickMode = true;
-      int index1;
+      index1: i32;
       if (!QuickMode)
       {
         let mut stringListCounter: i32 =  this.StringListCounter;
@@ -7509,7 +7509,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindRegime(ref RegimeClass reg, string libName)
+    pub FindRegime: i32(ref RegimeClass reg, string libName)
     {
       let mut regimeCounter: i32 =  this.RegimeCounter;
       for (let mut regime: i32 =  0; regime <= regimeCounter; regime += 1)
@@ -7520,7 +7520,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindRegimeFromSameLib(ref RegimeClass reg, string libName)
+    pub FindRegimeFromSameLib: i32(ref RegimeClass reg, string libName)
     {
       let mut regimeCounter: i32 =  this.RegimeCounter;
       for (let mut regimeFromSameLib: i32 =  0; regimeFromSameLib <= regimeCounter; regimeFromSameLib += 1)
@@ -7531,7 +7531,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddRegime(bool noRedimNecc = false, bool tMinimumDataUsage = false)
+    pub fn AddRegime(bool noRedimNecc = false, bool tMinimumDataUsage = false)
     {
       this.ThreadBlock();
       this += 1.RegimeCounter;
@@ -7595,7 +7595,7 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void MoveRegimeHigher(int regnr)
+    pub fn MoveRegimeHigher(regnr: i32)
     {
       this.AddRegime();
       if (regnr < this.RegimeCounter - 1)
@@ -7619,7 +7619,7 @@ pub struct DataClass
       }
     }
 
-    pub void MoveRegimeLower(int regnr)
+    pub fn MoveRegimeLower(regnr: i32)
     {
       this.AddRegime();
       if (regnr > 0)
@@ -7643,7 +7643,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveRegime(int nr)
+    pub fn RemoveRegime(nr: i32)
     {
       this.ThreadBlock();
       bool minimumDataUsage = this.RegimeObj[nr].minimumDataUsage;
@@ -7679,10 +7679,10 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void ChangeRegimeNr(int Oldnr, int Newnr, bool QuickMode = false)
+    pub fn ChangeRegimeNr(Oldnr: i32, Newnr: i32, bool QuickMode = false)
     {
       QuickMode = true;
-      int index1;
+      index1: i32;
       if (!QuickMode)
       {
         let mut stringListCounter: i32 =  this.StringListCounter;
@@ -7877,7 +7877,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindStringList(ref StringListClass e, string libname)
+    pub FindStringList: i32(ref StringListClass e, string libname)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
       for (let mut stringList: i32 =  0; stringList <= stringListCounter; stringList += 1)
@@ -7888,7 +7888,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddStringList()
+    pub fn AddStringList()
     {
       this += 1.StringListCounter;
       this += 1.StringIDCounter;
@@ -7902,7 +7902,7 @@ pub struct DataClass
       this.StringListObj[this.StringListCounter] = new StringListClass(this.StringIDCounter);
     }
 
-    pub void RemoveStringList(int nr)
+    pub fn RemoveStringList(nr: i32)
     {
       let mut regimeCounter: i32 =  this.RegimeCounter;
       for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
@@ -7923,7 +7923,7 @@ pub struct DataClass
       this.StringListObj = (StringListClass[]) Utils.CopyArray((Array) this.StringListObj, (Array) new StringListClass[this.StringListCounter + 1]);
     }
 
-    pub void AddResearch()
+    pub fn AddResearch()
     {
       this += 1.ResearchCounter;
       this.ResearchObj = (ResearchClass[]) Utils.CopyArray((Array) this.ResearchObj, (Array) new ResearchClass[this.ResearchCounter + 1]);
@@ -7937,7 +7937,7 @@ pub struct DataClass
         this.SFTypeObj[index].AddResField();
     }
 
-    pub void RemoveResearch(int nr)
+    pub fn RemoveResearch(nr: i32)
     {
       this.ResearchObj[nr].Kill();
       this.ChangeResearchNr(nr, -1);
@@ -7963,7 +7963,7 @@ pub struct DataClass
       this.ResearchObj = (ResearchClass[]) Utils.CopyArray((Array) this.ResearchObj, (Array) new ResearchClass[this.ResearchCounter + 1]);
     }
 
-    pub void ChangeResearchNr(int Oldnr, int Newnr)
+    pub fn ChangeResearchNr(Oldnr: i32, Newnr: i32)
     {
       let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
       for (let mut index1: i32 =  0; index1 <= itemTypeCounter; index1 += 1)
@@ -8011,7 +8011,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddLocType()
+    pub fn AddLocType()
     {
       this += 1.LocTypeCounter;
       this.LocTypeObj = (LocationTypeClass[]) Utils.CopyArray((Array) this.LocTypeObj, (Array) new LocationTypeClass[this.LocTypeCounter + 1]);
@@ -8019,7 +8019,7 @@ pub struct DataClass
       this.LocTypeObj[this.LocTypeCounter].LoadSprites();
     }
 
-    pub void RemoveLocType(int nr)
+    pub fn RemoveLocType(nr: i32)
     {
       this.LocTypeObj[nr].Kill();
       this.ChangeLocTypeNr(nr, -1);
@@ -8039,10 +8039,10 @@ pub struct DataClass
       this.LocTypeObj = (LocationTypeClass[]) Utils.CopyArray((Array) this.LocTypeObj, (Array) new LocationTypeClass[this.LocTypeCounter + 1]);
     }
 
-    pub void ChangeLocTypeNr(int Oldnr, int Newnr)
+    pub fn ChangeLocTypeNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int nr;
+      nr: i32;
       for (let mut index1: i32 =  0; index1 <= stringListCounter; index1 += 1)
       {
         let mut width: i32 =  this.StringListObj[index1].Width;
@@ -8090,7 +8090,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddLoc(int x, int y, int map)
+    pub fn AddLoc(x: i32, y: i32, map: i32)
     {
       this.ThreadBlock();
       this.LocIdCounter = Operators.AddObject(this.LocIdCounter,  1);
@@ -8106,7 +8106,7 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void AddLoc2(int x, int y, int map)
+    pub fn AddLoc2(x: i32, y: i32, map: i32)
     {
       this.ThreadBlock();
       this.LocIdCounter = Operators.AddObject(this.LocIdCounter,  1);
@@ -8122,7 +8122,7 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void RemoveLoc(int nr)
+    pub fn RemoveLoc(nr: i32)
     {
       this.ThreadBlock();
       this.LocObj[nr].Kill();
@@ -8143,7 +8143,7 @@ pub struct DataClass
       this.ThreadRelease();
     }
 
-    pub void ChangeLocNr(int Oldnr, int Newnr)
+    pub fn ChangeLocNr(Oldnr: i32, Newnr: i32)
     {
       let mut mapCounter: i32 =  this.MapCounter;
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
@@ -8163,7 +8163,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindEvent(ref EventClass e, string libname)
+    pub FindEvent: i32(ref EventClass e, string libname)
     {
       let mut eventCounter: i32 =  this.EventCounter;
       for (let mut index: i32 =  0; index <= eventCounter; index += 1)
@@ -8174,7 +8174,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindEvent2(string libname, int id)
+    pub FindEvent2: i32(string libname, id: i32)
     {
       let mut eventCounter: i32 =  this.EventCounter;
       for (let mut event2: i32 =  0; event2 <= eventCounter; event2 += 1)
@@ -8185,7 +8185,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddEvent(let mut insert: i32 =  -1)
+    pub fn AddEvent(let mut insert: i32 =  -1)
     {
       let mut eventCounter1: i32 =  this.EventCounter;
       for (let mut index: i32 =  0; index <= eventCounter1; index += 1)
@@ -8211,7 +8211,7 @@ pub struct DataClass
       this.EventObj[insert + 1].Id = this.EventIdCounter;
     }
 
-    pub void ChangeEventNr2(int fromnr, int toonr)
+    pub fn ChangeEventNr2(fromnr: i32, toonr: i32)
     {
       let mut actionCardCounter: i32 =  this.ActionCardCounter;
       for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
@@ -8273,7 +8273,7 @@ pub struct DataClass
       }
     }
 
-    pub void ChangeEventSwitchNr(int fromnr, int toonr)
+    pub fn ChangeEventSwitchNr(fromnr: i32, toonr: i32)
     {
       let mut actionCardCounter: i32 =  this.ActionCardCounter;
       for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
@@ -8343,7 +8343,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveEvent(int nr)
+    pub fn RemoveEvent(nr: i32)
     {
       if (nr < this.EventCounter)
       {
@@ -8362,7 +8362,7 @@ pub struct DataClass
       this.EventObj = (EventClass[]) Utils.CopyArray((Array) this.EventObj, (Array) new EventClass[this.EventCounter + 1]);
     }
 
-    pub void eventdown(int nr)
+    pub fn eventdown(nr: i32)
     {
       if (!(nr < this.EventCounter & nr > -1))
         return;
@@ -8372,7 +8372,7 @@ pub struct DataClass
       this.ChangeEventSwitchNr(nr, nr + 1);
     }
 
-    pub void eventup(int nr)
+    pub fn eventup(nr: i32)
     {
       if (nr <= 0)
         return;
@@ -8382,7 +8382,7 @@ pub struct DataClass
       this.ChangeEventSwitchNr(nr, nr - 1);
     }
 
-    pub int FindPeople(ref PeopleClass ppl, string libName)
+    pub FindPeople: i32(ref PeopleClass ppl, string libName)
     {
       let mut peopleCounter: i32 =  this.PeopleCounter;
       for (let mut people: i32 =  0; people <= peopleCounter; people += 1)
@@ -8393,7 +8393,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddPeople()
+    pub fn AddPeople()
     {
       this += 1.PeopleCounter;
       this.PeopleObj = (PeopleClass[]) Utils.CopyArray((Array) this.PeopleObj, (Array) new PeopleClass[this.PeopleCounter + 1]);
@@ -8403,7 +8403,7 @@ pub struct DataClass
       this.PeopleObj[this.PeopleCounter].id = this.PeopleIdCounter;
     }
 
-    pub void RemovePeople(int nr)
+    pub fn RemovePeople(nr: i32)
     {
       this.PeopleObj[nr].Kill();
       this.ChangePeopleNr(nr, -1);
@@ -8423,10 +8423,10 @@ pub struct DataClass
       this.PeopleObj = (PeopleClass[]) Utils.CopyArray((Array) this.PeopleObj, (Array) new PeopleClass[this.PeopleCounter + 1]);
     }
 
-    pub void ChangePeopleNr(int Oldnr, int Newnr)
+    pub fn ChangePeopleNr(Oldnr: i32, Newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -8501,7 +8501,7 @@ pub struct DataClass
       }
     }
 
-    pub void MovePeopleHigher(int peopleNr)
+    pub fn MovePeopleHigher(peopleNr: i32)
     {
       this.AddPeople();
       if (peopleNr < this.PeopleCounter - 1)
@@ -8518,7 +8518,7 @@ pub struct DataClass
       this.PeopleObj[peopleNr + 1].LoadSprites();
     }
 
-    pub void MovePeopleLower(int PeopleNr)
+    pub fn MovePeopleLower(PeopleNr: i32)
     {
       this.AddPeople();
       if (PeopleNr > 0)
@@ -8535,7 +8535,7 @@ pub struct DataClass
       this.PeopleObj[PeopleNr - 1].LoadSprites();
     }
 
-    pub void AddMap(int w, int h)
+    pub fn AddMap(w: i32, h: i32)
     {
       this += 1.MapCounter;
       this.MapObj = (MapClass[]) Utils.CopyArray((Array) this.MapObj, (Array) new MapClass[this.MapCounter + 1]);
@@ -8545,7 +8545,7 @@ pub struct DataClass
         this.RegimeObj[index].AddMap(w, h);
     }
 
-    pub void RemoveMap(int nr)
+    pub fn RemoveMap(nr: i32)
     {
       this.ChangeMapNr(nr, -1);
       if (nr < this.MapCounter)
@@ -8566,7 +8566,7 @@ pub struct DataClass
         this.RegimeObj[index].RemoveMap(nr);
     }
 
-    pub void ChangeMapNr(int Oldnr, int Newnr)
+    pub fn ChangeMapNr(Oldnr: i32, Newnr: i32)
     {
       for (let mut unitCounter: i32 =  this.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
@@ -8611,7 +8611,7 @@ pub struct DataClass
       }
     }
 
-    pub void AddItemType()
+    pub fn AddItemType()
     {
       let mut regimeCounter1: i32 =  this.RegimeCounter;
       for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
@@ -8654,7 +8654,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveItemType(int nr)
+    pub fn RemoveItemType(nr: i32)
     {
       this.ItemTypeObj[nr].Kill();
       this.ChangeItemTypeNr(nr, -1);
@@ -8674,7 +8674,7 @@ pub struct DataClass
       this.ItemTypeObj = (ItemTypeClass[]) Utils.CopyArray((Array) this.ItemTypeObj, (Array) new ItemTypeClass[this.ItemTypeCounter + 1]);
     }
 
-    pub void ChangeItemTypeNr(int Oldnr, int Newnr)
+    pub fn ChangeItemTypeNr(Oldnr: i32, Newnr: i32)
     {
       let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
       for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
@@ -8690,7 +8690,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindActionCard(ref ActionCardClass e, int origCardSlot, string libname)
+    pub FindActionCard: i32(ref ActionCardClass e, origCardSlot: i32, string libname)
     {
       if (Information.IsNothing( e))
       {
@@ -8713,14 +8713,14 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddActionCard()
+    pub fn AddActionCard()
     {
       this += 1.ActionCardCounter;
       this.ActionCardObj = (ActionCardClass[]) Utils.CopyArray((Array) this.ActionCardObj, (Array) new ActionCardClass[this.ActionCardCounter + 1]);
       this.ActionCardObj[this.ActionCardCounter] = ActionCardClass::new();
     }
 
-    pub void RemoveActionCard(int nr, bool QuickMode = false)
+    pub fn RemoveActionCard(nr: i32, bool QuickMode = false)
     {
       this.ChangeActionCardNr(nr, -1, QuickMode);
       if (nr < this.ActionCardCounter)
@@ -8739,9 +8739,9 @@ pub struct DataClass
       this.ActionCardObj = (ActionCardClass[]) Utils.CopyArray((Array) this.ActionCardObj, (Array) new ActionCardClass[this.ActionCardCounter + 1]);
     }
 
-    pub void ChangeActionCardNr(int Oldnr, int Newnr, bool QuickMode = false)
+    pub fn ChangeActionCardNr(Oldnr: i32, Newnr: i32, bool QuickMode = false)
     {
-      int index1;
+      index1: i32;
       if (!QuickMode)
       {
         let mut stringListCounter: i32 =  this.StringListCounter;
@@ -10088,7 +10088,7 @@ pub struct DataClass
       this.Version = 424;
     }
 
-    pub void serialize(string fileloc)
+    pub fn serialize(string fileloc)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
       GC.Collect();
@@ -10099,7 +10099,7 @@ pub struct DataClass
       Application.DoEvents();
     }
 
-    pub static DataClass deserialize(string fileloc)
+    pub static deserialize: DataClass(string fileloc)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Open, FileAccess.Read, FileShare.None);
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
@@ -10331,7 +10331,7 @@ pub struct DataClass
       return dataClass1;
     }
 
-    pub void LoadGraphics(Form1 tformref)
+    pub fn LoadGraphics(tformref: Form1)
     {
       BitmapStore.FlagForDelete();
       if (!Information.IsNothing( tformref))
@@ -10404,7 +10404,7 @@ pub struct DataClass
       BitmapStore.DeleteFlaggedBitmaps();
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       if (this.PermanentOverlayUse)
       {
@@ -10417,22 +10417,22 @@ pub struct DataClass
         this.PermanentOverlaySpriteID = -1;
     }
 
-    pub void EventPicKill()
+    pub fn EventPicKill()
     {
       let mut eventPicCounter: i32 =  this.EventPicCounter;
-      int num1;
+      num1: i32;
       let mut num2: i32 =  num1;
       for (let mut index: i32 =  eventPicCounter; index >= num2; index += -1)
         BitmapStore.RemoveBitmapNr(this.EventPicNr[index]);
     }
 
-    pub void EventPicReplaceprite(int nr, string filename)
+    pub fn EventPicReplaceprite(nr: i32, string filename)
     {
       this.EventPicName[nr] = filename;
       this.EventPicNr[nr] = BitmapStore.ReloadFile(this.EventPicNr[nr], filename);
     }
 
-    pub void EventPicLoadSprites()
+    pub fn EventPicLoadSprites()
     {
       if (this.EventPicCounter == -1)
         return;
@@ -10441,7 +10441,7 @@ pub struct DataClass
         this.EventPicNr[index] = BitmapStore.AddFile(this.EventPicName[index], false);
     }
 
-    pub void RemoveEventPic(int nr)
+    pub fn RemoveEventPic(nr: i32)
     {
       this.EventChangeEventNr(nr, -1);
       if (nr < this.EventPicCounter)
@@ -10467,7 +10467,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindEventPic(string teventpicName, int eventPicOrigSlot, string libname)
+    pub FindEventPic: i32(string teventpicName, eventPicOrigSlot: i32, string libname)
     {
       let mut eventPicCounter: i32 =  this.EventPicCounter;
       for (let mut eventPic: i32 =  0; eventPic <= eventPicCounter; eventPic += 1)
@@ -10478,7 +10478,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindEventPic(int eventPicOrigSlot, string libname)
+    pub FindEventPic: i32(eventPicOrigSlot: i32, string libname)
     {
       let mut eventPicCounter: i32 =  this.EventPicCounter;
       for (let mut eventPic: i32 =  0; eventPic <= eventPicCounter; eventPic += 1)
@@ -10489,7 +10489,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddEventPic(string filename)
+    pub fn AddEventPic(string filename)
     {
       this += 1.EventPicCounter;
       this.EventPicName = (string[]) Utils.CopyArray((Array) this.EventPicName, (Array) new string[this.EventPicCounter + 1]);
@@ -10500,10 +10500,10 @@ pub struct DataClass
       this.EventPicNr[this.EventPicCounter] = BitmapStore.AddFile(filename, false);
     }
 
-    pub void EventChangeEventNr(int oldnr, int newnr)
+    pub fn EventChangeEventNr(oldnr: i32, newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -10542,22 +10542,22 @@ pub struct DataClass
       }
     }
 
-    pub void SmallPicKill()
+    pub fn SmallPicKill()
     {
       let mut smallPicCounter: i32 =  this.SmallPicCounter;
-      int num1;
+      num1: i32;
       let mut num2: i32 =  num1;
       for (let mut index: i32 =  smallPicCounter; index >= num2; index += -1)
         BitmapStore.RemoveBitmapNr(this.SmallPicNr[index]);
     }
 
-    pub void SmallPicReplaceprite(int nr, string filename)
+    pub fn SmallPicReplaceprite(nr: i32, string filename)
     {
       this.SmallPicName[nr] = filename;
       this.SmallPicNr[nr] = BitmapStore.ReloadFile(this.SmallPicNr[nr], filename, IsBig: true);
     }
 
-    pub void SmallPicLoadSprites()
+    pub fn SmallPicLoadSprites()
     {
       if (this.SmallPicCounter == -1)
         return;
@@ -10566,7 +10566,7 @@ pub struct DataClass
         this.SmallPicNr[index] = BitmapStore.AddFile(this.SmallPicName[index], false, true);
     }
 
-    pub void RemoveSmallPic(int nr)
+    pub fn RemoveSmallPic(nr: i32)
     {
       this.SmallChangeEventNr(nr, -1);
       if (nr < this.SmallPicCounter)
@@ -10593,7 +10593,7 @@ pub struct DataClass
       }
     }
 
-    pub void RemoveReinf(int nr)
+    pub fn RemoveReinf(nr: i32)
     {
       this.ReinfChangeEventNr(nr, -1);
       if (nr < this.ReinfCounter)
@@ -10624,7 +10624,7 @@ pub struct DataClass
       }
     }
 
-    pub int FindSmallPic(string tsmallpicName, int smallId, string libname)
+    pub FindSmallPic: i32(string tsmallpicName, smallId: i32, string libname)
     {
       let mut smallPicCounter: i32 =  this.SmallPicCounter;
       for (let mut smallPic: i32 =  0; smallPic <= smallPicCounter; smallPic += 1)
@@ -10635,7 +10635,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindSmallPic(int smallId, string libname)
+    pub FindSmallPic: i32(smallId: i32, string libname)
     {
       let mut smallPicCounter: i32 =  this.SmallPicCounter;
       for (let mut smallPic: i32 =  0; smallPic <= smallPicCounter; smallPic += 1)
@@ -10646,7 +10646,7 @@ pub struct DataClass
       return -1;
     }
 
-    pub int FindReinf(string treinfName, int reinfId, string libname)
+    pub FindReinf: i32(string treinfName, reinfId: i32, string libname)
     {
       let mut reinfCounter: i32 =  this.ReinfCounter;
       for (let mut reinf: i32 =  0; reinf <= reinfCounter; reinf += 1)
@@ -10657,9 +10657,9 @@ pub struct DataClass
       return -1;
     }
 
-    pub void AddSmallPic(string filename)
+    pub fn AddSmallPic(string filename)
     {
-      int num;
+      num: i32;
       num += 1;
       this += 1.SmallPicCounter;
       this.SmallPicName = (string[]) Utils.CopyArray((Array) this.SmallPicName, (Array) new string[this.SmallPicCounter + 1]);
@@ -10670,9 +10670,9 @@ pub struct DataClass
       this.SmallPicNr[this.SmallPicCounter] = BitmapStore.AddFile(filename, false, true);
     }
 
-    pub void AddReinf(string name)
+    pub fn AddReinf(string name)
     {
-      int num;
+      num: i32;
       num += 1;
       this += 1.ReinfCounter;
       this.ReinfName = (string[]) Utils.CopyArray((Array) this.ReinfName, (Array) new string[this.ReinfCounter + 1]);
@@ -10686,10 +10686,10 @@ pub struct DataClass
       this.ReinfId[this.ReinfCounter] = this.reinfIdCounter;
     }
 
-    pub void SmallChangeEventNr(int oldnr, int newnr)
+    pub fn SmallChangeEventNr(oldnr: i32, newnr: i32)
     {
       let mut stringListCounter: i32 =  this.StringListCounter;
-      int index1;
+      index1: i32;
       for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
         let mut width: i32 =  this.StringListObj[index2].Width;
@@ -10772,7 +10772,7 @@ pub struct DataClass
       while (index1 <= 1099);
     }
 
-    pub void ReinfChangeEventNr(int oldnr, int newnr)
+    pub fn ReinfChangeEventNr(oldnr: i32, newnr: i32)
     {
       let mut sfTypeCounter: i32 =  this.SFTypeCounter;
       for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
@@ -10789,7 +10789,7 @@ pub struct DataClass
 // }
 
 impl DataClass {
-        pub int GetLibVarUseId(int libVarId, int slotId)
+        pub GetLibVarUseId: i32(libVarId: i32, slotId: i32)
     {
       let mut index: i32 =  slotId;
       if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Hex || this.LibVarObj[libVarId].type == NewEnums.LibVarType.General)

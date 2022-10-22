@@ -177,7 +177,7 @@ namespace WindowsApplication1
     pub tempExposurePopLoss: i32;
     pub tempExposureFreeFolkLoss: i32;
 
-    pub HelperEconomyData(ref GameClass tgame, string dataLib)
+    pub HelperEconomyData(ref tgame: GameClass, string dataLib)
     {
       libName1: String = "SE_Trade";
       this.zones = new AIMatrix(ref tgame.DC2AIObj);
@@ -263,7 +263,7 @@ namespace WindowsApplication1
       this.regtype =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotRegimes].GetData(0, this.regid, 1)));
     }
 
-    pub void Input(let mut useRegimeId: i32 =  -1)
+    pub fn Input(let mut useRegimeId: i32 =  -1)
     {
       if (DrawMod.TGame.Data.Turn == 1)
         this.water = this.water;
@@ -380,7 +380,7 @@ namespace WindowsApplication1
       this.tempExposureWorkerLoss = Math.Max(0,  Math.Round(Conversion.Val(DrawMod.TGame.Data.StringListObj[this.slotZoneKeys].GetData2(0, this.zoneId, 1, "tempExposureWorkerLoss", 2))));
     }
 
-    pub void Output(let mut useRegimeId: i32 =  -1)
+    pub fn Output(let mut useRegimeId: i32 =  -1)
     {
       if (this.locNr > -1)
       {

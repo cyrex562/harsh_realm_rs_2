@@ -23,14 +23,14 @@ namespace WindowsApplication1
      int Unr;
      int[] Answer;
 
-    pub ATFlexMessageWindowClass(ref GameClass tGame)
+    pub ATFlexMessageWindowClass(ref tGame: GameClass)
       : base(ref tGame, 800, 200, BackSprite: tGame.BACKGROUND2MARC, tBackSpriteScaled: true)
     {
       this.Answer = new int[10];
       this.View();
     }
 
-    pub void View()
+    pub fn View()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(800, 200, DrawMod.TGame.BACKGROUND2MARC);

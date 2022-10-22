@@ -14,28 +14,28 @@ namespace WindowsApplication1
 {
   pub class UDSMessageWindowClass : WindowClass
   {
-     int pageId;
-     int okId;
+     pageId: i32;
+     okId: i32;
      bool noBackground;
      bool exitFound;
-     int useExitEventNr;
+     useExitEventNr: i32;
      string useExitKey;
      string useExitValue;
-     int useExitElementSlot;
+     useExitElementSlot: i32;
      UDSPartClass udsPartObj;
      SimpleStringList[] backupUdsKeys;
      int[] backupEvent;
      int[] backupY;
      StringListClass[] backupStringlist;
-     int[,] backupTempVars;
-     int backupCounter;
+     backupTempVars: Vec<i32>;
+     backupCounter: i32;
      StringListClass[] backupStrl;
      UDSData[] backupUdsData;
      bool currentBlockedForBackup;
      bool exitPopupCommand;
-     int useExtraHeight;
+     useExtraHeight: i32;
 
-    pub UDSMessageWindowClass( GameClass tGame, int extraHeight)
+    pub UDSMessageWindowClass( tGame: GameClass, extraHeight: i32)
       : base( tGame, 1260, 750 + extraHeight, 8)
     {
       self.backupUdsKeys = new SimpleStringList[1];
@@ -54,7 +54,7 @@ namespace WindowsApplication1
       self.SetBackup(true);
     }
 
-    pub UDSMessageWindowClass( GameClass tGame, bool tnoBackground, int extraHeight)
+    pub UDSMessageWindowClass( tGame: GameClass, bool tnoBackground, extraHeight: i32)
       : base( tGame, 1260, 750 + extraHeight, 8)
     {
       self.backupUdsKeys = new SimpleStringList[1];
@@ -72,7 +72,7 @@ namespace WindowsApplication1
       self.ViewMessage();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -89,7 +89,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void ViewMessage(bool dontDrawPage = false)
+    pub fn ViewMessage(bool dontDrawPage = false)
     {
       if (self.pageId > 0)
       {
@@ -162,7 +162,7 @@ namespace WindowsApplication1
       ((UDSPartClass) self.SubPartList[self.SubpartNr(self.pageId)]).MakeBitmap();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       try
@@ -213,7 +213,7 @@ namespace WindowsApplication1
       return self.game.EditObj.WINDOW_DEBUG_MODE ? self.HandleKeyPress(32, false) : windowReturnClass;
     }
 
-    pub void SetBackup(bool updateCurrent = false)
+    pub fn SetBackup(bool updateCurrent = false)
     {
       if (updateCurrent)
       {
@@ -298,7 +298,7 @@ namespace WindowsApplication1
       self.game.EventRelatedObj.SetUDSKey("BACKUPSKIP", 0);
     }
 
-    pub HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -343,7 +343,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -354,7 +354,7 @@ namespace WindowsApplication1
           if (x > self.SubPartX[index1] & x < self.SubPartX[index1] + self.SubPartW[index1] && y > self.SubPartY[index1] & y < self.SubPartY[index1] + self.SubPartH[index1])
           {
             let mut num1: i32 = self.SubPartID[index1];
-            int num2;
+            num2: i32;
             if (num1 == self.okId)
             {
               if (self.exitPopupCommand)
@@ -377,7 +377,7 @@ namespace WindowsApplication1
                 let mut enr: i32 = self.backupEvent[self.backupCounter];
                 self.game.EditObj.UDSClearInput();
                 let mut counter: i32 = self.backupUdsKeys[self.backupCounter].Counter;
-                int index2;
+                index2: i32;
                 for (index2 = 0; index2 <= counter; index2 += 1)
                   self.game.EditObj.UDSAddInput(self.backupUdsKeys[self.backupCounter].Id[index2], self.backupUdsKeys[self.backupCounter].Weight[index2]);
                 if (self.game.Data.Product == 7)
@@ -556,7 +556,7 @@ namespace WindowsApplication1
                   let mut enr2: i32 = self.backupEvent[self.backupCounter];
                   self.game.EditObj.UDSClearInput();
                   let mut counter: i32 = self.backupUdsKeys[self.backupCounter].Counter;
-                  int index5;
+                  index5: i32;
                   for (index5 = 0; index5 <= counter; index5 += 1)
                     self.game.EditObj.UDSAddInput(self.backupUdsKeys[self.backupCounter].Id[index5], self.backupUdsKeys[self.backupCounter].Weight[index5]);
                   if (self.game.Data.Product == 7)

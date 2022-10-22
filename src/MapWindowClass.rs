@@ -15,13 +15,13 @@ namespace WindowsApplication1
 {
   pub class MapWindowClass : WindowClass
   {
-     int MapId;
-     int minheight;
-     int minwidth;
-     int ZoomTimer;
+     MapId: i32;
+     minheight: i32;
+     minwidth: i32;
+     ZoomTimer: i32;
      float LastZoom;
 
-    pub MapWindowClass( GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
+    pub MapWindowClass( tGame: GameClass, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
       : base( tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.minheight = tminheight;
@@ -33,7 +33,7 @@ namespace WindowsApplication1
       this.mapframe = true;
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
     }
 
@@ -107,7 +107,7 @@ namespace WindowsApplication1
         let mut targetX: i32 =  this.game.EditObj.TargetX;
         let mut targetY: i32 =  this.game.EditObj.TargetY;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
-        Bitmap bitmap = (Bitmap) null;
+        bitmap: Bitmap = (Bitmap) null;
          let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, targetX, targetY, mapSelected, gBitmap: ( local));
         this.PaintCurrentBitmap(this.MapId);
@@ -128,7 +128,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
@@ -430,9 +430,9 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => this.SubPartList[this.SubpartNr(this.MapId)].Paint();
+    pub fn DoRefresh() => this.SubPartList[this.SubpartNr(this.MapId)].Paint();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult1 = OrderResult::new();
@@ -523,7 +523,7 @@ label_329:
                       let mut y1: i32 =  this.game.EditObj.RightCLickY;
                       let mut map1: i32 =  this.game.EditObj.RightClickMap;
                       this.game.EditObj.TempCoordList = CoordList::new();
-                      int map2;
+                      map2: i32;
                       for (; this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].onmap; map1 = map2)
                       {
                         this.game.EditObj.SupplyPath.AddCoord(x1, y1, map1);
@@ -554,7 +554,7 @@ label_329:
               {
                 if (this.game.Data.Round == 0)
                 {
-                  int integer;
+                  integer: i32;
                   if (this.game.EditObj.PencilType == 1)
                   {
                     if (this.game.EditObj.PencilMode == 0)
@@ -1437,7 +1437,7 @@ label_329:
                   this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
                   let mut x3: i32 =  this.game.EditObj.RightClickX;
                   let mut y3: i32 =  this.game.EditObj.RightCLickY;
-                  int map3;
+                  map3: i32;
                   for (let mut map4: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].onmap; map4 = map3)
                   {
                     this.game.EditObj.SupplyPath.AddCoord(x3, y3, map4);
@@ -1471,17 +1471,17 @@ label_329:
                 let mut x5: i32 =  num1;
                 let mut y5: i32 =  selectY1;
                 let mut map5: i32 =  mapSelected1;
-                Bitmap bitmap1 = (Bitmap) null;
+                bitmap1: Bitmap = (Bitmap) null;
                  let mut local1: &Bitmap = &bitmap1;
                 subPart1.PaintCoordinate((Graphics) null, x5, y5, map5, gBitmap: ( local1));
-                Bitmap bitmap2;
+                bitmap2: Bitmap;
                 if (this.game.Data.Round == 0)
                 {
                   let mut subPart2: SubPartClass = this.SubPartList[index1];
                   let mut selectX: i32 =  this.game.SelectX;
                   let mut selectY2: i32 =  this.game.SelectY;
                   let mut mapSelected2: i32 =  this.game.EditObj.MapSelected;
-                  Bitmap bitmap3 = (Bitmap) null;
+                  bitmap3: Bitmap = (Bitmap) null;
                    let mut local2: &Bitmap = &bitmap3;
                   subPart2.PaintCoordinate((Graphics) null, selectX, selectY2, mapSelected2, gBitmap: ( local2));
                   let mut tfacing: i32 =  1;
@@ -1508,7 +1508,7 @@ label_329:
                   let mut selectX: i32 =  this.game.SelectX;
                   let mut selectY3: i32 =  this.game.SelectY;
                   let mut mapSelected4: i32 =  this.game.EditObj.MapSelected;
-                  Bitmap bitmap4 = (Bitmap) null;
+                  bitmap4: Bitmap = (Bitmap) null;
                    let mut local4: &Bitmap = &bitmap4;
                   subPart4.PaintCoordinate((Graphics) null, selectX, selectY3, mapSelected4, gBitmap: ( local4));
                 }
@@ -1560,7 +1560,7 @@ label_329:
       return windowReturnClass;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       currentDescript: String = this.game.EditObj.CurrentDescript;
@@ -1654,25 +1654,25 @@ label_329:
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn);
-                      EditClass editObj = this.game.EditObj;
+                      editObj: EditClass = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn);
-                      EditClass editObj = this.game.EditObj;
+                      editObj: EditClass = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn);
-                      EditClass editObj = this.game.EditObj;
+                      editObj: EditClass = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn);
-                      EditClass editObj = this.game.EditObj;
+                      editObj: EditClass = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     this.game.EditObj.CurrentDescript += ", Right click a hex to see supply path";
@@ -1693,7 +1693,7 @@ label_329:
                       let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
-                        EditClass editObj = this.game.EditObj;
+                        editObj: EditClass = this.game.EditObj;
                         editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str( integer);
                       }
                     }
@@ -1706,7 +1706,7 @@ label_329:
                       let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
-                        EditClass editObj = this.game.EditObj;
+                        editObj: EditClass = this.game.EditObj;
                         editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str( integer);
                       }
                     }
@@ -1880,7 +1880,7 @@ label_329:
 
     pub object EditorPlaceLocation()
     {
-      int num1;
+      num1: i32;
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == -1)
       {
         if (this.game.Data.PeopleCounter > 0)
@@ -1929,7 +1929,7 @@ label_329:
       return obj;
     }
 
-    pub object regimeFill(int newreg)
+    pub object regimeFill(newreg: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -1939,7 +1939,7 @@ label_329:
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -1968,7 +1968,7 @@ label_329:
       return obj;
     }
 
-    pub object areacodeFill(int slot, int code)
+    pub object areacodeFill(slot: i32, code: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -1978,7 +1978,7 @@ label_329:
       while (num2 == 1)
       {
         num2 = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -2007,7 +2007,7 @@ label_329:
       return obj;
     }
 
-    pub object hexLibVarFill(int slot, int code)
+    pub object hexLibVarFill(slot: i32, code: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -2017,7 +2017,7 @@ label_329:
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
         for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
@@ -2046,7 +2046,7 @@ label_329:
       return obj;
     }
 
-    pub object landscapeFill(int newland, int newspr)
+    pub object landscapeFill(newland: i32, newspr: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -2056,7 +2056,7 @@ label_329:
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
@@ -2090,7 +2090,7 @@ label_329:
       return obj;
     }
 
-    pub object heightLevelFill(int newHeight)
+    pub object heightLevelFill(newHeight: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -2100,7 +2100,7 @@ label_329:
       while (num1 == 1)
       {
         num1 = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
@@ -2158,7 +2158,7 @@ label_329:
       return obj;
     }
 
-    pub object specialFill(int newland, int newspr)
+    pub object specialFill(newland: i32, newspr: i32)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] =  1;
@@ -2168,7 +2168,7 @@ label_329:
       while (num == 1)
       {
         num = 0;
-        int Right;
+        Right: i32;
         Right += 1;
         let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
@@ -2199,7 +2199,7 @@ label_329:
       return obj;
     }
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
       this.game.EditObj.AreaSlot = -1;
       this.game.EditObj.AreaX = -1;

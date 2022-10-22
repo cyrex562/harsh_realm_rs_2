@@ -17,8 +17,8 @@ namespace WindowsApplication1
 {
   pub class ServerClass
   {
-     GameClass game;
-     EditClass e;
+     game: GameClass;
+     e: EditClass;
      HttpWebRequest wr;
      string url;
      string baseurl;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
      AutoResetEvent auto;
      ManualResetEvent manual;
 
-    pub ServerClass(GameClass tgame)
+    pub ServerClass(tgame: GameClass)
     {
       this.baseurl = "defaultURL";
       this.exchangebaseurl = "defaultExchangeURL";
@@ -168,7 +168,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void Go()
+    pub fn Go()
     {
       this.e.ServerMessages = MessageList::new();
       this.e.ServerCommandMaxStep = 1;
@@ -181,7 +181,7 @@ namespace WindowsApplication1
       if (this.e.ServerCommand == ServerCommandType.Register)
         this.e.ServerCommandMaxStep = 3;
       this.e.ServerCommandMaxStepOrig = this.e.ServerCommandMaxStep;
-      EditClass e = this.e;
+      e: EditClass = this.e;
       let mut serverCommandMaxStep: i32 = this.e.ServerCommandMaxStep;
       for (e.ServerCommandStep = 1; this.e.ServerCommandStep <= serverCommandMaxStep; this += 1.e.ServerCommandStep)
       {
@@ -210,7 +210,7 @@ namespace WindowsApplication1
             this.e.ServerUploadSize = this.wr.ContentLength;
             Stream requestStream = this.wr.GetRequestStream();
             byte[] buffer = new byte[1025];
-            int num1;
+            num1: i32;
             while (num1 < this.e.ServerUploadFile.GetUpperBound(0) + 1)
             {
               let mut count: i32 = 0;
@@ -316,7 +316,7 @@ namespace WindowsApplication1
       Expression.Request.Abort();
     }
 
-    pub void SetUrl()
+    pub fn SetUrl()
     {
       if (this.game.EditObj.PbemSteam)
       {
@@ -607,7 +607,7 @@ namespace WindowsApplication1
       this.e.ServerCommandMaxStep = 0;
     }
 
-    pub void ReadReceive()
+    pub fn ReadReceive()
     {
       this.WriteLog("READING");
       if (Information.IsNothing( this.receive))
@@ -623,7 +623,7 @@ namespace WindowsApplication1
       }
       else
       {
-        string[] strArray1 = this.receive.Split('\n');
+        strArray1: Vec<String> = this.receive.Split('\n');
         str: String = strArray1[0];
         let mut num1: i32 = !(Strings.AscW(Strings.Left(str, 1)) < 48 | Strings.AscW(Strings.Left(str, 1)) > 57) ?  Math.Round(Conversion.Val(Strings.Left(str, 2))) : 900;
         if (num1 == 99)
@@ -798,7 +798,7 @@ namespace WindowsApplication1
               for (let mut index: i32 = 1; index <= num2; index += 1)
               {
                 this.e.ServerChallengeList[index - 1] = ChallengeClass::new();
-                string[] strArray2 = strArray1[index].Split(',');
+                strArray2: Vec<String> = strArray1[index].Split(',');
                 this.e.ServerChallengeList[index - 1].challengeID = Conversions.ToInteger(strArray2[0]);
                 this.e.ServerChallengeList[index - 1].challengerUserName = Strings.Mid(strArray2[1], 2, Strings.Len(strArray2[1]) - 2);
                 this.e.ServerChallengeList[index - 1].challengerSide = Conversions.ToInteger(strArray2[2]);
@@ -831,7 +831,7 @@ namespace WindowsApplication1
                 {
                   this.WriteLog("READING LINE " + index.ToString());
                   this.e.ServerRunningGameList[index - 1] = RunningGameClass::new();
-                  string[] strArray3 = strArray1[index].Split(',');
+                  strArray3: Vec<String> = strArray1[index].Split(',');
                   this.e.ServerRunningGameList[index - 1].gameInstanceID = Conversions.ToInteger(strArray3[0]);
                   this.e.ServerRunningGameList[index - 1].pairedGameID = Conversions.ToInteger(strArray3[1]);
                   this.e.ServerRunningGameList[index - 1].playerToUserName = Strings.Mid(strArray3[2], 2, Strings.Len(strArray3[2]) - 2);
@@ -927,7 +927,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void WriteLog(string s)
+    pub fn WriteLog(string s)
     {
       if (Strings.InStr(s, "SEND:") > 0)
       {
@@ -961,7 +961,7 @@ namespace WindowsApplication1
       pub tempreceive: String;
       pub byte[] upload;
       pub long uploaddone;
-      pub EditClass e;
+      pub e: EditClass;
       pub responseStarted: bool;
       pub DateTime lastRead;
 

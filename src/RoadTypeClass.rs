@@ -14,13 +14,13 @@ namespace WindowsApplication1
   pub class RoadTypeClass : ISerializable
   {
     pub Name: String;
-    pub string[] BasicSpriteFileName;
+    pub BasicSpriteFileName: Vec<String>;
     pub BasicSpriteID: Vec<i32>;
     pub MoveCostOverrule: Vec<i32>;
     pub EPCost: i32;
     pub Thickness: i32;
     pub LayerSpriteID: Vec<i32>;
-    pub string[] LayerSpriteFileName;
+    pub LayerSpriteFileName: Vec<String>;
     pub SpecialLayer: bool;
     pub FirstDrawOther: i32;
     pub SheetFileName: String;
@@ -28,7 +28,7 @@ namespace WindowsApplication1
     pub UseSheet: bool;
     pub Transparent: bool;
     pub Category: i32;
-    pub string[] BridgeOverruleSpriteFileName;
+    pub BridgeOverruleSpriteFileName: Vec<String>;
     pub BridgeOverruleSpriteID: Vec<i32>;
     pub BridgeOverrule: bool;
     pub useCenter6: bool;
@@ -181,7 +181,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AutoLoadSpecial(string dirstring, string extstring)
+    pub fn AutoLoadSpecial(string dirstring, string extstring)
     {
       this.LayerSpriteFileName[1] = dirstring + "/a1" + extstring;
       this.LayerSpriteFileName[2] = dirstring + "/b1" + extstring;
@@ -250,7 +250,7 @@ namespace WindowsApplication1
       this.ReloadSpecialSprites();
     }
 
-    pub RoadTypeClass(int hardcoded)
+    pub RoadTypeClass(hardcoded: i32)
     {
       this.BasicSpriteFileName = new string[6];
       this.BasicSpriteID = new int[6];
@@ -289,7 +289,7 @@ namespace WindowsApplication1
       while (index <= 5);
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
       let mut index1: i32 = 0;
       do
@@ -309,25 +309,25 @@ namespace WindowsApplication1
       while (index2 <= 64);
     }
 
-    pub void ReplaceCenter6(string filename)
+    pub fn ReplaceCenter6(string filename)
     {
       this.center6spriteFileName = filename;
       this.center6spriteId = BitmapStore.ReloadFile(this.center6spriteId, filename, IsBig: true);
     }
 
-    pub void ReplaceBasicSprite(int nr, string filename)
+    pub fn ReplaceBasicSprite(nr: i32, string filename)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void ReplaceBridgeOverruleSprite(int nr, string filename)
+    pub fn ReplaceBridgeOverruleSprite(nr: i32, string filename)
     {
       this.BridgeOverruleSpriteFileName[nr] = filename;
       this.BridgeOverruleSpriteID[nr] = BitmapStore.ReloadFile(this.BridgeOverruleSpriteID[nr], filename, IsBig: true);
     }
 
-    pub void ReloadSpecialSprites()
+    pub fn ReloadSpecialSprites()
     {
       let mut index: i32 = 1;
       do
@@ -338,13 +338,13 @@ namespace WindowsApplication1
       while (index <= 64);
     }
 
-    pub void ReplaceSpriteSheet(string filename)
+    pub fn ReplaceSpriteSheet(string filename)
     {
       this.SheetFileName = filename;
       this.SheetSpriteID = BitmapStore.ReloadFile(this.SheetSpriteID, this.SheetFileName, IsBig: true);
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
       this.center6spriteId = BitmapStore.AddFile(this.center6spriteFileName, false, true);
       let mut index1: i32 = 0;

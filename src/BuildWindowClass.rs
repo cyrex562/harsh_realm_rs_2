@@ -35,7 +35,7 @@ namespace WindowsApplication1
      bool[] LocCanConstr2;
      bool LocCanSetup;
 
-    pub BuildWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub BuildWindowClass(ref tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.VarId = new int[5];
@@ -151,26 +151,26 @@ namespace WindowsApplication1
         if (this.game.Data.LocTypeObj[this.detailnr].OverdrawLTNr > -1)
         {
           ref Graphics local2 = ref objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.detailnr].OverdrawLTNr].BasicPicID[this.game.Data.LocTypeObj[this.detailnr].OverdrawSpriteNr]);
-          ref Bitmap local3 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.detailnr].OverdrawLTNr].BasicPicID[this.game.Data.LocTypeObj[this.detailnr].OverdrawSpriteNr]);
+          ref local3: Bitmap = ref bitmap;
           DrawMod.DrawScaled(ref local2, ref local3, 400, 45, 250, 103);
         }
         else if (this.game.Data.LocTypeObj[this.detailnr].PictureLT > -1)
         {
           ref Graphics local4 = ref objGraphics;
-          Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].LandscapeType].BasicPicID[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].SpriteNr]);
-          ref Bitmap local5 = ref bitmap1;
+          bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].LandscapeType].BasicPicID[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].SpriteNr]);
+          ref local5: Bitmap = ref bitmap1;
           DrawMod.DrawScaled(ref local4, ref local5, 400, 45, 250, 103);
           ref Graphics local6 = ref objGraphics;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.detailnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.detailnr].PictureSprite]);
-          ref Bitmap local7 = ref bitmap2;
+          bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.detailnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.detailnr].PictureSprite]);
+          ref local7: Bitmap = ref bitmap2;
           DrawMod.DrawScaled(ref local6, ref local7, 400, 45, 250, 103);
         }
         else
         {
           ref Graphics local8 = ref objGraphics;
-          Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].LandscapeType].BasicPicID[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].SpriteNr]);
-          ref Bitmap local9 = ref bitmap;
+          bitmap: Bitmap = BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].LandscapeType].BasicPicID[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].SpriteNr]);
+          ref local9: Bitmap = ref bitmap;
           DrawMod.DrawScaled(ref local8, ref local9, 400, 45, 250, 103);
         }
         ref Graphics local10 = ref objGraphics;
@@ -253,7 +253,7 @@ namespace WindowsApplication1
       objGraphics.Dispose();
     }
 
-    pub void PopUpRefresh() => this.DoRefresh();
+    pub fn PopUpRefresh() => this.DoRefresh();
 
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {

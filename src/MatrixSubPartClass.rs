@@ -15,37 +15,37 @@ namespace WindowsApplication1
 {
   pub class MatrixSubPartClass : SubPartClass
   {
-     int ListSize;
-     int ListSelect;
-     int ColSelect;
+     ListSize: i32;
+     ListSelect: i32;
+     ColSelect: i32;
     pub TopItemX: i32;
     pub TopItemY: i32;
      StringListClass ListObj;
-     Font OwnFont;
-     Font ownfont2;
-     int ItemSize;
+     OwnFont: Font;
+     ownfont2: Font;
+     ItemSize: i32;
      const let mut ItemFontOffset: i32 =  1;
      const let mut LeftTextOffset: i32 =  5;
-     int Width;
-     int Height;
-     GameClass game;
+     Width: i32;
+     Height: i32;
+     game: GameClass;
      bool Highlight;
-     int bx;
-     int by;
-     Bitmap backbitmap;
-     int clickscroll;
-     int rowheight;
-     int fontsize;
-     int fontoffsety;
+     bx: i32;
+     by: i32;
+     backbitmap: Bitmap;
+     clickscroll: i32;
+     rowheight: i32;
+     fontsize: i32;
+     fontoffsety: i32;
      bool nolines;
      bool Marcy;
-     int colWidth;
-     int minimumColWidth;
-     int totalColWidth;
-     int LibSlot;
-     int twoColumnVariant;
+     colWidth: i32;
+     minimumColWidth: i32;
+     totalColWidth: i32;
+     LibSlot: i32;
+     twoColumnVariant: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -53,7 +53,7 @@ namespace WindowsApplication1
       this.backbitmap = (Bitmap) null;
     }
 
-    pub void ShiftUp()
+    pub fn ShiftUp()
     {
       --this.ListSelect;
       if (this.ListSelect - this.TopItemY >= 0)
@@ -61,7 +61,7 @@ namespace WindowsApplication1
       --this.TopItemY;
     }
 
-    pub void ShiftDown()
+    pub fn ShiftDown()
     {
       this += 1.ListSelect;
       if (this.ListSelect - this.TopItemY <= this.ListSize)
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       this += 1.TopItemY;
     }
 
-    pub void ShiftLeft()
+    pub fn ShiftLeft()
     {
       --this.ColSelect;
       if (this.ColSelect - this.TopItemX >= 0)
@@ -77,7 +77,7 @@ namespace WindowsApplication1
       --this.TopItemX;
     }
 
-    pub void ShiftRight()
+    pub fn ShiftRight()
     {
       let mut num1: i32 =   Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
       if (num1 < this.colWidth)
@@ -91,7 +91,7 @@ namespace WindowsApplication1
       this += 1.TopItemX;
     }
 
-    pub void Refresh(StringListClass tListObj, int tlistselect, int tcolselect)
+    pub fn Refresh(StringListClass tListObj, tlistselect: i32, tcolselect: i32)
     {
       this.ListObj = tListObj;
       this.ListSelect = tlistselect;
@@ -103,7 +103,7 @@ namespace WindowsApplication1
       this.Clear();
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (this.game.Data.Round < 1)
         return;
@@ -121,15 +121,15 @@ namespace WindowsApplication1
 
     pub MatrixSubPartClass(
       StringListClass tListobj,
-      int tlistsize,
-      int twidth,
-      int tlistselect,
-      int tcolselect,
-      GameClass tgame,
+      tlistsize: i32,
+      twidth: i32,
+      tlistselect: i32,
+      tcolselect: i32,
+      tgame: GameClass,
       bool systemfont = false,
       bool tHighlight = true,
       let mut tTop: i32 =  0,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
       let mut trowheight: i32 =  16,
@@ -231,7 +231,7 @@ namespace WindowsApplication1
       this.totalColWidth = this.colWidth * (this.ListObj.Width + 1);
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Color.FromArgb(0,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
@@ -269,7 +269,7 @@ namespace WindowsApplication1
       let mut num4: i32 =  -1;
       let mut topItemY: i32 =  this.TopItemY;
       let mut num5: i32 =  this.TopItemY + this.ListSize + num2;
-      Bitmap bitmap;
+      bitmap: Bitmap;
       for (let mut index1: i32 =  topItemY; index1 <= num5; index1 += 1)
       {
         num4 += 1;
@@ -408,7 +408,7 @@ namespace WindowsApplication1
           if (w1 < this.colWidth)
             w1 = this.colWidth;
           let mut width: i32 =  this.ListObj.Width;
-          int col;
+          col: i32;
           for (col = 0; col <= width; col += 1)
           {
             let mut x3: i32 =  5 + w1 * col - w1 * this.TopItemX;
@@ -444,9 +444,9 @@ namespace WindowsApplication1
               }
               if (this.ListObj.TempBmp[index1 - num3, col] > 0)
               {
-                int num7;
-                int num8;
-                int nr;
+                num7: i32;
+                num8: i32;
+                nr: i32;
                 if (this.game.Data.Round == 0)
                 {
                   num7 = w1 - 4;
@@ -605,7 +605,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Coordinate Click2(int x, int y, let mut b: i32 =  1)
+    pub Coordinate Click2(x: i32, y: i32, let mut b: i32 =  1)
     {
       let mut num1: i32 =  y;
       let mut num2: i32 =  x;
@@ -727,7 +727,7 @@ namespace WindowsApplication1
       return coordinate4;
     }
 
-    pub int HandleMouseUp(int x, int y)
+    pub HandleMouseUp: i32(x: i32, y: i32)
     {
       if (this.game.EditObj.matrixSubPart_BlockMouseUpScroller1time)
       {
@@ -747,7 +747,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub bool MouseMove(int x, int y)
+    pub bool MouseMove(x: i32, y: i32)
     {
       let mut num1: i32 =  y;
       let mut num2: i32 =  x;

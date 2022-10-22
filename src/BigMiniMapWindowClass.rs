@@ -13,7 +13,7 @@ namespace WindowsApplication1
      int minwidth;
      bool hidden;
 
-    pub BigMiniMapWindowClass(ref GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200)
+    pub BigMiniMapWindowClass(ref tGame: GameClass, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200)
       : base(ref tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.minheight = tminheight;
@@ -23,7 +23,7 @@ namespace WindowsApplication1
       this.MapId = this.AddSubPart(ref tsubpart, 0, 0, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight, 0);
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.SubPartList[this.SubpartNr(this.MapId)].Paint();
       this.PaintCurrentBitmap(this.MapId);

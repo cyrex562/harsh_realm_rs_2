@@ -16,110 +16,110 @@ namespace WindowsApplication1
   {
      ListClass ListObj;
      ListClass List2Obj;
-     int listId;
-     int list2Id;
-     int useWidth;
-     int useHeight;
-     int slotAssetPresentation;
-     int slotPerks;
-     int slotPreviewAssetLog;
-     int slotHexPerk;
-     int slotPaid;
-     int slotHexNames;
-     int slotLandscape;
-     int slotAssetLog;
-     int slotConstruction;
-     int slotZones;
-     int slotRegKey;
-     int slotDetail;
-     int slotRegReg;
-     int slotRegZoneKeys;
-     int slotItemType;
-     int slotRegimes;
-     int slotZoneKeys;
-     int slotAssetTypes;
-     int slotAssets;
-     int slotCharacter;
-     int slotPortrait;
-     int slotModel;
-     int slotModelType;
-     int slotModelTech;
-     int slotTechType;
-     int slotModelStatName;
-     int slotModelStatBefore;
-     int slotModelStat;
-     int slotQuality;
-     int slotChoice;
-     int slotLog;
-     int slotOldChar;
-     int slotProfileDocs;
-     int slotSkills;
-     int slotSkillTypes;
-     int slotTraits;
-     int slotFactionProfile;
-     int slotFactions;
-     int slotFeatFx;
-     int slotFeats;
-     int slotFeatTypes;
-     int slotFlagInstructions;
-     int slotFlags;
-     int slotCulture;
+     listId: i32;
+     list2Id: i32;
+     useWidth: i32;
+     useHeight: i32;
+     slotAssetPresentation: i32;
+     slotPerks: i32;
+     slotPreviewAssetLog: i32;
+     slotHexPerk: i32;
+     slotPaid: i32;
+     slotHexNames: i32;
+     slotLandscape: i32;
+     slotAssetLog: i32;
+     slotConstruction: i32;
+     slotZones: i32;
+     slotRegKey: i32;
+     slotDetail: i32;
+     slotRegReg: i32;
+     slotRegZoneKeys: i32;
+     slotItemType: i32;
+     slotRegimes: i32;
+     slotZoneKeys: i32;
+     slotAssetTypes: i32;
+     slotAssets: i32;
+     slotCharacter: i32;
+     slotPortrait: i32;
+     slotModel: i32;
+     slotModelType: i32;
+     slotModelTech: i32;
+     slotTechType: i32;
+     slotModelStatName: i32;
+     slotModelStatBefore: i32;
+     slotModelStat: i32;
+     slotQuality: i32;
+     slotChoice: i32;
+     slotLog: i32;
+     slotOldChar: i32;
+     slotProfileDocs: i32;
+     slotSkills: i32;
+     slotSkillTypes: i32;
+     slotTraits: i32;
+     slotFactionProfile: i32;
+     slotFactions: i32;
+     slotFeatFx: i32;
+     slotFeats: i32;
+     slotFeatTypes: i32;
+     slotFlagInstructions: i32;
+     slotFlags: i32;
+     slotCulture: i32;
      int[] assetButton;
-     int assetButtonCounter;
+     assetButtonCounter: i32;
      int[] assetButtonData;
      StringListClass leaderStr;
      SimpleList ColList;
-     int maxSelection;
-     int curSelection;
-     int but0id;
-     int but1id;
-     int but2id;
-     int but3id;
-     int but4id;
-     string[] groupNames;
-     string[] colNames;
-     int FIX_KEY_RELATION;
-     int FIX_KEY_CAPLEVEL;
-     int FIX_KEY_SUITABILITY;
-     int FIX_KEY_LOYALTY;
-     int FIX_KEY_SENIORITY;
-     int FIX_KEY_TR;
-     int FIX_KEY_CR;
-     int FIX_KEY_IPR;
-     int FIX_KEY_FACTION;
-     int FIX_KEY_AGE;
-     int FIX_KEY_NATRELPOINT;
-     int FIX_JOB_RESERVE;
-     int FIX_JOB_OHQ;
-     int FIX_JOB_SHQ;
-     int FIX_JOB_DIRECTOR;
-     int FIX_JOB_ADVISOR;
-     int FIX_JOB_SECRETARY;
-     int FIX_JOB_GOVERNOR;
-     int FIX_STAT_STR;
-     int FIX_STAT_WAR;
-     int FIX_STAT_CHA;
-     int FIX_STAT_INT;
-     int FIX_STAT_WIL;
+     maxSelection: i32;
+     curSelection: i32;
+     but0id: i32;
+     but1id: i32;
+     but2id: i32;
+     but3id: i32;
+     but4id: i32;
+     groupNames: Vec<String>;
+     colNames: Vec<String>;
+     FIX_KEY_RELATION: i32;
+     FIX_KEY_CAPLEVEL: i32;
+     FIX_KEY_SUITABILITY: i32;
+     FIX_KEY_LOYALTY: i32;
+     FIX_KEY_SENIORITY: i32;
+     FIX_KEY_TR: i32;
+     FIX_KEY_CR: i32;
+     FIX_KEY_IPR: i32;
+     FIX_KEY_FACTION: i32;
+     FIX_KEY_AGE: i32;
+     FIX_KEY_NATRELPOINT: i32;
+     FIX_JOB_RESERVE: i32;
+     FIX_JOB_OHQ: i32;
+     FIX_JOB_SHQ: i32;
+     FIX_JOB_DIRECTOR: i32;
+     FIX_JOB_ADVISOR: i32;
+     FIX_JOB_SECRETARY: i32;
+     FIX_JOB_GOVERNOR: i32;
+     FIX_STAT_STR: i32;
+     FIX_STAT_WAR: i32;
+     FIX_STAT_CHA: i32;
+     FIX_STAT_INT: i32;
+     FIX_STAT_WIL: i32;
      int[] FIX_SKILL;
-     int FIX_PERS_EMOT;
-     int FIX_PERS_HERO;
-     int FIX_PERS_AMB;
-     int FIX_PERS_AUTH;
-     int FIX_PERS_EGO;
-     int FIX_PERS_COR;
-     int FIX_PERS_THEFT;
+     FIX_PERS_EMOT: i32;
+     FIX_PERS_HERO: i32;
+     FIX_PERS_AMB: i32;
+     FIX_PERS_AUTH: i32;
+     FIX_PERS_EGO: i32;
+     FIX_PERS_COR: i32;
+     FIX_PERS_THEFT: i32;
      int[] tempColId;
 
-    pub void Dispose() => base.Dispose();
+    pub fn Dispose() => base.Dispose();
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       return base.HandleMouseMove(x, y);
     }
 
-    pub SpecialWindowClass6( GameClass tGame, int tUseWidth, int tUseHeight)
+    pub SpecialWindowClass6( tGame: GameClass, tUseWidth: i32, tUseHeight: i32)
       : base( tGame, tUseWidth, tUseHeight, 8)
     {
       self.ListObj = ListClass::new();
@@ -294,7 +294,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void ReCalculate()
+    pub fn ReCalculate()
     {
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
       let mut counter1: i32 = self.game.EditObj.se1_leaderColumns.Counter;
@@ -349,7 +349,7 @@ namespace WindowsApplication1
                 let mut num7: i32 = self.game.EditObj.se1_leaderColumns.Weight[index3];
                 str1: String = "";
                 str2: String = "";
-                int nr;
+                nr: i32;
                 if (num6 == self.FIX_KEY_RELATION)
                 {
                   nr =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotCharacter].Data[index1, 20]));
@@ -519,7 +519,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -554,7 +554,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void dostuff(bool crmAlreadySet = false)
+    pub fn dostuff(bool crmAlreadySet = false)
     {
       SizeF sizeF1 = SizeF::new();
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
@@ -744,7 +744,7 @@ namespace WindowsApplication1
           else
             DrawMod.DrawBlock( g, left3, num16, width3 - 10, height2 - 1, 148, 218, 148, 140);
           let mut x4: i32 = left3 + 10;
-          Bitmap bitmap = (Bitmap) self.game.CustomBitmapObj.DrawLeaderPortrait(num21, 40, 56).Clone();
+          bitmap: Bitmap = (Bitmap) self.game.CustomBitmapObj.DrawLeaderPortrait(num21, 40, 56).Clone();
           if (num17 == 1)
             DrawMod.DrawTextColouredMarc( g, "PORTRAIT, NAME, JOB", self.game.MarcFont5, x4, num16 - 28, Color.White);
            let mut local1: &Graphics = &g;
@@ -820,7 +820,7 @@ namespace WindowsApplication1
       let mut se1LeaderSelected: i32 = self.game.EditObj.se1_leaderSelected;
       if (se1LeaderSelected > 0)
       {
-        Bitmap bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(se1LeaderSelected, 100, 140, true);
+        bitmap: Bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(se1LeaderSelected, 100, 140, true);
          let mut local3: &Graphics = &g;
          let mut local4: &Bitmap = &bitmap;
         rectangle5 = Rectangle::new(0, 0, bitmap.Width, bitmap.Height);
@@ -851,7 +851,7 @@ namespace WindowsApplication1
       g = (Graphics) null;
     }
 
-    pub HandleKeyup: WindowReturnClass(int nr)
+    pub HandleKeyup: WindowReturnClass(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -865,7 +865,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       let mut id: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].id;
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
@@ -1089,6 +1089,6 @@ namespace WindowsApplication1
       return windowReturnClass1;
     }
 
-    pub void PopUpRefresh() => self.dostuff();
+    pub fn PopUpRefresh() => self.dostuff();
   }
 }

@@ -14,52 +14,52 @@ namespace WindowsApplication1
 {
   pub class HistoryWindowClass : WindowClass
   {
-     int Info1Id;
-     int info2id;
-     int info3id;
-     int mapid;
-     int info4id;
-     int info5id;
-     int info6id;
-     int ExitId;
+     Info1Id: i32;
+     info2id: i32;
+     info3id: i32;
+     mapid: i32;
+     info4id: i32;
+     info5id: i32;
+     info6id: i32;
+     ExitId: i32;
      ListClass MapListObj;
-     int ViewAntiCapId;
-     int ViewAntiCapTextId;
-     int ViewAntiCap2Id;
-     int ViewAntiCapText2Id;
-     int ViewAntiCap3Id;
-     int ViewAntiCapText3Id;
-     int ViewHistoryId;
-     int ViewHistoryTextId;
-     int ViewSupplyId;
-     int ViewSupplyTextId;
-     int Slider1Id;
-     int StartStep;
-     int EndStep;
-     int TotStep;
-     int Curstep;
-     int RealStepNr;
+     ViewAntiCapId: i32;
+     ViewAntiCapTextId: i32;
+     ViewAntiCap2Id: i32;
+     ViewAntiCapText2Id: i32;
+     ViewAntiCap3Id: i32;
+     ViewAntiCapText3Id: i32;
+     ViewHistoryId: i32;
+     ViewHistoryTextId: i32;
+     ViewSupplyId: i32;
+     ViewSupplyTextId: i32;
+     Slider1Id: i32;
+     StartStep: i32;
+     EndStep: i32;
+     TotStep: i32;
+     Curstep: i32;
+     RealStepNr: i32;
      DateTime showtime;
-     int OptionsListId;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int MiniMapId;
-     int AutoPlayID;
+     MiniMapId: i32;
+     AutoPlayID: i32;
      bool AutoPlay;
-     int SpecialId;
-     int SpecialTextId;
-     int detail1;
-     int detail2;
-     int HumanPlayer;
-     int Turny;
-     int detailnr;
-     int SkipId;
-     int lastregime;
-     int lastendstep;
+     SpecialId: i32;
+     SpecialTextId: i32;
+     detail1: i32;
+     detail2: i32;
+     HumanPlayer: i32;
+     Turny: i32;
+     detailnr: i32;
+     SkipId: i32;
+     lastregime: i32;
+     lastendstep: i32;
      bool writing;
 
-    pub HistoryWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub HistoryWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, tGame.ScreenWidth, 250, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.dostuff();
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void StartSit()
+    pub fn StartSit()
     {
       this.game.EditObj.HisForce = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.HisSFType = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -139,7 +139,7 @@ namespace WindowsApplication1
       this.game.EditObj.TempCoordList = CoordList::new();
     }
 
-    pub void Forward(int steps)
+    pub fn Forward(steps: i32)
     {
       let mut num1: i32 =  -1;
       let mut num2: i32 =  0;
@@ -302,9 +302,9 @@ namespace WindowsApplication1
       this.game.CornerY = 0;
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuffonlyslider()
+    pub fn dostuffonlyslider()
     {
       this.writing = true;
       let mut num1: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
@@ -326,7 +326,7 @@ namespace WindowsApplication1
       this.writing = false;
     }
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       this.writing = true;
       if (this.Info1Id > 0)
@@ -418,9 +418,9 @@ namespace WindowsApplication1
         ListClass mapListObj = this.MapListObj;
         let mut tlistselect: i32 =  num3;
         let mut game: GameClass = this.game;
-         Bitmap local1 =  this.OwnBitmap;
-        Font font =  null;
-         Font local2 =  font;
+         local1: Bitmap =  this.OwnBitmap;
+        font: Font =  null;
+         local2: Font =  font;
         tsubpart1 =  new ListSubPartClass(mapListObj, 6, 180, tlistselect, game, tHeader: "Maps", tbackbitmap: ( local1), bbx: 220, bby: 95, overruleFont: ( local2));
         this.mapid = this.AddSubPart( tsubpart1, 220, 95, 120, 144, 0);
       }
@@ -591,7 +591,7 @@ namespace WindowsApplication1
       this.writing = false;
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 80)
@@ -652,7 +652,7 @@ namespace WindowsApplication1
       while (num1 == 1)
       {
         index += 1;
-        int num2;
+        num2: i32;
         if (index > this.game.Data.RegimeCounter)
         {
           index = 0;
@@ -761,7 +761,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -792,7 +792,7 @@ namespace WindowsApplication1
               }
               return windowReturnClass;
             }
-            int num3;
+            num3: i32;
             if (num1 == this.SkipId)
             {
               if (this.Curstep == 0 & this.Curstep < this.EndStep)

@@ -14,60 +14,60 @@ namespace WindowsApplication1
 {
   pub class SimplePrefsWindowClass : WindowClass
   {
-     int cancelid;
-     int Info1Id;
-     int info2id;
+     cancelid: i32;
+     Info1Id: i32;
+     info2id: i32;
      string ShowString;
      DateTime ShowTime;
-     int w;
-     int h;
-     int CurrentView;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int saveid;
-     int quitid;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int B7Id;
-     int B7TextId;
-     int B8Id;
-     int B8TextId;
-     int B9Id;
-     int B9TextId;
-     int B10Id;
-     int B10TextId;
-     int B11Id;
-     int B11TextId;
-     int B12Id;
-     int B12TextId;
-     int B13Id;
-     int B13TextId;
-     int B14Id;
-     int B14TextId;
-     int B15Id;
-     int B15TextId;
-     int B16Id;
-     int B16TextId;
-     int slider1id;
-     int slider2id;
+     w: i32;
+     h: i32;
+     CurrentView: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     saveid: i32;
+     quitid: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     B7Id: i32;
+     B7TextId: i32;
+     B8Id: i32;
+     B8TextId: i32;
+     B9Id: i32;
+     B9TextId: i32;
+     B10Id: i32;
+     B10TextId: i32;
+     B11Id: i32;
+     B11TextId: i32;
+     B12Id: i32;
+     B12TextId: i32;
+     B13Id: i32;
+     B13TextId: i32;
+     B14Id: i32;
+     B14TextId: i32;
+     B15Id: i32;
+     B15TextId: i32;
+     B16Id: i32;
+     B16TextId: i32;
+     slider1id: i32;
+     slider2id: i32;
 
-    pub SimplePrefsWindowClass( GameClass tGame)
+    pub SimplePrefsWindowClass( tGame: GameClass)
       : base( tGame, 480, 250, 8)
     {
       self.View();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -102,7 +102,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       if (self.cancelid > 0)
       {
@@ -227,7 +227,7 @@ namespace WindowsApplication1
       self.cancelid = self.AddSubPart( tsubpart1, 165, 165, 150, 40, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -248,7 +248,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
@@ -312,7 +312,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseUp: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseUp: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();

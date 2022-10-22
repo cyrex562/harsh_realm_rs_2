@@ -13,45 +13,45 @@ namespace WindowsApplication1
 {
   pub class StrategicWindowClass2 : WindowClass
   {
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B5Id;
-     int B6Id;
-     int text4id;
-     int text5id;
-     int text6id;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Pic2Id;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B5Id: i32;
+     B6Id: i32;
+     text4id: i32;
+     text5id: i32;
+     text6id: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Pic2Id: i32;
      int[] Pic1Id;
-     int detailnr;
-     int OrderTextId;
-     int OrderText2Id;
-     int OrderUpId;
-     int OrderDownId;
-     int ExtraId;
-     int OptionsListId;
+     detailnr: i32;
+     OrderTextId: i32;
+     OrderText2Id: i32;
+     OrderUpId: i32;
+     OrderDownId: i32;
+     ExtraId: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OrderOKId;
-     int OrderOKTextId;
-     int yesid;
-     int CapTheater;
-     int TempNew;
-     int LandCost;
-     int NavyCost;
-     int AirCost;
-     int Land2Cost;
-     int Navy2Cost;
-     int Air2Cost;
-     int unr;
-     int unrS;
-     int OwnPowerTransfer;
+     OrderOKId: i32;
+     OrderOKTextId: i32;
+     yesid: i32;
+     CapTheater: i32;
+     TempNew: i32;
+     LandCost: i32;
+     NavyCost: i32;
+     AirCost: i32;
+     Land2Cost: i32;
+     Navy2Cost: i32;
+     Air2Cost: i32;
+     unr: i32;
+     unrS: i32;
+     OwnPowerTransfer: i32;
      MapMatrix2[] templand;
      MapMatrix2[] tempnavy;
      MapMatrix2[] tempair;
@@ -59,10 +59,10 @@ namespace WindowsApplication1
      MapMatrix2[] temp2navy;
      MapMatrix2[] temp2air;
      SimpleList SL;
-     int w;
-     int h;
+     w: i32;
+     h: i32;
 
-    pub StrategicWindowClass2( GameClass tGame)
+    pub StrategicWindowClass2( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       self.Pic1Id = new int[1];
@@ -138,16 +138,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[index2].MapHeight;
               for (let mut index4: i32 = 0; index4 <= mapHeight; index4 += 1)
               {
-                int[,] numArray1 = self.tempnavy[index2].Value;
-                int[,] numArray2 = numArray1;
+                numArray1: Vec<i32> = self.tempnavy[index2].Value;
+                numArray2: Vec<i32> = numArray1;
                 let mut index5: i32 = index3;
                 let mut index6: i32 = index5;
                 let mut index7: i32 = index4;
                 let mut index8: i32 = index7;
                 let mut num1: i32 = numArray1[index5, index7] + self.game.EditObj.TempValue[index2].Value[index3, index4] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray2[index6, index8] = num1;
-                int[,] numArray3 = self.temp2navy[index2].Value;
-                int[,] numArray4 = numArray3;
+                numArray3: Vec<i32> = self.temp2navy[index2].Value;
+                numArray4: Vec<i32> = numArray3;
                 let mut index9: i32 = index3;
                 let mut index10: i32 = index9;
                 let mut index11: i32 = index4;
@@ -176,16 +176,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight;
               for (let mut index15: i32 = 0; index15 <= mapHeight; index15 += 1)
               {
-                int[,] numArray5 = self.templand[index13].Value;
-                int[,] numArray6 = numArray5;
+                numArray5: Vec<i32> = self.templand[index13].Value;
+                numArray6: Vec<i32> = numArray5;
                 let mut index16: i32 = index14;
                 let mut index17: i32 = index16;
                 let mut index18: i32 = index15;
                 let mut index19: i32 = index18;
                 let mut num3: i32 = numArray5[index16, index18] + self.game.EditObj.TempValue[index13].Value[index14, index15] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray6[index17, index19] = num3;
-                int[,] numArray7 = self.temp2land[index13].Value;
-                int[,] numArray8 = numArray7;
+                numArray7: Vec<i32> = self.temp2land[index13].Value;
+                numArray8: Vec<i32> = numArray7;
                 let mut index20: i32 = index14;
                 let mut index21: i32 = index20;
                 let mut index22: i32 = index15;
@@ -214,16 +214,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight;
               for (let mut index26: i32 = 0; index26 <= mapHeight; index26 += 1)
               {
-                int[,] numArray9 = self.tempair[index24].Value;
-                int[,] numArray10 = numArray9;
+                numArray9: Vec<i32> = self.tempair[index24].Value;
+                numArray10: Vec<i32> = numArray9;
                 let mut index27: i32 = index25;
                 let mut index28: i32 = index27;
                 let mut index29: i32 = index26;
                 let mut index30: i32 = index29;
                 let mut num5: i32 = numArray9[index27, index29] + self.game.EditObj.TempValue[index24].Value[index25, index26] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray10[index28, index30] = num5;
-                int[,] numArray11 = self.temp2air[index24].Value;
-                int[,] numArray12 = numArray11;
+                numArray11: Vec<i32> = self.temp2air[index24].Value;
+                numArray12: Vec<i32> = numArray11;
                 let mut index31: i32 = index25;
                 let mut index32: i32 = index31;
                 let mut index33: i32 = index26;
@@ -255,16 +255,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[index35].MapHeight;
               for (let mut index37: i32 = 0; index37 <= mapHeight; index37 += 1)
               {
-                int[,] numArray13 = self.tempnavy[index35].Value;
-                int[,] numArray14 = numArray13;
+                numArray13: Vec<i32> = self.tempnavy[index35].Value;
+                numArray14: Vec<i32> = numArray13;
                 let mut index38: i32 = index36;
                 let mut index39: i32 = index38;
                 let mut index40: i32 = index37;
                 let mut index41: i32 = index40;
                 let mut num7: i32 = numArray13[index38, index40] + self.game.EditObj.TempValue[index35].Value[index36, index37] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray14[index39, index41] = num7;
-                int[,] numArray15 = self.temp2navy[index35].Value;
-                int[,] numArray16 = numArray15;
+                numArray15: Vec<i32> = self.temp2navy[index35].Value;
+                numArray16: Vec<i32> = numArray15;
                 let mut index42: i32 = index36;
                 let mut index43: i32 = index42;
                 let mut index44: i32 = index37;
@@ -293,16 +293,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight;
               for (let mut index48: i32 = 0; index48 <= mapHeight; index48 += 1)
               {
-                int[,] numArray17 = self.templand[index46].Value;
-                int[,] numArray18 = numArray17;
+                numArray17: Vec<i32> = self.templand[index46].Value;
+                numArray18: Vec<i32> = numArray17;
                 let mut index49: i32 = index47;
                 let mut index50: i32 = index49;
                 let mut index51: i32 = index48;
                 let mut index52: i32 = index51;
                 let mut num9: i32 = numArray17[index49, index51] + self.game.EditObj.TempValue[index46].Value[index47, index48] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray18[index50, index52] = num9;
-                int[,] numArray19 = self.temp2land[index46].Value;
-                int[,] numArray20 = numArray19;
+                numArray19: Vec<i32> = self.temp2land[index46].Value;
+                numArray20: Vec<i32> = numArray19;
                 let mut index53: i32 = index47;
                 let mut index54: i32 = index53;
                 let mut index55: i32 = index48;
@@ -331,16 +331,16 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight;
               for (let mut index59: i32 = 0; index59 <= mapHeight; index59 += 1)
               {
-                int[,] numArray21 = self.tempair[index57].Value;
-                int[,] numArray22 = numArray21;
+                numArray21: Vec<i32> = self.tempair[index57].Value;
+                numArray22: Vec<i32> = numArray21;
                 let mut index60: i32 = index58;
                 let mut index61: i32 = index60;
                 let mut index62: i32 = index59;
                 let mut index63: i32 = index62;
                 let mut num11: i32 = numArray21[index60, index62] + self.game.EditObj.TempValue[index57].Value[index58, index59] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
                 numArray22[index61, index63] = num11;
-                int[,] numArray23 = self.temp2air[index57].Value;
-                int[,] numArray24 = numArray23;
+                numArray23: Vec<i32> = self.temp2air[index57].Value;
+                numArray24: Vec<i32> = numArray23;
                 let mut index64: i32 = index58;
                 let mut index65: i32 = index64;
                 let mut index66: i32 = index59;
@@ -365,7 +365,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (!(nr == 32 & self.OrderOKId > 0))
@@ -375,7 +375,7 @@ namespace WindowsApplication1
       return windowReturnClass2;
     }
 
-    pub void SetTempValue()
+    pub fn SetTempValue()
     {
       let mut mapCounter: i32 = self.game.Data.MapCounter;
       for (let mut index1: i32 = 0; index1 <= mapCounter; index1 += 1)
@@ -413,7 +413,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (self.game.EditObj.TargetX > -1)
       {
@@ -446,7 +446,7 @@ namespace WindowsApplication1
       self.dostuff();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -581,7 +581,7 @@ namespace WindowsApplication1
         num4 = self.game.Data.UnitObj[self.unr].NavyCap;
       if (self.CapTheater == 2)
         num4 = self.game.Data.UnitObj[self.unr].AirCap;
-      int num5;
+      num5: i32;
       if (self.CapTheater == 0)
         num5 = landCost;
       if (self.CapTheater == 1)
@@ -613,12 +613,12 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( graphics, tstring1, self.game.MarcFont4, num1 + 250, 105, Color.White);
       if (self.game.EditObj.TargetX <= -1)
         return;
-      int num6;
+      num6: i32;
       tstring2: String = !(self.game.EditObj.TempValue[0].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] < 9999 & self.Air2Cost < 9999 & num3 < 9999 & air2Cost < 9999 & num6 != 1 &  self.game.Data.RuleVar[509] == 0.0) ? "Target hex not reachable by rail transfer." : "Cost of transfer = " + Conversion.Str( airCost);
       DrawMod.DrawTextColouredMarc( graphics, tstring2, self.game.MarcFont4, num1 + 250, 75, Color.White);
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult = OrderResult::new();

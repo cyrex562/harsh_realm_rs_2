@@ -13,21 +13,21 @@ namespace WindowsApplication1
 {
   pub class RegisterPopup : WindowClass
   {
-     int okid;
-     int cancelid;
-     int userid;
-     int passid;
-     int serialid;
-     int emailid;
-     int selectedid;
+     okid: i32;
+     cancelid: i32;
+     userid: i32;
+     passid: i32;
+     serialid: i32;
+     emailid: i32;
+     selectedid: i32;
 
-    pub RegisterPopup( GameClass tGame)
+    pub RegisterPopup( tGame: GameClass)
       : base( tGame, 600, 480, 8)
     {
       this.View();
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       let mut subPartCounter: i32 = this.SubPartCounter;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
@@ -63,7 +63,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       this.ClearMouse();
       this.NewBackGroundAndClearAll(600, 480, -1);
@@ -101,7 +101,7 @@ namespace WindowsApplication1
       this.okid = this.AddSubPart( tsubpart6, 320, 410, 200, 36, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -147,7 +147,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

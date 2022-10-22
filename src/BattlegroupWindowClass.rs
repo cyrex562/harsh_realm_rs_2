@@ -33,7 +33,7 @@ namespace WindowsApplication1
      int SourcePageMax;
      int TargetPageMax;
 
-    pub BattlegroupWindowClass(ref GameClass tGame)
+    pub BattlegroupWindowClass(ref tGame: GameClass)
       : base(ref tGame, 1000, 760, 8)
     {
       this.SlidersId = new int[20];
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       this.View();
     }
 
-    pub void SetUnits()
+    pub fn SetUnits()
     {
       let mut index: i32 =  0;
       do
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       while (index <= 19);
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(int x, int y)
     {
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
@@ -95,7 +95,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       let mut selectX: i32 =  this.game.SelectX;
       let mut selectY: i32 =  this.game.SelectY;
@@ -135,7 +135,7 @@ namespace WindowsApplication1
         this.TargetPrevId = 0;
       }
       this.TL.removeWeight0orLower();
-      Color color = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue);
+      color: Color = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue);
       this.ClearMouse();
       this.NewBackGroundAndClearAll(1000, 760, -1);
       Graphics toG = Graphics.FromImage((Image) this.OwnBitmap);
@@ -411,8 +411,8 @@ namespace WindowsApplication1
             let mut people5: i32 =  this.game.Data.SFObj[sf].People;
             let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type3].SymbolSpriteID;
             ref Graphics local1 = ref toG;
-            Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-            ref Bitmap local2 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(symbolSpriteId);
+            ref local2: Bitmap = ref bitmap;
             let mut sftypenr: i32 =  type3;
             let mut ppl: i32 =  people5;
             let mut tx: i32 =  x1_2 + 3;
@@ -492,8 +492,8 @@ namespace WindowsApplication1
             num12 += 1;
             let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;
             ref Graphics local3 = ref toG;
-            Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-            ref Bitmap local4 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(symbolSpriteId);
+            ref local4: Bitmap = ref bitmap;
             let mut sftypenr: i32 =  type;
             let mut ppl: i32 =  people;
             let mut tx: i32 =  x1_2 + 3;
@@ -501,8 +501,8 @@ namespace WindowsApplication1
             DrawMod.DrawWithArtCode(ref local3, ref local4, 34, 17, sftypenr, ppl, tx, ty, -1, -1);
             let mut num27: i32 =  0;
             let mut num28: i32 =  num26 * this.game.Data.SFTypeObj[type].Ratio;
-            string[] strArray1 = new string[6];
-            string[] strArray2 = strArray1;
+            strArray1: Vec<String> = new string[6];
+            strArray2: Vec<String> = strArray1;
             num25 = num27 + num28;
             str: String = num25.ToString();
             strArray2[0] = str;
@@ -667,8 +667,8 @@ namespace WindowsApplication1
             index19 += 1;
             let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;
             ref Graphics local5 = ref toG;
-            Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
-            ref Bitmap local6 = ref bitmap;
+            bitmap: Bitmap = BitmapStore.GetBitmap(symbolSpriteId);
+            ref local6: Bitmap = ref bitmap;
             let mut sftypenr: i32 =  type;
             let mut ppl: i32 =  people7;
             let mut tx: i32 =  x1_3 + 3;

@@ -12,13 +12,13 @@ namespace WindowsApplication1
 {
   pub class TransportWindowClass : WindowClass
   {
-     int okid;
-     int cancelid;
-     int oktextid;
-     int Pic1Id;
-     int His;
-     int Card;
-     int Unr;
+     okid: i32;
+     cancelid: i32;
+     oktextid: i32;
+     Pic1Id: i32;
+     His: i32;
+     Card: i32;
+     Unr: i32;
      UnitList UL;
      int[] attachButton;
      int[] attachButtonB;
@@ -26,7 +26,7 @@ namespace WindowsApplication1
      int[] detachButton;
      int[] detachButtonUnr;
 
-    pub TransportWindowClass( GameClass tGame)
+    pub TransportWindowClass( tGame: GameClass)
       : base( tGame, 1000, 760, 8)
     {
       self.attachButton = new int[30];
@@ -38,11 +38,11 @@ namespace WindowsApplication1
       self.View();
     }
 
-    pub void SetUnits()
+    pub fn SetUnits()
     {
     }
 
-    pub void HandleToolTip(int x, int y)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
@@ -77,7 +77,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void View()
+    pub fn View()
     {
       let mut x: i32 = self.game.Data.UnitObj[self.game.EditObj.UnitSelected].X;
       let mut y: i32 = self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Y;
@@ -135,7 +135,7 @@ namespace WindowsApplication1
         SimpleList simpleList = SimpleList::new();
         if (num1 == 1)
           simpleList.Add(self.game.EditObj.UnitSelected, 1);
-        int index2;
+        index2: i32;
         if (num1 == 2)
         {
           let mut unitCounter: i32 = self.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
@@ -248,7 +248,7 @@ namespace WindowsApplication1
       self.cancelid = self.AddSubPart( tsubpart, 375, 700, 250, 40, 1);
     }
 
-    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
+    pub HandleKeyPress: WindowReturnClass(nr: i32, bool fromTimer = false)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       try
@@ -268,7 +268,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 = self.MouseCounter;

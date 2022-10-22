@@ -13,9 +13,9 @@ namespace WindowsApplication1
     pub Height: i32;
     pub Left: i32;
     pub Top: i32;
-    pub DC2AIClass ai;
+    pub ai: DC2AIClass;
 
-    pub AICoordinateMatrix(ref DC2AIClass tai)
+    pub AICoordinateMatrix(ref tai: DC2AIClass)
     {
       this.Value = new Coordinate[1, 1];
       this.ai = tai;
@@ -26,7 +26,7 @@ namespace WindowsApplication1
       this.Value = new Coordinate[this.Width + 1, this.Height + 1];
     }
 
-    pub AICoordinateMatrix(ref DC2AIClass tai, int twidth, int theight, int ttop, int tleft)
+    pub AICoordinateMatrix(ref tai: DC2AIClass, int twidth, int theight, int ttop, int tleft)
     {
       this.Value = new Coordinate[1, 1];
       this.ai = tai;

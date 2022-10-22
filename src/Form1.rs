@@ -22,15 +22,15 @@ namespace WindowsApplication1
 {
   pub class Form1 : ImmoveableForm
   {
-    pub const let mut ENUM_CURRENT_SETTINGS: i32 =  -1;
-    pub const let mut CDS_UPDATEREGISTRY: i32 =  1;
-    pub const let mut CDS_TEST: i32 =  2;
-    pub const let mut CDS_FULLSCREEN: i32 =  4;
-    pub const let mut DISP_CHANGE_SUCCESSFUL: i32 =  0;
-    pub const let mut DISP_CHANGE_RESTART: i32 =  1;
-    pub const let mut DISP_CHANGE_FAILED: i32 =  -1;
-     int TempKeyTest;
-     GameClass Game;
+    pub const ENUM_CURRENT_SETTINGS: i32 =  -1;
+    pub const CDS_UPDATEREGISTRY: i32 =  1;
+    pub const CDS_TEST: i32 =  2;
+    pub const CDS_FULLSCREEN: i32 =  4;
+    pub const DISP_CHANGE_SUCCESSFUL: i32 =  0;
+    pub const DISP_CHANGE_RESTART: i32 =  1;
+    pub const DISP_CHANGE_FAILED: i32 =  -1;
+     TempKeyTest: i32;
+     game: GameClass;
     pub ScreenClass Screeny;
     pub ScreenClass StoredScreeny;
     pub MouseClicked: bool;
@@ -46,10 +46,10 @@ namespace WindowsApplication1
     pub LastTipText: String;
     pub LastTipTextX: i32;
     pub LastTipTextY: i32;
-     int StartupPhase;
+     StartupPhase: i32;
     pub Buisy: bool;
-     int CollectCount;
-     int CheckMouseMove;
+     CollectCount: i32;
+     CheckMouseMove: i32;
     pub doubleSize: bool;
     pub float doubleModX;
     pub float doubleModY;
@@ -63,7 +63,7 @@ namespace WindowsApplication1
      bool hasFocus;
      bool currentlyInMouseLock;
     pub clickInProgress: bool;
-     Bitmap sbmp;
+     sbmp: Bitmap;
     pub SimpleStringList DebugL;
     pub DateTime lastTimerTime;
     pub DateTime lastTimerTime_DebugPoint1;
@@ -80,21 +80,21 @@ namespace WindowsApplication1
      ColorDialog _ColorDialog1;
 
     [DllImport("user32", CharSet = CharSet.Auto, SetLastError = true)]
-    pub static extern int GetSystemMetrics(int nIndex);
+    pub static extern GetSystemMetrics: i32(nIndex: i32);
 
     [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
     pub static extern bool SetProcessDPIAware();
 
     [DllImport("steam_api64.dll", CharSet = CharSet.Auto, SetLastError = true)]
-    pub static extern int SteamAPI_RestartAppIfNecessary(int appId);
+    pub static extern SteamAPI_RestartAppIfNecessary: i32(appId: i32);
 
     [DllImport("user32", EntryPoint = "ChangeDisplaySettingsA", CharSet = CharSet.Ansi, SetLastError = true)]
-    pub static extern int ChangeDisplaySettings( DEVMODE1 lpDevMode, int dwFlags);
+    pub static extern ChangeDisplaySettings: i32( DEVMODE1 lpDevMode, dwFlags: i32);
 
     [DllImport("user32", EntryPoint = "EnumDisplaySettingsA", CharSet = CharSet.Ansi, SetLastError = true)]
     pub static extern bool EnumDisplaySettings(
-      int lpszDeviceName,
-      int iModeNum,
+      lpszDeviceName: i32,
+      iModeNum: i32,
        DEVMODE1 lpDevMode);
 
     internal virtual Label Label1
@@ -153,7 +153,7 @@ namespace WindowsApplication1
           StreamReader streamReader = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + "windows.txt");
           while (!streamReader.EndOfStream)
           {
-            string[] strArray = streamReader.ReadLine().Split('=');
+            strArray: Vec<String> = streamReader.ReadLine().Split('=');
             if (Operators.CompareString(strArray[0], "dpi_by_windows", false) == 0)
             {
               if (Operators.CompareString(strArray[1], "on", false) == 0)
@@ -275,7 +275,7 @@ namespace WindowsApplication1
 
      void Form1_Load(object sender, EventArgs e) => this.Cursor = Cursors.WaitCursor;
 
-    pub void Startup()
+    pub fn Startup()
     {
       this.Text = "Shadow Empire : Planetary Conquest";
       this.Icon = new Icon(AppDomain.CurrentDomain.BaseDirectory + "se1.ico");
@@ -345,7 +345,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub void FinishUp()
+    pub fn FinishUp()
     {
       Graphics Expression = Graphics.FromHwnd(this.Handle);
       DrawMod.DPIx =  Math.Round( Expression.DpiX);
@@ -393,7 +393,7 @@ namespace WindowsApplication1
       else
       {
         bool flag = false;
-        Point point;
+        Popoint: i32;
         if (this.Game.Data.Product >= 6 & this.Game.EditObj.overruleScreenResWidth >= 1280 & this.Game.EditObj.overruleScreenResHeight >= 768)
         {
           DEVMODE1 lpDevMode = DEVMODE1::new();
@@ -463,9 +463,9 @@ namespace WindowsApplication1
       }
       if (this.doubleSize)
       {
-        HandyFunctionsclass handyFunctionsObj = this.Game.HandyFunctionsObj;
-        Form1 form1 = this;
-         Form1 local =  form1;
+        handyFunctionsObj: HandyFunctionsclass = this.Game.HandyFunctionsObj;
+        form1: Form1 = this;
+         local: Form1 =  form1;
         handyFunctionsObj.SwitchResolution( local);
       }
       SoundMod.InitSound( this);
@@ -487,15 +487,15 @@ namespace WindowsApplication1
       base.OnPaintBackground(e);
     }
 
-    pub int GetMemorySize() =>  Math.Round( (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize();
+    pub GetMemorySize: i32() =>  Math.Round( (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize();
 
-    pub void SuperImposeMessage(string texty, string texty2)
+    pub fn SuperImposeMessage(string texty, string texty2)
     {
       let mut num1: i32 =   Math.Round( this.Game.RealScreenWidth / 2.0 - 185.0);
       let mut num2: i32 =   Math.Round( this.Game.RealScreenHeight / 2.0 - 106.0);
       Graphics objgraphics = Graphics.FromHwnd(this.Handle);
        let mut local1: &Graphics = &objgraphics;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.Game.SE1_SUPERIMPOSEBACKGROUND);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.Game.SE1_SUPERIMPOSEBACKGROUND);
        let mut local2: &Bitmap = &bitmap;
       let mut x: i32 =  num1;
       let mut y: i32 =  num2;
@@ -564,7 +564,7 @@ namespace WindowsApplication1
         SoundMod.NOSOUND = false;
         SoundMod.RestartLastBackground( this.Game.EditObj);
       }
-      int b;
+      b: i32;
       if (e.Button == MouseButtons.Left)
       {
         b = 1;
@@ -580,8 +580,8 @@ namespace WindowsApplication1
         DrawMod.MouseClicked = false;
         this.RightMousePressed = true;
       }
-      int x1;
-      int y1;
+      x1: i32;
+      y1: i32;
       if (this.windowsTxtFormPlease)
       {
         x1 = e.X;
@@ -702,8 +702,8 @@ namespace WindowsApplication1
         return;
       if (this.Buisy)
       {
-        int x;
-        int y;
+        x: i32;
+        y: i32;
         if (this.windowsTxtFormPlease)
         {
           x = e.X;
@@ -739,8 +739,8 @@ namespace WindowsApplication1
         DrawMod.MouseClicked = false;
         if (e.Button == MouseButtons.Right)
           this.RightMousePressed = false;
-        int x;
-        int y;
+        x: i32;
+        y: i32;
         if (this.windowsTxtFormPlease)
         {
           x = e.X;
@@ -857,8 +857,8 @@ namespace WindowsApplication1
      void Form1_MouseMove(object sender, MouseEventArgs e)
     {
       this.CheckMouseMove = 0;
-      int x1;
-      int y1;
+      x1: i32;
+      y1: i32;
       if (this.windowsTxtFormPlease)
       {
         x1 = e.X;
@@ -1165,7 +1165,7 @@ namespace WindowsApplication1
       this.Buisy = false;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.StartupPhase < 2 || this.Buisy || Conversions.ToBoolean(this.OnlyTimerCall()))
         return;
@@ -1270,8 +1270,8 @@ namespace WindowsApplication1
             this.Game.EditObj.CounterAlpha2 = 0;
           }
         }
-        int num1;
-        int num2;
+        num1: i32;
+        num2: i32;
         if (this.FullScreen)
         {
           num1 = Cursor.Position.X - this.Bounds.X;
@@ -1445,7 +1445,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PaintScreeny()
+    pub fn PaintScreeny()
     {
       if (!this.hasFocus & this.Game.noDrawNoFocus)
         return;
@@ -1482,7 +1482,7 @@ namespace WindowsApplication1
       SoundMod.NOSOUND = true;
     }
 
-    pub void PaintScreeny(Rectangle rect)
+    pub fn PaintScreeny(Rectangle rect)
     {
       if (!this.Screeny.HasOwnBitmap() || !this.hasFocus & this.Game.noDrawNoFocus)
         return;
@@ -1490,7 +1490,7 @@ namespace WindowsApplication1
       {
         if (this.doubleSize)
         {
-          Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+          bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
           bool flag = false;
           if (Information.IsNothing( this.sbmp))
             flag = true;
@@ -1515,14 +1515,14 @@ namespace WindowsApplication1
             DrawMod.DrawSimplePart2( objGraphics,  bitmap, Rectangle::new(0, 0, bitmap.Width, bitmap.Height), Rectangle::new(0, 0, this.Width, this.Height));
             objGraphics.Dispose();
           }
-           Bitmap local1 =  this.sbmp;
+           local1: Bitmap =  this.sbmp;
           Form form =  this;
            Form local2 =  form;
           DrawMod.CopyToForm2( local1,  local2);
         }
         else if (!(rect.X == 0 & rect.Y == 0 & rect.Width == this.Width & rect.Height == this.Height))
         {
-          Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+          bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
            let mut local3: &Bitmap = &bitmap;
           Form form =  this;
            Form local4 =  form;
@@ -1531,7 +1531,7 @@ namespace WindowsApplication1
         }
         else
         {
-          Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+          bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
            let mut local5: &Bitmap = &bitmap;
           Form form =  this;
            Form local6 =  form;
@@ -1549,7 +1549,7 @@ namespace WindowsApplication1
         {
           graphics.InterpolationMode = InterpolationMode.Bilinear;
            let mut local7: &Graphics = &graphics;
-          Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+          bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
            let mut local8: &Bitmap = &bitmap;
           let mut srcrect: &Rectangle = &rect
           Rectangle destrect = Rectangle::new( Math.Round( ( rect.X / this.doubleModX)),  Math.Round( ( rect.Y / this.doubleModY)),  Math.Round( ( rect.Width / this.doubleModX)),  Math.Round( ( rect.Height / this.doubleModY)));
@@ -1561,14 +1561,14 @@ namespace WindowsApplication1
           if (!(rect.X == 0 & rect.Y == 0 & rect.Width == this.Width & rect.Height == this.Height))
           {
              let mut local9: &Graphics = &graphics;
-            Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+            bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
              let mut local10: &Bitmap = &bitmap;
             let mut rect2: &Rectangle = &rect
             DrawMod.DrawSimplePart( local9,  local10, rect2);
           }
           else if (DrawMod.TGame.EditObj.highGfxSpeedOn)
           {
-            Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+            bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
              let mut local11: &Bitmap = &bitmap;
             Form form =  this;
              Form local12 =  form;
@@ -1577,7 +1577,7 @@ namespace WindowsApplication1
           else
           {
              let mut local13: &Graphics = &graphics;
-            Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
+            bitmap: Bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
              let mut local14: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local13,  local14, 0, 0);
           }

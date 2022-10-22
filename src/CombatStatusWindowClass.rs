@@ -10,18 +10,18 @@ namespace WindowsApplication1
 {
   pub class CombatStatusWindowClass : WindowClass
   {
-     int Info1Id;
-     int info2id;
+     Info1Id: i32;
+     info2id: i32;
 
-    pub CombatStatusWindowClass(ref GameClass tGame)
+    pub CombatStatusWindowClass(ref tGame: GameClass)
       : base(ref tGame, 200, tGame.ScreenHeight)
     {
       this.dostuff();
     }
 
-    pub void DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => this.dostuff();
 
-    pub void dostuff()
+    pub fn dostuff()
     {
       if (this.Info1Id > 0)
         this.RemoveSubPart(this.Info1Id);
@@ -78,7 +78,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)

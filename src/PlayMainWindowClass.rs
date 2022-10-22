@@ -14,20 +14,20 @@ namespace WindowsApplication1
 {
   pub class PlayMainWindowClass : WindowClass
   {
-     int HexInfoId;
-     int hexinfoid2;
-     int MiniMapId;
-     int minwidth;
-     int detailnr;
-     int MapId;
+     HexInfoId: i32;
+     hexinfoid2: i32;
+     MiniMapId: i32;
+     minwidth: i32;
+     detailnr: i32;
+     MapId: i32;
      ListClass MapListObj;
-     int b1id;
-     int b2id;
-     int view1id;
-     int view2id;
-     int view3id;
+     b1id: i32;
+     b2id: i32;
+     view1id: i32;
+     view2id: i32;
+     view3id: i32;
 
-    pub PlayMainWindowClass( GameClass tGame, let mut tminwidth: i32 =  0)
+    pub PlayMainWindowClass( tGame: GameClass, let mut tminwidth: i32 =  0)
       : base( tGame, 220, tGame.ScreenHeight - (270 + tminwidth), 8)
     {
       this.minwidth = tminwidth;
@@ -36,15 +36,15 @@ namespace WindowsApplication1
       this.mainframe = false;
     }
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       this.detailnr = this.game.EditObj.MapSelected;
       this.MakeShit();
     }
 
-    pub void PopUpRefresh() => this.MakeShit();
+    pub fn PopUpRefresh() => this.MakeShit();
 
-    pub string WindowDescription(int x, int y)
+    pub string WindowDescription(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -57,7 +57,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub void MakeShit()
+    pub fn MakeShit()
     {
       SizeF sizeF = SizeF::new();
       bool Attack;
@@ -172,7 +172,7 @@ namespace WindowsApplication1
         str = this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].Name;
         Rectangle paintedPartRect = DrawMod.GetPaintedPartRect(BitmapStore.GetBitmap(hqSpriteNr, 1));
          let mut local1: &Graphics = &graphics;
-        Bitmap bitmap1 = BitmapStore.GetBitmap(hqSpriteNr, 1);
+        bitmap1: Bitmap = BitmapStore.GetBitmap(hqSpriteNr, 1);
          let mut local2: &Bitmap = &bitmap1;
         let mut srcrect: &Rectangle = &paintedPartRect
         Rectangle rectangle = Rectangle::new(89, 12, 38, 28);
@@ -180,9 +180,9 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         rectangle = Rectangle::new(80, 9, 53, 36);
         let mut trect: &Rectangle = &rectangle
-        this.AddMouse( trect, "", "The current turn is to " + this.game.Data.RegimeObj[this.game.Data.Turn].Name + ". Click to change the color of the regime.", 1);
+        this.AddMouse( trect, "", "The current turn is to " + this.game.Data.RegimeObj[this.game.Data.Turn].Name + ". Click to change the of: Color the regime.", 1);
          let mut local3: &Graphics = &graphics;
-        Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.ORNAMENT1);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.ORNAMENT1);
          let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 10, 5);
         if (this.MiniMapId > 0)
@@ -215,7 +215,7 @@ namespace WindowsApplication1
       graphics = (Graphics) null;
     }
 
-    pub void MakeShit0(Graphics g, int ty, bool Attack)
+    pub fn MakeShit0(Graphics g, ty: i32, bool Attack)
     {
       if (this.game.SelectX == -1 | this.game.SelectY == -1)
         return;
@@ -225,7 +225,7 @@ namespace WindowsApplication1
       if (location1 > -1)
         str1 = str1 + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].Name;
       string str2;
-      int num1;
+      num1: i32;
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SeeNow(this.game.Data.Turn) < 1)
       {
         str2 = "Shrouded (" + Conversion.Str( this.game.SelectX) + "," + Conversion.Str( this.game.SelectY) + ")";
@@ -275,7 +275,7 @@ namespace WindowsApplication1
           DrawMod.MakeFullBoxVic2( local1, rect1, "SELECTED HEX", rect2, txt2);
           Rectangle paintedPartRect = DrawMod.GetPaintedPartRect(BitmapStore.GetBitmap(hqSpriteNr));
            let mut local2: &Graphics = &g;
-          Bitmap bitmap = BitmapStore.GetBitmap(hqSpriteNr);
+          bitmap: Bitmap = BitmapStore.GetBitmap(hqSpriteNr);
            let mut local3: &Bitmap = &bitmap;
           let mut srcrect: &Rectangle = &paintedPartRect
           rectangle = Rectangle::new(15, ty + 179, 26, 20);
@@ -308,8 +308,8 @@ namespace WindowsApplication1
       this.AddMouse( trect, "", "The hex owners flag, coordinate and if applicable the name of the hex. If location is present you can rename it by clicking.", 2);
       ty += 5;
       str4: String = str1;
-      int landscapeType;
-      int spriteNr;
+      landscapeType: i32;
+      spriteNr: i32;
       SubPartClass tsubpart;
       if (num1 == 0)
       {
@@ -476,7 +476,7 @@ namespace WindowsApplication1
             DrawMod.MakeFullBoxVic2( local11, rect1_8, "+AP", rect2_8, txt2_8);
             rectangle = Rectangle::new(65, ty + 377, 45, 40);
             trect = rectangle;
-            this.AddMouse( trect, "", "Action Point Penalty (for entering hex)");
+            this.AddMouse( trect, "", "Action PoPenalty: i32 (for entering hex)");
             str11: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStack(this.game.Data.Turn)));
              let mut local12: &Graphics = &g;
             rectangle = Rectangle::new(120, ty + 377, 45, 14);
@@ -522,7 +522,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void MakeShit1(Graphics g, int ty)
+    pub fn MakeShit1(Graphics g, ty: i32)
     {
       if (this.MiniMapId > 0)
         this.RemoveSubPart(this.MiniMapId);
@@ -557,14 +557,14 @@ namespace WindowsApplication1
       ListClass mapListObj = this.MapListObj;
       let mut tlistselect: i32 =  num1;
       let mut game: GameClass = this.game;
-       Bitmap local1 =  this.OwnBitmap;
-      Font font =  null;
-       Font local2 =  font;
+       local1: Bitmap =  this.OwnBitmap;
+      font: Font =  null;
+       local2: Font =  font;
       let mut tsubpart2: SubPartClass =  new ListSubPartClass(mapListObj, 6, 180, tlistselect, game, tHeader: "Maps", tbackbitmap: ( local1), bbx: 10, bby: 355, overruleFont: ( local2));
       this.MapId = this.AddSubPart( tsubpart2, 10, 355, 120, 144, 0);
     }
 
-    pub void MakeShit2(Graphics g, int ty)
+    pub fn MakeShit2(Graphics g, ty: i32)
     {
       if (this.game.SelectX == -1 | this.game.SelectY == -1)
         return;
@@ -743,7 +743,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       let mut mouseCounter: i32 =  this.MouseCounter;
@@ -853,8 +853,8 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int selectX;
-            int selectY;
+            selectX: i32;
+            selectY: i32;
             if (num1 == this.MiniMapId)
             {
               selectX = this.game.SelectX;

@@ -81,9 +81,9 @@ namespace WindowsApplication1
 
     pub HasCustumCalls: bool() => true;
 
-    pub int IndividualMORMod(ref CombatClass cc, int inr, int morMod, let mut sfnr: i32 =  -1)
+    pub IndividualMORMod: i32(ref cc: CombatClass, inr: i32, morMod: i32, let mut sfnr: i32 =  -1)
     {
-      int people;
+      people: i32;
       if (inr > -1)
       {
         people = DrawMod.TGame.Data.SFObj[cc.IList[inr].ISFNr].People;
@@ -99,9 +99,9 @@ namespace WindowsApplication1
       return morMod;
     }
 
-    pub int IndividualXPMod(ref CombatClass cc, int inr, int xpToBeGiven, let mut sfnr: i32 =  -1)
+    pub IndividualXPMod: i32(ref cc: CombatClass, inr: i32, xpToBeGiven: i32, let mut sfnr: i32 =  -1)
     {
-      int people;
+      people: i32;
       if (inr > -1)
       {
         people = DrawMod.TGame.Data.SFObj[cc.IList[inr].ISFNr].People;
@@ -117,10 +117,10 @@ namespace WindowsApplication1
       return xpToBeGiven;
     }
 
-    pub int CachedSkillRoll(GameClass game, int charId, int skillId)
+    pub CachedSkillRoll: i32(game: GameClass, charId: i32, skillId: i32)
     {
       let mut nr: i32 =  this.SkillCacheList.FindNr(charId, skillId);
-      int tdata2;
+      tdata2: i32;
       if (nr < 0)
       {
         tdata2 = game.EventRelatedObj.CheckHardcoded_SkillRoll(charId, skillId, false, 0, false);
@@ -131,7 +131,7 @@ namespace WindowsApplication1
       return tdata2;
     }
 
-    pub int EntrenchModifier(ref CombatClass cc, int indNr, int curX, int curY, int entr)
+    pub EntrenchModifier: i32(ref cc: CombatClass, indNr: i32, curX: i32, curY: i32, entr: i32)
     {
       if (cc.IList[indNr].IAttacker == 0 & (int) Math.Round(Conversion.Val(cc.game.Data.Designer)) >= 112)
       {
@@ -190,7 +190,7 @@ namespace WindowsApplication1
       return entr;
     }
 
-    pub int AIHelpCombatChanger(ref CombatClass cc, int forNr, int againstNr, int tHelpCombat)
+    pub AIHelpCombatChanger: i32(ref cc: CombatClass, forNr: i32, againstNr: i32, tHelpCombat: i32)
     {
       if (tHelpCombat > 0 && cc.game.Data.RegimeObj[DrawMod.TGame.Data.UnitObj[cc.IList[forNr].IUnr].Regime].AI && cc.game.Data.RegimeObj[DrawMod.TGame.Data.UnitObj[cc.IList[againstNr].IUnr].Regime].AI)
       {
@@ -203,11 +203,11 @@ namespace WindowsApplication1
     }
 
     pub void PersonalCombatRoll(
-      ref CombatClass cc,
-      GameClass game,
-      int unr,
-      int inr,
-      int randomizedDiff,
+      ref cc: CombatClass,
+      game: GameClass,
+      unr: i32,
+      inr: i32,
+      randomizedDiff: i32,
       string wasKilledByString,
       bool unitLossCheck,
       bool hexLossCheck)
@@ -288,7 +288,7 @@ namespace WindowsApplication1
       }
       str1: String = "";
       string str2;
-      int num3;
+      num3: i32;
       if (idValue3_1 > 0)
       {
         let mut integer: i32 =  Conversions.ToInteger(game.Data.StringListObj[this.slotLeaders].GetData3(5, num1, 6, 3, 7, idValue3_1, 0));
@@ -643,7 +643,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void PreCombatCall(ref CombatClass cc, GameClass game)
+    pub fn PreCombatCall(ref cc: CombatClass, game: GameClass)
     {
       let mut ucounter1: i32 =  cc.UCounter;
       for (let mut index: i32 =  0; index <= ucounter1; index += 1)
@@ -670,7 +670,7 @@ namespace WindowsApplication1
         let mut historical: i32 =  game.Data.UnitObj[unr].Historical;
         SimpleList simpleList1 = SimpleList::new();
         let mut num1: i32 =  100 + highestValue;
-        int num2;
+        num2: i32;
         for (let mut typ: i32 =  101; typ <= num1; typ += 1)
         {
           let mut tweight: i32 =  game.Data.HistoricalUnitObj[historical].GiveHisVarValue(typ);
@@ -770,7 +770,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void DoStructuralDamageCall(ref CombatClass cc, GameClass game, int damPts)
+    pub fn DoStructuralDamageCall(ref cc: CombatClass, game: GameClass, damPts: i32)
     {
       let mut num1: i32 =  (int) Math.Round( cc.CombatRound / 3.0) + 1;
       s: String = "";
@@ -823,7 +823,7 @@ namespace WindowsApplication1
         }
         SimpleList simpleList = SimpleList::new();
         let mut length: i32 =  game.Data.StringListObj[this.slotAssets].Length;
-        int num5;
+        num5: i32;
         for (let mut index: i32 =  0; index <= length; index += 1)
         {
           let mut num6: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotAssets].Data[index, 3]));
@@ -927,9 +927,9 @@ namespace WindowsApplication1
           }
         }
       }
-      int num19;
-      int num20;
-      int num21;
+      num19: i32;
+      num20: i32;
+      num21: i32;
       if (this.rememberRadPts > 0)
       {
         if (hexLibVarValue1 > 0)
@@ -954,13 +954,13 @@ namespace WindowsApplication1
           let mut pop2: i32 =  hed.pop;
           let mut worker2: i32 =  hed.worker;
           let mut freeFolk2: i32 =  hed.freeFolk;
-          int num22;
+          num22: i32;
           if (pop1 > pop2)
             num22 = pop1 - pop2;
-          int num23;
+          num23: i32;
           if (worker1 > worker2)
             num23 = worker1 - worker2;
-          int num24;
+          num24: i32;
           if (freeFolk1 > freeFolk2)
             num24 = freeFolk1 - freeFolk2;
           hed.Output(hed.origRegimeId);
@@ -987,7 +987,7 @@ namespace WindowsApplication1
       game.EventRelatedObj.Helper_AddDetailedReportPlusData(DetailType.Nuke, hexLibVarValue1, texty2, game.Data.RegimeObj[cc.DefenderRegime].id, -1);
     }
 
-    pub void EndCombatCall(ref CombatClass cc, GameClass game)
+    pub fn EndCombatCall(ref cc: CombatClass, game: GameClass)
     {
       let mut num1: i32 =  (int) Math.Round( cc.CombatRound / 3.0) + 1;
       SimpleList simpleList1 = SimpleList::new();
@@ -1033,7 +1033,7 @@ namespace WindowsApplication1
         let mut id: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotChar].GetData(0, num5, 5)));
         let mut regimeById: i32 =  game.HandyFunctionsObj.GetRegimeByID(id);
         let mut num7: i32 =  0;
-        int num8;
+        num8: i32;
         if (cc.AttackerRegime == regimeById)
         {
           if (simpleList2.FindNr(num5) == -1)
@@ -1149,7 +1149,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void EndBattleCall(ref CombatClass cc, GameClass game)
+    pub fn EndBattleCall(ref cc: CombatClass, game: GameClass)
     {
       let mut index1: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 5;
       let mut index2: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 9;
@@ -1246,7 +1246,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void StartCombatRound(ref CombatClass cc, GameClass game, int combatRound)
+    pub fn StartCombatRound(ref cc: CombatClass, game: GameClass, combatRound: i32)
     {
       let mut num1: i32 =  -1;
       let mut jobSpecificId1: i32 =  -1;
@@ -1254,13 +1254,13 @@ namespace WindowsApplication1
       let mut num2: i32 =  -1;
       SimpleList simpleList1 = SimpleList::new();
       let mut icounter1: i32 =  cc.ICounter;
-      int num3;
-      int num4;
-      int num5;
-      int num6;
-      int num7;
-      int num8;
-      int num9;
+      num3: i32;
+      num4: i32;
+      num5: i32;
+      num6: i32;
+      num7: i32;
+      num8: i32;
+      num9: i32;
       for (let mut index1: i32 =  0; index1 <= icounter1; index1 += 1)
       {
         let mut index2: i32 =  cc.IList[index1].IUnr;
@@ -1347,7 +1347,7 @@ namespace WindowsApplication1
         }
       }
       let mut icounter2: i32 =  cc.ICounter;
-      int index9;
+      index9: i32;
       for (let mut index10: i32 =  0; index10 <= icounter2; index10 += 1)
       {
         if (Information.IsNothing( cc.IList[index10].IunitFeat))
@@ -1374,7 +1374,7 @@ namespace WindowsApplication1
                   let mut num14: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index12, 5]));
                   let mut num15: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index12, 6]));
                   let mut num16: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index12, 7]));
-                  int index13;
+                  index13: i32;
                   str1: String = game.Data.StringListObj[this.slotBehaviour].Data[index12, index13];
                   let mut val2: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index12, 8]));
                   let mut num17: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index12, 9]));
@@ -1635,9 +1635,9 @@ namespace WindowsApplication1
       SoundMod.PlayAWave(Soundfile, ref game.EditObj);
     }
 
-    pub int NumberOfMods() => this.airEnabled ? 22 : 15;
+    pub NumberOfMods: i32() => this.airEnabled ? 22 : 15;
 
-    pub string GetModName(int nr)
+    pub string GetModName(nr: i32)
     {
       switch (nr)
       {
@@ -1691,11 +1691,11 @@ namespace WindowsApplication1
       }
     }
 
-    pub int IndividualCombatCall_HasNoEarlyCombatRoundPenalties(
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr,
+    pub IndividualCombatCall_HasNoEarlyCombatRoundPenalties: i32(
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32,
       bool isCounterAttack,
       ref string s9)
     {
@@ -1745,7 +1745,7 @@ namespace WindowsApplication1
                   let mut num7: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 5]));
                   let mut num8: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 6]));
                   let mut num9: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 7]));
-                  int index6;
+                  index6: i32;
                   str: String = game.Data.StringListObj[this.slotBehaviour].Data[index5, index6];
                   let mut num10: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 8]));
                   let mut num11: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 9]));
@@ -1776,7 +1776,7 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub int UnitCombatCall_AvoidPanic(GameClass game, int unr, ref string s9)
+    pub UnitCombatCall_AvoidPanic: i32(game: GameClass, unr: i32, ref string s9)
     {
       let mut num: i32 =  -1;
       let mut idValue2: i32 =  -1;
@@ -1803,7 +1803,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub int UnitAirBridgeBonus(GameClass game, int unr)
+    pub UnitAirBridgeBonus: i32(game: GameClass, unr: i32)
     {
       let mut num1: i32 =  -1;
       let mut idValue2: i32 =  -1;
@@ -1831,17 +1831,17 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub int IndividualCombatCall_RiverTypeAndLandscapeTypeModifier(
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr,
+    pub IndividualCombatCall_RiverTypeAndLandscapeTypeModifier: i32(
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32,
       bool isCounterAttack,
       ref string s9,
-      int riverHpMod,
-      int landscapeAttMod,
-      int landscapeDefMod,
-      int riverType)
+      riverHpMod: i32,
+      landscapeAttMod: i32,
+      landscapeDefMod: i32,
+      riverType: i32)
     {
       let mut num1: i32 =  -1;
       let mut unitGroup: i32 =  game.Data.SFTypeObj[cc.IList[defnr].ISFType].UnitGroup;
@@ -1892,7 +1892,7 @@ namespace WindowsApplication1
                   let mut num7: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 5]));
                   let mut num8: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 6]));
                   let mut num9: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 7]));
-                  int index5;
+                  index5: i32;
                   str1: String = game.Data.StringListObj[this.slotBehaviour].Data[index4, index5];
                   let mut num10: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 8]));
                   let mut num11: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 9]));
@@ -1909,8 +1909,8 @@ namespace WindowsApplication1
                     flag = false;
                   if (flag)
                   {
-                    int num12;
-                    int num13;
+                    num12: i32;
+                    num13: i32;
                     if (num4 == 36 && index1 == attnr && num9 == -1 | game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].LandscapeType == num9)
                     {
                       let mut num14: i32 =  num2;
@@ -1920,7 +1920,7 @@ namespace WindowsApplication1
                         if (num2 > num11)
                           num2 = num11;
                         ref local: String = ref s9;
-                        string[] strArray1 = new string[6]
+                        strArray1: Vec<String> = new string[6]
                         {
                           data,
                           " changed landscape modifier from ",
@@ -1929,12 +1929,12 @@ namespace WindowsApplication1
                           null,
                           null
                         };
-                        string[] strArray2 = strArray1;
+                        strArray2: Vec<String> = strArray1;
                         num12 = num14 - 100;
                         str2: String = num12.ToString();
                         strArray2[2] = str2;
                         strArray1[3] = "% to ";
-                        string[] strArray3 = strArray1;
+                        strArray3: Vec<String> = strArray1;
                         num13 = num2 - 100;
                         str3: String = num13.ToString();
                         strArray3[4] = str3;
@@ -1952,7 +1952,7 @@ namespace WindowsApplication1
                         if (num2 > 100)
                           num2 = 100;
                         ref local: String = ref s9;
-                        string[] strArray4 = new string[6]
+                        strArray4: Vec<String> = new string[6]
                         {
                           data,
                           "  changed river modifier from ",
@@ -1961,12 +1961,12 @@ namespace WindowsApplication1
                           null,
                           null
                         };
-                        string[] strArray5 = strArray4;
+                        strArray5: Vec<String> = strArray4;
                         num13 = num15 - 100;
                         str5: String = num13.ToString();
                         strArray5[2] = str5;
                         strArray4[3] = "% to ";
-                        string[] strArray6 = strArray4;
+                        strArray6: Vec<String> = strArray4;
                         num12 = num2 - 100;
                         str6: String = num12.ToString();
                         strArray6[4] = str6;
@@ -1988,10 +1988,10 @@ namespace WindowsApplication1
     }
 
     pub IndividualCombatCall_SmallSizeBGmodifierApplies: bool(
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr)
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32)
     {
       let mut isfType: i32 =  cc.IList[attnr].ISFType;
       let mut id: i32 =  game.Data.SFTypeObj[isfType].Id;
@@ -1999,12 +1999,12 @@ namespace WindowsApplication1
       return game.HandyFunctionsObj.GetRegimeByID(integer) > 0;
     }
 
-    pub int IndividualCombatCall_ResultModifier(
-      int result,
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr,
+    pub IndividualCombatCall_ResultModifier: i32(
+      result: i32,
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32,
       bool isCounterAttack,
       float attval,
       float defval,
@@ -2058,7 +2058,7 @@ namespace WindowsApplication1
         num6 = game.HandyFunctionsObj.GetHistoricalUnitByID(id2);
       s9 = "";
       let mut num7: i32 =  1;
-      int tid1;
+      tid1: i32;
       do
       {
         let mut index1: i32 =  -1;
@@ -2093,7 +2093,7 @@ namespace WindowsApplication1
                   let mut num11: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 5]));
                   let mut num12: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 6]));
                   let mut num13: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 7]));
-                  int index5;
+                  index5: i32;
                   idValue2: String = game.Data.StringListObj[this.slotBehaviour].Data[index4, index5];
                   let mut Expression: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 8]));
                   let mut num14: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index4, 9]));
@@ -2307,11 +2307,11 @@ namespace WindowsApplication1
     }
 
     pub float IndividualCombatCall_AttValModder(
-      int modNr,
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr,
+      modNr: i32,
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32,
       bool isCounterAttack,
       float attval,
       ref string s9)
@@ -2416,7 +2416,7 @@ namespace WindowsApplication1
                   let mut num14: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 5]));
                   let mut num15: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 6]));
                   let mut num16: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 7]));
-                  int index6;
+                  index6: i32;
                   str1: String = game.Data.StringListObj[this.slotBehaviour].Data[index5, index6];
                   let mut maxValue: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 8]));
                   let mut num17: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index5, 9]));
@@ -3076,7 +3076,7 @@ namespace WindowsApplication1
       return attval;
     }
 
-    pub string GetUnitFeatName(GameClass game, int id)
+    pub string GetUnitFeatName(game: GameClass, id: i32)
     {
       unitFeatName: String = game.Data.StringListObj[this.slotUnitFeats].GetData(0, id, 2);
       if (unitFeatName.Length < 1)
@@ -3085,11 +3085,11 @@ namespace WindowsApplication1
     }
 
     pub float IndividualCombatCall_DefValModder(
-      int modNr,
-      ref CombatClass cc,
-      GameClass game,
-      int attnr2,
-      int defnr,
+      modNr: i32,
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr2: i32,
+      defnr: i32,
       bool isCounterAttack,
       float defval,
       ref string s9)
@@ -3128,8 +3128,8 @@ namespace WindowsApplication1
       let mut num4: i32 =  0;
       let mut num5: i32 =  -1;
       let mut num6: i32 =  1;
-      int index3;
-      int num7;
+      index3: i32;
+      num7: i32;
       do
       {
         let mut index4: i32 =  -1;
@@ -3164,7 +3164,7 @@ namespace WindowsApplication1
                   let mut num11: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index7, 5]));
                   let mut num12: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index7, 6]));
                   let mut idValue2: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index7, 7]));
-                  int index8;
+                  index8: i32;
                   str1: String = game.Data.StringListObj[this.slotBehaviour].Data[index7, index8];
                   let mut num13: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index7, 8]));
                   let mut num14: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotBehaviour].Data[index7, 9]));
@@ -3433,13 +3433,13 @@ namespace WindowsApplication1
       return defval;
     }
 
-    pub void UnitLost(ref CombatClass cc, GameClass game, int unr) => this.PersonalCombatRoll(ref cc, game, unr, -1, 75, "", true, false);
+    pub fn UnitLost(ref cc: CombatClass, game: GameClass, unr: i32) => this.PersonalCombatRoll(ref cc, game, unr, -1, 75, "", true, false);
 
-    pub int IndividualCombatCall_FirstAttackOfRound(
-      ref CombatClass cc,
-      GameClass game,
-      int attnr,
-      int defnr,
+    pub IndividualCombatCall_FirstAttackOfRound: i32(
+      ref cc: CombatClass,
+      game: GameClass,
+      attnr: i32,
+      defnr: i32,
       ref string s9)
     {
       if (cc.previewMode)
@@ -3528,6 +3528,6 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int AlterCombatLastRound(ref CombatClass cc) => cc.CombatType == 13 ? 3 : -1;
+    pub AlterCombatLastRound: i32(ref cc: CombatClass) => cc.CombatType == 13 ? 3 : -1;
   }
 }

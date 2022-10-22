@@ -30,18 +30,18 @@ namespace WindowsApplication1
     pub DebugId: i32;
     pub DebugIdb: i32;
 
-    pub void PopUpRefresh()
+    pub fn PopUpRefresh()
     {
     }
 
-    pub SSEditOptionsWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
+    pub SSEditOptionsWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 = -1, let mut sy: i32 = -1)
       : base( tGame, tGame.ScreenWidth, 50, 9, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       self.game.EditObj.inSimpleEditor = true;
       self.domenu();
     }
 
-    pub void domenu()
+    pub fn domenu()
     {
       if (self.BackId > 0)
         self.RemoveSubPart(self.BackId);
@@ -126,9 +126,9 @@ namespace WindowsApplication1
       let mut num6: i32 = num5 + 110;
     }
 
-    pub void DoRefresh() => self.domenu();
+    pub fn DoRefresh() => self.domenu();
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)

@@ -12,10 +12,10 @@ namespace WindowsApplication1
 {
   pub class CombatScreenClass : ScreenClass
   {
-     int wleft;
-     int wright;
+     wleft: i32;
+     wright: i32;
 
-    pub CombatScreenClass(ref GameClass tGame)
+    pub CombatScreenClass(ref tGame: GameClass)
       : base(ref tGame, tGame.BACKGROUND1MARC)
     {
       this.wright = this.AddWindow((WindowClass) new CombatResultWindowClass(ref tGame),  Math.Round( this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
@@ -64,7 +64,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -132,7 +132,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

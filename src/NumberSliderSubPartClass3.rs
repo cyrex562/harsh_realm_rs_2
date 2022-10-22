@@ -14,31 +14,31 @@ namespace WindowsApplication1
 {
   pub class NumberSliderSubPartClass3 : SubPartClass
   {
-     Font OwnFont;
-     int Width;
+     OwnFont: Font;
+     Width: i32;
      string prefix;
      string suffix;
-     int minval;
-     int maxval;
-     int curval;
-     int smallchange;
-     GameClass game;
-     int bx;
-     int by;
-     Bitmap backbitmap;
-     int clickscroll;
+     minval: i32;
+     maxval: i32;
+     curval: i32;
+     smallchange: i32;
+     game: GameClass;
+     bx: i32;
+     by: i32;
+     backbitmap: Bitmap;
+     clickscroll: i32;
 
     pub NumberSliderSubPartClass3(
-      GameClass tgame,
+      tgame: GameClass,
       string tprefix,
       string tsuffix,
-      int twidth,
-      int tminval,
-      int tmaxval,
-      int startval,
+      twidth: i32,
+      tminval: i32,
+      tmaxval: i32,
+      startval: i32,
       bool systemfont = false,
       let mut tsmallchange: i32 =  1,
-       Bitmap tbackbitmap = null,
+       tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1)
       : base(twidth, 22)
@@ -68,7 +68,7 @@ namespace WindowsApplication1
         this.OwnFont = Font::new("Courier New", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -83,7 +83,7 @@ namespace WindowsApplication1
       if (num2 < 0)
         num2 = 0;
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(this.game.VSLIDER);
+      bitmap: Bitmap = BitmapStore.GetBitmap(this.game.VSLIDER);
        let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 =  240 + num2;
       DrawMod.DrawSimple( local1,  local2, x1, 0);
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int Click(int x, int y, let mut b: i32 =  1)
+    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
     {
       this.clickscroll = 0;
       if (x > 200 & x < 220)

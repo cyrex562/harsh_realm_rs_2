@@ -14,23 +14,23 @@ namespace WindowsApplication1
 {
   pub class PlayScreenClass2 : ScreenClass
   {
-     int WMap;
-     int WPlay;
-     int WOrder;
-     int WRes;
-     int WTabs;
-     int WLeft;
-     int wRight;
-     int wAdvice;
-     int wOps;
-     int OffSetX;
-     int lastx;
-     int lasty;
-     int playExtraHeight;
-     int rightSideBarWidth;
-     int leftSideBarWidth;
+     WMap: i32;
+     WPlay: i32;
+     WOrder: i32;
+     WRes: i32;
+     WTabs: i32;
+     WLeft: i32;
+     wRight: i32;
+     wAdvice: i32;
+     wOps: i32;
+     OffSetX: i32;
+     lastx: i32;
+     lasty: i32;
+     playExtraHeight: i32;
+     rightSideBarWidth: i32;
+     leftSideBarWidth: i32;
 
-    pub PlayScreenClass2( GameClass tgame, Form1 tformref)
+    pub PlayScreenClass2( tgame: GameClass, tformref: Form1)
       : base( tgame, -3, tformref)
     {
       this.playExtraHeight = 222;
@@ -777,7 +777,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.Game.Data.Product < 6)
@@ -876,7 +876,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseUp(int x, int y, int b)
+    pub ScreenReturnClass HandleMouseUp(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter > -1)
@@ -906,7 +906,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleMouseMove(int x, int y)
+    pub ScreenReturnClass HandleMouseMove(x: i32, y: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
@@ -999,7 +999,7 @@ namespace WindowsApplication1
             return screenReturnClass;
         }
       }
-      int num2;
+      num2: i32;
       if (Information.IsNothing( windowReturnClass))
         num2 = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
@@ -1040,7 +1040,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleTimerWheel(int x, int y)
+    pub ScreenReturnClass HandleTimerWheel(x: i32, y: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
@@ -1146,7 +1146,7 @@ namespace WindowsApplication1
       return screenReturnClass;
     }
 
-    pub ScreenReturnClass HandleKeyPress(int nr)
+    pub ScreenReturnClass HandleKeyPress(nr: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();

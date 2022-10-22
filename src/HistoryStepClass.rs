@@ -123,7 +123,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HistoryStepClass(int hardcoded)
+    pub HistoryStepClass(hardcoded: i32)
     {
       this.AttackDirection = new int[6];
       this.LossSFType = new int[1];

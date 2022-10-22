@@ -272,7 +272,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void AddLog(int type, int data1, int data2, int data3)
+    pub fn AddLog(type: i32, data1: i32, data2: i32, data3: i32)
     {
       let mut num1: i32 =  -1;
       if (data3 > 100 & DrawMod.TGame.Data.Turn == 1)
@@ -309,7 +309,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void SetLog(int type, int data1, int data2, int data3)
+    pub fn SetLog(type: i32, data1: i32, data2: i32, data3: i32)
     {
       let mut index1: i32 =  -1;
       let mut logCounter: i32 =  this.LogCounter;
@@ -337,7 +337,7 @@ namespace WindowsApplication1
         this.LogData3[index1] = data3;
     }
 
-    pub void ClearLogs(bool useFromAndToo, int fromType, int untillType)
+    pub fn ClearLogs(bool useFromAndToo, fromType: i32, untillType: i32)
     {
       SimpleList simpleList = SimpleList::new();
       if (DrawMod.TGame.Data.MapObj[0].HexObj[this.X, this.Y].Regime == 2)
@@ -370,7 +370,7 @@ namespace WindowsApplication1
         this.AddLog(simpleList.Id[index], simpleList.Data1[index], simpleList.Data2[index], simpleList.Data3[index]);
     }
 
-    pub LocationClass(int hardcoded)
+    pub LocationClass(hardcoded: i32)
     {
       this.Production = new int[4];
       this.ProdPercent = new int[4];
@@ -412,11 +412,11 @@ namespace WindowsApplication1
       this.tempAirfieldLevel = 0;
     }
 
-    pub void Kill()
+    pub fn Kill()
     {
     }
 
-    pub void LoadSprites()
+    pub fn LoadSprites()
     {
     }
   }

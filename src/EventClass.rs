@@ -102,7 +102,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub EventClass(int hardcoded)
+    pub EventClass(hardcoded: i32)
     {
       this.CommandList = new CommandClass[1];
       this.CommandCounter = -1;
@@ -113,7 +113,7 @@ namespace WindowsApplication1
       this.Priority = 0;
     }
 
-    pub void AddCommand(let mut insert: i32 =  -1)
+    pub fn AddCommand(let mut insert: i32 =  -1)
     {
       this += 1.CommandCounter;
       this.CommandList = (CommandClass[]) Utils.CopyArray((Array) this.CommandList, (Array) new CommandClass[this.CommandCounter + 1]);
@@ -127,7 +127,7 @@ namespace WindowsApplication1
       this.CommandList[insert + 1] = new CommandClass(0);
     }
 
-    pub void Commanddown(int nr)
+    pub fn Commanddown(nr: i32)
     {
       if (nr >= this.CommandCounter)
         return;
@@ -136,7 +136,7 @@ namespace WindowsApplication1
       this.CommandList[nr + 1] = commandClass;
     }
 
-    pub void Commandup(int nr)
+    pub fn Commandup(nr: i32)
     {
       if (nr <= 0)
         return;
@@ -145,7 +145,7 @@ namespace WindowsApplication1
       this.CommandList[nr - 1] = commandClass;
     }
 
-    pub void RemoveCommand(int nr)
+    pub fn RemoveCommand(nr: i32)
     {
       if (nr < this.CommandCounter)
       {

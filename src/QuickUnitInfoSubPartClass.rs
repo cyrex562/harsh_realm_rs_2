@@ -14,11 +14,11 @@ namespace WindowsApplication1
   pub class QuickUnitInfoSubPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     int unr;
-     GameClass game;
+     unr: i32;
+     game: GameClass;
      bool shownothing;
 
-    pub QuickUnitInfoSubPartClass(int tunr, GameClass tgame, bool tShowNothing = false)
+    pub QuickUnitInfoSubPartClass(tunr: i32, tgame: GameClass, bool tShowNothing = false)
       : base(96, 200)
     {
       this.unr = tunr;
@@ -26,7 +26,7 @@ namespace WindowsApplication1
       this.shownothing = tShowNothing;
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (x == -1 | y == -1 || this.game.Data.Round == 0 || this.unr == -1)
         return;
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -200,11 +200,11 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( Expression))

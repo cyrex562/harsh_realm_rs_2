@@ -13,9 +13,9 @@ namespace WindowsApplication1
   {
      string description;
      bool active;
-     int unr;
+     unr: i32;
 
-    pub SEUnitBigButtonPartClass(int tUnr, string tDescript, bool tactive)
+    pub SEUnitBigButtonPartClass(tUnr: i32, string tDescript, bool tactive)
       : base(93, 97)
     {
       this.Descript = tDescript;
@@ -23,10 +23,10 @@ namespace WindowsApplication1
       this.unr = tUnr;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (!this.active)
       {
          let mut local1: &Graphics = &graphics;
@@ -47,10 +47,10 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Bitmap bitmap;
+      bitmap: Bitmap;
       if (!this.active)
       {
          let mut local1: &Graphics = &graphics;

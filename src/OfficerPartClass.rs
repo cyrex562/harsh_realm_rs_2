@@ -14,13 +14,13 @@ namespace WindowsApplication1
   pub class OfficerPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     int unr;
-     GameClass game;
-     int his;
+     unr: i32;
+     game: GameClass;
+     his: i32;
      bool commander;
      bool AllowMoreButton;
 
-    pub OfficerPartClass(int tunr, GameClass tgame, int @this = -1, bool tAllowMoreButton = false)
+    pub OfficerPartClass(tunr: i32, tgame: GameClass, int @this = -1, bool tAllowMoreButton = false)
       : base(300, 200)
     {
       this.unr = tunr;
@@ -36,7 +36,7 @@ namespace WindowsApplication1
       this.commander = true;
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (this.game.EditObj.UnitSelected == -1)
         return;
@@ -108,7 +108,7 @@ namespace WindowsApplication1
       this.Descript = "The commanders experience points.";
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF = SizeF::new();
       Coordinate coordinate = Coordinate::new();
@@ -149,7 +149,7 @@ namespace WindowsApplication1
           num1 = 1;
         if (this.game.Data.Round == 0)
           num1 = 1;
-        int num2;
+        num2: i32;
         if (num1 == 1)
         {
           let mut staffPoints: i32 =  this.game.HandyFunctionsObj.GetStaffPoints(this.unr);
@@ -218,14 +218,14 @@ namespace WindowsApplication1
             let mut num6: i32 =  140 + num4 * 45;
             let mut num7: i32 =  45;
              let mut local6: &Graphics = &objgraphics;
-            Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.HistoricalUnitObj[this.his].HandCard[index], small: true);
+            bitmap: Bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.HistoricalUnitObj[this.his].HandCard[index], small: true);
              let mut local7: &Bitmap = &bitmap;
             let mut x: i32 =  num6;
             let mut y: i32 =  num7;
             DrawMod.DrawSimple( local6,  local7, x, y);
           }
           let mut num8: i32 =  Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].DeckCardCounter);
-          Bitmap bitmap1;
+          bitmap1: Bitmap;
           for (let mut index1: i32 =  0; index1 <= num8; index1 += 1)
           {
             let mut num9: i32 =  0;
@@ -279,11 +279,11 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( Expression))
@@ -291,6 +291,6 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int GetSelect() => this.his;
+    pub GetSelect: i32() => this.his;
   }
 }

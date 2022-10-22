@@ -11,41 +11,41 @@ namespace WindowsApplication1
 {
   pub class NewUnitWindowClass : WindowClass
   {
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B2bId;
-     int B2bTextId;
-     int B3Id;
-     int B3TextId;
-     int B4Id;
-     int B4TextId;
-     int B5Id;
-     int B5TextId;
-     int B6Id;
-     int B6TextId;
-     int off1id;
-     int detailnr;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int Pic1Id;
-     int detailnr2;
-     int OrderTextId;
-     int OrderText2Id;
-     int OrderUpId;
-     int OrderDownId;
-     int ExtraId;
-     int steppy;
-     int typpy;
-     int OptionsListId;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B2bId: i32;
+     B2bTextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     B4Id: i32;
+     B4TextId: i32;
+     B5Id: i32;
+     B5TextId: i32;
+     B6Id: i32;
+     B6TextId: i32;
+     off1id: i32;
+     detailnr: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     Pic1Id: i32;
+     detailnr2: i32;
+     OrderTextId: i32;
+     OrderText2Id: i32;
+     OrderUpId: i32;
+     OrderDownId: i32;
+     ExtraId: i32;
+     steppy: i32;
+     typpy: i32;
+     OptionsListId: i32;
      ListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ListClass OptionsList2Obj;
      bool Hq;
 
-    pub NewUnitWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
+    pub NewUnitWindowClass( tGame: GameClass, screenbitmap: Bitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.steppy = 0;
@@ -185,9 +185,9 @@ namespace WindowsApplication1
             ListClass optionsListObj = this.OptionsListObj;
             let mut tlistselect2: i32 =  tlistselect1;
             let mut game: GameClass = this.game;
-             Bitmap local1 =  this.OwnBitmap;
-            Font font =  null;
-             Font local2 =  font;
+             local1: Bitmap =  this.OwnBitmap;
+            font: Font =  null;
+             local2: Font =  font;
             let mut tsubpart10: SubPartClass =  new ListSubPartClass(optionsListObj, 9, 500, tlistselect2, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 310, bby: 55, overruleFont: ( local2));
             this.OptionsListId = this.AddSubPart( tsubpart10, 10, 30, 500, 160, 0);
           }
@@ -218,7 +218,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       OrderResult orderResult1 = OrderResult::new();

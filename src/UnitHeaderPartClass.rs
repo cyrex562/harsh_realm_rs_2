@@ -14,11 +14,11 @@ namespace WindowsApplication1
   pub class UnitHeaderPartClass : SubPartClass
   {
      object OwnBitmapNr;
-     int unr;
-     GameClass game;
-     int his;
+     unr: i32;
+     game: GameClass;
+     his: i32;
 
-    pub UnitHeaderPartClass(int tunr, GameClass tgame)
+    pub UnitHeaderPartClass(tunr: i32, tgame: GameClass)
       : base(280, 200)
     {
       self.unr = tunr;
@@ -26,7 +26,7 @@ namespace WindowsApplication1
       self.his = self.game.Data.UnitObj[self.unr].Historical;
     }
 
-    pub void DescriptInfo(int x, int y)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
       if (self.game.EditObj.UnitSelected == -1)
         return;
@@ -52,8 +52,8 @@ namespace WindowsApplication1
         }
         else
         {
-          int Number1;
-          int Number2;
+          Number1: i32;
+          Number2: i32;
           if (hq == -1 | self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
           {
             Number1 = 0;
@@ -98,7 +98,7 @@ namespace WindowsApplication1
       if (x > 44 & y > 60 & x < 122 & y < 138)
       {
         if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
-          self.Descript = "The selected unit. Click to change color of hq.";
+          self.Descript = "The selected unit. Click to change of: Color hq.";
         else
           self.Descript = "The selected unit.";
       }
@@ -119,7 +119,7 @@ namespace WindowsApplication1
         self.Descript = "Supply Received In";
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       SizeF sizeF1 = SizeF::new();
       Coordinate coordinate = Coordinate::new();
@@ -239,7 +239,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextVic2( graphics, str4, self.game.VicFont3, 125 + num9, 45 + num1, self.game.VicColor1, self.game.VicColor1Shade);
       }
       let mut num10: i32 = 0;
-      Bitmap bitmap1;
+      bitmap1: Bitmap;
       if (self.game.Data.Turn == self.game.Data.UnitObj[self.unr].Regime | !self.game.Data.FOWOn | self.game.Data.Round == 0 | coordinate.x >= 2)
       {
         num10 = 1;
@@ -297,7 +297,7 @@ namespace WindowsApplication1
         else if (nr > -1)
         {
            let mut local4: &Graphics = &graphics;
-          Bitmap bitmap2 = BitmapStore.GetBitmap(nr);
+          bitmap2: Bitmap = BitmapStore.GetBitmap(nr);
            let mut local5: &Bitmap = &bitmap2;
           let mut y: i32 = 20 + num1;
           DrawMod.DrawSimple( local4,  local5, 2, y);
@@ -510,11 +510,11 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+      bitmap: Bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing( Expression))

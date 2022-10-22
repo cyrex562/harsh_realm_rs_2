@@ -12,28 +12,28 @@ namespace WindowsApplication1
 {
   pub class NumberSliderSubPartClassUDS : SubPartClass
   {
-     int minval;
-     int maxval;
-     int curval;
-     GameClass game;
-     int bx;
-     int by;
-     int bmp;
-     int barw;
-     int width;
-     int height;
+     minval: i32;
+     maxval: i32;
+     curval: i32;
+     game: GameClass;
+     bx: i32;
+     by: i32;
+     bmp: i32;
+     barw: i32;
+     width: i32;
+     height: i32;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
     }
 
     pub NumberSliderSubPartClassUDS(
-      GameClass tgame,
-      int twidth,
-      int theight,
-      int tminval,
-      int tmaxval,
-      int startval)
+      tgame: GameClass,
+      twidth: i32,
+      theight: i32,
+      tminval: i32,
+      tmaxval: i32,
+      startval: i32)
       : base(twidth, theight)
     {
       this.width = twidth;
@@ -46,11 +46,11 @@ namespace WindowsApplication1
       this.game = tgame;
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.PAPERBACK2);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.PAPERBACK2);
        let mut local2: &Bitmap = &bitmap1;
       let mut width: i32 =  this.width;
       let mut height1: i32 =  this.height;
@@ -59,14 +59,14 @@ namespace WindowsApplication1
       let mut num: i32 =  this.width - this.barw - this.height * 2;
       let mut x1: i32 =  (this.maxval - this.minval <= 0 ? num :  Math.Round( (num * (this.curval - this.minval)) /  (this.maxval - this.minval))) + this.height;
        let mut local3: &Graphics = &Expression;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(this.bmp);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(this.bmp);
        let mut local4: &Bitmap = &bitmap2;
       let mut height2: i32 =  this.height;
       let mut height3: i32 =  this.height;
       DrawMod.DrawScaled( local3,  local4, 0, 0, height2, height3, true);
       DrawMod.DrawTextColouredConsoleCenterEmbossed( Expression, "<", this.game.MarcFont4,  Math.Round( this.height / 2.0),  Math.Round( (this.height - 20) / 2.0), Color.White);
        let mut local5: &Graphics = &Expression;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(this.bmp);
+      bitmap3: Bitmap = BitmapStore.GetBitmap(this.bmp);
        let mut local6: &Bitmap = &bitmap3;
       let mut x2: i32 =  this.width - this.height;
       let mut height4: i32 =  this.height;
@@ -74,7 +74,7 @@ namespace WindowsApplication1
       DrawMod.DrawScaled( local5,  local6, x2, 0, height4, height5, true);
       DrawMod.DrawTextColouredConsoleCenterEmbossed( Expression, ">", this.game.MarcFont4, this.width -  Math.Round( this.height / 2.0),  Math.Round( (this.height - 20) / 2.0), Color.White);
        let mut local7: &Graphics = &Expression;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
        let mut local8: &Bitmap = &bitmap4;
       Rectangle rectangle1 = Rectangle::new(7, 0, 7, 35);
       let mut srcrect1: &Rectangle = &rectangle1
@@ -82,7 +82,7 @@ namespace WindowsApplication1
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local7,  local8, srcrect1, destrect1);
        let mut local9: &Graphics = &Expression;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
+      bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
        let mut local10: &Bitmap = &bitmap5;
       rectangle2 = Rectangle::new(0, 0, 7, 35);
       let mut srcrect2: &Rectangle = &rectangle2
@@ -102,11 +102,11 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
        let mut local1: &Graphics = &Expression;
-      Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.PAPERBACK2);
+      bitmap1: Bitmap = BitmapStore.GetBitmap(this.game.PAPERBACK2);
        let mut local2: &Bitmap = &bitmap1;
       let mut width: i32 =  this.width;
       let mut height1: i32 =  this.height;
@@ -115,14 +115,14 @@ namespace WindowsApplication1
       let mut num: i32 =  this.width - this.barw - this.height * 2;
       let mut x1: i32 =  (this.maxval - this.minval <= 0 ? num :  Math.Round( (num * (this.curval - this.minval)) /  (this.maxval - this.minval))) + this.height;
        let mut local3: &Graphics = &Expression;
-      Bitmap bitmap2 = BitmapStore.GetBitmap(this.bmp);
+      bitmap2: Bitmap = BitmapStore.GetBitmap(this.bmp);
        let mut local4: &Bitmap = &bitmap2;
       let mut height2: i32 =  this.height;
       let mut height3: i32 =  this.height;
       DrawMod.DrawScaled( local3,  local4, 0, 0, height2, height3, true);
       DrawMod.DrawTextColouredConsoleCenterEmbossed( Expression, "<", this.game.MarcFont4,  Math.Round( this.height / 2.0),  Math.Round( (this.height - 20) / 2.0), Color.White);
        let mut local5: &Graphics = &Expression;
-      Bitmap bitmap3 = BitmapStore.GetBitmap(this.bmp);
+      bitmap3: Bitmap = BitmapStore.GetBitmap(this.bmp);
        let mut local6: &Bitmap = &bitmap3;
       let mut x2: i32 =  this.width - this.height;
       let mut height4: i32 =  this.height;
@@ -130,7 +130,7 @@ namespace WindowsApplication1
       DrawMod.DrawScaled( local5,  local6, x2, 0, height4, height5, true);
       DrawMod.DrawTextColouredConsoleCenterEmbossed( Expression, ">", this.game.MarcFont4, this.width -  Math.Round( this.height / 2.0),  Math.Round( (this.height - 20) / 2.0), Color.White);
        let mut local7: &Graphics = &Expression;
-      Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
+      bitmap4: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
        let mut local8: &Bitmap = &bitmap4;
       Rectangle rectangle1 = Rectangle::new(7, 0, 7, 35);
       let mut srcrect1: &Rectangle = &rectangle1
@@ -138,7 +138,7 @@ namespace WindowsApplication1
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local7,  local8, srcrect1, destrect1);
        let mut local9: &Graphics = &Expression;
-      Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
+      bitmap5: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
        let mut local10: &Bitmap = &bitmap5;
       rectangle2 = Rectangle::new(0, 0, 7, 35);
       let mut srcrect2: &Rectangle = &rectangle2

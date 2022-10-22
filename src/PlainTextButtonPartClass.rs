@@ -15,12 +15,12 @@ namespace WindowsApplication1
   pub class PlainTextButtonPartClass : SubPartClass
   {
      Rectangle useRect;
-     Color useCol;
-     Color useColHigh;
-     Bitmap backbitmap;
+     useCol: Color;
+     useColHigh: Color;
+     backbitmap: Bitmap;
      string butText;
 
-    pub void SubDispose()
+    pub fn SubDispose()
     {
       if (Information.IsNothing( this.backbitmap))
         return;
@@ -31,10 +31,10 @@ namespace WindowsApplication1
     pub PlainTextButtonPartClass(
       Rectangle trect,
       string tTexty,
-      Color tUseCol,
-      Color tUseColHigh,
+      tUseCol: Color,
+      tUseColHigh: Color,
       tDescript: String = "",
-       Bitmap tBackbitmap = null,
+       tBackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1)
       : base(trect.Width, trect.Height)
@@ -57,7 +57,7 @@ namespace WindowsApplication1
       Expression.Dispose();
     }
 
-    pub Bitmap Paint()
+    pub Paint: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))
@@ -75,7 +75,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Bitmap PaintOverlay()
+    pub PaintOverlay: Bitmap()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (!Information.IsNothing( this.backbitmap))

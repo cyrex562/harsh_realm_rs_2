@@ -14,25 +14,25 @@ namespace WindowsApplication1
 {
   pub class ProdWindowClass : WindowClass
   {
-     int LocNr;
-     int BNameId;
-     int BNameTextId;
-     int B1Id;
-     int B1TextId;
-     int B2Id;
-     int B2TextId;
-     int B3Id;
-     int B3TextId;
-     int Text1Id;
-     int Text2Id;
-     int Text3Id;
-     int OptionsListId;
+     LocNr: i32;
+     BNameId: i32;
+     BNameTextId: i32;
+     B1Id: i32;
+     B1TextId: i32;
+     B2Id: i32;
+     B2TextId: i32;
+     B3Id: i32;
+     B3TextId: i32;
+     Text1Id: i32;
+     Text2Id: i32;
+     Text3Id: i32;
+     OptionsListId: i32;
      ATListClass OptionsListObj;
-     int OptionsList2Id;
+     OptionsList2Id: i32;
      ATListClass OptionsList2Obj;
-     int detailnr;
-     int detailnr2;
-     int slotty;
+     detailnr: i32;
+     detailnr2: i32;
+     slotty: i32;
      int[] SlotButId;
      int[] SlotBut2Id;
      int[] SlotText1;
@@ -41,17 +41,17 @@ namespace WindowsApplication1
      int[] SlotText4;
      int[] SlotText5;
      int[] SlotSlider;
-     int[,] PercentBut;
+     PercentBut: Vec<i32>;
      int[] PercentX;
-     int totpercent;
-     int Qball;
-     int FlapBall;
-     int HqBall;
-     int CurrentHQ;
+     totpercent: i32;
+     Qball: i32;
+     FlapBall: i32;
+     HqBall: i32;
+     CurrentHQ: i32;
 
     pub ProdWindowClass(
-       GameClass tGame,
-      Bitmap screenbitmap = null,
+       tGame: GameClass,
+      screenbitmap: Bitmap = null,
       let mut sx: i32 = -1,
       let mut sy: i32 = -1,
       let mut tl1: i32 = -1,
@@ -88,9 +88,9 @@ namespace WindowsApplication1
       this.dostuff();
     }
 
-    pub void PopUpRefresh() => this.DoRefresh();
+    pub fn PopUpRefresh() => this.DoRefresh();
 
-    pub void DoRefresh()
+    pub fn DoRefresh()
     {
       if (this.game.EditObj.OrderLoc < 0)
         return;
@@ -306,7 +306,7 @@ namespace WindowsApplication1
             {
               if (index17 * 10 != this.game.Data.LocObj[this.LocNr].ProdPercent[prodslot])
               {
-                int[,] percentBut = this.PercentBut;
+                percentBut: Vec<i32> = this.PercentBut;
                 let mut index18: i32 = prodslot;
                 let mut index19: i32 = index17;
                 tsubpart =  ButtonPartClass::new(this.game.PERCENT[index17], 3);
@@ -315,7 +315,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int[,] percentBut = this.PercentBut;
+                percentBut: Vec<i32> = this.PercentBut;
                 let mut index20: i32 = prodslot;
                 let mut index21: i32 = index17;
                 tsubpart =  ButtonPartClass::new(this.game.PERCENT[index17]);
@@ -325,7 +325,7 @@ namespace WindowsApplication1
             }
             else
             {
-              int[,] percentBut = this.PercentBut;
+              percentBut: Vec<i32> = this.PercentBut;
               let mut index22: i32 = prodslot;
               let mut index23: i32 = index17;
               tsubpart =  ButtonPartClass::new(this.game.PERCENT[index17], 4);
@@ -463,11 +463,11 @@ namespace WindowsApplication1
           let mut nr1: i32 = -1;
           let mut nr2: i32 = -1;
           DrawMod.DrawRectangle( Expression, 814, 4, 136, 101,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
-          Bitmap bitmap;
+          bitmap: Bitmap;
           Rectangle rectangle1;
           Rectangle rectangle2;
-          int index28;
-          int num8;
+          index28: i32;
+          num8: i32;
           if (this.game.Data.ItemTypeObj[this.detailnr].IsResPt & this.game.Data.ItemTypeObj[this.detailnr].UseSFType == -1)
           {
              let mut local1: &Graphics = &Expression;
@@ -599,12 +599,12 @@ namespace WindowsApplication1
           let mut rect2: &Rectangle = &rectangle1
           name: String = this.game.Data.ItemTypeObj[this.detailnr].Name;
           DrawMod.MakeFullBoxVic2( local5, rect1, "ITEM TYPE", rect2, name);
-          int x1;
-          int y1;
-          int width1;
-          int height;
-          int index33;
-          int index34;
+          x1: i32;
+          y1: i32;
+          width1: i32;
+          height: i32;
+          index33: i32;
+          index34: i32;
           if (nr1 > -1)
           {
             let mut index35: i32 = this.game.Data.Turn;
@@ -834,9 +834,9 @@ namespace WindowsApplication1
         Color.FromArgb( byte.MaxValue, 120, 120, 160);
         Color.FromArgb( byte.MaxValue, 200, 200, 200);
         Color.FromArgb( byte.MaxValue, 130, 130, 130);
-        Color white = Color.White;
-        Color black = Color.Black;
-        Font font = Font::new("Arial", 13f, FontStyle.Bold, GraphicsUnit.Pixel);
+        white: Color = Color.White;
+        black: Color = Color.Black;
+        font: Font = Font::new("Arial", 13f, FontStyle.Bold, GraphicsUnit.Pixel);
         if (this.game.Data.Round > 0)
         {
           tsubpart =  new TextButtonPartClass(!this.game.EditObj.ProdFlap ? "See Production Overview" : "Close Production Overview", 200, tBackbitmap: ( this.OwnBitmap), bbx: 355, bby: 162);
@@ -854,7 +854,7 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
@@ -1063,7 +1063,7 @@ label_36:
       return windowReturnClass;
     }
 
-    pub void FixProdPercent(int tempslotty)
+    pub fn FixProdPercent(tempslotty: i32)
     {
       int[] numArray1 = new int[4];
       int[] numArray2 = new int[4];
@@ -1097,7 +1097,7 @@ label_36:
       }
     }
 
-    pub void FixProdPercent2(int tempslotty)
+    pub fn FixProdPercent2(tempslotty: i32)
     {
       int[] numArray1 = new int[4];
       int[] numArray2 = new int[4];
