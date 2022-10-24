@@ -111,7 +111,7 @@ namespace WindowsApplication1
 
     pub fn View()
     {
-      libName: String = "SE_Data";
+      libName: String = "SE_Data".to_owned();
       let mut stringListById1: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID(libName, 148, 0, 0));
       let mut stringListById2: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID(libName, 144, 0, 0));
       let mut stringListById3: i32 =  self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[405]));
@@ -480,77 +480,77 @@ namespace WindowsApplication1
         {
           if (index2 == 0)
           {
-            str3 = "Block";
+            str3 = "Block".to_owned();
             num1 = -1;
           }
           if (index2 == 1)
           {
-            str3 = "None";
+            str3 = "None".to_owned();
             num1 = 0;
           }
           if (index2 == 2)
           {
-            str3 = "50";
+            str3 = "50".to_owned();
             num1 = 50;
           }
           if (index2 == 3)
           {
-            str3 = "100";
+            str3 = "100".to_owned();
             num1 = 100;
           }
           if (index2 == 4)
           {
-            str3 = "200";
+            str3 = "200".to_owned();
             num1 = 200;
           }
           if (index2 == 5)
           {
-            str3 = "500";
+            str3 = "500".to_owned();
             num1 = 500;
           }
           if (index2 == 6)
           {
-            str3 = "1K";
+            str3 = "1K".to_owned();
             num1 = 1000;
           }
           if (index2 == 7)
           {
-            str3 = "2K";
+            str3 = "2K".to_owned();
             num1 = 2000;
           }
           if (index2 == 8)
           {
-            str3 = "3K";
+            str3 = "3K".to_owned();
             num1 = 3000;
           }
           if (index2 == 9)
           {
-            str3 = "5K";
+            str3 = "5K".to_owned();
             num1 = 5000;
           }
           if (index2 == 10)
           {
-            str3 = "8K";
+            str3 = "8K".to_owned();
             num1 = 8000;
           }
           if (index2 == 11)
           {
-            str3 = "12K";
+            str3 = "12K".to_owned();
             num1 = 12000;
           }
           if (index2 == 12)
           {
-            str3 = "20K";
+            str3 = "20K".to_owned();
             num1 = 20000;
           }
           if (index2 == 13)
           {
-            str3 = "30K";
+            str3 = "30K".to_owned();
             num1 = 30000;
           }
           if (index2 == 14)
           {
-            str3 = "50K";
+            str3 = "50K".to_owned();
             num1 = 50000;
           }
           if (index2 == 0)
@@ -687,7 +687,7 @@ namespace WindowsApplication1
           do
           {
             if (index2 == 0)
-              str3 = "None";
+              str3 = "None".to_owned();
             if (index2 == 1)
               str3 = "20%";
             if (index2 == 2)
@@ -701,7 +701,7 @@ namespace WindowsApplication1
             if (index2 == 6)
               str3 = "95%";
             if (index2 == 7)
-              str3 = "All";
+              str3 = "All".to_owned();
             if (index2 == 0)
               color = Color.White;
             if (index2 == 1)

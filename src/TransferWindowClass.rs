@@ -375,12 +375,12 @@ namespace WindowsApplication1
           self.OptionsList2Id = 0;
         }
         Graphics.FromImage((Image) self.OwnBitmap);
-        string str;
+        str: String;
         if (self.game.EditObj.TransferLostType > 0)
           str = self.game.Data.SFTypeObj[self.game.EditObj.TransferLostType].Name;
         if (self.game.EditObj.TransferLostType == -2)
           str = "Supplies";
-        string txt;
+        txt: String;
         if (self.game.EditObj.TransferLostTransports > 0)
           txt = "Lost " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostQty)) + " " + str + " and " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostTransports)) + " transport troops due to enemy Anti-Cap.";
         else
@@ -472,7 +472,7 @@ namespace WindowsApplication1
               let mut tsubpart: SubPartClass =  new ATListSubPartClass(self.OptionsList2Obj, 8, 220, -1, self.game, tHeader: self.game.Data.UnitObj[self.unrT].Name, tbackbitmap: ( self.OwnBitmap), bbx: 515, bby: 30);
               self.OptionsList2Id = self.AddSubPart( tsubpart, 515, 30, 220, 176, 0);
             }
-            string txt1;
+            txt1: String;
             if (self.game.HandyFunctionsObj.HasUnitNavySF(self.unrT))
             {
               let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 1);
@@ -796,7 +796,7 @@ namespace WindowsApplication1
                 self.sliderID = self.AddSubPart( tsubpart8, 300, 75, 205, 40, 0);
               }
             }
-            string txt3;
+            txt3: String;
             if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.LandCost,  9999, false),  (self.seltheater != 1))))
             {
               txt3 = self.hq <= -1 ? "LandCap = " + Conversion.Str( integer1) : "LandCap = " + Conversion.Str( integer1) + " / " + Conversion.Str( Number2);
@@ -824,7 +824,7 @@ namespace WindowsApplication1
                 self.text4id = self.AddSubPart( tsubpart8, 800, 55, 190, 20, 0);
               }
             }
-            string txt4;
+            txt4: String;
             if (Operators.ConditionalCompareObjectLess(self.NavyCost,  9999, false))
             {
               if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(self.NavyCost,  0, false),  (self.seltheater == 1 & Number1 == 0))))
@@ -861,7 +861,7 @@ namespace WindowsApplication1
             }
             if ( self.game.Data.RuleVar[509] == 0.0)
             {
-              string txt5;
+              txt5: String;
               if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost,  9999, false),  ( self.game.Data.RuleVar[509] == 0.0))))
               {
                 txt5 = self.hq <= -1 ? "RailCap = " + Conversion.Str( integer3) : "RailCap = " + Conversion.Str( integer3) + " / " + Conversion.Str( Number4);

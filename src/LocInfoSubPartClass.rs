@@ -100,7 +100,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       if (self.mzcount <= -1)
         return -1;

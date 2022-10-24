@@ -81,7 +81,7 @@ namespace WindowsApplication1
      B3bTextId: i32;
      ItemTypeNr: i32;
      detailnr: i32;
-     string ss;
+     ss: String;
 
     pub ItemTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Item Types")
@@ -323,7 +323,7 @@ namespace WindowsApplication1
           let mut num: i32 =  this.AddSubPart( tsubpart3, 370, 90 + index2 * 20, 32, 16, 1);
           bgameslotid[index3] = num;
         }
-        string txt1;
+        txt1: String;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2] > -1)
           txt1 = "GameSlot: " + this.game.Data.GameSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeededQty[index2]);
         else
@@ -342,7 +342,7 @@ namespace WindowsApplication1
           let mut num2: i32 =  this.AddSubPart( tsubpart3, 370, 190 + index2 * 20, 32, 16, 1);
           bregimeslotid[index5] = num2;
         }
-        string txt2;
+        txt2: String;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2] > -1)
           txt2 = "RegimeSlot: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeededQty[index2]);
         else
@@ -361,7 +361,7 @@ namespace WindowsApplication1
           let mut num4: i32 =  this.AddSubPart( tsubpart3, 410, 300 + index2 * 20, 32, 16, 1);
           bregimeslotcostid[index7] = num4;
         }
-        string txt3;
+        txt3: String;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2] > -1)
           txt3 = "RegimeSlotCost: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCostQty[index2]);
         else
@@ -380,7 +380,7 @@ namespace WindowsApplication1
           let mut num6: i32 =  this.AddSubPart( tsubpart3, 370, 450 + index2 * 20, 32, 16, 1);
           bresId[index9] = num6;
         }
-        string txt4;
+        txt4: String;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2] > -1)
           txt4 = "ResField: " + this.game.Data.ResearchObj[this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]].Name + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]) + ") ";
         else

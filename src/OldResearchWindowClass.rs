@@ -56,7 +56,7 @@ namespace WindowsApplication1
      pregnr: i32;
      SimpleList SL;
      int[] minicard;
-     Bitmap[] tempbmp;
+     tempbmp: Vec<Bitmap>;
      main1: i32;
      main2: i32;
      main3: i32;
@@ -298,7 +298,7 @@ namespace WindowsApplication1
       num2: i32;
       if ( this.game.Data.RuleVar[502] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1)
       {
-        buttontext: String = "Cards";
+        buttontext: String = "Cards".to_owned();
         if (this.mainnr != 2)
         {
           let mut tsubpart: SubPartClass =  new TextButtonPartClass(buttontext, 150, "Click to see your cards",  this.OwnBitmap, num1, 60);
@@ -340,7 +340,7 @@ namespace WindowsApplication1
         this.Text5id = this.AddSubPart( tsubpart2, num4, 60, 150, 35, 1);
         num2 = num4 + 160;
       }
-      buttontext1: String = "Reports";
+      buttontext1: String = "Reports".to_owned();
       if ( this.game.Data.RuleVar[839] == 1.0)
         buttontext1 = Strings.UCase(buttontext1);
       if (this.mainnr != 4)
@@ -619,7 +619,7 @@ namespace WindowsApplication1
             TimeSpan timeSpan = new TimeSpan((this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[this.detailnr] - 1) * this.game.Data.AlternateRound, 0, 0, 0);
             dateTime2 = dateTime1.Add(timeSpan);
           }
-          string str1;
+          str1: String;
           str2: String = str1 + this.game.HandyFunctionsObj.GetMonth(dateTime2.Month) + " " + Strings.Trim(Conversion.Str( dateTime2.Day)) + " " + Strings.Trim(Conversion.Str( dateTime2.Year));
           DrawMod.DrawTextColoured( Expression1, "Played " + str2, Font::new("Times New Roman", 19f, FontStyle.Bold, GraphicsUnit.Pixel), 715, 625, Color.White);
         }
@@ -925,7 +925,7 @@ namespace WindowsApplication1
           if (this.detailnr == tdata)
             tlistselect = num1;
           let mut num2: i32 =  Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], "\r\n");
-          string str;
+          str: String;
           if (Information.IsNothing( num2) | num2 <= 0)
           {
             str = Strings.Left(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], 50) + "...";

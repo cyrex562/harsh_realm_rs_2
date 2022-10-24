@@ -67,7 +67,7 @@ namespace WindowsApplication1
      currentHisNr: i32;
      currentInstNr: i32;
      int[] ColIsVar;
-     string masterfileStart;
+     masterfileStart: String;
      oldTopX: i32;
      oldTopY: i32;
 
@@ -97,7 +97,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.cellinfoid);
         self.cellinfoid = 0;
       }
-      string txt;
+      txt: String;
       if (self.detaily == -1 | self.detailx == -1)
         txt = "No cell selected";
       else

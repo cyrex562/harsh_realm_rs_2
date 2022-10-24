@@ -27,7 +27,7 @@ namespace WindowsApplication1
       return (MapMatrix2Coordinate) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Width", this.Width);
       info.AddValue("Height", this.Height);

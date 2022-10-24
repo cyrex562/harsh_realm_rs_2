@@ -319,7 +319,7 @@ namespace WindowsApplication1
             let mut num1: i32 = this.SubPartID[index1];
             if (num1 == this.saveid)
             {
-              string str;
+              str: String;
               if (this.game.Data.Round == 0)
               {
                 tinitdir: String = this.game.AppPath + "scenarios\\";

@@ -438,7 +438,7 @@ namespace WindowsApplication1
       if (coordinate.x <= 2)
         tstring2 = "?";
       DrawMod.DrawText( toG, tstring2, self.game.gamefont1b, 41, 115);
-      string tstring3;
+      tstring3: String;
       if (self.game.HandyFunctionsObj.HasUnitNavySF(self.unr))
       {
         let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 1);
@@ -461,7 +461,7 @@ namespace WindowsApplication1
       if (!self.game.Data.UnitObj[self.unr].IsHQ)
       {
         DrawMod.DrawText( toG, "Acar", self.game.GameFont2, 128, 175);
-        string tstring4;
+        tstring4: String;
         if (self.game.Data.UnitObj[self.unr].Regime == self.game.Data.Turn)
         {
           let mut airCarryCapPts: i32 = self.game.HandyFunctionsObj.GetAirCarryCapPts(self.unr);

@@ -17,7 +17,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;

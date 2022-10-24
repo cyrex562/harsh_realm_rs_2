@@ -26,7 +26,7 @@ namespace WindowsApplication1
       return (ItemList) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("counter", this.list.Counter);
       if (this.list.Counter <= -1)

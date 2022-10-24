@@ -11,47 +11,47 @@ namespace WindowsApplication1
 {
   pub class SEUnitBigButtonPartClass : SubPartClass
   {
-     string description;
+     description: String;
      bool active;
      unr: i32;
 
-    pub SEUnitBigButtonPartClass(tUnr: i32, string tDescript, bool tactive)
+    pub SEUnitBigButtonPartClass(tUnr: i32, tDescript: String, bool tactive)
       : base(93, 97)
     {
-      this.Descript = tDescript;
-      this.active = tactive;
-      this.unr = tUnr;
+      self.Descript = tDescript;
+      self.active = tactive;
+      self.unr = tUnr;
     }
 
     pub Paint: Bitmap()
     {
-      Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
+      Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       bitmap: Bitmap;
-      if (!this.active)
+      if (!self.active)
       {
          let mut local1: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBED);
          let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local3: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBEDHIGH);
          let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 0, 0);
       }
-      DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);
+      DrawMod.TGame.CustomBitmapObj.DrawUnitBig(self.unr, toG: graphics, tx: 10, ty: 11);
       if (!Information.IsNothing( graphics))
         graphics.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
 
     pub PaintOverlay: Bitmap()
     {
-      Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
+      Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       bitmap: Bitmap;
-      if (!this.active)
+      if (!self.active)
       {
          let mut local1: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBED);
@@ -62,17 +62,17 @@ namespace WindowsApplication1
          let mut local4: &Bitmap = &bitmap;
         DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
       }
-      if (this.active)
+      if (self.active)
       {
          let mut local5: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBEDHIGH);
          let mut local6: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local5,  local6, 0, 0);
       }
-      DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);
+      DrawMod.TGame.CustomBitmapObj.DrawUnitBig(self.unr, toG: graphics, tx: 10, ty: 11);
       if (!Information.IsNothing( graphics))
         graphics.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
   }
 }

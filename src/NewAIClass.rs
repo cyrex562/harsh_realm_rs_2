@@ -5228,7 +5228,7 @@ label_100:;
       }
     }
 
-    pub GetEnemyOnArea: i32(area: i32)
+    pub fn GetEnemyOnArea(area: i32) -> i32
     {
       let mut areaCount: i32 = this.AreaCount;
       enemyOnArea: i32;
@@ -5557,7 +5557,7 @@ label_100:;
       }
     }
 
-    pub GetPowerPointsUnderCommand: i32(hq: i32)
+    pub fn GetPowerPointsUnderCommand(hq: i32) -> i32
     {
       let mut pointsUnderCommand: i32 = 0;
       bool[] flagArray = new bool[this.GroupCounter + 1];
@@ -5582,7 +5582,7 @@ label_100:;
       return pointsUnderCommand;
     }
 
-    pub GetGroup: i32(his: i32)
+    pub fn GetGroup(his: i32) -> i32
     {
       let mut groupCounter: i32 = this.GroupCounter;
       for (let mut group: i32 = 0; group <= groupCounter; group += 1)
@@ -5593,7 +5593,7 @@ label_100:;
       return -1;
     }
 
-    pub GetRealGroupHQ: i32(grp: i32)
+    pub fn GetRealGroupHQ(grp: i32) -> i32
     {
       let mut realGroupHq: i32 = this.GetGroupHQ(grp);
       if (realGroupHq > -1 && !this.game.Data.UnitObj[realGroupHq].IsHQ)
@@ -5601,7 +5601,7 @@ label_100:;
       return realGroupHq;
     }
 
-    pub GetGroupHQ: i32(grp: i32)
+    pub fn GetGroupHQ(grp: i32) -> i32
     {
       let mut groupHq1: i32 = -1;
       if (grp == -1)
@@ -5638,7 +5638,7 @@ label_100:;
       return groupHq1;
     }
 
-    pub GetGroupUnits: i32(grp: i32)
+    pub fn GetGroupUnits(grp: i32) -> i32
     {
       let mut groupUnits: i32 = 0;
       if (grp == -1)
@@ -5652,7 +5652,7 @@ label_100:;
       return groupUnits;
     }
 
-    pub GetLargestArmy: i32()
+    pub fn GetLargestArmy() -> i32
     {
       int[] numArray1 = new int[this.game.Data.RegimeCounter + 1];
       float num1 = 0.8f +  new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
@@ -5700,7 +5700,7 @@ label_100:;
       return nr;
     }
 
-    pub GetLargestEnemy: i32()
+    pub fn GetLargestEnemy() -> i32
     {
       int[] numArray1 = new int[this.game.Data.RegimeCounter + 1];
       float num1 = 0.8f +  new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
@@ -5769,7 +5769,7 @@ label_100:;
 
     pub CanBeStrategiclyTransferred: bool(unr: i32) => true;
 
-    pub GetBestCapHQ: i32(regnr: i32)
+    pub fn GetBestCapHQ(regnr: i32) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
@@ -5838,7 +5838,7 @@ label_100:;
       return areaToAreaPath;
     }
 
-    pub string GetAreaName(nr: i32, bool withnumber = true)
+    pub GetAreaName: String(nr: i32, bool withnumber = true)
     {
       if (nr == -1)
         return "-1";
@@ -5961,9 +5961,9 @@ label_100:;
       return closeFriendlyRoadHex;
     }
 
-    pub GetGameDataTurn: i32() => this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime > -1 ? this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime : this.game.Data.Turn;
+    pub fn GetGameDataTurn() -> i32 => this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime > -1 ? this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime : this.game.Data.Turn;
 
-    pub GetRegime: i32(nr: i32)
+    pub fn GetRegime(nr: i32) -> i32
     {
       if (nr == -1)
         return -1;
@@ -6065,7 +6065,7 @@ label_100:;
       }
     }
 
-    pub GetRandomCorpsGroup: i32()
+    pub fn GetRandomCorpsGroup() -> i32
     {
       let mut groupCounter1: i32 = this.GroupCounter;
       num1: i32;
@@ -6089,7 +6089,7 @@ label_100:;
       return -1;
     }
 
-    pub GetHighestFuzzyVPGroup: i32(forgroup: i32)
+    pub fn GetHighestFuzzyVPGroup(forgroup: i32) -> i32
     {
       let mut highestFuzzyVpGroup: i32 = -1;
       let mut index1: i32 = this.TempGroupHQ[forgroup];
@@ -6153,7 +6153,7 @@ label_100:;
       return highestFuzzyVpGroup;
     }
 
-    pub GetAverageHexSpeedofCorpsUnit: i32(grp: i32, bool friendlyter)
+    pub fn GetAverageHexSpeedofCorpsUnit(grp: i32, bool friendlyter) -> i32
     {
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
@@ -6172,7 +6172,7 @@ label_100:;
       return num2 == 0 ? 0 :  Math.Round(Conversion.Int(100.0 /   Math.Round( num1 /  num2)));
     }
 
-    pub GetAverageMoveTypeCorpsUnit: i32(grp: i32)
+    pub fn GetAverageMoveTypeCorpsUnit(grp: i32) -> i32
     {
       let mut num1: i32 = 0;
       int[] numArray1 = new int[100];
@@ -6207,7 +6207,7 @@ label_100:;
       return moveTypeCorpsUnit;
     }
 
-    pub GetHexSpeedofUnit: i32(i: i32, bool friendlyter)
+    pub fn GetHexSpeedofUnit(i: i32, bool friendlyter) -> i32
     {
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
@@ -6237,7 +6237,7 @@ label_100:;
       return false;
     }
 
-    pub AreaSeaConnectSeaNumber: i32(nr: i32, nr2: i32)
+    pub fn AreaSeaConnectSeaNumber(nr: i32, nr2: i32) -> i32
     {
       let mut seaCount: i32 = this.SeaCount;
       for (let mut index: i32 = 1; index <= seaCount; index += 1)
@@ -8034,7 +8034,7 @@ label_100:;
       }
     }
 
-    pub GetStrategyScore: i32( SimpleList Straty, bool makelog, float Progress)
+    pub fn GetStrategyScore( SimpleList Straty, bool makelog, float Progress) -> i32
     {
       int[] numArray1 = new int[this.AreaCount + 1];
       int[] numArray2 = new int[this.AreaCount + 1];
@@ -8386,7 +8386,7 @@ label_100:;
       return Number14;
     }
 
-    pub ClosenessToFrontScore: i32(bool makelog)
+    pub fn ClosenessToFrontScore(bool makelog) -> i32
     {
       let mut groupCounter: i32 = this.GroupCounter;
       frontScore: i32;
@@ -8427,7 +8427,7 @@ label_100:;
       return frontScore;
     }
 
-    pub ClosenessToCurrentFrontScore: i32(bool makelog)
+    pub fn ClosenessToCurrentFrontScore(bool makelog) -> i32
     {
       let mut groupCounter: i32 = this.GroupCounter;
       currentFrontScore: i32;
@@ -8468,7 +8468,7 @@ label_100:;
       return currentFrontScore;
     }
 
-    pub GetAreaBorderSteps: i32(from: i32, too: i32, maxstep: i32)
+    pub fn GetAreaBorderSteps(from: i32, too: i32, maxstep: i32) -> i32
     {
       int[] numArray = new int[this.AreaCount + 1];
       numArray[from] = 1;
@@ -8503,7 +8503,7 @@ label_100:;
       return 9999;
     }
 
-    pub GetAreaNarrowBorderSteps: i32(from: i32, too: i32, maxstep: i32)
+    pub fn GetAreaNarrowBorderSteps(from: i32, too: i32, maxstep: i32) -> i32
     {
       let mut areaCount1: i32 = this.AreaCount;
       for (let mut index: i32 = 0; index <= areaCount1; index += 1)
@@ -8539,7 +8539,7 @@ label_100:;
       return 9999;
     }
 
-    pub GetAverageCorpsEntrench: i32(grp: i32, let mut CatOnly: i32 = -1)
+    pub fn GetAverageCorpsEntrench(grp: i32, let mut CatOnly: i32 = -1) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       num1: i32;
@@ -8561,7 +8561,7 @@ label_100:;
       return num2 == 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
-    pub GetAverageAreaEntrench: i32(Area: i32, let mut CatOnly: i32 = -1)
+    pub fn GetAverageAreaEntrench(Area: i32, let mut CatOnly: i32 = -1) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       num1: i32;
@@ -8740,7 +8740,7 @@ label_100:;
       return scoreForUnusedCorps;
     }
 
-    pub GetStrategyScoreForVP: i32(bool makelog, round: i32)
+    pub fn GetStrategyScoreForVP(bool makelog, round: i32) -> i32
     {
       let mut tempTotVp: i32 = this.TempTotVP;
       let mut tempCurVp: i32 = this.TempCurVP;
@@ -8858,7 +8858,7 @@ label_100:;
       return strategyScoreForVp;
     }
 
-    pub GetClosestAreaThroughSupply: i32(grp: i32)
+    pub fn GetClosestAreaThroughSupply(grp: i32) -> i32
     {
       numArray1: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       numArray2: Vec<i32> = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -8919,7 +8919,7 @@ label_100:;
       return areaThroughSupply;
     }
 
-    pub GetStartArea: i32(grp: i32)
+    pub fn GetStartArea(grp: i32) -> i32
     {
       Coordinate averageCorpsUnitCoord = this.GetAverageCorpsUnitCoord(grp, ReturnRoadHex: true);
       if (this.game.Data.Round == 1)
@@ -8940,7 +8940,7 @@ label_100:;
       return startArea;
     }
 
-    pub GetHisAreaAsAIArea: i32(hisarea: i32)
+    pub fn GetHisAreaAsAIArea(hisarea: i32) -> i32
     {
       let mut areaCount: i32 = this.AreaCount;
       for (let mut hisAreaAsAiArea: i32 = 1; hisAreaAsAiArea <= areaCount; hisAreaAsAiArea += 1)
@@ -8951,7 +8951,7 @@ label_100:;
       return -1;
     }
 
-    pub GetTotalVPonMap: i32(bool OnlyVP = false)
+    pub fn GetTotalVPonMap(bool OnlyVP = false) -> i32
     {
       totalVponMap: i32;
       if (this.Attacker | OnlyVP)
@@ -9009,7 +9009,7 @@ label_100:;
       return totalVponMap;
     }
 
-    pub GetStartVPonMap: i32(bool OnlyVP = false)
+    pub fn GetStartVPonMap(bool OnlyVP = false) -> i32
     {
       startVponMap: i32;
       if (this.Attacker | OnlyVP)
@@ -9316,7 +9316,7 @@ label_100:;
       return 0;
     }
 
-    pub GetAreaNeighbourCount: i32(nr: i32)
+    pub fn GetAreaNeighbourCount(nr: i32) -> i32
     {
       let mut areaNeighbourCount: i32 = 0;
       let mut upperBound: i32 = this.AreaCenter.GetUpperBound(0);
@@ -9328,7 +9328,7 @@ label_100:;
       return areaNeighbourCount;
     }
 
-    pub GetAreaEnemyNeighbourCount: i32(nr: i32)
+    pub fn GetAreaEnemyNeighbourCount(nr: i32) -> i32
     {
       let mut enemyNeighbourCount: i32 = 0;
       let mut num: i32 = this.AreaSupplyBorderCount[nr];
@@ -9349,7 +9349,7 @@ label_100:;
       return enemyNeighbourCount;
     }
 
-    pub GetAreaEnemyNeighbourCountFuzzyVP: i32(nr: i32)
+    pub fn GetAreaEnemyNeighbourCountFuzzyVP(nr: i32) -> i32
     {
       let mut neighbourCountFuzzyVp: i32 = 0;
       let mut num: i32 = this.AreaSupplyBorderCount[nr];
@@ -9365,7 +9365,7 @@ label_100:;
       return neighbourCountFuzzyVp;
     }
 
-    pub GetAreaFriendlyNeighbourCount: i32(nr: i32)
+    pub fn GetAreaFriendlyNeighbourCount(nr: i32) -> i32
     {
       let mut friendlyNeighbourCount: i32 = 0;
       let mut num: i32 = this.AreaSupplyBorderCount[nr];
@@ -9377,7 +9377,7 @@ label_100:;
       return friendlyNeighbourCount;
     }
 
-    pub GetAreaFriendlyNeighbourCount2: i32(nr: i32)
+    pub fn GetAreaFriendlyNeighbourCount2(nr: i32) -> i32
     {
       let mut friendlyNeighbourCount2: i32 = 0;
       let mut num: i32 = this.AreaSupplyBorderCount[nr];
@@ -9389,7 +9389,7 @@ label_100:;
       return friendlyNeighbourCount2;
     }
 
-    pub GetAreaFriendlyNeighbourFuzzyVPCount: i32(nr: i32)
+    pub fn GetAreaFriendlyNeighbourFuzzyVPCount(nr: i32) -> i32
     {
       let mut neighbourFuzzyVpCount: i32 = 0;
       let mut num: i32 = this.AreaSupplyBorderCount[nr];
@@ -9407,7 +9407,7 @@ label_100:;
       return this.GetRegime(this.game.Data.MapObj[0].HexObj[this.AreaCenter[i].x, this.AreaCenter[i].y].Regime) == this.GetRegime(regnr) && location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].MaxProd > 0;
     }
 
-    pub GetScoreForReconquestOfImportance: i32()
+    pub fn GetScoreForReconquestOfImportance() -> i32
     {
       let mut reconquestOfImportance: i32 = 0;
       if ( this.game.Data.RuleVar[335] > 0.0)
@@ -9925,7 +9925,7 @@ label_38:
       }
     }
 
-    pub GetRandomUnit: i32(regnr: i32)
+    pub fn GetRandomUnit(regnr: i32) -> i32
     {
       num: i32;
       for (; num < 100; num += 1)
@@ -10266,7 +10266,7 @@ label_38:
       }
     }
 
-    pub GetSameCoordinateMarker: i32(unr: i32, SimpleList tlist)
+    pub fn GetSameCoordinateMarker(unr: i32, SimpleList tlist) -> i32
     {
       let mut counter: i32 = tlist.Counter;
       for (let mut coordinateMarker: i32 = 0; coordinateMarker <= counter; coordinateMarker += 1)
@@ -10423,7 +10423,7 @@ label_38:
       return bottleneckMarkers;
     }
 
-    pub ReturnShockAndAweMarker: i32(SimpleList tMarkerlist, float trnd, UnitSlot: i32, unr: i32)
+    pub fn ReturnShockAndAweMarker(SimpleList tMarkerlist, float trnd, UnitSlot: i32, unr: i32) -> i32
     {
       let mut num1: i32 = 0;
       let mut counter1: i32 = this.MarkerList.Counter;
@@ -11732,7 +11732,7 @@ label_38:
       }
     }
 
-    pub GetSameTargetAsOtherUnit: i32(unitslot: i32, unr: i32)
+    pub fn GetSameTargetAsOtherUnit(unitslot: i32, unr: i32) -> i32
     {
       let mut moveMatrixCounter1: i32 = this.MoveMatrixCounter;
       num1: i32;
@@ -11758,7 +11758,7 @@ label_38:
       return -1;
     }
 
-    pub GetNormalDefensiveCenterMarker: i32(unr: i32, unitslot: i32)
+    pub fn GetNormalDefensiveCenterMarker(unr: i32, unitslot: i32) -> i32
     {
       SimpleList markerList = this.MarkerList;
       let mut aiDefend: i32 = this.game.Data.UnitObj[unr].AIDefend;
@@ -11774,7 +11774,7 @@ label_38:
       return -1;
     }
 
-    pub GetNormalFallbackCenterMarker: i32(unr: i32, unitslot: i32)
+    pub fn GetNormalFallbackCenterMarker(unr: i32, unitslot: i32) -> i32
     {
       SimpleList markerList = this.MarkerList;
       let mut aiFallback: i32 = this.game.Data.UnitObj[unr].AIFallback;
@@ -11790,7 +11790,7 @@ label_38:
       return -1;
     }
 
-    pub GetRandomSameTarget: i32(SimpleList TempMove, TempMarker: i32, UnitSlot: i32, Unr: i32)
+    pub fn GetRandomSameTarget(SimpleList TempMove, TempMarker: i32, UnitSlot: i32, Unr: i32) -> i32
     {
       SimpleList Expression;
       if (this.game.Data.UnitObj[Unr].TempCategory == 1)
@@ -12243,7 +12243,7 @@ label_38:
         this.MoveMatrixUnitMarker[index13] = this.TempMoveMatrixUnitMarker[index13];
     }
 
-    pub GetMarkerForSelfTarget: i32(SimpleList TempMove, TempMarker: i32, UnitSlot: i32, Unr: i32)
+    pub fn GetMarkerForSelfTarget(SimpleList TempMove, TempMarker: i32, UnitSlot: i32, Unr: i32) -> i32
     {
       SimpleList Expression;
       if (this.game.Data.UnitObj[Unr].TempCategory == 1)
@@ -12267,7 +12267,7 @@ label_38:
       return TempMarker;
     }
 
-    pub GetMarkerForCoordinate: i32(Unr: i32, X: i32, y: i32)
+    pub fn GetMarkerForCoordinate(Unr: i32, X: i32, y: i32) -> i32
     {
       SimpleList Expression;
       if (this.game.Data.UnitObj[Unr].TempCategory == 1)
@@ -12293,7 +12293,7 @@ label_38:
       return simpleList.Counter > -1 ? simpleList.Id[0] : -1;
     }
 
-    pub GetClosestMarkerForCoordinateTarget: i32(movematrixnr: i32, X: i32, y: i32)
+    pub fn GetClosestMarkerForCoordinateTarget(movematrixnr: i32, X: i32, y: i32) -> i32
     {
       let mut unr: i32 = this.MoveMatrixUnit[movematrixnr];
       SimpleList Expression;
@@ -12324,7 +12324,7 @@ label_38:
       return simpleList.Counter > -1 ? simpleList.Id[0] : -1;
     }
 
-    pub GetMarkerForClosestEnemy: i32(Unr: i32, AverageSupplyPercentage: i32)
+    pub fn GetMarkerForClosestEnemy(Unr: i32, AverageSupplyPercentage: i32) -> i32
     {
       SimpleList Expression;
       if (this.game.Data.UnitObj[Unr].TempCategory == 1)
@@ -12371,7 +12371,7 @@ label_38:
       return simpleList.Counter > -1 ? simpleList.Id[0] : -1;
     }
 
-    pub GetMoveScore: i32(SimpleList TempMove, bool MakeLog, bool quicktest = false)
+    pub fn GetMoveScore(SimpleList TempMove, bool MakeLog, bool quicktest = false) -> i32
     {
       if (this.OpGroup <= this.CorpsTopRatio.GetUpperBound(0))
       {
@@ -12696,7 +12696,7 @@ label_38:
       return Number4;
     }
 
-    pub GetPercentTempUnits: i32()
+    pub fn GetPercentTempUnits() -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       num1: i32;
@@ -12713,7 +12713,7 @@ label_38:
       return num1 == 0 ? 0 :  Math.Round(100.0 * ( num2 /  num1));
     }
 
-    pub GetAbsoluteTempUnits: i32(grp: i32)
+    pub fn GetAbsoluteTempUnits(grp: i32) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       absoluteTempUnits: i32;
@@ -12738,7 +12738,7 @@ label_38:
       return absoluteTempUnits;
     }
 
-    pub GetAverageUnitPowerPointsAbsolute: i32()
+    pub fn GetAverageUnitPowerPointsAbsolute() -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       num1: i32;
@@ -12756,7 +12756,7 @@ label_38:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageEnemyUnitPowerPointsAbsolute: i32()
+    pub fn GetAverageEnemyUnitPowerPointsAbsolute() -> i32
     {
       num1: i32;
       num2: i32;
@@ -12790,7 +12790,7 @@ label_38:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetEnemyEncircledScore: i32( SimpleList tempMove, bool makelog)
+    pub fn GetEnemyEncircledScore( SimpleList tempMove, bool makelog) -> i32
     {
       let mut mapWidth1: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index1: i32 = 0; index1 <= mapWidth1; index1 += 1)
@@ -12950,7 +12950,7 @@ label_38:
       return enemyEncircledScore;
     }
 
-    pub GetOurSelvesEncircledScore: i32( SimpleList tempMove, bool makelog, bool IsTest = false)
+    pub fn GetOurSelvesEncircledScore( SimpleList tempMove, bool makelog, bool IsTest = false) -> i32
     {
       if (makelog)
         this.AddLog("Get Ourselves Encircled Score");
@@ -13469,7 +13469,7 @@ label_38:
       }
     }
 
-    pub GetCounterMoveScore: i32( SimpleList tempMove, bool makelog)
+    pub fn GetCounterMoveScore( SimpleList tempMove, bool makelog) -> i32
     {
       let mut groupHq: i32 = this.GetGroupHQ(this.OpGroup);
       if (Operators.CompareString(this.GroupName[this.OpGroup], "IL Corps", false) == 0)
@@ -13696,7 +13696,7 @@ label_38:
       return counterMoveScore;
     }
 
-    pub GetCounterAttackScore: i32( SimpleList tempMove, bool makelog)
+    pub fn GetCounterAttackScore( SimpleList tempMove, bool makelog) -> i32
     {
       int[] numArray1 = new int[this.game.Data.UnitCounter + 1];
       int[] numArray2 = new int[this.game.Data.UnitCounter + 1];
@@ -14129,7 +14129,7 @@ label_38:
       return Number1;
     }
 
-    pub GetScoreForMovingIn: i32( SimpleList tempMove, bool makelog)
+    pub fn GetScoreForMovingIn( SimpleList tempMove, bool makelog) -> i32
     {
       let mut groupHq: i32 = this.GetGroupHQ(this.OpGroup);
       let mut powerPointsAbsolute: i32 = this.GetAverageUnitPowerPointsAbsolute();
@@ -14396,7 +14396,7 @@ label_38:
       return scoreForMovingIn;
     }
 
-    pub getscoreforhexoccupation_hq: i32(pts: i32, bool makelog)
+    pub fn getscoreforhexoccupation_hq(pts: i32, bool makelog) -> i32
     {
       let mut index1: i32 = this.GetGroupHQ(this.OpGroup);
       let mut moveMatrixCounter: i32 = this.MoveMatrixCounter;
@@ -14607,7 +14607,7 @@ label_38:
       }
     }
 
-    pub getscoreforhexoccupation_enemydistance: i32(pts: i32, bool makelog)
+    pub fn getscoreforhexoccupation_enemydistance(pts: i32, bool makelog) -> i32
     {
       let mut powerPointsAbsolute: i32 = this.GetAverageEnemyUnitPowerPointsAbsolute();
       let mut moveMatrixCounter: i32 = this.MoveMatrixCounter;
@@ -14724,7 +14724,7 @@ label_38:
       return pts;
     }
 
-    pub getscoreforhexoccupation_movemarkers: i32(pts: i32, bool makelog)
+    pub fn getscoreforhexoccupation_movemarkers(pts: i32, bool makelog) -> i32
     {
       let mut groupHq: i32 = this.GetGroupHQ(this.OpGroup);
       Coordinate coordinate;
@@ -14791,7 +14791,7 @@ label_38:
       return pts;
     }
 
-    pub GetScoreForHexOccupationAndHQ2: i32( SimpleList TempMove, bool makelog)
+    pub fn GetScoreForHexOccupationAndHQ2( SimpleList TempMove, bool makelog) -> i32
     {
       if (this.HexOccupyMatrix.GetUpperBound(0) < this.game.Data.MapObj[0].MapWidth)
         this.HexOccupyMatrix = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -14823,7 +14823,7 @@ label_38:
       return this.getscoreforhexoccupation_movemarkers(this.getscoreforhexoccupation_enemydistance(this.getscoreforhexoccupation_hq(pts, makelog), makelog), makelog);
     }
 
-    pub GetScoreForEntrench: i32( SimpleList TempMove, bool makelog)
+    pub fn GetScoreForEntrench( SimpleList TempMove, bool makelog) -> i32
     {
       if (this.HexOccupyMatrix.GetUpperBound(0) < this.game.Data.MapObj[0].MapWidth)
         this.HexOccupyMatrix = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -14932,7 +14932,7 @@ label_38:
       return scoreForEntrench;
     }
 
-    pub GetScoreForAttacks: i32(bool Prognosis, bool MakeLog)
+    pub fn GetScoreForAttacks(bool Prognosis, bool MakeLog) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       for (let mut index: i32 = 0; index <= unitCounter; index += 1)
@@ -15037,7 +15037,7 @@ label_38:
       return scoreForAttacks;
     }
 
-    pub GetScoreForContainment: i32(ix: i32, iy: i32, bool makelog)
+    pub fn GetScoreForContainment(ix: i32, iy: i32, bool makelog) -> i32
     {
       let mut Number: i32 = 0;
       let mut attackPowerPointsOn: i32 = this.GetPrognosedLandAttackPowerPointsOn(ix, iy, FullAp: true, ForContainment: true);
@@ -15052,7 +15052,7 @@ label_38:
       return Number;
     }
 
-    pub GetScoreForAttack: i32(ix: i32, iy: i32, bool Prognosis, bool MakeLog)
+    pub fn GetScoreForAttack(ix: i32, iy: i32, bool Prognosis, bool MakeLog) -> i32
     {
       let mut Number1: i32 = 0;
       let mut num1: i32 = 0;
@@ -15375,7 +15375,7 @@ label_38:
       return num2 > 0 & num3 > 0 && num3 != num2 & !(num3 == num1 & num1 > 0) ? 0.0f : 1f;
     }
 
-    pub GetScoreForArtAttack: i32(ix: i32, iy: i32, bool Prognosis, bool MakeLog)
+    pub fn GetScoreForArtAttack(ix: i32, iy: i32, bool Prognosis, bool MakeLog) -> i32
     {
       let mut num1: i32 = 0;
       attackPowerPointsOn: i32;
@@ -15441,7 +15441,7 @@ label_38:
       return  Math.Round( ( Number / (8f * this.CONST_ARTMULTI)));
     }
 
-    pub GetScoreForAirAttack: i32(ix: i32, iy: i32, bool Prognosis, bool MakeLog)
+    pub fn GetScoreForAirAttack(ix: i32, iy: i32, bool Prognosis, bool MakeLog) -> i32
     {
       let mut num1: i32 = 0;
       if (ix == -1 | iy == -1)
@@ -15513,7 +15513,7 @@ label_38:
       return  Math.Round( ( Number / (8f * this.CONST_AIRMULTI)));
     }
 
-    pub GetFreeAP: i32(bool ModifiedForStrength)
+    pub fn GetFreeAP(bool ModifiedForStrength) -> i32
     {
       let mut unitCounter1: i32 = this.game.Data.UnitCounter;
       num1: i32;
@@ -15614,7 +15614,7 @@ label_38:
       return num2 == 0 |  num1 == 0.0 ? 1f : num1 /  num2;
     }
 
-    pub GetDivisionalPower: i32(unr: i32, grp: i32)
+    pub fn GetDivisionalPower(unr: i32, grp: i32) -> i32
     {
       let mut divisionalPower: i32 = 0;
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
@@ -15669,7 +15669,7 @@ label_38:
       return defendingPowerPointsOn;
     }
 
-    pub GetAverageSupplyConsume: i32(x: i32, y: i32)
+    pub fn GetAverageSupplyConsume(x: i32, y: i32) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
       num1: i32;
@@ -15688,7 +15688,7 @@ label_38:
       return  Math.Round( num2 /  num1);
     }
 
-    pub GetCurrentDefendingStackOn: i32(x: i32, y: i32, bool Prognosis = false, bool WithoutEntrench = false)
+    pub fn GetCurrentDefendingStackOn(x: i32, y: i32, bool Prognosis = false, bool WithoutEntrench = false) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
       defendingStackOn: i32;
@@ -15716,7 +15716,7 @@ label_38:
       return defendingStackOn;
     }
 
-    pub GetCurrentDefendingPowerPointstempdampercent: i32(x: i32, y: i32, bool Prognosis = false)
+    pub fn GetCurrentDefendingPowerPointstempdampercent(x: i32, y: i32, bool Prognosis = false) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
       num1: i32;
@@ -15739,7 +15739,7 @@ label_38:
       return pointstempdampercent;
     }
 
-    pub GetPrognosedDefendingPowerPointsOnOnlyPower: i32(x: i32, y: i32)
+    pub fn GetPrognosedDefendingPowerPointsOnOnlyPower(x: i32, y: i32) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       pointsOnOnlyPower: i32;
@@ -15754,7 +15754,7 @@ label_38:
       return pointsOnOnlyPower;
     }
 
-    pub GetRealDefendingPowerPointsOnOnlyPower: i32(x: i32, y: i32)
+    pub fn GetRealDefendingPowerPointsOnOnlyPower(x: i32, y: i32) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       pointsOnOnlyPower: i32;
@@ -16026,7 +16026,7 @@ label_38:
       return enemyStackPointsOn;
     }
 
-    pub GetAIRolePercent: i32(unr: i32, rolenr: i32)
+    pub fn GetAIRolePercent(unr: i32, rolenr: i32) -> i32
     {
       let mut sfCount: i32 = this.game.Data.UnitObj[unr].SFCount;
       num1: i32;
@@ -16042,7 +16042,7 @@ label_38:
       return num1 == 0 ? 0 :  Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
-    pub GetReinforcementTypePercent: i32(unr: i32, rolenr: i32)
+    pub fn GetReinforcementTypePercent(unr: i32, rolenr: i32) -> i32
     {
       let mut sfCount: i32 = this.game.Data.UnitObj[unr].SFCount;
       num1: i32;
@@ -16387,7 +16387,7 @@ label_38:
       return attackPowerPointsOn;
     }
 
-    pub GetSlowestAirSpeed: i32(unr: i32)
+    pub fn GetSlowestAirSpeed(unr: i32) -> i32
     {
       let mut num1: i32 = -1;
       let mut sfCount: i32 = this.game.Data.UnitObj[unr].SFCount;
@@ -16404,7 +16404,7 @@ label_38:
       return num1 == -1 ? 999 : num1;
     }
 
-    pub GetRealLandAttackPowerPointsOn: i32(x: i32, y: i32, bool adjustedforap = false)
+    pub fn GetRealLandAttackPowerPointsOn(x: i32, y: i32, bool adjustedforap = false) -> i32
     {
       UnitList unitList1 = UnitList::new();
       let mut attackPowerPointsOn: i32 = 0;
@@ -16578,7 +16578,7 @@ label_38:
       return attackPowerPointsOn;
     }
 
-    pub GetRealLandArtAttackPowerPointsOn: i32(x: i32, y: i32, bool adjustedforap = false)
+    pub fn GetRealLandArtAttackPowerPointsOn(x: i32, y: i32, bool adjustedforap = false) -> i32
     {
       UnitList unitList = UnitList::new();
       bool[] flagArray = new bool[this.game.Data.UnitCounter + 1];
@@ -16635,7 +16635,7 @@ label_38:
       return attackPowerPointsOn;
     }
 
-    pub JoinUnitsInLandAttack: i32(x: i32, y: i32,  UnitList TempUnitList)
+    pub fn JoinUnitsInLandAttack(x: i32, y: i32,  UnitList TempUnitList) -> i32
     {
       let mut tfacing: i32 = 1;
       do
@@ -16657,7 +16657,7 @@ label_38:
       return num;
     }
 
-    pub JoinUnitsArtilleryAttack: i32(x: i32, y: i32,  UnitList TempUnitList)
+    pub fn JoinUnitsArtilleryAttack(x: i32, y: i32,  UnitList TempUnitList) -> i32
     {
       let mut tfacing1: i32 = 1;
       do
@@ -16689,7 +16689,7 @@ label_38:
       return num;
     }
 
-    pub JoinUnitsAirAttack: i32(x: i32, y: i32,  UnitList TempUnitList)
+    pub fn JoinUnitsAirAttack(x: i32, y: i32,  UnitList TempUnitList) -> i32
     {
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       for (let mut index: i32 = 0; index <= unitCounter; index += 1)
@@ -17366,9 +17366,9 @@ label_38:
       while (num2 <= 9);
     }
 
-    pub GetLoseHexScore: i32(ix: i32, iy: i32) => 0;
+    pub fn GetLoseHexScore(ix: i32, iy: i32) -> i32 => 0;
 
-    pub GetTscore: i32(ix: i32, iy: i32, let mut j: i32 = -1, bool IsCounterAttack = false, bool MakeLog = false)
+    pub fn GetTscore(ix: i32, iy: i32, let mut j: i32 = -1, bool IsCounterAttack = false, bool MakeLog = false) -> i32
     {
       let mut tscore: i32 = !IsCounterAttack ? this.TscoreMatrix[ix, iy] : this.TscoreCounterMatrix[ix, iy];
       if (j > -1 && this.game.Data.MapObj[0].HexObj[ix, iy].RiverType[j] > -1)
@@ -17376,7 +17376,7 @@ label_38:
       return tscore;
     }
 
-    pub GetTScore2: i32(ix: i32, iy: i32, bool IsCounterAttack = false, bool MakeLog = false)
+    pub fn GetTScore2(ix: i32, iy: i32, bool IsCounterAttack = false, bool MakeLog = false) -> i32
     {
       let mut index1: i32 = this.TempGroupHQ[this.OpGroup];
       let mut Number: i32 = 0;
@@ -18067,7 +18067,7 @@ label_38:
       }
     }
 
-    pub fn Screenshot(typ: i32, string fileextension,  tObj: Vec<i32>)
+    pub fn Screenshot(typ: i32, fileextension: String,  tObj: Vec<i32>)
     {
       FileStream fileStream;
       try
@@ -18180,7 +18180,7 @@ label_38:
       this.WriteLog2();
     }
 
-    pub fn AddLog2(string s)
+    pub fn AddLog2(s: String)
     {
       this += 1.LogCounter2;
       this.LogTxt2 = (string[]) Utils.CopyArray((Array) this.LogTxt2, (Array) new string[this.LogCounter2 + 1]);
@@ -18204,7 +18204,7 @@ label_38:
       }
     }
 
-    pub fn AddLog(string s)
+    pub fn AddLog(s: String)
     {
       this += 1.LogCounter;
       if (this.LogTxt.GetUpperBound(0) < this.LogCounter)
@@ -18229,7 +18229,7 @@ label_38:
       }
     }
 
-    pub fn WriteLog(string name)
+    pub fn WriteLog(name: String)
     {
       let mut num1: i32 = this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)

@@ -35,7 +35,7 @@ namespace WindowsApplication1
     pub LossAttReg: i32;
     pub LossDefReg: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Regime", this.Regime);
       info.AddValue("X", this.X);

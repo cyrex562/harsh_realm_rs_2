@@ -696,7 +696,7 @@ namespace WindowsApplication1
                   if (self.game.ModButType[index2] <= 4)
                   {
                     self.game.EditObj.systemPopup = true;
-                    string str;
+                    str: String;
                     if (self.game.ModButType[index2] <= 2)
                       str = self.game.AppPath + self.game.ModButDatastring[index2];
                     else if (self.game.ModButType[index2] == 3)

@@ -194,7 +194,7 @@ namespace WindowsApplication1
       return this.OwnBackground;
     }
 
-    pub fn introText(ref Graphics g, string s, int mode, int plusy)
+    pub fn introText(ref Graphics g, s: String, int mode, int plusy)
     {
       let mut x: i32 =  (int) Math.Round( this.Game.ScreenWidth / 2.0);
       let mut num: i32 =  (int) Math.Round( this.Game.ScreenHeight / 2.0);
@@ -312,7 +312,7 @@ namespace WindowsApplication1
       this.loadSpecificBmp(this.Game.AppPath + "intrographics/se6.jpg");
     }
 
-    pub fn loadSpecificBmp(string s)
+    pub fn loadSpecificBmp(s: String)
     {
       if (!Information.IsNothing( this.lastbmp))
       {

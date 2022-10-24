@@ -291,6 +291,6 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub GetSelect: i32() => this.his;
+    pub fn GetSelect() -> i32 => this.his;
   }
 }

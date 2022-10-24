@@ -30,7 +30,7 @@ namespace WindowsApplication1
 
     pub fn ClearMouse() => self.MouseCounter = -1;
 
-    pub fn AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut ttype: i32 = 0)
+    pub fn AddMouse( Rectangle trect, ttitle: String, ttext: String, let mut tdata: i32 = -1, let mut ttype: i32 = 0)
     {
       self += 1.MouseCounter;
       self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
@@ -53,11 +53,11 @@ namespace WindowsApplication1
       self.SubDispose();
     }
 
-    pub virtual void SubDispose()
+    pub fn SubDispose()
     {
     }
 
-    pub GetMemorySize: i32() =>  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
+    pub fn GetMemorySize() =>  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0) -> i32;
 
     pub virtual GetSelect: i32() => -1;
 
@@ -92,25 +92,25 @@ namespace WindowsApplication1
       objgraphics.Dispose();
     }
 
-    pub virtual void Refresh(ListClass tListObj, tlistselect: i32, theader: String = "")
+    pub fn Refresh(ListClass tListObj, tlistselect: i32, theader: String = "")
     {
     }
 
-    pub virtual void Refresh(ATListClass tListObj, tlistselect: i32, theader: String = "")
+    pub fn Refresh(ATListClass tListObj, tlistselect: i32, theader: String = "")
     {
     }
 
-    pub virtual void Refresh(StringListClass tListObj, trow: i32, tcol: i32)
+    pub fn Refresh(StringListClass tListObj, trow: i32, tcol: i32)
     {
     }
 
-    pub virtual void Refresh(string s)
+    pub fn Refresh(s: String)
     {
     }
 
     pub virtual HeightUsed: i32() => self.OwnBitmap.Height;
 
-    pub virtual string GetText() => "";
+    pub virtual GetText: String() => "";
 
     pub fn Clear()
     {
@@ -131,7 +131,7 @@ namespace WindowsApplication1
 
     pub virtual HandleBLOCKEDMouseUp: i32(x: i32, y: i32) => -1;
 
-    pub virtual void HandleToolTip(x: i32, y: i32)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
     }
 
@@ -165,7 +165,7 @@ namespace WindowsApplication1
       return coordinate;
     }
 
-    pub virtual void PaintCoordinate(
+    pub fn PaintCoordinate(
       Graphics g,
       x: i32,
       y: i32,
@@ -175,23 +175,23 @@ namespace WindowsApplication1
     {
     }
 
-    pub virtual void DescriptInfo(x: i32, y: i32)
+    pub fn DescriptInfo(x: i32, y: i32)
     {
     }
 
-    pub virtual void ShiftLeft()
+    pub fn ShiftLeft()
     {
     }
 
-    pub virtual void ShiftRight()
+    pub fn ShiftRight()
     {
     }
 
-    pub virtual void ShiftUp()
+    pub fn ShiftUp()
     {
     }
 
-    pub virtual void ShiftDown()
+    pub fn ShiftDown()
     {
     }
   }

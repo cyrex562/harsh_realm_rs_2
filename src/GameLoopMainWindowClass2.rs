@@ -56,7 +56,7 @@ namespace WindowsApplication1
      noteid: i32;
      note2id: i32;
      DateTime showtime;
-     string prevs;
+     prevs: String;
      bool DoingSe1GameLoop;
      bool earlyCinematicsLoginBlock;
 
@@ -466,7 +466,7 @@ namespace WindowsApplication1
       this.DrawDateAndRegime( g);
       this.game.Data.PbemPlayer1 = this.game.Data.PbemPlayer1.Replace("\"", "");
       this.game.Data.PbemPlayer2 = this.game.Data.PbemPlayer2.Replace("\"", "");
-      string str1;
+      str1: String;
       if (this.game.Data.PbemGameID > 0)
       {
         if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].PbemPlayer == 1)
@@ -503,7 +503,7 @@ namespace WindowsApplication1
         this.loggedin = true;
       if (this.game.EditObj.EarlyCinematicsLoggedIn)
         this.loggedin = true;
-      string txt;
+      txt: String;
       if (!this.loggedin)
         txt = this.game.Data.PbemGameID >= 1 ? "Its now the turn of: " + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + " played by " + str1 : this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", Its your turn. Please login";
       else if (this.game.Data.PbemDrawGame > 0)
@@ -629,7 +629,7 @@ namespace WindowsApplication1
       marcFont4_2: Font = this.game.MarcFont4;
       if (!this.loggedin & this.game.Data.PbemGameID < 1)
       {
-        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN".to_owned();
         if (!this.saved)
         {
           tsubpart2 =  new TextButtonPartClass(buttontext, 100, "You have to login if playing PBEM and/or using passwords.",  this.OwnBitmap, 400, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
@@ -722,7 +722,7 @@ namespace WindowsApplication1
         this.game.EditObj.TutStep = 1;
       Graphics g = Graphics.FromImage((Image) this.OwnBitmap);
       this.DrawDateAndRegime(ref g);
-      string str1;
+      str1: String;
       str2: String = this.game.Data.PbemGameID >= 1 ? "Its now the turn of: " + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + " played by " + str1 : this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", Its your turn. Please login";
       marcFont1: Font = this.game.MarcFont1;
       bool flag1 = false;
@@ -741,7 +741,7 @@ namespace WindowsApplication1
       marcFont4_2: Font = this.game.MarcFont4;
       if (this.game.Data.se1_earlyCinematicsLogin == 0)
         this.game.Data.se1_earlyCinematicsLogin = 1;
-      buttontext1: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+      buttontext1: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN".to_owned();
       if (!this.saved)
       {
         tsubpart2 =  new TextButtonPartClass(buttontext1, 100, "You have to login if playing PBEM and/or using passwords.", ref this.OwnBitmap, 400, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
@@ -1131,12 +1131,12 @@ namespace WindowsApplication1
                       bool flag2 = true;
                       str1: String = "?" + "t2=" + this.game.HandyFunctionsObj.Encrypt(this.game.EditObj.PbemSerial) + "&t3=" + 110.ToString() + "&t4=" + this.game.Data.Name + "&t5=" + this.game.Data.Designer + "&t6=" + this.game.Data.GameID.ToString() + "&t7=" + this.game.Data.Round.ToString() + "&t8=" + this.game.Data.Turn.ToString() + "&t9=" + this.game.Data.Winner.ToString() + "&t10=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "victoryScore", 2) + "&t11=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Population", 4) + "&t12=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Workers", 4) + "&t13=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Soldiers", 4) + "&t14=" + this.game.Data.StringListObj[stringListById1].GetData(0, 79, 2);
                       if (Information.IsNothing( this.game.Data.Designer))
-                        this.game.Data.Designer = "0";
+                        this.game.Data.Designer = "0".to_owned();
                       str2: String = str1 + "&t15=.04b" + "&t16=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "bp", 2) + "&t17=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "pp", 2) + "&t18=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "credits", 2) + "&t19=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "sizeHex", 4) + "&t20=" + this.game.Data.StringListObj[stringListById2].GetData(0, 42, 2) + "&t21=0";
                       if (flag2)
                       {
                         WebRequest webRequest = WebRequest.Create(this.game.MetricsURL + str2);
-                        string end;
+                        end: String;
                         try
                         {
                           end = new StreamReader(webRequest.GetResponse().GetResponseStream(), Encoding.ASCII).ReadToEnd();

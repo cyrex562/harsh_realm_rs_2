@@ -71,7 +71,7 @@ namespace WindowsApplication1
      LibVarId: i32;
      IndId: i32;
      CatId: i32;
-     string ss;
+     ss: String;
 
     pub SimpleLibraryWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Libraries")
@@ -1502,7 +1502,7 @@ namespace WindowsApplication1
                 num31 = self.game.Data.SFTypeObj[self.IndId].LibId.libSlot;
                 num30 = self.game.Data.SFTypeObj[self.IndId].LibId.id;
               }
-              string tvalue;
+              tvalue: String;
               if (num30 > -1 & num31 == self.game.Data.LibVarObj[index].instanceId.libSlot & num30 == self.game.Data.LibVarObj[index].instanceId.id)
               {
                 flag4 = true;

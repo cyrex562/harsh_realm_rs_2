@@ -27,7 +27,7 @@ namespace WindowsApplication1
      const let mut LeftTextOffset: i32 = 15;
      Width: i32;
      Height: i32;
-     string Header;
+     Header: String;
      bool HeaderCenter;
      game: GameClass;
      backbitmap: Bitmap;
@@ -57,9 +57,9 @@ namespace WindowsApplication1
       twidth: i32,
       trows: i32,
       tfont: Font,
-      string theader,
+      theader: String,
       bool theadercenter,
-      string tText,
+      tText: String,
       tfontcol: Color,
       let mut tTop: i32 = 0,
       let mut tItemSize: i32 = 16,
@@ -255,7 +255,7 @@ namespace WindowsApplication1
       self.scrollw -= 20;
     }
 
-    pub HeightUsed: i32() => Math.Min(self.ListSize + 1, self.ListObj[self.Tab].ListCount + 1) * self.ItemSize;
+    pub fn HeightUsed() => Math.Min(self.ListSize + 1, self.ListObj[self.Tab].ListCount + 1) -> i32 * self.ItemSize;
 
     pub Paint: Bitmap()
     {
@@ -617,7 +617,7 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (!(self.clickscroll == 1 | self.Scroller & !self.BlockScroller))
         return -1;
@@ -626,7 +626,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 = 1) -> i32
     {
       let mut num1: i32 = y;
       y =  Math.Round(Conversion.Int( y /  self.ItemSize));

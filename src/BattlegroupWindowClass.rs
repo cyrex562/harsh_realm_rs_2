@@ -1254,7 +1254,7 @@ label_125:
                       if ( this.game.Data.RuleVar[479] > 0.0)
                       {
                         let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round( this.game.Data.RuleVar[479]));
-                        string str;
+                        str: String;
                         int num7;
                         for (let mut index10: i32 =  0; index10 < 99; index10 += 1)
                         {

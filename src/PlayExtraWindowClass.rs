@@ -102,7 +102,7 @@ namespace WindowsApplication1
       this.game.EditObj.TipText = "You can inspect your units here.";
     }
 
-    pub string WindowDescription(x: i32, y: i32)
+    pub WindowDescription: String(x: i32, y: i32)
     {
       str: String = "";
       let mut mouseCounter: i32 =  this.MouseCounter;
@@ -496,7 +496,7 @@ namespace WindowsApplication1
       }
       else
         coordinate.x = 3;
-      string tname;
+      tname: String;
       bitmap: Bitmap;
       if (num1 == 1 && this.game.EditObj.UnitSelected > -1 & this.game.EditObj.UnitSelected <= this.game.Data.UnitCounter && this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.EditObj.UnitSelected, this.game.Data.Turn) > 0 & coordinate.x >= 2)
       {
@@ -531,7 +531,7 @@ namespace WindowsApplication1
           }
           if (this.game.Data.ASOn & this.game.HandyFunctionsObj.GetUnitAS(this.game.EditObj.UnitSelected) > 0)
           {
-            tname = !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODoAS ? "No" : "Yes";
+            tname = !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODoAS ? "No" : "Yes".to_owned();
             let mut tsubpart3: SubPartClass =  TextPartClass::new("", this.game.GameFont2, 49, 23, true, 0, "Wheter or not the unit will do Anti Supply damage on enemy hexes.");
             this.AsId = this.AddSubPart( tsubpart3, num5 + 981, num6 + 16, 49, 23, 0);
              let mut local3: &Graphics = &Expression;
@@ -667,7 +667,7 @@ namespace WindowsApplication1
               x2 += 100;
             }
             str4: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].Supply));
-            string str5;
+            str5: String;
             if (this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected) > 0)
             {
               float Number =  Math.Round( ( this.game.Data.UnitObj[unitSelected].Supply /  this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected)), 1);
@@ -985,7 +985,7 @@ namespace WindowsApplication1
           }
         }
         DrawMod.DrawRectangle( Expression, num19, y1, 384, 144,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
-        str: String = !(this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].get_SeeNow(this.game.Data.Turn) == 0) ? (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].Regime != -1 ? this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].Regime].Name : "Neutral") : "Unknown";
+        str: String = !(this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].get_SeeNow(this.game.Data.Turn) == 0) ? (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].Regime != -1 ? this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].Regime].Name : "Neutral") : "Unknown".to_owned();
         let mut y: i32 =  15;
          let mut local: &Graphics = &Expression;
         trect1 = Rectangle::new(num19, y, 384, 14);

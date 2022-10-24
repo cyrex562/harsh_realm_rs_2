@@ -819,7 +819,7 @@ namespace WindowsApplication1
       return coordinate3;
     }
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (self.clickscroll == 1 | self.Scroller)
       {

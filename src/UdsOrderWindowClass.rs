@@ -233,7 +233,7 @@ namespace WindowsApplication1
         {
           let mut x7: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
           bitmap: Bitmap;
-          string upper;
+          upper: String;
           SizeF sizeF3;
           Rectangle rectangle;
           if (self.game.Data.ExtraTabName4.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 4)
@@ -747,8 +747,8 @@ namespace WindowsApplication1
       bool wideTab,
       bool active,
       tx: i32,
-      string sHeader,
-      string sText,
+      sHeader: String,
+      sText: String,
       spriteSlot: i32,
       iconSlot: i32,
       let mut smallNumber: i32 = -1,
@@ -1158,7 +1158,7 @@ namespace WindowsApplication1
           str5: String = "";
           if (self.game.Data.MapObj[0].HexObj[self.game.SelectX, self.game.SelectY].Location > -1)
             str5 = self.game.Data.LocObj[self.game.Data.MapObj[0].HexObj[self.game.SelectX, self.game.SelectY].Location].Name + " ";
-          string str6;
+          str6: String;
           if (Operators.CompareString(Strings.Trim(Strings.LCase(str4)), Strings.Trim(Strings.LCase(str5)), false) == 0 & str4.Length > 0)
             str6 = str4 + " ";
           else if (str5.Length > 0)
@@ -1247,7 +1247,7 @@ namespace WindowsApplication1
         else
         {
           tstring1: String = "Unknown Landscape";
-          string str8;
+          str8: String;
           tstring2: String = str8 + "(" + Strings.Trim(Conversion.Str( self.game.SelectX)) + "," + Strings.Trim(Conversion.Str( self.game.SelectY)) + ")";
           let mut x7: i32 = self.w - 475 + 103;
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring2, self.game.MarcFont16, x7, 35, self.game.seColGray);
@@ -1289,7 +1289,7 @@ namespace WindowsApplication1
         bool grayedOut = false;
         let mut spriteSlot1: i32 = -1;
         let mut spriteOffsetY1: i32 = 0;
-        string sText1;
+        sText1: String;
         if (self.game.EditObj.UnitSelected > -1)
         {
           Coordinate reconMinusHide;

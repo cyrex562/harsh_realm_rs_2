@@ -15,7 +15,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;
@@ -815,7 +815,7 @@ namespace WindowsApplication1
               tdata1 = Expression.Weight[tdata1];
               let mut nr: i32 = simpleList2.FindNr(tid);
               num39: i32;
-              string str;
+              str: String;
               if (nr > -1)
               {
                 num39 = simpleList2.Weight[nr];

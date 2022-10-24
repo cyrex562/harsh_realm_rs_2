@@ -47,7 +47,7 @@ namespace WindowsApplication1
      SelectUsageMode usageMode;
      targetUnitSelected: i32;
      bool subordinatesToo;
-     string resultString;
+     resultString: String;
 
     pub NonCardSelectWindowClass( tGame: GameClass, SelectUsageMode tUsageMode)
       : base( tGame, 1280, 768, 8)

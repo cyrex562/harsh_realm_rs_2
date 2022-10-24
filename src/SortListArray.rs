@@ -20,6 +20,6 @@ namespace WindowsApplication1
       self._Ascending = Ascending;
     }
 
-    pub Compare: i32(object x, object y) => self._Ascending ? CaseInsensitiveComparer::new().Compare( ((ListItem) x).mRealName,  ((ListItem) y).mRealName) : CaseInsensitiveComparer::new().Compare( y.ToString(),  x.ToString());
+    pub fn Compare(object x, object y) => self._Ascending ? CaseInsensitiveComparer::new().Compare( ((ListItem) x).mRealName,  ((ListItem) y).mRealName) : CaseInsensitiveComparer::new().Compare( y.ToString(),  x.ToString()) -> i32;
   }
 }

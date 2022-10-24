@@ -186,7 +186,7 @@ namespace WindowsApplication1
       return (UnitClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  self.Name);
       info.AddValue("SFCount", self.SFCount);
@@ -843,7 +843,7 @@ namespace WindowsApplication1
         self.LogData3[index1] = data3;
     }
 
-    pub CheckLogReturnData3: i32(type: i32, data1: i32)
+    pub fn CheckLogReturnData3(type: i32, data1: i32) -> i32
     {
       let mut logCounter: i32 = self.LogCounter;
       for (let mut index: i32 = 0; index <= logCounter; index += 1)
@@ -1023,9 +1023,9 @@ namespace WindowsApplication1
       self.AIFollowup = -1;
     }
 
-    pub RealX: i32( game: GameClass) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].X : self.X;
+    pub fn RealX( game: GameClass) -> i32 => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].X : self.X;
 
-    pub RealY: i32( game: GameClass) => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].Y : self.Y;
+    pub fn RealY( game: GameClass) -> i32 => self.OnBoard > -1 ? game.Data.UnitObj[self.OnBoard].Y : self.Y;
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
     pub fn Kill()

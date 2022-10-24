@@ -177,9 +177,9 @@ namespace WindowsApplication1
     pub tempExposurePopLoss: i32;
     pub tempExposureFreeFolkLoss: i32;
 
-    pub HelperEconomyData(ref tgame: GameClass, string dataLib)
+    pub HelperEconomyData(ref tgame: GameClass, dataLib: String)
     {
-      libName1: String = "SE_Trade";
+      libName1: String = "SE_Trade".to_owned();
       this.zones = new AIMatrix(ref tgame.DC2AIObj);
       this.hexFreeFolk = new AIMatrix(ref tgame.DC2AIObj);
       this.temperatures = new AIMatrix(ref tgame.DC2AIObj);
@@ -189,12 +189,12 @@ namespace WindowsApplication1
       this.atmosHazard =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotGameKeys].GetData(0, 1, 2)));
       this.bioHazard =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotGameKeys].GetData(0, 2, 2)));
       data1: DataClass = tgame.Data;
-      str1: String = "Zones";
+      str1: String = "Zones".to_owned();
       ref local1: String = ref str1;
       libName2: String = dataLib;
       let mut libVar1: i32 =  data1.FindLibVar(ref local1, libName2);
       data2: DataClass = tgame.Data;
-      str2: String = "Temperature";
+      str2: String = "Temperature".to_owned();
       ref local2: String = ref str2;
       libName3: String = dataLib;
       let mut libVar2: i32 =  data2.FindLibVar(ref local2, libName3);
@@ -204,7 +204,7 @@ namespace WindowsApplication1
       libName4: String = dataLib;
       let mut libVar3: i32 =  data3.FindLibVar(ref local3, libName4);
       data4: DataClass = tgame.Data;
-      str4: String = "freefolk";
+      str4: String = "freefolk".to_owned();
       ref local4: String = ref str4;
       libName5: String = dataLib;
       let mut libVar4: i32 =  data4.FindLibVar(ref local4, libName5);

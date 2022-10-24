@@ -70,7 +70,7 @@ namespace WindowsApplication1
      int[] ColIsSFTypeVar;
      oldTopX: i32;
      oldTopY: i32;
-     string masterfileStart;
+     masterfileStart: String;
 
     pub SimpleHisWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight, 9, tDoBorders: 1, tHeaderString: "Intermediate Historical Unit Editor")
@@ -94,7 +94,7 @@ namespace WindowsApplication1
 
     pub fn RefreshCellInfo()
     {
-      string txt;
+      txt: String;
       if (self.detaily == -1 | self.detailx == -1)
       {
         txt = "No cell selected";
@@ -1344,7 +1344,7 @@ namespace WindowsApplication1
                         self.game.Data.PeopleObj[self.currentPplNr].Green = -1;
                         self.game.Data.PeopleObj[self.currentPplNr].Blue = -1;
                       }
-                      string str;
+                      str: String;
                       if (self.game.Data.PeopleObj[self.currentPplNr].Red > -1)
                         str = self.game.Data.PeopleObj[self.currentPplNr].Red.ToString() + "," + self.game.Data.PeopleObj[self.currentPplNr].Green.ToString() + "," + self.game.Data.PeopleObj[self.currentPplNr].Blue.ToString();
                       else

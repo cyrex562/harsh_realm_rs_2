@@ -574,7 +574,7 @@ namespace WindowsApplication1
               if (simpleStringList.Data2[index] >= 10000)
               {
                 num24 = Math.Round( simpleStringList.Data2[index] / 1000.0, 1);
-                str3 = num24.ToString() + "K";
+                str3 = num24.ToString() + "K".to_owned();
               }
               if (num22 == 26)
                 num19 = simpleStringList.Data2[index];
@@ -948,7 +948,7 @@ namespace WindowsApplication1
       let mut x13: i32 =  num31 + 20;
       let mut y13: i32 =  num32 + 25;
       DrawMod.DrawSimple(ref local25, ref local26, x13, y13);
-      buttontext: String = "ATTACK";
+      buttontext: String = "ATTACK".to_owned();
       tDescript1: String = "Click to start the attack [Space]";
       tDescript2: String = "Select some attackers in order to be able to attack [Space]";
       if (this.game.EditObj.OrderType == 11)

@@ -131,7 +131,7 @@ namespace WindowsApplication1
       this.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
       let mut orderUnit: i32 =  this.game.EditObj.OrderUnit;
-      string tstring;
+      tstring: String;
       int Number1;
       int hisnr;
       if (this.game.Data.UnitObj[orderUnit].Historical == -1)

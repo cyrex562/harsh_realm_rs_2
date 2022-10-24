@@ -22,7 +22,7 @@ namespace WindowsApplication1
       this.maxcounter = 20;
     }
 
-    pub fn add(string tdata)
+    pub fn add(tdata: String)
     {
       this += 1.counter;
       if (this.counter > this.maxcounter)

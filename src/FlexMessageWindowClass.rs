@@ -48,7 +48,7 @@ namespace WindowsApplication1
         let mut num2: i32 =  0;
         if (Length > 0)
           num2 = Strings.InStr(Length + 1, str1, ".");
-        string str2;
+        str2: String;
         if (Length > 0 & num2 > 0)
         {
           str2 = Strings.Left(str1, Length);

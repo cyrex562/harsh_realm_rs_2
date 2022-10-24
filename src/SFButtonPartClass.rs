@@ -24,40 +24,40 @@ namespace WindowsApplication1
     pub SFButtonPartClass(ttyp: i32, tregnr: i32, tResizeX: i32, tresizeY: i32)
       : base(tResizeX, tresizeY)
     {
-      this.overrule = false;
-      this.resizex = tResizeX;
-      this.typ = ttyp;
-      this.extra = tregnr;
-      this.regnr = DrawMod.TGame.Data.Turn;
-      this.resizey = tresizeY;
+      self.overrule = false;
+      self.resizex = tResizeX;
+      self.typ = ttyp;
+      self.extra = tregnr;
+      self.regnr = DrawMod.TGame.Data.Turn;
+      self.resizey = tresizeY;
     }
 
     pub SFButtonPartClass(tbmpnr: Bitmap, tDescript: String = "")
       : base(tbmpnr.Width, tbmpnr.Height)
     {
-      this.OwnBitmap = (Bitmap) tbmpnr.Clone();
-      this.overrule = true;
-      this.Descript = tDescript;
+      self.OwnBitmap = (Bitmap) tbmpnr.Clone();
+      self.overrule = true;
+      self.Descript = tDescript;
     }
 
     pub Paint: Bitmap()
     {
-      Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      let mut picSpriteId: i32 = DrawMod.TGame.Data.SFTypeObj[this.typ].PicSpriteID;
-      let mut sidewaysSpriteId: i32 = DrawMod.TGame.Data.SFTypeObj[this.typ].SidewaysSpriteID;
-      let mut extraCounter: i32 = DrawMod.TGame.Data.SFTypeObj[this.typ].ExtraCounter;
+      Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
+      let mut picSpriteId: i32 = DrawMod.TGame.Data.SFTypeObj[self.typ].PicSpriteID;
+      let mut sidewaysSpriteId: i32 = DrawMod.TGame.Data.SFTypeObj[self.typ].SidewaysSpriteID;
+      let mut extraCounter: i32 = DrawMod.TGame.Data.SFTypeObj[self.typ].ExtraCounter;
       for (let mut index: i32 = 0; index <= extraCounter; index += 1)
       {
-        if (DrawMod.TGame.Data.SFTypeObj[this.typ].ExtraCode[index] == this.extra)
+        if (DrawMod.TGame.Data.SFTypeObj[self.typ].ExtraCode[index] == self.extra)
         {
-          picSpriteId = DrawMod.TGame.Data.SFTypeObj[this.typ].ExtraPicSpriteID[index];
-          sidewaysSpriteId = DrawMod.TGame.Data.SFTypeObj[this.typ].ExtraSidewaysSpriteID[index];
+          picSpriteId = DrawMod.TGame.Data.SFTypeObj[self.typ].ExtraPicSpriteID[index];
+          sidewaysSpriteId = DrawMod.TGame.Data.SFTypeObj[self.typ].ExtraSidewaysSpriteID[index];
         }
       }
       let mut x1: i32 = 0;
       let mut y1: i32 = 0;
-      let mut width1: i32 = this.OwnBitmap.Width;
-      let mut height: i32 = this.OwnBitmap.Height;
+      let mut width1: i32 = self.OwnBitmap.Width;
+      let mut height: i32 = self.OwnBitmap.Height;
       index1: i32;
       index2: i32;
       Rectangle rectangle1;
@@ -66,12 +66,12 @@ namespace WindowsApplication1
       {
         index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[873]);
         index2 = 0;
-        if ( DrawMod.TGame.Data.RuleVar[848] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 2)
+        if ( DrawMod.TGame.Data.RuleVar[848] > 0.0 & DrawMod.TGame.Data.SFTypeObj[self.typ].Theater == 2)
         {
           index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[848]);
           index2 = 0;
         }
-        if ( DrawMod.TGame.Data.RuleVar[872] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 1)
+        if ( DrawMod.TGame.Data.RuleVar[872] > 0.0 & DrawMod.TGame.Data.SFTypeObj[self.typ].Theater == 1)
         {
           index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[872]);
           index2 = 0;
@@ -113,17 +113,17 @@ namespace WindowsApplication1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
         }
       }
-      let mut index3: i32 = this.regnr;
+      let mut index3: i32 = self.regnr;
       if (index3 == -1)
       {
         if (DrawMod.TGame.Data.RegimeCounter == -1)
-          return this.OwnBitmap;
+          return self.OwnBitmap;
         index3 = 0;
       }
       let mut red: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red;
       let mut green: i32 = DrawMod.TGame.Data.RegimeObj[index3].Green;
       let mut blue: i32 = DrawMod.TGame.Data.RegimeObj[index3].Blue;
-      switch (DrawMod.TGame.Data.SFTypeObj[this.typ].BaseColor)
+      switch (DrawMod.TGame.Data.SFTypeObj[self.typ].BaseColor)
       {
         case 0:
            let mut local7: &Graphics = &Expression;
@@ -260,9 +260,9 @@ namespace WindowsApplication1
       }
       if (!Information.IsNothing( Expression))
         Expression.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
 
-    pub PaintOverlay: Bitmap() => this.Paint();
+    pub PaintOverlay: Bitmap() => self.Paint();
   }
 }

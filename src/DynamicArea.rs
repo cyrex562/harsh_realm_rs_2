@@ -68,7 +68,7 @@ namespace WindowsApplication1
       tgame: GameClass,
       twidth: i32,
       theight: i32,
-      string tTexty,
+      tTexty: String,
       ref tbackbitmap: Bitmap = null,
       let mut bbx: i32 =  -1,
       let mut bby: i32 =  -1,
@@ -100,7 +100,7 @@ namespace WindowsApplication1
       this.MakeBitmap();
     }
 
-    pub HeightUsed: i32() => this.maxY;
+    pub fn HeightUsed() -> i32 => this.maxY;
 
     pub fn HandleToolTip(x: i32, y: i32)
     {
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub DoJustCheckHeight: i32()
+    pub fn DoJustCheckHeight() -> i32
     {
       DynamicData dynamicData = new DynamicData(this.texty);
       let mut num1: i32 =  0;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
       this.curY = 0;
     }
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (!(this.clickscroll == 1 | this.Scroller))
         return -1;
@@ -587,7 +587,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       if (this.alwaysBlockScrollBar || this.maxY <= this.Height || x <= this.Width - 20)
       {

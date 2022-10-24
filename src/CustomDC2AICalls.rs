@@ -24,7 +24,7 @@ namespace WindowsApplication1
 
     pub CustomDC2AICalls(ref tai: DC2AIClass)
     {
-      this.dataLib = "SE_Data";
+      this.dataLib = "SE_Data".to_owned();
       this.ai = tai;
       this.data = this.ai.game.Data;
       this.slotRegimes = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 143, 0, 0));
@@ -101,7 +101,7 @@ namespace WindowsApplication1
 
     pub fn PlayPostures()
     {
-      str1: String = "8101_AI_Play_Postures";
+      str1: String = "8101_AI_Play_Postures".to_owned();
       let mut id1: i32 =  this.data.RegimeObj[this.data.Turn].id;
       let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 277, 0, 0));
       let mut stringListById2: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 169, 0, 0));
@@ -494,7 +494,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub CustomHelpCombatModifier: i32(tHelpCombat: i32, forRegimeNr: i32)
+    pub fn CustomHelpCombatModifier(tHelpCombat: i32, forRegimeNr: i32) -> i32
     {
       let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
       let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[forRegimeNr].id, 1)));
@@ -541,7 +541,7 @@ namespace WindowsApplication1
 
     pub CustomIsMajor: bool() =>  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1))) == 1;
 
-    pub CustomStrategicReserveMultiplier: i32() => 1;
+    pub fn CustomStrategicReserveMultiplier() -> i32 => 1;
 
     pub CustomStrategicReserveDelegateToFrontline: bool(phase: i32) => false;
 
@@ -1596,7 +1596,7 @@ namespace WindowsApplication1
       this.ai.WriteLog("0009_CustomMatrixes");
     }
 
-    pub CustomRuleHQtoFrontAssign_howmanySSHQperDefensiveZone: i32(defzoneNumber: i32) => 9;
+    pub fn CustomRuleHQtoFrontAssign_howmanySSHQperDefensiveZone(defzoneNumber: i32) -> i32 => 9;
 
     pub float CustomRuleHQtoFrontAssign_ModifyScore1(
       ref AIMatrix frontlines,
@@ -1682,7 +1682,7 @@ namespace WindowsApplication1
 
     pub CustomRuleHQtoFrontAssign_UnitInCorrectFront_SeeSSHQasSeperateHQ: bool(unr: i32) => this.data.UnitObj[unr].IsHQ ? this.data.UnitObj[unr].HQ == -1 : this.data.UnitObj[unr].HQ > -1 && this.data.UnitObj[this.data.UnitObj[unr].HQ].HQ <= -1;
 
-    pub CustomRuleWorld_ExtraTroopsOnHex: i32(x: i32, y: i32, curTroops: i32)
+    pub fn CustomRuleWorld_ExtraTroopsOnHex(x: i32, y: i32, curTroops: i32) -> i32
     {
       let mut regime: i32 =  this.data.MapObj[0].HexObj[x, y].Regime;
       let mut num1: i32 =  0;

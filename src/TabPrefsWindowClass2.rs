@@ -18,7 +18,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;
@@ -338,7 +338,7 @@ namespace WindowsApplication1
           self.currentCat = num1;
         if (num1 == self.currentCat)
           DrawMod.DrawBlockGradient( g, 35, 40 * num1 - 20, 100, 40, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
-        string tstring;
+        tstring: String;
         if (num1 == 1)
           tstring = "General";
         if (num1 == 2)
@@ -1739,7 +1739,7 @@ namespace WindowsApplication1
               }
               if (num1 == self.B23Id)
               {
-                string str1;
+                str1: String;
                 if (self.game.Data.Round == 0)
                 {
                   str2: String = self.game.AppPath + "scenarios\\";

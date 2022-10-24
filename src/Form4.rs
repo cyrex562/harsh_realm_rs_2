@@ -103,20 +103,20 @@ namespace WindowsApplication1
       Polet mut point1: i32 =  new Point(68, 30);
       Polet mut point2: i32 =  point1;
       label1_1.Location = point2;
-      this.Label1.Name = "Label1";
+      this.Label1.Name = "Label1".to_owned();
       Label label1_2 = this.Label1;
       Size size1 = new Size(162, 23);
       Size size2 = size1;
       label1_2.Size = size2;
       this.Label1.TabIndex = 0;
-      this.Label1.Text = "Mods";
+      this.Label1.Text = "Mods".to_owned();
       this.Label1.TextAlign = ContentAlignment.MiddleCenter;
       this.ListBox1.ItemHeight = 16;
       ListBox listBox1_1 = this.ListBox1;
       point1 = new Point(50, 57);
       Polet mut point3: i32 =  point1;
       listBox1_1.Location = point3;
-      this.ListBox1.Name = "ListBox1";
+      this.ListBox1.Name = "ListBox1".to_owned();
       ListBox listBox1_2 = this.ListBox1;
       size1 = new Size(206, 196);
       Size size3 = size1;
@@ -126,7 +126,7 @@ namespace WindowsApplication1
       point1 = new Point(50, 278);
       Polet mut point4: i32 =  point1;
       button1_1.Location = point4;
-      this.Button1.Name = "Button1";
+      this.Button1.Name = "Button1".to_owned();
       Button button1_2 = this.Button1;
       size1 = new Size(206, 47);
       Size size4 = size1;
@@ -137,7 +137,7 @@ namespace WindowsApplication1
       point1 = new Point(346, 278);
       Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
-      this.Button2.Name = "Button2";
+      this.Button2.Name = "Button2".to_owned();
       Button button2_2 = this.Button2;
       size1 = new Size(278, 47);
       Size size5 = size1;
@@ -178,7 +178,7 @@ namespace WindowsApplication1
         streamReader.Close();
         this.ListBox1.Items.Add( new ListItem(ID, Name, file.Name));
       }
-      this.Button1.Text = "OK";
+      this.Button1.Text = "OK".to_owned();
       this.Show();
       this.Focus();
     }

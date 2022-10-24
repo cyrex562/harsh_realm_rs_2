@@ -16,7 +16,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;
@@ -327,7 +327,7 @@ namespace WindowsApplication1
             {
               name: String = self.game.Data.RegimeObj[tdata].Name;
               let mut num7: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById3].GetData3(0, self.game.Data.RegimeObj[self.game.Data.Turn].id, 1, self.game.Data.RegimeObj[tdata].id, 2, "recon", 3)));
-              string tname;
+              tname: String;
               if (tdata == 1)
                 tname = "  --" + name + "-- ";
               else if (tdata == self.game.Data.Turn)

@@ -20,13 +20,13 @@ namespace WindowsApplication1
     pub string[,] Data;
     pub DataString: String;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Type", this.type);
       if (DrawMod.TGame.Data.Version > 407)
       {
         let mut index1: i32 =  0;
-        string str;
+        str: String;
         do
         {
           let mut index2: i32 =  0;

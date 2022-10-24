@@ -49,7 +49,7 @@ namespace WindowsApplication1
      bool viewingtrooptab;
      extraTabId: i32;
      smallTabId: i32;
-     string orderfeedbackString;
+     orderfeedbackString: String;
      int[] zoneButton;
      zoneButtonCounter: i32;
      int[] zoneButtonData;
@@ -705,7 +705,7 @@ namespace WindowsApplication1
       num3 = x9 + 68;
       if (integer <= 0)
         return;
-      string headerText1;
+      headerText1: String;
       itemId1: i32;
       if (libVar > 0 & hexLibVarValue4 < 1 & hexLibVarValue3 > 0)
       {
@@ -735,7 +735,7 @@ namespace WindowsApplication1
           itemId1 = 5;
         }
       }
-      string headerText2;
+      headerText2: String;
       itemId2: i32;
       if (num2 > 0 & num2 != hexLibVarValue2)
       {
@@ -768,10 +768,10 @@ namespace WindowsApplication1
           itemId2 = 5;
         }
       }
-      string dataText1_1;
-      string dataText1_2;
-      string dataText2_1;
-      string dataText2_2;
+      dataText1_1: String;
+      dataText1_2: String;
+      dataText2_1: String;
+      dataText2_2: String;
       if (hexLibVarValue2 > 0 & hexLibVarValue4 < 1 | num2 > 0)
       {
         if (hexLibVarValue2 > 0 & hexLibVarValue4 < 1)
@@ -827,9 +827,9 @@ namespace WindowsApplication1
       Graphics g,
       x: i32,
       y: i32,
-      string headerText,
-      string dataText,
-      string mouseOver)
+      headerText: String,
+      dataText: String,
+      mouseOver: String)
     {
        let mut local1: &Graphics = &g;
       bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX2);
@@ -848,11 +848,11 @@ namespace WindowsApplication1
       x: i32,
       y: i32,
       bitmapNr: i32,
-      string headerText,
-      string dataText1,
-      string mouseOver1,
-      string dataText2,
-      string mouseOver2)
+      headerText: String,
+      dataText1: String,
+      mouseOver1: String,
+      dataText2: String,
+      mouseOver2: String)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -890,9 +890,9 @@ namespace WindowsApplication1
       Graphics g,
       x: i32,
       y: i32,
-      string headerText,
-      string dataText,
-      string mouseOver)
+      headerText: String,
+      dataText: String,
+      mouseOver: String)
     {
        let mut local1: &Graphics = &g;
       bitmap: Bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_VARBOX4);
@@ -1038,7 +1038,7 @@ namespace WindowsApplication1
         }
         let mut x10: i32 =  useRect.X;
         let mut num25: i32 =  0;
-        string str1;
+        str1: String;
         num26: i32;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[index1] == 1)
         {
@@ -1106,7 +1106,7 @@ namespace WindowsApplication1
           num27 = -1;
         str2: String = "";
         tstring2: String = "";
-        string data1;
+        data1: String;
         if (num27 > 0)
         {
           let mut idValue: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, num27, 12)));
@@ -1348,12 +1348,12 @@ namespace WindowsApplication1
       ty: i32,
       bool closed,
       bitmapNr: i32,
-      string texty,
+      texty: String,
       tcol: Color,
-      string texty2,
+      texty2: String,
       tcol2: Color,
-      string tmouseOverTitle,
-      string tmouseOver)
+      tmouseOverTitle: String,
+      tmouseOver: String)
     {
       if (closed)
       {
@@ -1419,7 +1419,7 @@ namespace WindowsApplication1
       let mut num5: i32 =  32;
       bool[,,] flagArray = new bool[3, 5, 5];
       let mut num6: i32 =  0;
-      string str1;
+      str1: String;
       do
       {
         let mut num7: i32 =  0;
@@ -1842,7 +1842,7 @@ namespace WindowsApplication1
         let mut tx2: i32 =  tx1 + num41;
         if (num23 > num27)
           num27 = num23;
-        string str6;
+        str6: String;
         if (num23 > 0 | num27 > 0)
         {
           num34 = num23;
@@ -2160,7 +2160,7 @@ namespace WindowsApplication1
         flag3 = true;
       let mut id2: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
       nameForGuiDisplay: String = this.game.EventRelatedObj.Helper_GetOwnerNameForGuiDisplay(this.game.SelectX, this.game.SelectY);
-      string str1;
+      str1: String;
       bool flag4;
       if (Operators.CompareString(Strings.LCase(str1), "unclear", false) == 0)
         flag4 = true;
@@ -2215,8 +2215,8 @@ namespace WindowsApplication1
           if (index == 2)
             str2 = "Psychology Profile";
           DrawMod.DrawTextColouredConsole( g, str2, DrawMod.TGame.se1TypeWriterSmall, num16 - 5, num15 - 2, DrawMod.TGame.seColTW);
-          string idValue2_2;
-          string idValue2_3;
+          idValue2_2: String;
+          idValue2_3: String;
           if (index == 0)
           {
             idValue2_2 = "democracy";
@@ -2242,7 +2242,7 @@ namespace WindowsApplication1
           let mut num20: i32 =  0;
           do
           {
-            string idValue2;
+            idValue2: String;
             num21: i32;
             if (num20 == 0)
             {
@@ -2406,7 +2406,7 @@ namespace WindowsApplication1
             ttext: String = "";
             DrawMod.DrawTextColouredConsole( g, data1, DrawMod.TGame.se1TypeWriterSmall, x6, y4, DrawMod.TGame.seColTW);
             DrawMod.DrawTextColouredConsole( g, num32.ToString() + "%", DrawMod.TGame.se1TypeWriterSmall, x6 + 200, y4, DrawMod.TGame.seColTW);
-            string ttitle;
+            ttitle: String;
             if (num11 >= 6)
             {
               if (num33 > 0)
@@ -3510,8 +3510,8 @@ namespace WindowsApplication1
                         num77 = 50;
                       if (num115 == 4)
                         num77 = 25;
-                      string buttontext;
-                      string tDescript6;
+                      buttontext: String;
+                      tDescript6: String;
                       if (num102 > 0)
                       {
                         buttontext = num77.ToString() + "% Cons";
@@ -3544,7 +3544,7 @@ namespace WindowsApplication1
                     let mut num118: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById10].GetData2(0, num3, 1, "credits", 2)));
                     num77 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById11].GetData3(0, idValue6, 1, 3, 2, "credits", 3)));
                     buttontext: String = "Nationalize [" + num77.ToString() + "Cr]";
-                    string tDescript7;
+                    tDescript7: String;
                     num119: i32;
                     if (num77 > num118)
                     {
@@ -3997,9 +3997,9 @@ namespace WindowsApplication1
         str5 = "Eli";
       if (num11 > 1)
         str5 = "Mix";
-      string tDataString1;
-      string tDescript2;
-      string str6;
+      tDataString1: String;
+      tDescript2: String;
+      str6: String;
       if (Operators.CompareString(Left1, "Min", false) == 0 | Operators.CompareString(Left1, "Mil", false) == 0)
       {
         tDataString1 = Left1;
@@ -4315,7 +4315,7 @@ namespace WindowsApplication1
       unitButton9[unitButtonCounter9] = num42;
       this.unitButtonData[this.unitButtonCounter] = 8;
       let mut num43: i32 =  x13 + 49;
-      string str8;
+      str8: String;
       if (this.game.EditObj.se1_SelectUnitButton == 9)
       {
         let mut num44: i32 =  useRect.X + 278;
@@ -4488,8 +4488,8 @@ namespace WindowsApplication1
         index6 = !(index1 > -1 & !this.game.Data.UnitObj[index5].IsHQ) ? this.game.Data.UnitObj[index5].Historical : this.game.Data.UnitObj[index1].Historical;
         str8 = "";
         num10 = -1;
-        string ttitle;
-        string ttext;
+        ttitle: String;
+        ttext: String;
         if (index6 > -1 & reconMinusHide.x >= 2)
         {
           num10 = this.game.Data.HistoricalUnitObj[index6].GiveHisVarValue(21);
@@ -4515,7 +4515,7 @@ namespace WindowsApplication1
             ttext = "We do not have enough Recon on this Unit to determine its Posture.";
           }
         }
-        string tstring1;
+        tstring1: String;
         if (num10 > 0)
         {
           let mut nr: i32 =  this.game.Data.EventPicNr[ Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, num10, 3)))];
@@ -4562,8 +4562,8 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredConsoleCenter( g, str11, DrawMod.TGame.se1TypeWriterMedium, num50 + 116 + 42, num51 + 6, DrawMod.TGame.seColTW);
         DrawMod.drawLine( g, num50 + 6, num51 + 26, num50 + 290, num51 + 26, Color.Black);
         DrawMod.DrawTextColouredConsoleMultiline( g, tstring2, DrawMod.TGame.se1TypeWriterSmall, num50 + 6, num51 + 26, DrawMod.TGame.seColTW, 290, 60);
-        string tstring3;
-        string tstring4;
+        tstring3: String;
+        tstring4: String;
         if (Operators.CompareString(str11, "Regular", false) == 0)
         {
           tstring3 = "Troop Quality Settings";
@@ -4837,7 +4837,7 @@ namespace WindowsApplication1
           index6 = this.game.HandyFunctionsObj.Gethqpow(index5);
           let mut num67: i32 =  100 - this.game.Data.UnitObj[index5].SODefendPercent;
           predefnr = this.game.Data.UnitObj[index5].SOInterceptRdnStop;
-          string str56;
+          str56: String;
           if (this.game.HandyFunctionsObj.HasUnitAirSF(index5))
           {
             if (predefnr == 100)
@@ -4858,7 +4858,7 @@ namespace WindowsApplication1
             tstring19 = "?";
           if (reconMinusHide.x < 2)
             tstring19 = "?";
-          string tstring20;
+          tstring20: String;
           if (replacementPercent > 0)
             tstring20 = str56 + "Int: " + str57 + "%, Brk: " + Strings.Trim(Conversion.Str( breakPercent)) + "%, Rpl: " + replacementPercent.ToString() + "%";
           else
@@ -5824,12 +5824,12 @@ namespace WindowsApplication1
       idValue1: i32;
       num9: i32;
       num10: i32;
-      string str1;
+      str1: String;
       tSlotNr: i32;
       num11: i32;
-      string str2;
+      str2: String;
       num12: i32;
-      string str3;
+      str3: String;
       if ((num5 > -1 | this.game.Data.Turn == regNr) & !(num5 == 0 & this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < 1 & this.game.Data.ShrowdOn))
       {
         let mut num13: i32 =  Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "pop", 2)));
@@ -5839,7 +5839,7 @@ namespace WindowsApplication1
         Rectangle trect1;
         Rectangle trect2;
         double num16;
-        string str4;
+        str4: String;
         if (this.game.EditObj.se1_SelectZoneButton == 1)
         {
           let mut num17: i32 =  useRect.X + 0;
@@ -5964,10 +5964,10 @@ namespace WindowsApplication1
           this.AddMouse( trect1, str4, ttext5);
           num8 = y8 + 30;
           let mut num28: i32 =  0;
-          string tstring11;
-          string tstring12;
-          string tstring13;
-          string tstring14;
+          tstring11: String;
+          tstring12: String;
+          tstring13: String;
+          tstring14: String;
           if (num4 > -1)
           {
             tstring11 = this.game.Data.StringListObj[stringListById7].GetData(0, num4, 3);
@@ -6884,8 +6884,8 @@ namespace WindowsApplication1
             str1 = Strings.Left(str22, 24) + ".";
           DrawMod.DrawTextColouredConsole( g, "Culture Name", DrawMod.TGame.se1TypeWriterMedium, num72 + 40, y53, DrawMod.TGame.seColTW);
           DrawMod.DrawTextColouredConsole( g, tstring75, DrawMod.TGame.se1TypeWriterMedium, num72 + 195, y53, DrawMod.TGame.seColTW);
-          string ttitle40;
-          string ttext43;
+          ttitle40: String;
+          ttext43: String;
           if (regNr == this.game.Data.Turn)
           {
             ttitle40 = "Population Culture";
@@ -7666,8 +7666,8 @@ namespace WindowsApplication1
           this.AddMouse( trect1, ttitle70, ttext73);
           let mut y85: i32 =  y84 + 30;
           idValue1 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "nextMilitaUnitId", 2)));
-          string ttitle71;
-          string ttext74;
+          ttitle71: String;
+          ttext74: String;
           if (idValue1 > 0)
           {
             index3 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName1, 170, 0, 0));
@@ -7879,7 +7879,7 @@ namespace WindowsApplication1
       let mut x19: i32 =  588 + useRect.X;
       let mut y96: i32 =  6;
       bool flag6 = true;
-      string tDataString1;
+      tDataString1: String;
       if (num5 >= 2)
       {
         index3 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "city", 2)));
@@ -7960,7 +7960,7 @@ namespace WindowsApplication1
       str41: String = "Regular";
       if (num9 == 1)
         str41 = "Unincorp.";
-      string tDataString2;
+      tDataString2: String;
       if (num5 < 8 | flag1)
       {
         tDataString2 = "Unknown";
@@ -9088,7 +9088,7 @@ namespace WindowsApplication1
               str2 = num10.ToString();
             }
             Number: i32;
-            string name;
+            name: String;
             index2: i32;
             if (simpleList2.Data3[index1] == 0)
             {
@@ -9843,7 +9843,7 @@ namespace WindowsApplication1
         listClass1.add("Supply Stock", -1, tvalue1);
         if (!this.game.Data.UnitObj[unitSelected2].IsHQ)
         {
-          string tvalue2;
+          tvalue2: String;
           if (this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected2) > 0)
           {
             float Number =  Math.Round( ( this.game.Data.UnitObj[unitSelected2].Supply /  this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected2)), 1);
@@ -10212,7 +10212,7 @@ namespace WindowsApplication1
         return;
       DrawMod.DrawBlockGradient2( g, num1 + 325, num4, 104, 21, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 325, num4, 105, 22, -1, -1);
-      string str2;
+      str2: String;
       if ( this.game.Data.RuleVar[887] == 1.0)
       {
         str3: String = "RPL = " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetAggregatedReplacementRequest(this.game.EditObj.UnitSelected))) + "%";
@@ -10565,7 +10565,7 @@ namespace WindowsApplication1
         trect1 = trect2;
         this.AddMouse( trect1, "", "Click to change name of unit", 40);
       }
-      string str3;
+      str3: String;
       if (this.game.Data.UnitObj[unr].HQ > -1)
       {
         str3 = "HQ: " + this.game.Data.UnitObj[this.game.Data.UnitObj[unr].HQ].Name;

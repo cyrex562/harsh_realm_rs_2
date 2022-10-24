@@ -74,7 +74,7 @@ namespace WindowsApplication1
     pub supplyRange: i32;
     pub editorBlock: bool;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("OverdrawLTNr", this.OverdrawLTNr);

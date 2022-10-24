@@ -594,7 +594,7 @@ namespace WindowsApplication1
 
     pub fn TempUDSClearInput() => this.TempUDSinputCounter = -1;
 
-    pub fn UDSAddInput(string tkey, string tvalue)
+    pub fn UDSAddInput(tkey: String, tvalue: String)
     {
       this += 1.UDSinputCounter;
       this.UDSinputKey = (string[]) Utils.CopyArray((Array) this.UDSinputKey, (Array) new string[this.UDSinputCounter + 1 + 1]);
@@ -603,7 +603,7 @@ namespace WindowsApplication1
       this.UDSinputValue[this.UDSinputCounter] = tvalue;
     }
 
-    pub fn TempUDSAddInput(string tkey, string tvalue)
+    pub fn TempUDSAddInput(tkey: String, tvalue: String)
     {
       this += 1.TempUDSinputCounter;
       this.TempUDSinputKey = (string[]) Utils.CopyArray((Array) this.TempUDSinputKey, (Array) new string[this.TempUDSinputCounter + 1 + 1]);
@@ -612,7 +612,7 @@ namespace WindowsApplication1
       this.TempUDSinputValue[this.TempUDSinputCounter] = tvalue;
     }
 
-    pub fn UDSAddInput(string tkey, tvalue: i32)
+    pub fn UDSAddInput(tkey: String, tvalue: i32)
     {
       let mut udSinputCounter: i32 =  this.UDSinputCounter;
       for (let mut index: i32 =  0; index <= udSinputCounter; index += 1)
@@ -796,7 +796,7 @@ namespace WindowsApplication1
       this.skipGfxDetail = false;
     }
 
-    pub EditClass(string filename)
+    pub EditClass(filename: String)
     {
       this.AnswerText = new string[10];
       this.AnswerTextMouseOver = new string[10];
@@ -1424,7 +1424,7 @@ namespace WindowsApplication1
       this.useLeftRightClickMode = true;
     }
 
-    pub fn Save(string filename)
+    pub fn Save(filename: String)
     {
       StreamWriter text = File.CreateText(filename);
       text.WriteLine(this.PrefShowFOW);

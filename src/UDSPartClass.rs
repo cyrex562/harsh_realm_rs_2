@@ -38,9 +38,9 @@ namespace WindowsApplication1
     pub UDSData dyn;
      scrollelementclicked: i32;
      scrollelementclicked2: i32;
-     Bitmap[] bmp;
+     bmp: Vec<Bitmap>;
      int[] bmpLink;
-     Bitmap[] backBmp;
+     backBmp: Vec<Bitmap>;
      int[] backBmpLink;
      backBitmapCounter: i32;
      bool noBackground;
@@ -90,7 +90,7 @@ namespace WindowsApplication1
       tgame: GameClass,
       twidth: i32,
       theight: i32,
-      string tTexty,
+      tTexty: String,
        tbackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
       let mut bby: i32 = -1,
@@ -142,7 +142,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub HeightUsed: i32() => self.maxY;
+    pub fn HeightUsed() -> i32 => self.maxY;
 
     pub AdjustSliders: bool(activeSliderNr: i32)
     {
@@ -514,7 +514,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub DoJustCheckHeight: i32(bool heightIncludingY = false)
+    pub fn DoJustCheckHeight(bool heightIncludingY = false) -> i32
     {
       self.dyn = new UDSData(self.texty, false);
       let mut num1: i32 = 0;
@@ -561,7 +561,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub DoJustCheckWidth: i32()
+    pub fn DoJustCheckWidth() -> i32
     {
       self.dyn = new UDSData(self.texty, false);
       let mut num1: i32 = 0;
@@ -1533,9 +1533,9 @@ namespace WindowsApplication1
       self.curY = 0;
     }
 
-    pub HandleBLOCKEDMouseUp: i32(x: i32, y: i32) => self.HandleMouseUp(x, y);
+    pub fn HandleBLOCKEDMouseUp(x: i32, y: i32) => self.HandleMouseUp(x, y) -> i32;
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (self.clickscroll == 1 | self.Scroller)
       {
@@ -1568,7 +1568,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub fn SetHiddenAndBaseData(elementSlotClicked: i32, string tkey, string tval)
+    pub fn SetHiddenAndBaseData(elementSlotClicked: i32, tkey: String, tval: String)
     {
       if (DrawMod.TGame.EmpireStyle)
         SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
@@ -1606,7 +1606,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 = 1) -> i32
     {
       self.scrollelementclicked = -1;
       self.scrollelementclicked2 = -1;
@@ -2166,7 +2166,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn loadSpecificBmp(string s, slot: i32, rotate: i32)
+    pub fn loadSpecificBmp(s: String, slot: i32, rotate: i32)
     {
       if (!Information.IsNothing( self.bmp[slot]))
       {

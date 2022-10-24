@@ -181,7 +181,7 @@ namespace WindowsApplication1
      detailnr5: i32;
      detailnr6: i32;
      DescBox: i32;
-     string ss;
+     ss: String;
 
     pub EditHisWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Historical Units (&officers)")
@@ -302,7 +302,7 @@ namespace WindowsApplication1
           if (this.game.Data.HistoricalUnitObj[index].LibId.libSlot == this.libnr | this.libnr == -1)
           {
             num4 += 1;
-            string tvalue;
+            tvalue: String;
             if (this.game.Data.HistoricalUnitObj[index].Type == 1)
               tvalue = "1.Ind";
             if (this.game.Data.HistoricalUnitObj[index].Type == 2)
@@ -863,7 +863,7 @@ namespace WindowsApplication1
         let mut hisVarCount: i32 =  this.game.Data.HistoricalUnitObj[this.detailnr].HisVarCount;
         for (let mut tdata: i32 =  0; tdata <= hisVarCount; tdata += 1)
         {
-          string tname;
+          tname: String;
           if (this.game.Data.HistoricalUnitObj[this.detailnr].HisVarSmall[tdata] > -1)
             tname = "Type " + this.game.Data.HistoricalUnitObj[this.detailnr].HisVarType[tdata].ToString() + " = " + this.game.Data.HistoricalUnitObj[this.detailnr].HisVarValue[tdata].ToString() + " (smallgfx" + this.game.Data.HistoricalUnitObj[this.detailnr].HisVarSmall[tdata].ToString() + ")";
           else

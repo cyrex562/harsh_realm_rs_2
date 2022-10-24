@@ -39,99 +39,99 @@ namespace WindowsApplication1
       return (SFClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Type", this.Type);
-      info.AddValue("Qty", this.Qty);
-      info.AddValue("Ap", this.Ap);
-      info.AddValue("Rdn", this.Rdn);
-      info.AddValue("Xp", this.Xp);
-      info.AddValue("People", this.People);
-      info.AddValue("CurrentEntrench", this.CurrentEntrench);
-      info.AddValue("Mor", this.Mor);
-      info.AddValue("EP", this.EP);
-      info.AddValue("OffMod", this.OffMod);
-      info.AddValue("DefMod", this.DefMod);
-      info.AddValue("MoveType", this.MoveType);
-      info.AddValue("initialEntrench", this.initialEntrench);
-      info.AddValue("Vigor", this.Vigor);
+      info.AddValue("Type", self.Type);
+      info.AddValue("Qty", self.Qty);
+      info.AddValue("Ap", self.Ap);
+      info.AddValue("Rdn", self.Rdn);
+      info.AddValue("Xp", self.Xp);
+      info.AddValue("People", self.People);
+      info.AddValue("CurrentEntrench", self.CurrentEntrench);
+      info.AddValue("Mor", self.Mor);
+      info.AddValue("EP", self.EP);
+      info.AddValue("OffMod", self.OffMod);
+      info.AddValue("DefMod", self.DefMod);
+      info.AddValue("MoveType", self.MoveType);
+      info.AddValue("initialEntrench", self.initialEntrench);
+      info.AddValue("Vigor", self.Vigor);
     }
 
     protected SFClass(SerializationInfo info, StreamingContext context)
     {
-      this.Type = info.GetInt32(nameof (Type));
-      this.Qty = info.GetInt32(nameof (Qty));
-      this.Ap = info.GetInt32(nameof (Ap));
-      this.Rdn = info.GetInt32(nameof (Rdn));
-      this.Xp = info.GetInt32(nameof (Xp));
-      this.People = info.GetInt32(nameof (People));
-      this.CurrentEntrench = info.GetInt32(nameof (CurrentEntrench));
-      this.Mor = info.GetInt32(nameof (Mor));
-      this.EP = info.GetInt32(nameof (EP));
+      self.Type = info.GetInt32(nameof (Type));
+      self.Qty = info.GetInt32(nameof (Qty));
+      self.Ap = info.GetInt32(nameof (Ap));
+      self.Rdn = info.GetInt32(nameof (Rdn));
+      self.Xp = info.GetInt32(nameof (Xp));
+      self.People = info.GetInt32(nameof (People));
+      self.CurrentEntrench = info.GetInt32(nameof (CurrentEntrench));
+      self.Mor = info.GetInt32(nameof (Mor));
+      self.EP = info.GetInt32(nameof (EP));
       if (DrawMod.TGame.Data.Version < 158)
       {
         if (DrawMod.TGame.Data.Version >= 110)
         {
-          this.OffMod = info.GetInt32(nameof (OffMod));
-          this.DefMod = info.GetInt32(nameof (DefMod));
+          self.OffMod = info.GetInt32(nameof (OffMod));
+          self.DefMod = info.GetInt32(nameof (DefMod));
         }
         else
         {
-          this.OffMod = 0;
-          this.DefMod = 0;
+          self.OffMod = 0;
+          self.DefMod = 0;
         }
         if (DrawMod.TGame.Data.Version < 130)
         {
-          this.MoveType = -1;
+          self.MoveType = -1;
         }
         else
         {
           try
           {
-            this.MoveType = info.GetInt32(nameof (MoveType));
+            self.MoveType = info.GetInt32(nameof (MoveType));
           }
           catch (Exception ex)
           {
             ProjectData.SetProjectError(ex);
-            this.MoveType = -1;
+            self.MoveType = -1;
             ProjectData.ClearProjectError();
           }
         }
       }
       else
       {
-        this.OffMod = info.GetInt32(nameof (OffMod));
-        this.DefMod = info.GetInt32(nameof (DefMod));
-        this.MoveType = info.GetInt32(nameof (MoveType));
+        self.OffMod = info.GetInt32(nameof (OffMod));
+        self.DefMod = info.GetInt32(nameof (DefMod));
+        self.MoveType = info.GetInt32(nameof (MoveType));
       }
       try
       {
-        this.initialEntrench = info.GetInt32(nameof (initialEntrench));
+        self.initialEntrench = info.GetInt32(nameof (initialEntrench));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.initialEntrench = this.CurrentEntrench;
+        self.initialEntrench = self.CurrentEntrench;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.Vigor = info.GetInt32(nameof (Vigor));
+        self.Vigor = info.GetInt32(nameof (Vigor));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.Vigor = 100;
+        self.Vigor = 100;
         ProjectData.ClearProjectError();
       }
     }
 
     pub SFClass(hardcoded: i32)
     {
-      this.Type = -1;
-      this.MoveType = -1;
-      this.initialEntrench = 0;
-      this.Vigor = 100;
+      self.Type = -1;
+      self.MoveType = -1;
+      self.initialEntrench = 0;
+      self.Vigor = 100;
     }
 
     pub fn Kill()

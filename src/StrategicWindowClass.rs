@@ -506,7 +506,7 @@ namespace WindowsApplication1
       if (self.game.EditObj.TransferLostQty > 0)
       {
         str: String = "troops";
-        string txt;
+        txt: String;
         if (self.game.EditObj.TransferLostTransports > 0)
           txt = "Lost " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostQty)) + " " + str + " and " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostTransports)) + " transport troops due to enemy Anti-Cap.";
         else
@@ -643,7 +643,7 @@ namespace WindowsApplication1
           self.OrderOKTextId = self.AddSubPart( tsubpart3, num3 + 540, 85, 160, 50, 0);
         }
         num13: i32;
-        string txt1;
+        txt1: String;
         if (self.game.EditObj.TargetX > -1)
         {
           txt1 = !(land2Cost < 9999 & num13 != 2 & self.temp2land[self.game.EditObj.MapSelected].Value[self.game.SelectX, self.game.SelectY] < 9999) ? "No Land Connect" : "LandCap = " + Conversion.Str( landCost) + " / " + Conversion.Str( Number1);
@@ -668,7 +668,7 @@ namespace WindowsApplication1
           tsubpart3 =  new ATTextPartClass(txt1, self.game.VicFont2, 230, 20, false);
           self.text4id = self.AddSubPart( tsubpart3, num3 + 290, 73, 230, 20, 0);
         }
-        string txt2;
+        txt2: String;
         if (self.game.EditObj.TargetX > -1)
         {
           txt2 = !(navy2Cost < 9999 & num13 != 1 & self.temp2navy[self.game.EditObj.MapSelected].Value[self.game.SelectX, self.game.SelectY] < 9999) ? "No Navy Connect" : "NavyCap = " + Conversion.Str( navyCost) + " / " + Conversion.Str( Number2);
@@ -694,7 +694,7 @@ namespace WindowsApplication1
         }
         if ( self.game.Data.RuleVar[509] == 0.0)
         {
-          string txt3;
+          txt3: String;
           if (self.game.EditObj.TargetX > -1)
           {
             txt3 = !(air2Cost < 9999 & num13 != 1 &  self.game.Data.RuleVar[509] == 0.0 & self.temp2air[self.game.EditObj.MapSelected].Value[self.game.SelectX, self.game.SelectY] < 9999) ? "No Rail Connect" : "RailCap = " + Conversion.Str( airCost) + " / " + Conversion.Str( Number3);

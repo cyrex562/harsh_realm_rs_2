@@ -449,7 +449,7 @@ namespace WindowsApplication1
               str1 = str1 + " " + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[index1].Ratio)) + "x ";
           }
         }
-        string str2;
+        str2: String;
         index3: i32;
         index4: i32;
         index5: i32;
@@ -1292,7 +1292,7 @@ namespace WindowsApplication1
         }
       }
       let mut sftyp3: i32 = self.sftyp;
-      string str12;
+      str12: String;
       if (self.StatMode == 1 & sftyp3 > -1)
       {
         let mut num13: i32 = 150;
@@ -1726,8 +1726,8 @@ namespace WindowsApplication1
           tname: String = Strings.Trim(Conversion.Str( Number1)) + ". " + self.game.Data.TempString[400 + simpleList1.Id[counter]];
           tvalue52: String = Strings.Trim(Conversion.Str( (self.game.Data.SFTypeObj[index29].AttackPower[simpleList1.Id[counter]] * self.game.Data.SFTypeObj[index29].Attacks))) + "/" + Strings.Trim(Conversion.Str( (self.game.Data.SFTypeObj[index29].AttackPowerDef[simpleList1.Id[counter]] * self.game.Data.SFTypeObj[index29].Attacks)));
           tvalue2_52: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[index29].HitPoints[simpleList1.Id[counter]])) + "/" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[index29].HitPointsDef[simpleList1.Id[counter]]));
-          string tvalue3;
-          string tvalue4;
+          tvalue3: String;
+          tvalue4: String;
           if (self.comparenr > -1)
           {
             tvalue3 = Strings.Trim(Conversion.Str( (self.game.Data.SFTypeObj[self.comparenr].AttackPower[simpleList1.Id[counter]] * self.game.Data.SFTypeObj[self.comparenr].Attacks))) + "/" + Strings.Trim(Conversion.Str( (self.game.Data.SFTypeObj[self.comparenr].AttackPowerDef[simpleList1.Id[counter]] * self.game.Data.SFTypeObj[self.comparenr].Attacks)));
@@ -1846,8 +1846,8 @@ namespace WindowsApplication1
             self.OptionsListObj.add(name, tdata, tvalue, tvalue2);
         }
         let mut roadTypeCounter: i32 = self.game.Data.RoadTypeCounter;
-        string str13;
-        string str14;
+        str13: String;
+        str14: String;
         for (let mut index32: i32 = 0; index32 <= roadTypeCounter; index32 += 1)
         {
           name: String = self.game.Data.RoadTypeObj[index32].Name;

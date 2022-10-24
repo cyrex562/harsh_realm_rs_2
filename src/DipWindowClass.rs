@@ -187,7 +187,7 @@ namespace WindowsApplication1
       this.tab3id = this.AddSubPart(ref tsubpart, 427, 90, 100, 35, 1);
       if (this.detailnr > -1)
       {
-        string tvalue;
+        tvalue: String;
         if (this.tabsheet == 0)
         {
           this.OptionsList3Obj = ATListClass::new();
@@ -233,7 +233,7 @@ namespace WindowsApplication1
               else if (this.game.Data.RegimeObj[index].RegimeRel[this.detailnr] == 0)
                 tvalue = this.game.Data.RegimeObj[index].RegimeOffer[this.detailnr] != 1 ? (this.game.Data.RegimeObj[this.detailnr].RegimeOffer[index] != 1 ? "War" : "Peace offered by " + this.game.Data.RegimeObj[this.detailnr].Name) : "Peace offered by " + this.game.Data.RegimeObj[index].Name;
               else if (this.game.Data.RegimeObj[index].RegimeRel[this.detailnr] == 2)
-                tvalue = "Allied";
+                tvalue = "Allied".to_owned();
               this.OptionsList4Obj.add(this.game.Data.RegimeObj[index].Name, -1, tvalue);
             }
           }

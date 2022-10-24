@@ -16,7 +16,7 @@ namespace WindowsApplication1
     pub DynamicDataElement[] element;
     pub elementCounter: i32;
 
-    pub DynamicData(string datastring)
+    pub DynamicData(datastring: String)
     {
       this.element = new DynamicDataElement[1000];
       strArray1: Vec<String> = new string[1000];
@@ -48,49 +48,49 @@ namespace WindowsApplication1
         do
         {
           let mut num5: i32 =  1;
-          string str1;
+          str1: String;
           if (num4 == 0)
-            str1 = "type";
+            str1 = "type".to_owned();
           if (num4 == 1)
-            str1 = this.element[index].type != DynamicType.PageBreak ? "fontname" : "image";
+            str1 = this.element[index].type != DynamicType.PageBreak ? "fontname" : "image".to_owned();
           if (num4 == 2)
-            str1 = "fontsize";
+            str1 = "fontsize".to_owned();
           if (num4 == 3)
-            str1 = "fontstyle";
+            str1 = "fontstyle".to_owned();
           if (num4 == 4)
-            str1 = "lineheight";
+            str1 = "lineheight".to_owned();
           if (num4 == 5)
-            str1 = "color";
+            str1 = "color".to_owned();
           if (num4 == 6)
-            str1 = "eventpic";
+            str1 = "eventpic".to_owned();
           if (num4 == 7)
-            str1 = "portraitpic";
+            str1 = "portraitpic".to_owned();
           if (num4 == 8)
-            str1 = "text";
+            str1 = "text".to_owned();
           if (num4 == 9)
-            str1 = "x";
+            str1 = "x".to_owned();
           if (num4 == 10)
-            str1 = "y";
+            str1 = "y".to_owned();
           if (num4 == 11)
-            str1 = "w";
+            str1 = "w".to_owned();
           if (num4 == 12)
-            str1 = "h";
+            str1 = "h".to_owned();
           if (num4 == 13)
-            str1 = "z";
+            str1 = "z".to_owned();
           if (num4 == 14)
-            str1 = "pos";
+            str1 = "pos".to_owned();
           if (num4 == 15)
-            str1 = "optiontitle";
+            str1 = "optiontitle".to_owned();
           if (num4 == 16)
-            str1 = "optiontext";
+            str1 = "optiontext".to_owned();
           if (num4 == 17)
-            str1 = "optionpp";
+            str1 = "optionpp".to_owned();
           if (num4 == 18)
-            str1 = "optionevent";
+            str1 = "optionevent".to_owned();
           if (num4 == 19)
-            str1 = "center";
+            str1 = "center".to_owned();
           if (num4 >= 20)
-            str1 = "optiontempvar";
+            str1 = "optiontempvar".to_owned();
           while (num5 == 1)
           {
             num5 = 0;

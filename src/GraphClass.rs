@@ -22,7 +22,7 @@ namespace WindowsApplication1
      bx: i32;
      by: i32;
      Mat: Vec<i32>;
-     string MatTitle;
+     MatTitle: String;
      Multiplier: i32;
      Color[] RegCol;
      RegName: Vec<String>;
@@ -44,7 +44,7 @@ namespace WindowsApplication1
       tgame: GameClass,
       tMat: Vec<i32>,
       bool tshowNumbers,
-      string tMatTitle,
+      tMatTitle: String,
       tMultiplier: i32,
       Color[] tRegCol,
       tRegName: Vec<String>,
@@ -241,7 +241,7 @@ label_44:
         DrawMod.drawLineDot( graphics, num2 - 20, num18, num2 + num1, num18, c1);
         str: String = Strings.Trim(Conversion.Str( (( Math.Round( num7 / 10.0) * num16 - Math.Abs(this.tmin)) * this.Multiplier)));
         if (Operators.CompareString(Strings.Right(str, 4), "0000", false) == 0)
-          str = Strings.Left(str, Strings.Len(str) - 3) + "K";
+          str = Strings.Left(str, Strings.Len(str) - 3) + "K".to_owned();
         sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
         DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5,  Math.Round( ( (num2 - 25) - sizeF2.Width / 2f)),  Math.Round( ( num18 - sizeF2.Height)), c2);
         num16 += 1;
@@ -307,7 +307,7 @@ label_44:
             if (this.showNumbers)
             {
               float num30 =  ((this.Mat[index18, index19] - Math.Abs(this.tmin)) * this.Multiplier);
-              str: String = !( num30 > 9999.0 |  num30 < -9999.0) ? num30.ToString() : Strings.Format(  ( num30 / 1000.0), "0.0") + "K";
+              str: String = !( num30 > 9999.0 |  num30 < -9999.0) ? num30.ToString() : Strings.Format(  ( num30 / 1000.0), "0.0") + "K".to_owned();
               sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
               let mut num31: i32 =  0;
               index20: i32;
@@ -342,10 +342,10 @@ label_44:
       return this.OwnBitmap;
     }
 
-    pub string DateString(round: i32)
+    pub DateString: String(round: i32)
     {
       object Counter;
-      string str;
+      str: String;
       if (this.game.Data.AlternateRound > -1)
       {
         DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1));
@@ -386,7 +386,7 @@ label_44:
         if (((this.game.Data.Round <= 10 ? 1 : 0) & 0) != 0)
           str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + ":00";
         else
-          str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + "h";
+          str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + "h".to_owned();
       }
       else
         str = Strings.Trim(Conversion.Str( round));

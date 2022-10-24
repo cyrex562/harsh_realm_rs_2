@@ -28,7 +28,7 @@ namespace WindowsApplication1
     pub static Random RandyNumber;
     pub static bool MouseClicked;
     pub static TGame: GameClass;
-    pub static string ModFile;
+    pub static ModFile: String;
     pub static DPIx: i32;
     pub static DPIy: i32;
     pub static tempBmp128: Bitmap;
@@ -1895,9 +1895,9 @@ namespace WindowsApplication1
     pub static void MakeFullBoxVic(
       ref Graphics g,
       Rectangle rect1,
-      string txt1,
+      txt1: String,
       Rectangle rect2,
-      string txt2,
+      txt2: String,
       let mut SpecialMode: i32 =  0)
     {
       SizeF sizeF1 = SizeF::new();
@@ -1996,9 +1996,9 @@ namespace WindowsApplication1
     pub static void MakeFullBoxVic2(
       ref Graphics g,
       Rectangle rect1,
-      string txt1,
+      txt1: String,
       Rectangle rect2,
-      string txt2,
+      txt2: String,
       let mut SpecialMode: i32 =  0)
     {
       SizeF sizeF1 = SizeF::new();
@@ -2130,7 +2130,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextVert(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2153,7 +2153,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextVertEasier(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2170,7 +2170,7 @@ namespace WindowsApplication1
 
     pub static void DrawText(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2188,7 +2188,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextOutline(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2206,7 +2206,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextCenter(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2224,7 +2224,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextCenterSmallLabel(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2280,7 +2280,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextCenterSmallLabelMultiLine(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2297,7 +2297,7 @@ namespace WindowsApplication1
 
     pub static void DrawText2(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32)
@@ -2596,7 +2596,7 @@ namespace WindowsApplication1
       y: i32,
       w: i32,
       h: i32,
-      string HeaderString,
+      HeaderString: String,
       let mut watermark: i32 =  -1)
     {
       if (!Information.IsNothing( b))
@@ -2917,7 +2917,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColoured(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2931,7 +2931,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredNicely(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2947,7 +2947,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextVic(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2966,7 +2966,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextVic2(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -2983,7 +2983,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextVic3(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3004,7 +3004,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredMarcCapped(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3028,7 +3028,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredMarc(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3105,7 +3105,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredConsole(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3122,7 +3122,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredConsoleMultiline(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3148,7 +3148,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredConsoleCenter(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3169,7 +3169,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredConsoleCenterEmbossed(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3268,7 +3268,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredMarcCenter(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3313,7 +3313,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredMarcCenterCinematic(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3333,7 +3333,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredMarcCounter(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3359,7 +3359,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredFuzzy(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3374,7 +3374,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredOutline(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -3405,7 +3405,7 @@ namespace WindowsApplication1
       width: i32,
       height: i32,
       bool HighLight,
-      string ttext,
+      ttext: String,
       let mut plusy: i32 =  0,
       customfont: Font = null,
       bool allblack = false,
@@ -3736,7 +3736,7 @@ namespace WindowsApplication1
 
     pub static void DrawTextColouredB(
       ref Graphics objgraphics,
-      string tstring,
+      tstring: String,
       tfont: Font,
       x: i32,
       y: i32,
@@ -4024,7 +4024,7 @@ namespace WindowsApplication1
       return rectForTab;
     }
 
-    pub static Rectangle DrawBackTab(Graphics g, w: i32, h: i32, string s, tabnr: i32)
+    pub static Rectangle DrawBackTab(Graphics g, w: i32, h: i32, s: String, tabnr: i32)
     {
       Rectangle rectForTab;
       if (tabnr > -1)

@@ -20,7 +20,7 @@ namespace WindowsApplication1
      lastpagenr: i32;
      fullBmp: Bitmap;
      bool fullBmpCenterScale;
-     Bitmap[] bmp;
+     bmp: Vec<Bitmap>;
      int[] bmpLink;
      DateTime lastTime;
      textRotateNumber: i32;
@@ -40,7 +40,7 @@ namespace WindowsApplication1
      bool udsContainsButton;
      udsTv0: i32;
      Cursor tempCursor;
-     string fullBmpName;
+     fullBmpName: String;
      SimpleStringList TabList;
 
     pub DynamicCinematicsScreenClass(ref tGame: GameClass, tformref: Form1)
@@ -315,7 +315,7 @@ namespace WindowsApplication1
                   this.udsW = num24;
                   this.udsH = num25;
                   this.Game.EditObj.UdsInsideTabOpenMode = false;
-                  string udSpopupText;
+                  udSpopupText: String;
                   if (this.udsNewEvent > 0)
                   {
                     this.Game.EventRelatedObj.DoCheckSpecificEvent(this.udsNewEvent,  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 9])));
@@ -426,7 +426,7 @@ namespace WindowsApplication1
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 400000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 499999.0)
                   num29 =  Math.Round( this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
                 str1: String = this.Game.Data.StringListObj[stringListById1].Data[index1, 8];
-                string str2;
+                str2: String;
                 if (this.Game.Data.Product >= 7)
                 {
                   try
@@ -930,7 +930,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn loadSpecificBmp(string s, slot: i32, let mut specialRenderMode: i32 =  -1)
+    pub fn loadSpecificBmp(s: String, slot: i32, let mut specialRenderMode: i32 =  -1)
     {
       if (!Information.IsNothing( this.bmp[slot]))
       {
@@ -998,7 +998,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn loadSpecificFullBmp(string s)
+    pub fn loadSpecificFullBmp(s: String)
     {
       if (!Information.IsNothing( this.fullBmp))
       {

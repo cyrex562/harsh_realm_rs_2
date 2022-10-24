@@ -110,7 +110,7 @@ namespace WindowsApplication1
       return (LandscapeTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("BasicSpriteCounter", this.BasicSpriteCounter);
@@ -773,7 +773,7 @@ namespace WindowsApplication1
       }
       if (hardcoded == 1)
       {
-        this.Name = "Sea";
+        this.Name = "Sea".to_owned();
         this.CanParadrop = true;
         this.BasicSpriteCounter = 0;
         this.BasicSpriteFileName[0] = "systemgraphics/trans.bmp";
@@ -830,7 +830,7 @@ namespace WindowsApplication1
       this.NewGfxWeatherForegroundY = -1;
     }
 
-    pub fn AutoLoadSpecial(string dirstring, string extstring)
+    pub fn AutoLoadSpecial(dirstring: String, extstring: String)
     {
       this.LayerSpriteFileName[1] = dirstring + "/a1" + extstring;
       this.LayerSpriteFileName[2] = dirstring + "/b1" + extstring;
@@ -926,7 +926,7 @@ namespace WindowsApplication1
       BitmapStore.RemoveBitmapNr(this.SheetSpriteID);
     }
 
-    pub fn AddBasicSprite(string filename, string picfilename)
+    pub fn AddBasicSprite(filename: String, picfilename: String)
     {
       this += 1.BasicSpriteCounter;
       this.BasicSpriteFileName = (string[]) Utils.CopyArray((Array) this.BasicSpriteFileName, (Array) new string[this.BasicSpriteCounter + 1]);
@@ -964,31 +964,31 @@ namespace WindowsApplication1
       this.BasicPicID[this.BasicSpriteCounter] = BitmapStore.AddFile(this.BasicPicFileName[this.BasicSpriteCounter], false);
     }
 
-    pub fn ReplaceSpriteSheet(string filename)
+    pub fn ReplaceSpriteSheet(filename: String)
     {
       this.SheetFileName = filename;
       this.SheetSpriteID = BitmapStore.ReloadFile(this.SheetSpriteID, this.SheetFileName, IsBig: true);
     }
 
-    pub fn ReplaceBasicSprite(nr: i32, string filename)
+    pub fn ReplaceBasicSprite(nr: i32, filename: String)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub fn ReplaceBasicSprite2(nr: i32, string filename)
+    pub fn ReplaceBasicSprite2(nr: i32, filename: String)
     {
       this.BasicSpriteFileName2[nr] = filename;
       this.BasicSpriteID2[nr] = BitmapStore.ReloadFile(this.BasicSpriteID2[nr], filename, IsBig: true);
     }
 
-    pub fn ReplaceBasicSprite3(nr: i32, string filename)
+    pub fn ReplaceBasicSprite3(nr: i32, filename: String)
     {
       this.BasicSpriteFileName3[nr] = filename;
       this.BasicSpriteID3[nr] = BitmapStore.ReloadFile(this.BasicSpriteID3[nr], filename, IsBig: true);
     }
 
-    pub fn ReplacePreHexTexture(string filename)
+    pub fn ReplacePreHexTexture(filename: String)
     {
       this.PreHexTextureFileName = filename;
       this.PreHexTextureID = BitmapStore.ReloadFile(this.PreHexTextureID, filename, IsBig: true);
@@ -996,37 +996,37 @@ namespace WindowsApplication1
       BitmapStore.simpleByteCacheSet[this.PreHexTextureID] = false;
     }
 
-    pub fn ReplacePicSprite(nr: i32, string filename)
+    pub fn ReplacePicSprite(nr: i32, filename: String)
     {
       this.BasicPicFileName[nr] = filename;
       this.BasicPicID[nr] = BitmapStore.ReloadFile(this.BasicPicID[nr], filename);
     }
 
-    pub fn ReplaceSidewaysSprite1(string filename, nr: i32)
+    pub fn ReplaceSidewaysSprite1(filename: String, nr: i32)
     {
       this.SidewaysSpriteFileName1[nr] = filename;
       this.SidewaysSPriteID1[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID1[nr], this.SidewaysSpriteFileName1[nr]);
     }
 
-    pub fn ReplaceSidewaysSprite2(string filename, nr: i32)
+    pub fn ReplaceSidewaysSprite2(filename: String, nr: i32)
     {
       this.SidewaysSpriteFileName2[nr] = filename;
       this.SidewaysSPriteID2[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID2[nr], this.SidewaysSpriteFileName2[nr]);
     }
 
-    pub fn ReplaceSidewaysSprite3(string filename, nr: i32)
+    pub fn ReplaceSidewaysSprite3(filename: String, nr: i32)
     {
       this.SidewaysSpriteFileName3[nr] = filename;
       this.SidewaysSPriteID3[nr] = BitmapStore.ReloadFile(this.SidewaysSPriteID3[nr], this.SidewaysSpriteFileName3[nr]);
     }
 
-    pub fn ReplacePreHexPicSprite(string filename)
+    pub fn ReplacePreHexPicSprite(filename: String)
     {
       this.PreHexPicFileName = filename;
       this.PreHexPicID = BitmapStore.ReloadFile(this.PreHexPicID, filename, IsBig: true);
     }
 
-    pub fn ReplaceSpecialSprite(nr: i32, string filename)
+    pub fn ReplaceSpecialSprite(nr: i32, filename: String)
     {
       this.LayerSpriteFileName[nr] = filename;
       this.LayerSpriteID[nr] = BitmapStore.ReloadFile(this.LayerSpriteID[nr], filename, IsBig: true);

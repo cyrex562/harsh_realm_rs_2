@@ -245,13 +245,13 @@ namespace WindowsApplication1
       this.Label1.Font = Font::new("Microsoft Sans Serif", 15.75f, FontStyle.Regular, GraphicsUnit.Point, (byte) 0);
       this.Label1.ForeColor = Color.White;
       this.Label1.Location = new Point(119, 113);
-      this.Label1.Name = "Label1";
+      this.Label1.Name = "Label1".to_owned();
       Label label1 = this.Label1;
       Size size1 = new Size(110, 31);
       Size size2 = size1;
       label1.Size = size2;
       this.Label1.TabIndex = 0;
-      this.Label1.Text = "Loading";
+      this.Label1.Text = "Loading".to_owned();
       this.Label1.TextAlign = ContentAlignment.MiddleCenter;
       this.AutoScaleMode = AutoScaleMode.Inherit;
       this.BackColor = Color.Black;
@@ -268,7 +268,7 @@ namespace WindowsApplication1
         this.Moveable = false;
       this.Name = nameof (Form1);
       this.StartPosition = FormStartPosition.CenterScreen;
-      this.Text = "Game";
+      this.Text = "Game".to_owned();
       this.ResumeLayout(false);
       this.PerformLayout();
     }
@@ -487,9 +487,9 @@ namespace WindowsApplication1
       base.OnPaintBackground(e);
     }
 
-    pub GetMemorySize: i32() =>  Math.Round( (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize();
+    pub fn GetMemorySize() =>  Math.Round( (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize() -> i32;
 
-    pub fn SuperImposeMessage(string texty, string texty2)
+    pub fn SuperImposeMessage(texty: String, texty2: String)
     {
       let mut num1: i32 =   Math.Round( this.Game.RealScreenWidth / 2.0 - 185.0);
       let mut num2: i32 =   Math.Round( this.Game.RealScreenHeight / 2.0 - 106.0);

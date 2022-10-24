@@ -47,7 +47,7 @@ namespace WindowsApplication1
       return (LibVarClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub string GetValue( Data: DataClass, bool ForEvent = false)
+    pub GetValue: String( Data: DataClass, bool ForEvent = false)
     {
       str: String = self.value.ToString();
       if (self.valueType == NewEnums.LibVarValueType.Number)
@@ -62,7 +62,7 @@ namespace WindowsApplication1
         if (ForEvent)
         {
           if (Operators.CompareString(Left, "", false) == 0)
-            Left = "0";
+            Left = "0".to_owned();
         }
         else if (Operators.CompareString(Left, "", false) == 0)
           Left = "-not set-";
@@ -87,13 +87,13 @@ namespace WindowsApplication1
       if (self.valueType == NewEnums.LibVarValueType.SFTypeId)
         str = !(self.value > -1 & self.value <= Data.SFTypeCounter) ? (self.value <= Data.SFTypeCounter ? (self.value != -1 ? "Invalid value" : "None/All") : "Non-existing!") : Data.SFTypeObj[self.value].Name;
       if (self.valueType == NewEnums.LibVarValueType.YesNo)
-        str = self.value <= 0 ? "No" : "Yes";
+        str = self.value <= 0 ? "No" : "Yes".to_owned();
       if (ForEvent && self.value == -1)
         return "-1";
       return ForEvent ? Conversions.ToString(self.value) : str;
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("type",  self.type);
       info.AddValue("libId",  self.libId);

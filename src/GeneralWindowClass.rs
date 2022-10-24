@@ -186,7 +186,7 @@ namespace WindowsApplication1
      libNr: i32;
      DetailNr: i32;
      detailnr2: i32;
-     string ss;
+     ss: String;
      SheetCount: i32;
      SheetName: Vec<String>;
      Rectangle[] SheetRect;
@@ -653,7 +653,7 @@ namespace WindowsApplication1
       }
       tsubpart36 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.a31Id = this.AddSubPart( tsubpart36, 10, 269, 32, 16, 1);
-      this.ss = "Set to empty string not to overrule systemgraphics. Set to alternate directory inside the graphics directory to do. missing gfx are loaded at old loc.";
+      this.ss = "Set to empty not: String to overrule systemgraphics. Set to alternate directory inside the graphics directory to do. missing gfx are loaded at old loc.";
       tsubpart36 =  TextPartClass::new("SystemGfx Overrule='" + this.game.Data.SystemGfx + "'", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.a32TextId = this.AddSubPart( tsubpart36, 50, 189, 200, 20, 0);
       tsubpart36 =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
@@ -846,12 +846,12 @@ namespace WindowsApplication1
       this.p2id = this.AddSubPart( tsubpart25, 510, 470, 32, 16, 1);
       let mut tsubpart26: SubPartClass =  TextPartClass::new("Export PDF Book: Reinforcements", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.p2TextId = this.AddSubPart( tsubpart26, 550, 469, 400, 20, 0);
-      this.ss = "Click to make a string replace in file referenes of graphics";
+      this.ss = "Click to make a replace: String in file referenes of graphics";
       let mut tsubpart27: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
       this.p3id = this.AddSubPart( tsubpart27, 510, 510, 32, 16, 1);
       let mut tsubpart28: SubPartClass =  TextPartClass::new("Replace in graphic file string", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.p3TextId = this.AddSubPart( tsubpart28, 550, 509, 400, 20, 0);
-      this.ss = "Click to make a string replace in file referenes of sounds";
+      this.ss = "Click to make a replace: String in file referenes of sounds";
       let mut tsubpart29: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
       this.p4id = this.AddSubPart( tsubpart29, 510, 530, 32, 16, 1);
       let mut tsubpart30: SubPartClass =  TextPartClass::new("Replace in sound file string", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
@@ -873,37 +873,37 @@ namespace WindowsApplication1
         let mut num2: i32 =  0;
         if (index >= 0 & index <= 99)
         {
-          str = "MoveGroup";
+          str = "MoveGroup".to_owned();
           num2 = 0;
         }
         if (index >= 100 & index <= 199)
         {
-          str = "LandscapeGroup";
+          str = "LandscapeGroup".to_owned();
           num2 = 100;
         }
         if (index >= 200 & index <= 299)
         {
-          str = "PeopleGroup";
+          str = "PeopleGroup".to_owned();
           num2 = 200;
         }
         if (index >= 300 & index <= 399)
         {
-          str = "ItemGroup";
+          str = "ItemGroup".to_owned();
           num2 = 300;
         }
         if (index >= 400 & index <= 499)
         {
-          str = "SFTypeGroup";
+          str = "SFTypeGroup".to_owned();
           num2 = 400;
         }
         if (index >= 500 & index <= 599)
         {
-          str = "LocTypeGroup";
+          str = "LocTypeGroup".to_owned();
           num2 = 500;
         }
         if (index >= 600 & index <= 699)
         {
-          str = "SFTypeVarName";
+          str = "SFTypeVarName".to_owned();
           num2 = 600;
         }
         if (index == 700)
@@ -929,27 +929,27 @@ namespace WindowsApplication1
         }
         if (index == 721)
         {
-          str = "FrontZonesHexLibVarName";
+          str = "FrontZonesHexLibVarName".to_owned();
           num2 = 721;
         }
         if (index == 722)
         {
-          str = "FrontZonesLibraryName";
+          str = "FrontZonesLibraryName".to_owned();
           num2 = 722;
         }
         if (index == 723)
         {
-          str = "FrontZonesUnitLibVarName";
+          str = "FrontZonesUnitLibVarName".to_owned();
           num2 = 723;
         }
         if (index == 724)
         {
-          str = "FrontZonesExemptUnitLibVarValue";
+          str = "FrontZonesExemptUnitLibVarValue".to_owned();
           num2 = 724;
         }
         if (index == 725)
         {
-          str = "FrontZonesExemptUnitLibVarLibraryName";
+          str = "FrontZonesExemptUnitLibVarLibraryName".to_owned();
           num2 = 725;
         }
         if (index == 726)
@@ -984,12 +984,12 @@ namespace WindowsApplication1
         }
         if (index == 741)
         {
-          str = "FreeZonesHexLibVarName";
+          str = "FreeZonesHexLibVarName".to_owned();
           num2 = 741;
         }
         if (index == 740)
         {
-          str = "FreeZonesLibraryName";
+          str = "FreeZonesLibraryName".to_owned();
           num2 = 740;
         }
         if (index == 743)
@@ -1212,11 +1212,11 @@ namespace WindowsApplication1
         if (tdata == 2)
           tname = "ZOC, Recon & Autoconquer";
         if (tdata == 3)
-          tname = "Supply";
+          tname = "Supply".to_owned();
         if (tdata == 4)
           tname = "Bridge,Road,River & AP";
         if (tdata == 5)
-          tname = "Readiness";
+          tname = "Readiness".to_owned();
         if (tdata == 6)
           tname = "Experience,Morale & EP";
         if (tdata == 7)
@@ -1421,7 +1421,7 @@ namespace WindowsApplication1
       let mut tsubpart3: SubPartClass =  ButtonPartClass::new(num);
       this.PicId = this.AddSubPart( tsubpart3, 350, 430, w, h, 1);
       this.ss = "You need to set these to library if they are used by events. Otherwise they dont get imported.";
-      str: String = "None";
+      str: String = "None".to_owned();
       if (this.game.Data.eventPicLibId[this.DetailNr].libSlot > -1)
         str = this.game.Data.LibraryObj[this.game.Data.eventPicLibId[this.DetailNr].libSlot].name + ", LibID = " + this.game.Data.eventPicLibId[this.DetailNr].id.ToString();
       let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1481,7 +1481,7 @@ namespace WindowsApplication1
       let mut num: i32 =  this.game.Data.SmallPicNr[this.DetailNr];
       let mut tsubpart3: SubPartClass =  ButtonPartClass::new(num);
       this.PicId = this.AddSubPart( tsubpart3, 350, 430, BitmapStore.GetWidth(num), BitmapStore.Getheight(num), 1);
-      str: String = "None";
+      str: String = "None".to_owned();
       this.ss = "You need to set these to library if they are used by events. Otherwise they dont get imported.";
       if (this.game.Data.SmallLibId[this.DetailNr].libSlot > -1)
         str = this.game.Data.LibraryObj[this.game.Data.SmallLibId[this.DetailNr].libSlot].name + "(libID= " + this.game.Data.SmallLibId[this.DetailNr].id.ToString() + ")";
@@ -1541,7 +1541,7 @@ namespace WindowsApplication1
       this.rl1id = this.AddSubPart( tsubpart2, 650, 390, 32, 16, 1);
       let mut tsubpart3: SubPartClass =  TextPartClass::new("Change name+ratio", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.rl1TextId = this.AddSubPart( tsubpart3, 700, 389, 400, 20, 0);
-      str1: String = "None";
+      str1: String = "None".to_owned();
       this.ss = "Change library. (not recommended to use)";
       if (this.game.Data.ReinfLibId[this.DetailNr].libSlot > -1)
         str1 = this.game.Data.LibraryObj[this.game.Data.ReinfLibId[this.DetailNr].libSlot].name;
@@ -1573,7 +1573,7 @@ namespace WindowsApplication1
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: "Click to change the event coupled to this variant");
         let mut num2: i32 =  this.AddSubPart( tsubpart2, 500, 330 + index1 * 20, 32, 16, 1);
         vare[index3] = num2;
-        string txt;
+        txt: String;
         if (this.game.Data.Variants[index1] == -1)
           txt = "No Variant Option";
         else
@@ -3110,10 +3110,10 @@ label_645:
                                     switch (num81)
                                     {
                                       case 1:
-                                        path += "BIG";
+                                        path += "BIG".to_owned();
                                         break;
                                       case 2:
-                                        path += "SMALL";
+                                        path += "SMALL".to_owned();
                                         break;
                                     }
                                   }
@@ -3495,7 +3495,7 @@ label_645:
       return windowReturnClass;
     }
 
-    pub CopyDirectory: bool(string Src, string Dest, bool bQuiet = false)
+    pub CopyDirectory: bool(Src: String, Dest: String, bool bQuiet = false)
     {
       if (!Directory.Exists(Src))
         throw new DirectoryNotFoundException("The directory " + Src + " does not exists");
@@ -3508,7 +3508,7 @@ label_645:
         Dest += Conversions.ToString(Path.DirectorySeparatorChar);
       if (!Directory.Exists(Dest))
         Directory.CreateDirectory(Dest);
-      foreach (string fileSystemEntry in Directory.GetFileSystemEntries(Src))
+      foreach (fileSystemEntry: String in Directory.GetFileSystemEntries(Src))
       {
         if (Directory.Exists(fileSystemEntry))
           this.CopyDirectory(fileSystemEntry, Dest + Path.GetFileName(fileSystemEntry), true);
@@ -3535,7 +3535,7 @@ label_645:
         }
         else
         {
-          Bitmap[] bitmapArray = new Bitmap[this.SheetCount + 1];
+          bitmapArray: Vec<Bitmap> = new Bitmap[this.SheetCount + 1];
           let mut sheetCount1: i32 =  this.SheetCount;
           for (let mut index1: i32 =  1; index1 <= sheetCount1 && index1 <= this.SheetCount; index1 += 1)
           {
@@ -3722,7 +3722,7 @@ label_645:
       }
     }
 
-    pub RecursiveSearch: bool(string path)
+    pub RecursiveSearch: bool(path: String)
     {
       foreach (FileSystemInfo fileSystemInfo in new DirectoryInfo(path).GetFileSystemInfos())
       {
@@ -3916,7 +3916,7 @@ label_645:
       XRect layoutRectangle2 = xrect;
       XStringFormat center2 = XStringFormats.Center;
       xgraphics3.DrawString(text2, font2, brush2, layoutRectangle2, center2);
-      str9: String = "for";
+      str9: String = "for".to_owned();
       XGraphics xgraphics4 = xgraphics1;
       text3: String = str9;
       Xfont3: Font = xfont4;
@@ -3939,7 +3939,7 @@ label_645:
       PdfPage pdfPage2 = pdfDocument.AddPage();
       pdfPage2.Size = PageSize.A4;
       XGraphics xgraphics6 = XGraphics.FromPdfPage(pdfPage2);
-      str11: String = "INDEX";
+      str11: String = "INDEX".to_owned();
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
       XGraphics xgraphics7 = xgraphics6;
@@ -4234,7 +4234,7 @@ label_645:
       XRect layoutRectangle2 = xrect;
       XStringFormat center2 = XStringFormats.Center;
       xgraphics3.DrawString(text2, font2, brush2, layoutRectangle2, center2);
-      str5: String = "for";
+      str5: String = "for".to_owned();
       XGraphics xgraphics4 = xgraphics1;
       text3: String = str5;
       Xfont3: Font = xfont5;

@@ -19,19 +19,19 @@ namespace WindowsApplication1
     {
       let mut x: i32 =  Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
       let mut y: i32 =  Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
-      this.wtop = this.AddWindow((WindowClass) new PlayResearchWindowClass( tGame, true), x, y, 1024, 768);
+      self.wtop = self.AddWindow((WindowClass) new PlayResearchWindowClass( tGame, true), x, y, 1024, 768);
     }
 
     pub ScreenReturnClass HandleTimer()
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
-      if (this.WindowCounter <= -1)
+      if (self.WindowCounter <= -1)
         return screenReturnClass;
-      let mut windowCounter: i32 = this.WindowCounter;
+      let mut windowCounter: i32 = self.WindowCounter;
       for (let mut index1: i32 = 0; index1 <= windowCounter; index1 += 1)
       {
-        windowReturnClass: WindowReturnClass = this.WindowList[index1].handleTimer();
-        this.WindowFlag[index1] = windowReturnClass.Flag;
+        windowReturnClass: WindowReturnClass = self.WindowList[index1].handleTimer();
+        self.WindowFlag[index1] = windowReturnClass.Flag;
         if (windowReturnClass.Flag)
         {
           if (windowReturnClass.Counter > -1)
@@ -68,25 +68,25 @@ namespace WindowsApplication1
     pub ScreenReturnClass HandleMouseClick(x: i32, y: i32, b: i32)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
-      if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
-        this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > self.Game.ScreenWidth - 52 & x < self.Game.ScreenWidth - 28 & y < 25)
+        self.Game.FormRef.WindowState = FormWindowState.Minimized;
+      if (x > self.Game.ScreenWidth - 28 & x < self.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
-        this.Game.Data = DataClass::new();
-        this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
-        this.Game.EditObj.ShowInitialMenu = true;
+        self.Game.Data = DataClass::new();
+        self.Game.EditObj = new EditClass(self.Game.AppPath + "editobj.txt");
+        self.Game.EditObj.ShowInitialMenu = true;
         screenReturnClass.NewScreen = 12;
         return screenReturnClass;
       }
-      if (this.WindowCounter <= -1)
+      if (self.WindowCounter <= -1)
         return screenReturnClass;
-      let mut windowCounter: i32 = this.WindowCounter;
+      let mut windowCounter: i32 = self.WindowCounter;
       for (let mut index1: i32 = 0; index1 <= windowCounter; index1 += 1)
       {
-        if (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1] && y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1])
+        if (x > self.WindowX[index1] & x < self.WindowX[index1] + self.WindowW[index1] && y > self.WindowY[index1] & y < self.WindowY[index1] + self.WindowH[index1])
         {
-          windowReturnClass: WindowReturnClass = this.WindowList[index1].HandleMouseClick(x - this.WindowX[index1], y - this.WindowY[index1], b);
-          this.WindowFlag[index1] = windowReturnClass.Flag;
+          windowReturnClass: WindowReturnClass = self.WindowList[index1].HandleMouseClick(x - self.WindowX[index1], y - self.WindowY[index1], b);
+          self.WindowFlag[index1] = windowReturnClass.Flag;
           if (windowReturnClass.Counter > -1)
           {
             let mut counter: i32 = windowReturnClass.Counter;
@@ -123,13 +123,13 @@ namespace WindowsApplication1
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
-      if (this.WindowCounter <= -1)
+      if (self.WindowCounter <= -1)
         return screenReturnClass;
-      for (let mut windowCounter: i32 = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 = self.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
-        windowReturnClass2: WindowReturnClass = this.WindowList[windowCounter].HandleKeyPress(nr);
-        if (!this.WindowFlag[windowCounter])
-          this.WindowFlag[windowCounter] = windowReturnClass2.Flag;
+        windowReturnClass2: WindowReturnClass = self.WindowList[windowCounter].HandleKeyPress(nr);
+        if (!self.WindowFlag[windowCounter])
+          self.WindowFlag[windowCounter] = windowReturnClass2.Flag;
         if (windowReturnClass2.Counter > -1 && windowReturnClass2.Counter > -1)
         {
           let mut counter: i32 = windowReturnClass2.Counter;

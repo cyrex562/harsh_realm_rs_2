@@ -253,7 +253,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub Run: i32()
+    pub fn Run() -> i32
     {
       let mut num1: i32 =  Math.Round(Conversion.Val(self.data.StringListObj[self.slotRegimes].GetData(0, self.RegimeId, 1)));
       let mut num2: i32 =  Math.Round(Conversion.Val(self.data.StringListObj[self.slotGameKeys].GetData(0, 42, 2)));
@@ -4437,7 +4437,7 @@ namespace WindowsApplication1
             self.ai.AddLog("PICK RANDOM ITEM based on weight...");
             let mut onWeightWithSeed: i32 = simpleList2.GetRandomSlotbasedOnWeightWithSeed( (3882 * self.data.Round * self.data.Turn));
             idValue3: i32;
-            string logicString;
+            logicString: String;
             num70: i32;
             num71: i32;
             num72: i32;
@@ -7249,7 +7249,7 @@ namespace WindowsApplication1
       {
         let mut num60: i32 = 0;
         let mut counter8: i32 = self.ShqList.Counter;
-        string s;
+        s: String;
         for (index57 = 0; index57 <= counter8; index57 += 1)
         {
           str6: String = "STEP " + index59.ToString() + "." + index57.ToString() + " : ";

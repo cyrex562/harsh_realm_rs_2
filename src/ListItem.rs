@@ -11,11 +11,11 @@ namespace WindowsApplication1
   pub class ListItem
   {
      mID: i32;
-     string mName;
-     string mFile;
+     mName: String;
+     mFile: String;
     pub mRealName: String;
 
-    pub ListItem(ID: i32, string Name, tFile: String = "", RealName: String = "")
+    pub ListItem(ID: i32, Name: String, tFile: String = "", RealName: String = "")
     {
       this.mID = ID;
       this.mName = Name;
@@ -35,18 +35,18 @@ namespace WindowsApplication1
       set => this.mID = value;
     }
 
-    pub string Name
+    pub Name: String
     {
       get => this.mName;
       set => this.mName = value;
     }
 
-    pub string File
+    pub File: String
     {
       get => this.mFile;
       set => this.mFile = value;
     }
 
-    pub string ToString() => this.mName;
+    pub ToString: String() => this.mName;
   }
 }

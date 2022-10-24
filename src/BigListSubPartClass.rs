@@ -26,7 +26,7 @@ namespace WindowsApplication1
      int Width;
      int Height;
      game: GameClass;
-     string Header;
+     Header: String;
      bool HeaderCenter;
      bool Highlight;
      bool ShowPair;

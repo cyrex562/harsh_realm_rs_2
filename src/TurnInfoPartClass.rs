@@ -52,7 +52,7 @@ namespace WindowsApplication1
       if (round > 0)
       {
         c: Color = Color.FromArgb( byte.MaxValue, red2, green2, blue2);
-        string str;
+        str: String;
         if (self.game.Data.AlternateRound == -1)
         {
           str = "Round " + Conversion.Str( self.game.Data.Round);

@@ -39,7 +39,7 @@ namespace WindowsApplication1
       return this.idCounter;
     }
 
-    pub string GetString()
+    pub GetString: String()
     {
       str: String = "";
       let mut counter: i32 =  this.Counter;
@@ -48,17 +48,17 @@ namespace WindowsApplication1
         if (this.Front[index].FrontType == 1)
         {
           if (this.Front[index].StartStance == 3)
-            str += "_A";
+            str += "_A".to_owned();
           if (this.Front[index].StartStance == 2)
-            str += "_H";
+            str += "_H".to_owned();
           if (this.Front[index].StartStance == 1)
-            str += "_R";
+            str += "_R".to_owned();
         }
       }
       return str;
     }
 
-    pub string GetStringFull()
+    pub GetStringFull: String()
     {
       stringFull: String = "";
       let mut counter: i32 =  this.Counter;
@@ -67,11 +67,11 @@ namespace WindowsApplication1
         if (this.Front[index].FrontType == 1)
         {
           if (this.Front[index].StartStance == 3)
-            stringFull += "_A";
+            stringFull += "_A".to_owned();
           if (this.Front[index].StartStance == 2)
-            stringFull += "_H";
+            stringFull += "_H".to_owned();
           if (this.Front[index].StartStance == 1)
-            stringFull += "_R";
+            stringFull += "_R".to_owned();
         }
         else if (this.Front[index].FrontType == 2)
           stringFull = stringFull + "r" + this.Front[index].TargetFrontID.ToString();
@@ -179,7 +179,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub string RemoveAllUnitsUnderHisFromFront(int his, int fromFrontID, int toFrontID)
+    pub RemoveAllUnitsUnderHisFromFront: String(int his, int fromFrontID, int toFrontID)
     {
       str: String = "REMOVE ALL UNITS UNDER HIS FROM FRONT " + fromFrontID.ToString() + " TO FRONT " + toFrontID.ToString();
       AIFront front1 = this.FindFront(fromFrontID);

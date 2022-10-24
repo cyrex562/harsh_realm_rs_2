@@ -32,7 +32,7 @@ namespace WindowsApplication1
      int bridgeNr;
      int TabSheetNr;
      int DetailNr;
-     string ss;
+     ss: String;
 
     pub BridgeWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Bridge")

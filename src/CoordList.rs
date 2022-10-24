@@ -141,7 +141,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub FindSlot: i32(x: i32, y: i32, map: i32)
+    pub fn FindSlot(x: i32, y: i32, map: i32) -> i32
     {
       if (this.counter == -1)
         return -1;
@@ -154,7 +154,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindSlot: i32(x: i32, y: i32, map: i32, tdata1: i32, tdata2: i32)
+    pub fn FindSlot(x: i32, y: i32, map: i32, tdata1: i32, tdata2: i32) -> i32
     {
       if (this.counter == -1)
         return -1;
@@ -176,7 +176,7 @@ namespace WindowsApplication1
       return (CoordList) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("counter", this.counter);
       if (this.counter <= -1)

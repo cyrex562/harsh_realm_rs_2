@@ -301,7 +301,7 @@ namespace WindowsApplication1
             flag2 = true;
         }
         str1: String = "";
-        string ttext1;
+        ttext1: String;
         c1: Color;
         if (flag2)
         {
@@ -449,7 +449,7 @@ namespace WindowsApplication1
           b: i32;
           a: i32;
           c2: Color;
-          string str7;
+          str7: String;
           if (num22 >= 100)
           {
             r = 0;

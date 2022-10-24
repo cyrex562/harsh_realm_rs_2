@@ -165,7 +165,7 @@ namespace WindowsApplication1
      Detailnr2: i32;
      OverIsTopId: i32;
      OverIsTopTextId: i32;
-     string ss;
+     ss: String;
 
     pub LandscapeTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Landscape Types")
@@ -2204,7 +2204,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub fn ConstructTileset2(string s)
+    pub fn ConstructTileset2(s: String)
     {
       strArray: Vec<String> = new string[65];
       bitmap: Bitmap = new Bitmap(1280, 1280);
@@ -2244,7 +2244,7 @@ namespace WindowsApplication1
       bitmap.Dispose();
     }
 
-    pub fn ConstructTileset(string s)
+    pub fn ConstructTileset(s: String)
     {
       strArray: Vec<String> = new string[65];
       if (Interaction.MsgBox( "Make alternate vicFormat?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
@@ -2291,7 +2291,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn DeconstructTileset(string s)
+    pub fn DeconstructTileset(s: String)
     {
       strArray: Vec<String> = new string[65];
       let mut num1: i32 =  1;
@@ -2419,7 +2419,7 @@ namespace WindowsApplication1
       while (num3 <= 10);
     }
 
-    pub fn ClearPixels(string s)
+    pub fn ClearPixels(s: String)
     {
       s = s.Replace("\\", "/");
       let mut num1: i32 =  0;
@@ -2452,7 +2452,7 @@ namespace WindowsApplication1
       let mut num2: i32 =   Interaction.MsgBox( ("Finished. Revised " + Strings.Trim(Conversion.Str( Number1)) + " files in " + Strings.Trim(Conversion.Str( Number2)) + " directories."), Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub fn ClearPixelsOperation(string s)
+    pub fn ClearPixelsOperation(s: String)
     {
       bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
@@ -2617,7 +2617,7 @@ namespace WindowsApplication1
       let mut num: i32 =   Interaction.MsgBox( ("Finished. Revised " + Strings.Trim(Conversion.Str( Number)) + " files in "), Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub fn SetPixelFormatOperations(string s)
+    pub fn SetPixelFormatOperations(s: String)
     {
       bitmap1: Bitmap = (Bitmap) Image.FromStream((Stream) new MemoryStream(File.ReadAllBytes(s)));
       bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);

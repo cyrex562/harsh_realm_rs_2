@@ -114,7 +114,7 @@ namespace WindowsApplication1
      firstdetail: i32;
      lastdetail: i32;
      offnr: i32;
-     string ss;
+     ss: String;
 
     pub PeopleWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Peoples")

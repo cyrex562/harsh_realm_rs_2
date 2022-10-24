@@ -26,7 +26,7 @@ namespace WindowsApplication1
     pub Id: i32;
     pub Priority: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("CheckMode", this.CheckMode);

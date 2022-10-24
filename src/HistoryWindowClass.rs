@@ -544,7 +544,7 @@ namespace WindowsApplication1
         if (this.game.EditObj.HisAttackType == 13)
           txt = "SEA ARTILLERY";
         if (this.game.EditObj.HisAttackType == 14)
-          txt = "AIRSTRIKE";
+          txt = "AIRSTRIKE".to_owned();
         if (this.game.EditObj.HisAttackType == 15)
           txt = "BOMBING RUN";
         if (this.game.EditObj.HisAttackType == 21)
@@ -552,11 +552,11 @@ namespace WindowsApplication1
         if (this.game.EditObj.HisAttackType == 19)
           txt = "PARADROP ATTACK";
         if (this.game.EditObj.HisAttackType == 42)
-          txt = "AIRLIFT";
+          txt = "AIRLIFT".to_owned();
         if (this.game.EditObj.HisAttackType == 17)
           txt = "ANTICAP DOGFIGHT";
         if (this.game.EditObj.HisAttackType == 31)
-          txt = "ATTACK";
+          txt = "ATTACK".to_owned();
         if (this.game.EditObj.HisRegimeWon == -1)
         {
           let mut tsubpart4: SubPartClass =  new ATTextPartClass(txt, this.game.VicFont1, 600, 27, true, tBlackBack: true);

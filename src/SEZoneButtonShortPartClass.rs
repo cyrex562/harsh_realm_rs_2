@@ -12,7 +12,7 @@ namespace WindowsApplication1
   pub class SEZoneButtonShortPartClass : SubPartClass
   {
      iconSlotNr: i32;
-     string dataString;
+     dataString: String;
      bool active;
      customIconBmpNr: i32;
 
@@ -23,8 +23,8 @@ namespace WindowsApplication1
     pub SEZoneButtonShortPartClass(
       tIconSlotNr: i32,
       tCustomIconBitmapNr: i32,
-      string tDataString,
-      string tDescript,
+      tDataString: String,
+      tDescript: String,
       bool tactive)
       : base(93, 40)
     {

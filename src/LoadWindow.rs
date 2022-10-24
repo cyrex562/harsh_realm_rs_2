@@ -20,7 +20,7 @@ namespace WindowsApplication1
     pub LoadWindow( tGame: GameClass)
       : base( tGame, 400, 240, 8)
     {
-      this.game.EditObj.LoadString = "Initializing";
+      this.game.EditObj.LoadString = "Initializing".to_owned();
       this.game.EditObj.LoadingResult = LoadType.None;
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       this.game.EditObj.LoadingFinished = false;

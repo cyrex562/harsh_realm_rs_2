@@ -87,7 +87,7 @@ namespace WindowsApplication1
     pub LibIdClass LibId;
     pub LibIdClass OffLibId;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("Type", this.Type);
@@ -685,7 +685,7 @@ namespace WindowsApplication1
         this.OverdrawSpriteID = -1;
     }
 
-    pub GiveHisVarValue: i32(typ: i32)
+    pub fn GiveHisVarValue(typ: i32) -> i32
     {
       let mut hisVarCount: i32 =  this.HisVarCount;
       for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
@@ -742,7 +742,7 @@ namespace WindowsApplication1
       this.HisVarSmall[this.HisVarCount] = -1;
     }
 
-    pub fn ReplaceSprite1(string s)
+    pub fn ReplaceSprite1(s: String)
     {
       if (Operators.CompareString(s, "", false) == 0)
       {
@@ -764,7 +764,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn ReplaceSprite2(string s2)
+    pub fn ReplaceSprite2(s2: String)
     {
       if (Operators.CompareString(s2, "", false) == 0)
       {

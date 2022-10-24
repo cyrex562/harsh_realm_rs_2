@@ -199,7 +199,7 @@ namespace WindowsApplication1
               flag4 = false;
             let mut num21: i32 = num12 + 8;
             let mut length1: i32 = self.game.Data.StringListObj[stringListById5].Length;
-            string str3;
+            str3: String;
             for (let mut index: i32 = 0; index <= length1; index += 1)
             {
               if (Strings.InStr(self.game.Data.StringListObj[stringListById5].Data[index, 6], "REGIMEFEAT." + num13.ToString()) > 0)
@@ -209,7 +209,7 @@ namespace WindowsApplication1
                 let mut num23: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById5].Data[index, 14]));
                 ttitle: String = "Stratagem: " + self.game.Data.StringListObj[stringListById5].Data[index, 1];
                 str3 = "";
-                string str4;
+                str4: String;
                 if (num22 > 0 | num23 > 0)
                 {
                   if (num22 == 0 | num23 == 0)
@@ -270,7 +270,7 @@ namespace WindowsApplication1
             {
               str5: String = self.game.Data.StringListObj[stringListById8].Data[tCardId, 2] + "\r\n\r\n" + self.game.Data.StringListObj[stringListById8].Data[tCardId, 5];
               str3 = "";
-              string str6;
+              str6: String;
               if (flag1)
               {
                 if (flag3)

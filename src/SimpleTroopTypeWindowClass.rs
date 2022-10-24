@@ -57,8 +57,8 @@ namespace WindowsApplication1
      int[] ColIsSFTypeVar;
      exportCsv: i32;
      importCsv: i32;
-     string lastsound;
-     string masterfileStart;
+     lastsound: String;
+     masterfileStart: String;
 
     pub SimpleTroopTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight, 9, tDoBorders: 1, tHeaderString: "Intermediate TroopType Editor")
@@ -100,7 +100,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.cellinfoid);
         self.cellinfoid = 0;
       }
-      string txt;
+      txt: String;
       if (self.detaily == -1 | self.detailx == -1)
         txt = "No cell selected";
       else

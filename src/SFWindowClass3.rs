@@ -248,7 +248,7 @@ namespace WindowsApplication1
             str1 = str1 + " " + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[typ].Ratio)) + "x ";
         }
       }
-      string str2;
+      str2: String;
       regnr: i32;
       num1: i32;
       num2: i32;

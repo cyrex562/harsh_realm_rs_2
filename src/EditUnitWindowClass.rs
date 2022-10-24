@@ -79,7 +79,7 @@ namespace WindowsApplication1
      UnitNr: i32;
      SFNr: i32;
      SFTypeNr: i32;
-     string ss;
+     ss: String;
 
     pub EditUnitWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Units in Hex and Units Predefined ")
@@ -309,15 +309,15 @@ namespace WindowsApplication1
         this.a9bid = this.AddSubPart(ref tsubpart6, 700, 129, 300, 20, 0);
         if (this.game.Data.UnitObj[this.UnitNr].PreDef == -1)
         {
-          string str1;
+          str1: String;
           if (this.game.Data.UnitObj[this.UnitNr].Historical == -1)
           {
-            str1 = "none";
+            str1 = "none".to_owned();
           }
           else
           {
             let mut historical: i32 =  this.game.Data.UnitObj[this.UnitNr].Historical;
-            string str2;
+            str2: String;
             if (this.game.Data.HistoricalUnitObj[historical].Type == 1)
               str2 = "(Ind)";
             if (this.game.Data.HistoricalUnitObj[historical].Type == 2)

@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.plogcounter = -1;
     }
 
-    pub string AutoMoveChange(
+    pub AutoMoveChange: String(
       unr: i32,
       bool setAutoMove,
       bool subordinates,
@@ -85,7 +85,7 @@ namespace WindowsApplication1
       return str2;
     }
 
-    pub string AutoMoveExecute(unr: i32, bool alsoSubordinates, bool calledFromStartTurn = false)
+    pub AutoMoveExecute: String(unr: i32, bool alsoSubordinates, bool calledFromStartTurn = false)
     {
       str: String = "";
       if (Information.IsNothing( this.game.EditObj.TempValue[0]))
@@ -245,7 +245,7 @@ namespace WindowsApplication1
         return;
       let mut num1: i32 = 0;
       let mut num2: i32 = 0;
-      string Right;
+      Right: String;
       while (num1 == 0 & num2 < 999)
       {
         let mut randomFromStringList: i32 = this.GetRandomFromStringList(stringListById);
@@ -472,7 +472,7 @@ namespace WindowsApplication1
       {
         if (this.game.Data.SFTypeObj[index].ModelID == this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].ModelID && this.game.Data.SFTypeObj[index].ModelMark == this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].ModelMark)
         {
-          string str;
+          str: String;
           if (num2 > 1)
             str = Conversions.ToString(Operators.AddObject( this.game.HandyFunctionsObj.GetRomanNumerical(this.game.Data.SFTypeObj[index].ModelMark), NewLateBinding.LateGet( null, typeof (Strings), "LCase", new object[1]
             {
@@ -662,7 +662,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub GetRandomFromStringList: i32(nr: i32, let mut coluse: i32 = 0)
+    pub fn GetRandomFromStringList(nr: i32, let mut coluse: i32 = 0) -> i32
     {
       let mut length1: i32 = this.game.Data.StringListObj[nr].Length;
       num1: i32;
@@ -690,7 +690,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetRandomFromStringList2: i32(nr: i32, let mut coluse: i32 = 0, let mut blockcoluse: i32 = -1)
+    pub fn GetRandomFromStringList2(nr: i32, let mut coluse: i32 = 0, let mut blockcoluse: i32 = -1) -> i32
     {
       let mut length1: i32 = this.game.Data.StringListObj[nr].Length;
       num1: i32;
@@ -1633,8 +1633,8 @@ namespace WindowsApplication1
           nameCounter1 = this.game.Data.HistoricalUnitObj[index5].NameCounter;
         }
         this.game.Data.HistoricalUnitObj[index3].Counter = nameCounter1;
-        string str1;
-        string str2;
+        str1: String;
+        str2: String;
         if (nameCounter1 > -1)
         {
           str3: String = Strings.Trim(Conversion.Str( nameCounter1));
@@ -1698,7 +1698,7 @@ namespace WindowsApplication1
       while (index9 <= 9);
       SimpleList simpleList3 = SimpleList::new();
       SimpleList simpleList4 = SimpleList::new();
-      string str5;
+      str5: String;
       Number1: i32;
       if (OverWriteUnr > -1)
       {
@@ -2902,7 +2902,7 @@ label_81:
       }
     }
 
-    pub AutoReinforce_UnitWillGive: i32(unr: i32, typ: i32, movtyp: i32, ppl: i32)
+    pub fn AutoReinforce_UnitWillGive(unr: i32, typ: i32, movtyp: i32, ppl: i32) -> i32
     {
       let mut sfCount1: i32 = this.game.Data.UnitObj[unr].SFCount;
       for (let mut index: i32 = 0; index <= sfCount1; index += 1)
@@ -3064,7 +3064,7 @@ label_81:
       return this.game.Data.UnitObj[unr].SFCount >= 7 | !this.game.Data.UnitObj[unr].IsHQ ? -2 : -1;
     }
 
-    pub fn WritePLog(string s)
+    pub fn WritePLog(s: String)
     {
       if ( this.game.Data.RuleVar[948] < 1.0 & !this.game.EventRelatedObj.Helper_IsDebug())
         return;
@@ -3075,7 +3075,7 @@ label_81:
       text.Close();
     }
 
-    pub fn AddPLog(string s)
+    pub fn AddPLog(s: String)
     {
       if ( this.game.Data.RuleVar[948] < 1.0 & !this.game.EventRelatedObj.Helper_IsDebug())
         return;
@@ -5063,7 +5063,7 @@ label_81:
       request: i32,
       delivered: i32,
       ap: i32,
-      string texty)
+      texty: String)
     {
       if ( this.game.Data.RuleVar[499] < 1.0)
         return;
@@ -5571,8 +5571,8 @@ label_81:
                     request1 = delivered1;
                     request2 = delivered2;
                     let mut num22: i32 = 100;
-                    string str3;
-                    string str4;
+                    str3: String;
+                    str4: String;
                     if (buildUpMode | evacuateMode)
                     {
                       if ( this.game.EditObj.TempValue[this.game.Data.LocObj[simpleList2.Id[index28]].Map].Value[this.game.Data.LocObj[simpleList2.Id[index28]].X, this.game.Data.LocObj[simpleList2.Id[index28]].Y] >  ap * ( this.game.Data.RuleVar[51] /  this.game.Data.RuleVar[3]))
@@ -8600,7 +8600,7 @@ label_81:
       return trajectoryPreview;
     }
 
-    pub LIS_GetLowestTotalHistoryTrajectory: i32(ox: i32, oy: i32)
+    pub fn LIS_GetLowestTotalHistoryTrajectory(ox: i32, oy: i32) -> i32
     {
       bool flag = true;
       let mut historyTrajectory: i32 =  9999999;
@@ -8635,7 +8635,7 @@ label_81:
       return historyTrajectory;
     }
 
-    pub LIS_GetLowestPotentialPointsOnTrajectory: i32(ox: i32, oy: i32)
+    pub fn LIS_GetLowestPotentialPointsOnTrajectory(ox: i32, oy: i32) -> i32
     {
       bool flag = true;
       let mut pointsOnTrajectory: i32 =  9999999;
@@ -9410,7 +9410,7 @@ label_81:
       index49: i32;
       index50: i32;
       num31: i32;
-      string s4;
+      s4: String;
       if (!isCalibrationCall)
       {
         if (onlyForAssetID > 0)
@@ -11303,7 +11303,7 @@ label_81:
               }
               this.game.Data.StringListObj[stringListById2].AddRowWithData(id.ToString(), num4.ToString(), s2, s3);
             }
-            string s2_1;
+            s2_1: String;
             if (num12 > 0)
               s2_1 = num12.ToString() + " aircraft established Air Bridge. " + num13.ToString() + " air retreated. " + num11.ToString() + " air lost.";
             else
@@ -13263,7 +13263,7 @@ label_81:
       return obj;
     }
 
-    pub EditorMovement: i32(unr: i32, x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32)
+    pub fn EditorMovement(unr: i32, x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32) -> i32
     {
       if (!(x1 == x2 & y1 == y2) && !(x1 == -1 | x2 == -1))
       {
@@ -14126,7 +14126,7 @@ label_81:
         if (AddtoHistory)
         {
           this += 1.game.Data.StepNr;
-          string infostring;
+          infostring: String;
           if (this.game.Data.FOWOn)
             infostring = "Transfer";
           else

@@ -41,7 +41,7 @@ namespace WindowsApplication1
      assetButtonCounter: i32;
      int[] assetButtonData;
      AssetOrderNumber: i32;
-     string orderfeedbackString;
+     orderfeedbackString: String;
      bool onPopupRefreshReCalc;
      slotAssetPresentation: i32;
      slotPerks: i32;
@@ -399,9 +399,9 @@ namespace WindowsApplication1
       }
       while (tid1 <= 30);
       let mut counter7: i32 = self.listZone.Counter;
-      string str1;
-      string str2;
-      string str3;
+      str1: String;
+      str2: String;
+      str3: String;
       num12: i32;
       num13: i32;
       for (let mut index13: i32 = 0; index13 <= counter7; index13 += 1)
@@ -462,12 +462,12 @@ namespace WindowsApplication1
                 if (weight4 > 0)
                 {
                   str4: String = "" + weight4.ToString() + " of " + self.itemName[index15] + " is missing in Zone.\r\n";
-                  string str5;
+                  str5: String;
                   if (weight3 < weight4)
                     str5 = str4 + "Only " + weight3.ToString() + " of " + self.itemName[index15] + " is requested at SHQ due to probable lack of Logistical Points.\r\n";
                   else
                     str5 = str4 + weight3.ToString() + " of " + self.itemName[index15] + " is requested at SHQ.\r\n";
-                  string tid2;
+                  tid2: String;
                   if (tweight10 < weight3)
                     tid2 = str5 + "Only " + tweight10.ToString() + " " + self.itemName[index15] + " will be delivered Zone due to probable lack of SHQ inventory.";
                   else
@@ -750,7 +750,7 @@ namespace WindowsApplication1
                 if (weight > 0)
                 {
                   str10: String = "Ideally the Zone would like to send a local surplus of " + weight.ToString() + " " + self.itemName[index28] + " to its SHQ.";
-                  string tid6;
+                  tid6: String;
                   if (tweight15 >= weight)
                     tid6 = str10 + "\r\nThis is what will probably happen.";
                   else
@@ -1042,7 +1042,7 @@ namespace WindowsApplication1
             }
             if (num49 > tdata3_2)
               tdata3_2 = num49;
-            string str15;
+            str15: String;
             if (num49 > 0 | tdata3_2 > 0)
             {
               tweight17 = num49;
@@ -1901,7 +1901,7 @@ namespace WindowsApplication1
       let mut x15: i32 = rectangle6.X - 160 + num78;
       let mut y12: i32 = rectangle6.Y;
       let mut num79: i32 = 1;
-      string str3;
+      str3: String;
       Rectangle rectangle10;
       do
       {
@@ -1991,9 +1991,9 @@ namespace WindowsApplication1
               let mut zoneRegNr: i32 = turn;
               let mut num83: i32 = self.game.EditObj.se1_assetMode == 2 ? 1 : 0;
               customBitmapObj.Se1_DrawAssetBlock( local3, tx, ty,  local4, curAssetId, assetRowOrSpecialCode, specialOnX, specialOnY, specialType, zoneNr, zoneRegNr, num83 != 0);
-              string str4;
+              str4: String;
               Rectangle rectangle11;
-              string str5;
+              str5: String;
               if (idValue7 > 0 & self.game.EditObj.se1_SelectAssetButton == assetId)
               {
                 let mut num84: i32 = x15;
@@ -2157,7 +2157,7 @@ namespace WindowsApplication1
                     let mut num104: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotRegKey].GetData2(0, self.game.Data.RegimeObj[turn].id, 1, "credits", 2)));
                     num60 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotConstruction].GetData3(0, idValue7, 1, 3, 2, "credits", 3)));
                     buttontext: String = "Nationalize [" + num60.ToString() + "Cr]";
-                    string tDescript11;
+                    tDescript11: String;
                     num105: i32;
                     if (num60 > num104)
                     {
@@ -2313,8 +2313,8 @@ namespace WindowsApplication1
                         num60 = 50;
                       if (num126 == 4)
                         num60 = 25;
-                      string buttontext;
-                      string tDescript17;
+                      buttontext: String;
+                      tDescript17: String;
                       if (num92 > 0)
                       {
                         buttontext = num60.ToString() + "% Cons";
@@ -2456,8 +2456,8 @@ namespace WindowsApplication1
         let mut num137: i32 = 1;
         do
         {
-          string tstring18;
-          string tstring19;
+          tstring18: String;
+          tstring19: String;
           if (!flag1)
           {
             if (num137 == 1)
@@ -2572,7 +2572,7 @@ namespace WindowsApplication1
           let mut tdata1: i32 = 1;
           do
           {
-            string ttitle;
+            ttitle: String;
             if (!flag1)
             {
               if (tdata1 == 1)

@@ -102,7 +102,7 @@ namespace WindowsApplication1
       Polet mut point2: i32 =  point1;
       textBox1_1.Location = point2;
       this.TextBox1.Multiline = true;
-      this.TextBox1.Name = "TextBox1";
+      this.TextBox1.Name = "TextBox1".to_owned();
       TextBox textBox1_2 = this.TextBox1;
       Size size1 = new Size(566, 406);
       Size size2 = size1;
@@ -112,37 +112,37 @@ namespace WindowsApplication1
       point1 = new Point(212, 513);
       Polet mut point3: i32 =  point1;
       button1_1.Location = point3;
-      this.Button1.Name = "Button1";
+      this.Button1.Name = "Button1".to_owned();
       Button button1_2 = this.Button1;
       size1 = new Size(125, 47);
       Size size3 = size1;
       button1_2.Size = size3;
       this.Button1.TabIndex = 1;
-      this.Button1.Text = "OK";
+      this.Button1.Text = "OK".to_owned();
       this.Label1.Font = Font::new("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       Label label1_1 = this.Label1;
       point1 = new Point(58, 18);
       Polet mut point4: i32 =  point1;
       label1_1.Location = point4;
-      this.Label1.Name = "Label1";
+      this.Label1.Name = "Label1".to_owned();
       Label label1_2 = this.Label1;
       size1 = new Size(566, 37);
       Size size4 = size1;
       label1_2.Size = size4;
       this.Label1.TabIndex = 2;
-      this.Label1.Text = "Label1";
+      this.Label1.Text = "Label1".to_owned();
       this.Label1.TextAlign = ContentAlignment.TopCenter;
       Button button2_1 = this.Button2;
       point1 = new Point(355, 513);
       Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
-      this.Button2.Name = "Button2";
+      this.Button2.Name = "Button2".to_owned();
       Button button2_2 = this.Button2;
       size1 = new Size(125, 47);
       Size size5 = size1;
       button2_2.Size = size5;
       this.Button2.TabIndex = 3;
-      this.Button2.Text = "Cancel";
+      this.Button2.Text = "Cancel".to_owned();
       size1 = new Size(6, 15);
       this.AutoScaleBaseSize = size1;
       size1 = new Size(691, 590);
@@ -155,7 +155,7 @@ namespace WindowsApplication1
       this.FormBorderStyle = FormBorderStyle.FixedSingle;
       this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
       this.Name = nameof (Form2);
-      this.Text = "Message";
+      this.Text = "Message".to_owned();
       this.ResumeLayout(false);
       this.PerformLayout();
     }
@@ -197,7 +197,7 @@ namespace WindowsApplication1
         this.TextBox1.Text = this.Data.LibraryObj[this.nr].information;
       else if (this.type == 14)
         this.TextBox1.Text = this.Data.LibVarObj[this.nr].information;
-      this.Button1.Text = "OK";
+      this.Button1.Text = "OK".to_owned();
       if (this.type == 1)
         this.Label1.Text = "Give description for SFType";
       if (this.type == 2)

@@ -7018,7 +7018,7 @@ label_24:
 
     pub isUnitThatProtects: bool(int protectsUnr, int unr) => this.ai.game.Data.UnitObj[protectsUnr].TempTopUnit ? this.ai.game.Data.UnitObj[unr].TempCategory == 5 || this.ai.game.Data.UnitObj[unr].TempCategory != 2 && this.ai.game.Data.UnitObj[unr].TempCategory2 != 14 && this.ai.game.Data.UnitObj[unr].TempCategory != 14 && !this.ai.game.Data.UnitObj[unr].TempTopUnit : this.ai.game.Data.UnitObj[unr].TempCategory != 2 && this.ai.game.Data.UnitObj[unr].TempCategory != 5 && this.ai.game.Data.UnitObj[unr].TempCategory2 != 14 && this.ai.game.Data.UnitObj[unr].TempCategory != 14;
 
-    pub string SetScore(bool doLog, bool IsAttack = false, let mut AttackX: i32 =  -1, let mut AttackY: i32 =  -1)
+    pub SetScore: String(bool doLog, bool IsAttack = false, let mut AttackX: i32 =  -1, let mut AttackY: i32 =  -1)
     {
       let mut stringListById: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0));
       let mut num1: i32 =  (int) Math.Round(Conversion.Val(DrawMod.TGame.Data.StringListObj[stringListById].GetData(0, 56, 2)));
@@ -7301,7 +7301,7 @@ label_24:
         float num26;
         num24 = num26 -  (3.0 * ( this.initEncRatio4 -  this.finalEncRatio4));
       }
-      string str1;
+      str1: String;
       str2: String = str1 + "BefMoveOwnAllOut: " + num10.ToString() + ", BefMoveOwnFrTrOut: " + num11.ToString() + "AftMoveOwnAllOut: " + num8.ToString() + ", AftMoveOwnFrTrOut: " + num9.ToString() + ", EnmAllOut: " + num23.ToString() + ", EnmFrOut: " + num24.ToString() + ", HexTot: " + num21.ToString() + ", HexFr: " + num16.ToString() + ". ";
       float num27 = num8 + num9 + num16 + num21 + num23 + num24 + num10 + num11;
       str3: String = str2 + "*" + this.initOrigEnemyUnits.ToString() + "/" + this.finalOrigEnemyUnits.ToString();
@@ -7857,7 +7857,7 @@ label_24:
           this.Score -= 1000;
       }
       if (!this.ai.VAR_DEBUG_ON)
-        str3 = "x";
+        str3 = "x".to_owned();
       if (this.ai.VAR_DEBUG_ON & this.MoveList.Counter > -1)
       {
         str3 += "..... UNITS: ";
@@ -7880,7 +7880,7 @@ label_24:
       return str3;
     }
 
-    pub string BACKUP_SetScore(bool doLog, bool IsAttack = false, let mut AttackX: i32 =  -1, let mut AttackY: i32 =  -1)
+    pub BACKUP_SetScore: String(bool doLog, bool IsAttack = false, let mut AttackX: i32 =  -1, let mut AttackY: i32 =  -1)
     {
       this.Score = 0;
       if (this.MoveList.Counter == -1 & AttackX != -2)
@@ -8085,7 +8085,7 @@ label_24:
         float num20;
         num18 = num20 - (this.initEncRatio4 - this.finalEncRatio4);
       }
-      string str1;
+      str1: String;
       str2: String = str1 + "BefMoveOwnAllOut: " + num11.ToString() + ", BefMoveOwnFrTrOut: " + num12.ToString() + "AftMoveOwnAllOut: " + num9.ToString() + ", AftMoveOwnFrTrOut: " + num10.ToString() + ", EnmAllOut: " + num17.ToString() + ", EnmFrOut: " + num18.ToString() + ", HexTot: " + num15.ToString() + ", HexFr: " + num14.ToString() + ". ";
       float num21 = num9 + num10 + num14 + num15 + num17 + num18 + num11 + num12;
       str3: String = str2 + "*" + this.initOrigEnemyUnits.ToString() + "/" + this.finalOrigEnemyUnits.ToString();
@@ -8558,7 +8558,7 @@ label_24:
           this.Score -= 1000;
       }
       if (!this.ai.VAR_DEBUG_ON)
-        str3 = "x";
+        str3 = "x".to_owned();
       if (this.ai.VAR_DEBUG_ON & this.MoveList.Counter > -1)
       {
         str3 += "..... UNITS: ";

@@ -478,8 +478,8 @@ namespace WindowsApplication1
       let mut num6: i32 =  -1;
       let mut tlistselect: i32 =  -1;
       let mut landscapeTypeCounter1: i32 =  this.game.Data.LandscapeTypeCounter;
-      string str2;
-      string str3;
+      str2: String;
+      str3: String;
       for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter1; tdata += 1)
       {
         if (!this.game.Data.LandscapeTypeObj[tdata].DontShowInList)
@@ -668,8 +668,8 @@ namespace WindowsApplication1
           this.descid = this.AddSubPart( tsubpart3, num20, num21, 560, 160, 0);
         }
       }
-      string tvalue3;
-      string tvalue4;
+      tvalue3: String;
+      tvalue4: String;
       if (this.StatMode == 1)
       {
         let mut index1: i32 =  -1;
@@ -831,14 +831,14 @@ namespace WindowsApplication1
         this.OptionsList3Obj.add("Buildable", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].Buildable)));
         str2 = "";
         str3 = "";
-        string tvalue;
+        tvalue: String;
         if ( this.game.Data.RuleVar[902] == 1.0)
         {
-          tvalue = "No";
+          tvalue = "No".to_owned();
         }
         else
         {
-          tvalue = "No";
+          tvalue = "No".to_owned();
           if (this.game.Data.LocTypeObj[this.locnr].EPCost > 0)
             tvalue = "Yes, EP cost " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].EPCost));
         }

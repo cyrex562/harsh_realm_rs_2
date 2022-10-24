@@ -48,7 +48,7 @@ namespace WindowsApplication1
       return (SimpleStringList) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Counter", self.Counter);
       info.AddValue("MaxCounter", self.MaxCounter);
@@ -88,7 +88,7 @@ namespace WindowsApplication1
       self.Data5 = (int[]) info.GetValue(nameof (Data5), self.Data5.GetType());
     }
 
-    pub fn Remove(string tid)
+    pub fn Remove(tid: String)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr == -1)
@@ -140,7 +140,7 @@ namespace WindowsApplication1
       --self.Counter;
     }
 
-    pub fn AddData(string tid, tdataNr: i32, tvalue: i32)
+    pub fn AddData(tid: String, tdataNr: i32, tvalue: i32)
     {
       let mut nr: i32 = self.FindNr(tid);
       if (nr > -1)
@@ -275,7 +275,7 @@ namespace WindowsApplication1
     }
 
     pub void AddWeight(
-      string tid,
+      tid: String,
       tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
@@ -333,7 +333,7 @@ namespace WindowsApplication1
     }
 
     pub void RemoveWeight(
-      string tid,
+      tid: String,
       tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
@@ -401,7 +401,7 @@ namespace WindowsApplication1
     }
 
     pub void Add(
-      string tid,
+      tid: String,
       tweight: i32,
       let mut tdata1: i32 = 0,
       let mut tdata2: i32 = 0,
@@ -458,7 +458,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub FindNr: i32(string tid, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1)
+    pub fn FindNr(tid: String, let mut tdata1: i32 = -1, let mut tdata2: i32 = -1, let mut tdata3: i32 = -1, let mut tdata4: i32 = -1, let mut tWeight: i32 = -1) -> i32
     {
       if (self.Counter < 0)
         return -1;
@@ -489,7 +489,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindWeight: i32(tweight: i32)
+    pub fn FindWeight(tweight: i32) -> i32
     {
       if (self.Counter < 0)
         return -1;
@@ -502,7 +502,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindWeightById: i32(string tid)
+    pub fn FindWeightById(tid: String) -> i32
     {
       if (self.Counter < 0)
         return 0;

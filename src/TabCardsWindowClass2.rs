@@ -52,7 +52,7 @@ namespace WindowsApplication1
      int[] zoneRegimeId;
      mouseOverWhichTab: i32;
      viewMode: i32;
-     string rememberExtraS;
+     rememberExtraS: String;
      pageNr: i32;
      nextId: i32;
      prevId: i32;
@@ -1659,7 +1659,7 @@ namespace WindowsApplication1
                   tlistselect1 = num55;
                 name: String = self.game.Data.RegimeObj[tdata].Name;
                 let mut num56: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById12].GetData3(0, self.game.Data.RegimeObj[self.game.Data.Turn].id, 1, self.game.Data.RegimeObj[tdata].id, 2, "recon", 3)));
-                string tname;
+                tname: String;
                 if (tdata == self.game.Data.Turn)
                   tname = "⍟ " + name;
                 else if (num56 >= 2)
@@ -2307,7 +2307,7 @@ namespace WindowsApplication1
           let mut x: i32 = num80 + 10;
           let mut y: i32 = num81 + 10;
           DrawMod.DrawSimple( local19,  local20, x, y);
-          string ttext;
+          ttext: String;
           if (self.rememberExtraS.Length > 1)
           {
             if (self.game.Data.ActionCardObj[nr].MouseOver.Length > 1)
@@ -2334,7 +2334,7 @@ namespace WindowsApplication1
             self.game.Data.ActionCardObj[nr].MouseOver = "";
           if (Information.IsNothing( self.rememberExtraS))
             self.rememberExtraS = "";
-          string ttext;
+          ttext: String;
           if (self.rememberExtraS.Length > 1)
           {
             if (self.game.Data.ActionCardObj[nr].MouseOver.Length > 1)
@@ -2468,7 +2468,7 @@ namespace WindowsApplication1
           SimpleList simpleList3 = SimpleList::new();
           bool flag5 = false;
           self.game.EventRelatedObj.fixedAvgRollOverule = true;
-          string str5;
+          str5: String;
           if (flag1)
           {
             String2: String = "[" + num91.ToString() + "]";
@@ -2649,7 +2649,7 @@ namespace WindowsApplication1
           if (flag1 & !flag4)
           {
             tstring14: String = "DIFFICULTY";
-            string tstring15;
+            tstring15: String;
             if (flag4)
               tstring15 = "No target selected";
             else if (!flag1)
@@ -3745,8 +3745,8 @@ namespace WindowsApplication1
       bool active,
       tx: i32,
       ty: i32,
-      string sHeader,
-      string sText,
+      sHeader: String,
+      sText: String,
       spriteSlot: i32,
       iconSlot: i32,
       let mut smallNumber: i32 = -1,

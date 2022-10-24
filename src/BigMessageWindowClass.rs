@@ -141,11 +141,11 @@ namespace WindowsApplication1
               this.detailnr = tdata;
             if (this.detailnr == tdata)
               tlistselect1 = num1;
-            string tname;
+            tname: String;
             if (this.dyn.element[tdata].optionpp > 0)
-              tname = "DECIDED: " + this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP";
+              tname = "DECIDED: " + this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP".to_owned();
             else
-              tname = "DECIDED: " + this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP";
+              tname = "DECIDED: " + this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP".to_owned();
             this.OptionsList5Obj.add(tname, tdata);
           }
         }
@@ -162,11 +162,11 @@ namespace WindowsApplication1
               this.detailnr = tdata;
             if (this.detailnr == tdata)
               tlistselect1 = num1;
-            string tname;
+            tname: String;
             if (this.dyn.element[tdata].optionpp > 0)
-              tname = this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP";
+              tname = this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP".to_owned();
             else
-              tname = this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP";
+              tname = this.dyn.element[tdata].optiontitle + "#" + this.dyn.element[tdata].optiontext + "#" + this.dyn.element[tdata].optionpp.ToString() + "PP".to_owned();
             this.OptionsList5Obj.add(tname, tdata);
           }
         }

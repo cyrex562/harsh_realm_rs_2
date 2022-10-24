@@ -134,20 +134,20 @@ namespace WindowsApplication1
       Polet mut point1: i32 =  new Point(58, 9);
       Polet mut point2: i32 =  point1;
       label1_1.Location = point2;
-      this.Label1.Name = "Label1";
+      this.Label1.Name = "Label1".to_owned();
       Label label1_2 = this.Label1;
       Size size1 = new Size(537, 28);
       Size size2 = size1;
       label1_2.Size = size2;
       this.Label1.TabIndex = 0;
-      this.Label1.Text = "Label1";
+      this.Label1.Text = "Label1".to_owned();
       this.Label1.TextAlign = ContentAlignment.MiddleCenter;
       this.ListBox1.ItemHeight = 16;
       ListBox listBox1_1 = this.ListBox1;
       point1 = new Point(86, 65);
       Polet mut point3: i32 =  point1;
       listBox1_1.Location = point3;
-      this.ListBox1.Name = "ListBox1";
+      this.ListBox1.Name = "ListBox1".to_owned();
       ListBox listBox1_2 = this.ListBox1;
       size1 = new Size(461, 340);
       Size size3 = size1;
@@ -157,35 +157,35 @@ namespace WindowsApplication1
       point1 = new Point(106, 489);
       Polet mut point4: i32 =  point1;
       button1_1.Location = point4;
-      this.Button1.Name = "Button1";
+      this.Button1.Name = "Button1".to_owned();
       Button button1_2 = this.Button1;
       size1 = new Size(153, 46);
       Size size4 = size1;
       button1_2.Size = size4;
       this.Button1.TabIndex = 2;
-      this.Button1.Text = "OK";
+      this.Button1.Text = "OK".to_owned();
       Button button2_1 = this.Button2;
       point1 = new Point(384, 489);
       Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
-      this.Button2.Name = "Button2";
+      this.Button2.Name = "Button2".to_owned();
       Button button2_2 = this.Button2;
       size1 = new Size(144, 46);
       Size size5 = size1;
       button2_2.Size = size5;
       this.Button2.TabIndex = 3;
-      this.Button2.Text = "Cancel";
+      this.Button2.Text = "Cancel".to_owned();
       Button button3_1 = this.Button3;
       point1 = new Point(575, 352);
       Polet mut point6: i32 =  point1;
       button3_1.Location = point6;
-      this.Button3.Name = "Button3";
+      this.Button3.Name = "Button3".to_owned();
       Button button3_2 = this.Button3;
       size1 = new Size(117, 51);
       Size size6 = size1;
       button3_2.Size = size6;
       this.Button3.TabIndex = 4;
-      this.Button3.Text = "Sort";
+      this.Button3.Text = "Sort".to_owned();
       this.Button3.UseVisualStyleBackColor = true;
       size1 = new Size(6, 15);
       this.AutoScaleBaseSize = size1;
@@ -200,7 +200,7 @@ namespace WindowsApplication1
       this.FormBorderStyle = FormBorderStyle.FixedSingle;
       this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
       this.Name = nameof (Form3);
-      this.Text = "Select";
+      this.Text = "Select".to_owned();
       this.TopMost = true;
       this.ResumeLayout(false);
     }
@@ -634,15 +634,15 @@ namespace WindowsApplication1
                 Number += 1;
                 str: String = Strings.Trim(Conversion.Str( Number)) + ") " + this.Data.HistoricalUnitObj[ID].Name + "(";
                 if (this.Data.HistoricalUnitObj[ID].Type == 1)
-                  str += "Ind";
+                  str += "Ind".to_owned();
                 if (this.Data.HistoricalUnitObj[ID].Type == 2)
-                  str += "Div";
+                  str += "Div".to_owned();
                 if (this.Data.HistoricalUnitObj[ID].Type == 5)
-                  str += "Corps";
+                  str += "Corps".to_owned();
                 if (this.Data.HistoricalUnitObj[ID].Type == 6)
-                  str += "Army";
+                  str += "Army".to_owned();
                 if (this.Data.HistoricalUnitObj[ID].Type == 7)
-                  str += "Armygroup";
+                  str += "Armygroup".to_owned();
                 if (this.Data.HistoricalUnitObj[ID].Type == 8)
                   str += "High Command";
                 Name: String = str + ")" + ", units = " + Conversion.Str( numArray1[ID]);
@@ -814,7 +814,7 @@ namespace WindowsApplication1
             if (this.Data.HistoricalUnitObj[this.nr2].SubParts[index] > -1 | this.Data.HistoricalUnitObj[this.nr2].Designation[index] > -1)
             {
               num21 += 1;
-              string Name;
+              Name: String;
               if (this.Data.HistoricalUnitObj[this.nr2].SubParts[index] > -1)
                 Name = Conversion.Str( index) + ") " + this.Data.UnitObj[this.Data.HistoricalUnitObj[this.nr2].SubParts[index]].Name + ", " + Conversion.Str( this.Data.HistoricalUnitObj[this.nr2].Designation[index]);
               else
@@ -1290,7 +1290,7 @@ namespace WindowsApplication1
               Number += 1;
               str: String = Strings.Trim(Conversion.Str( Number)) + ") " + this.Data.HistoricalUnitObj[ID].Name + "(";
               if (this.Data.HistoricalUnitObj[ID].Type == 1)
-                str += "Ind";
+                str += "Ind".to_owned();
               if (this.Data.HistoricalUnitObj[ID].Type == 2)
                 str += "Multi-Unit";
               if (this.Data.HistoricalUnitObj[ID].Type == 5)
@@ -1500,7 +1500,7 @@ namespace WindowsApplication1
             if ((this.type == 110 | !this.Data.HistoricalUnitObj[index].Model) & this.Data.HistoricalUnitObj[index].CommanderName.Length < 1 && this.type != 110 | this.Game.HandyFunctionsObj.GetUnitByHistorical(index) == -1)
             {
               Number += 1;
-              string Name;
+              Name: String;
               if (this.Data.HistoricalUnitObj[index].TempRegime > -1)
                 Name = Strings.Trim(Conversion.Str( Number)) + ") " + this.Data.HistoricalUnitObj[index].Name + " (" + this.Data.RegimeObj[this.Data.HistoricalUnitObj[index].TempRegime].Name + ")";
               else
@@ -1519,7 +1519,7 @@ namespace WindowsApplication1
             if (!this.Data.HistoricalUnitObj[ID].Model)
             {
               Number += 1;
-              string Name;
+              Name: String;
               if (this.Data.HistoricalUnitObj[ID].TempRegime > -1)
                 Name = this.Data.HistoricalUnitObj[ID].Name + " (" + this.Data.RegimeObj[this.Data.HistoricalUnitObj[ID].TempRegime].Name + ") [" + Strings.Trim(Conversion.Str( Number)) + "]";
               else
@@ -1791,15 +1791,15 @@ namespace WindowsApplication1
             Coordinate coordinate = this.Game.HandyFunctionsObj.HexNeighbourSameMap(this.Game.SelectX, this.Game.SelectY, 0, num46);
             if (coordinate.onmap && this.Game.Data.MapObj[0].HexObj[this.Game.SelectX, this.Game.SelectY].Bridge[num46 - 1] & this.Game.Data.MapObj[0].HexObj[this.Game.SelectX, this.Game.SelectY].RiverType[num46 - 1] > -1)
             {
-              string Name;
+              Name: String;
               if (num46 == 1)
-                Name = "North";
+                Name = "North".to_owned();
               if (num46 == 2)
                 Name = "North-East";
               if (num46 == 3)
                 Name = "South-East";
               if (num46 == 4)
-                Name = "South";
+                Name = "South".to_owned();
               if (num46 == 5)
                 Name = "South-West";
               if (num46 == 6)
@@ -1822,15 +1822,15 @@ namespace WindowsApplication1
             if (coordinate.onmap)
             {
               let mut ID: i32 =  this.Game.HandyFunctionsObj.HexFacing(this.Game.SelectX, this.Game.SelectY, 0, coordinate.x, coordinate.y, 0);
-              string Name;
+              Name: String;
               if (ID == 1)
-                Name = "North";
+                Name = "North".to_owned();
               if (ID == 2)
                 Name = "North-East";
               if (ID == 3)
                 Name = "South-East";
               if (ID == 4)
-                Name = "South";
+                Name = "South".to_owned();
               if (ID == 5)
                 Name = "South-West";
               if (ID == 6)
@@ -1841,7 +1841,7 @@ namespace WindowsApplication1
           }
         }
       }
-      this.Button1.Text = "OK";
+      this.Button1.Text = "OK".to_owned();
       if (this.type == 1)
         this.Label1.Text = "Select a groundtype for landscapetype " + this.Data.LandscapeTypeObj[this.nr].Name;
       if (this.type == 2)

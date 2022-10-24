@@ -24,7 +24,7 @@ namespace WindowsApplication1
      w: i32;
      h: i32;
      MouseOverWhichTab: i32;
-     string cacheList;
+     cacheList: String;
      profId: i32;
      currentShqNr: i32;
      special1id: i32;
@@ -365,7 +365,7 @@ namespace WindowsApplication1
       double num1;
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 4)
       {
-        libName: String = "SE_Data";
+        libName: String = "SE_Data".to_owned();
         let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
         let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 160, 0, 0));
         let mut integer: i32 =  Conversions.ToInteger(this.game.EventRelatedObj.CheckLibVarHex(this.game.SelectX, this.game.SelectY, libName, "Zones"));
@@ -441,7 +441,7 @@ namespace WindowsApplication1
         for (groupy = 0; groupy <= num12; groupy += 1)
         {
           index3: i32;
-          string str1;
+          str1: String;
           if (groupy <= simpleList1.Counter)
           {
             index3 = simpleList1.Id[groupy];
@@ -469,8 +469,8 @@ namespace WindowsApplication1
               else
                 DrawMod.DrawTextColouredConsoleCenter( objgraphics, str1, DrawMod.TGame.MarcFont7, x1 + 65, y1 + 12, DrawMod.TGame.seColGray);
               let mut tdata: i32 =  -1;
-              string ttitle;
-              string ttext;
+              ttitle: String;
+              ttext: String;
               if (index3 > -1)
               {
                 if (index3 == this.game.EditObj.UnitSelected)
@@ -528,7 +528,7 @@ namespace WindowsApplication1
                   if (num13 > 9999)
                   {
                     num1 = Math.Round( num13 / 1000.0, 0);
-                    tstring = num1.ToString() + "k";
+                    tstring = num1.ToString() + "k".to_owned();
                   }
                   if (integer == idValue)
                     DrawMod.DrawTextColouredConsole( objgraphics, tstring, this.game.MarcFont16, x1 + 80, y1 + 4, this.game.seColWhite);
@@ -675,7 +675,7 @@ namespace WindowsApplication1
       }
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 2)
       {
-        libName: String = "SE_Data";
+        libName: String = "SE_Data".to_owned();
         let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 149, 0, 0));
         let mut stringListById4: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 284, 0, 0));
         let mut stringListById5: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 273, 0, 0));
@@ -729,7 +729,7 @@ namespace WindowsApplication1
         {
           x1 = 5;
           y1 = 10;
-          tstring: String = "Unfriendly";
+          tstring: String = "Unfriendly".to_owned();
            let mut local17: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
            let mut local18: &Bitmap = &bitmap;
@@ -827,8 +827,8 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, str4, DrawMod.TGame.MarcFont7, x7 + 65, y8 + 12, DrawMod.TGame.seColWhite);
         else
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, str4, DrawMod.TGame.MarcFont7, x7 + 65, y8 + 12, DrawMod.TGame.seColGray);
-        string ttitle1;
-        string ttext1;
+        ttitle1: String;
+        ttext1: String;
         tdata: i32;
         if (index6 == this.game.EditObj.UnitSelected)
         {
@@ -894,7 +894,7 @@ namespace WindowsApplication1
             if (weight > 9999)
             {
               num1 = Math.Round( weight / 1000.0, 1);
-              tstring1 = num1.ToString() + "k";
+              tstring1 = num1.ToString() + "k".to_owned();
             }
             let mut num34: i32 =  num33 - num32;
             ttitle2: String = simpleStringList.Id[index9];
@@ -938,7 +938,7 @@ namespace WindowsApplication1
             if (num34 > 9999 | num34 < -9999)
             {
               num1 = Math.Round( Math.Abs(num34) / 1000.0, 1);
-              tstring2 = num1.ToString() + "k";
+              tstring2 = num1.ToString() + "k".to_owned();
             }
             if (num38 > 0)
               num34 = 0;
@@ -998,7 +998,7 @@ namespace WindowsApplication1
             str8: String = str6 + "Lost due to max storage reached: " + str7 + "\r\n";
             if (num41 > 0)
               str8 = str8 + "Sold due to max storage reached: " + num41.ToString() + " for " + num42.ToString() + " Credits.\r\n";
-            string ttext2;
+            ttext2: String;
             if (simpleList.Data1[index9] > 0)
             {
               num40 = this.game.Data.UnitObj[index6].items.list.FindWeight(simpleList.Data1[index9]);

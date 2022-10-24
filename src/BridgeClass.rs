@@ -23,7 +23,7 @@ namespace WindowsApplication1
     pub AlternateIfRoadType4: i32;
     pub EPCost: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("BasicSpriteFileName",  this.BasicSpriteFileName);
       info.AddValue("AlternateSpriteFileName",  this.AlternateSpriteFileName);
@@ -129,13 +129,13 @@ namespace WindowsApplication1
       while (index <= 5);
     }
 
-    pub fn ReplaceBasicSprite(int nr, string filename)
+    pub fn ReplaceBasicSprite(int nr, filename: String)
     {
       this.BasicSpriteFileName[nr] = filename;
       this.BasicSpriteID[nr] = BitmapStore.ReloadFile(this.BasicSpriteID[nr], filename, IsBig: true);
     }
 
-    pub fn ReplaceAlternateSprite(int nr, string filename)
+    pub fn ReplaceAlternateSprite(int nr, filename: String)
     {
       this.AlternateSpriteFileName[nr] = filename;
       this.AlternateSpriteID[nr] = BitmapStore.ReloadFile(this.AlternateSpriteID[nr], filename, IsBig: true);

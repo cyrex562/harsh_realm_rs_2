@@ -18,7 +18,7 @@ namespace WindowsApplication1
      useCol: Color;
      useColHigh: Color;
      backbitmap: Bitmap;
-     string butText;
+     butText: String;
 
     pub fn SubDispose()
     {
@@ -30,7 +30,7 @@ namespace WindowsApplication1
 
     pub PlainTextButtonPartClass(
       Rectangle trect,
-      string tTexty,
+      tTexty: String,
       tUseCol: Color,
       tUseColHigh: Color,
       tDescript: String = "",

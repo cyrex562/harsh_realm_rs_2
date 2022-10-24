@@ -19,8 +19,8 @@ namespace WindowsApplication1
      bool noBackground;
      bool exitFound;
      useExitEventNr: i32;
-     string useExitKey;
-     string useExitValue;
+     useExitKey: String;
+     useExitValue: String;
      useExitElementSlot: i32;
      UDSPartClass udsPartObj;
      SimpleStringList[] backupUdsKeys;

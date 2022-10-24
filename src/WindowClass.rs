@@ -95,7 +95,7 @@ namespace WindowsApplication1
       self.QuickRectCount = -1;
     }
 
-    pub fn AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut tdata2: i32 = -1)
+    pub fn AddMouse( Rectangle trect, ttitle: String, ttext: String, let mut tdata: i32 = -1, let mut tdata2: i32 = -1)
     {
       self += 1.MouseCounter;
       self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       self.MouseData2[self.MouseCounter] = tdata2;
     }
 
-    pub GetMemorySize: i32()
+    pub fn GetMemorySize() -> i32
     {
       let mut memorySize: i32 =  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
       let mut subPartCounter: i32 = self.SubPartCounter;
@@ -119,7 +119,7 @@ namespace WindowsApplication1
       return memorySize;
     }
 
-    pub SubpartNr: i32(id: i32)
+    pub fn SubpartNr(id: i32) -> i32
     {
       if (self.SubPartCounter <= -1)
         return -1;
@@ -132,7 +132,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub virtual void Dispose()
+    pub fn Dispose()
     {
       let mut subPartCounter: i32 = self.SubPartCounter;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
@@ -426,11 +426,11 @@ namespace WindowsApplication1
       Expression = (Graphics) null;
     }
 
-    pub virtual void Before_DoRefresh_Called_By_FlagAllIncludingRefresh()
+    pub fn Before_DoRefresh_Called_By_FlagAllIncludingRefresh()
     {
     }
 
-    pub virtual void DoRefresh()
+    pub fn DoRefresh()
     {
     }
 
@@ -542,7 +542,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub AddSubPart: i32( SubPartClass tsubpart, x: i32, y: i32, w: i32, h: i32, overlay: i32)
+    pub fn AddSubPart( SubPartClass tsubpart, x: i32, y: i32, w: i32, h: i32, overlay: i32) -> i32
     {
       self += 1.SubPartCounter;
       self += 1.SubPartIDCounter;
@@ -801,7 +801,7 @@ namespace WindowsApplication1
 
     pub virtual object allowClickOutsideWindow() =>  false;
 
-    pub virtual void clearoverlay()
+    pub fn clearoverlay()
     {
       if (self.LastOverlaySubPart > 0)
         self.PaintSpecific(self.LastOverlaySubPart);
@@ -851,7 +851,7 @@ namespace WindowsApplication1
       Flag = false
     };
 
-    pub virtual void HandleToolTip(x: i32, y: i32)
+    pub fn HandleToolTip(x: i32, y: i32)
     {
       if (self.SubPartCounter > -1)
       {
@@ -881,7 +881,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub virtual string WindowDescription(x: i32, y: i32) => "";
+    pub virtual WindowDescription: String(x: i32, y: i32) => "";
 
     pub virtual HandleMouseMove: WindowReturnClass(x: i32, y: i32)
     {

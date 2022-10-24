@@ -14,7 +14,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;
@@ -53,7 +53,7 @@ namespace WindowsApplication1
         else if (self.game.Data.RegimeObj[self.game.Data.Turn].Version > 0)
         {
           str2: String = str1 + "Last turn game version: ";
-          string str3;
+          str3: String;
           if ((self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) % 100 >= 10)
             str3 = str2 + "v " + Strings.Trim(Conversion.Str( Math.Floor( (self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) / 100.0))) + "." + Strings.Trim(Conversion.Str( 10));
           else

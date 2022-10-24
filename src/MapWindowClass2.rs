@@ -1270,7 +1270,7 @@ namespace WindowsApplication1
                   if (this.game.EditObj.udsUnitOrderMode == 54)
                   {
                     data: DataClass = DrawMod.TGame.Data;
-                    str: String = "Zones";
+                    str: String = "Zones".to_owned();
                      local: String =  str;
                     let mut libVar: i32 =  data.FindLibVar( local, "SE_Data");
                     let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(libVar);
@@ -1337,7 +1337,7 @@ namespace WindowsApplication1
                   if (this.game.EditObj.udsUnitOrderMode == 54)
                   {
                     data: DataClass = DrawMod.TGame.Data;
-                    str: String = "Zones";
+                    str: String = "Zones".to_owned();
                      local: String =  str;
                     this.game.EditObj.OrderSubType = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(data.FindLibVar( local, "SE_Data"));
                     this.DrawLayersAndSuch();

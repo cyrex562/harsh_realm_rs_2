@@ -1137,7 +1137,7 @@ namespace WindowsApplication1
       return bmatrix;
     }
 
-    pub GetOfficerFromOfficerPool: i32(ppl: i32)
+    pub fn GetOfficerFromOfficerPool(ppl: i32) -> i32
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut officerFromOfficerPool: i32 =  0; officerFromOfficerPool <= historicalUnitCounter; officerFromOfficerPool += 1)
@@ -1946,7 +1946,7 @@ namespace WindowsApplication1
         this.WriteLog("change_hq_move_corps_late");
     }
 
-    pub GetAverageHQDistance: i32(x: i32, y: i32, forhq: i32)
+    pub fn GetAverageHQDistance(x: i32, y: i32, forhq: i32) -> i32
     {
       let mut val2: i32 =  0;
       let mut num1: i32 =  0;
@@ -1963,7 +1963,7 @@ namespace WindowsApplication1
       return  Math.Round( num1 /  Math.Max(1, val2));
     }
 
-    pub GetAverageHQPower: i32(x: i32, y: i32, forhq: i32, bool aiTest = false)
+    pub fn GetAverageHQPower(x: i32, y: i32, forhq: i32, bool aiTest = false) -> i32
     {
       if (x == -1)
       {
@@ -2028,7 +2028,7 @@ namespace WindowsApplication1
       return  Math.Round( num5 /  num4);
     }
 
-    pub GetAverageSameHQFrontlineUnits: i32(forunr: i32, forhq: i32, ref AIMatrix enemyDistance)
+    pub fn GetAverageSameHQFrontlineUnits(forunr: i32, forhq: i32, ref AIMatrix enemyDistance) -> i32
     {
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
       num1: i32;
@@ -2728,7 +2728,7 @@ namespace WindowsApplication1
       this.WriteLog("officer_pool");
     }
 
-    pub GetAIRolePercent: i32(unr: i32, rolenr: i32)
+    pub fn GetAIRolePercent(unr: i32, rolenr: i32) -> i32
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       num1: i32;
@@ -2744,9 +2744,9 @@ namespace WindowsApplication1
       return num1 == 0 ? 0 :  Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
-    pub GetGameDataTurn: i32() => this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime > -1 ? this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime : this.game.Data.Turn;
+    pub fn GetGameDataTurn() -> i32 => this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime > -1 ? this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime : this.game.Data.Turn;
 
-    pub GetRegime: i32(nr: i32)
+    pub fn GetRegime(nr: i32) -> i32
     {
       if (nr == -1 || nr > this.game.Data.RegimeCounter)
         return -1;
@@ -4734,7 +4734,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn RejoinEncircled(ref AIFrontList masterplan, ref AIWorld world, ref string strS)
+    pub fn RejoinEncircled(ref AIFrontList masterplan, ref AIWorld world, ref strS: String)
     {
       for (let mut counter1: i32 =  masterplan.Counter; counter1 >= 0; counter1 += -1)
       {
@@ -4838,7 +4838,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn SetEncircledFronts(ref AIFrontList masterPlan, ref AIWorld world, ref string strS)
+    pub fn SetEncircledFronts(ref AIFrontList masterPlan, ref AIWorld world, ref strS: String)
     {
       let mut counter1: i32 =  masterPlan.Counter;
       for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
@@ -4914,7 +4914,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn CheckIfEncircledFrontsWantToEscape(ref string strS)
+    pub fn CheckIfEncircledFrontsWantToEscape(ref strS: String)
     {
       AIMatrix aiMatrix1 = this.frontlinesMatrix.Clone();
       aiMatrix1.ExpandAndAddValueForSameRegime(19);
@@ -5269,7 +5269,7 @@ namespace WindowsApplication1
       ref AIFrontList tfrontList,
       ref SimpleList tactionList,
       ref SimpleList treservelist,
-      ref string strS,
+      ref strS: String,
       bool allowSSHQshuffle)
     {
       SimpleList actionList = SimpleList::new();
@@ -6271,7 +6271,7 @@ namespace WindowsApplication1
       this.ClearLog();
     }
 
-    pub fn AddLog(string s)
+    pub fn AddLog(s: String)
     {
       if (!this.VAR_DEBUG_ON)
         return;
@@ -6287,7 +6287,7 @@ namespace WindowsApplication1
       this.LogTxt = new string[1];
     }
 
-    pub fn WriteLog(string name)
+    pub fn WriteLog(name: String)
     {
       if (!this.VAR_DEBUG_ON)
         return;
@@ -6302,7 +6302,7 @@ namespace WindowsApplication1
       text.Close();
     }
 
-    pub fn AppendLog(string filename, string texty)
+    pub fn AppendLog(filename: String, texty: String)
     {
       if (!this.game.SuperAdminRights)
         return;
@@ -6313,7 +6313,7 @@ namespace WindowsApplication1
     }
 
     pub void Screenshot(
-      string fileextension,
+      fileextension: String,
       ref tObj: Vec<i32>,
       bool useFullMapGfx = true,
       let mut left: i32 =  0,
@@ -6375,7 +6375,7 @@ namespace WindowsApplication1
     }
 
     pub void ScreenshotSpecial(
-      string fileextension,
+      fileextension: String,
       ref tTroops: Vec<i32>,
       ref tOwn: Vec<i32>,
       bool useFullMapGfx = true,
@@ -6438,7 +6438,7 @@ namespace WindowsApplication1
     }
 
     pub void ScreenshotSpecial2(
-      string fileextension,
+      fileextension: String,
       ref tTroops: Vec<i32>,
       ref tOwn: Vec<i32>,
       ref tFronts: Vec<i32>)
@@ -8457,7 +8457,7 @@ namespace WindowsApplication1
       return aiMatrix;
     }
 
-    pub GetRealX: i32(tx: i32, tleft: i32)
+    pub fn GetRealX(tx: i32, tleft: i32) -> i32
     {
       if (!this.map.MapLoop)
         tx += tleft;
@@ -8474,7 +8474,7 @@ namespace WindowsApplication1
       return tx;
     }
 
-    pub GetMatrixX: i32(tx: i32, tleft: i32)
+    pub fn GetMatrixX(tx: i32, tleft: i32) -> i32
     {
       if (!this.map.MapLoop)
         tx -= tleft;
@@ -10466,7 +10466,7 @@ label_10:
 
     pub void SpecialCaseAddExtraOutsideFrontUnits(
       ref AIFront front,
-      ref string s,
+      ref s: String,
       ref AIMoveList moveList,
       ref AITheater theater,
       attackX: i32,
@@ -10510,7 +10510,7 @@ label_10:
 
     pub void SpecialCaseAddExtraOutsideFrontUnitsIfGoodFacing(
       ref AIFront front,
-      ref string s,
+      ref s: String,
       ref AIMoveList moveList,
       ref AITheater theater,
       attackX: i32,
@@ -10590,7 +10590,7 @@ label_10:
       PassHexList tryPassList = PassHexList::new();
       let mut Iteration: i32 =  0;
       this.map = this.game.Data.MapObj[0];
-      string str;
+      str: String;
       if (front.FrontID == 538)
         str = str;
       this.ClearLog();
@@ -10690,7 +10690,7 @@ label_10:
         num2 = num1;
       if (front.Stance == 3)
         num1 = num2;
-      string str;
+      str: String;
       if (front.FrontID == 2181)
         str = str;
       this.ClearLog();
@@ -10948,7 +10948,7 @@ label_10:
           Expression = aiTheater1.Clone();
         s = s + "\r\nScore for Defend = " + Expression.Score.ToString();
         let mut num11: i32 =  -99999999;
-        string str6;
+        str6: String;
         AITheater theaterUse;
         if (Expression.Score > num11)
         {
@@ -11107,7 +11107,7 @@ label_10:
           AITheater aiTheater4 = aiTheater2;
           str9: String = str3 + "\r\nScore for Defend = " + aiTheater4.Score.ToString();
           num7 = -99999999;
-          string str10;
+          str10: String;
           if (aiTheater4.Score > num7)
           {
             str10 = "\r\nDefend has better score.";
@@ -11302,7 +11302,7 @@ label_10:
             str17 = str17 + " => try sore for fallback = " + aiTheater7.Score.ToString();
           }
           AITheater Expression = aiTheater6;
-          string str22;
+          str22: String;
           if (!Information.IsNothing( Expression))
           {
             str17 = str17 + "\r\nScore for fallback = " + Expression.Score.ToString();
@@ -11364,7 +11364,7 @@ label_10:
       this.map = this.game.Data.MapObj[0];
       this.ClearLog();
       let mut frontId: i32 =  front.FrontID;
-      string s;
+      s: String;
       if (front.FrontType == 13)
       {
         s = "Moves For FLAK Front #" + front.FrontID.ToString();
@@ -11405,8 +11405,8 @@ label_10:
           s = "";
         str2: String = s + "\r\n\r\nIteration #" + Iteration.ToString();
         AITheater aiTheater2;
-        string str3;
-        string str4;
+        str3: String;
+        str4: String;
         bool flag2;
         if (Iteration <= 1 | flag1)
         {
@@ -11982,7 +11982,7 @@ label_10:
           Expression1.Score -= 800;
         }
         let mut num37: i32 =  -9999999;
-        string str26;
+        str26: String;
         AITheater Expression4;
         bool flag5;
         if (Expression1.Score > num37)
@@ -12326,7 +12326,7 @@ label_10:
         if (!Information.IsNothing( Expression))
           aiTheater2 = Expression;
         str4: String = str2 + "\r\nScore for Defend = " + aiTheater2.Score.ToString();
-        string str5;
+        str5: String;
         AITheater theaterUse;
         if (aiTheater2.Score > num6)
         {
@@ -12444,7 +12444,7 @@ label_10:
         if (!Information.IsNothing( Expression))
           aiTheater2 = Expression;
         s = s + "\r\nScore for Defend = " + aiTheater2.Score.ToString();
-        string str;
+        str: String;
         AITheater theaterUse;
         if (aiTheater2.Score > num6)
         {
@@ -12495,7 +12495,7 @@ label_10:
       Application.DoEvents();
     }
 
-    pub ExecuteMoveList: bool(ref AITheater theaterUse, ref string s, let mut ExtraAp: i32 =  0)
+    pub ExecuteMoveList: bool(ref AITheater theaterUse, ref s: String, let mut ExtraAp: i32 =  0)
     {
       let mut num1: i32 =  0;
       Coordinate coordinate1;
@@ -12883,7 +12883,7 @@ label_10:
       return flag1;
     }
 
-    pub string BeforeAttackPlayOfficerHandCard(ref UnitList tempUnitList)
+    pub BeforeAttackPlayOfficerHandCard: String(ref UnitList tempUnitList)
     {
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
@@ -12905,7 +12905,7 @@ label_10:
           simpleList1.Add(historical, this.game.Data.UnitObj[unr].TempUnitPower);
       }
       simpleList1.ReverseSort();
-      string str;
+      str: String;
       if (simpleList1.Counter > -1)
       {
         let mut counter2: i32 =  simpleList1.Counter;
@@ -16023,7 +16023,7 @@ label_10:
       return aiMatrix;
     }
 
-    pub GetBestRiver: i32(x: i32, y: i32, AIMatrix owner)
+    pub fn GetBestRiver(x: i32, y: i32, AIMatrix owner) -> i32
     {
       let mut num: i32 =  0;
       let mut bestRiver: i32 =  -1;

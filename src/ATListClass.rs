@@ -20,7 +20,7 @@ namespace WindowsApplication1
     pub ListValue3: Vec<String>;
     pub ListValue4: Vec<String>;
     pub ListColor: Vec<i32>;
-    pub Bitmap[] ListBmp;
+    pub ListBmp: Vec<Bitmap>;
     pub ListR: Vec<i32>;
     pub ListG: Vec<i32>;
     pub ListB: Vec<i32>;
@@ -42,7 +42,7 @@ namespace WindowsApplication1
     }
 
     pub void add(
-      string tname,
+      tname: String,
       int tdata,
       tvalue: String = "",
       tvalue2: String = "",

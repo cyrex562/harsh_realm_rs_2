@@ -1436,7 +1436,7 @@ namespace WindowsApplication1
       let mut y6: i32 = rectangle4.Top + 10;
       bool flag1 = false;
       bool flag2 = false;
-      string str10;
+      str10: String;
       if (self.game.EditObj.se1_modelSelected > 0)
       {
         str10 = "Units TOE for selected Model '" + self.game.Data.StringListObj[self.slotModel].GetData(0, self.game.EditObj.se1_modelSelected, 3) + "'";
@@ -1532,7 +1532,7 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredMarc( g, "TOE.TOT", self.game.MarcFont5, x35, num48 - 16, Color.White);
             DrawMod.DrawTextColouredMarc( g, tstring21, self.game.MarcFont4, x35, num48 + num51, Color.White);
             let mut x36: i32 = x35 + 60;
-            string tstring22;
+            tstring22: String;
             if (flag1)
             {
               tstring22 = self.game.EditObj.se1_modelReinf <= -1 ? Conversions.ToString(self.listUnitTotal.FindWeight(tid)) : Conversions.ToString(self.listUnitReinf.FindWeight(tid, self.game.EditObj.se1_modelReinf));

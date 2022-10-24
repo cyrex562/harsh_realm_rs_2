@@ -23,7 +23,7 @@ namespace WindowsApplication1
     pub Turn: Vec<i32>;
     pub RandomCode: Vec<i32>;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Counter", this.Counter);
       info.AddValue("Code",  this.Code);
@@ -62,14 +62,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn serialize(string fileloc)
+    pub fn serialize(fileloc: String)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
       BinaryFormatter::new().Serialize((Stream) serializationStream,  this);
       serializationStream.Close();
     }
 
-    pub static MasterLogClass deserialize(string fileloc)
+    pub static MasterLogClass deserialize(fileloc: String)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
       MasterLogClass masterLogClass = (MasterLogClass) BinaryFormatter::new().Deserialize((Stream) serializationStream);

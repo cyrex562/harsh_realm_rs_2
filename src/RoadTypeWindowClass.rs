@@ -69,501 +69,501 @@ namespace WindowsApplication1
      TabSheetNr: i32;
      DetailNr: i32;
      BridgeNr: i32;
-     string ss;
+     ss: String;
 
     pub RoadTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Road Types")
     {
-      this.Bitemid = new int[5];
-      this.bitemtextid = new int[5];
-      this.RoadNr = -1;
-      this.TabSheetNr = -1;
-      this.DetailNr = -1;
-      this.BridgeNr = -1;
-      this.MakeRoadListGUI(-1);
+      self.Bitemid = new int[5];
+      self.bitemtextid = new int[5];
+      self.RoadNr = -1;
+      self.TabSheetNr = -1;
+      self.DetailNr = -1;
+      self.BridgeNr = -1;
+      self.MakeRoadListGUI(-1);
     }
 
-    pub fn DoRefresh() => this.MakeRoadTypeItemGUI();
+    pub fn DoRefresh() => self.MakeRoadTypeItemGUI();
 
      void MakeRoadListGUI(tRoadnr: i32)
     {
-      if (this.RoadListId > 0)
-        this.RemoveSubPart(this.RoadListId);
+      if (self.RoadListId > 0)
+        self.RemoveSubPart(self.RoadListId);
       SubPartClass tsubpart;
-      if (this.game.Data.RoadTypeCounter > -1)
+      if (self.game.Data.RoadTypeCounter > -1)
       {
-        this.RoadListObj = ListClass::new();
-        let mut roadTypeCounter: i32 = this.game.Data.RoadTypeCounter;
+        self.RoadListObj = ListClass::new();
+        let mut roadTypeCounter: i32 = self.game.Data.RoadTypeCounter;
         for (let mut index: i32 = 0; index <= roadTypeCounter; index += 1)
-          this.RoadListObj.add(Conversion.Str( index) + ") " + this.game.Data.RoadTypeObj[index].Name, index);
-        ListClass roadListObj = this.RoadListObj;
+          self.RoadListObj.add(Conversion.Str( index) + ") " + self.game.Data.RoadTypeObj[index].Name, index);
+        ListClass roadListObj = self.RoadListObj;
         let mut tlistselect: i32 = tRoadnr;
-        let mut game: GameClass = this.game;
-         local1: Bitmap =  this.OwnBitmap;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
         font: Font =  null;
          local2: Font =  font;
         tsubpart =  new ListSubPartClass(roadListObj, 9, 200, tlistselect, game, tHeader: "Road Types", tbackbitmap: ( local1), bbx: 10, bby: 50, overruleFont: ( local2));
-        this.RoadListId = this.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
-        this.RoadNr = tRoadnr;
-        this.MakeRoadTypeItemGUI();
+        self.RoadListId = self.AddSubPart( tsubpart, 10, 50, 200, 192, 0);
+        self.RoadNr = tRoadnr;
+        self.MakeRoadTypeItemGUI();
       }
       else
       {
-        this.RoadNr = tRoadnr;
-        this.MakeRoadTypeItemGUI();
+        self.RoadNr = tRoadnr;
+        self.MakeRoadTypeItemGUI();
       }
-      if (this.BAddRoadId > 0)
-        this.RemoveSubPart(this.BAddRoadId);
-      if (this.BAddRoadTextId > 0)
-        this.RemoveSubPart(this.BAddRoadTextId);
-      this.ss = "Click to add a new RoadType";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (self.BAddRoadId > 0)
+        self.RemoveSubPart(self.BAddRoadId);
+      if (self.BAddRoadTextId > 0)
+        self.RemoveSubPart(self.BAddRoadTextId);
+      self.ss = "Click to add a new RoadType";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.BAddRoadId = this.AddSubPart( tsubpart, 10, 270, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.BAddRoadId = self.AddSubPart( tsubpart, 10, 270, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      tsubpart =  TextPartClass::new("Add Road Type", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.BAddRoadTextId = this.AddSubPart( tsubpart, 50, 269, 300, 20, 0);
+      tsubpart =  TextPartClass::new("Add Road Type", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.BAddRoadTextId = self.AddSubPart( tsubpart, 50, 269, 300, 20, 0);
     }
 
      void MakeRoadTypeItemGUI()
     {
-      if (this.BNameId > 0)
-        this.RemoveSubPart(this.BNameId);
-      if (this.BNameTextId > 0)
-        this.RemoveSubPart(this.BNameTextId);
-      if (this.BRemoveRoadId > 0)
-        this.RemoveSubPart(this.BRemoveRoadId);
-      if (this.BRemoveRoadTextId > 0)
-        this.RemoveSubPart(this.BRemoveRoadTextId);
-      if (this.BDrawId > 0)
-        this.RemoveSubPart(this.BDrawId);
-      if (this.BDrawTextId > 0)
-        this.RemoveSubPart(this.BDrawTextId);
-      if (this.OptionsListId > 0)
-        this.RemoveSubPart(this.OptionsListId);
+      if (self.BNameId > 0)
+        self.RemoveSubPart(self.BNameId);
+      if (self.BNameTextId > 0)
+        self.RemoveSubPart(self.BNameTextId);
+      if (self.BRemoveRoadId > 0)
+        self.RemoveSubPart(self.BRemoveRoadId);
+      if (self.BRemoveRoadTextId > 0)
+        self.RemoveSubPart(self.BRemoveRoadTextId);
+      if (self.BDrawId > 0)
+        self.RemoveSubPart(self.BDrawId);
+      if (self.BDrawTextId > 0)
+        self.RemoveSubPart(self.BDrawTextId);
+      if (self.OptionsListId > 0)
+        self.RemoveSubPart(self.OptionsListId);
       let mut index: i32 = 0;
       do
       {
-        if (this.Bitemid[index] > 0)
-          this.RemoveSubPart(this.Bitemid[index]);
-        if (this.bitemtextid[index] > 0)
-          this.RemoveSubPart(this.bitemtextid[index]);
+        if (self.Bitemid[index] > 0)
+          self.RemoveSubPart(self.Bitemid[index]);
+        if (self.bitemtextid[index] > 0)
+          self.RemoveSubPart(self.bitemtextid[index]);
         index += 1;
       }
       while (index <= 4);
-      if (this.BasicListId > 0)
-        this.RemoveSubPart(this.BasicListId);
-      if (this.BBasicSpriteId > 0)
-        this.RemoveSubPart(this.BBasicSpriteId);
-      if (this.BChangeBasicSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBasicSpriteId);
-      if (this.BridgeListId > 0)
-        this.RemoveSubPart(this.BridgeListId);
-      if (this.BBridgeSpriteId > 0)
-        BitmapStore.RemoveBitmapNr(this.BBridgeSpriteId);
-      if (this.BChangeBridgeSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBridgeSpriteId);
-      if (this.BChangeBridgeSpriteId2 > 0)
-        this.RemoveSubPart(this.BChangeBridgeSpriteId2);
-      if (this.BridgeId > 0)
-        this.RemoveSubPart(this.BridgeId);
-      if (this.BridgeTextId > 0)
-        this.RemoveSubPart(this.BridgeTextId);
-      if (this.BasicList2Id > 0)
-        this.RemoveSubPart(this.BasicList2Id);
-      if (this.ChangeMvId > 0)
-        this.RemoveSubPart(this.ChangeMvId);
-      if (this.BEP > 0)
-        this.RemoveSubPart(this.BEP);
-      if (this.BEPText > 0)
-        this.RemoveSubPart(this.BEPText);
-      if (this.B2Id > 0)
-        this.RemoveSubPart(this.B2Id);
-      if (this.B2TextId > 0)
-        this.RemoveSubPart(this.B2TextId);
-      if (this.B3Id > 0)
-        this.RemoveSubPart(this.B3Id);
-      if (this.B3TextId > 0)
-        this.RemoveSubPart(this.B3TextId);
-      if (this.B6Id > 0)
-        this.RemoveSubPart(this.B6Id);
-      if (this.B6TextId > 0)
-        this.RemoveSubPart(this.B6TextId);
-      if (this.B7Id > 0)
-        this.RemoveSubPart(this.B7Id);
-      if (this.B7TextId > 0)
-        this.RemoveSubPart(this.B7TextId);
-      if (this.bthick > 0)
-        this.RemoveSubPart(this.bthick);
-      if (this.bthicktext > 0)
-        this.RemoveSubPart(this.bthicktext);
-      if (this.bother > 0)
-        this.RemoveSubPart(this.bother);
-      if (this.bothertext > 0)
-        this.RemoveSubPart(this.bothertext);
-      if (this.RoadNr > -1)
+      if (self.BasicListId > 0)
+        self.RemoveSubPart(self.BasicListId);
+      if (self.BBasicSpriteId > 0)
+        self.RemoveSubPart(self.BBasicSpriteId);
+      if (self.BChangeBasicSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBasicSpriteId);
+      if (self.BridgeListId > 0)
+        self.RemoveSubPart(self.BridgeListId);
+      if (self.BBridgeSpriteId > 0)
+        BitmapStore.RemoveBitmapNr(self.BBridgeSpriteId);
+      if (self.BChangeBridgeSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBridgeSpriteId);
+      if (self.BChangeBridgeSpriteId2 > 0)
+        self.RemoveSubPart(self.BChangeBridgeSpriteId2);
+      if (self.BridgeId > 0)
+        self.RemoveSubPart(self.BridgeId);
+      if (self.BridgeTextId > 0)
+        self.RemoveSubPart(self.BridgeTextId);
+      if (self.BasicList2Id > 0)
+        self.RemoveSubPart(self.BasicList2Id);
+      if (self.ChangeMvId > 0)
+        self.RemoveSubPart(self.ChangeMvId);
+      if (self.BEP > 0)
+        self.RemoveSubPart(self.BEP);
+      if (self.BEPText > 0)
+        self.RemoveSubPart(self.BEPText);
+      if (self.B2Id > 0)
+        self.RemoveSubPart(self.B2Id);
+      if (self.B2TextId > 0)
+        self.RemoveSubPart(self.B2TextId);
+      if (self.B3Id > 0)
+        self.RemoveSubPart(self.B3Id);
+      if (self.B3TextId > 0)
+        self.RemoveSubPart(self.B3TextId);
+      if (self.B6Id > 0)
+        self.RemoveSubPart(self.B6Id);
+      if (self.B6TextId > 0)
+        self.RemoveSubPart(self.B6TextId);
+      if (self.B7Id > 0)
+        self.RemoveSubPart(self.B7Id);
+      if (self.B7TextId > 0)
+        self.RemoveSubPart(self.B7TextId);
+      if (self.bthick > 0)
+        self.RemoveSubPart(self.bthick);
+      if (self.bthicktext > 0)
+        self.RemoveSubPart(self.bthicktext);
+      if (self.bother > 0)
+        self.RemoveSubPart(self.bother);
+      if (self.bothertext > 0)
+        self.RemoveSubPart(self.bothertext);
+      if (self.RoadNr > -1)
       {
-        this.ss = "Click to change the name of this roadtype";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Click to change the name of this roadtype";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.BNameId = this.AddSubPart( tsubpart, 370, 50, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.BNameId = self.AddSubPart( tsubpart, 370, 50, 32, 16, 1);
         }
-        let mut tsubpart1: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.RoadTypeObj[this.RoadNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        this.BNameTextId = this.AddSubPart( tsubpart1, 410, 49, 400, 20, 0);
-        this.ss = "Click to set transparent settings (works well in combi with overlay map)";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        let mut tsubpart1: SubPartClass =  TextPartClass::new("Name: " + self.game.Data.RoadTypeObj[self.RoadNr].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+        self.BNameTextId = self.AddSubPart( tsubpart1, 410, 49, 400, 20, 0);
+        self.ss = "Click to set transparent settings (works well in combi with overlay map)";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.B2Id = this.AddSubPart( tsubpart2, 370, 70, 32, 16, 1);
+          let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.B2Id = self.AddSubPart( tsubpart2, 370, 70, 32, 16, 1);
         }
-        let mut tsubpart3: SubPartClass =  TextPartClass::new("Transparent: " + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        this.B2TextId = this.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
-        this.ss = "Click to remove this roadtype";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        let mut tsubpart3: SubPartClass =  TextPartClass::new("Transparent: " + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+        self.B2TextId = self.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
+        self.ss = "Click to remove this roadtype";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart3 =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-          this.BRemoveRoadId = this.AddSubPart( tsubpart3, 10, 290, 32, 16, 1);
+          tsubpart3 =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+          self.BRemoveRoadId = self.AddSubPart( tsubpart3, 10, 290, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart3 =  TextPartClass::new("Remove this RoadType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-          this.BRemoveRoadTextId = this.AddSubPart( tsubpart3, 50, 289, 200, 20, 0);
+          tsubpart3 =  TextPartClass::new("Remove this RoadType", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+          self.BRemoveRoadTextId = self.AddSubPart( tsubpart3, 50, 289, 200, 20, 0);
         }
-        this.ss = "Click to use this road type for drawing on the map";
-        tsubpart3 =  ButtonPartClass::new(this.game.BUTTONDRAW, tDescript: this.ss);
-        this.BDrawId = this.AddSubPart( tsubpart3, 10, 310, 32, 16, 1);
-        tsubpart3 =  TextPartClass::new("Select as pencil", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.BDrawTextId = this.AddSubPart( tsubpart3, 50, 309, 200, 20, 0);
-        this.OptionsListObj = ListClass::new();
-        this.OptionsListObj.add("Sprites", 0);
-        this.OptionsListObj.add("Movecost for Road", 1);
-        this.OptionsListObj.add("Details", 2);
-        ListClass optionsListObj = this.OptionsListObj;
-        let mut tabSheetNr: i32 = this.TabSheetNr;
-        let mut game: GameClass = this.game;
-         local1: Bitmap =  this.OwnBitmap;
+        self.ss = "Click to use this road type for drawing on the map";
+        tsubpart3 =  ButtonPartClass::new(self.game.BUTTONDRAW, tDescript: self.ss);
+        self.BDrawId = self.AddSubPart( tsubpart3, 10, 310, 32, 16, 1);
+        tsubpart3 =  TextPartClass::new("Select as pencil", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.BDrawTextId = self.AddSubPart( tsubpart3, 50, 309, 200, 20, 0);
+        self.OptionsListObj = ListClass::new();
+        self.OptionsListObj.add("Sprites", 0);
+        self.OptionsListObj.add("Movecost for Road", 1);
+        self.OptionsListObj.add("Details", 2);
+        ListClass optionsListObj = self.OptionsListObj;
+        let mut tabSheetNr: i32 = self.TabSheetNr;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
         font: Font =  null;
          local2: Font =  font;
         tsubpart3 =  new ListSubPartClass(optionsListObj, 4, 300, tabSheetNr, game, tHeader: "Property Sheets", tbackbitmap: ( local1), bbx: 370, bby: 140, overruleFont: ( local2));
-        this.OptionsListId = this.AddSubPart( tsubpart3, 370, 140, 300, 112, 0);
+        self.OptionsListId = self.AddSubPart( tsubpart3, 370, 140, 300, 112, 0);
       }
-      this.maketabsheet();
+      self.maketabsheet();
     }
 
      void maketabsheet()
     {
-      if (this.BasicListId > 0)
-        this.RemoveSubPart(this.BasicListId);
-      if (this.BBasicSpriteId > 0)
-        this.RemoveSubPart(this.BBasicSpriteId);
-      if (this.BChangeBasicSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBasicSpriteId);
-      if (this.B3Id > 0)
-        this.RemoveSubPart(this.B3Id);
-      if (this.B3TextId > 0)
-        this.RemoveSubPart(this.B3TextId);
-      if (this.BEP > 0)
-        this.RemoveSubPart(this.BEP);
-      if (this.BEPText > 0)
-        this.RemoveSubPart(this.BEPText);
-      if (this.b1id > 0)
-        this.RemoveSubPart(this.b1id);
-      if (this.b1textid > 0)
-        this.RemoveSubPart(this.b1textid);
-      if (this.txt1 > 0)
-        this.RemoveSubPart(this.txt1);
-      if (this.B5Id > 0)
-        this.RemoveSubPart(this.B5Id);
-      if (this.B5TextId > 0)
-        this.RemoveSubPart(this.B5TextId);
-      if (this.B4Id > 0)
-        this.RemoveSubPart(this.B4Id);
-      if (this.B4TextId > 0)
-        this.RemoveSubPart(this.B4TextId);
-      if (this.B6Id > 0)
-        this.RemoveSubPart(this.B6Id);
-      if (this.B6TextId > 0)
-        this.RemoveSubPart(this.B6TextId);
-      if (this.B7Id > 0)
-        this.RemoveSubPart(this.B7Id);
-      if (this.B7TextId > 0)
-        this.RemoveSubPart(this.B7TextId);
-      if (this.BridgeListId > 0)
-        this.RemoveSubPart(this.BridgeListId);
-      if (this.BBridgeSpriteId > 0)
-        this.RemoveSubPart(this.BBridgeSpriteId);
-      if (this.BChangeBridgeSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBridgeSpriteId);
-      if (this.BridgeId > 0)
-        this.RemoveSubPart(this.BridgeId);
-      if (this.BridgeTextId > 0)
-        this.RemoveSubPart(this.BridgeTextId);
-      if (!(this.RoadNr > -1 & this.TabSheetNr > -1))
+      if (self.BasicListId > 0)
+        self.RemoveSubPart(self.BasicListId);
+      if (self.BBasicSpriteId > 0)
+        self.RemoveSubPart(self.BBasicSpriteId);
+      if (self.BChangeBasicSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBasicSpriteId);
+      if (self.B3Id > 0)
+        self.RemoveSubPart(self.B3Id);
+      if (self.B3TextId > 0)
+        self.RemoveSubPart(self.B3TextId);
+      if (self.BEP > 0)
+        self.RemoveSubPart(self.BEP);
+      if (self.BEPText > 0)
+        self.RemoveSubPart(self.BEPText);
+      if (self.b1id > 0)
+        self.RemoveSubPart(self.b1id);
+      if (self.b1textid > 0)
+        self.RemoveSubPart(self.b1textid);
+      if (self.txt1 > 0)
+        self.RemoveSubPart(self.txt1);
+      if (self.B5Id > 0)
+        self.RemoveSubPart(self.B5Id);
+      if (self.B5TextId > 0)
+        self.RemoveSubPart(self.B5TextId);
+      if (self.B4Id > 0)
+        self.RemoveSubPart(self.B4Id);
+      if (self.B4TextId > 0)
+        self.RemoveSubPart(self.B4TextId);
+      if (self.B6Id > 0)
+        self.RemoveSubPart(self.B6Id);
+      if (self.B6TextId > 0)
+        self.RemoveSubPart(self.B6TextId);
+      if (self.B7Id > 0)
+        self.RemoveSubPart(self.B7Id);
+      if (self.B7TextId > 0)
+        self.RemoveSubPart(self.B7TextId);
+      if (self.BridgeListId > 0)
+        self.RemoveSubPart(self.BridgeListId);
+      if (self.BBridgeSpriteId > 0)
+        self.RemoveSubPart(self.BBridgeSpriteId);
+      if (self.BChangeBridgeSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBridgeSpriteId);
+      if (self.BridgeId > 0)
+        self.RemoveSubPart(self.BridgeId);
+      if (self.BridgeTextId > 0)
+        self.RemoveSubPart(self.BridgeTextId);
+      if (!(self.RoadNr > -1 & self.TabSheetNr > -1))
         return;
-      if (this.TabSheetNr == 0)
-        this.maketabsheetnr0();
-      if (this.TabSheetNr == 1)
-        this.maketabsheetnr1();
-      if (this.TabSheetNr != 2)
+      if (self.TabSheetNr == 0)
+        self.maketabsheetnr0();
+      if (self.TabSheetNr == 1)
+        self.maketabsheetnr1();
+      if (self.TabSheetNr != 2)
         return;
-      this.maketabsheetnr2();
+      self.maketabsheetnr2();
     }
 
      void maketabsheetnr0()
     {
-      if (this.ChangeMvId > 0)
-        this.RemoveSubPart(this.ChangeMvId);
-      if (this.b1id > 0)
-        this.RemoveSubPart(this.b1id);
-      if (this.b1textid > 0)
-        this.RemoveSubPart(this.b1textid);
-      if (this.txt1 > 0)
-        this.RemoveSubPart(this.txt1);
-      if (this.B5Id > 0)
-        this.RemoveSubPart(this.B5Id);
-      if (this.B5TextId > 0)
-        this.RemoveSubPart(this.B5TextId);
-      if (this.B4Id > 0)
-        this.RemoveSubPart(this.B4Id);
-      if (this.B4TextId > 0)
-        this.RemoveSubPart(this.B4TextId);
-      this.ss = "";
-      string txt1;
-      if (this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer)
+      if (self.ChangeMvId > 0)
+        self.RemoveSubPart(self.ChangeMvId);
+      if (self.b1id > 0)
+        self.RemoveSubPart(self.b1id);
+      if (self.b1textid > 0)
+        self.RemoveSubPart(self.b1textid);
+      if (self.txt1 > 0)
+        self.RemoveSubPart(self.txt1);
+      if (self.B5Id > 0)
+        self.RemoveSubPart(self.B5Id);
+      if (self.B5TextId > 0)
+        self.RemoveSubPart(self.B5TextId);
+      if (self.B4Id > 0)
+        self.RemoveSubPart(self.B4Id);
+      if (self.B4TextId > 0)
+        self.RemoveSubPart(self.B4TextId);
+      self.ss = "";
+      txt1: String;
+      if (self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer)
       {
         txt1 = "Change to 6 sprites";
-        this.ss = "Click to go back to old 6 sprite mode";
+        self.ss = "Click to go back to old 6 sprite mode";
       }
       else
       {
         txt1 = "Change to 64 sprites";
-        this.ss = "Click to x64 sprite mode just as with landscape type borders";
+        self.ss = "Click to x64 sprite mode just as with landscape type borders";
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-        this.b1id = this.AddSubPart( tsubpart, 500, 350, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+        self.b1id = self.AddSubPart( tsubpart, 500, 350, 32, 16, 1);
       }
-      let mut tsubpart1: SubPartClass =  TextPartClass::new(txt1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.b1textid = this.AddSubPart( tsubpart1, 550, 349, 400, 20, 0);
-      if (this.txt1 > 0)
-        this.RemoveSubPart(this.txt1);
-      if (!this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer)
+      let mut tsubpart1: SubPartClass =  TextPartClass::new(txt1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.b1textid = self.AddSubPart( tsubpart1, 550, 349, 400, 20, 0);
+      if (self.txt1 > 0)
+        self.RemoveSubPart(self.txt1);
+      if (!self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer)
       {
-        this.BasicListObj = ListClass::new();
+        self.BasicListObj = ListClass::new();
         let mut tdata: i32 = 0;
         do
         {
-          this.BasicListObj.add(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteFileName[tdata], tdata);
+          self.BasicListObj.add(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteFileName[tdata], tdata);
           tdata += 1;
         }
         while (tdata <= 5);
-        ListClass basicListObj = this.BasicListObj;
-        let mut detailNr: i32 = this.DetailNr;
-        let mut game: GameClass = this.game;
-         local1: Bitmap =  this.OwnBitmap;
+        ListClass basicListObj = self.BasicListObj;
+        let mut detailNr: i32 = self.DetailNr;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
         font: Font =  null;
          local2: Font =  font;
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(basicListObj, 10, 300, detailNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
-        this.BasicListId = this.AddSubPart( tsubpart2, 10, 350, 300, 208, 0);
-        if (this.DetailNr > 5)
-          this.DetailNr = -1;
-        if (this.DetailNr <= -1)
+        self.BasicListId = self.AddSubPart( tsubpart2, 10, 350, 300, 208, 0);
+        if (self.DetailNr > 5)
+          self.DetailNr = -1;
+        if (self.DetailNr <= -1)
           return;
-        this.maketabsheetnr0b();
+        self.maketabsheetnr0b();
       }
       else
       {
         txt2: String = "Currently using a set of 64 sprites.";
-        if (!this.game.Data.RoadTypeObj[this.RoadNr].UseSheet)
+        if (!self.game.Data.RoadTypeObj[self.RoadNr].UseSheet)
         {
-          let mut tsubpart3: SubPartClass =  TextPartClass::new(txt2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-          this.txt1 = this.AddSubPart( tsubpart3, 10, 398, 250, 20, 1);
+          let mut tsubpart3: SubPartClass =  TextPartClass::new(txt2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+          self.txt1 = self.AddSubPart( tsubpart3, 10, 398, 250, 20, 1);
         }
         else
         {
-          this.ss = "the fred sheet you are currently using. filename = " + this.game.Data.RoadTypeObj[this.RoadNr].SheetFileName;
-          let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.Data.RoadTypeObj[this.RoadNr].SheetSpriteID, tDescript: this.ss);
-          this.txt1 = this.AddSubPart( tsubpart4, 10, 400, BitmapStore.GetWidth(this.game.Data.RoadTypeObj[this.RoadNr].SheetSpriteID), BitmapStore.Getheight(this.game.Data.RoadTypeObj[this.RoadNr].SheetSpriteID), 1);
+          self.ss = "the fred sheet you are currently using. filename = " + self.game.Data.RoadTypeObj[self.RoadNr].SheetFileName;
+          let mut tsubpart4: SubPartClass =  ButtonPartClass::new(self.game.Data.RoadTypeObj[self.RoadNr].SheetSpriteID, tDescript: self.ss);
+          self.txt1 = self.AddSubPart( tsubpart4, 10, 400, BitmapStore.GetWidth(self.game.Data.RoadTypeObj[self.RoadNr].SheetSpriteID), BitmapStore.Getheight(self.game.Data.RoadTypeObj[self.RoadNr].SheetSpriteID), 1);
         }
       }
     }
 
      void maketabsheetnr0b()
     {
-      if (this.BBasicSpriteId > 0)
-        this.RemoveSubPart(this.BBasicSpriteId);
-      if (this.BChangeBasicSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBasicSpriteId);
-      if (this.B5Id > 0)
-        this.RemoveSubPart(this.B5Id);
-      if (this.B5TextId > 0)
-        this.RemoveSubPart(this.B5TextId);
-      if (this.B4Id > 0)
-        this.RemoveSubPart(this.B4Id);
-      if (this.B4TextId > 0)
-        this.RemoveSubPart(this.B4TextId);
-      if (this.B7Id > 0)
-        this.RemoveSubPart(this.B7Id);
-      if (this.B7TextId > 0)
-        this.RemoveSubPart(this.B7TextId);
-      this.ss = "Click to change the sprite to another graphic";
-      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[this.DetailNr], tDescript: this.ss);
-      this.BBasicSpriteId = this.AddSubPart( tsubpart1, 400, 350, 64, 48, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (self.BBasicSpriteId > 0)
+        self.RemoveSubPart(self.BBasicSpriteId);
+      if (self.BChangeBasicSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBasicSpriteId);
+      if (self.B5Id > 0)
+        self.RemoveSubPart(self.B5Id);
+      if (self.B5TextId > 0)
+        self.RemoveSubPart(self.B5TextId);
+      if (self.B4Id > 0)
+        self.RemoveSubPart(self.B4Id);
+      if (self.B4TextId > 0)
+        self.RemoveSubPart(self.B4TextId);
+      if (self.B7Id > 0)
+        self.RemoveSubPart(self.B7Id);
+      if (self.B7TextId > 0)
+        self.RemoveSubPart(self.B7TextId);
+      self.ss = "Click to change the sprite to another graphic";
+      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[self.DetailNr], tDescript: self.ss);
+      self.BBasicSpriteId = self.AddSubPart( tsubpart1, 400, 350, 64, 48, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BChangeBasicSpriteId = this.AddSubPart( tsubpart2, 400, 410, 32, 16, 1);
+        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BChangeBasicSpriteId = self.AddSubPart( tsubpart2, 400, 410, 32, 16, 1);
       }
-      if (this.game.Data.Product < 7)
+      if (self.game.Data.Product < 7)
         return;
-      this.ss = "";
-      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-      this.B4Id = this.AddSubPart( tsubpart3, 410, 610, 32, 16, 1);
-      let mut tsubpart4: SubPartClass =  TextPartClass::new("Center6use=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].useCenter6), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.B4TextId = this.AddSubPart( tsubpart4, 450, 609, 400, 20, 0);
-      tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-      this.B5Id = this.AddSubPart( tsubpart4, 410, 630, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Center6sprite=" + this.game.Data.RoadTypeObj[this.RoadNr].center6spriteFileName, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.B5TextId = this.AddSubPart( tsubpart4, 450, 629, 400, 20, 0);
-      tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-      this.B7Id = this.AddSubPart( tsubpart4, 410, 650, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Render to 64 sheet", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.B7TextId = this.AddSubPart( tsubpart4, 450, 649, 400, 20, 0);
+      self.ss = "";
+      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+      self.B4Id = self.AddSubPart( tsubpart3, 410, 610, 32, 16, 1);
+      let mut tsubpart4: SubPartClass =  TextPartClass::new("Center6use=" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].useCenter6), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.B4TextId = self.AddSubPart( tsubpart4, 450, 609, 400, 20, 0);
+      tsubpart4 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+      self.B5Id = self.AddSubPart( tsubpart4, 410, 630, 32, 16, 1);
+      tsubpart4 =  TextPartClass::new("Center6sprite=" + self.game.Data.RoadTypeObj[self.RoadNr].center6spriteFileName, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.B5TextId = self.AddSubPart( tsubpart4, 450, 629, 400, 20, 0);
+      tsubpart4 =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+      self.B7Id = self.AddSubPart( tsubpart4, 410, 650, 32, 16, 1);
+      tsubpart4 =  TextPartClass::new("Render to 64 sheet", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.B7TextId = self.AddSubPart( tsubpart4, 450, 649, 400, 20, 0);
     }
 
      void maketabsheetnr1()
     {
-      if (this.BasicList2Id > 0)
-        this.RemoveSubPart(this.BasicList2Id);
-      if (this.ChangeMvId > 0)
-        this.RemoveSubPart(this.ChangeMvId);
-      this.BasicList2Obj = ListClass::new();
+      if (self.BasicList2Id > 0)
+        self.RemoveSubPart(self.BasicList2Id);
+      if (self.ChangeMvId > 0)
+        self.RemoveSubPart(self.ChangeMvId);
+      self.BasicList2Obj = ListClass::new();
       let mut index: i32 = 0;
       do
       {
-        this.BasicList2Obj.add(this.game.Data.TempString[index] + "(" + Conversion.Str( index) + ") = " + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].MoveCostOverrule[index]) + "ap", index);
+        self.BasicList2Obj.add(self.game.Data.TempString[index] + "(" + Conversion.Str( index) + ") = " + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].MoveCostOverrule[index]) + "ap", index);
         index += 1;
       }
       while (index <= 99);
-      ListClass basicList2Obj = this.BasicList2Obj;
-      let mut detailNr: i32 = this.DetailNr;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass basicList2Obj = self.BasicList2Obj;
+      let mut detailNr: i32 = self.DetailNr;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(basicList2Obj, 10, 300, detailNr, game, tHeader: "MoveCost for MoveTypes", tbackbitmap: ( local1), bbx: 10, bby: 350, overruleFont: ( local2));
-      this.BasicList2Id = this.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
-      if (this.DetailNr > 99)
-        this.DetailNr = -1;
-      if (this.DetailNr <= -1)
+      self.BasicList2Id = self.AddSubPart( tsubpart, 10, 350, 300, 208, 0);
+      if (self.DetailNr > 99)
+        self.DetailNr = -1;
+      if (self.DetailNr <= -1)
         return;
-      this.maketabsheetnr1b();
+      self.maketabsheetnr1b();
     }
 
      void maketabsheetnr1b()
     {
-      this.ss = "Click to change move cost for selected movetype in AP";
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      self.ss = "Click to change move cost for selected movetype in AP";
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-      this.ChangeMvId = this.AddSubPart( tsubpart, 400, 410, 32, 16, 1);
+      let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+      self.ChangeMvId = self.AddSubPart( tsubpart, 400, 410, 32, 16, 1);
     }
 
      void maketabsheetnr2()
     {
-      this.ss = "Click to set the thickness in pixel of the line used to draw road on str.map.";
+      self.ss = "Click to set the thickness in pixel of the line used to draw road on str.map.";
       SubPartClass tsubpart;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.bthick = this.AddSubPart( tsubpart, 10, 370, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.bthick = self.AddSubPart( tsubpart, 10, 370, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Thickness=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.bthicktext = this.AddSubPart( tsubpart, 50, 369, 400, 20, 0);
-      this.ss = "Click to set that first this roadtype is drawn as another roadtype. -1= do not use.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Thickness=" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.bthicktext = self.AddSubPart( tsubpart, 50, 369, 400, 20, 0);
+      self.ss = "Click to set that first this roadtype is drawn as another roadtype. -1= do not use.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.bother = this.AddSubPart( tsubpart, 10, 390, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.bother = self.AddSubPart( tsubpart, 10, 390, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FirstOtherRoad=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].FirstDrawOther), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.bothertext = this.AddSubPart( tsubpart, 50, 389, 400, 20, 0);
-      this.ss = "-1= do not use. Roadtypes that have the same category will flow into eachother with hex rendering.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("FirstOtherRoad=" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].FirstDrawOther), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.bothertext = self.AddSubPart( tsubpart, 50, 389, 400, 20, 0);
+      self.ss = "-1= do not use. Roadtypes that have the same category will flow into eachother with hex rendering.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B3Id = this.AddSubPart( tsubpart, 10, 410, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B3Id = self.AddSubPart( tsubpart, 10, 410, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Category=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Category), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.B3TextId = this.AddSubPart( tsubpart, 50, 409, 400, 20, 0);
-      this.ss = "0= do not use. ";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Category=" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].Category), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.B3TextId = self.AddSubPart( tsubpart, 50, 409, 400, 20, 0);
+      self.ss = "0= do not use. ";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B6Id = this.AddSubPart( tsubpart, 10, 430, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B6Id = self.AddSubPart( tsubpart, 10, 430, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Traffic Points=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].trafficPoints), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.B6TextId = this.AddSubPart( tsubpart, 50, 429, 400, 20, 0);
-      this.ss = "if set to TRUE the sprites defined below will be used to render the bridge, instead of those specified in the bridge tab.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Traffic Points=" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].trafficPoints), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.B6TextId = self.AddSubPart( tsubpart, 50, 429, 400, 20, 0);
+      self.ss = "if set to TRUE the sprites defined below will be used to render the bridge, instead of those specified in the bridge tab.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BridgeId = this.AddSubPart( tsubpart, 10, 470, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BridgeId = self.AddSubPart( tsubpart, 10, 470, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Overrule Bridge Gfx =" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-      this.BridgeTextId = this.AddSubPart( tsubpart, 50, 469, 400, 20, 0);
-      this.BridgeListObj = ListClass::new();
+      tsubpart =  TextPartClass::new("Overrule Bridge Gfx =" + Conversion.Str( self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: self.ss);
+      self.BridgeTextId = self.AddSubPart( tsubpart, 50, 469, 400, 20, 0);
+      self.BridgeListObj = ListClass::new();
       let mut tdata: i32 = 0;
       do
       {
-        this.BridgeListObj.add(this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverruleSpriteFileName[tdata], tdata);
+        self.BridgeListObj.add(self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverruleSpriteFileName[tdata], tdata);
         tdata += 1;
       }
       while (tdata <= 5);
-      ListClass bridgeListObj = this.BridgeListObj;
-      let mut bridgeNr: i32 = this.BridgeNr;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass bridgeListObj = self.BridgeListObj;
+      let mut bridgeNr: i32 = self.BridgeNr;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       tsubpart =  new ListSubPartClass(bridgeListObj, 7, 400, bridgeNr, game, tHeader: "Sprites", tbackbitmap: ( local1), bbx: 10, bby: 550, overruleFont: ( local2));
-      this.BridgeListId = this.AddSubPart( tsubpart, 10, 550, 400, 160, 0);
-      if (this.BridgeNr > 5)
-        this.BridgeNr = -1;
-      if (this.BridgeNr <= -1)
+      self.BridgeListId = self.AddSubPart( tsubpart, 10, 550, 400, 160, 0);
+      if (self.BridgeNr > 5)
+        self.BridgeNr = -1;
+      if (self.BridgeNr <= -1)
         return;
-      this.maketabsheetnr2b();
+      self.maketabsheetnr2b();
     }
 
      void maketabsheetnr2b()
     {
-      if (this.BBridgeSpriteId > 0)
-        this.RemoveSubPart(this.BBridgeSpriteId);
-      if (this.BChangeBridgeSpriteId > 0)
-        this.RemoveSubPart(this.BChangeBridgeSpriteId);
-      if (this.BChangeBridgeSpriteId2 > 0)
-        this.RemoveSubPart(this.BChangeBridgeSpriteId2);
-      this.ss = "Click to change the sprite to another graphic";
-      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverruleSpriteID[this.BridgeNr], tDescript: this.ss);
-      this.BBridgeSpriteId = this.AddSubPart( tsubpart1, 500, 450, 64, 48, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (self.BBridgeSpriteId > 0)
+        self.RemoveSubPart(self.BBridgeSpriteId);
+      if (self.BChangeBridgeSpriteId > 0)
+        self.RemoveSubPart(self.BChangeBridgeSpriteId);
+      if (self.BChangeBridgeSpriteId2 > 0)
+        self.RemoveSubPart(self.BChangeBridgeSpriteId2);
+      self.ss = "Click to change the sprite to another graphic";
+      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverruleSpriteID[self.BridgeNr], tDescript: self.ss);
+      self.BBridgeSpriteId = self.AddSubPart( tsubpart1, 500, 450, 64, 48, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BChangeBridgeSpriteId = this.AddSubPart( tsubpart2, 500, 510, 32, 16, 1);
+        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BChangeBridgeSpriteId = self.AddSubPart( tsubpart2, 500, 510, 32, 16, 1);
       }
-      this.ss = "Import settings from another roadType";
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      self.ss = "Import settings from another roadType";
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-      this.BChangeBridgeSpriteId2 = this.AddSubPart( tsubpart3, 500, 610, 32, 16, 1);
+      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+      self.BChangeBridgeSpriteId2 = self.AddSubPart( tsubpart3, 500, 610, 32, 16, 1);
     }
 
-    pub fn ConstructTileset(string s)
+    pub fn ConstructTileset(s: String)
     {
       strArray: Vec<String> = new string[65];
       bitmap1: Bitmap = new Bitmap(384, 528);
@@ -593,37 +593,37 @@ namespace WindowsApplication1
                 do
                 {
                   let mut num4: i32 = 0;
-                  let mut index7: i32 = this.game.SPRITE64[index1, index2, index3, index4, index5, index6];
+                  let mut index7: i32 = self.game.SPRITE64[index1, index2, index3, index4, index5, index6];
                   if (index1 > 0 | index2 > 0 | index3 > 0 | index4 > 0 | index5 > 0 | index6 > 0)
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].center6spriteId), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].center6spriteId), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                   if (index1 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[0]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[0]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num4 += 1;
                   }
                   if (index2 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[1]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[1]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num4 += 1;
                   }
                   if (index3 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[2]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[2]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num4 += 1;
                   }
                   if (index4 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[3]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[3]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num4 += 1;
                   }
                   if (index5 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[4]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[4]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num4 += 1;
                   }
                   if (index6 == 1)
                   {
-                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[5]), this.game.SHEETX[index7] * num1, this.game.SHEETY[index7] * num2);
+                    graphics1.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[5]), self.game.SHEETX[index7] * num1, self.game.SHEETY[index7] * num2);
                     num3 = num4 + 1;
                   }
                   index6 += 1;
@@ -674,37 +674,37 @@ namespace WindowsApplication1
                 do
                 {
                   let mut num7: i32 = 0;
-                  let mut index14: i32 = this.game.SPRITE64[index8, index9, index10, index11, index12, index13];
+                  let mut index14: i32 = self.game.SPRITE64[index8, index9, index10, index11, index12, index13];
                   if (index8 > 0 | index9 > 0 | index10 > 0 | index11 > 0 | index12 > 0 | index13 > 0)
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].center6spriteId, 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].center6spriteId, 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                   if (index8 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[0], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[0], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num7 += 1;
                   }
                   if (index9 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[1], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[1], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num7 += 1;
                   }
                   if (index10 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[2], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[2], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num7 += 1;
                   }
                   if (index11 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[3], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[3], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num7 += 1;
                   }
                   if (index12 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[4], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[4], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num7 += 1;
                   }
                   if (index13 == 1)
                   {
-                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.RoadTypeObj[this.RoadNr].BasicSpriteID[5], 1), this.game.SHEETX[index14] * num5, this.game.SHEETY[index14] * num6);
+                    graphics2.DrawImage((Image) BitmapStore.GetBitmap(self.game.Data.RoadTypeObj[self.RoadNr].BasicSpriteID[5], 1), self.game.SHEETX[index14] * num5, self.game.SHEETY[index14] * num6);
                     num3 = num7 + 1;
                   }
                   index13 += 1;
@@ -735,299 +735,299 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (this.SubPartCounter > -1)
+      if (self.SubPartCounter > -1)
       {
-        let mut subPartCounter: i32 = this.SubPartCounter;
+        let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index1: i32 = 0; index1 <= subPartCounter; index1 += 1)
         {
-          if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
+          if (x > self.SubPartX[index1] & x < self.SubPartX[index1] + self.SubPartW[index1] && y > self.SubPartY[index1] & y < self.SubPartY[index1] + self.SubPartH[index1])
           {
-            let mut num1: i32 = this.SubPartID[index1];
-            if (num1 == this.RoadListId)
+            let mut num1: i32 = self.SubPartID[index1];
+            if (num1 == self.RoadListId)
             {
-              let mut num2: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num2: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
-                this.RoadNr = num2;
-                this.MakeRoadTypeItemGUI();
+                self.RoadNr = num2;
+                self.MakeRoadTypeItemGUI();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BAddRoadId)
+            if (num1 == self.BAddRoadId)
             {
-              this.game.Data.AddRoadType();
-              this.MakeRoadListGUI(this.RoadNr);
+              self.game.Data.AddRoadType();
+              self.MakeRoadListGUI(self.RoadNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BNameId)
+            if (num1 == self.BNameId)
             {
-              this.game.Data.RoadTypeObj[this.RoadNr].Name = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
-              this.MakeRoadListGUI(this.RoadNr);
+              self.game.Data.RoadTypeObj[self.RoadNr].Name = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
+              self.MakeRoadListGUI(self.RoadNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.OptionsListId)
+            if (num1 == self.OptionsListId)
             {
-              let mut num3: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num3: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
-                this.TabSheetNr = num3;
-                this.MakeRoadTypeItemGUI();
+                self.TabSheetNr = num3;
+                self.MakeRoadTypeItemGUI();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BRemoveRoadId)
+            if (num1 == self.BRemoveRoadId)
             {
-              this.game.Data.RemoveRoadType(this.RoadNr);
-              this.MakeRoadListGUI(-1);
+              self.game.Data.RemoveRoadType(self.RoadNr);
+              self.MakeRoadListGUI(-1);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BasicListId)
+            if (num1 == self.BasicListId)
             {
-              let mut num4: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num4: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num4 > -1)
               {
-                this.DetailNr = num4;
-                this.maketabsheetnr0b();
+                self.DetailNr = num4;
+                self.maketabsheetnr0b();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BridgeListId)
+            if (num1 == self.BridgeListId)
             {
-              let mut num5: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num5: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num5 > -1)
               {
-                this.BridgeNr = num5;
-                this.maketabsheetnr2b();
+                self.BridgeNr = num5;
+                self.maketabsheetnr2b();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BasicList2Id)
+            if (num1 == self.BasicList2Id)
             {
-              let mut num6: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num6: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num6 > -1)
               {
-                this.DetailNr = num6;
-                this.maketabsheetnr1b();
+                self.DetailNr = num6;
+                self.maketabsheetnr1b();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.ChangeMvId)
+            if (num1 == self.ChangeMvId)
             {
               let mut num7: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new ap overrule please", "Shadow Empire : Planetary Conquest")));
               if (num7 > 0 & num7 <= 9999)
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].MoveCostOverrule[this.DetailNr] = num7;
+                self.game.Data.RoadTypeObj[self.RoadNr].MoveCostOverrule[self.DetailNr] = num7;
               }
               else
               {
                 let mut num8: i32 =  Interaction.MsgBox( "Value between 1 and 10000 please...", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BChangeBridgeSpriteId2)
+            if (num1 == self.BChangeBridgeSpriteId2)
             {
               str: String = Interaction.InputBox("Give roadtype slot # to copy ", "Shadow Empire : Planetary Conquest");
               let mut index2: i32 =  Math.Round(Conversion.Val(str));
-              if (!Information.IsNothing( str) && str.Length > 0 & index2 >= 0 & index2 <= this.game.Data.RoadTypeCounter)
+              if (!Information.IsNothing( str) && str.Length > 0 & index2 >= 0 & index2 <= self.game.Data.RoadTypeCounter)
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule = this.game.Data.RoadTypeObj[index2].BridgeOverrule;
+                self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverrule = self.game.Data.RoadTypeObj[index2].BridgeOverrule;
                 let mut nr: i32 = 0;
                 do
                 {
-                  if (Operators.CompareString(this.game.Data.RoadTypeObj[index2].BridgeOverruleSpriteFileName[nr], this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverruleSpriteFileName[nr], false) != 0)
-                    this.game.Data.RoadTypeObj[this.RoadNr].ReplaceBridgeOverruleSprite(nr, this.game.Data.RoadTypeObj[index2].BridgeOverruleSpriteFileName[nr]);
+                  if (Operators.CompareString(self.game.Data.RoadTypeObj[index2].BridgeOverruleSpriteFileName[nr], self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverruleSpriteFileName[nr], false) != 0)
+                    self.game.Data.RoadTypeObj[self.RoadNr].ReplaceBridgeOverruleSprite(nr, self.game.Data.RoadTypeObj[index2].BridgeOverruleSpriteFileName[nr]);
                   nr += 1;
                 }
                 while (nr <= 5);
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BChangeBasicSpriteId)
+            if (num1 == self.BChangeBasicSpriteId)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png (*.Png)|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For Road Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png (*.Png)|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For Road Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].ReplaceBasicSprite(this.DetailNr, filename);
+                self.game.Data.RoadTypeObj[self.RoadNr].ReplaceBasicSprite(self.DetailNr, filename);
               }
               else
               {
-                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B5Id)
+            if (num1 == self.B5Id)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png (*.Png)|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For center6 sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png (*.Png)|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For center6 sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].ReplaceCenter6(filename);
+                self.game.Data.RoadTypeObj[self.RoadNr].ReplaceCenter6(filename);
               }
               else
               {
-                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B7Id)
+            if (num1 == self.B7Id)
             {
-              this.ConstructTileset(this.game.HandyFunctionsObj.SaveSomething("Png|*.png", "Give savename for new tileset.", "", false));
-              this.maketabsheet();
+              self.ConstructTileset(self.game.HandyFunctionsObj.SaveSomething("Png|*.png", "Give savename for new tileset.", "", false));
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BChangeBridgeSpriteId)
+            if (num1 == self.BChangeBridgeSpriteId)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For Road Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Select File For Road Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].ReplaceBridgeOverruleSprite(this.BridgeNr, filename);
+                self.game.Data.RoadTypeObj[self.RoadNr].ReplaceBridgeOverruleSprite(self.BridgeNr, filename);
               }
               else
               {
-                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BDrawId)
+            if (num1 == self.BDrawId)
             {
-              this.game.EditObj.PencilType = 2;
-              this.game.EditObj.PencilData1 = this.RoadNr;
+              self.game.EditObj.PencilType = 2;
+              self.game.EditObj.PencilData1 = self.RoadNr;
               windowReturnClass.AddCommand(1, 13);
               windowReturnClass.AddCommand(2, 13);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B2Id)
+            if (num1 == self.B2Id)
             {
-              this.game.Data.RoadTypeObj[this.RoadNr].Transparent = !this.game.Data.RoadTypeObj[this.RoadNr].Transparent;
-              this.MakeRoadTypeItemGUI();
+              self.game.Data.RoadTypeObj[self.RoadNr].Transparent = !self.game.Data.RoadTypeObj[self.RoadNr].Transparent;
+              self.MakeRoadTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BridgeId)
+            if (num1 == self.BridgeId)
             {
-              this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule = !this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule;
-              this.MakeRoadTypeItemGUI();
+              self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverrule = !self.game.Data.RoadTypeObj[self.RoadNr].BridgeOverrule;
+              self.MakeRoadTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B4Id)
+            if (num1 == self.B4Id)
             {
-              this.game.Data.RoadTypeObj[this.RoadNr].useCenter6 = !this.game.Data.RoadTypeObj[this.RoadNr].useCenter6;
-              this.MakeRoadTypeItemGUI();
+              self.game.Data.RoadTypeObj[self.RoadNr].useCenter6 = !self.game.Data.RoadTypeObj[self.RoadNr].useCenter6;
+              self.MakeRoadTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BEP)
+            if (num1 == self.BEP)
             {
               let mut num12: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new EP cost", "Shadow Empire : Planetary Conquest")));
               if (num12 > -1 & num12 < 999999)
-                this.game.Data.RoadTypeObj[this.RoadNr].EPCost = num12;
-              this.maketabsheet();
+                self.game.Data.RoadTypeObj[self.RoadNr].EPCost = num12;
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B6Id)
+            if (num1 == self.B6Id)
             {
               let mut num13: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new Traffic Points", "Shadow Empire : Planetary Conquest")));
               if (num13 > -1 & num13 < 999999)
-                this.game.Data.RoadTypeObj[this.RoadNr].trafficPoints = num13;
-              this.MakeRoadTypeItemGUI();
+                self.game.Data.RoadTypeObj[self.RoadNr].trafficPoints = num13;
+              self.MakeRoadTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B3Id)
+            if (num1 == self.B3Id)
             {
               let mut num14: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give road category# (-1=none)", "Shadow Empire : Planetary Conquest")));
               if (num14 >= -1 & num14 < 999999)
-                this.game.Data.RoadTypeObj[this.RoadNr].Category = num14;
-              this.maketabsheet();
+                self.game.Data.RoadTypeObj[self.RoadNr].Category = num14;
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.bthick)
+            if (num1 == self.bthick)
             {
               let mut num15: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new pixel thickness", "Shadow Empire : Planetary Conquest")));
               if (num15 > 0 & num15 < 10)
-                this.game.Data.RoadTypeObj[this.RoadNr].Thickness = num15;
-              this.maketabsheet();
+                self.game.Data.RoadTypeObj[self.RoadNr].Thickness = num15;
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.bother)
+            if (num1 == self.bother)
             {
               let mut num16: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give first draw other road nr#. -1=dont use", "Shadow Empire : Planetary Conquest")));
-              if (num16 >= -1 & num16 <= this.game.Data.RoadTypeCounter)
-                this.game.Data.RoadTypeObj[this.RoadNr].FirstDrawOther = num16;
-              this.maketabsheet();
+              if (num16 >= -1 & num16 <= self.game.Data.RoadTypeCounter)
+                self.game.Data.RoadTypeObj[self.RoadNr].FirstDrawOther = num16;
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b1id)
+            if (num1 == self.b1id)
             {
-              this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer = !this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer;
-              if (!this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer)
+              self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer = !self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer;
+              if (!self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer)
               {
-                this.game.Data.RoadTypeObj[this.RoadNr].UseSheet = false;
-                this.game.Data.RoadTypeObj[this.RoadNr].SheetFileName = "systemgraphics/trans.bmp";
+                self.game.Data.RoadTypeObj[self.RoadNr].UseSheet = false;
+                self.game.Data.RoadTypeObj[self.RoadNr].SheetFileName = "systemgraphics/trans.bmp";
               }
-              if (this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer)
+              if (self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer)
               {
                 if (Interaction.MsgBox( "Use Fred SpriteSheet?", MsgBoxStyle.YesNo) == MsgBoxResult.No)
-                  this.game.Data.RoadTypeObj[this.RoadNr].UseSheet = false;
+                  self.game.Data.RoadTypeObj[self.RoadNr].UseSheet = false;
                 else
-                  this.game.Data.RoadTypeObj[this.RoadNr].UseSheet = true;
-                if (!this.game.Data.RoadTypeObj[this.RoadNr].UseSheet)
+                  self.game.Data.RoadTypeObj[self.RoadNr].UseSheet = true;
+                if (!self.game.Data.RoadTypeObj[self.RoadNr].UseSheet)
                 {
                   extstring: String = Interaction.InputBox("Give a graphical extension: .jpg, .png, .bmp");
                   dirstring: String = Interaction.InputBox("Give a directory name under the graphics directory", "Shadow Empire : Planetary Conquest");
-                  if (File.Exists(this.game.AppPath + "graphics/" + dirstring + "/a1" + extstring))
+                  if (File.Exists(self.game.AppPath + "graphics/" + dirstring + "/a1" + extstring))
                   {
-                    this.game.Data.RoadTypeObj[this.RoadNr].AutoLoadSpecial(dirstring, extstring);
-                    this.maketabsheet();
+                    self.game.Data.RoadTypeObj[self.RoadNr].AutoLoadSpecial(dirstring, extstring);
+                    self.maketabsheet();
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer = false;
+                  self.game.Data.RoadTypeObj[self.RoadNr].SpecialLayer = false;
                   let mut num17: i32 =  Interaction.MsgBox( "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
-                  filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Select normal sized sheet (big & small will be auto-linked)", this.game.AppPath + "graphics\\", true);
-                  if (File.Exists(this.game.AppPath + "graphics/" + filename))
+                  filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Select normal sized sheet (big & small will be auto-linked)", self.game.AppPath + "graphics\\", true);
+                  if (File.Exists(self.game.AppPath + "graphics/" + filename))
                   {
-                    this.game.Data.RoadTypeObj[this.RoadNr].ReplaceSpriteSheet(filename);
-                    this.maketabsheet();
+                    self.game.Data.RoadTypeObj[self.RoadNr].ReplaceSpriteSheet(filename);
+                    self.maketabsheet();
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
                   let mut num18: i32 =  Interaction.MsgBox( "Could not find this file... ", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
-              this.maketabsheet();
+              self.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }

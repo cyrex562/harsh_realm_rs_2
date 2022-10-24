@@ -2054,7 +2054,7 @@ namespace WindowsApplication1
       Graphics g,
       bool active,
       tx: i32,
-      string s,
+      s: String,
       iconSlot: i32,
       let mut smallNumber: i32 =  -1,
       bool grayedOut = false,
@@ -2180,7 +2180,7 @@ namespace WindowsApplication1
       return rectangle3;
     }
 
-    pub fn DrawNumberWithDelta(Graphics g, x: i32, y: i32, string texty, delta: i32)
+    pub fn DrawNumberWithDelta(Graphics g, x: i32, y: i32, texty: String, delta: i32)
     {
       let mut eventPic1: i32 =  DrawMod.TGame.Data.FindEventPic("", 8, "SE_Present");
       let mut eventPic2: i32 =  DrawMod.TGame.Data.FindEventPic("", 9, "SE_Present");
@@ -4595,7 +4595,7 @@ namespace WindowsApplication1
       libVar5: i32;
       libVar6: i32;
       libVar7: i32;
-      string str1;
+      str1: String;
       libVar8: i32;
       if (specialMode1 > 0)
       {
@@ -8170,7 +8170,7 @@ label_724:
                         counterString: String = this.game.Data.HistoricalUnitObj[historical].CounterString;
                         str1: String = Strings.UCase(Strings.Left(counterString, 1)) + Strings.Mid(counterString, 2);
                         str2: String = Conversion.Str( Conversion.Val(str1));
-                        string str3;
+                        str3: String;
                         if (Operators.CompareString(Strings.Trim(str1), Strings.Trim(str2), false) == 0)
                         {
                           let mut num34: i32 =  (int) Math.Round(Conversion.Val(str1));
@@ -14161,7 +14161,7 @@ label_382:
               }
             }
           }
-          string str;
+          str: String;
           if (!ispredrawing & !InfoMode & this.game.EditObj.ShowLabel)
           {
             let mut num151: i32 =  0;
@@ -17048,13 +17048,13 @@ label_2498:
       str3: String = "";
       num12: i32;
       nr1: i32;
-      string str4;
-      string str5;
+      str4: String;
+      str5: String;
       num13: i32;
-      string str6;
+      str6: String;
       index4: i32;
-      string str7;
-      string str8;
+      str7: String;
+      str8: String;
       if (idValue2 > 0)
       {
         num7 = (int) Math.Round(Conversion.Val(this.game.Data.StringListObj[this.slotAssetTypes].GetData(0, idValue2, 25)));
@@ -17816,7 +17816,7 @@ label_2498:
       let mut num32: i32 =  ty;
       num33: i32;
       val2_2: i32;
-      string str14;
+      str14: String;
       double num34;
       if (simpleStringList1.Counter > -1)
       {

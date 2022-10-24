@@ -1101,8 +1101,8 @@ namespace WindowsApplication1
       let mut index2: i32 =  1;
       string[,] matrx1 = new string[61, 6];
       let mut ucounter1: i32 =  this.UCounter;
-      string txt;
-      string str1;
+      txt: String;
+      str1: String;
       for (let mut fromy: i32 =  0; fromy <= ucounter1; fromy += 1)
       {
         if (!this.game.Data.FOWOn | this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.UList[fromy].UNr].Regime, this.game.Data.Turn))
@@ -1115,9 +1115,9 @@ namespace WindowsApplication1
           matrx1[3, index2] = Strings.Trim(Conversion.Str( this.UList[fromy].UMaxApToSpend));
           matrx1[4, index1] = "Retreat started in round";
           matrx1[4, index2] = Strings.Trim(Conversion.Str( this.UList[fromy].URetreat));
-          matrx1[5, index1] = "Broken";
+          matrx1[5, index1] = "Broken".to_owned();
           matrx1[5, index2] = Strings.Trim(Conversion.Str( this.UList[fromy].UBreaks));
-          matrx1[6, index1] = "Retreat";
+          matrx1[6, index1] = "Retreat".to_owned();
           matrx1[6, index2] = !(this.UList[fromy].URetreatMode > 0 & this.UList[fromy].URetreatMode <= 2) ? (this.UList[fromy].URetreatMode != 5 ? (this.UList[fromy].URetreatMode <= 0 ? "-" : "Retreating") : "Panicking") : "Orderly/Out of AP";
           this.AddReport(2, "Stats at start of round", txt, fromy, this.CombatRound, matrx1);
           str1 = "";
@@ -1129,23 +1129,23 @@ namespace WindowsApplication1
       {
         if (!this.game.Data.FOWOn | this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.IList[index3].IUnr].Regime, this.game.Data.Turn))
         {
-          matrx2[1, index1] = "Readiness";
+          matrx2[1, index1] = "Readiness".to_owned();
           matrx2[1, index2] = Strings.Trim(Conversion.Str( this.IList[index3].IRdn));
-          matrx2[2, index1] = "Morale";
+          matrx2[2, index1] = "Morale".to_owned();
           matrx2[2, index2] = Strings.Trim(Conversion.Str( this.IList[index3].IMor));
-          matrx2[3, index1] = "Experience";
+          matrx2[3, index1] = "Experience".to_owned();
           matrx2[3, index2] = Strings.Trim(Conversion.Str( this.IList[index3].IXp));
-          matrx2[4, index1] = "Entrenchment";
+          matrx2[4, index1] = "Entrenchment".to_owned();
           matrx2[4, index2] = Strings.Trim(Conversion.Str( this.IList[index3].IEntrench));
           matrx2[5, index1] = "AA out of hex";
           matrx2[5, index2] = Strings.Trim(Conversion.Str( (1 == this.IList[index3].IAA)));
-          matrx2[6, index1] = "Breakthrough";
+          matrx2[6, index1] = "Breakthrough".to_owned();
           matrx2[6, index2] = Strings.Trim(Conversion.Str( (this.IList[index3].IBreakTrough == 1)));
-          matrx2[7, index1] = "Broken";
+          matrx2[7, index1] = "Broken".to_owned();
           matrx2[7, index2] = Strings.Trim(Conversion.Str( this.IList[index3].IBroken));
-          matrx2[8, index1] = "Capitulated";
+          matrx2[8, index1] = "Capitulated".to_owned();
           matrx2[8, index2] = Strings.Trim(Conversion.Str( this.IList[index3].ICapitulate));
-          matrx2[9, index1] = "Killed";
+          matrx2[9, index1] = "Killed".to_owned();
           matrx2[9, index2] = Strings.Trim(Conversion.Str( (this.IList[index3].IKilled > 0)));
           matrx2[10, index1] = "Retreat completed";
           matrx2[10, index2] = Strings.Trim(Conversion.Str( (this.IList[index3].IRetreated > 0)));
@@ -1186,7 +1186,7 @@ namespace WindowsApplication1
           this.AddReport(2, "Stats at start of round", txt, index3 + 10000, this.CombatRound, matrx2);
         }
         str1 = "";
-        str2: String = -(this.game.TempCombat.IList[index3].IBroken ? 1 : 0) <= 0 ? (this.game.TempCombat.IList[index3].IKilled <= 0 ? ((uint) this.game.TempCombat.IList[index3].IRetreated <= 0U ? (!(this.game.TempCombat.IList[index3].IRetreat > 0 & this.game.TempCombat.IList[index3].IRetreatMode == 3) ? (this.game.TempCombat.IList[index3].IRetreat <= 0 ? (this.game.TempCombat.IList[index3].IBreakTrough <= 0 ? "" : "!") : "RTR-ING") : "PANICK") : "RTR-ED") : (!this.game.TempCombat.IList[index3].ICapitulate ? "DEAD" : "CAPITULATE")) : "BROKEN";
+        str2: String = -(this.game.TempCombat.IList[index3].IBroken ? 1 : 0) <= 0 ? (this.game.TempCombat.IList[index3].IKilled <= 0 ? ((uint) this.game.TempCombat.IList[index3].IRetreated <= 0U ? (!(this.game.TempCombat.IList[index3].IRetreat > 0 & this.game.TempCombat.IList[index3].IRetreatMode == 3) ? (this.game.TempCombat.IList[index3].IRetreat <= 0 ? (this.game.TempCombat.IList[index3].IBreakTrough <= 0 ? "" : "!") : "RTR-ING") : "PANICK") : "RTR-ED") : (!this.game.TempCombat.IList[index3].ICapitulate ? "DEAD" : "CAPITULATE")) : "BROKEN".to_owned();
         this.IList[index3].IHistoricState = (string[]) Utils.CopyArray((Array) this.IList[index3].IHistoricState, (Array) new string[this.CombatRound + 1]);
         this.game.TempCombat.IList[index3].IHistoricState[this.CombatRound] = str2;
       }
@@ -1264,23 +1264,23 @@ namespace WindowsApplication1
       {
         if (!this.game.Data.FOWOn | this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.IList[index13].IUnr].Regime, this.game.Data.Turn))
         {
-          matrx3[1, index11] = "Readiness";
+          matrx3[1, index11] = "Readiness".to_owned();
           matrx3[1, index12] = Strings.Trim(Conversion.Str( this.IList[index13].IRdn));
-          matrx3[2, index11] = "Morale";
+          matrx3[2, index11] = "Morale".to_owned();
           matrx3[2, index12] = Strings.Trim(Conversion.Str( this.IList[index13].IMor));
-          matrx3[3, index11] = "Experience";
+          matrx3[3, index11] = "Experience".to_owned();
           matrx3[3, index12] = Strings.Trim(Conversion.Str( this.IList[index13].IXp));
-          matrx3[4, index11] = "Entrenchment";
+          matrx3[4, index11] = "Entrenchment".to_owned();
           matrx3[4, index12] = Strings.Trim(Conversion.Str( this.IList[index13].IEntrench));
           matrx3[5, index11] = "AA out of hex";
           matrx3[5, index12] = Strings.Trim(Conversion.Str( (1 == this.IList[index13].IAA)));
-          matrx3[6, index11] = "Breakthrough";
+          matrx3[6, index11] = "Breakthrough".to_owned();
           matrx3[6, index12] = Strings.Trim(Conversion.Str( (this.IList[index13].IBreakTrough == 1)));
-          matrx3[7, index11] = "Broken";
+          matrx3[7, index11] = "Broken".to_owned();
           matrx3[7, index12] = Strings.Trim(Conversion.Str( this.IList[index13].IBroken));
-          matrx3[8, index11] = "Capitulated";
+          matrx3[8, index11] = "Capitulated".to_owned();
           matrx3[8, index12] = Strings.Trim(Conversion.Str( this.IList[index13].ICapitulate));
-          matrx3[9, index11] = "Killed";
+          matrx3[9, index11] = "Killed".to_owned();
           matrx3[9, index12] = Strings.Trim(Conversion.Str( (this.IList[index13].IKilled > 0)));
           matrx3[10, index11] = "Retreat completed";
           matrx3[10, index12] = Strings.Trim(Conversion.Str( (this.IList[index13].IRetreated > 0)));
@@ -1316,7 +1316,7 @@ namespace WindowsApplication1
           this.AddReport(2, "Stats at end of round", txt, index13 + 10000, this.CombatRound, matrx3);
         }
         str1 = "";
-        str3: String = -(this.game.TempCombat.IList[index13].IBroken ? 1 : 0) <= 0 ? (this.game.TempCombat.IList[index13].IKilled <= 0 ? ((uint) this.game.TempCombat.IList[index13].IRetreated <= 0U ? (!(this.game.TempCombat.IList[index13].IRetreat > 0 & this.game.TempCombat.IList[index13].IRetreatMode == 3) ? (this.game.TempCombat.IList[index13].IRetreat <= 0 ? (this.game.TempCombat.IList[index13].IBreakTrough <= 0 ? "" : "!") : "RTR-ING") : "PANICKING") : "RTR-ED") : (!this.game.TempCombat.IList[index13].ICapitulate ? "DEAD" : "CAPITULATE")) : "BROKEN";
+        str3: String = -(this.game.TempCombat.IList[index13].IBroken ? 1 : 0) <= 0 ? (this.game.TempCombat.IList[index13].IKilled <= 0 ? ((uint) this.game.TempCombat.IList[index13].IRetreated <= 0U ? (!(this.game.TempCombat.IList[index13].IRetreat > 0 & this.game.TempCombat.IList[index13].IRetreatMode == 3) ? (this.game.TempCombat.IList[index13].IRetreat <= 0 ? (this.game.TempCombat.IList[index13].IBreakTrough <= 0 ? "" : "!") : "RTR-ING") : "PANICKING") : "RTR-ED") : (!this.game.TempCombat.IList[index13].ICapitulate ? "DEAD" : "CAPITULATE")) : "BROKEN".to_owned();
         this.IList[index13].IHistoricState2 = (string[]) Utils.CopyArray((Array) this.IList[index13].IHistoricState2, (Array) new string[this.CombatRound + 1]);
         this.game.TempCombat.IList[index13].IHistoricState2[this.CombatRound] = str3;
       }
@@ -1334,9 +1334,9 @@ namespace WindowsApplication1
           matrx4[3, index12] = Strings.Trim(Conversion.Str( this.UList[fromy].UMaxApToSpend));
           matrx4[4, index11] = "Retreat started in round";
           matrx4[4, index12] = Strings.Trim(Conversion.Str( this.UList[fromy].URetreat));
-          matrx4[5, index11] = "Broken";
+          matrx4[5, index11] = "Broken".to_owned();
           matrx4[5, index12] = Strings.Trim(Conversion.Str( this.UList[fromy].UBreaks));
-          matrx4[6, index11] = "Retreat";
+          matrx4[6, index11] = "Retreat".to_owned();
           matrx4[6, index12] = !(this.UList[fromy].URetreatMode > 0 & this.UList[fromy].URetreatMode <= 2) ? (this.UList[fromy].URetreatMode != 5 ? (this.UList[fromy].URetreatMode <= 0 ? "-" : "Retreating") : "Panicking") : "Orderly/Out of AP";
           this.AddReport(2, "Stats at end of round", txt, fromy, this.CombatRound, matrx4);
           str1 = "";
@@ -1512,14 +1512,14 @@ namespace WindowsApplication1
       }
     }
 
-    pub string GetPercentChange(float newval, float oldval)
+    pub GetPercentChange: String(float newval, float oldval)
     {
       if ( newval >  oldval)
         return "+" + Strings.Trim(Conversion.Str( (int) Math.Round( newval * 100.0 /  oldval - 100.0))) + "%";
       return  newval ==  oldval ? "0%" : "-" + Strings.Trim(Conversion.Str( (int) Math.Round(100.0 -  newval * 100.0 /  oldval))) + "%";
     }
 
-    pub GetEffectiveReconOnHexOfTargettedIndividual: i32(inr: i32)
+    pub fn GetEffectiveReconOnHexOfTargettedIndividual(inr: i32) -> i32
     {
       let mut x: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X;
       let mut y: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y;
@@ -1540,7 +1540,7 @@ namespace WindowsApplication1
       return rawRecon;
     }
 
-    pub GetUnmodifiedReconOnHexOfTargettedIndividual: i32(inr: i32)
+    pub fn GetUnmodifiedReconOnHexOfTargettedIndividual(inr: i32) -> i32
     {
       let mut x: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X;
       let mut y: i32 =  this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y;
@@ -1548,7 +1548,7 @@ namespace WindowsApplication1
       return Index == -1 ? 0 : this.game.Data.MapObj[0].HexObj[x, y].get_ReconPts(Index);
     }
 
-    pub GetIndividualHide: i32(inr: i32)
+    pub fn GetIndividualHide(inr: i32) -> i32
     {
       let mut individualHide: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].X, this.game.Data.UnitObj[this.UList[this.IList[inr].IUlistNr].UNr].Y].LandscapeType].HidePts + this.game.Data.SFTypeObj[this.IList[inr].ISFType].HidePts;
       if ( this.game.Data.RuleVar[419] > 0.0)
@@ -1577,7 +1577,7 @@ namespace WindowsApplication1
       return individualHide;
     }
 
-    pub GetMaxAttacked: i32(defnr: i32, attnr: i32)
+    pub fn GetMaxAttacked(defnr: i32, attnr: i32) -> i32
     {
       if (this.game.Data.Product != 6)
         return this.game.Data.SFTypeObj[this.IList[defnr].ISFType].MaxAttacked;
@@ -1616,7 +1616,7 @@ namespace WindowsApplication1
         else
           flag3 = true;
       }
-      string str1;
+      str1: String;
       if (this.game.Data.SFTypeObj[this.IList[attnr].ISFType].AutoDestroy & this.IList[attnr].IAttacker == 1 && this.CombatRound >= 2 & this.IList[attnr].IKilled == 0)
       {
         this.IList[attnr].IKilled = this.CombatRound;
@@ -1680,7 +1680,7 @@ namespace WindowsApplication1
             if (((!this.game.EditObj.CombatSim ? 1 : 0) & 0) != 0)
             {
               index1 += 1;
-              matrx[index1, 0] = "Fuel";
+              matrx[index1, 0] = "Fuel".to_owned();
               float oldval = num1;
               this.IList[attnr].IAttackMod = 1f;
               if (this.IList[attnr].AttackCount == 0 && this.IList[defnr].AttackedCount < this.GetMaxAttacked(defnr, attnr))
@@ -1759,7 +1759,7 @@ namespace WindowsApplication1
           else if (!this.game.EditObj.CombatSim)
           {
             index1 += 1;
-            matrx[index1, 0] = "Fuel";
+            matrx[index1, 0] = "Fuel".to_owned();
             float oldval = num1;
             this.IList[attnr].IAttackMod = 1f;
             if (this.IList[attnr].AttackCount == 0 && this.IList[defnr].AttackedCount < this.GetMaxAttacked(defnr, attnr))
@@ -2022,7 +2022,7 @@ namespace WindowsApplication1
           }
         }
         let mut index17: i32 =  index1 + 1;
-        matrx[index17, 0] = "Weather";
+        matrx[index17, 0] = "Weather".to_owned();
         float oldval1 = num1;
         float num13 = num1 * ( this.game.Data.UnitTypePenalty[this.game.Data.SFTypeObj[this.IList[attnr].ISFType].UnitGroup] / 100f);
         this.AddDetail("Attval after global combat modifier (wheater): " + Conversion.Str( num13));
@@ -2079,7 +2079,7 @@ namespace WindowsApplication1
         if (counterattack)
         {
           index17 += 1;
-          matrx[index17, 0] = "Counterattack";
+          matrx[index17, 0] = "Counterattack".to_owned();
           float oldval3 = num13;
           if (this.game.Data.SFTypeObj[this.IList[attnr].ISFType].Theater == 0 & this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater == 0)
           {
@@ -2163,7 +2163,7 @@ namespace WindowsApplication1
           if (this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater != 2)
           {
             index19 += 1;
-            matrx[index19, 0] = "Landscape";
+            matrx[index19, 0] = "Landscape".to_owned();
             float oldval6 = num13;
             str4: String = "";
             if (this.IList[attnr].IAttacker == 0)
@@ -2235,7 +2235,7 @@ namespace WindowsApplication1
         else if (this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater != 2)
         {
           index19 += 1;
-          matrx[index19, 0] = "Landscape";
+          matrx[index19, 0] = "Landscape".to_owned();
           float oldval7 = num13;
           bool flag7 = false;
           if (this.game.Data.Product >= 6)
@@ -2286,7 +2286,7 @@ namespace WindowsApplication1
         if (!this.previewMode | this.UList[this.IList[attnr].IUlistNr].previewInfoLevel >= 2)
         {
           index19 += 1;
-          matrx[index19, 0] = "HQ";
+          matrx[index19, 0] = "HQ".to_owned();
           float oldval8 = num13;
           if (!this.game.Data.UnitObj[this.IList[attnr].IUnr].IsHQ)
           {
@@ -2309,7 +2309,7 @@ namespace WindowsApplication1
           }
         }
         let mut index20: i32 =  index19 + 1;
-        matrx[index20, 0] = "Readiness";
+        matrx[index20, 0] = "Readiness".to_owned();
         float oldval9 = num13;
         let mut unitGroup2: i32 =  this.game.Data.SFTypeObj[this.IList[attnr].ISFType].UnitGroup;
         float num28 = this.IList[attnr].IAttacker != 1 ?  ( num13 * (1.0 -  this.game.Data.RuleVar[107]) +  num13 *  this.game.Data.RuleVar[107] * ( this.IList[attnr].IRdn / 100.0)) :  ( num13 * (1.0 -  this.game.Data.RuleVar[106]) +  num13 *  this.game.Data.RuleVar[106] * ( this.IList[attnr].IRdn / 100.0));
@@ -2418,7 +2418,7 @@ namespace WindowsApplication1
         if (!this.previewMode | this.UList[this.IList[attnr].IUlistNr].previewInfoLevel >= 2)
         {
           index22 += 1;
-          matrx[index22, 0] = "Special";
+          matrx[index22, 0] = "Special".to_owned();
           float oldval16 = num28;
           if (this.IList[attnr].IAttacker == 1)
           {
@@ -2450,7 +2450,7 @@ namespace WindowsApplication1
         if (!this.previewMode | !flag3)
         {
           index22 += 1;
-          matrx[index22, 0] = "Supply";
+          matrx[index22, 0] = "Supply".to_owned();
           float oldval17 = num28;
           num28 =  ( num28 * (1.0 -  this.game.Data.RuleVar[130]) +  num28 *  this.game.Data.RuleVar[130] * ( this.game.Data.UnitObj[this.IList[attnr].IUnr].SupplyConsume / 100.0));
           this.AddDetail("attval after SupplyConsume mod: " + Conversion.Str( num28));
@@ -2463,7 +2463,7 @@ namespace WindowsApplication1
           }
         }
         let mut index23: i32 =  index22 + 1;
-        matrx[index23, 0] = "People";
+        matrx[index23, 0] = "People".to_owned();
         float oldval18 = num28;
         let mut people1: i32 =  this.game.Data.SFObj[this.IList[attnr].ISFNr].People;
         let mut people2: i32 =  this.game.Data.SFObj[this.IList[defnr].ISFNr].People;
@@ -2490,7 +2490,7 @@ namespace WindowsApplication1
           matrx[index24, 2] = "?";
         }
         let mut index25: i32 =  index24 + 1;
-        matrx[index25, 0] = "Experience";
+        matrx[index25, 0] = "Experience".to_owned();
         float oldval20 = num30;
         float num31;
         if ( this.game.Data.RuleVar[877] < 1.0)
@@ -2513,7 +2513,7 @@ namespace WindowsApplication1
         if (this.IList[attnr].IAttacker == 1)
         {
           index25 += 1;
-          matrx[index25, 0] = "Concentric";
+          matrx[index25, 0] = "Concentric".to_owned();
           float oldval21 = num31;
           num31 *= this.ConcentricBonus;
           this.AddDetail("Attval after Concentric Bonus (" + Conversion.Str( this.ConcentricBonus) + "): " + Conversion.Str( num31));
@@ -2530,7 +2530,7 @@ namespace WindowsApplication1
           if (this.CombatType == 11 & !counterattack)
           {
             index25 += 1;
-            matrx[index25, 0] = "Surprise";
+            matrx[index25, 0] = "Surprise".to_owned();
             float oldval22 = num31;
             num31 *= this.game.Data.RuleVar[108];
             if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[470] > 0.0)
@@ -2547,7 +2547,7 @@ namespace WindowsApplication1
           if (this.CombatType == 9 & !counterattack && this.IList[defnr].IParadropper)
           {
             index25 += 1;
-            matrx[index25, 0] = "Paradrop";
+            matrx[index25, 0] = "Paradrop".to_owned();
             float oldval23 = num31;
             num31 *= this.game.Data.RuleVar[109];
             this.AddDetail("attval after paradropper mod: " + Conversion.Str( num31));
@@ -2562,7 +2562,7 @@ namespace WindowsApplication1
           if (this.CombatType == 10 & !counterattack)
           {
             index25 += 1;
-            matrx[index25, 0] = "Amphibic";
+            matrx[index25, 0] = "Amphibic".to_owned();
             float oldval24 = num31;
             num31 *= this.game.Data.RuleVar[110];
             this.AddDetail("Attval after amph mod: " + Conversion.Str( num31));
@@ -2578,7 +2578,7 @@ namespace WindowsApplication1
         else if (this.CombatType == 12 & !counterattack)
         {
           index25 += 1;
-          matrx[index25, 0] = "Rebel";
+          matrx[index25, 0] = "Rebel".to_owned();
           float oldval25 = num31;
           num31 *= this.game.Data.RuleVar[111];
           this.AddDetail("Attval after REBEL mod: " + Conversion.Str( num31));
@@ -2652,7 +2652,7 @@ namespace WindowsApplication1
         if (flag8)
         {
           index25 += 1;
-          matrx[index25, 0] = "Divisional";
+          matrx[index25, 0] = "Divisional".to_owned();
           if (this.game.Data.Product >= 6)
             matrx[index25, 0] = "Multi-Unit";
           float oldval28 = num31;
@@ -2734,7 +2734,7 @@ namespace WindowsApplication1
           }
         }
         let mut index27: i32 =  index2 + 1;
-        matrx[index27, 3] = "Readiness";
+        matrx[index27, 3] = "Readiness".to_owned();
         float oldval31 = Number1;
         let mut unitGroup3: i32 =  this.game.Data.SFTypeObj[this.IList[defnr].ISFType].UnitGroup;
         float num34 =  ( Number1 * (1.0 -  this.game.Data.RuleVar[116]) +  Number1 *  this.game.Data.RuleVar[116] * ( this.IList[defnr].IRdn / 100.0));
@@ -2802,7 +2802,7 @@ namespace WindowsApplication1
         if (!this.previewMode | !flag4)
         {
           index27 += 1;
-          matrx[index27, 3] = "Supply";
+          matrx[index27, 3] = "Supply".to_owned();
           float oldval34 = num34;
           num34 =  ( num34 * (1.0 -  this.game.Data.RuleVar[130]) +  num34 *  this.game.Data.RuleVar[130] * ( this.game.Data.UnitObj[this.IList[defnr].IUnr].SupplyConsume / 100.0));
           this.AddDetail("Defval after SupplyConsume mod: " + Conversion.Str( num34));
@@ -2819,7 +2819,7 @@ namespace WindowsApplication1
           if (!(this.CombatType == 11 | this.InterceptFire) & !this.UList[this.IList[attnr].IUlistNr].USupportInterceptFire)
           {
             index27 += 1;
-            matrx[index27, 3] = "Entrenchment";
+            matrx[index27, 3] = "Entrenchment".to_owned();
             float oldval35 = num34;
             if (this.IList[defnr].IAttacker == 0 & this.CombatType != 12)
             {
@@ -2873,7 +2873,7 @@ namespace WindowsApplication1
         else
         {
           index27 += 1;
-          matrx[index27, 3] = "Entrenchment";
+          matrx[index27, 3] = "Entrenchment".to_owned();
           float oldval37 = num34;
           if (this.IList[defnr].IAttacker == 0 & this.CombatType != 12)
           {
@@ -2889,7 +2889,7 @@ namespace WindowsApplication1
           }
         }
         let mut index28: i32 =  index27 + 1;
-        matrx[index28, 3] = "Experience";
+        matrx[index28, 3] = "Experience".to_owned();
         float oldval38 = num34;
         float num39;
         if ( this.game.Data.RuleVar[876] < 1.0)
@@ -3178,7 +3178,7 @@ namespace WindowsApplication1
           }
         }
         let mut index30: i32 =  index29 + 1;
-        matrx[index30, 3] = "River";
+        matrx[index30, 3] = "River".to_owned();
         float oldval50 = num39;
         if (this.IList[defnr].IAttacker != 0 && !this.game.Data.SFTypeObj[this.IList[defnr].ISFType].BackBench & !(this.CombatType == 3 | this.CombatType == 4) && this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater == 0 & this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater == 0 && this.IList[defnr].IBreakTrough == 0 & this.game.Data.UnitObj[this.IList[defnr].IUnr].Map == this.CombatTarget.map && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.IList[defnr].IUnr].X, this.game.Data.UnitObj[this.IList[defnr].IUnr].Y, this.game.Data.UnitObj[this.IList[defnr].IUnr].Map, this.CombatTarget.x, this.CombatTarget.y, this.CombatTarget.map) == 1)
         {
@@ -3228,7 +3228,7 @@ namespace WindowsApplication1
           matrx[index30, 5] = "?";
         }
         let mut index33: i32 =  index30 + 1;
-        matrx[index33, 3] = "Overstack";
+        matrx[index33, 3] = "Overstack".to_owned();
         float oldval51 = num39;
         if (this.IList[defnr].IAttacker == 0 & this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Theater == 0)
         {
@@ -3304,7 +3304,7 @@ namespace WindowsApplication1
           }
         }
         let mut index34: i32 =  index26 + 1;
-        matrx[index34, 0] = "Overstack";
+        matrx[index34, 0] = "Overstack".to_owned();
         float oldval52 = num31;
         if (this.IList[attnr].IAttacker == 0 & this.game.Data.SFTypeObj[this.IList[attnr].ISFType].Theater == 0)
         {
@@ -3357,7 +3357,7 @@ namespace WindowsApplication1
         if (flag14)
         {
           index33 += 1;
-          matrx[index33, 3] = "Divisional";
+          matrx[index33, 3] = "Divisional".to_owned();
           if (this.game.Data.Product >= 6)
             matrx[index33, 3] = "Multi-Unit";
           float oldval53 = num39;
@@ -3461,7 +3461,7 @@ namespace WindowsApplication1
           num31 = num31;
         s2: String = "AFTER ALL MODS: Attval=" + Conversion.Str( num31) + ", DefVal= " + Conversion.Str( num39);
         this.AddDetail(s2);
-        string txt;
+        txt: String;
         if ( this.game.Data.RuleVar[431] < 1.0)
           txt = str2 + "\r\n" + "After modifications: Attack score=" + Strings.Trim(Conversion.Str( Math.Round( num31, 2))) + " VS Defensive score=" + Strings.Trim(Conversion.Str( Math.Round( num39, 2)));
         else if (!this.game.Data.FOWOn)
@@ -3506,7 +3506,7 @@ namespace WindowsApplication1
         if (this.game.Data.SFTypeObj[this.IList[defnr].ISFType].DepletingHitpointRule > 0 & num59 == 1 && this.game.Data.SFTypeObj[this.IList[defnr].ISFType].PreventCounter == -1 & !this.game.Data.SFTypeObj[this.IList[defnr].ISFType].BackBench &&  this.IList[defnr].IHp -  num57 > 0.0)
           num59 = 0;
         str9: String = "";
-        string str10;
+        str10: String;
         if (this.game.Data.Product >= 6 && num59 == 0 && this.game.Data.SFTypeObj[this.IList[defnr].ISFType].DepletingHitpointRule > 0)
         {
           bool flag15;
@@ -3515,7 +3515,7 @@ namespace WindowsApplication1
             num57 *= 10f;
             flag15 = true;
           }
-          string str11;
+          str11: String;
           if ( this.IList[defnr].IHp -  num57 <= 0.0 & (this.game.Data.SFTypeObj[this.IList[defnr].ISFType].BackBench |  num57 >=  num58) | flag15 &  num57 >=  num58)
           {
             if (this.game.Data.SFTypeObj[this.IList[defnr].ISFType].BackBench & this.IList[attnr].IBreakTrough < 1)
@@ -4008,13 +4008,13 @@ namespace WindowsApplication1
         if ( this.game.Data.RuleVar[431] < 1.0)
         {
           str15: String = str10;
-          string title1;
+          title1: String;
           if (counterattack)
             title1 = this.game.Data.SFTypeObj[this.IList[attnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[attnr].IID)) + ") counter-attacks ==> " + this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[defnr].IID)) + ")" + str15;
           else
             title1 = this.game.Data.SFTypeObj[this.IList[attnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[attnr].IID)) + ") attacks ==> " + this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[defnr].IID)) + ")" + str15;
           this.AddReport(1, title1, txt, attnr + 10000, this.CombatRound, matrx);
-          string title2;
+          title2: String;
           if (counterattack)
             title2 = this.game.Data.SFTypeObj[this.IList[defnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[defnr].IID)) + ") <== is counter-attacked by " + this.game.Data.SFTypeObj[this.IList[attnr].ISFType].Name + "(" + Strings.Trim(Conversion.Str( this.IList[attnr].IID)) + ")" + str15;
           else
@@ -4177,7 +4177,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub FindISlot: i32(iId: i32)
+    pub fn FindISlot(iId: i32) -> i32
     {
       let mut icounter: i32 =  this.ICounter;
       for (let mut islot: i32 =  0; islot <= icounter; islot += 1)
@@ -4188,7 +4188,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindUSlot: i32(unr: i32)
+    pub fn FindUSlot(unr: i32) -> i32
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut uslot: i32 =  0; uslot <= ucounter; uslot += 1)
@@ -4199,7 +4199,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub FindPreventer: i32(defnr: i32, attnr: i32)
+    pub fn FindPreventer(defnr: i32, attnr: i32) -> i32
     {
       if (defnr == -1)
         return -1;
@@ -5734,8 +5734,8 @@ namespace WindowsApplication1
 
     pub void AddReport(
       type: i32,
-      string title,
-      string txt,
+      title: String,
+      txt: String,
       fromy: i32,
       round: i32,
       string[,] matrx = null)
@@ -5779,8 +5779,8 @@ namespace WindowsApplication1
       let mut ucounter: i32 =  this.UCounter;
       for (let mut fromy: i32 =  0; fromy <= ucounter; fromy += 1)
       {
-        string title;
-        string txt;
+        title: String;
+        txt: String;
         if (!this.UList[fromy].UPanicked & this.UList[fromy].URetreat == 0)
         {
           let mut Number: i32 =  this.game.Data.UnitObj[this.UList[fromy].UNr].SODefendPercent;
@@ -5972,7 +5972,7 @@ namespace WindowsApplication1
           if ( this.game.Data.RuleVar[996] == 1.0)
             str1 = str1 + "If % of troops left gets below " + Strings.Trim(Conversion.Str( Math.Round(new Decimal(num2), 1))) + "% then a reduced chance panic test must be made." + "\r\n";
           str2: String = str1 + "Current % of troops left is " + Strings.Trim(Conversion.Str( Math.Round( (num4 * 100) /  num3))) + "%.";
-          string str3;
+          str3: String;
           if ( (num4 * 100) /  num3 <  num1 & (this.game.Data.Product < 6 |  this.game.Data.RuleVar[996] < 1.0))
           {
             num6 = 1;
@@ -6013,7 +6013,7 @@ namespace WindowsApplication1
               str3 = str3 + "\r\n" + s9;
             }
           }
-          string txt;
+          txt: String;
           if (num6 == 1)
           {
             s: String = s + "Unit Panics!: " + this.game.Data.UnitObj[this.UList[fromy].UNr].Name;
@@ -8751,7 +8751,7 @@ namespace WindowsApplication1
       this.IList[inr].IMor = 100;
     }
 
-    pub IsUnitFighting: i32(nr: i32)
+    pub fn IsUnitFighting(nr: i32) -> i32
     {
       let mut ucounter: i32 =  this.UCounter;
       for (let mut index: i32 =  0; index <= ucounter; index += 1)
@@ -9004,7 +9004,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub FindOpponent: i32(inr: i32)
+    pub fn FindOpponent(inr: i32) -> i32
     {
       let mut favTargetTries: i32 =  this.game.Data.SFTypeObj[this.IList[inr].ISFType].FavTargetTries;
       if (this.CombatType == 3 | this.CombatType == 4 && this.IList[inr].IAttacker == 0)
@@ -9352,7 +9352,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn AddDetail(string s)
+    pub fn AddDetail(s: String)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;
@@ -9362,7 +9362,7 @@ namespace WindowsApplication1
       this.AddAllDetail(s);
     }
 
-    pub fn AddAllDetail(string s)
+    pub fn AddAllDetail(s: String)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;
@@ -9371,7 +9371,7 @@ namespace WindowsApplication1
       this.AllDetailString[this.AllDetailCounter] = s;
     }
 
-    pub fn AddBiggy(string s)
+    pub fn AddBiggy(s: String)
     {
       if (!this.game.EditObj.PrefCombatLog)
         return;

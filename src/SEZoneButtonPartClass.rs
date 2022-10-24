@@ -13,8 +13,8 @@ namespace WindowsApplication1
   pub class SEZoneButtonPartClass : SubPartClass
   {
      iconSlotNr: i32;
-     string dataString;
-     string description;
+     dataString: String;
+     description: String;
      bool active;
      delta: i32;
      bool showDelta;
@@ -28,8 +28,8 @@ namespace WindowsApplication1
 
     pub SEZoneButtonPartClass(
       tIconSlotNr: i32,
-      string tDataString,
-      string tDescript,
+      tDataString: String,
+      tDescript: String,
       bool tactive,
       bool tshowDelta = false,
       let mut tdelta: i32 = 0)

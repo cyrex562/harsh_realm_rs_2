@@ -18,7 +18,7 @@ namespace WindowsApplication1
      w: i32;
      h: i32;
      tabnr: i32;
-     string tabname;
+     tabname: String;
      subtabcount: i32;
      subtabname: Vec<String>;
      subtabnr: i32;
@@ -32,7 +32,7 @@ namespace WindowsApplication1
      ListClass OptionsListObj;
      pageId: i32;
      prevPageNr: i32;
-     string lastEventNr;
+     lastEventNr: String;
      prevPageId: i32;
      curPageId: i32;
      cache_udsManagementOverride: i32;
@@ -423,7 +423,7 @@ namespace WindowsApplication1
         {
           self.game.EditObj.UdsInsideTabOpenMode = false;
           let mut num24: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.stringlistslot].Data[self.pagerow[self.subtabnr, self.pagenr], 9]));
-          string udStabText;
+          udStabText: String;
           if (enr > 0)
           {
             let mut tv0: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.stringlistslot].Data[self.pagerow[self.subtabnr, self.pagenr], 10]));

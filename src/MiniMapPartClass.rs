@@ -372,7 +372,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       let mut cornerX: i32 =  this.game.CornerX;
       let mut cornerY: i32 =  this.game.CornerY;

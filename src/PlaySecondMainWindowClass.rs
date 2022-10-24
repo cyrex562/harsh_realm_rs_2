@@ -36,7 +36,7 @@ namespace WindowsApplication1
       this.MakeShit();
     }
 
-    pub string WindowDescription(x: i32, y: i32)
+    pub WindowDescription: String(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -189,7 +189,7 @@ namespace WindowsApplication1
       DrawMod.MakeFullBoxVic2( local4, rect1_4, "AUTOREP", rect2_4, txt2_4);
       if (!(!this.game.Data.FOWOn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[location].X, this.game.Data.LocObj[location].Y].Regime == this.game.Data.Turn | this.game.Data.Round == 0))
         return;
-      string str4;
+      str4: String;
       if (this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].NoHQ)
       {
         str4 = "Needs no Hq";

@@ -16,10 +16,10 @@ namespace WindowsApplication1
      game: GameClass;
      width: i32;
      height: i32;
-     string header;
+     header: String;
      regnr: i32;
 
-    pub HeaderPartClass(tgame: GameClass, twidth: i32, theight: i32, string theader, tregnr: i32)
+    pub HeaderPartClass(tgame: GameClass, twidth: i32, theight: i32, theader: String, tregnr: i32)
       : base(twidth, theight)
     {
       this.game = tgame;

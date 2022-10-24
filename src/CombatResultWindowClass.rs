@@ -240,7 +240,7 @@ namespace WindowsApplication1
       }
       this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND2MARC);
       Graphics Expression1 = Graphics.FromImage((Image) this.OwnBitmap);
-      string tText;
+      tText: String;
       SubPartClass tsubpart;
       if (!this.game.EditObj.CombatSim)
       {
@@ -767,32 +767,32 @@ namespace WindowsApplication1
         else
         {
           str1: String = "ATTACKER TOTALS\r\n";
-          Expression2: String = "SUBFORMATIONTYPE";
+          Expression2: String = "SUBFORMATIONTYPE".to_owned();
           let mut Number1: i32 =  35 - Strings.Len(Expression2);
           if (0 > Number1)
             Number1 = 0;
           str2: String = str1 + Expression2 + Strings.Space(Number1);
-          Expression3: String = "INITIAL";
+          Expression3: String = "INITIAL".to_owned();
           let mut Number2: i32 =  10 - Strings.Len(Expression3);
           if (0 > Number2)
             Number2 = 0;
           str3: String = str2 + Expression3 + Strings.Space(Number2);
-          Expression4: String = "ATTACK";
+          Expression4: String = "ATTACK".to_owned();
           let mut Number3: i32 =  9 - Strings.Len(Expression4);
           if (0 > Number3)
             Number3 = 0;
           str4: String = str3 + Expression4 + Strings.Space(Number3);
-          Expression5: String = "DEAD";
+          Expression5: String = "DEAD".to_owned();
           let mut Number4: i32 =  7 - Strings.Len(Expression5);
           if (0 > Number4)
             Number4 = 0;
           str5: String = str4 + Expression5 + Strings.Space(Number4);
-          Expression6: String = "RETREAT";
+          Expression6: String = "RETREAT".to_owned();
           let mut Number5: i32 =  9 - Strings.Len(Expression6);
           if (0 > Number5)
             Number5 = 0;
           str6: String = str5 + Expression6 + Strings.Space(Number5);
-          Expression7: String = "ALIVE";
+          Expression7: String = "ALIVE".to_owned();
           let mut Number6: i32 =  6 - Strings.Len(Expression7);
           if (0 > Number6)
             Number6 = 0;
@@ -871,32 +871,32 @@ namespace WindowsApplication1
           if (0 > Number18)
             Number18 = 0;
           str18: String = str17 + Expression19 + Strings.Space(Number18) + "\r\n" + "\r\n" + "DEFENDERS TOTALS\r\n";
-          Expression20: String = "SUBFORMATIONTYPE";
+          Expression20: String = "SUBFORMATIONTYPE".to_owned();
           let mut Number19: i32 =  35 - Strings.Len(Expression20);
           if (0 > Number19)
             Number19 = 0;
           str19: String = str18 + Expression20 + Strings.Space(Number19);
-          Expression21: String = "INITIAL";
+          Expression21: String = "INITIAL".to_owned();
           let mut Number20: i32 =  10 - Strings.Len(Expression21);
           if (0 > Number20)
             Number20 = 0;
           str20: String = str19 + Expression21 + Strings.Space(Number20);
-          Expression22: String = "ATTACK";
+          Expression22: String = "ATTACK".to_owned();
           let mut Number21: i32 =  9 - Strings.Len(Expression22);
           if (0 > Number21)
             Number21 = 0;
           str21: String = str20 + Expression22 + Strings.Space(Number21);
-          Expression23: String = "DEAD";
+          Expression23: String = "DEAD".to_owned();
           let mut Number22: i32 =  7 - Strings.Len(Expression23);
           if (0 > Number22)
             Number22 = 0;
           str22: String = str21 + Expression23 + Strings.Space(Number22);
-          Expression24: String = "RETREAT";
+          Expression24: String = "RETREAT".to_owned();
           let mut Number23: i32 =  9 - Strings.Len(Expression24);
           if (0 > Number23)
             Number23 = 0;
           str23: String = str22 + Expression24 + Strings.Space(Number23);
-          Expression25: String = "ALIVE";
+          Expression25: String = "ALIVE".to_owned();
           let mut Number24: i32 =  6 - Strings.Len(Expression25);
           if (0 > Number24)
             Number24 = 0;
@@ -975,42 +975,42 @@ namespace WindowsApplication1
           if (0 > Number36)
             Number36 = 0;
           str35: String = str34 + Expression37 + Strings.Space(Number36) + "\r\n" + "\r\n" + "\r\n";
-          Expression38: String = "ATTACKER";
+          Expression38: String = "ATTACKER".to_owned();
           let mut Number37: i32 =  10 - Strings.Len(Expression38);
           if (0 > Number37)
             Number37 = 0;
           str36: String = str35 + Strings.Space(20) + Expression38 + Strings.Space(Number37);
-          Expression39: String = "DEFENDER";
+          Expression39: String = "DEFENDER".to_owned();
           let mut num46: i32 =  10 - Strings.Len(Expression39);
           if (0 > num46)
             num46 = 0;
           str37: String = str36 + Strings.Space(20) + Expression39 + Strings.Space(num46 + 50) + "\r\n";
-          Expression40: String = "STAT";
+          Expression40: String = "STAT".to_owned();
           let mut Number38: i32 =  20 - Strings.Len(Expression40);
           if (0 > Number38)
             Number38 = 0;
           str38: String = str37 + Expression40 + Strings.Space(Number38);
-          Expression41: String = "INITIAL";
+          Expression41: String = "INITIAL".to_owned();
           let mut Number39: i32 =  10 - Strings.Len(Expression41);
           if (0 > Number39)
             Number39 = 0;
           str39: String = str38 + Expression41 + Strings.Space(Number39);
-          Expression42: String = "CURRENT";
+          Expression42: String = "CURRENT".to_owned();
           let mut Number40: i32 =  20 - Strings.Len(Expression42);
           if (0 > Number40)
             Number40 = 0;
           str40: String = str39 + Expression42 + Strings.Space(Number40);
-          Expression43: String = "INITIAL";
+          Expression43: String = "INITIAL".to_owned();
           let mut Number41: i32 =  10 - Strings.Len(Expression43);
           if (0 > Number41)
             Number41 = 0;
           str41: String = str40 + Expression43 + Strings.Space(Number41);
-          Expression44: String = "CURRENT";
+          Expression44: String = "CURRENT".to_owned();
           let mut Number42: i32 =  10 - Strings.Len(Expression44);
           if (0 > Number42)
             Number42 = 0;
           str42: String = str41 + Expression44 + Strings.Space(Number42) + "\r\n";
-          Expression45: String = "Readiness";
+          Expression45: String = "Readiness".to_owned();
           if (Strings.Len(Expression45) > 29)
             Expression45 = Strings.Left(str42, 29);
           let mut Number43: i32 =  20 - Strings.Len(Expression45);
@@ -1037,7 +1037,7 @@ namespace WindowsApplication1
           if (0 > Number47)
             Number47 = 0;
           str47: String = str46 + Expression49 + Strings.Space(Number47) + "\r\n";
-          Expression50: String = "Experience";
+          Expression50: String = "Experience".to_owned();
           if (Strings.Len(Expression50) > 29)
             Expression50 = Strings.Left(str47, 29);
           let mut Number48: i32 =  20 - Strings.Len(Expression50);
@@ -1064,7 +1064,7 @@ namespace WindowsApplication1
           if (0 > Number52)
             Number52 = 0;
           str52: String = str51 + Expression54 + Strings.Space(Number52) + "\r\n";
-          Expression55: String = "Morale";
+          Expression55: String = "Morale".to_owned();
           if (Strings.Len(Expression55) > 29)
             Expression55 = Strings.Left(str52, 29);
           let mut Number53: i32 =  20 - Strings.Len(Expression55);
@@ -1091,7 +1091,7 @@ namespace WindowsApplication1
           if (0 > Number57)
             Number57 = 0;
           str57: String = str56 + Expression59 + Strings.Space(Number57) + "\r\n";
-          Expression60: String = "Entrenchment";
+          Expression60: String = "Entrenchment".to_owned();
           if (Strings.Len(Expression60) > 29)
             Expression60 = Strings.Left(str57, 29);
           let mut Number58: i32 =  20 - Strings.Len(Expression60);
@@ -1207,22 +1207,22 @@ namespace WindowsApplication1
       {
         SizeF sizeF1 = SizeF::new();
         vicFont1: Font = this.game.VicFont1;
-        str62: String = "DEFENDERS";
+        str62: String = "DEFENDERS".to_owned();
         SizeF sizeF2 = Expression1.MeasureString(str62, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str62, vicFont1,  Math.Round( (140f - sizeF2.Width)), 180, this.game.VicColor2, this.game.VicColor1Shade);
-        str63: String = "CASUALTIES";
+        str63: String = "CASUALTIES".to_owned();
         SizeF sizeF3 = Expression1.MeasureString(str63, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str63, vicFont1,  Math.Round( (140f - sizeF3.Width)), 260, this.game.VicColor2, this.game.VicColor1Shade);
-        str64: String = "RETREATED";
+        str64: String = "RETREATED".to_owned();
         SizeF sizeF4 = Expression1.MeasureString(str64, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str64, vicFont1,  Math.Round( (140f - sizeF4.Width)), 340, this.game.VicColor2, this.game.VicColor1Shade);
-        str65: String = "ATTACKERS";
+        str65: String = "ATTACKERS".to_owned();
         SizeF sizeF5 = Expression1.MeasureString(str65, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str65, vicFont1,  Math.Round( (140f - sizeF5.Width)), 490, this.game.VicColor2, this.game.VicColor1Shade);
-        str66: String = "CASUALTIES";
+        str66: String = "CASUALTIES".to_owned();
         SizeF sizeF6 = Expression1.MeasureString(str66, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str66, vicFont1,  Math.Round( (140f - sizeF6.Width)), 570, this.game.VicColor2, this.game.VicColor1Shade);
-        str67: String = "RETREATED";
+        str67: String = "RETREATED".to_owned();
         SizeF sizeF7 = Expression1.MeasureString(str67, vicFont1);
         DrawMod.DrawTextVic2(ref Expression1, str67, vicFont1,  Math.Round( (140f - sizeF7.Width)), 650, this.game.VicColor2, this.game.VicColor1Shade);
       }
@@ -1705,7 +1705,7 @@ namespace WindowsApplication1
       this.WriteLog();
     }
 
-    pub fn AddLog(string s)
+    pub fn AddLog(s: String)
     {
       this += 1.LogCounter;
       this.LogTxt = (string[]) Utils.CopyArray((Array) this.LogTxt, (Array) new string[this.LogCounter + 1]);

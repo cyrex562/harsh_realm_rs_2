@@ -240,7 +240,7 @@ namespace WindowsApplication1
               this.detailnr = tdata;
             if (tdata == this.detailnr)
               tlistselect1 = num2;
-            tvalue4: String = !this.creatable[tdata] ? "-" : "OK";
+            tvalue4: String = !this.creatable[tdata] ? "-" : "OK".to_owned();
             tvalue3: String = "Unl.";
             if (this.game.Data.HistoricalUnitObj[tdata].MaxPresent > -1)
               tvalue3 = Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].MaxPresent);

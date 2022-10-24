@@ -145,7 +145,7 @@ namespace WindowsApplication1
      detailnr4: i32;
      detailnr5: i32;
      DescBox: i32;
-     string ss;
+     ss: String;
 
     pub LocWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Hex")

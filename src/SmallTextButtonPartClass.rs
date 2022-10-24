@@ -16,7 +16,7 @@ namespace WindowsApplication1
   pub class SmallTextButtonPartClass : SubPartClass
   {
      bool overrule;
-     string buttext;
+     buttext: String;
      width: i32;
      height: i32;
      ourfont: Font;
@@ -26,9 +26,9 @@ namespace WindowsApplication1
      bool red;
      bool tuseshadow;
      bool marcStyle;
-     string extraS;
+     extraS: String;
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 = 1) -> i32
     {
       if (DrawMod.TGame.EmpireStyle)
         SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
@@ -37,7 +37,7 @@ namespace WindowsApplication1
     }
 
     pub SmallTextButtonPartClass(
-      string buttontext,
+      buttontext: String,
       twidth: i32,
       tDescript: String = "",
        tBackbitmap: Bitmap = null,

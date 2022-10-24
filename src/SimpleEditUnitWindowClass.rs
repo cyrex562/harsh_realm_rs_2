@@ -256,7 +256,7 @@ namespace WindowsApplication1
       self.VPListOBj = ListClass::new();
       let mut num2: i32 = num1 + 250;
       let mut y: i32 = 55;
-      string tDescript;
+      tDescript: String;
       SubPartClass tsubpart1;
       if (self.game.SelectX > -1 & self.game.SelectY > -1)
       {
@@ -301,7 +301,7 @@ namespace WindowsApplication1
           self.AddMouse( trect, "Selected unit", ttext);
           DrawMod.DrawTextColouredMarc( graphics, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Name, self.game.MarcFont3, num2, y + 20, Color.White);
           DrawMod.DrawTextColouredMarc( graphics, "Units model:", self.game.MarcFont4, num2, y + 50, Color.White);
-          string tstring1;
+          tstring1: String;
           if (historical > -1)
           {
             let mut modelMaster: i32 = self.game.Data.HistoricalUnitObj[historical].ModelMaster;

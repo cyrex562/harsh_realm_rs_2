@@ -251,7 +251,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub int GetScore(string logFileName, bool DoLog, AIFrontList plan, bool halfscoreCalc)
+    pub int GetScore(logFileName: String, bool DoLog, AIFrontList plan, bool halfscoreCalc)
     {
       let mut mapWidth: i32 =  this.ai.map.MapWidth;
       int num1;
@@ -354,11 +354,11 @@ namespace WindowsApplication1
           {
             str1 = str1 + "\r\n" + "STANCE: ";
             if (plan.Front[index3].StartStance == 3)
-              str1 += "ATTACK";
+              str1 += "ATTACK".to_owned();
             if (plan.Front[index3].StartStance == 2)
-              str1 += "HOLD";
+              str1 += "HOLD".to_owned();
             if (plan.Front[index3].StartStance == 1)
-              str1 += "RETREAT";
+              str1 += "RETREAT".to_owned();
           }
           str2: String = str1 + ", AVG.STRENGTH: " + plan.Front[index3].AverageStrength.ToString();
           if (plan.Front[index3].FrontType == 2)

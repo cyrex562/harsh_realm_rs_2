@@ -81,7 +81,7 @@ namespace WindowsApplication1
       }
       let mut num: i32 = 40;
       let mut width: i32 = 56;
-      string str1;
+      str1: String;
       if (this.game.Data.UnitObj[this.unr].IsHQ)
       {
         str1 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetRealHQSupplyPts(this.unr)));

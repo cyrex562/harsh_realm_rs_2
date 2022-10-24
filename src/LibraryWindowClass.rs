@@ -46,7 +46,7 @@ namespace WindowsApplication1
      B5TextId: i32;
      LibId: i32;
      LibVarId: i32;
-     string ss;
+     ss: String;
 
     pub LibraryWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Libraries")

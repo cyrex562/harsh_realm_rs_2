@@ -16,8 +16,8 @@ namespace WindowsApplication1
   {
      OwnFont: Font;
      Width: i32;
-     string prefix;
-     string suffix;
+     prefix: String;
+     suffix: String;
      minval: i32;
      maxval: i32;
      curval: i32;
@@ -30,8 +30,8 @@ namespace WindowsApplication1
 
     pub NumberSliderSubPartClass3(
       tgame: GameClass,
-      string tprefix,
-      string tsuffix,
+      tprefix: String,
+      tsuffix: String,
       twidth: i32,
       tminval: i32,
       tmaxval: i32,
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       this.clickscroll = 0;
       if (x > 200 & x < 220)

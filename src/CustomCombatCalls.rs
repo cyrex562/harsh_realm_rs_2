@@ -81,7 +81,7 @@ namespace WindowsApplication1
 
     pub HasCustumCalls: bool() => true;
 
-    pub IndividualMORMod: i32(ref cc: CombatClass, inr: i32, morMod: i32, let mut sfnr: i32 =  -1)
+    pub fn IndividualMORMod(ref cc: CombatClass, inr: i32, morMod: i32, let mut sfnr: i32 =  -1) -> i32
     {
       people: i32;
       if (inr > -1)
@@ -99,7 +99,7 @@ namespace WindowsApplication1
       return morMod;
     }
 
-    pub IndividualXPMod: i32(ref cc: CombatClass, inr: i32, xpToBeGiven: i32, let mut sfnr: i32 =  -1)
+    pub fn IndividualXPMod(ref cc: CombatClass, inr: i32, xpToBeGiven: i32, let mut sfnr: i32 =  -1) -> i32
     {
       people: i32;
       if (inr > -1)
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       return xpToBeGiven;
     }
 
-    pub CachedSkillRoll: i32(game: GameClass, charId: i32, skillId: i32)
+    pub fn CachedSkillRoll(game: GameClass, charId: i32, skillId: i32) -> i32
     {
       let mut nr: i32 =  this.SkillCacheList.FindNr(charId, skillId);
       tdata2: i32;
@@ -131,14 +131,14 @@ namespace WindowsApplication1
       return tdata2;
     }
 
-    pub EntrenchModifier: i32(ref cc: CombatClass, indNr: i32, curX: i32, curY: i32, entr: i32)
+    pub fn EntrenchModifier(ref cc: CombatClass, indNr: i32, curX: i32, curY: i32, entr: i32) -> i32
     {
       if (cc.IList[indNr].IAttacker == 0 & (int) Math.Round(Conversion.Val(cc.game.Data.Designer)) >= 112)
       {
         if (!this.EntrBunkerInit)
         {
           data: DataClass = cc.game.Data;
-          str: String = "bunkerPoints";
+          str: String = "bunkerPoints".to_owned();
           ref local: String = ref str;
           let mut libVar: i32 =  data.FindLibVar(ref local, "SE_Data");
           let mut hexLibVarValue: i32 =  cc.game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar);
@@ -190,7 +190,7 @@ namespace WindowsApplication1
       return entr;
     }
 
-    pub AIHelpCombatChanger: i32(ref cc: CombatClass, forNr: i32, againstNr: i32, tHelpCombat: i32)
+    pub fn AIHelpCombatChanger(ref cc: CombatClass, forNr: i32, againstNr: i32, tHelpCombat: i32) -> i32
     {
       if (tHelpCombat > 0 && cc.game.Data.RegimeObj[DrawMod.TGame.Data.UnitObj[cc.IList[forNr].IUnr].Regime].AI && cc.game.Data.RegimeObj[DrawMod.TGame.Data.UnitObj[cc.IList[againstNr].IUnr].Regime].AI)
       {
@@ -208,7 +208,7 @@ namespace WindowsApplication1
       unr: i32,
       inr: i32,
       randomizedDiff: i32,
-      string wasKilledByString,
+      wasKilledByString: String,
       bool unitLossCheck,
       bool hexLossCheck)
     {
@@ -287,7 +287,7 @@ namespace WindowsApplication1
         }
       }
       str1: String = "";
-      string str2;
+      str2: String;
       num3: i32;
       if (idValue3_1 > 0)
       {
@@ -310,7 +310,7 @@ namespace WindowsApplication1
           }
           data1: String = game.Data.StringListObj[this.slotLeaders].GetData(0, integer, 46);
           let mut row: i32 =  game.Data.StringListObj[this.slotLeaders].FindRow(0, integer);
-          string texty;
+          texty: String;
           if (DrawMod.RandyNumber.Next(0, num4 * 10) <= 10 & (flag1 | Conversions.ToDouble(data1) >  DrawMod.RandyNumber.Next(1, 100)) | unitLossCheck & flag1)
           {
             let mut num5: i32 =  game.EventRelatedObj.CheckHardcoded_SkillRoll(integer, 10, false, 0, true);
@@ -607,7 +607,7 @@ namespace WindowsApplication1
       if (hexLossCheck)
       {
         data: DataClass = game.Data;
-        str22: String = "Zones";
+        str22: String = "Zones".to_owned();
         ref local: String = ref str22;
         let mut libVar: i32 =  data.FindLibVar(ref local, "SE_Data");
         let mut hexLibVarValue: i32 =  game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar);
@@ -622,7 +622,7 @@ namespace WindowsApplication1
         if (game.Data.UnitObj[unr].Regime == cc.DefenderRegime)
         {
           data: DataClass = game.Data;
-          str23: String = "Zones";
+          str23: String = "Zones".to_owned();
           ref local: String = ref str23;
           let mut libVar: i32 =  data.FindLibVar(ref local, "SE_Data");
           let mut hexLibVarValue: i32 =  game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar);
@@ -633,7 +633,7 @@ namespace WindowsApplication1
           if (game.Data.UnitObj[unr].Regime != cc.AttackerRegime)
             return;
           data: DataClass = game.Data;
-          str24: String = "Zones";
+          str24: String = "Zones".to_owned();
           ref local: String = ref str24;
           let mut libVar: i32 =  data.FindLibVar(ref local, "SE_Data");
           let mut hexLibVarValue: i32 =  game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar);
@@ -775,14 +775,14 @@ namespace WindowsApplication1
       let mut num1: i32 =  (int) Math.Round( cc.CombatRound / 3.0) + 1;
       s: String = "";
       data1: DataClass = game.Data;
-      str1: String = "Zones";
+      str1: String = "Zones".to_owned();
       ref local1: String = ref str1;
       let mut libVar1: i32 =  data1.FindLibVar(ref local1, "SE_Data");
       let mut hexLibVarValue1: i32 =  game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar1);
       if (damPts < 1)
         return;
       data2: DataClass = DrawMod.TGame.Data;
-      str2: String = "bunkerPoints";
+      str2: String = "bunkerPoints".to_owned();
       ref local2: String = ref str2;
       let mut libVar2: i32 =  data2.FindLibVar(ref local2, "SE_Data");
       let mut hexLibVarValue2: i32 =  game.Data.MapObj[0].HexObj[cc.TargetX, cc.TargetY].GetHexLibVarValue(libVar2);
@@ -812,7 +812,7 @@ namespace WindowsApplication1
         if (cc.CombatType == 5)
         {
           data3: DataClass = game.Data;
-          str3: String = "aiStrucDam";
+          str3: String = "aiStrucDam".to_owned();
           ref local3: String = ref str3;
           let mut libVar3: i32 =  data3.FindLibVar(ref local3, "SE_Data");
           if (libVar3 > -1)
@@ -1077,7 +1077,7 @@ namespace WindowsApplication1
         if (num4 <= -1)
           return;
         let mut num13: i32 =  new Random(num4).Next(1, 21);
-        string Soundfile;
+        Soundfile: String;
         if (num11 == 2)
           Soundfile = game.AppPath + "sound/voiceovers_female" + num12.ToString() + "/acknowledged" + num13.ToString() + ".ogg";
         else
@@ -1103,7 +1103,7 @@ namespace WindowsApplication1
               num14 += 1;
           }
         }
-        string Soundfile;
+        Soundfile: String;
         if (num15 >= num14)
         {
           let mut num16: i32 =  new Random(num4).Next(1, 3);
@@ -1124,7 +1124,7 @@ namespace WindowsApplication1
         if (num4 <= -1)
           return;
         let mut num18: i32 =  new Random(num4).Next(1, 11);
-        string Soundfile;
+        Soundfile: String;
         if (num11 == 2)
           Soundfile = game.AppPath + "sound/voiceovers_female" + num12.ToString() + "/battlewon" + num18.ToString() + ".ogg";
         else
@@ -1138,7 +1138,7 @@ namespace WindowsApplication1
         if (num4 <= -1)
           return;
         let mut num19: i32 =  new Random(num4).Next(1, 7);
-        string Soundfile;
+        Soundfile: String;
         if (num11 == 2)
           Soundfile = game.AppPath + "sound/voiceovers_female" + num12.ToString() + "/battlelost" + num19.ToString() + ".ogg";
         else
@@ -1358,7 +1358,7 @@ namespace WindowsApplication1
         {
           if (cc.IList[index10].IunitFeat.Id[index11] > 0)
           {
-            string data;
+            data: String;
             if (cc.IList[cc.FindISlot(cc.IList[index10].IunitFeat.Data1[index11])].IKilled == 0 & cc.IList[cc.FindISlot(cc.IList[index10].IunitFeat.Data1[index11])].IRetreated == 0 & cc.IList[cc.FindISlot(cc.IList[index10].IunitFeat.Data1[index11])].IRetreat == 0)
             {
               let mut idValue: i32 =  cc.IList[index10].IunitFeat.Id[index11];
@@ -1569,7 +1569,7 @@ namespace WindowsApplication1
       if (num2 > -1)
         num24 = (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotChar].GetData(0, num2, 15)));
       let mut num25: i32 =  new Random(num2).Next(1, 5);
-      string Soundfile;
+      Soundfile: String;
       if (flag9)
         Soundfile = game.AppPath + "sound/air/voiceovers/airrecon.wav";
       else if (flag10)
@@ -1635,9 +1635,9 @@ namespace WindowsApplication1
       SoundMod.PlayAWave(Soundfile, ref game.EditObj);
     }
 
-    pub NumberOfMods: i32() => this.airEnabled ? 22 : 15;
+    pub fn NumberOfMods() -> i32 => this.airEnabled ? 22 : 15;
 
-    pub string GetModName(nr: i32)
+    pub GetModName: String(nr: i32)
     {
       switch (nr)
       {
@@ -1686,7 +1686,7 @@ namespace WindowsApplication1
         case 22:
           return "Skill Anti-Air Tactics";
         default:
-          string modName;
+          modName: String;
           return modName;
       }
     }
@@ -1697,7 +1697,7 @@ namespace WindowsApplication1
       attnr: i32,
       defnr: i32,
       bool isCounterAttack,
-      ref string s9)
+      ref s9: String)
     {
       let mut num1: i32 =  -1;
       let mut index1: i32 =  -1;
@@ -1776,7 +1776,7 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub UnitCombatCall_AvoidPanic: i32(game: GameClass, unr: i32, ref string s9)
+    pub fn UnitCombatCall_AvoidPanic(game: GameClass, unr: i32, ref s9: String) -> i32
     {
       let mut num: i32 =  -1;
       let mut idValue2: i32 =  -1;
@@ -1803,7 +1803,7 @@ namespace WindowsApplication1
       return 0;
     }
 
-    pub UnitAirBridgeBonus: i32(game: GameClass, unr: i32)
+    pub fn UnitAirBridgeBonus(game: GameClass, unr: i32) -> i32
     {
       let mut num1: i32 =  -1;
       let mut idValue2: i32 =  -1;
@@ -1837,7 +1837,7 @@ namespace WindowsApplication1
       attnr: i32,
       defnr: i32,
       bool isCounterAttack,
-      ref string s9,
+      ref s9: String,
       riverHpMod: i32,
       landscapeAttMod: i32,
       landscapeDefMod: i32,
@@ -2008,7 +2008,7 @@ namespace WindowsApplication1
       bool isCounterAttack,
       float attval,
       float defval,
-      ref string s9)
+      ref s9: String)
     {
       let mut num1: i32 =  -1;
       let mut id1: i32 =  -1;
@@ -2314,7 +2314,7 @@ namespace WindowsApplication1
       defnr: i32,
       bool isCounterAttack,
       float attval,
-      ref string s9)
+      ref s9: String)
     {
       let mut num1: i32 =  -1;
       let mut num2: i32 =  -1;
@@ -3076,7 +3076,7 @@ namespace WindowsApplication1
       return attval;
     }
 
-    pub string GetUnitFeatName(game: GameClass, id: i32)
+    pub GetUnitFeatName: String(game: GameClass, id: i32)
     {
       unitFeatName: String = game.Data.StringListObj[this.slotUnitFeats].GetData(0, id, 2);
       if (unitFeatName.Length < 1)
@@ -3092,7 +3092,7 @@ namespace WindowsApplication1
       defnr: i32,
       bool isCounterAttack,
       float defval,
-      ref string s9)
+      ref s9: String)
     {
       let mut num1: i32 =  -1;
       let mut num2: i32 =  -1;
@@ -3440,7 +3440,7 @@ namespace WindowsApplication1
       game: GameClass,
       attnr: i32,
       defnr: i32,
-      ref string s9)
+      ref s9: String)
     {
       if (cc.previewMode)
         return 0;
@@ -3451,7 +3451,7 @@ namespace WindowsApplication1
       if (num1 < 1)
         return 0;
       data: DataClass = game.Data;
-      str: String = "rad";
+      str: String = "rad".to_owned();
       ref local: String = ref str;
       let mut libVar: i32 =  data.FindLibVar(ref local, "SE_Data");
       let mut num2: i32 =  cc.TargetX - 4;
@@ -3528,6 +3528,6 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub AlterCombatLastRound: i32(ref cc: CombatClass) => cc.CombatType == 13 ? 3 : -1;
+    pub fn AlterCombatLastRound(ref cc: CombatClass) -> i32 => cc.CombatType == 13 ? 3 : -1;
   }
 }

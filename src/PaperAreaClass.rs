@@ -23,7 +23,7 @@ namespace WindowsApplication1
      const let mut LeftTextOffset: i32 =  5;
      Width: i32;
      Height: i32;
-     string Header;
+     Header: String;
      bool HeaderCenter;
      game: GameClass;
      backbitmap: Bitmap;
@@ -66,9 +66,9 @@ namespace WindowsApplication1
       twidth: i32,
       trows: i32,
       tfont: Font,
-      string theader,
+      theader: String,
       bool theadercenter,
-      string tText,
+      tText: String,
       tfontcol: Color,
       let mut tTop: i32 =  0,
       let mut tItemSize: i32 =  16,
@@ -270,7 +270,7 @@ namespace WindowsApplication1
 
     pub PaintOverlay: Bitmap() => this.Paint();
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       if (x > this.mzx & x < this.mzx + 40 & y > this.mzy & y < this.mzy + 21)
       {

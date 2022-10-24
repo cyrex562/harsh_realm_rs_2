@@ -123,7 +123,7 @@ namespace WindowsApplication1
       do
       {
         DrawMod.DrawBlockGradient2( toG, x1, y1_1, w, h2, self.game.MarcCol1, self.game.MarcCol2);
-        string tstring1;
+        tstring1: String;
         if (num1 == 1)
           tstring1 = "Transporter Unit";
         if (num1 == 2)

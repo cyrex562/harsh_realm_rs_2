@@ -159,13 +159,13 @@ namespace WindowsApplication1.My
       pub bool Equals(object o) => base.Equals(RuntimeHelpers.GetObjectValue(o));
 
       [EditorBrowsable(EditorBrowsableState.Never)]
-      pub GetHashCode: i32() => base.GetHashCode();
+      pub fn GetHashCode() => base.GetHashCode() -> i32;
 
       [EditorBrowsable(EditorBrowsableState.Never)]
       internal new System.Type GetType() => typeof (MyProject.MyForms);
 
       [EditorBrowsable(EditorBrowsableState.Never)]
-      pub string ToString() => base.ToString();
+      pub ToString: String() => base.ToString();
     }
 
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -178,7 +178,7 @@ namespace WindowsApplication1.My
 
       [EditorBrowsable(EditorBrowsableState.Never)]
       [DebuggerHidden]
-      pub GetHashCode: i32() => base.GetHashCode();
+      pub fn GetHashCode() => base.GetHashCode() -> i32;
 
       [DebuggerHidden]
       [EditorBrowsable(EditorBrowsableState.Never)]
@@ -186,7 +186,7 @@ namespace WindowsApplication1.My
 
       [EditorBrowsable(EditorBrowsableState.Never)]
       [DebuggerHidden]
-      pub string ToString() => base.ToString();
+      pub ToString: String() => base.ToString();
 
       [DebuggerHidden]
        static T Create__Instance__<T>(T instance) where T : new() =>  instance == null ? T::new() : instance;

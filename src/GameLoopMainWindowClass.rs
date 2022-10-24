@@ -189,7 +189,7 @@ namespace WindowsApplication1
       this.game.EditObj.Phase = 0;
       this.game.EditObj.OrderType = 0;
       this += 1.game.EditObj.Test;
-      string txt;
+      txt: String;
       if (this.game.EditObj.Test == 0)
       {
         this.game.FormRef.Cursor = Cursors.WaitCursor;
@@ -455,7 +455,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.Test >= 11)
       {
         this.game.EditObj.Test = 0;
-        txt = "Finished";
+        txt = "Finished".to_owned();
         this.DoingAI = true;
         if ( this.game.Data.RuleVar[814] == 0.0)
         {
@@ -553,9 +553,9 @@ namespace WindowsApplication1
       if (this.game.Data.Turn == -1 | this.game.Data.Turn > this.game.Data.RegimeCounter)
         return;
       GC.Collect();
-      string str1;
-      string str2;
-      string name;
+      str1: String;
+      str2: String;
+      name: String;
       if (this.game.Data.AlternateRound > -1)
       {
         DateTime dateTime1 = DateTime::new();
@@ -665,7 +665,7 @@ namespace WindowsApplication1
       if ( this.game.Data.RuleVar[839] == 1.0)
         this.DrawDateAndRegime();
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      string txt;
+      txt: String;
       if (!this.loggedin)
         txt = this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", Its your turn. Please login";
       else if (this.game.Data.VPWin == -1)
@@ -693,7 +693,7 @@ namespace WindowsApplication1
       SubPartClass tsubpart1;
       if (!this.loggedin)
       {
-        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN".to_owned();
         if (!this.saved)
         {
           tsubpart1 =  new TextButtonPartClass(buttontext, 100, "You have to login if playing PBEM and/or using passwords.", ref this.OwnBitmap, 400, 710, usefont: usefont, useshadow: (!flag), tMarcStyle: (!flag));
@@ -755,7 +755,7 @@ namespace WindowsApplication1
         this.ListObj2 = ATListClass::new();
         if (this.game.Data.ASOn)
         {
-          tname: String = "Supply";
+          tname: String = "Supply".to_owned();
           tvalue: String = "-";
           tvalue2: String = "-";
           tvalue3: String = "-";

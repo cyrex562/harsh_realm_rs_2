@@ -27,7 +27,7 @@ namespace WindowsApplication1
      Width: i32;
      Height: i32;
      game: GameClass;
-     string Header;
+     Header: String;
      bool HeaderCenter;
      bool Highlight;
      bool ShowPair;
@@ -610,11 +610,11 @@ namespace WindowsApplication1
       self.ListSelect = 0;
     }
 
-    pub GetSelect: i32() => self.ListObj.ListData[self.ListSelect];
+    pub fn GetSelect() -> i32 => self.ListObj.ListData[self.ListSelect];
 
-    pub GetTopItem: i32() => self.TopItem;
+    pub fn GetTopItem() -> i32 => self.TopItem;
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       let mut Left: i32 =  y;
       y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject( y, self.ItemSize)));
@@ -678,7 +678,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;
@@ -687,7 +687,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub HandleBLOCKEDMouseUp: i32(x: i32, y: i32)
+    pub fn HandleBLOCKEDMouseUp(x: i32, y: i32) -> i32
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;

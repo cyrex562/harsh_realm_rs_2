@@ -49,7 +49,7 @@ namespace WindowsApplication1
       return (ItemTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("IsSupply", this.IsSupply);

@@ -108,7 +108,7 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(1024, 200, -1);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       let mut orderUnit: i32 =  this.game.EditObj.OrderUnit;
-      string txt;
+      txt: String;
       int Number1;
       int num1;
       if (this.game.Data.UnitObj[orderUnit].Historical == -1)

@@ -30,9 +30,9 @@ namespace WindowsApplication1
 
     pub SAClass()
     {
-      this.Neighbour = new int[1];
-      this.SeaNeighbour = new int[1];
-      this.Constitutant = new int[1];
+      self.Neighbour = new int[1];
+      self.SeaNeighbour = new int[1];
+      self.Constitutant = new int[1];
     }
 
     pub SAClass Clone()
@@ -46,25 +46,25 @@ namespace WindowsApplication1
 
     pub fn AddNeighbour(nr: i32)
     {
-      let mut neighbourCount: i32 = this.NeighbourCount;
+      let mut neighbourCount: i32 = self.NeighbourCount;
       for (let mut index: i32 = 1; index <= neighbourCount; index += 1)
       {
-        if (this.Neighbour[index] == nr)
+        if (self.Neighbour[index] == nr)
           return;
       }
       this += 1.NeighbourCount;
-      this.Neighbour = (int[]) Utils.CopyArray((Array) this.Neighbour, (Array) new int[this.NeighbourCount + 1]);
-      this.Neighbour[this.NeighbourCount] = nr;
+      self.Neighbour = (int[]) Utils.CopyArray((Array) self.Neighbour, (Array) new int[self.NeighbourCount + 1]);
+      self.Neighbour[self.NeighbourCount] = nr;
     }
 
     pub IsNeighbour: bool(nr: i32)
     {
-      if (this.NeighbourCount <= 0)
+      if (self.NeighbourCount <= 0)
         return false;
-      let mut neighbourCount: i32 = this.NeighbourCount;
+      let mut neighbourCount: i32 = self.NeighbourCount;
       for (let mut index: i32 = 1; index <= neighbourCount; index += 1)
       {
-        if (this.Neighbour[index] == nr)
+        if (self.Neighbour[index] == nr)
           return true;
       }
       return false;
@@ -72,25 +72,25 @@ namespace WindowsApplication1
 
     pub fn AddSeaNeighbour(nr: i32)
     {
-      let mut seaNeighbourCount: i32 = this.SeaNeighbourCount;
+      let mut seaNeighbourCount: i32 = self.SeaNeighbourCount;
       for (let mut index: i32 = 1; index <= seaNeighbourCount; index += 1)
       {
-        if (this.SeaNeighbour[index] == nr)
+        if (self.SeaNeighbour[index] == nr)
           return;
       }
       this += 1.SeaNeighbourCount;
-      this.SeaNeighbour = (int[]) Utils.CopyArray((Array) this.SeaNeighbour, (Array) new int[this.SeaNeighbourCount + 1]);
-      this.SeaNeighbour[this.SeaNeighbourCount] = nr;
+      self.SeaNeighbour = (int[]) Utils.CopyArray((Array) self.SeaNeighbour, (Array) new int[self.SeaNeighbourCount + 1]);
+      self.SeaNeighbour[self.SeaNeighbourCount] = nr;
     }
 
     pub IsSeaNeighbour: bool(nr: i32)
     {
-      if (this.SeaNeighbourCount <= 0)
+      if (self.SeaNeighbourCount <= 0)
         return false;
-      let mut seaNeighbourCount: i32 = this.SeaNeighbourCount;
+      let mut seaNeighbourCount: i32 = self.SeaNeighbourCount;
       for (let mut index: i32 = 1; index <= seaNeighbourCount; index += 1)
       {
-        if (this.SeaNeighbour[index] == nr)
+        if (self.SeaNeighbour[index] == nr)
           return true;
       }
       return false;
@@ -98,65 +98,65 @@ namespace WindowsApplication1
 
     pub fn AddConstitutant(nr: i32)
     {
-      let mut constitutantCount: i32 = this.ConstitutantCount;
+      let mut constitutantCount: i32 = self.ConstitutantCount;
       for (let mut index: i32 = 1; index <= constitutantCount; index += 1)
       {
-        if (this.Constitutant[index] == nr)
+        if (self.Constitutant[index] == nr)
           return;
       }
       this += 1.ConstitutantCount;
-      this.Constitutant = (int[]) Utils.CopyArray((Array) this.Constitutant, (Array) new int[this.ConstitutantCount + 1]);
-      this.Constitutant[this.ConstitutantCount] = nr;
+      self.Constitutant = (int[]) Utils.CopyArray((Array) self.Constitutant, (Array) new int[self.ConstitutantCount + 1]);
+      self.Constitutant[self.ConstitutantCount] = nr;
     }
 
     pub IsConstitutant: bool(nr: i32)
     {
-      if (this.ConstitutantCount <= 0)
+      if (self.ConstitutantCount <= 0)
         return false;
-      let mut constitutantCount: i32 = this.ConstitutantCount;
+      let mut constitutantCount: i32 = self.ConstitutantCount;
       for (let mut index: i32 = 1; index <= constitutantCount; index += 1)
       {
-        if (this.Constitutant[index] == nr)
+        if (self.Constitutant[index] == nr)
           return true;
       }
       return false;
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("X", this.X);
-      info.AddValue("Y", this.Y);
-      info.AddValue("Size", this.Size);
-      info.AddValue("aivp", this.aivp);
-      info.AddValue("fuzzyvp", this.fuzzyvp);
-      info.AddValue("Neighbour",  this.Neighbour);
-      info.AddValue("NeighbourCount", this.NeighbourCount);
-      info.AddValue("SeaNeighbour",  this.SeaNeighbour);
-      info.AddValue("SeaNeighbourCount", this.SeaNeighbourCount);
-      info.AddValue("Constitutant",  this.Constitutant);
-      info.AddValue("ConstitutantCount", this.ConstitutantCount);
-      info.AddValue("LandReservePlan", this.LandReservePlan);
+      info.AddValue("X", self.X);
+      info.AddValue("Y", self.Y);
+      info.AddValue("Size", self.Size);
+      info.AddValue("aivp", self.aivp);
+      info.AddValue("fuzzyvp", self.fuzzyvp);
+      info.AddValue("Neighbour",  self.Neighbour);
+      info.AddValue("NeighbourCount", self.NeighbourCount);
+      info.AddValue("SeaNeighbour",  self.SeaNeighbour);
+      info.AddValue("SeaNeighbourCount", self.SeaNeighbourCount);
+      info.AddValue("Constitutant",  self.Constitutant);
+      info.AddValue("ConstitutantCount", self.ConstitutantCount);
+      info.AddValue("LandReservePlan", self.LandReservePlan);
     }
 
     protected SAClass(SerializationInfo info, StreamingContext context)
     {
-      this.Neighbour = new int[1];
-      this.SeaNeighbour = new int[1];
-      this.Constitutant = new int[1];
-      this.X = info.GetInt32(nameof (X));
-      this.Y = info.GetInt32(nameof (Y));
-      this.Size = info.GetInt32(nameof (Size));
-      this.aivp = info.GetInt32(nameof (aivp));
-      this.fuzzyvp = info.GetInt32(nameof (fuzzyvp));
-      this.NeighbourCount = info.GetInt32(nameof (NeighbourCount));
-      this.SeaNeighbourCount = info.GetInt32(nameof (SeaNeighbourCount));
-      this.ConstitutantCount = info.GetInt32(nameof (ConstitutantCount));
-      this.Neighbour = new int[this.NeighbourCount + 1];
-      this.SeaNeighbour = new int[this.SeaNeighbourCount + 1];
-      this.Constitutant = new int[this.ConstitutantCount + 1];
-      this.Neighbour = (int[]) info.GetValue(nameof (Neighbour), this.Neighbour.GetType());
-      this.Constitutant = (int[]) info.GetValue(nameof (Constitutant), this.Constitutant.GetType());
-      this.LandReservePlan = info.GetInt32(nameof (LandReservePlan));
+      self.Neighbour = new int[1];
+      self.SeaNeighbour = new int[1];
+      self.Constitutant = new int[1];
+      self.X = info.GetInt32(nameof (X));
+      self.Y = info.GetInt32(nameof (Y));
+      self.Size = info.GetInt32(nameof (Size));
+      self.aivp = info.GetInt32(nameof (aivp));
+      self.fuzzyvp = info.GetInt32(nameof (fuzzyvp));
+      self.NeighbourCount = info.GetInt32(nameof (NeighbourCount));
+      self.SeaNeighbourCount = info.GetInt32(nameof (SeaNeighbourCount));
+      self.ConstitutantCount = info.GetInt32(nameof (ConstitutantCount));
+      self.Neighbour = new int[self.NeighbourCount + 1];
+      self.SeaNeighbour = new int[self.SeaNeighbourCount + 1];
+      self.Constitutant = new int[self.ConstitutantCount + 1];
+      self.Neighbour = (int[]) info.GetValue(nameof (Neighbour), self.Neighbour.GetType());
+      self.Constitutant = (int[]) info.GetValue(nameof (Constitutant), self.Constitutant.GetType());
+      self.LandReservePlan = info.GetInt32(nameof (LandReservePlan));
     }
   }
 }

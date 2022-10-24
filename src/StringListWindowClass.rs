@@ -74,7 +74,7 @@ namespace WindowsApplication1
      libnr: i32;
      detailx: i32;
      detaily: i32;
-     string ss;
+     ss: String;
 
     pub StringListWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "String Lists")
@@ -363,7 +363,7 @@ namespace WindowsApplication1
       self.b11id = self.AddSubPart( tsubpart2, 510, 70, 32, 16, 1);
       tsubpart2 =  TextPartClass::new("Copy", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 150, 20, false, tDescript: self.ss);
       self.b11textid = self.AddSubPart( tsubpart2, 550, 69, 150, 20, 0);
-      self.ss = "Replace string foranother in currently selected stringlist";
+      self.ss = "Replace foranother: String in currently selected stringlist";
       tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
       self.b20id = self.AddSubPart( tsubpart2, 1310, 50, 32, 16, 1);
       tsubpart2 =  TextPartClass::new("Replace", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 150, 20, false, tDescript: self.ss);
@@ -589,7 +589,7 @@ namespace WindowsApplication1
                       self.game.Data.StringListObj[self.detailnr].AddRow(self.game.Data.StringListObj[self.detailnr].Length);
                       strArray: Vec<String> = Expression.Split('\t');
                       let mut index2: i32 = -1;
-                      foreach (string str in strArray)
+                      foreach (str: String in strArray)
                       {
                         index2 += 1;
                         if (index2 > self.game.Data.StringListObj[self.detailnr].Width)

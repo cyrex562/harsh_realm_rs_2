@@ -24,7 +24,7 @@ namespace WindowsApplication1
     {
       self.name = "New Lib";
       self.version = 1;
-      self.creator = "Unknown";
+      self.creator = "Unknown".to_owned();
       self.information = "No info";
       self.lastFileLocation = "";
     }
@@ -38,7 +38,7 @@ namespace WindowsApplication1
       return (LibraryClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("name",  self.name);
       info.AddValue("version", self.version);

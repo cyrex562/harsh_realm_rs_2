@@ -16,7 +16,7 @@ namespace WindowsApplication1
     pub UDSElement[] element;
     pub elementCounter: i32;
 
-    pub UDSData(string datastring, bool allGray)
+    pub UDSData(datastring: String, bool allGray)
     {
       self.element = new UDSElement[1000];
       strArray1: Vec<String> = new string[10000];
@@ -51,7 +51,7 @@ namespace WindowsApplication1
         do
         {
           let mut num5: i32 = 1;
-          string str;
+          str: String;
           if (num4 == 0)
             str = "type";
           if (num4 == 1)
@@ -452,7 +452,7 @@ namespace WindowsApplication1
     }
 
     pub void AddChildButtonForTable(
-      string texty,
+      texty: String,
       tparentSlot: i32,
       tChildType: i32,
       tx: i32,
@@ -487,7 +487,7 @@ namespace WindowsApplication1
     }
 
     pub void AddChildTextForTable(
-      string texty,
+      texty: String,
       tparentSlot: i32,
       tChildType: i32,
       tx: i32,
@@ -514,7 +514,7 @@ namespace WindowsApplication1
       self.element[elementCounter].color = Color.Black;
     }
 
-    pub GetTablePages: i32(slot: i32)
+    pub fn GetTablePages(slot: i32) -> i32
     {
       StringListClass stringListClass = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))];
       let mut num1: i32 = stringListClass.Length + 1;
@@ -522,12 +522,12 @@ namespace WindowsApplication1
       return  Math.Round(Math.Floor( Math.Max(0, stringListClass.Length - 1) /  num2)) + 1;
     }
 
-    pub GetRowsPerPage: i32(slot: i32)
+    pub fn GetRowsPerPage(slot: i32) -> i32
     {
       let mut num: i32 = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
       return  Math.Round(Math.Floor( self.element[slot].h /  self.element[slot].lineHeight)) - 1;
     }
 
-    pub GetTotalRows: i32(slot: i32) => DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
+    pub fn GetTotalRows(slot: i32) => DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty)) -> i32].Length + 1;
   }
 }

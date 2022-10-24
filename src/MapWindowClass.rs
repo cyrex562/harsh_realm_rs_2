@@ -1760,7 +1760,7 @@ label_329:
                     if (x3 <= this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.OrderUnit))
                     {
                       let mut facing: i32 =  num - 1;
-                      string str6;
+                      str6: String;
                       if ( this.game.Data.RuleVar[32] == -1.0)
                       {
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing] > -1 & this.game.HandyFunctionsObj.CanConstructBridge(this.game.EditObj.OrderUnit, this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, facing))

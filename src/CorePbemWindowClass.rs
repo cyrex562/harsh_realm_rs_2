@@ -358,7 +358,7 @@ namespace WindowsApplication1
             num = index;
           }
           tvalue3: String = " ";
-          str1: String = "You";
+          str1: String = "You".to_owned();
           tvalue: String = this.game.EditObj.ServerChallengeList[index].firstPlayerSide != 1 ? str1 + " (opponent starts)" : str1 + " (you start)";
           if (this.game.EditObj.ServerChallengeList[index].challengePrivate == 1)
             tvalue3 = "PASSWORD REQ";
@@ -419,7 +419,7 @@ namespace WindowsApplication1
       if (this.CheckPlayerId2 > 0)
         this.RemoveSubPart(this.CheckPlayerId2);
       let mut index1: i32 =  -1;
-      string tText;
+      tText: String;
       if (this.gamenr > -1)
       {
         let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
@@ -546,7 +546,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.CheckPlayerId2);
       let mut index1: i32 =  -1;
       this.selectedid = -1;
-      string tText;
+      tText: String;
       SubPartClass tsubpart1;
       if (this.gamenr > -1)
       {
@@ -572,7 +572,7 @@ namespace WindowsApplication1
         }
         if (num > 999)
           num = 0;
-        string str1;
+        str1: String;
         if (index1 > -1)
         {
           str1 = "";
@@ -586,7 +586,7 @@ namespace WindowsApplication1
           while (Start >= 1);
           str2: String = "GAME NAME: " + this.game.EditObj.ServerChallengeList[index1].gameName + "\r\n" + "CHALLENGER: " + this.game.EditObj.ServerChallengeList[index1].challengerUserName + "\r\n";
           this.game.EditObj.PbemCheckPlayer = this.game.EditObj.ServerChallengeList[index1].challengerUserName;
-          string str3;
+          str3: String;
           if (File.Exists(this.game.AppPath + this.game.ModScenarioDir + "\\" + str1))
           {
             str3 = str2 + "FILE NAME: " + str1 + " : YOU HAVE THIS FILE AS WELL\r\n";
@@ -754,7 +754,7 @@ namespace WindowsApplication1
       bool flag1 = false;
       bool flag2;
       bool flag3;
-      string tText;
+      tText: String;
       if (this.gamenr > -1)
       {
         let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
@@ -952,7 +952,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.CheckPlayerId);
       if (this.CheckPlayerId2 > 0)
         this.RemoveSubPart(this.CheckPlayerId2);
-      string tText;
+      tText: String;
       if (this.gamenr > -1)
       {
         let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
@@ -1302,7 +1302,7 @@ namespace WindowsApplication1
             if (num1 == this.PassId)
             {
               this.selectedid = this.PassId;
-              this.SubPartList[this.SubpartNr(this.PassId)].Descript = "select";
+              this.SubPartList[this.SubpartNr(this.PassId)].Descript = "select".to_owned();
               this.SubPartFlag[this.SubpartNr(this.PassId)] = true;
               windowReturnClass.SetFlag(true);
               return windowReturnClass;

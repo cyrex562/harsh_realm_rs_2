@@ -39,7 +39,7 @@ namespace WindowsApplication1
 
     [DllImport("kernel32", EntryPoint = "GetDiskFreeSpaceExA", CharSet = CharSet.Ansi, SetLastError = true)]
      static extern GetDiskFreeSpaceEx: i32(
-      [MarshalAs(UnmanagedType.VBByRefStr)]  string lpDirectoryName,
+      [MarshalAs(UnmanagedType.VBByRefStr)]  lpDirectoryName: String,
        long lpFreeBytesAvailableToMe,
        long lpTotalNumberOfBytes,
        long lpTotalNumberOfFreeBytes);
@@ -55,7 +55,7 @@ namespace WindowsApplication1
       this.game = tgame;
     }
 
-    pub string CovertNumberToLetter(numy: i32)
+    pub CovertNumberToLetter: String(numy: i32)
     {
       strArray: Vec<String> = new string[29]
       {
@@ -89,7 +89,7 @@ namespace WindowsApplication1
         null,
         null
       };
-      string letter;
+      letter: String;
       if (numy < 1)
         letter = "?";
       else if (numy <= 26)
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       return letter;
     }
 
-    pub GetBattlegroupTemplate: i32(regNr: i32)
+    pub fn GetBattlegroupTemplate(regNr: i32) -> i32
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut battlegroupTemplate: i32 =  0; battlegroupTemplate <= historicalUnitCounter; battlegroupTemplate += 1)
@@ -204,7 +204,7 @@ namespace WindowsApplication1
       return (num2 <= 0 ? 0.0 :   Math.Round( (100 * num1) /  num2)) >=  this.game.Data.RuleVar[474];
     }
 
-    pub GiveTransporterMaxCarry: i32(unr: i32)
+    pub fn GiveTransporterMaxCarry(unr: i32) -> i32
     {
       let mut num: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -222,7 +222,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub GiveTransporterCurrentCarry: i32(unr: i32)
+    pub fn GiveTransporterCurrentCarry(unr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut transportCounter: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
@@ -234,7 +234,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub GiveAttachablesWeight: i32(unr: i32)
+    pub fn GiveAttachablesWeight(unr: i32) -> i32
     {
       SimpleList simpleList = this.GiveAttachablesList(unr);
       let mut num1: i32 =  0;
@@ -250,7 +250,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub GiveTransporterMaxManpowerCarry: i32(unr: i32)
+    pub fn GiveTransporterMaxManpowerCarry(unr: i32) -> i32
     {
       let mut num: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -268,7 +268,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub GiveTransporterCurrentManpowerCarry: i32(unr: i32)
+    pub fn GiveTransporterCurrentManpowerCarry(unr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut transportCounter: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
@@ -280,7 +280,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub GiveAttachablesManpowerWeight: i32(unr: i32)
+    pub fn GiveAttachablesManpowerWeight(unr: i32) -> i32
     {
       SimpleList simpleList = this.GiveAttachablesList(unr);
       let mut num1: i32 =  0;
@@ -484,7 +484,7 @@ namespace WindowsApplication1
       return simpleList;
     }
 
-    pub string GetUDSmanagementTabName(tabnr: i32, bool forUDSRandomTab = false)
+    pub GetUDSmanagementTabName: String(tabnr: i32, bool forUDSRandomTab = false)
     {
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
@@ -512,7 +512,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub GetUDSmanagementTabPageCount: i32(tabnr: i32, bool forUDSRandomTab = false)
+    pub fn GetUDSmanagementTabPageCount(tabnr: i32, bool forUDSRandomTab = false) -> i32
     {
       let mut smanagementTabPageCount: i32 =  0;
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
@@ -538,7 +538,7 @@ namespace WindowsApplication1
       return smanagementTabPageCount;
     }
 
-    pub string GetUDSmanagementSubTabName(tabnr: i32, subTabNr: i32, bool forUDSRandomTab = false)
+    pub GetUDSmanagementSubTabName: String(tabnr: i32, subTabNr: i32, bool forUDSRandomTab = false)
     {
       let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
@@ -579,7 +579,7 @@ namespace WindowsApplication1
       return "";
     }
 
-    pub string GetUDSmanagementPageRow(
+    pub GetUDSmanagementPageRow: String(
       tabnr: i32,
       subTabNr: i32,
       pageNr: i32,
@@ -756,7 +756,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub RecodeTextStringToEncyIdsNew: Vec<i32>(string s,  StringListClass tStringList)
+    pub RecodeTextStringToEncyIdsNew: Vec<i32>(s: String,  StringListClass tStringList)
     {
       int[] encyIdsNew = new int[s.Length * 2 + 1];
       let mut length1: i32 =  s.Length;
@@ -966,7 +966,7 @@ namespace WindowsApplication1
                     {
                       str6: String = Strings.Mid(str5, num4 + 1, num1 - (num4 + 1));
                       num2 =  Math.Round(Conversion.Val(str6));
-                      string str7;
+                      str7: String;
                       if (Operators.CompareString(num2.ToString(), str6, false) == 0)
                       {
                         data = simpleList.FindData(num2, 1);
@@ -987,7 +987,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub modlib_findFirstEmptyID: i32(forSSIDType: i32,  SimpleList usedL)
+    pub fn modlib_findFirstEmptyID(forSSIDType: i32,  SimpleList usedL) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       simpleList.AddWeight(0, 1);
@@ -2773,7 +2773,7 @@ namespace WindowsApplication1
         this.game.EditObj.PbemMiscString += "0";
     }
 
-    pub fn SetUploadFile(string s)
+    pub fn SetUploadFile(s: String)
     {
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       s = this.game.AppPath + s;
@@ -2782,7 +2782,7 @@ namespace WindowsApplication1
       s = s;
     }
 
-    pub string GetFileCRC(string s)
+    pub GetFileCRC: String(s: String)
     {
       if (Strings.InStr(s, this.game.AppPath) < 1)
         s = this.game.AppPath + s;
@@ -2792,7 +2792,7 @@ namespace WindowsApplication1
       return s;
     }
 
-    pub fn SaveDownloadedFile(string path)
+    pub fn SaveDownloadedFile(path: String)
     {
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       path = this.game.AppPath + path;
@@ -2802,9 +2802,9 @@ namespace WindowsApplication1
       this.game.FormRef.Cursor = Cursors.Default;
     }
 
-    pub string GetCRC32()
+    pub GetCRC32: String()
     {
-      string crC32;
+      crC32: String;
       try
       {
         let mut num1: i32 =  -1;
@@ -2951,7 +2951,7 @@ namespace WindowsApplication1
       return moveTypeLogo;
     }
 
-    pub GetMoveType: i32(unr: i32)
+    pub fn GetMoveType(unr: i32) -> i32
     {
       Coordinate moveTypeLogo = this.GetMoveTypeLogo(unr,  Coordinate::new()
       {
@@ -3097,7 +3097,7 @@ namespace WindowsApplication1
       return supplyReceivingHq;
     }
 
-    pub ExtraHQSwitchPPCost: i32(unr: i32, bool wholehistoricalunit)
+    pub fn ExtraHQSwitchPPCost(unr: i32, bool wholehistoricalunit) -> i32
     {
       if (this.game.Data.UnitObj[unr].HQ == -1)
         return 0;
@@ -3119,7 +3119,7 @@ namespace WindowsApplication1
       return num2 > 0 ?  Math.Round(Conversion.Int( num2 /  num1 *  Math.Abs(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP) + 0.99999)) : 0;
     }
 
-    pub AddUnitToHQIsHowMuchPercentage: i32(hq: i32, unr: i32, bool wholehistoricalunit)
+    pub fn AddUnitToHQIsHowMuchPercentage(hq: i32, unr: i32, bool wholehistoricalunit) -> i32
     {
       if (this.game.Data.UnitObj[unr].HQ == -1)
         return 0;
@@ -3143,7 +3143,7 @@ namespace WindowsApplication1
       return howMuchPercentage;
     }
 
-    pub fn AddMessageForAll(string s, frontpic: i32, style: i32, note: String = "")
+    pub fn AddMessageForAll(s: String, frontpic: i32, style: i32, note: String = "")
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
@@ -3179,7 +3179,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn AddMessageForOne(string s, too: i32, frontpic: i32, style: i32, note: String = "")
+    pub fn AddMessageForOne(s: String, too: i32, frontpic: i32, style: i32, note: String = "")
     {
       let mut index1: i32 =  too;
       RegimeClass[] regimeObj = this.game.Data.RegimeObj;
@@ -3214,7 +3214,7 @@ namespace WindowsApplication1
       this.game.Data.RegimeObj[index1].MesHideFromTab[messCounter] = false;
     }
 
-    pub CheckDiskSpace: i32(string DriveOrFolder)
+    pub fn CheckDiskSpace(DriveOrFolder: String) -> i32
     {
       long lpFreeBytesAvailableToMe;
       long lpTotalNumberOfBytes;
@@ -3250,7 +3250,7 @@ namespace WindowsApplication1
 
     pub IsNeutral: bool(regnr: i32, targetregnr: i32) => targetregnr != -1 && regnr != targetregnr && regnr != -1 && this.game.Data.RegimeObj[regnr].RegimeRel[targetregnr] == 1;
 
-    pub GetHexStackPts: i32(x: i32, y: i32, map: i32)
+    pub fn GetHexStackPts(x: i32, y: i32, map: i32) -> i32
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return 0;
@@ -3264,7 +3264,7 @@ namespace WindowsApplication1
       return hexStackPts;
     }
 
-    pub GetHexStackPts: i32(x: i32, y: i32, map: i32, regnr: i32)
+    pub fn GetHexStackPts(x: i32, y: i32, map: i32, regnr: i32) -> i32
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return 0;
@@ -3279,7 +3279,7 @@ namespace WindowsApplication1
       return hexStackPts;
     }
 
-    pub GetHexStackPtsPrognosed: i32(x: i32, y: i32, regnr: i32)
+    pub fn GetHexStackPtsPrognosed(x: i32, y: i32, regnr: i32) -> i32
     {
       if (this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 0)
         return 0;
@@ -3300,7 +3300,7 @@ namespace WindowsApplication1
       return stackPtsPrognosed;
     }
 
-    pub GetStartPower: i32(unr: i32)
+    pub fn GetStartPower(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].Historical == -1 | this.game.Data.UnitObj[unr].HistoricalSubPart == -1 ||  this.game.Data.RuleVar[884] < 1.0)
         return this.game.Data.UnitObj[unr].StartPower;
@@ -3308,7 +3308,7 @@ namespace WindowsApplication1
       return preDef == -1 ? this.game.Data.UnitObj[unr].StartPower : this.game.HandyFunctionsObj.GetPowerPtsAbsolute(preDef);
     }
 
-    pub GetUnitStackPts: i32(unr: i32)
+    pub fn GetUnitStackPts(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3323,7 +3323,7 @@ namespace WindowsApplication1
       return unitStackPts;
     }
 
-    pub GetUnitAirRangeInHex: i32(unr: i32)
+    pub fn GetUnitAirRangeInHex(unr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -3341,7 +3341,7 @@ namespace WindowsApplication1
       return num1 < 1 ? -1 :  Math.Round(Conversion.Int( num2 /  num1));
     }
 
-    pub GetUnitStackPtsArt: i32(unr: i32)
+    pub fn GetUnitStackPtsArt(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3356,7 +3356,7 @@ namespace WindowsApplication1
       return unitStackPtsArt;
     }
 
-    pub GetUnitStackPtsAir: i32(unr: i32)
+    pub fn GetUnitStackPtsAir(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3371,7 +3371,7 @@ namespace WindowsApplication1
       return unitStackPtsAir;
     }
 
-    pub GetUnitartStackPts: i32(unr: i32)
+    pub fn GetUnitartStackPts(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3386,7 +3386,7 @@ namespace WindowsApplication1
       return unitartStackPts;
     }
 
-    pub GetUnitairStackPts: i32(unr: i32)
+    pub fn GetUnitairStackPts(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3401,7 +3401,7 @@ namespace WindowsApplication1
       return unitairStackPts;
     }
 
-    pub GetUnitAS: i32(unr: i32)
+    pub fn GetUnitAS(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3415,7 +3415,7 @@ namespace WindowsApplication1
       return unitAs;
     }
 
-    pub SetUnitAPToZero: i32(unr: i32)
+    pub fn SetUnitAPToZero(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -3426,7 +3426,7 @@ namespace WindowsApplication1
       return zero;
     }
 
-    pub GetPowerPtsAbsoluteLandForRegime: i32(regnr: i32)
+    pub fn GetPowerPtsAbsoluteLandForRegime(regnr: i32) -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       absoluteLandForRegime: i32;
@@ -3438,7 +3438,7 @@ namespace WindowsApplication1
       return absoluteLandForRegime;
     }
 
-    pub GetSFObjStackPts: i32(sfnr: i32, qty: i32) => qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].Frontage;
+    pub fn GetSFObjStackPts(sfnr: i32, qty: i32) -> i32 => qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].Frontage;
 
     pub fn DoZOCConquest(x: i32, y: i32, map: i32, regnr: i32, let mut ox: i32 =  -1, let mut oy: i32 =  -1, let mut unr: i32 =  -1)
     {
@@ -3527,7 +3527,7 @@ namespace WindowsApplication1
       this.HistoryAddHex(x, y, map, regnr, 1, 1);
     }
 
-    pub GetEffectiveRecon: i32(rawRecon: i32) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10( rawRecon) * 30.0)));
+    pub fn GetEffectiveRecon(rawRecon: i32) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10( rawRecon) * 30.0))) -> i32;
 
     pub void HistoryAddHex(
       x: i32,
@@ -3885,7 +3885,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub GetHistoricalUnitByID: i32(id: i32)
+    pub fn GetHistoricalUnitByID(id: i32) -> i32
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut historicalUnitById: i32 =  0; historicalUnitById <= historicalUnitCounter; historicalUnitById += 1)
@@ -3896,7 +3896,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetSFTypeByID: i32(id: i32)
+    pub fn GetSFTypeByID(id: i32) -> i32
     {
       let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
       for (let mut sfTypeById: i32 =  0; sfTypeById <= sfTypeCounter; sfTypeById += 1)
@@ -3907,7 +3907,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetReinfTypeByID: i32(id: i32)
+    pub fn GetReinfTypeByID(id: i32) -> i32
     {
       let mut reinfCounter: i32 =  this.game.Data.ReinfCounter;
       for (let mut reinfTypeById: i32 =  0; reinfTypeById <= reinfCounter; reinfTypeById += 1)
@@ -3918,7 +3918,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetEventByID: i32(id: i32)
+    pub fn GetEventByID(id: i32) -> i32
     {
       let mut eventCounter: i32 =  this.game.Data.EventCounter;
       for (let mut eventById: i32 =  0; eventById <= eventCounter; eventById += 1)
@@ -3929,7 +3929,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetStringListByID: i32(id: i32)
+    pub fn GetStringListByID(id: i32) -> i32
     {
       if (this.game.Data.Product < 7 | this.game.Data.Round < 1)
       {
@@ -3971,7 +3971,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetLocationByID: i32(id: i32)
+    pub fn GetLocationByID(id: i32) -> i32
     {
       let mut locCounter: i32 =  this.game.Data.LocCounter;
       for (let mut locationById: i32 =  0; locationById <= locCounter; locationById += 1)
@@ -4012,7 +4012,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub GetForceForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
+    pub fn GetForceForHex(x: i32, y: i32, map: i32, regnr: i32) -> i32
     {
       let mut forceForHex: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -4037,7 +4037,7 @@ namespace WindowsApplication1
       return forceForHex;
     }
 
-    pub GetHistoricalForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
+    pub fn GetHistoricalForHex(x: i32, y: i32, map: i32, regnr: i32) -> i32
     {
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
         return -1;
@@ -4051,7 +4051,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetDepthForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
+    pub fn GetDepthForHex(x: i32, y: i32, map: i32, regnr: i32) -> i32
     {
       let mut depthForHex: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -4065,9 +4065,9 @@ namespace WindowsApplication1
       return depthForHex;
     }
 
-    pub GetRegimeForForceForHex: i32(x: i32, y: i32, map: i32) => this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0 ? -1 : this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime;
+    pub fn GetRegimeForForceForHex(x: i32, y: i32, map: i32) -> i32 => this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0 ? -1 : this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime;
 
-    pub GetDominantSfTypeForHex: i32(x: i32, y: i32, map: i32, regnr: i32)
+    pub fn GetDominantSfTypeForHex(x: i32, y: i32, map: i32, regnr: i32) -> i32
     {
       Coordinate coordinate = Coordinate::new();
       SizeF sizeF = SizeF::new();
@@ -4181,7 +4181,7 @@ namespace WindowsApplication1
       this.game.Data.UnitObj[unr].AirStart = this.game.Data.UnitObj[unr].AirCap;
     }
 
-    pub UnitSupplyNeed: i32(unr: i32, bool deductcurrent, bool AlsoStockpile = true)
+    pub fn UnitSupplyNeed(unr: i32, bool deductcurrent, bool AlsoStockpile = true) -> i32
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -4256,7 +4256,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub SFSupplyUse: i32(sfnr: i32)
+    pub fn SFSupplyUse(sfnr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
@@ -4289,7 +4289,7 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub GetAggregatedSupplyRequest: i32(unr: i32, let mut overruleReqPercent: i32 =  -1)
+    pub fn GetAggregatedSupplyRequest(unr: i32, let mut overruleReqPercent: i32 =  -1) -> i32
     {
       let mut aggregatedSupplyRequest: i32 =  this.game.Data.UnitObj[unr].SOSupReqPercent;
       if (overruleReqPercent > -1)
@@ -4306,7 +4306,7 @@ namespace WindowsApplication1
       return aggregatedSupplyRequest;
     }
 
-    pub GetAggregatedReplacementRequest: i32(unr: i32, let mut overruleReqPercent: i32 =  -1)
+    pub fn GetAggregatedReplacementRequest(unr: i32, let mut overruleReqPercent: i32 =  -1) -> i32
     {
       let mut replacementRequest: i32 =  this.game.Data.UnitObj[unr].SOReplacementPercent;
       if (overruleReqPercent > -1)
@@ -4325,7 +4325,7 @@ namespace WindowsApplication1
       return replacementRequest;
     }
 
-    pub UnitSupplyUse: i32(unr: i32, bool includepas = false, let mut onlytheater: i32 =  -1)
+    pub fn UnitSupplyUse(unr: i32, bool includepas = false, let mut onlytheater: i32 =  -1) -> i32
     {
       let mut num1: i32 =  0;
       if ( this.game.Data.RuleVar[814] == 1.0)
@@ -4378,7 +4378,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub UnitMaximumFuelReserve: i32(unr: i32)
+    pub fn UnitMaximumFuelReserve(unr: i32) -> i32
     {
       let mut num1: i32 =  0;
       if ( this.game.Data.RuleVar[435] < 1.0)
@@ -4401,7 +4401,7 @@ namespace WindowsApplication1
       return num1;
     }
 
-    pub UnitSupplyStore: i32(unr: i32, let mut theater: i32 =  -1)
+    pub fn UnitSupplyStore(unr: i32, let mut theater: i32 =  -1) -> i32
     {
       let mut num: i32 =  0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -4488,7 +4488,7 @@ namespace WindowsApplication1
       return reconMinusHide1;
     }
 
-    pub GetStackWithFOW: i32(unr: i32, player: i32, bool FullRecon = false)
+    pub fn GetStackWithFOW(unr: i32, player: i32, bool FullRecon = false) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -4572,7 +4572,7 @@ namespace WindowsApplication1
       return power;
     }
 
-    pub GetAverageAirRdn: i32(unr: i32, bool onlyfrontline = false)
+    pub fn GetAverageAirRdn(unr: i32, bool onlyfrontline = false) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -4591,7 +4591,7 @@ namespace WindowsApplication1
       return num1 == 0 | num2 == 0 ? 0 :  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageAirRange: i32(sftyp: i32, unr: i32)
+    pub fn GetAverageAirRange(sftyp: i32, unr: i32) -> i32
     {
       let mut moveType: i32 =  this.game.Data.SFTypeObj[sftyp].MoveType;
       let mut num: i32 =   Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[0].MoveCost[moveType] * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
@@ -5064,7 +5064,7 @@ namespace WindowsApplication1
       return mapMatrix;
     }
 
-    pub Uncertainty_RollLoadedDice: i32(unr: i32)
+    pub fn Uncertainty_RollLoadedDice(unr: i32) -> i32
     {
       let mut num1: i32 =  this.game.Data.UnitObj[unr].Historical <= -1 ? unr : this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].ID * 10 + this.game.Data.UnitObj[unr].HistoricalSubPart;
       Random random = new Random( Math.Round(Math.Floor( this.game.Data.GameID / 1000.0)) * num1);
@@ -7068,7 +7068,7 @@ namespace WindowsApplication1
       iy: i32,
       imap: i32,
       usetype: i32,
-      string tempstr,
+      tempstr: String,
       bool OverwriteOK = false)
     {
       let mut num1: i32 =  0;
@@ -7155,7 +7155,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub CanWeSeeUnit: i32(unr: i32, byregnr: i32)
+    pub fn CanWeSeeUnit(unr: i32, byregnr: i32) -> i32
     {
       if (this.game.Data.Round == 0 & !this.game.EditObj.firstroundcheck || !this.game.Data.FOWOn || this.game.Data.RegimeObj[byregnr].RegimeRel[this.game.Data.UnitObj[unr].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
         return 1000;
@@ -7200,7 +7200,7 @@ namespace WindowsApplication1
       return num2;
     }
 
-    pub GetUnitRecon: i32(unr: i32, theater: i32, bool dontdoair = false)
+    pub fn GetUnitRecon(unr: i32, theater: i32, bool dontdoair = false) -> i32
     {
       if (unr == -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7231,7 +7231,7 @@ namespace WindowsApplication1
       return unitRecon;
     }
 
-    pub GetUnitExtraRecon: i32(unr: i32, theater: i32, Lt: i32, bool dontdoair = false)
+    pub fn GetUnitExtraRecon(unr: i32, theater: i32, Lt: i32, bool dontdoair = false) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7262,14 +7262,14 @@ namespace WindowsApplication1
       return unitExtraRecon;
     }
 
-    pub GetSfEPGrowth: i32(sfnr: i32)
+    pub fn GetSfEPGrowth(sfnr: i32) -> i32
     {
       let mut index: i32 =  sfnr;
       num: i32;
       return num + this.game.Data.SFObj[index].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[index].Type].EP;
     }
 
-    pub GetUnitEP: i32(unr: i32)
+    pub fn GetUnitEP(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7283,7 +7283,7 @@ namespace WindowsApplication1
       return unitEp;
     }
 
-    pub GetUnitEPGrowth: i32(unr: i32)
+    pub fn GetUnitEPGrowth(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7354,7 +7354,7 @@ namespace WindowsApplication1
       return num > -1 ?  num :  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People;
     }
 
-    pub GetUnitHide: i32(unr: i32, bool withoutIdentify = false)
+    pub fn GetUnitHide(unr: i32, bool withoutIdentify = false) -> i32
     {
       let mut unitHide: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -7397,7 +7397,7 @@ namespace WindowsApplication1
       return unitHide;
     }
 
-    pub GetUnitZOC: i32(unr: i32)
+    pub fn GetUnitZOC(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7412,7 +7412,7 @@ namespace WindowsApplication1
       return  Math.Round( num * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
     }
 
-    pub GetHighestSizeForAirBridge: i32(unr: i32)
+    pub fn GetHighestSizeForAirBridge(unr: i32) -> i32
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       sizeForAirBridge: i32;
@@ -7425,7 +7425,7 @@ namespace WindowsApplication1
       return sizeForAirBridge;
     }
 
-    pub GetUnitWeight: i32(unr: i32, bool includeexcessweight = false, bool includeLisWeight = false)
+    pub fn GetUnitWeight(unr: i32, bool includeexcessweight = false, bool includeLisWeight = false) -> i32
     {
       if (unr < 0 | unr > this.game.Data.UnitCounter)
         return 0;
@@ -7514,7 +7514,7 @@ namespace WindowsApplication1
       return  unitNonSeaWeight;
     }
 
-    pub GetUnitCarryCap: i32(unr: i32, theater: i32, bool withexcessweight = false)
+    pub fn GetUnitCarryCap(unr: i32, theater: i32, bool withexcessweight = false) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7542,7 +7542,7 @@ namespace WindowsApplication1
       return integer;
     }
 
-    pub GetUnitCarryCapType: i32(unr: i32, theater: i32, bool withexcessweight = false)
+    pub fn GetUnitCarryCapType(unr: i32, theater: i32, bool withexcessweight = false) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -7568,7 +7568,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetUnitNonCarryCapType: i32(unr: i32, theater: i32, bool withexcessweight = false)
+    pub fn GetUnitNonCarryCapType(unr: i32, theater: i32, bool withexcessweight = false) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -7589,7 +7589,7 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub GetAverageRdn: i32(unr: i32)
+    pub fn GetAverageRdn(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7607,7 +7607,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageVigor: i32(unr: i32)
+    pub fn GetAverageVigor(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7625,7 +7625,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub OBSOLETE_LIS_GetAmmoPercentageForAttack: i32(unr: i32, minArtRange: i32, maxArtRange: i32)
+    pub fn OBSOLETE_LIS_GetAmmoPercentageForAttack(unr: i32, minArtRange: i32, maxArtRange: i32) -> i32
     {
       ItemList itemList = ItemList::new();
       let mut index1: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
@@ -7679,7 +7679,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub GetAverageOffensiveMod_SupplyOnly: i32(unr: i32, bool useSupply = true, bool useFuel = true)
+    pub fn GetAverageOffensiveMod_SupplyOnly(unr: i32, bool useSupply = true, bool useFuel = true) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7741,7 +7741,7 @@ namespace WindowsApplication1
       return num11 - 100;
     }
 
-    pub GetAverageDefensiveMod_SupplyOnly: i32(unr: i32)
+    pub fn GetAverageDefensiveMod_SupplyOnly(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7800,7 +7800,7 @@ namespace WindowsApplication1
       return num11 - 100;
     }
 
-    pub GetAverageOffensiveMod: i32(unr: i32)
+    pub fn GetAverageOffensiveMod(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7859,7 +7859,7 @@ namespace WindowsApplication1
       return num10 + num11 - 100;
     }
 
-    pub GetAverageDefensiveMod: i32(unr: i32)
+    pub fn GetAverageDefensiveMod(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7916,7 +7916,7 @@ namespace WindowsApplication1
       return num10 + num11 - 100;
     }
 
-    pub GetAverageMor: i32(unr: i32)
+    pub fn GetAverageMor(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -7934,7 +7934,7 @@ namespace WindowsApplication1
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageBaseMor: i32(unr: i32)
+    pub fn GetAverageBaseMor(unr: i32) -> i32
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People].PeopleGroup;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -7972,7 +7972,7 @@ namespace WindowsApplication1
       return num != 1;
     }
 
-    pub HowmanyHQsAbove: i32(unr: i32)
+    pub fn HowmanyHQsAbove(unr: i32) -> i32
     {
       let mut index: i32 =  unr;
       let mut num: i32 =  0;
@@ -7984,7 +7984,7 @@ namespace WindowsApplication1
       return num;
     }
 
-    pub HowmanyHQsBelow: i32(unr: i32)
+    pub fn HowmanyHQsBelow(unr: i32) -> i32
     {
       let mut num1: i32 =  unr;
       let mut num2: i32 =  0;
@@ -8013,7 +8013,7 @@ label_8:
 
     pub CanUnitBecomeHQforLoc: bool(unr: i32, locnr: i32) => this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.UnitObj[unr].Regime && !(this.game.Data.UnitObj[unr].Regime != this.game.Data.Turn & this.game.Data.Round > 0) && this.game.Data.UnitObj[unr].IsHQ;
 
-    pub GetAverageEntrench: i32(unr: i32)
+    pub fn GetAverageEntrench(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -8031,7 +8031,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageEntrenchAboveAuto: i32(unr: i32)
+    pub fn GetAverageEntrenchAboveAuto(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].X <= -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -8052,7 +8052,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageAutoEntrench: i32(unr: i32)
+    pub fn GetAverageAutoEntrench(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].X <= -1 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -8071,7 +8071,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageEntrenchPredict: i32(unr: i32, bool StayOnHex)
+    pub fn GetAverageEntrenchPredict(unr: i32, bool StayOnHex) -> i32
     {
       if (this.game.Data.UnitObj[unr].TempX == -1)
         return 0;
@@ -8101,7 +8101,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetAverageXp: i32(unr: i32)
+    pub fn GetAverageXp(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -8119,7 +8119,7 @@ label_8:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetStackPercent: i32(unr: i32)
+    pub fn GetStackPercent(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -8405,7 +8405,7 @@ label_8:
       return tfacing2 > 0 ? this.HexNeighbourSameMap(coord.x, coord.y, coord.map, tfacing2) : coordinate1;
     }
 
-    pub HexNeighbourCount: i32(cx: i32, cy: i32, cmap: i32)
+    pub fn HexNeighbourCount(cx: i32, cy: i32, cmap: i32) -> i32
     {
       let mut num: i32 =  6;
       if (this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionCount > -1)
@@ -8422,7 +8422,7 @@ label_8:
       return num;
     }
 
-    pub HexNeighbourCountAir: i32(cx: i32, cy: i32, cmap: i32)
+    pub fn HexNeighbourCountAir(cx: i32, cy: i32, cmap: i32) -> i32
     {
       let mut num: i32 =  6;
       if (!Information.IsNothing( this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
@@ -8434,7 +8434,7 @@ label_8:
       return num;
     }
 
-    pub GetMinimumEntrench: i32(x: i32, y: i32, map: i32, grp: i32)
+    pub fn GetMinimumEntrench(x: i32, y: i32, map: i32, grp: i32) -> i32
     {
       let mut minimumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonus[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -8443,7 +8443,7 @@ label_8:
       return minimumEntrench;
     }
 
-    pub GetMaximumEntrench: i32(x: i32, y: i32, map: i32, grp: i32)
+    pub fn GetMaximumEntrench(x: i32, y: i32, map: i32, grp: i32) -> i32
     {
       let mut maximumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonusMax[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -8727,7 +8727,7 @@ label_8:
       return coordinate;
     }
 
-    pub Distance: i32(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32, let mut maxdistance: i32 =  9999)
+    pub fn Distance(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32, let mut maxdistance: i32 =  9999) -> i32
     {
       if (this.game.Data.MapObj[0].MapLoop &&  Math.Abs(x2 - x1) > Conversion.Int( this.game.Data.MapObj[0].MapWidth / 2.0) + 1.0)
       {
@@ -8742,7 +8742,7 @@ label_8:
       return (x1 + 2) % 2 != 0 ? ((x2 + 2) % 2 != 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))) : (num1 >= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0)))))) : ((x2 + 2) % 2 != 0 ? (num1 <= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0))))) :  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))));
     }
 
-    pub GetMaxStaffIndividuals: i32(unr: i32, int @this)
+    pub fn GetMaxStaffIndividuals(unr: i32, int @this) -> i32
     {
       let mut num1: i32 =  unr <= -1 ? this.game.Data.HistoricalUnitObj[@this].StaffSize : this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].StaffSize;
       num2: i32;
@@ -8779,7 +8779,7 @@ label_8:
       return  Math.Round( num1 /  num2);
     }
 
-    pub AirSupplyNeeded: i32(targetx: i32, targety: i32, targetmap: i32)
+    pub fn AirSupplyNeeded(targetx: i32, targety: i32, targetmap: i32) -> i32
     {
       let mut num1: i32 =  0;
       this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[857]), 99,  Math.Round( this.game.Data.RuleVar[858]), targetx, targety, targetmap, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
@@ -8821,7 +8821,7 @@ label_8:
       return num1;
     }
 
-    pub HexFacing: i32(ox: i32, oy: i32, omap: i32, dx: i32, dy: i32, dmap: i32)
+    pub fn HexFacing(ox: i32, oy: i32, omap: i32, dx: i32, dy: i32, dmap: i32) -> i32
     {
       let mut num: i32 =  -1;
       if (ox == dx & oy - 1 == dy)
@@ -9938,17 +9938,17 @@ label_8:
       while (tfacing <= 6);
     }
 
-    pub string GetRoadOrBridgeBuildCostString(x1: i32, y1: i32, z1: i32, x2: i32, y2: i32, z2: i32)
+    pub GetRoadOrBridgeBuildCostString: String(x1: i32, y1: i32, z1: i32, x2: i32, y2: i32, z2: i32)
     {
       let mut num1: i32 =  this.game.HandyFunctionsObj.HexFacing(x1, y1, z1, x2, y2, z2);
-      string bridgeBuildCostString;
+      bridgeBuildCostString: String;
       if (num1 > -1)
       {
         let mut num2: i32 =  !( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6) ? this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, EngineerTest: true).x : this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, true, EngineerTest: true).x;
         if (num2 <= this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.OrderUnit))
         {
           let mut facing: i32 =  num1 - 1;
-          string str;
+          str: String;
           if ( this.game.Data.RuleVar[32] == -1.0)
           {
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing] > -1 & this.game.HandyFunctionsObj.CanConstructBridge(this.game.EditObj.OrderUnit, x1, y1, z1, facing))
@@ -10219,7 +10219,7 @@ label_8:
       return false;
     }
 
-    pub GetRegime: i32(nr: i32)
+    pub fn GetRegime(nr: i32) -> i32
     {
       if (nr == -1)
         return -1;
@@ -10240,7 +10240,7 @@ label_8:
       return num > 0;
     }
 
-    pub fn RedimTempString(string setvalue)
+    pub fn RedimTempString(setvalue: String)
     {
       this.game.EditObj.TempString = new MapMatrix2String[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -10257,7 +10257,7 @@ label_8:
       }
     }
 
-    pub fn RedimTempString2(string setvalue)
+    pub fn RedimTempString2(setvalue: String)
     {
       this.game.EditObj.TempString2 = new MapMatrix2String[this.game.Data.MapCounter + 1];
       let mut mapCounter: i32 =  this.game.Data.MapCounter;
@@ -10452,7 +10452,7 @@ label_8:
       return coordList;
     }
 
-    pub SE1_GetUnitMinimumAirfieldLevel: i32(unr: i32)
+    pub fn SE1_GetUnitMinimumAirfieldLevel(unr: i32) -> i32
     {
       let mut minimumAirfieldLevel: i32 =  0;
       if (this.game.Data.Product == 7)
@@ -12913,7 +12913,7 @@ label_8:
       return num3;
     }
 
-    pub GetLowestSpeedOnRoad: i32(unr: i32, curtyp: i32)
+    pub fn GetLowestSpeedOnRoad(unr: i32, curtyp: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return -1;
@@ -13098,7 +13098,7 @@ label_8:
       return index14 > -1 ? this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index14]].Type : index14;
     }
 
-    pub GetLowestSpeed: i32(unr: i32, curtyp: i32, bool returnsfnr = false)
+    pub fn GetLowestSpeed(unr: i32, curtyp: i32, bool returnsfnr = false) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount == -1)
         return -1;
@@ -13949,7 +13949,7 @@ label_8:
       return coordinate1;
     }
 
-    pub GetLogisticalBonus: i32(x1: i32, y1: i32, lisMode: i32)
+    pub fn GetLogisticalBonus(x1: i32, y1: i32, lisMode: i32) -> i32
     {
       let mut location: i32 =  this.game.Data.MapObj[0].HexObj[x1, y1].Location;
       let mut logisticalBonus: i32 =  0;
@@ -14823,7 +14823,7 @@ label_8:
       this.game.Data.ChangeSFNr(Conversions.ToInteger(obj), -1);
     }
 
-    pub GetLowestAp: i32(unr: i32, bool notair = false)
+    pub fn GetLowestAp(unr: i32, bool notair = false) -> i32
     {
       let mut lowestAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14841,7 +14841,7 @@ label_8:
       return lowestAp;
     }
 
-    pub GetLowestMoveCostForAI: i32(unr: i32, bool notair = false)
+    pub fn GetLowestMoveCostForAI(unr: i32, bool notair = false) -> i32
     {
       let mut lowestMoveCostForAi: i32 =  9999;
       if (this.game.Data.RoadTypeCounter == -1)
@@ -14861,7 +14861,7 @@ label_8:
       return lowestMoveCostForAi;
     }
 
-    pub GetLowestAirAp: i32(unr: i32)
+    pub fn GetLowestAirAp(unr: i32) -> i32
     {
       let mut lowestAirAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14876,7 +14876,7 @@ label_8:
       return lowestAirAp;
     }
 
-    pub GetLowestAirApRule: i32(unr: i32)
+    pub fn GetLowestAirApRule(unr: i32) -> i32
     {
       let mut lowestAirApRule: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14891,7 +14891,7 @@ label_8:
       return lowestAirApRule;
     }
 
-    pub GetLowestAirRdn: i32(unr: i32, bool frontlineonly = false)
+    pub fn GetLowestAirRdn(unr: i32, bool frontlineonly = false) -> i32
     {
       let mut lowestAirRdn: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14909,7 +14909,7 @@ label_8:
       return lowestAirRdn;
     }
 
-    pub GetLowestlandartAp: i32(unr: i32, dist: i32)
+    pub fn GetLowestlandartAp(unr: i32, dist: i32) -> i32
     {
       let mut lowestlandartAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14925,7 +14925,7 @@ label_8:
       return lowestlandartAp;
     }
 
-    pub GetLowestlandDirectAp: i32(unr: i32, dist: i32)
+    pub fn GetLowestlandDirectAp(unr: i32, dist: i32) -> i32
     {
       let mut lowestlandDirectAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14941,7 +14941,7 @@ label_8:
       return lowestlandDirectAp;
     }
 
-    pub GetLowestseaartAp: i32(unr: i32, dist: i32)
+    pub fn GetLowestseaartAp(unr: i32, dist: i32) -> i32
     {
       let mut lowestseaartAp: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
@@ -14957,7 +14957,7 @@ label_8:
       return lowestseaartAp;
     }
 
-    pub string LoadSomething(string tfilter, string ttitle, string tinitdir, bool withinPath)
+    pub LoadSomething: String(tfilter: String, ttitle: String, tinitdir: String, bool withinPath)
     {
       OpenFileDialog openFileDialog1 = OpenFileDialog::new();
       OpenFileDialog openFileDialog2 = openFileDialog1;
@@ -14973,13 +14973,13 @@ label_8:
       let mut num: i32 =   openFileDialog2.ShowDialog();
       if (Operators.CompareString(openFileDialog1.FileName, "", false) == 0)
       {
-        string str;
+        str: String;
         return str;
       }
       return !withinPath ? openFileDialog1.FileName : (Strings.Len(openFileDialog1.FileName) <= Strings.Len(tinitdir) ? "" : Strings.Right(openFileDialog1.FileName, Strings.Len(openFileDialog1.FileName) - Strings.Len(tinitdir)));
     }
 
-    pub string ReturnLongMaster(string filename, string shortmaster)
+    pub ReturnLongMaster: String(filename: String, shortmaster: String)
     {
       filename = filename.Replace("\\", "/");
       shortmaster = shortmaster.Replace("\\", "/");
@@ -15005,7 +15005,7 @@ label_8:
       return this.game.AppPath + this.game.ModScenarioDir + "/" + shortmaster;
     }
 
-    pub string ReturnShortMaster(string filename)
+    pub ReturnShortMaster: String(filename: String)
     {
       filename = filename.Replace("\\", "/");
       str: String = filename;
@@ -15022,7 +15022,7 @@ label_8:
       return Strings.Mid(filename, num1 + 1, Strings.Len(filename) - num1);
     }
 
-    pub string SaveSomething(string tfilter, string ttitle, string tinitdir, bool withinPath)
+    pub SaveSomething: String(tfilter: String, ttitle: String, tinitdir: String, bool withinPath)
     {
       SaveFileDialog saveFileDialog1 = SaveFileDialog::new();
       SaveFileDialog saveFileDialog2 = saveFileDialog1;
@@ -15040,7 +15040,7 @@ label_8:
       let mut num1: i32 =   saveFileDialog2.ShowDialog();
       if (Operators.CompareString(saveFileDialog1.FileName, "", false) == 0)
       {
-        string str;
+        str: String;
         return str;
       }
       str1: String = !withinPath ? saveFileDialog1.FileName : (Strings.Len(saveFileDialog1.FileName) <= Strings.Len(tinitdir) ? "" : Strings.Right(saveFileDialog1.FileName, Strings.Len(saveFileDialog1.FileName) - Strings.Len(tinitdir)));
@@ -15207,7 +15207,7 @@ label_8:
       return produceItemResult;
     }
 
-    pub GetCarryCapPts: i32(unr: i32, theater: i32)
+    pub fn GetCarryCapPts(unr: i32, theater: i32) -> i32
     {
       carryCapPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15224,7 +15224,7 @@ label_8:
       return carryCapPts;
     }
 
-    pub GetLocTypeItemTypesAmmount: i32(loctype: i32)
+    pub fn GetLocTypeItemTypesAmmount(loctype: i32) -> i32
     {
       let mut itemTypesAmmount: i32 =  0;
       let mut index: i32 =  0;
@@ -15238,7 +15238,7 @@ label_8:
       return itemTypesAmmount;
     }
 
-    pub GetPowerPtsAbsolute: i32(unr: i32, bool onlyland = false, bool stafftoo = true)
+    pub fn GetPowerPtsAbsolute(unr: i32, bool onlyland = false, bool stafftoo = true) -> i32
     {
       powerPtsAbsolute: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15255,7 +15255,7 @@ label_8:
       return powerPtsAbsolute;
     }
 
-    pub GetPowerPtsAbsoluteForWholeChainOfCommand: i32(hqnr: i32, bool onlyland = false, bool stafftoo = true)
+    pub fn GetPowerPtsAbsoluteForWholeChainOfCommand(hqnr: i32, bool onlyland = false, bool stafftoo = true) -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       wholeChainOfCommand: i32;
@@ -15276,7 +15276,7 @@ label_8:
       return wholeChainOfCommand;
     }
 
-    pub GetPowerPtsAbsoluteForAirOnly: i32(unr: i32)
+    pub fn GetPowerPtsAbsoluteForAirOnly(unr: i32) -> i32
     {
       absoluteForAirOnly: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15293,7 +15293,7 @@ label_8:
       return absoluteForAirOnly;
     }
 
-    pub GetAirCarryCapPts: i32(unr: i32)
+    pub fn GetAirCarryCapPts(unr: i32) -> i32
     {
       airCarryCapPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15310,7 +15310,7 @@ label_8:
       return airCarryCapPts;
     }
 
-    pub GetAntiStrucPts: i32(unr: i32)
+    pub fn GetAntiStrucPts(unr: i32) -> i32
     {
       antiStrucPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15326,7 +15326,7 @@ label_8:
       return antiStrucPts;
     }
 
-    pub GetUnitSFNr: i32(unr: i32, Sftyp2: i32, ppl: i32)
+    pub fn GetUnitSFNr(unr: i32, Sftyp2: i32, ppl: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
@@ -15341,7 +15341,7 @@ label_8:
       return -1;
     }
 
-    pub GetBlowBridgePts: i32(unr: i32)
+    pub fn GetBlowBridgePts(unr: i32) -> i32
     {
       blowBridgePts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15362,7 +15362,7 @@ label_8:
       return blowBridgePts;
     }
 
-    pub GetAirCarryCapPtsOccupied: i32(unr: i32)
+    pub fn GetAirCarryCapPtsOccupied(unr: i32) -> i32
     {
       carryCapPtsOccupied: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15404,7 +15404,7 @@ label_8:
       return true;
     }
 
-    pub string Encrypt(string plainText)
+    pub Encrypt: String(plainText: String)
     {
       ICryptoTransform encryptor = RijndaelManaged::new().CreateEncryptor(new byte[32]
       {
@@ -15463,7 +15463,7 @@ label_8:
       return Convert.ToBase64String(encryptor.TransformFinalBlock(bytes, 0, bytes.Length));
     }
 
-    pub string Decrypt(string encryptedText)
+    pub Decrypt: String(encryptedText: String)
     {
       ICryptoTransform decryptor = RijndaelManaged::new().CreateDecryptor(new byte[32]
       {
@@ -15817,7 +15817,7 @@ label_8:
       return num > 0;
     }
 
-    pub HasUnitAA: i32(unr: i32)
+    pub fn HasUnitAA(unr: i32) -> i32
     {
       let mut num: i32 =  -1;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -15898,7 +15898,7 @@ label_8:
       return num > 0;
     }
 
-    pub GetUnitBestArtRange: i32(unr: i32, data: DataClass)
+    pub fn GetUnitBestArtRange(unr: i32, data: DataClass) -> i32
     {
       let mut unitBestArtRange: i32 =  0;
       if (data.UnitObj[unr].SFCount > -1)
@@ -16008,7 +16008,7 @@ label_8:
       return orderResult;
     }
 
-    pub CurrentAttackStack: i32()
+    pub fn CurrentAttackStack() -> i32
     {
       num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
@@ -16023,7 +16023,7 @@ label_8:
       return num;
     }
 
-    pub CurrentAttackStackAir: i32()
+    pub fn CurrentAttackStackAir() -> i32
     {
       num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
@@ -16038,7 +16038,7 @@ label_8:
       return num;
     }
 
-    pub CurrentAttackStackart: i32()
+    pub fn CurrentAttackStackart() -> i32
     {
       num: i32;
       if (this.game.EditObj.TempUnitList.counter > -1)
@@ -16053,7 +16053,7 @@ label_8:
       return num;
     }
 
-    pub maxAttackStack: i32()
+    pub fn maxAttackStack() -> i32
     {
       int[] numArray = new int[6];
       if (this.game.EditObj.TempUnitList.counter > -1)
@@ -16086,7 +16086,7 @@ label_8:
       return num1;
     }
 
-    pub maxAttackStackPrognosis: i32(bool facingInData2 = false)
+    pub fn maxAttackStackPrognosis(bool facingInData2 = false) -> i32
     {
       int[] numArray = new int[6];
       if (Information.IsNothing( this.game.EditObj.TempUnitList))
@@ -16160,7 +16160,7 @@ label_8:
       return false;
     }
 
-    pub GetMaxArtRange: i32(unr: i32, temptheater: i32)
+    pub fn GetMaxArtRange(unr: i32, temptheater: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16175,7 +16175,7 @@ label_8:
       return maxArtRange;
     }
 
-    pub GetMaxAARange: i32(unr: i32)
+    pub fn GetMaxAARange(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16190,7 +16190,7 @@ label_8:
       return maxAaRange;
     }
 
-    pub GetMaxAirRange: i32(unr: i32)
+    pub fn GetMaxAirRange(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16275,7 +16275,7 @@ label_8:
       return aiMatrix2;
     }
 
-    pub GetMaxDirectRange: i32(unr: i32, temptheater: i32)
+    pub fn GetMaxDirectRange(unr: i32, temptheater: i32) -> i32
     {
       if ( this.game.Data.RuleVar[419] < 1.0 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
@@ -16290,7 +16290,7 @@ label_8:
       return maxDirectRange;
     }
 
-    pub HexAverageEntrenchment: i32(x: i32, y: i32)
+    pub fn HexAverageEntrenchment(x: i32, y: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -16312,7 +16312,7 @@ label_8:
       return num2 <= 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
-    pub GetArtPercent: i32(unr: i32, bool useHis)
+    pub fn GetArtPercent(unr: i32, bool useHis) -> i32
     {
       if (useHis & this.game.Data.UnitObj[unr].HistoricalSubPart > -1 & this.game.Data.UnitObj[unr].Historical > -1)
       {
@@ -16341,7 +16341,7 @@ label_8:
       return  Math.Round( (num1 * 100) /  num2);
     }
 
-    pub GetDirectPercent: i32(unr: i32, bool useHis)
+    pub fn GetDirectPercent(unr: i32, bool useHis) -> i32
     {
       if (useHis & this.game.Data.UnitObj[unr].HistoricalSubPart > -1 & this.game.Data.UnitObj[unr].Historical > -1)
       {
@@ -16546,7 +16546,7 @@ label_8:
       return false;
     }
 
-    pub GetVisibleHisVar: i32(his: i32)
+    pub fn GetVisibleHisVar(his: i32) -> i32
     {
       let mut visibleHisVar: i32 =  0;
       let mut hisVarCount: i32 =  this.game.Data.HistoricalUnitObj[his].HisVarCount;
@@ -16558,7 +16558,7 @@ label_8:
       return visibleHisVar;
     }
 
-    pub GetRegimeHistoryTotSteps: i32(regnr: i32)
+    pub fn GetRegimeHistoryTotSteps(regnr: i32) -> i32
     {
       if (this.game.Data.RegimeObj[regnr].HistoryStepCounter == -1)
         return -1;
@@ -16588,7 +16588,7 @@ label_8:
       return regimeHistoryTotSteps;
     }
 
-    pub CheckCargoLoss: i32(unr: i32,  UnitList UL, Attacker: i32, Defender: i32)
+    pub fn CheckCargoLoss(unr: i32,  UnitList UL, Attacker: i32, Defender: i32) -> i32
     {
       let mut x: i32 =  this.game.Data.UnitObj[unr].X;
       let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
@@ -16639,7 +16639,7 @@ label_8:
       return num1;
     }
 
-    pub DoLoseCargo: i32(unr: i32, float loss, Attacker: i32, Defender: i32)
+    pub fn DoLoseCargo(unr: i32, float loss, Attacker: i32, Defender: i32) -> i32
     {
       num1: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -16755,7 +16755,7 @@ label_8:
       return num1 < 1 ? 1 : 0;
     }
 
-    pub DoLoseCargoAircraft: i32(unr: i32, float loss, Attacker: i32, Defender: i32)
+    pub fn DoLoseCargoAircraft(unr: i32, float loss, Attacker: i32, Defender: i32) -> i32
     {
       num1: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -16863,7 +16863,7 @@ label_8:
       return num1 < 1 ? 1 : 0;
     }
 
-    pub fn ImportPreDefUnitsOnly(string filename, bool HisToo = false)
+    pub fn ImportPreDefUnitsOnly(filename: String, bool HisToo = false)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -16944,7 +16944,7 @@ label_8:
     }
 
     pub void LoadMasterFile(
-      string filename,
+      filename: String,
       bool onlyrulevar = false,
       bool alsohistorical = true,
       bool LoadDescription = false,
@@ -17451,7 +17451,7 @@ label_8:
       }
     }
 
-    pub fn LoadHistoricalUnits(string filename)
+    pub fn LoadHistoricalUnits(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17488,7 +17488,7 @@ label_8:
       dataClass1 = (DataClass) null;
     }
 
-    pub fn LoadUnitsByFullOverwrite(string filename)
+    pub fn LoadUnitsByFullOverwrite(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17605,7 +17605,7 @@ label_8:
       return averageHqCoordinate;
     }
 
-    pub fn LoadSFTypes(string filename)
+    pub fn LoadSFTypes(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17718,7 +17718,7 @@ label_8:
       }
     }
 
-    pub fn LoadLandscapeTypes(string filename)
+    pub fn LoadLandscapeTypes(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17774,7 +17774,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub fn LoadItemTypes(string filename)
+    pub fn LoadItemTypes(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17824,7 +17824,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub fn LoadGameVars(string filename)
+    pub fn LoadGameVars(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -17856,7 +17856,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub LoadMap: bool(string filename, bool simpleLoad = false, bool reload = false)
+    pub LoadMap: bool(filename: String, bool simpleLoad = false, bool reload = false)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18000,7 +18000,7 @@ label_8:
       return false;
     }
 
-    pub fn LoadResearch(string filename)
+    pub fn LoadResearch(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18050,7 +18050,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub fn LoadLocTypes(string filename)
+    pub fn LoadLocTypes(filename: String)
     {
       float[] numArray1 = new float[100];
       bool[] flagArray = new bool[100];
@@ -18118,7 +18118,7 @@ label_8:
       this.game.Data.LoadGraphics((Form1) null);
     }
 
-    pub fn AlternateLoadMasterFile(string filename)
+    pub fn AlternateLoadMasterFile(filename: String)
     {
       str: String = this.game.AppPath + "scenarios\\" + filename;
       this.Unzip(str);
@@ -18246,7 +18246,7 @@ label_8:
       dataClass1 = (DataClass) null;
     }
 
-    pub GetRegimeVP: i32(regnr: i32)
+    pub fn GetRegimeVP(regnr: i32) -> i32
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
       regimeVp: i32;
@@ -18472,7 +18472,7 @@ label_9:
       return true;
     }
 
-    pub HexRoadCount: i32(x: i32, y: i32, map: i32)
+    pub fn HexRoadCount(x: i32, y: i32, map: i32) -> i32
     {
       let mut num: i32 =  0;
       let mut index: i32 =  0;
@@ -18486,7 +18486,7 @@ label_9:
       return num;
     }
 
-    pub HexLowestRulevar99moveCost: i32(x: i32, y: i32, map: i32)
+    pub fn HexLowestRulevar99moveCost(x: i32, y: i32, map: i32) -> i32
     {
       let mut num1: i32 =  999;
       if ( this.game.Data.RuleVar[99] < 0.0 | this.game.Data.RoadTypeCounter == -1)
@@ -18635,7 +18635,7 @@ label_9:
       return  hqsInUnitList;
     }
 
-    pub GetHQsInUnitList: i32()
+    pub fn GetHQsInUnitList() -> i32
     {
       let mut num: i32 =  -1;
       let mut hqsInUnitList: i32 =  0;
@@ -18773,7 +18773,7 @@ label_9:
       return !multiplehq ? 1f + num11 : (!(forAI &  this.game.Data.RuleVar[993] > 0.0) ?  (1.0 +  num11 / 2.0) : 1f + num11);
     }
 
-    pub GetNumberOfSubordinates: i32(hq: i32)
+    pub fn GetNumberOfSubordinates(hq: i32) -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       numberOfSubordinates: i32;
@@ -19300,7 +19300,7 @@ label_9:
       this.game.EditObj.UnitSelected = -1;
     }
 
-    pub CountLandHexesOnMap: i32(map: i32)
+    pub fn CountLandHexesOnMap(map: i32) -> i32
     {
       let mut mapWidth: i32 =  this.game.Data.MapObj[map].MapWidth;
       num: i32;
@@ -19316,7 +19316,7 @@ label_9:
       return num;
     }
 
-    pub string GetHexName(x: i32, y: i32, map: i32, bool excludeLabelIfNoLoc = false)
+    pub GetHexName: String(x: i32, y: i32, map: i32, bool excludeLabelIfNoLoc = false)
     {
       if (x < 0 | y < 0 | x > this.game.Data.MapObj[0].MapWidth | y > this.game.Data.MapObj[0].MapHeight)
         return "Unknown Hex";
@@ -19348,7 +19348,7 @@ label_9:
       return Left;
     }
 
-    pub GetProdPtsForLoc: i32(locnr: i32, slot: i32, bool AddRem = false)
+    pub fn GetProdPtsForLoc(locnr: i32, slot: i32, bool AddRem = false) -> i32
     {
       let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
       let mut people: i32 =  this.game.Data.LocObj[locnr].People;
@@ -19385,7 +19385,7 @@ label_9:
       return prodPtsForLoc;
     }
 
-    pub GetProdPtsForLoc2: i32(locnr: i32)
+    pub fn GetProdPtsForLoc2(locnr: i32) -> i32
     {
       let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
       let mut people: i32 =  this.game.Data.LocObj[locnr].People;
@@ -19464,7 +19464,7 @@ label_9:
       return  num /  prodWeight;
     }
 
-    pub NumberOfOtherHQinHex: i32(x: i32, y: i32, map: i32, currentunr: i32)
+    pub fn NumberOfOtherHQinHex(x: i32, y: i32, map: i32, currentunr: i32) -> i32
     {
       let mut num: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -19479,7 +19479,7 @@ label_9:
       return num;
     }
 
-    pub IDOfOtherHQinHex: i32(x: i32, y: i32, map: i32, currentunr: i32)
+    pub fn IDOfOtherHQinHex(x: i32, y: i32, map: i32, currentunr: i32) -> i32
     {
       let mut num: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -19527,7 +19527,7 @@ label_9:
       }
     }
 
-    pub GetNextPreDefNr: i32()
+    pub fn GetNextPreDefNr() -> i32
     {
       let mut nextPreDefNr: i32 =  0;
       if (this.game.Data.UnitCounter <= -1)
@@ -19923,7 +19923,7 @@ label_9:
       return num != 0 && (DontCheckHQ || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) != -1);
     }
 
-    pub CanUpgradeCost: i32(sfnr: i32, unr: i32, qty: i32)
+    pub fn CanUpgradeCost(sfnr: i32, unr: i32, qty: i32) -> i32
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19931,7 +19931,7 @@ label_9:
       return this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeXP > this.game.Data.SFObj[sfnr].Xp || !this.game.Data.SFTypeObj[upgradeToo].PeopleGroup[peopleGroup] || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) == -1 ? -1 :  Math.Round( ( (upgradeCost * qty) / this.game.Data.RuleVar[77]));
     }
 
-    pub CanUpgradeMax: i32(sfnr: i32, unr: i32, hq: i32)
+    pub fn CanUpgradeMax(sfnr: i32, unr: i32, hq: i32) -> i32
     {
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
@@ -19942,13 +19942,13 @@ label_9:
       return upgradeCost < 1 ? 9999 :  Math.Round( Conversion.Int( this.game.Data.UnitObj[hq].Supply / ( upgradeCost / this.game.Data.RuleVar[77])));
     }
 
-    pub HQSupply: i32(unr: i32)
+    pub fn HQSupply(unr: i32) -> i32
     {
       let mut index: i32 =  !this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr;
       return index == -1 ? 0 : this.game.Data.UnitObj[index].Supply;
     }
 
-    pub HQSupplyChain: i32(unr: i32, bool recurse = false, let mut fromunit: i32 =  -1)
+    pub fn HQSupplyChain(unr: i32, bool recurse = false, let mut fromunit: i32 =  -1) -> i32
     {
       if (unr == -1)
         return 0;
@@ -19980,7 +19980,7 @@ label_9:
       return this.game.Data.UnitObj[index].Supply >= num;
     }
 
-    pub CanSwap: i32(sfnr1: i32, sfnr2: i32)
+    pub fn CanSwap(sfnr1: i32, sfnr2: i32) -> i32
     {
       if (this.game.Data.SFObj[sfnr1].People != this.game.Data.SFObj[sfnr2].People)
         return 0;
@@ -20083,7 +20083,7 @@ label_9:
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub GetAnyUnitForProduction: i32(x: i32, y: i32, map: i32, sftype: i32, ppl: i32, movetype: i32)
+    pub fn GetAnyUnitForProduction(x: i32, y: i32, map: i32, sftype: i32, ppl: i32, movetype: i32) -> i32
     {
       let mut unitForProduction1: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].Location == -1)
@@ -20153,7 +20153,7 @@ label_9:
       return unitForProduction2;
     }
 
-    pub GetProdTotalPercent: i32(locnr: i32)
+    pub fn GetProdTotalPercent(locnr: i32) -> i32
     {
       let mut index: i32 =  0;
       prodTotalPercent: i32;
@@ -20166,7 +20166,7 @@ label_9:
       return prodTotalPercent;
     }
 
-    pub GetCapPts: i32(unr: i32, theater: i32)
+    pub fn GetCapPts(unr: i32, theater: i32) -> i32
     {
       capPts: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -20183,7 +20183,7 @@ label_9:
       return capPts;
     }
 
-    pub GetInterdictPower: i32(unr: i32)
+    pub fn GetInterdictPower(unr: i32) -> i32
     {
       interdictPower: i32;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -20728,7 +20728,7 @@ label_9:
       return false;
     }
 
-    pub GetUnitCumulativeReplacement: i32(unr: i32, hq: i32)
+    pub fn GetUnitCumulativeReplacement(unr: i32, hq: i32) -> i32
     {
       let mut cumulativeReplacement: i32 =  100;
       for (; this.game.Data.UnitObj[unr].HQ > -1; unr = this.game.Data.UnitObj[unr].HQ)
@@ -20772,7 +20772,7 @@ label_9:
       return staffCombatMod;
     }
 
-    pub GetRealHqCombatImprovementPercentage: i32(unr: i32)
+    pub fn GetRealHqCombatImprovementPercentage(unr: i32) -> i32
     {
       let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
       if (historical == -1)
@@ -20869,7 +20869,7 @@ label_9:
       return staffMoraleMod;
     }
 
-    pub GetStaffNeeded: i32(unr: i32)
+    pub fn GetStaffNeeded(unr: i32) -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       staffNeeded: i32;
@@ -20942,7 +20942,7 @@ label_9:
       return staffPercent;
     }
 
-    pub GetStaffPoints: i32(unr: i32)
+    pub fn GetStaffPoints(unr: i32) -> i32
     {
       if (unr < 0)
         return 0;
@@ -20956,7 +20956,7 @@ label_9:
       return staffPoints;
     }
 
-    pub GetSingleCapHQ: i32()
+    pub fn GetSingleCapHQ() -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       singleCapHq: i32;
@@ -20974,7 +20974,7 @@ label_9:
       return num == 0 ? -2 : -1;
     }
 
-    pub GetGroupPowerPoints: i32(unr: i32)
+    pub fn GetGroupPowerPoints(unr: i32) -> i32
     {
       if (unr < 0)
         return 0;
@@ -21050,7 +21050,7 @@ label_9:
       }
     }
 
-    pub GetDivBonus: i32(unr: i32)
+    pub fn GetDivBonus(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].Historical <= -1)
         return 0;
@@ -21078,7 +21078,7 @@ label_9:
       return divBonus;
     }
 
-    pub GetDivBonusPrognosis: i32(unr: i32)
+    pub fn GetDivBonusPrognosis(unr: i32) -> i32
     {
       if (this.game.Data.UnitObj[unr].Historical <= -1)
         return 0;
@@ -21115,7 +21115,7 @@ label_9:
       return divBonusPrognosis;
     }
 
-    pub GetDivBonusForAttack: i32(tarx: i32, tary: i32, tarmap: i32)
+    pub fn GetDivBonusForAttack(tarx: i32, tary: i32, tarmap: i32) -> i32
     {
       int[] numArray = new int[this.game.Data.HistoricalUnitCounter + 1];
       let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
@@ -21170,7 +21170,7 @@ label_9:
       return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
-    pub GetDivBonusForAttackPrognosis: i32(tarx: i32, tary: i32)
+    pub fn GetDivBonusForAttackPrognosis(tarx: i32, tary: i32) -> i32
     {
       let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
       for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
@@ -21227,7 +21227,7 @@ label_9:
       return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
-    pub Gethqpowifhqis: i32(unr: i32, hq: i32, bool UseTemp = false)
+    pub fn Gethqpowifhqis(unr: i32, hq: i32, bool UseTemp = false) -> i32
     {
       float num1 = this.game.Data.RuleVar[73];
       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
@@ -21268,7 +21268,7 @@ label_9:
       return num4;
     }
 
-    pub Gethqpow: i32(unr: i32, bool UseTemp = false)
+    pub fn Gethqpow(unr: i32, bool UseTemp = false) -> i32
     {
       float num1 = this.game.Data.RuleVar[73];
       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
@@ -21452,7 +21452,7 @@ label_9:
       this.RedimTempValueSpecial(0);
     }
 
-    pub GetTopHQ: i32(unr: i32)
+    pub fn GetTopHQ(unr: i32) -> i32
     {
       let mut num: i32 =  0;
       if (unr == -1)
@@ -21469,7 +21469,7 @@ label_9:
       return unr;
     }
 
-    pub MissingTroopsInPowerPoints: i32(unr: i32)
+    pub fn MissingTroopsInPowerPoints(unr: i32) -> i32
     {
       if (!(this.game.Data.UnitObj[unr].Historical > -1 & this.game.Data.UnitObj[unr].HistoricalSubPart > -1) || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].SubParts[this.game.Data.UnitObj[unr].HistoricalSubPart] <= -1)
         return 0;
@@ -21534,7 +21534,7 @@ label_9:
       return false;
     }
 
-    pub GetRealHQSupplyPts: i32(unr: i32)
+    pub fn GetRealHQSupplyPts(unr: i32) -> i32
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       num: i32;
@@ -21826,7 +21826,7 @@ label_9:
       }
     }
 
-    pub GetBreakPercent: i32(unr: i32)
+    pub fn GetBreakPercent(unr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -21846,7 +21846,7 @@ label_9:
       return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub GetMaxStockpile: i32(unr: i32)
+    pub fn GetMaxStockpile(unr: i32) -> i32
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       maxStockpile: i32;
@@ -21907,7 +21907,7 @@ label_9:
       return  stockpileRequest;
     }
 
-    pub GetHumanPlayers: i32()
+    pub fn GetHumanPlayers() -> i32
     {
       let mut reg1: i32 =  -1;
       let mut humanPlayers: i32 =  0;
@@ -21925,7 +21925,7 @@ label_9:
       return humanPlayers;
     }
 
-    pub FindOtherHumanPlayer: i32(regnr: i32)
+    pub fn FindOtherHumanPlayer(regnr: i32) -> i32
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut otherHumanPlayer: i32 =  0; otherHumanPlayer <= regimeCounter; otherHumanPlayer += 1)
@@ -21936,7 +21936,7 @@ label_9:
       return -1;
     }
 
-    pub FindAIPlayer: i32()
+    pub fn FindAIPlayer() -> i32
     {
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut aiPlayer: i32 =  0; aiPlayer <= regimeCounter; aiPlayer += 1)
@@ -21947,7 +21947,7 @@ label_9:
       return -1;
     }
 
-    pub GetAntiSupply: i32(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32)
+    pub fn GetAntiSupply(x1: i32, y1: i32, map1: i32, x2: i32, y2: i32, map2: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut index1: i32 =  x2;
@@ -22261,7 +22261,7 @@ label_9:
       }
     }
 
-    pub GetPowerInReinforcementPoints: i32(unr: i32, rtyp: i32)
+    pub fn GetPowerInReinforcementPoints(unr: i32, rtyp: i32) -> i32
     {
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       reinforcementPoints: i32;
@@ -22275,7 +22275,7 @@ label_9:
       return reinforcementPoints;
     }
 
-    pub PowerPointsDifferent: i32(unr1: i32, unr2: i32)
+    pub fn PowerPointsDifferent(unr1: i32, unr2: i32) -> i32
     {
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
@@ -22342,7 +22342,7 @@ label_9:
       return num1;
     }
 
-    pub GetHistoricalsSubUnitCount: i32(hisnr: i32)
+    pub fn GetHistoricalsSubUnitCount(hisnr: i32) -> i32
     {
       let mut index: i32 =  0;
       historicalsSubUnitCount: i32;
@@ -22356,9 +22356,9 @@ label_9:
       return historicalsSubUnitCount;
     }
 
-    pub string GetRomanNumerical(nr: i32) => nr < 1 ? "" : this.deka2r(nr);
+    pub GetRomanNumerical: String(nr: i32) => nr < 1 ? "" : this.deka2r(nr);
 
-    pub string deka2r(nr: i32)
+    pub deka2r: String(nr: i32)
     {
       strArray: Vec<String> = new string[13]
       {
@@ -22394,7 +22394,7 @@ label_9:
       };
       short index1 = 0;
       let mut num1: i32 =  nr;
-      string str;
+      str: String;
       while (num1 > 0)
       {
         let mut num2: i32 =  num1 / numArray[ index1];
@@ -22407,7 +22407,7 @@ label_9:
       return str;
     }
 
-    pub Disabled_GetHighCommand: i32(regnr: i32)
+    pub fn Disabled_GetHighCommand(regnr: i32) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
@@ -22532,7 +22532,7 @@ label_9:
       return num1;
     }
 
-    pub string GetMonth(nr: i32)
+    pub GetMonth: String(nr: i32)
     {
       switch (nr)
       {
@@ -22561,12 +22561,12 @@ label_9:
         case 12:
           return "December";
         default:
-          string month;
+          month: String;
           return month;
       }
     }
 
-    pub fn doscreenshot(string extension, map: i32)
+    pub fn doscreenshot(extension: String, map: i32)
     {
       this.game.EditObj.TempCoordList = CoordList::new();
       if (this.game.Data.MapWidth + this.game.Data.MapHeight > 400 &  this.game.Data.RuleVar[878] < 1.0)
@@ -22660,7 +22660,7 @@ label_9:
       }
     }
 
-    pub fn ZipFile(string FileToZip)
+    pub fn ZipFile(FileToZip: String)
     {
       Crc32 crc32 = Crc32::new();
       GC.Collect();
@@ -22723,7 +22723,7 @@ label_9:
       }
     }
 
-    pub fn ZipFileExport2(string FileName, slist: Vec<String>, string backupFolderPath) => new FastZip(FastZipEvents::new())
+    pub fn ZipFileExport2(FileName: String, slist: Vec<String>, backupFolderPath: String) => new FastZip(FastZipEvents::new())
     {
       CreateEmptyDirectories = true
     }.CreateZip(FileName, backupFolderPath, true, "");
@@ -22732,7 +22732,7 @@ label_9:
     {
     }
 
-    pub fn ZipFileExport(string FileName, slist: Vec<String>)
+    pub fn ZipFileExport(FileName: String, slist: Vec<String>)
     {
       Crc32 crc32 = Crc32::new();
       byte[] numArray1 = new byte[2];
@@ -22762,8 +22762,8 @@ label_9:
     }
 
     pub void RecursiveDirectoryCopy(
-      string sourceDir,
-      string destDir,
+      sourceDir: String,
+      destDir: String,
       bool fRecursive,
       bool overWrite)
     {
@@ -22777,7 +22777,7 @@ label_9:
       DirectoryInfo directoryInfo2 = (DirectoryInfo) null;
       if (fRecursive)
       {
-        foreach (string directory in Directory.GetDirectories(sourceDir))
+        foreach (directory: String in Directory.GetDirectories(sourceDir))
         {
           DirectoryInfo directoryInfo3 = new DirectoryInfo(directory);
           DirectoryInfo directoryInfo4 = new DirectoryInfo(destDir + directoryInfo3.Name);
@@ -22787,7 +22787,7 @@ label_9:
           directoryInfo2 = (DirectoryInfo) null;
         }
       }
-      foreach (string file in Directory.GetFiles(sourceDir))
+      foreach (file: String in Directory.GetFiles(sourceDir))
       {
         FileInfo fileInfo1 = new FileInfo(file);
         FileInfo fileInfo2 = new FileInfo(Strings.Replace(file, sourceDir, destDir));
@@ -22800,7 +22800,7 @@ label_9:
       }
     }
 
-    pub fn UnzipImport(string ZipFile)
+    pub fn UnzipImport(ZipFile: String)
     {
       appPath: String = this.game.AppPath;
       let mut num1: i32 =  1;
@@ -22883,7 +22883,7 @@ label_9:
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub fn Unzip(string ZipFile)
+    pub fn Unzip(ZipFile: String)
     {
       GC.Collect();
       str: String = Path.GetDirectoryName(ZipFile) + "/temp.txt";
@@ -22939,7 +22939,7 @@ label_9:
 
     pub CanUnitReceiveTransfer: bool(unr: i32, sftype: i32, qty: i32, ppl: i32) => true;
 
-    pub string GetAreaName(slot: i32, code: i32)
+    pub GetAreaName: String(slot: i32, code: i32)
     {
       if (slot < 0 | slot > 9 || code < 1)
         return "";
@@ -22952,7 +22952,7 @@ label_9:
       return "";
     }
 
-    pub GetMapUnitByID: i32(hisID: i32)
+    pub fn GetMapUnitByID(hisID: i32) -> i32
     {
       if (hisID < 1)
         return -1;
@@ -22965,7 +22965,7 @@ label_9:
       return -1;
     }
 
-    pub GetRegimeByID: i32(id: i32)
+    pub fn GetRegimeByID(id: i32) -> i32
     {
       if (id < 1)
         return -1;
@@ -22978,7 +22978,7 @@ label_9:
       return -1;
     }
 
-    pub GetPeopleByID: i32(id: i32)
+    pub fn GetPeopleByID(id: i32) -> i32
     {
       if (id < 1)
         return -1;
@@ -22991,7 +22991,7 @@ label_9:
       return -1;
     }
 
-    pub GetUnitByHistorical: i32(his: i32)
+    pub fn GetUnitByHistorical(his: i32) -> i32
     {
       if (his < 0)
         return -1;
@@ -23004,7 +23004,7 @@ label_9:
       return -1;
     }
 
-    pub GetUnitByHistorical: i32(his: i32, subp: i32)
+    pub fn GetUnitByHistorical(his: i32, subp: i32) -> i32
     {
       if (his < 0)
         return -1;
@@ -23017,7 +23017,7 @@ label_9:
       return -1;
     }
 
-    pub GetUnitByAIid: i32(id: i32)
+    pub fn GetUnitByAIid(id: i32) -> i32
     {
       if (id < 1)
         return -1;
@@ -23030,7 +23030,7 @@ label_9:
       return -1;
     }
 
-    pub GetAreaByID: i32(areaID: i32)
+    pub fn GetAreaByID(areaID: i32) -> i32
     {
       if (areaID < 1)
         return -1;
@@ -23043,7 +23043,7 @@ label_9:
       return -1;
     }
 
-    pub GetAreaBySlot: i32(Slot: i32, Code: i32)
+    pub fn GetAreaBySlot(Slot: i32, Code: i32) -> i32
     {
       let mut areaCounter: i32 =  this.game.Data.AreaCounter;
       for (let mut areaBySlot: i32 =  0; areaBySlot <= areaCounter; areaBySlot += 1)
@@ -23140,7 +23140,7 @@ label_9:
       }
     }
 
-    pub DownloadFile: i32(string url, string savename)
+    pub fn DownloadFile(url: String, savename: String) -> i32
     {
       try
       {
@@ -23230,7 +23230,7 @@ label_11:
       this.game.Data.MapObj[imap].HexObj[ix, iy].SpriteNr = num;
     }
 
-    pub RandomizeHexLT: i32(ltnr: i32, spnr: i32)
+    pub fn RandomizeHexLT(ltnr: i32, spnr: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut basicSpriteCounter1: i32 =  this.game.Data.LandscapeTypeObj[ltnr].BasicSpriteCounter;
@@ -23254,7 +23254,7 @@ label_11:
       return 0;
     }
 
-    pub GetPreDef: i32(predefnr: i32)
+    pub fn GetPreDef(predefnr: i32) -> i32
     {
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut preDef: i32 =  0; preDef <= unitCounter; preDef += 1)
@@ -23751,14 +23751,14 @@ label_11:
       }
     }
 
-    pub fn SaveBitmap(tmpbmp: Bitmap, string s)
+    pub fn SaveBitmap(tmpbmp: Bitmap, s: String)
     {
       FileStream fileStream = new FileStream(this.game.AppPath + "logs/" + s + ".png", FileMode.Create);
       tmpbmp.Save((Stream) fileStream, ImageFormat.Png);
       fileStream.Close();
     }
 
-    pub fn SaveBitmapAsPing(tmpbmp: Bitmap, string s)
+    pub fn SaveBitmapAsPing(tmpbmp: Bitmap, s: String)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -23766,7 +23766,7 @@ label_11:
       fileStream.Close();
     }
 
-    pub fn MakeDirIfNecc(string s)
+    pub fn MakeDirIfNecc(s: String)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  1;
@@ -23798,7 +23798,7 @@ label_11:
       }
     }
 
-    pub fn SaveBitmapAsJpeg(tmpbmp: Bitmap, string s)
+    pub fn SaveBitmapAsJpeg(tmpbmp: Bitmap, s: String)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -23806,7 +23806,7 @@ label_11:
       fileStream.Close();
     }
 
-    pub GetFuelSlot949: i32(currentSlot: i32, x: i32, y: i32)
+    pub fn GetFuelSlot949(currentSlot: i32, x: i32, y: i32) -> i32
     {
       str: String = "oil" + this.game.Data.RuleVar[949].ToString();
       if (x == -1 | y == -1)
@@ -23823,7 +23823,7 @@ label_11:
       return currentSlot;
     }
 
-    pub fn SaveBitmapAsBmp(tmpbmp: Bitmap, string s)
+    pub fn SaveBitmapAsBmp(tmpbmp: Bitmap, s: String)
     {
       this.MakeDirIfNecc(s);
       FileStream fileStream = new FileStream(s, FileMode.Create);
@@ -24283,7 +24283,7 @@ label_11:
       let mut index2: i32 =  -1;
       FileName: String = this.game.HandyFunctionsObj.SaveSomething("DC Zip package files(dczip)|*.dczip|Regular ZIP file(zip)|*.zip", "Save as .dczip or .zip file", this.game.AppPath, false);
       let mut num1: i32 =  1;
-      string path;
+      path: String;
       while (Interaction.MsgBox( ("Add a file (scenario, game menu mod txt file) under '" + this.game.AppPath + "'."), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         path = this.game.HandyFunctionsObj.LoadSomething("All files|*.*", "Add a file (scenario, game menu mod txt file)", this.game.AppPath, false);
@@ -24533,7 +24533,7 @@ label_11:
       let mut num15: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub fn ExportModLibraryEditor(string libName)
+    pub fn ExportModLibraryEditor(libName: String)
     {
       arySrc: Vec<String> = new string[30000];
       strArray1: Vec<String> = new string[1000];
@@ -24547,7 +24547,7 @@ label_11:
         return;
       let mut num1: i32 =  1;
       bool flag = true;
-      string str2;
+      str2: String;
       while (flag)
       {
         str2 = this.game.HandyFunctionsObj.LoadSomething("All files|*.*", "Add the savefile of your Mod Library please.", this.game.AppPath, false);
@@ -24607,7 +24607,7 @@ label_11:
       let mut num8: i32 =  1;
       do
       {
-        string str4;
+        str4: String;
         if (num8 == 1)
         {
           str2 = this.game.AppPath + "graphics/" + libName.ToLower();
@@ -24678,7 +24678,7 @@ label_11:
       let mut num12: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
-    pub fn CopyDirectory(string sourcePath, string destinationPath)
+    pub fn CopyDirectory(sourcePath: String, destinationPath: String)
     {
       DirectoryInfo directoryInfo = new DirectoryInfo(sourcePath);
       if (!Directory.Exists(destinationPath))
@@ -24728,7 +24728,7 @@ label_11:
           flag = true;
       }
 label_13:
-      string path1;
+      path1: String;
       while (true)
       {
         if (Interaction.MsgBox( ("Add a directory directly under '" + this.game.AppPath + "/" + this.game.ModSoundDir + "'. "), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
@@ -25749,7 +25749,7 @@ label_14:
         }
         let mut num86: i32 =  num4 <= 0 ? 0 :  Math.Round( num5 /  num4);
         tid1: String = "Landscape modifier of ";
-        string str1;
+        str1: String;
         if (tdata3 == 1)
         {
           tid1 += "Offensive Attack Values";
@@ -26515,7 +26515,7 @@ label_14:
       this.game.Data.RegimeObj[this.game.Data.Turn].Trafic[0].Value[x, y] = num3;
     }
 
-    pub Air_CheckSizeStatOf: i32(let mut unr: i32 =  -1, let mut sfnr: i32 =  -1, let mut sftypeNr: i32 =  -1)
+    pub fn Air_CheckSizeStatOf(let mut unr: i32 =  -1, let mut sfnr: i32 =  -1, let mut sftypeNr: i32 =  -1) -> i32
     {
       let mut num1: i32 =  0;
       if (unr > -1)
@@ -26540,7 +26540,7 @@ label_14:
       return num1;
     }
 
-    pub Air_GetRandomizedRoundingDam: i32(number: i32, damPercent: i32)
+    pub fn Air_GetRandomizedRoundingDam(number: i32, damPercent: i32) -> i32
     {
       float num1 =  (number * damPercent) / 100f;
       let mut randomizedRoundingDam: i32 =   Math.Round(Math.Floor( (number * damPercent) / 100.0));
@@ -26576,7 +26576,7 @@ label_14:
       return unit;
     }
 
-    pub fn Air_LogUpdateForAll(regnr: i32, string prefix, string suffix)
+    pub fn Air_LogUpdateForAll(regnr: i32, prefix: String, suffix: String)
     {
       let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 535, 0, 0));
@@ -26599,7 +26599,7 @@ label_14:
       }
     }
 
-    pub Air_getNextTurnAirPoints: i32(regNr: i32, abNumber: i32)
+    pub fn Air_getNextTurnAirPoints(regNr: i32, abNumber: i32) -> i32
     {
       let mut nextTurnAirPoints: i32 =  0;
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
@@ -26632,7 +26632,7 @@ label_14:
       return nextTurnAirPoints;
     }
 
-    pub Air_getAirBridgeRowNr: i32(regId: i32, fromX: i32, fromY: i32, toX: i32, toY: i32)
+    pub fn Air_getAirBridgeRowNr(regId: i32, fromX: i32, fromY: i32, toX: i32, toY: i32) -> i32
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
@@ -26781,7 +26781,7 @@ label_14:
       return  lisFromAirBridge;
     }
 
-    pub Air_GetDamForAirBridge: i32(fromX: i32, fromY: i32, toX: i32, toY: i32)
+    pub fn Air_GetDamForAirBridge(fromX: i32, fromY: i32, toX: i32, toY: i32) -> i32
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
@@ -26867,7 +26867,7 @@ label_14:
       }
     }
 
-    pub SetCycleOrder: i32(unr: i32)
+    pub fn SetCycleOrder(unr: i32) -> i32
     {
       long num = 0;
       let mut shq: i32 =  this.game.EventRelatedObj.GetSHQ(unr);
@@ -26887,7 +26887,7 @@ label_14:
       return  num;
     }
 
-    pub NextCycleUnit: i32(unr: i32, bool nextMode)
+    pub fn NextCycleUnit(unr: i32, bool nextMode) -> i32
     {
       long num1 = 999999999999999;
       let mut num2: i32 =  -1;
@@ -26949,7 +26949,7 @@ label_14:
       return nextMode ? (num8 > -1 ? num8 : num2) : (num10 > -1 ? num10 : num4);
     }
 
-    pub string GetLandscapeMouseOverText()
+    pub GetLandscapeMouseOverText: String()
     {
       let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
       let mut location: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -27329,7 +27329,7 @@ label_14:
       return historical <= -1 || this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(11) <= 0;
     }
 
-    pub string CustomMouseOverLookups(string texty, string currentName)
+    pub CustomMouseOverLookups: String(texty: String, currentName: String)
     {
       bool flag = true;
       while (flag)
@@ -27373,8 +27373,8 @@ label_14:
           if (Start1 > 0)
             num1 = 6;
         }
-        string oldValue1;
-        string newValue;
+        oldValue1: String;
+        newValue: String;
         if (num1 > 0)
         {
           let mut Start2: i32 =  Strings.InStr(Start1, texty, ".");
@@ -27648,7 +27648,7 @@ label_14:
       return simpleStringList;
     }
 
-    pub string UnitPopupUdsButtons_MouseOver(id: i32) => id == 548 ? "Formation administration allows changing the Formation Type and setting Quality Levels" : "";
+    pub UnitPopupUdsButtons_MouseOver: String(id: i32) => id == 548 ? "Formation administration allows changing the Formation Type and setting Quality Levels" : "";
 
     pub fn UnitPopupUdsButtons_SetIO(id: i32)
     {
@@ -28006,7 +28006,7 @@ label_14:
       return color;
     }
 
-    pub AirBridgeInput: i32(unr: i32, sourceX: i32, sourceY: i32, targetX: i32, targetY: i32)
+    pub fn AirBridgeInput(unr: i32, sourceX: i32, sourceY: i32, targetX: i32, targetY: i32) -> i32
     {
       let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
       let mut num1: i32 =  0;
@@ -28155,7 +28155,7 @@ label_14:
       }
     }
 
-    pub GetSFTypeCombatValueScore: i32(typ: i32)
+    pub fn GetSFTypeCombatValueScore(typ: i32) -> i32
     {
       let mut index1: i32 =  typ;
       let mut attacks: i32 =  this.game.Data.SFTypeObj[index1].Attacks;
@@ -28188,10 +28188,10 @@ label_14:
       return  Math.Round( attacks * Math.Sqrt( d) *  num / 100.0);
     }
 
-    pub string GetSFTypeCombatValueScoreString(typ: i32) => "";
+    pub GetSFTypeCombatValueScoreString: String(typ: i32) => "";
 
-    pub GetSFTypeProdCostScore: i32(typ: i32) => 0 + this.game.Data.SFTypeObj[typ].SFTypeVar[61] + this.game.Data.SFTypeObj[typ].SFTypeVar[62] + this.game.Data.SFTypeObj[typ].SFTypeVar[63] * 2 + this.game.Data.SFTypeObj[typ].SFTypeVar[64] * 4 + this.game.Data.SFTypeObj[typ].SFTypeVar[65] * 8 + this.game.Data.SFTypeObj[typ].SFTypeVar[66] * 6 + this.game.Data.SFTypeObj[typ].SFTypeVar[67] * 2;
+    pub fn GetSFTypeProdCostScore(typ: i32) -> i32 => 0 + this.game.Data.SFTypeObj[typ].SFTypeVar[61] + this.game.Data.SFTypeObj[typ].SFTypeVar[62] + this.game.Data.SFTypeObj[typ].SFTypeVar[63] * 2 + this.game.Data.SFTypeObj[typ].SFTypeVar[64] * 4 + this.game.Data.SFTypeObj[typ].SFTypeVar[65] * 8 + this.game.Data.SFTypeObj[typ].SFTypeVar[66] * 6 + this.game.Data.SFTypeObj[typ].SFTypeVar[67] * 2;
 
-    pub string GetSFTypeProdCostScoreString(typ: i32) => "";
+    pub GetSFTypeProdCostScoreString: String(typ: i32) => "";
   }
 }

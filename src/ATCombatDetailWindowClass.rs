@@ -253,8 +253,8 @@ namespace WindowsApplication1
               this.detailnr3 = tdata;
             if (this.detailnr3 == tdata)
               tlistselect4 = num5;
-            string tvalue;
-            string tvalue2;
+            tvalue: String;
+            tvalue2: String;
             if (!Information.IsNothing( this.game.TempCombat.IList[tdata].IHistoricState))
             {
               tvalue = this.game.TempCombat.IList[tdata].IHistoricState[this.detailnr];

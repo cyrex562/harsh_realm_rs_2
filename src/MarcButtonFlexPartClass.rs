@@ -16,7 +16,7 @@ namespace WindowsApplication1
      OwnBitmapNr: i32;
      backbitmap: Bitmap;
      otherback: i32;
-     string texty;
+     texty: String;
      bw: i32;
      bh: i32;
      colorized: i32;
@@ -31,7 +31,7 @@ namespace WindowsApplication1
 
     pub MarcButtonFlexPartClass(
       tbmpnr: i32,
-      string tTexty,
+      tTexty: String,
       let mut tcolorized: i32 =  0,
       tDescript: String = "",
        tBackbitmap: Bitmap = null,

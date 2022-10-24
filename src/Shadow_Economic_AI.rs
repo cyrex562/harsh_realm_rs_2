@@ -305,7 +305,7 @@ namespace WindowsApplication1
       self.CleanUpRoads("ForAllSHQ");
     }
 
-    pub fn MakeLogs(string logAddition)
+    pub fn MakeLogs(logAddition: String)
     {
       let mut num1: i32 = -1;
       libName: String = "SE_Data";
@@ -360,7 +360,7 @@ namespace WindowsApplication1
       self.data.StringListObj[stringListById1].AddRowWithDataFast(s0_5, num1.ToString(), "UnitsIdealAtomics", self.data.Round.ToString(), self.VAR_UnitsIdealAtomics.ToString());
     }
 
-    pub fn ManualZoneManagement(string logAddition)
+    pub fn ManualZoneManagement(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9200_" + logAddition + "_ManualZoneManagement";
@@ -831,7 +831,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn DoFreeRoads(string logAddition)
+    pub fn DoFreeRoads(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9006_" + logAddition + "_DoFreeRoads";
@@ -981,7 +981,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn CleanUpRoads(string logAddition)
+    pub fn CleanUpRoads(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9006b_" + logAddition + "_CleanUpRoads";
@@ -1545,7 +1545,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str);
     }
 
-    pub fn SetKeyEconomicAIVariables(string logAddition)
+    pub fn SetKeyEconomicAIVariables(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9005_" + logAddition + "_SetKeyEconomicVariables";
@@ -2955,7 +2955,7 @@ namespace WindowsApplication1
       self.ai.ClearLog();
     }
 
-    pub fn ExecuteTrade(string logAddition)
+    pub fn ExecuteTrade(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9045_" + logAddition + "_ExecuteTrade";
@@ -3012,7 +3012,7 @@ namespace WindowsApplication1
       let mut idValue2: i32 = self.zoneList.Id[0];
       Item index1 = Item.Food;
       let mut num7: i32 = 0;
-      string data;
+      data: String;
       if (num6 > 0)
       {
         let mut tweight: i32 = num6;
@@ -3348,7 +3348,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str);
     }
 
-    pub fn MotballOrCloseAssets(string logAddition)
+    pub fn MotballOrCloseAssets(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       str: String = "9055_" + logAddition + "_MotballOrCloseAssets";
@@ -4130,7 +4130,7 @@ namespace WindowsApplication1
       return flag2;
     }
 
-    pub GetWorkerForAssetConstruction: i32(assetTypeId: i32)
+    pub fn GetWorkerForAssetConstruction(assetTypeId: i32) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut num1: i32 =  Math.Round(Conversion.Val(self.data.StringListObj[self.slotAssetTypes].GetData(0, assetTypeId, 13)));
@@ -4151,7 +4151,7 @@ namespace WindowsApplication1
       return assetConstruction;
     }
 
-    pub GetWorkerForAssetProduction: i32(assetTypeId: i32)
+    pub fn GetWorkerForAssetProduction(assetTypeId: i32) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut num1: i32 =  Math.Round(Conversion.Val(self.data.StringListObj[self.slotAssetTypes].GetData(0, assetTypeId, 13)));
@@ -4194,7 +4194,7 @@ namespace WindowsApplication1
       return assetConstruction;
     }
 
-    pub GetEstimatedTurnsForAssetConstruction: i32(assetTypeId: i32, Pool usePoolNr)
+    pub fn GetEstimatedTurnsForAssetConstruction(assetTypeId: i32, Pool usePoolNr) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut num1: i32 =  Math.Round(Conversion.Val(self.data.StringListObj[self.slotAssetTypes].GetData(0, assetTypeId, 13)));
@@ -4351,7 +4351,7 @@ namespace WindowsApplication1
       return replaceableSfTypes;
     }
 
-    pub fn ExecutePools(string logAddition)
+    pub fn ExecutePools(logAddition: String)
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       let mut num1: i32 = 0;
@@ -5684,7 +5684,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str1);
     }
 
-    pub fn UpdatePoolItems(string logAddition)
+    pub fn UpdatePoolItems(logAddition: String)
     {
       str1: String = "9040_" + logAddition + "_UpdatePoolItems";
       self.ai.ClearLog();
@@ -6248,7 +6248,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str1);
     }
 
-    pub GetWarSuccesPercentage: i32()
+    pub fn GetWarSuccesPercentage() -> i32
     {
       let mut stringListById: i32 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 292, 0, 0));
       let mut num1: i32 = 100;
@@ -6277,7 +6277,7 @@ namespace WindowsApplication1
       return 100;
     }
 
-    pub fn GetPoolImportance(string logAddition)
+    pub fn GetPoolImportance(logAddition: String)
     {
       str1: String = "9030_" + logAddition + "_PoolsImportance";
       self.ai.ClearLog();
@@ -7121,7 +7121,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str1);
     }
 
-    pub fn GetPoolPreference(string logAddition)
+    pub fn GetPoolPreference(logAddition: String)
     {
       str1: String = "9020_" + logAddition + "_PoolAssetPreference";
       self.ai.ClearLog();
@@ -7158,7 +7158,7 @@ namespace WindowsApplication1
         if (index == 14)
           simpleList1 = self.GetPoolAssetPreference_AtomicsPool();
         simpleList1.ReverseSort();
-        string str2;
+        str2: String;
         if (simpleList1.Counter > -1)
         {
           self.poolPreferedAssetType[index] = simpleList1.Id[0];
@@ -7193,7 +7193,7 @@ namespace WindowsApplication1
       self.ai.WriteLog(str1);
     }
 
-    pub SimpleList GetPoolAssetPreference_oobPool(string logaddition)
+    pub SimpleList GetPoolAssetPreference_oobPool(logaddition: String)
     {
       str1: String = "9020b_" + logaddition + "_OOBpreference";
       strArray: Vec<String> = new string[self.ai.LogCounter + 10 + 1];
@@ -10012,7 +10012,7 @@ namespace WindowsApplication1
       return thatCanUpgradeToo;
     }
 
-    pub GetMinimumProdForShortageCalcs: i32(itemNr: i32) => 1 == itemNr || 7 == itemNr || 5 == itemNr ? 100 : 2;
+    pub fn GetMinimumProdForShortageCalcs(itemNr: i32) -> i32 => 1 == itemNr || 7 == itemNr || 5 == itemNr ? 100 : 2;
 
     pub fn GetSHQgroupsAndStages()
     {

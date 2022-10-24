@@ -244,7 +244,7 @@ namespace WindowsApplication1
       let mut num3: i32 = 0;
       do
       {
-        string buttontext;
+        buttontext: String;
         if (num3 == 0)
         {
           buttontext = "Produce";
@@ -2291,7 +2291,7 @@ namespace WindowsApplication1
       }
       if (Number2 > 0)
       {
-        string Prompt;
+        Prompt: String;
         if (num1 == 6)
           Prompt = "Auto upgraded " + Conversion.Str( Number1) + " troops in " + Conversion.Str( Number2) + " units under indirect and direct command of " + self.game.Data.UnitObj[hqused].Name + ".";
         else

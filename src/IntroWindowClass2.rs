@@ -237,7 +237,7 @@ namespace WindowsApplication1
     pub fn DoStuff()
     {
       SizeF sizeF1 = SizeF::new();
-      string str;
+      str: String;
       if (this.pass > 0)
         str = this.SubPartList[this.SubpartNr(this.pass)].GetText();
       if (this.pass > 0)
@@ -555,7 +555,7 @@ namespace WindowsApplication1
         if (this.game.Data.Variants[index3] > -1)
         {
           String1: String = this.game.Data.GameSlotName[this.game.Data.Variants[index3]];
-          string tDescript;
+          tDescript: String;
           if (Strings.InStr(String1, ",") > 0)
           {
             strArray: Vec<String> = String1.Split(',');
@@ -649,27 +649,27 @@ namespace WindowsApplication1
               tname: String = Strings.UCase(this.game.Data.RegimeObj[tdata].Name);
               if (tdata == this.detailnr)
                 tlistselect = num;
-              string tvalue;
+              tvalue: String;
               if (this.game.Data.RegimeObj[tdata].Sleep)
                 tvalue = !this.game.Data.RegimeObj[tdata].AI ? "FIXED HUMAN" : "FIXED AI";
               else if (this.game.Data.RegimeObj[tdata].AI)
               {
-                tvalue = this.game.Data.UseAI < 1 ? (this.game.Data.RegimeObj[tdata].ProdBonus > 0 ? (this.game.Data.RegimeObj[tdata].ProdBonus > 100 ? "AI++" : "AI+") : "AI") : "AI";
+                tvalue = this.game.Data.UseAI < 1 ? (this.game.Data.RegimeObj[tdata].ProdBonus > 0 ? (this.game.Data.RegimeObj[tdata].ProdBonus > 100 ? "AI++" : "AI+") : "AI") : "AI".to_owned();
               }
               else
               {
-                tvalue = "HUMAN";
+                tvalue = "HUMAN".to_owned();
                 if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.MakingChallenge | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn)
                 {
                   if (this.game.Data.RegimeObj[tdata].PbemPlayer == 1)
-                    tvalue = "CHALLENGER";
+                    tvalue = "CHALLENGER".to_owned();
                   if (this.game.Data.RegimeObj[tdata].PbemPlayer == 2)
                   {
-                    tvalue = "OPPONENT";
+                    tvalue = "OPPONENT".to_owned();
                     if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting)
-                      tvalue = "YOU";
+                      tvalue = "YOU".to_owned();
                     if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn && Operators.CompareString(Strings.LCase(this.game.EditObj.PbemUserName), Strings.LCase(this.game.EditObj.PbemPlayer2), false) == 0)
-                      tvalue = "YOU";
+                      tvalue = "YOU".to_owned();
                   }
                 }
               }
@@ -744,13 +744,13 @@ namespace WindowsApplication1
           if (num == this.cancelID)
           {
             this.game.EditObj.TipButton = true;
-            this.game.EditObj.TipTitle = "BACK";
+            this.game.EditObj.TipTitle = "BACK".to_owned();
             this.game.EditObj.TipText = "Return to main menu. [ESC] ";
           }
           else if (num == this.RegimeListId)
           {
             this.game.EditObj.TipButton = true;
-            this.game.EditObj.TipTitle = "OPPONENTS";
+            this.game.EditObj.TipTitle = "OPPONENTS".to_owned();
             this.game.EditObj.TipText = "Click on a player to toggle it between AI or Human controlled.";
           }
           else if (num == this.opt1)
@@ -762,7 +762,7 @@ namespace WindowsApplication1
           else if (num == this.opt3)
           {
             this.game.EditObj.TipButton = true;
-            this.game.EditObj.TipTitle = "PASSWORDS";
+            this.game.EditObj.TipTitle = "PASSWORDS".to_owned();
             this.game.EditObj.TipText = "You have to give a password before you can open your turn.\r\nMake sure you do not forget it.";
           }
           else if (num == this.opt5)
@@ -1033,7 +1033,7 @@ namespace WindowsApplication1
               if (num1 == this.pass)
               {
                 this.selectedid = this.pass;
-                this.SubPartList[this.SubpartNr(this.pass)].Descript = "select";
+                this.SubPartList[this.SubpartNr(this.pass)].Descript = "select".to_owned();
                 this.SubPartFlag[this.SubpartNr(this.pass)] = true;
                 this.SubPartList[this.SubpartNr(this.title)].Descript = "";
                 this.SubPartFlag[this.SubpartNr(this.title)] = true;
@@ -1045,7 +1045,7 @@ namespace WindowsApplication1
                 this.selectedid = this.title;
                 this.SubPartList[this.SubpartNr(this.pass)].Descript = "";
                 this.SubPartFlag[this.SubpartNr(this.pass)] = true;
-                this.SubPartList[this.SubpartNr(this.title)].Descript = "select";
+                this.SubPartList[this.SubpartNr(this.title)].Descript = "select".to_owned();
                 this.SubPartFlag[this.SubpartNr(this.title)] = true;
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;

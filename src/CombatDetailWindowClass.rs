@@ -349,8 +349,8 @@ namespace WindowsApplication1
                 this.detailnr3 = tdata;
               if (this.detailnr3 == tdata)
                 tlistselect7 = num8;
-              string tvalue;
-              string tvalue2;
+              tvalue: String;
+              tvalue2: String;
               if (!Information.IsNothing( this.game.TempCombat.IList[tdata].IHistoricState))
               {
                 tvalue = this.game.TempCombat.IList[tdata].IHistoricState[this.detailnr];
@@ -610,7 +610,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub GetSfNrBitmap: i32(sfnr: i32, att: i32)
+    pub fn GetSfNrBitmap(sfnr: i32, att: i32) -> i32
     {
       let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
       let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;

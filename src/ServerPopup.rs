@@ -28,171 +28,171 @@ namespace WindowsApplication1
      bool Finished;
      newWindow: i32;
      animTimer: i32;
-     string TextSoFar;
+     TextSoFar: String;
      bool RequestRefresh;
 
     pub ServerPopup( tGame: GameClass)
       : base( tGame, 600, 400, 8)
     {
-      this.doLog = true;
-      this.Finished = false;
-      this.newWindow = -1;
-      this.game.EditObj.OrigServerCommand = this.game.EditObj.ServerCommand;
-      this.Ready();
-      this.View();
+      self.doLog = true;
+      self.Finished = false;
+      self.newWindow = -1;
+      self.game.EditObj.OrigServerCommand = self.game.EditObj.ServerCommand;
+      self.Ready();
+      self.View();
     }
 
     pub fn Ready()
     {
-      this.game.EditObj.ServerUploadSize = 0L;
-      this.game.EditObj.ServerDownloadSize = 0L;
-      this.game.EditObj.ServerOrderCancel = false;
-      this.game.EditObj.ServerDownloadFile = (byte[]) null;
-      this.game.EditObj.ServerCommandMaxStepOrig = 0;
-      this.game.EditObj.ServerStatus = ServerStatusType.Sending;
-      this.Finished = false;
-      this.Server = new ServerClass(this.game);
-      this.ServerThread = new Thread(new ThreadStart(this.Server.Go));
+      self.game.EditObj.ServerUploadSize = 0L;
+      self.game.EditObj.ServerDownloadSize = 0L;
+      self.game.EditObj.ServerOrderCancel = false;
+      self.game.EditObj.ServerDownloadFile = (byte[]) null;
+      self.game.EditObj.ServerCommandMaxStepOrig = 0;
+      self.game.EditObj.ServerStatus = ServerStatusType.Sending;
+      self.Finished = false;
+      self.Server = new ServerClass(self.game);
+      self.ServerThread = new Thread(new ThreadStart(self.Server.Go));
       CultureInfo cultureInfo = new CultureInfo("en-US");
       Thread.CurrentThread.CurrentCulture = cultureInfo;
       Thread.CurrentThread.CurrentUICulture = cultureInfo;
-      this.ServerThread.Start();
-      this.game.FormRef.Cursor = Cursors.WaitCursor;
+      self.ServerThread.Start();
+      self.game.FormRef.Cursor = Cursors.WaitCursor;
     }
 
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       this += 1.animTimer;
-      if (this.game.EditObj.ServerStatus == ServerStatusType.Completed & !this.Finished)
+      if (self.game.EditObj.ServerStatus == ServerStatusType.Completed & !self.Finished)
       {
-        this.ServerThread.Abort();
-        this.ServerThread.Join();
-        this.game.FormRef.Cursor = Cursors.Default;
-        this.RequestRefresh = false;
-        if (this.game.EditObj.ServerCommand == ServerCommandType.Initialize)
+        self.ServerThread.Abort();
+        self.ServerThread.Join();
+        self.game.FormRef.Cursor = Cursors.Default;
+        self.RequestRefresh = false;
+        if (self.game.EditObj.ServerCommand == ServerCommandType.Initialize)
         {
-          this.ViewInitialize();
-          if (this.RequestRefresh)
+          self.ViewInitialize();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Register)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Register)
         {
-          this.ViewRegister();
-          if (this.RequestRefresh)
+          self.ViewRegister();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.CheckPlayer)
-          this.ViewCheckPlayer();
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Login)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.CheckPlayer)
+          self.ViewCheckPlayer();
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Login)
         {
-          this.ViewLogin();
-          if (this.RequestRefresh)
+          self.ViewLogin();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Refresh)
-          this.ViewRefresh();
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Challenge)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Refresh)
+          self.ViewRefresh();
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Challenge)
         {
-          this.ViewChallenge();
-          if (this.RequestRefresh)
+          self.ViewChallenge();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.UploadInstance)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.UploadInstance)
         {
-          this.ViewUploadInstance();
-          if (this.RequestRefresh)
+          self.ViewUploadInstance();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.AcceptChallenge)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.AcceptChallenge)
         {
-          this.ViewAcceptChallenge();
-          if (this.RequestRefresh)
+          self.ViewAcceptChallenge();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Logout)
-          this.ViewLogOut();
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.CancelChallenge)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Logout)
+          self.ViewLogOut();
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.CancelChallenge)
         {
-          this.ViewCancelChallenge();
-          if (this.RequestRefresh)
+          self.ViewCancelChallenge();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.Claim)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.Claim)
         {
-          this.ViewClaim();
-          if (this.RequestRefresh)
+          self.ViewClaim();
+          if (self.RequestRefresh)
           {
-            this.game.EditObj.ServerCommand = ServerCommandType.Refresh;
-            this.Ready();
+            self.game.EditObj.ServerCommand = ServerCommandType.Refresh;
+            self.Ready();
             windowReturnClass.SetFlag(true);
             return windowReturnClass;
           }
         }
-        else if (this.game.EditObj.ServerCommand == ServerCommandType.PlayTurn)
+        else if (self.game.EditObj.ServerCommand == ServerCommandType.PlayTurn)
         {
-          if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
-            this.game.HandyFunctionsObj.SaveDownloadedFile("savedgames/downloadedfile.se1");
-          this.ViewPlayTurn();
+          if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+            self.game.HandyFunctionsObj.SaveDownloadedFile("savedgames/downloadedfile.se1");
+          self.ViewPlayTurn();
         }
         else
         {
-          this.RemoveSubPart(this.cancelid);
-          let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( this.OwnBitmap), bbx: 200, bby: 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-          this.okid = this.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
+          self.RemoveSubPart(self.cancelid);
+          let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( self.OwnBitmap), bbx: 200, bby: 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+          self.okid = self.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
           Rectangle trect = Rectangle::new(200, 530, 200, 35);
-          this.AddMouse( trect, "", "Back to main PBEM++ screen");
+          self.AddMouse( trect, "", "Back to main PBEM++ screen");
         }
         windowReturnClass.SetFlag(true);
-        this.Finished = true;
+        self.Finished = true;
       }
-      else if (this.game.EditObj.ServerStatus == ServerStatusType.TimeOut & !this.Finished)
+      else if (self.game.EditObj.ServerStatus == ServerStatusType.TimeOut & !self.Finished)
       {
-        this.ServerThread.Abort();
-        this.ServerThread.Join();
-        this.game.FormRef.Cursor = Cursors.Default;
-        this.ViewTimeOut();
-        this.Finished = true;
+        self.ServerThread.Abort();
+        self.ServerThread.Join();
+        self.game.FormRef.Cursor = Cursors.Default;
+        self.ViewTimeOut();
+        self.Finished = true;
         windowReturnClass.SetFlag(true);
       }
-      else if (!this.Finished)
+      else if (!self.Finished)
       {
-        this.View();
+        self.View();
         windowReturnClass.SetFlag(true);
       }
       return windowReturnClass;
@@ -205,471 +205,471 @@ namespace WindowsApplication1
     pub fn View()
     {
       Graphics g;
-      this.DoHeader(g);
-      if (!this.game.EditObj.ServerOrderCancel)
+      self.DoHeader(g);
+      if (!self.game.EditObj.ServerOrderCancel)
       {
-        let mut tsubpart: SubPartClass =  new TextButtonPartClass("Cancel", 200, "Click to break off the current communication with server.\r\nMaybe because the connection seems to have died for instance.",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-        this.cancelid = this.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
+        let mut tsubpart: SubPartClass =  new TextButtonPartClass("Cancel", 200, "Click to break off the current communication with server.\r\nMaybe because the connection seems to have died for instance.",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+        self.cancelid = self.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
       }
       else
       {
-        let mut tsubpart: SubPartClass =  new TextButtonPartClass("Cancel", 200, "You already gave cancel request! Cancellation should be in progress.",  this.OwnBitmap, 200, 340, true, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-        this.cancel2id = this.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
+        let mut tsubpart: SubPartClass =  new TextButtonPartClass("Cancel", 200, "You already gave cancel request! Cancellation should be in progress.",  self.OwnBitmap, 200, 340, true, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+        self.cancel2id = self.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
       }
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      if (this.game.EditObj.ServerTextBuffer.Length > 0)
+      if (self.game.EditObj.ServerTextBuffer.Length > 0)
       {
-        this.TextSoFar += this.game.EditObj.ServerTextBuffer;
-        this.game.EditObj.ServerTextBuffer = "";
+        self.TextSoFar += self.game.EditObj.ServerTextBuffer;
+        self.game.EditObj.ServerTextBuffer = "";
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
     }
 
     pub fn ViewRegister()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered)
       {
         str2 = str1 + "Your serial is verified." + "\r\n";
-        if (this.game.EditObj.ServerRegisterReply == ServerRegisterReplyType.RegisterationSucces)
+        if (self.game.EditObj.ServerRegisterReply == ServerRegisterReplyType.RegisterationSucces)
         {
           str2 += "You have been succesfully registered.";
-          this.RequestRefresh = true;
+          self.RequestRefresh = true;
         }
-        else if (this.game.EditObj.ServerRegisterReply == ServerRegisterReplyType.RegisterationFailure)
+        else if (self.game.EditObj.ServerRegisterReply == ServerRegisterReplyType.RegisterationFailure)
         {
           str3: String = str2 + "You have not been registered.";
-          this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
-          str2 = str3 + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
+          self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+          str2 = str3 + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
         }
       }
-      else if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered)
+      else if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered)
       {
         str2 = str1 + "You are already registered. Please try to use the login button in the next screen.";
-        this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+        self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
       }
-      else if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
+      else if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
       {
         str4: String = str1 + "Registration Failed.  \r\n";
-        this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
-        str2 = str4 + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
+        self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+        str2 = str4 + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
       }
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewInitialize()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered)
       {
-        str2 = (Operators.CompareString(this.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Your serial is verified as registered already." : str1 + "Your still need to login a first time or register to get a serial code.") + "\r\n";
-        if (this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthSucces)
+        str2 = (Operators.CompareString(self.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Your serial is verified as registered already." : str1 + "Your still need to login a first time or register to get a serial code.") + "\r\n";
+        if (self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthSucces)
         {
           str2 += "You have been logged in.";
-          this.RequestRefresh = true;
+          self.RequestRefresh = true;
         }
-        else if (this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
+        else if (self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
           str2 += "You still need to login though.\r\n";
       }
-      else if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered)
+      else if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered)
       {
-        str2 = Operators.CompareString(this.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Your serial is registered already." : str1 + "Your still need to login a first time or register to get a serial code.";
-        this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+        str2 = Operators.CompareString(self.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Your serial is registered already." : str1 + "Your still need to login a first time or register to get a serial code.";
+        self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
       }
-      else if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.NoConnection)
+      else if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.NoConnection)
       {
         str2 = str1 + "No (valid) connection with server.";
-        this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+        self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
       }
-      else if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
+      else if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
       {
-        str3: String = Operators.CompareString(this.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Serial verification failed. You'll need to login manually with the correct serial. \r\n" : str1 + "No valid serial present at the moment. You will need to register first. \r\n";
-        this.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
-        str2 = str3 + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
+        str3: String = Operators.CompareString(self.game.EditObj.PbemSerial, "0000-0000-0000-0000", false) != 0 ? str1 + "Serial verification failed. You'll need to login manually with the correct serial. \r\n" : str1 + "No valid serial present at the moment. You will need to register first. \r\n";
+        self.game.EditObj.ServerAuthReply = ServerAuthReplyType.AuthFailure;
+        str2 = str3 + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
       }
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewLogin()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthSucces)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthSucces)
       {
         str2 = str1 + "You have been logged in.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
-        str2 = str1 + "You could not be logged in.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
+        str2 = str1 + "You could not be logged in.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewTimeOut()
     {
       Graphics g;
-      this.DoHeader(g);
-      this.TextSoFar += "No connection with Server!";
-      this.TextSoFar += "\r\n";
-      if (this.textid > 0)
+      self.DoHeader(g);
+      self.TextSoFar += "No connection with Server!";
+      self.TextSoFar += "\r\n";
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewLogOut()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
         str2 = str1 + "Logout succesfull.";
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Logout did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.textid > 0)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Logout did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewRefresh()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
         str2 = str1 + "Refresh succesfull.";
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Refresh request did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.textid > 0)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Refresh request did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewChallenge()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Challenge succesfully issued.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Challenge request did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Challenge request did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewUploadInstance()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.Data.PbemGameOver == 1)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.Data.PbemGameOver == 1)
       {
-        if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+        if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
         {
           str2 = str1 + "You have reviewed this finished game. Your opponent already did. This concludes this PBEM++ match.";
-          this.RequestRefresh = true;
+          self.RequestRefresh = true;
         }
-        else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-          str2 = str1 + "Your turn upload/reviewing of finished game has failed.\r\nKeep in mind you can still find your file in 'savedgames/uploadfile.se1'\r\nYou can load the file from the main menu again and retry sending it.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
+        else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+          str2 = str1 + "Your turn upload/reviewing of finished game has failed.\r\nKeep in mind you can still find your file in 'savedgames/uploadfile.se1'\r\nYou can load the file from the main menu again and retry sending it.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Your turn is succesfully uploaded\r\nYour opponent will be notified he can play his/her turn.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Your turn upload has failed.\r\nKeep in mind you can still find your file in 'savedgames/uploadfile.se1'\r\nYou can load the file from the main menu again and retry sending it.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Your turn upload has failed.\r\nKeep in mind you can still find your file in 'savedgames/uploadfile.se1'\r\nYou can load the file from the main menu again and retry sending it.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewPlayTurn()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
         str2 = str1 + "Succesfully downloaded your turn.";
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Download did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.textid > 0)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Download did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewCancelChallenge()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Succesfully cancelled your challenge.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Cancel challenge did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Cancel challenge did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewClaim()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Succesfully claimed victory.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Claim victory did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Claim victory did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewCheckPlayer()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Player info on ";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Requesting player info did not work.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Requesting player info did not work.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn ViewAcceptChallenge()
     {
       Graphics g;
-      this.DoHeader(g);
-      string str1;
-      string str2;
-      if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+      self.DoHeader(g);
+      str1: String;
+      str2: String;
+      if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
       {
         str2 = str1 + "Challenge succesfully accepted.";
-        this.RequestRefresh = true;
+        self.RequestRefresh = true;
       }
-      else if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
-        str2 = str1 + "Challenge could not be accepted by you.\r\n" + this.GetExactErrorString(this.game.EditObj.ServerExactErrorCode);
-      this.TextSoFar += str2;
-      this.TextSoFar += "\r\n";
-      if (this.RequestRefresh)
+      else if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Failure)
+        str2 = str1 + "Challenge could not be accepted by you.\r\n" + self.GetExactErrorString(self.game.EditObj.ServerExactErrorCode);
+      self.TextSoFar += str2;
+      self.TextSoFar += "\r\n";
+      if (self.RequestRefresh)
         return;
-      if (this.textid > 0)
+      if (self.textid > 0)
       {
-        this.RemoveSubPart(this.textid);
-        this.textid = 0;
+        self.RemoveSubPart(self.textid);
+        self.textid = 0;
       }
-      let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 440, 7, this.game.MarcFont4, this.TextSoFar, 24,  this.OwnBitmap, 80, 80);
-      this.textid = this.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
-      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  this.OwnBitmap, 200, 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
-      this.okid = this.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
+      let mut tsubpart1: SubPartClass =  new TextAreaClass2(self.game, 440, 7, self.game.MarcFont4, self.TextSoFar, 24,  self.OwnBitmap, 80, 80);
+      self.textid = self.AddSubPart( tsubpart1, 80, 80, 440, 192, 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, "Back to main PBEM++ screen",  self.OwnBitmap, 200, 340, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+      self.okid = self.AddSubPart( tsubpart2, 200, 340, 200, 36, 1);
     }
 
     pub fn DoHeader(Graphics g)
     {
-      if (this.cancelid > 0)
-        this.RemoveSubPart(this.cancelid);
-      if (this.okid > 0)
-        this.RemoveSubPart(this.okid);
-      if (this.cancel2id > 0)
-        this.RemoveSubPart(this.cancel2id);
-      this.NewBackGroundAndClearAll(600, 400, -1);
-      g = Graphics.FromImage((Image) this.OwnBitmap);
-      DrawMod.DrawMessFrame( this.OwnBitmap,  g, 0, 0, 600, 400);
-      this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
-      DrawMod.DrawTextColouredMarcCenter( g, "SERVER COMMUNICATION", this.game.MarcFont1, 300, 27, Color.White);
-      this.ClearMouse();
+      if (self.cancelid > 0)
+        self.RemoveSubPart(self.cancelid);
+      if (self.okid > 0)
+        self.RemoveSubPart(self.okid);
+      if (self.cancel2id > 0)
+        self.RemoveSubPart(self.cancel2id);
+      self.NewBackGroundAndClearAll(600, 400, -1);
+      g = Graphics.FromImage((Image) self.OwnBitmap);
+      DrawMod.DrawMessFrame( self.OwnBitmap,  g, 0, 0, 600, 400);
+      self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
+      DrawMod.DrawTextColouredMarcCenter( g, "SERVER COMMUNICATION", self.game.MarcFont1, 300, 27, Color.White);
+      self.ClearMouse();
       Rectangle trect1;
-      if (this.game.EditObj.ServerUploadSize > 0L)
+      if (self.game.EditObj.ServerUploadSize > 0L)
       {
-        g = Graphics.FromImage((Image) this.OwnBitmap);
+        g = Graphics.FromImage((Image) self.OwnBitmap);
         let mut num1: i32 = 480;
         let mut num2: i32 = 20;
-        let mut w: i32 =  Math.Round(100.0 * ( this.game.EditObj.ServerUploadDone /  this.game.EditObj.ServerUploadSize));
+        let mut w: i32 =  Math.Round(100.0 * ( self.game.EditObj.ServerUploadDone /  self.game.EditObj.ServerUploadSize));
         let mut num3: i32 = 100 - w;
         DrawMod.DrawBlock( g, num1, num2, 100, 15, 0, 0, 0, 64);
         DrawMod.DrawBlock( g, num1, num2, w, 15, 0,  byte.MaxValue, 0, 100);
         DrawMod.DrawRectangle( g, num1, num2, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
-        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( this.game.EditObj.ServerUploadDone / 1000.0)) + " KB", this.game.MarcFont14, num1 + 2, num2 + 2, Color.White);
+        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( self.game.EditObj.ServerUploadDone / 1000.0)) + " KB", self.game.MarcFont14, num1 + 2, num2 + 2, Color.White);
         trect1 = Rectangle::new(num1, num2, 100, 15);
-        this.AddMouse( trect1, "FILE UPLOAD PROGRESS", "Currently uploaded " + this.game.EditObj.ServerUploadDone.ToString() + " bytes of " + this.game.EditObj.ServerUploadSize.ToString());
+        self.AddMouse( trect1, "FILE UPLOAD PROGRESS", "Currently uploaded " + self.game.EditObj.ServerUploadDone.ToString() + " bytes of " + self.game.EditObj.ServerUploadSize.ToString());
       }
-      if (this.game.EditObj.ServerDownloadDone > 0L)
+      if (self.game.EditObj.ServerDownloadDone > 0L)
       {
-        g = Graphics.FromImage((Image) this.OwnBitmap);
+        g = Graphics.FromImage((Image) self.OwnBitmap);
         let mut num4: i32 = 480;
         let mut num5: i32 = 20;
         DrawMod.DrawBlock( g, num4, num5, 100, 15, 0, 0, 0, 64);
         DrawMod.DrawRectangle( g, num4, num5, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
-        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( this.game.EditObj.ServerDownloadDone / 1000.0)) + " KB", this.game.MarcFont14, num4 + 2, num5 + 2, Color.White);
+        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( self.game.EditObj.ServerDownloadDone / 1000.0)) + " KB", self.game.MarcFont14, num4 + 2, num5 + 2, Color.White);
         trect1 = Rectangle::new(num4, num5, 100, 15);
         let mut trect2: &Rectangle = &trect1
-        this.AddMouse( trect2, "FILE DOWNLOAD PROGRESS", "Currently downloaded " + this.game.EditObj.ServerDownloadDone.ToString() + " bytes.");
+        self.AddMouse( trect2, "FILE DOWNLOAD PROGRESS", "Currently downloaded " + self.game.EditObj.ServerDownloadDone.ToString() + " bytes.");
       }
-      if (this.game.EditObj.ServerCommandMaxStepOrig <= 0)
+      if (self.game.EditObj.ServerCommandMaxStepOrig <= 0)
         return;
       let mut num: i32 = 20;
       let mut y1: i32 = 360;
-      let mut commandMaxStepOrig: i32 = this.game.EditObj.ServerCommandMaxStepOrig;
+      let mut commandMaxStepOrig: i32 = self.game.EditObj.ServerCommandMaxStepOrig;
       for (let mut index: i32 = 1; index <= commandMaxStepOrig; index += 1)
       {
-        if (index < this.game.EditObj.ServerCommandStep)
+        if (index < self.game.EditObj.ServerCommandStep)
           DrawMod.DrawBlock( g, num + 40 * (index - 1), y1, 15, 8, 0,  byte.MaxValue, 0, 150);
-        else if (index == this.game.EditObj.ServerCommandStep)
+        else if (index == self.game.EditObj.ServerCommandStep)
         {
-          if (this.animTimer % 10 < 5)
+          if (self.animTimer % 10 < 5)
             DrawMod.DrawBlock( g, num + 40 * (index - 1), y1, 15, 8, 0,  byte.MaxValue, 0, 150);
           else
             DrawMod.DrawBlock( g, num + 40 * (index - 1), y1, 15, 8, 0, 0, 0, 150);
@@ -683,44 +683,44 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (this.SubPartCounter > -1)
+      if (self.SubPartCounter > -1)
       {
-        let mut subPartCounter: i32 = this.SubPartCounter;
+        let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
         {
-          if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
+          if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
-            let mut num: i32 = this.SubPartID[index];
-            if (num == this.okid)
+            let mut num: i32 = self.SubPartID[index];
+            if (num == self.okid)
             {
-              this.game.EditObj.ServerUploadDone = 0L;
-              this.game.EditObj.ServerDownloadDone = 0L;
-              this.game.EditObj.ServerDownloadSize = 0L;
-              if (this.game.EditObj.OrigServerCommand == ServerCommandType.Initialize)
+              self.game.EditObj.ServerUploadDone = 0L;
+              self.game.EditObj.ServerDownloadDone = 0L;
+              self.game.EditObj.ServerDownloadSize = 0L;
+              if (self.game.EditObj.OrigServerCommand == ServerCommandType.Initialize)
               {
-                this.game.EditObj.ServerStatusInitializeTried = true;
-                if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
+                self.game.EditObj.ServerStatusInitializeTried = true;
+                if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialFailure)
                 {
                   windowReturnClass.AddCommand(6, 0);
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered & this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
+                if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialRegistered & self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
                 {
-                  this.game.EditObj.PopupValue = 16;
+                  self.game.EditObj.PopupValue = 16;
                   windowReturnClass.AddCommand(5, 14);
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                if (this.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered | this.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
+                if (self.game.EditObj.ServerSerialReply == ServerSerialReplyType.SerialNotRegistered | self.game.EditObj.ServerAuthReply == ServerAuthReplyType.AuthFailure)
                 {
-                  if (this.game.EditObj.PbemAlreadyAccount)
+                  if (self.game.EditObj.PbemAlreadyAccount)
                   {
                     windowReturnClass.AddCommand(6, 0);
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  this.game.EditObj.PopupValue = 14;
+                  self.game.EditObj.PopupValue = 14;
                   windowReturnClass.AddCommand(5, 14);
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
@@ -729,13 +729,13 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (this.game.EditObj.OrigServerCommand == ServerCommandType.PlayTurn)
+              if (self.game.EditObj.OrigServerCommand == ServerCommandType.PlayTurn)
               {
-                if (this.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
+                if (self.game.EditObj.ServerGenericReply == ServerGenericReplyType.Succes)
                 {
-                  this.game.EditObj.LoadNoNewEdit = true;
-                  this.game.EditObj.LoadFileName = this.game.AppPath + "savedgames\\downloadedfile.se1";
-                  this.game.EditObj.PopupValue = 17;
+                  self.game.EditObj.LoadNoNewEdit = true;
+                  self.game.EditObj.LoadFileName = self.game.AppPath + "savedgames\\downloadedfile.se1";
+                  self.game.EditObj.PopupValue = 17;
                   windowReturnClass.AddCommand(5, 14);
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
@@ -748,16 +748,16 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num == this.textid)
+            if (num == self.textid)
             {
-              this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num == this.cancelid)
+            if (num == self.cancelid)
             {
-              this.game.EditObj.ServerOrderCancel = true;
-              this.View();
+              self.game.EditObj.ServerOrderCancel = true;
+              self.View();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
@@ -770,7 +770,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub string GetExactErrorString(err: i32)
+    pub GetExactErrorString: String(err: i32)
     {
       str: String = "";
       if (err == 900)

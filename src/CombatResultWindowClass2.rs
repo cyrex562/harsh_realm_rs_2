@@ -146,37 +146,37 @@ namespace WindowsApplication1
       }
     }
 
-    pub string GetUnitDescription(unr: i32)
+    pub GetUnitDescription: String(unr: i32)
     {
       let mut uslot: i32 =  this.game.TempCombat.FindUSlot(unr);
-      string unitDescription;
+      unitDescription: String;
       if (this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode == 1 & this.game.TempCombat.UList[uslot].URetreated < 1)
-        unitDescription = !(this.game.TempCombat.BattleEnded > 0 & this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) < 1) ? "RETREATING" : "OVERRUN";
+        unitDescription = !(this.game.TempCombat.BattleEnded > 0 & this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) < 1) ? "RETREATING" : "OVERRUN".to_owned();
       else if (this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode == 1)
-        unitDescription = "RETREATED";
+        unitDescription = "RETREATED".to_owned();
       else if (this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode >= 2 & this.game.TempCombat.UList[uslot].URetreatMode < 5)
         unitDescription = "OUT OF AP";
       else if (!this.game.TempCombat.UList[uslot].UBreaks & this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode == 5)
-        unitDescription = "PANICKED";
+        unitDescription = "PANICKED".to_owned();
       else if (this.game.TempCombat.UList[uslot].UBreaks)
-        unitDescription = "BROKEN";
+        unitDescription = "BROKEN".to_owned();
       else if (this.game.TempCombat.UList[uslot].UBreaks & this.game.TempCombat.UList[uslot].URetreatMode == 5)
-        unitDescription = "BROKEN";
+        unitDescription = "BROKEN".to_owned();
       else if (this.game.TempCombat.UList[uslot].URetreatMode == 0 & this.game.TempCombat.BattleEnded > 0 & this.game.TempCombat.UList[uslot].URetreated > 0 & this.game.TempCombat.CombatType == 3 & this.game.TempCombat.UList[uslot].Uattacker == 1)
         unitDescription = "OUT OF AP";
       else if (this.game.TempCombat.UList[uslot].URetreatMode == 0 & this.game.TempCombat.BattleEnded > 0 & this.game.TempCombat.UList[uslot].URetreated > 0)
-        unitDescription = !(this.game.TempCombat.CombatType == 5 | this.game.TempCombat.CombatType == 13) ? "SURRENDERED" : "HOLDING";
+        unitDescription = !(this.game.TempCombat.CombatType == 5 | this.game.TempCombat.CombatType == 13) ? "SURRENDERED" : "HOLDING".to_owned();
       else if (this.game.TempCombat.BattleEnded > 0)
       {
-        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
+        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP".to_owned();
         if (this.game.TempCombat.UList[uslot].Uattacker < 1)
-          unitDescription = "HOLDING";
+          unitDescription = "HOLDING".to_owned();
       }
       else
       {
-        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
+        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP".to_owned();
         if (this.game.TempCombat.UList[uslot].Uattacker < 1)
-          unitDescription = "HOLDING";
+          unitDescription = "HOLDING".to_owned();
       }
       return unitDescription;
     }
@@ -188,7 +188,7 @@ namespace WindowsApplication1
       return !this.game.TempCombat.UList[uslot].UBreaks ? (!(this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode == 1) ? (!(this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode <= 2) ? (!(this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode > 2 & this.game.TempCombat.UList[uslot].URetreatMode < 5) ? (!(!this.game.TempCombat.UList[uslot].UBreaks & this.game.TempCombat.UList[uslot].URetreat > 0 & this.game.TempCombat.UList[uslot].URetreatMode == 5) ? (this.game.TempCombat.BattleEnded <= 0 ? Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue) : (this.game.TempCombat.UList[uslot].Uattacker >= 1 ? Color.FromArgb((int) byte.MaxValue, 100, 100, 100) : Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue))) : Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 215, 215)) : Color.FromArgb((int) byte.MaxValue, 215, 215, 215)) : Color.FromArgb((int) byte.MaxValue, 215, 215, 215)) : Color.FromArgb((int) byte.MaxValue, 215, 215, 215)) : Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 215, 215);
     }
 
-    pub string GetCombatDescription()
+    pub GetCombatDescription: String()
     {
       let mut num: i32 =  0;
       let mut ucounter: i32 =  this.game.TempCombat.UCounter;
@@ -202,7 +202,7 @@ namespace WindowsApplication1
             num = 2;
         }
       }
-      string combatDescription;
+      combatDescription: String;
       if (this.game.TempCombat.CombatType == 11)
       {
         if (this.game.TempCombat.BattleEnded == 0)
@@ -223,7 +223,7 @@ namespace WindowsApplication1
         else if (this.game.TempCombat.BattleEnded == 2)
           combatDescription = "DEFENDER HELD";
         else if (this.game.TempCombat.BattleEnded == 3)
-          combatDescription = "STANDOFF";
+          combatDescription = "STANDOFF".to_owned();
       }
       else if (this.game.TempCombat.CombatType == 3 | this.game.TempCombat.CombatType == 4)
       {
@@ -1160,18 +1160,18 @@ namespace WindowsApplication1
               str = "-";
             else if ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0) > 0)
               str = "+" + str;
-            tstring1: String = "HQ";
+            tstring1: String = "HQ".to_owned();
             if (num51 < 1)
             {
               if (num50 == 3)
-                tstring1 = "OHQ";
+                tstring1 = "OHQ".to_owned();
               if (num50 == 4)
-                tstring1 = "SHQ";
+                tstring1 = "SHQ".to_owned();
               DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring1, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.LightGray);
             }
             else
             {
-              tstring2: String = "KIA";
+              tstring2: String = "KIA".to_owned();
               DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring2, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.Red);
             }
             DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) + 10, Color.White);
@@ -1198,11 +1198,11 @@ namespace WindowsApplication1
             str = "-";
           else if ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0) > 0)
             str = "+" + str;
-          tstring: String = "HQ";
+          tstring: String = "HQ".to_owned();
           if (num50 == 3)
-            tstring = "OHQ";
+            tstring = "OHQ".to_owned();
           if (num50 == 4)
-            tstring = "SHQ";
+            tstring = "SHQ".to_owned();
           DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num47 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) + 10, Color.White);
           DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring, this.game.MarcFont4, num47 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.White);
           num31 = w1 + 55;
@@ -2106,14 +2106,14 @@ namespace WindowsApplication1
                     {
                       color = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 200, 200);
                       colMod = Color.White;
-                      str2 = "capitulated";
+                      str2 = "capitulated".to_owned();
                       nr9 = this.game.SE1_COMBAT_SURRENDER;
                     }
                     else if (this.game.TempCombat.IList[index43].IKilled > 0)
                     {
                       color = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 200, 200);
                       colMod = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 0, 0);
-                      str2 = "dead";
+                      str2 = "dead".to_owned();
                       nr9 = this.game.SE1_COMBAT_DEAD;
                     }
                     else if (this.game.TempCombat.IList[index43].IRetreated == 0 & this.game.TempCombat.IList[index43].IRetreat > 0 & this.game.TempCombat.IList[index43].IRetreatMode == 1)
@@ -2143,13 +2143,13 @@ namespace WindowsApplication1
                     else
                     {
                       color = Color.White;
-                      str2 = "fighting";
+                      str2 = "fighting".to_owned();
                     }
                     if (num95 == 4 && this.game.TempCombat.IList[index43].IunitFeatStart > 0 && this.game.TempCombat.IList[index43].IunitFeatDeadRound > 0)
                     {
                       color = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 200, 200);
                       colMod = Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 0, 0);
-                      str2 = "dead";
+                      str2 = "dead".to_owned();
                       nr9 = this.game.SE1_COMBAT_DEAD;
                       break;
                     }
@@ -2443,7 +2443,7 @@ namespace WindowsApplication1
                 str11: String = "";
                 if (str2.Length > 0)
                   str11 = str11 + " [ " + str2.ToUpper() + " ]\r\n---------------\r\n";
-                string ttext;
+                ttext: String;
                 if (this.game.TempCombat.IList[index43].IAttacker == 1)
                 {
                   if (str4.Length > 0)
@@ -2671,7 +2671,7 @@ namespace WindowsApplication1
             DrawMod.DrawSimple(ref local67, ref local68, x29, y27);
             tstring4: String = num114.ToString() + " Message(s)";
             DrawMod.DrawTextColouredConsoleCenter(ref graphics, tstring4, this.game.MarcFont4, x28 + 70, y26 + 12, Color.White);
-            ttitle2: String = "MESSAGES";
+            ttitle2: String = "MESSAGES".to_owned();
             trect2 = Rectangle::new(x28, y26, 137, 39);
             trect11 = trect2;
             this.AddMouse(ref trect11, ttitle2, str28);
@@ -3205,12 +3205,12 @@ namespace WindowsApplication1
       if (this.showdetail == 1)
       {
         str35: String = "ATTACKER TOTALS\r\n";
-        Expression1: String = "SUBFORMATIONTYPE";
+        Expression1: String = "SUBFORMATIONTYPE".to_owned();
         let mut Number1: i32 =  35 - Strings.Len(Expression1);
         if (0 > Number1)
           Number1 = 0;
         str36: String = str35 + Expression1 + Strings.Space(Number1);
-        Expression2: String = "INITIAL";
+        Expression2: String = "INITIAL".to_owned();
         let mut Number2: i32 =  10 - Strings.Len(Expression2);
         if (0 > Number2)
           Number2 = 0;
@@ -3220,17 +3220,17 @@ namespace WindowsApplication1
         if (0 > Number3)
           Number3 = 0;
         str38: String = str37 + Expression3 + Strings.Space(Number3);
-        Expression4: String = "DEAD";
+        Expression4: String = "DEAD".to_owned();
         let mut Number4: i32 =  7 - Strings.Len(Expression4);
         if (0 > Number4)
           Number4 = 0;
         str39: String = str38 + Expression4 + Strings.Space(Number4);
-        Expression5: String = "RETREAT";
+        Expression5: String = "RETREAT".to_owned();
         let mut Number5: i32 =  9 - Strings.Len(Expression5);
         if (0 > Number5)
           Number5 = 0;
         str40: String = str39 + Expression5 + Strings.Space(Number5);
-        Expression6: String = "ALIVE";
+        Expression6: String = "ALIVE".to_owned();
         let mut Number6: i32 =  6 - Strings.Len(Expression6);
         if (0 > Number6)
           Number6 = 0;
@@ -3280,12 +3280,12 @@ namespace WindowsApplication1
         if (numArray31[0] > 0)
         {
           str47: String = str41 + "\r\n" + "DEFENDERS TOTALS\r\n";
-          Expression13: String = "SUBFORMATIONTYPE";
+          Expression13: String = "SUBFORMATIONTYPE".to_owned();
           let mut Number13: i32 =  35 - Strings.Len(Expression13);
           if (0 > Number13)
             Number13 = 0;
           str48: String = str47 + Expression13 + Strings.Space(Number13);
-          Expression14: String = "INITIAL";
+          Expression14: String = "INITIAL".to_owned();
           let mut Number14: i32 =  10 - Strings.Len(Expression14);
           if (0 > Number14)
             Number14 = 0;
@@ -3295,17 +3295,17 @@ namespace WindowsApplication1
           if (0 > Number15)
             Number15 = 0;
           str50: String = str49 + Expression15 + Strings.Space(Number15);
-          Expression16: String = "DEAD";
+          Expression16: String = "DEAD".to_owned();
           let mut Number16: i32 =  7 - Strings.Len(Expression16);
           if (0 > Number16)
             Number16 = 0;
           str51: String = str50 + Expression16 + Strings.Space(Number16);
-          Expression17: String = "RETREAT";
+          Expression17: String = "RETREAT".to_owned();
           let mut Number17: i32 =  9 - Strings.Len(Expression17);
           if (0 > Number17)
             Number17 = 0;
           str52: String = str51 + Expression17 + Strings.Space(Number17);
-          Expression18: String = "ALIVE";
+          Expression18: String = "ALIVE".to_owned();
           let mut Number18: i32 =  6 - Strings.Len(Expression18);
           if (0 > Number18)
             Number18 = 0;
@@ -3354,42 +3354,42 @@ namespace WindowsApplication1
           }
         }
         str58: String = str41 + "\r\n";
-        Expression25: String = "ATTACKER";
+        Expression25: String = "ATTACKER".to_owned();
         let mut Number25: i32 =  10 - Strings.Len(Expression25);
         if (0 > Number25)
           Number25 = 0;
         str59: String = str58 + Strings.Space(20) + Expression25 + Strings.Space(Number25);
-        Expression26: String = "DEFENDER";
+        Expression26: String = "DEFENDER".to_owned();
         let mut num166: i32 =  10 - Strings.Len(Expression26);
         if (0 > num166)
           num166 = 0;
         str60: String = str59 + Strings.Space(20) + Expression26 + Strings.Space(num166 + 50) + "\r\n";
-        Expression27: String = "STAT";
+        Expression27: String = "STAT".to_owned();
         let mut Number26: i32 =  20 - Strings.Len(Expression27);
         if (0 > Number26)
           Number26 = 0;
         str61: String = str60 + Expression27 + Strings.Space(Number26);
-        Expression28: String = "INITIAL";
+        Expression28: String = "INITIAL".to_owned();
         let mut Number27: i32 =  10 - Strings.Len(Expression28);
         if (0 > Number27)
           Number27 = 0;
         str62: String = str61 + Expression28 + Strings.Space(Number27);
-        Expression29: String = "CURRENT";
+        Expression29: String = "CURRENT".to_owned();
         let mut Number28: i32 =  20 - Strings.Len(Expression29);
         if (0 > Number28)
           Number28 = 0;
         str63: String = str62 + Expression29 + Strings.Space(Number28);
-        Expression30: String = "INITIAL";
+        Expression30: String = "INITIAL".to_owned();
         let mut Number29: i32 =  10 - Strings.Len(Expression30);
         if (0 > Number29)
           Number29 = 0;
         str64: String = str63 + Expression30 + Strings.Space(Number29);
-        Expression31: String = "CURRENT";
+        Expression31: String = "CURRENT".to_owned();
         let mut Number30: i32 =  10 - Strings.Len(Expression31);
         if (0 > Number30)
           Number30 = 0;
         str65: String = str64 + Expression31 + Strings.Space(Number30) + "\r\n";
-        Expression32: String = "Readiness";
+        Expression32: String = "Readiness".to_owned();
         if (Strings.Len(Expression32) > 29)
           Expression32 = Strings.Left(str65, 29);
         let mut Number31: i32 =  20 - Strings.Len(Expression32);
@@ -3424,7 +3424,7 @@ namespace WindowsApplication1
         if (0 > Number35)
           Number35 = 0;
         str72: String = str70 + str71 + Strings.Space(Number35) + "\r\n";
-        Expression35: String = "Experience";
+        Expression35: String = "Experience".to_owned();
         if (Strings.Len(Expression35) > 29)
           Expression35 = Strings.Left(str72, 29);
         let mut Number36: i32 =  20 - Strings.Len(Expression35);
@@ -3459,7 +3459,7 @@ namespace WindowsApplication1
         if (0 > Number40)
           Number40 = 0;
         str79: String = str77 + str78 + Strings.Space(Number40) + "\r\n";
-        Expression38: String = "Morale";
+        Expression38: String = "Morale".to_owned();
         if (Strings.Len(Expression38) > 29)
           Expression38 = Strings.Left(str79, 29);
         let mut Number41: i32 =  20 - Strings.Len(Expression38);
@@ -3494,7 +3494,7 @@ namespace WindowsApplication1
         if (0 > Number45)
           Number45 = 0;
         str86: String = str84 + str85 + Strings.Space(Number45) + "\r\n";
-        Expression41: String = "Entrenchment";
+        Expression41: String = "Entrenchment".to_owned();
         if (Strings.Len(Expression41) > 29)
           Expression41 = Strings.Left(str86, 29);
         let mut Number46: i32 =  20 - Strings.Len(Expression41);
@@ -3549,7 +3549,7 @@ namespace WindowsApplication1
         let mut num169: i32 =  rectangle1.Y + 12 + num167;
         let mut num170: i32 =  rectangle2.X - rectangle1.X + rectangle2.Width - num167 * 2 + 16;
         let mut num171: i32 =  rectangle1.Height - num167 * 2 - 10;
-        string tTexty;
+        tTexty: String;
         if (this.game.ScreenHeight <= 900)
           tTexty = "[element][type]text[/type][pos]50,50," + (num170 - 100).ToString() + "," + (num171 - 50).ToString() + ",1[/pos][fontname]LMmonoCaps-Regular.ttf[/fontname][fontsize]16[/fontsize][fontstyle]0[/fontstyle][lineheight]18[/lineheight][text]" + str93 + "[/text][color]0,0,0,255][/color][/element]";
         else
@@ -3744,7 +3744,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub GetSfNrBitmap: i32(sfnr: i32, att: i32)
+    pub fn GetSfNrBitmap(sfnr: i32, att: i32) -> i32
     {
       let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
       let mut symbolSprite2Id: i32 =  this.game.Data.SFTypeObj[type].SymbolSprite2ID;

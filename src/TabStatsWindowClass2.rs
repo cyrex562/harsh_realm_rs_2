@@ -15,7 +15,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      subtabnr: i32;
      w: i32;
@@ -138,7 +138,7 @@ namespace WindowsApplication1
       Rectangle trect1 = DrawMod.DrawBackTab(g, self.w, self.h, "STATS", 2);
       self.AddMouse( trect1, "CLOSE TAB", "Click here to close this tab. [ESC/F3]", 999);
       tregcount: i32;
-      string str1;
+      str1: String;
       SubPartClass tsubpart1;
       if (self.subtabnr == 0)
       {
@@ -428,7 +428,7 @@ namespace WindowsApplication1
         self.Text3Id = self.AddSubPart( tsubpart1, 30 + num1, self.h - 120, 35, 35, 1);
         DrawMod.DrawTextColouredMarc( g, "Casualties sustained", self.game.MarcFont4, 75 + num1, self.h - 110, Color.White);
       }
-      string str2;
+      str2: String;
       num19: i32;
       if (self.subtabnr == 2)
       {
@@ -1124,7 +1124,7 @@ namespace WindowsApplication1
               flagArray4[self.game.Data.UnitObj[tdata].Historical] = true;
               let mut num51: i32 = numArray35[self.game.Data.UnitObj[tdata].Historical];
               let mut num52: i32 = num51;
-              string str6;
+              str6: String;
               for (let mut index: i32 = 1; index <= num52; index += 1)
                 str6 += "---";
               num19 = 0;
@@ -1339,7 +1339,7 @@ namespace WindowsApplication1
               flagArray6[self.game.Data.UnitObj[tdata].Historical] = true;
               let mut num78: i32 = numArray52[self.game.Data.UnitObj[tdata].Historical];
               let mut num79: i32 = num78;
-              string str8;
+              str8: String;
               for (let mut index: i32 = 1; index <= num79; index += 1)
                 str8 += "---";
               num19 = 0;
@@ -1958,7 +1958,7 @@ namespace WindowsApplication1
               flagArray8[self.game.Data.UnitObj[tdata].Historical] = true;
               let mut num121: i32 = numArray78[self.game.Data.UnitObj[tdata].Historical];
               let mut num122: i32 = num121;
-              string str13;
+              str13: String;
               for (let mut index: i32 = 1; index <= num122; index += 1)
                 str13 += "---";
               num19 = 0;

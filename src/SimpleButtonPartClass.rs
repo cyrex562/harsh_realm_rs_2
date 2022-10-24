@@ -26,7 +26,7 @@ namespace WindowsApplication1
 
     pub SimpleButtonPartClass(
       tbmpnr: i32,
-      string tDescript,
+      tDescript: String,
        tBackbitmap: Bitmap,
       bbx: i32,
       bby: i32)

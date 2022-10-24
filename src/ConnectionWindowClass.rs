@@ -95,7 +95,7 @@ namespace WindowsApplication1
      ConTypeNr: i32;
      TabSheetNr: i32;
      DetailNr: i32;
-     string ss;
+     ss: String;
 
     pub ConnectionWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Connections")
@@ -122,7 +122,7 @@ namespace WindowsApplication1
         let mut connectionCount: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionCount;
         for (let mut index: i32 =  0; index <= connectionCount; index += 1)
         {
-          string str;
+          str: String;
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionX[index] == -1)
             str = "All Hexes on Map [" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index])) + "] " + this.game.Data.MapObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index]].Name;
           else

@@ -31,28 +31,28 @@ namespace WindowsApplication1
       bool tgrayedOut = false)
       : base(twidth, theight)
     {
-      this.width = twidth;
-      this.height = theight;
-      this.Descript = tDescript;
-      this.iconNr = ticonnr;
-      this.gray = tgrayedOut;
-      this.pushed = tPushed;
+      self.width = twidth;
+      self.height = theight;
+      self.Descript = tDescript;
+      self.iconNr = ticonnr;
+      self.gray = tgrayedOut;
+      self.pushed = tPushed;
     }
 
     pub Paint: Bitmap()
     {
-      Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
+      Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if (this.pushed)
+      if (self.pushed)
       {
          let mut local1: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ORDERBUTTONPRESSED);
          let mut local2: &Bitmap = &bitmap;
         rectangle1 = Rectangle::new(14, 0, 16, 38);
         let mut srcrect1: &Rectangle = &rectangle1
-        rectangle2 = Rectangle::new(14, 0, this.width - 28, this.height);
+        rectangle2 = Rectangle::new(14, 0, self.width - 28, self.height);
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &Expression;
@@ -60,7 +60,7 @@ namespace WindowsApplication1
          let mut local4: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(0, 0, 14, 38);
         let mut srcrect2: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(0, 0, 14, this.height);
+        rectangle1 = Rectangle::new(0, 0, 14, self.height);
         let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
          let mut local5: &Graphics = &Expression;
@@ -68,7 +68,7 @@ namespace WindowsApplication1
          let mut local6: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(30, 0, 14, 38);
         let mut srcrect3: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(this.width - 14, 0, 14, this.height);
+        rectangle1 = Rectangle::new(self.width - 14, 0, 14, self.height);
         let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       }
@@ -79,7 +79,7 @@ namespace WindowsApplication1
          let mut local8: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(14, 0, 7, 35);
         let mut srcrect4: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(14, 0, this.width - 28, this.height);
+        rectangle1 = Rectangle::new(14, 0, self.width - 28, self.height);
         let mut destrect4: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
          let mut local9: &Graphics = &Expression;
@@ -87,7 +87,7 @@ namespace WindowsApplication1
          let mut local10: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(0, 0, 14, 35);
         let mut srcrect5: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(0, 0, 14, this.height);
+        rectangle1 = Rectangle::new(0, 0, 14, self.height);
         let mut destrect5: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
          let mut local11: &Graphics = &Expression;
@@ -95,18 +95,18 @@ namespace WindowsApplication1
          let mut local12: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(21, 0, 14, 35);
         let mut srcrect6: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(this.width - 14, 0, 14, this.height);
+        rectangle1 = Rectangle::new(self.width - 14, 0, 14, self.height);
         let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
-      let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
-      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
-      if (this.gray)
+      let mut x: i32 =  Math.Round( (self.width - 48) / 2.0);
+      let mut y: i32 =  Math.Round( (self.height - 32) / 2.0);
+      if (self.gray)
       {
          let mut local13: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local14: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconNr * 42, 0, 42, 32);
+        rectangle2 = Rectangle::new(self.iconNr * 42, 0, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, y, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
@@ -117,7 +117,7 @@ namespace WindowsApplication1
          let mut local15: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local16: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconNr * 42, 0, 42, 32);
+        rectangle2 = Rectangle::new(self.iconNr * 42, 0, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, y, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
@@ -125,23 +125,23 @@ namespace WindowsApplication1
       }
       if (!Information.IsNothing( Expression))
         Expression.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
 
     pub PaintOverlay: Bitmap()
     {
-      Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
+      Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       bitmap: Bitmap;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if (this.pushed)
+      if (self.pushed)
       {
          let mut local1: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ORDERBUTTONPRESSED);
          let mut local2: &Bitmap = &bitmap;
         rectangle1 = Rectangle::new(14, 0, 16, 38);
         let mut srcrect1: &Rectangle = &rectangle1
-        rectangle2 = Rectangle::new(14, 0, this.width - 28, this.height);
+        rectangle2 = Rectangle::new(14, 0, self.width - 28, self.height);
         let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
          let mut local3: &Graphics = &Expression;
@@ -149,7 +149,7 @@ namespace WindowsApplication1
          let mut local4: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(0, 0, 14, 38);
         let mut srcrect2: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(0, 0, 14, this.height);
+        rectangle1 = Rectangle::new(0, 0, 14, self.height);
         let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
          let mut local5: &Graphics = &Expression;
@@ -157,7 +157,7 @@ namespace WindowsApplication1
          let mut local6: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(30, 0, 14, 38);
         let mut srcrect3: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(this.width - 14, 0, 14, this.height);
+        rectangle1 = Rectangle::new(self.width - 14, 0, 14, self.height);
         let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       }
@@ -168,7 +168,7 @@ namespace WindowsApplication1
          let mut local8: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(14, 0, 7, 35);
         let mut srcrect4: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(14, 0, this.width - 28, this.height);
+        rectangle1 = Rectangle::new(14, 0, self.width - 28, self.height);
         let mut destrect4: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
          let mut local9: &Graphics = &Expression;
@@ -176,7 +176,7 @@ namespace WindowsApplication1
          let mut local10: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(0, 0, 14, 35);
         let mut srcrect5: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(0, 0, 14, this.height);
+        rectangle1 = Rectangle::new(0, 0, 14, self.height);
         let mut destrect5: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
          let mut local11: &Graphics = &Expression;
@@ -184,18 +184,18 @@ namespace WindowsApplication1
          let mut local12: &Bitmap = &bitmap;
         rectangle2 = Rectangle::new(21, 0, 14, 35);
         let mut srcrect6: &Rectangle = &rectangle2
-        rectangle1 = Rectangle::new(this.width - 14, 0, 14, this.height);
+        rectangle1 = Rectangle::new(self.width - 14, 0, 14, self.height);
         let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
-      let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
-      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
-      if (this.gray)
+      let mut x: i32 =  Math.Round( (self.width - 48) / 2.0);
+      let mut y: i32 =  Math.Round( (self.height - 32) / 2.0);
+      if (self.gray)
       {
          let mut local13: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local14: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconNr * 42, 0, 42, 32);
+        rectangle2 = Rectangle::new(self.iconNr * 42, 0, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, y, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
@@ -206,7 +206,7 @@ namespace WindowsApplication1
          let mut local15: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
          let mut local16: &Bitmap = &bitmap;
-        rectangle2 = Rectangle::new(this.iconNr * 42, 32, 42, 32);
+        rectangle2 = Rectangle::new(self.iconNr * 42, 32, 42, 32);
         let mut srcrect: &Rectangle = &rectangle2
         rectangle1 = Rectangle::new(x, y, 48, 32);
         let mut destrect: &Rectangle = &rectangle1
@@ -214,7 +214,7 @@ namespace WindowsApplication1
       }
       if (!Information.IsNothing( Expression))
         Expression.Dispose();
-      return this.OwnBitmap;
+      return self.OwnBitmap;
     }
   }
 }

@@ -550,7 +550,7 @@ namespace WindowsApplication1
         self.Descript = "Click to see info on this SubformationType. (Ap=Action points, Rd=Readiness, Xp=Experience, Mo=Morale, Pe=People)";
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 = 1) -> i32
     {
       if (self.game.Data.UnitObj[self.unr].SFCount > 7)
       {

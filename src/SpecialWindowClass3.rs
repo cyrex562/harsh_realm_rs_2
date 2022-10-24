@@ -86,7 +86,7 @@ namespace WindowsApplication1
       Graphics g = Graphics.FromImage((Image) self.OwnBitmap);
       DrawMod.DrawRepeatingBackground(g, DrawMod.TGame.BACKGROUND3MARC, 0, 0, self.useWidth, self.useHeight);
       self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
-      string text;
+      text: String;
       sizeF1 = g.MeasureString(text, self.game.MarcFont4);
       SimpleList simpleList1 = SimpleList::new();
       simpleList1.Add(1, 0, 2, CheckExistence: false);
@@ -589,7 +589,7 @@ namespace WindowsApplication1
             if (num10 < 1)
               flag2 = false;
           }
-          string ttext;
+          ttext: String;
           c: Color;
           num11: i32;
           if (flag2)

@@ -51,7 +51,7 @@ namespace WindowsApplication1
     pub tv1: i32;
     pub tv2: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Name",  this.Name);
       info.AddValue("PeopleGroup", this.PeopleGroup);
@@ -266,7 +266,7 @@ namespace WindowsApplication1
       this.BattleVSMod = new float[100];
       if (hardcoded != 0)
         return;
-      this.Name = "Universals";
+      this.Name = "Universals".to_owned();
       this.SFIll = -1;
       this.SFExtra = -1;
       this.SidewaysFileName = "systemgraphics/trans.bmp";
@@ -329,31 +329,31 @@ namespace WindowsApplication1
       this.NationalSpriteID = -1;
     }
 
-    pub fn ReplaceSidewaysSprite(string filename)
+    pub fn ReplaceSidewaysSprite(filename: String)
     {
       this.SidewaysFileName = filename;
       this.SidewaysSpriteID = BitmapStore.ReloadFile(this.SidewaysSpriteID, this.SidewaysFileName);
     }
 
-    pub fn ReplaceSidewaysSprite2(string filename)
+    pub fn ReplaceSidewaysSprite2(filename: String)
     {
       this.SidewaysFileName2 = filename;
       this.SidewaysSpriteID2 = BitmapStore.ReloadFile(this.SidewaysSpriteID2, this.SidewaysFileName2);
     }
 
-    pub fn ReplaceSidewaysSprite3(string filename)
+    pub fn ReplaceSidewaysSprite3(filename: String)
     {
       this.SidewaysFileName3 = filename;
       this.SidewaysSpriteID3 = BitmapStore.ReloadFile(this.SidewaysSpriteID3, this.SidewaysFileName3);
     }
 
-    pub fn ReplaceSidewaysSprite4(string filename)
+    pub fn ReplaceSidewaysSprite4(filename: String)
     {
       this.SidewaysFileName4 = filename;
       this.SidewaysSpriteID4 = BitmapStore.ReloadFile(this.SidewaysSpriteID4, this.SidewaysFileName4);
     }
 
-    pub fn ReplaceNationalSprite(string filename)
+    pub fn ReplaceNationalSprite(filename: String)
     {
       this.NationalFileName = filename;
       this.NationalSpriteID = BitmapStore.ReloadFile(this.NationalSpriteID, this.NationalFileName, IsBig: true);

@@ -78,7 +78,7 @@ namespace WindowsApplication1
       twidth: i32,
       trows: i32,
       tfont: Font,
-      string tText,
+      tText: String,
       let mut tItemSize: i32 = 16,
        tbackbitmap: Bitmap = null,
       let mut bbx: i32 = -1,
@@ -415,9 +415,9 @@ namespace WindowsApplication1
       self.MouseOver = true;
     }
 
-    pub HeightUsed: i32() => (self.ListObj[self.Tab].ListCount + 1) * self.ItemSize;
+    pub fn HeightUsed() => (self.ListObj[self.Tab].ListCount + 1) -> i32 * self.ItemSize;
 
-    pub WidthUsed: i32()
+    pub fn WidthUsed() -> i32
     {
       SizeF sizeF = SizeF::new();
       return self.ListObj[0].ListCount < 0 ? 0 :  Math.Round( Graphics.FromImage((Image) self.OwnBitmap).MeasureString(self.ListObj[0].ListName[0], self.OwnFont).Width);
@@ -788,7 +788,7 @@ namespace WindowsApplication1
       self.TopItem = 0;
     }
 
-    pub HandleMouseUp: i32(x: i32, y: i32)
+    pub fn HandleMouseUp(x: i32, y: i32) -> i32
     {
       if (!(self.clickscroll == 1 | self.Scroller))
         return -1;
@@ -797,7 +797,7 @@ namespace WindowsApplication1
       return 1;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 = 1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 = 1) -> i32
     {
       let mut num1: i32 = y;
       if (self.TabCount > 0 & num1 < self.ItemSize)

@@ -161,7 +161,7 @@ namespace WindowsApplication1
       if (coordinate.x < 2)
         str1 = "?";
       str3: String = str1;
-      string str4;
+      str4: String;
       if (self.game.Data.UnitObj[self.unr].HQ > -1)
       {
         str4 = self.game.Data.UnitObj[self.game.Data.UnitObj[self.unr].HQ].Name;
@@ -188,7 +188,7 @@ namespace WindowsApplication1
             str7 = "?";
           str6 = "HQP: " + str7 + "%" + ", ";
         }
-        string str8;
+        str8: String;
         if (!self.game.Data.UnitObj[self.unr].IsHQ)
         {
           str8 = self.game.Data.UnitObj[self.unr].HQ <= -1 ? "N/A" : Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetStaffPercent(self.game.Data.UnitObj[self.unr].HQ)));

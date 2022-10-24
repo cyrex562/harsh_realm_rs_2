@@ -437,7 +437,7 @@ namespace WindowsApplication1
      TabSheetNr: i32;
      detailnr2: i32;
      detailnr: i32;
-     string ss;
+     ss: String;
 
     pub SFTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Subformation Types")
@@ -1320,1547 +1320,1547 @@ namespace WindowsApplication1
       if (self.g15id > 0)
         self.RemoveSubPart(self.g15id);
       if (self.g15textid > 0)
-        this.RemoveSubPart(this.g15textid);
-      if (this.g16id > 0)
-        this.RemoveSubPart(this.g16id);
-      if (this.g16textid > 0)
-        this.RemoveSubPart(this.g16textid);
-      if (this.g17id > 0)
-        this.RemoveSubPart(this.g17id);
-      if (this.g17textid > 0)
-        this.RemoveSubPart(this.g17textid);
-      if (this.g18id > 0)
-        this.RemoveSubPart(this.g18id);
-      if (this.g18textid > 0)
-        this.RemoveSubPart(this.g18textid);
-      if (this.g19id > 0)
-        this.RemoveSubPart(this.g19id);
-      if (this.g19textid > 0)
-        this.RemoveSubPart(this.g19textid);
-      if (this.g20id > 0)
-        this.RemoveSubPart(this.g20id);
-      if (this.g20textid > 0)
-        this.RemoveSubPart(this.g20textid);
-      if (this.g21id > 0)
-        this.RemoveSubPart(this.g21id);
-      if (this.g21textid > 0)
-        this.RemoveSubPart(this.g21textid);
-      if (this.g23id > 0)
-        this.RemoveSubPart(this.g23id);
-      if (this.g23textid > 0)
-        this.RemoveSubPart(this.g23textid);
-      if (this.g24id > 0)
-        this.RemoveSubPart(this.g24id);
-      if (this.g24textid > 0)
-        this.RemoveSubPart(this.g24textid);
-      if (this.h1id > 0)
-        this.RemoveSubPart(this.h1id);
-      if (this.h1textid > 0)
-        this.RemoveSubPart(this.h1textid);
-      if (this.h2id > 0)
-        this.RemoveSubPart(this.h2id);
-      if (this.h2textid > 0)
-        this.RemoveSubPart(this.h2textid);
-      if (this.h3id > 0)
-        this.RemoveSubPart(this.h3id);
-      if (this.h3textid > 0)
-        this.RemoveSubPart(this.h3textid);
-      if (this.h4id > 0)
-        this.RemoveSubPart(this.h4id);
-      if (this.h4textid > 0)
-        this.RemoveSubPart(this.h4textid);
-      if (this.h5id > 0)
-        this.RemoveSubPart(this.h5id);
-      if (this.h5textid > 0)
-        this.RemoveSubPart(this.h5textid);
-      if (this.h6id > 0)
-        this.RemoveSubPart(this.h6id);
-      if (this.h6textid > 0)
-        this.RemoveSubPart(this.h6textid);
-      if (this.copyid > 0)
-        this.RemoveSubPart(this.copyid);
-      if (this.copytextid > 0)
-        this.RemoveSubPart(this.copytextid);
-      if (this.p1id > 0)
-        this.RemoveSubPart(this.p1id);
-      if (this.p1textid > 0)
-        this.RemoveSubPart(this.p1textid);
-      if (this.p2id > 0)
-        this.RemoveSubPart(this.p2id);
-      if (this.p2textid > 0)
-        this.RemoveSubPart(this.p2textid);
-      if (this.p3id > 0)
-        this.RemoveSubPart(this.p3id);
-      if (this.p3textid > 0)
-        this.RemoveSubPart(this.p3textid);
-      if (this.p4id > 0)
-        this.RemoveSubPart(this.p4id);
-      if (this.p4textid > 0)
-        this.RemoveSubPart(this.p4textid);
-      if (this.p5id > 0)
-        this.RemoveSubPart(this.p5id);
-      if (this.p5textid > 0)
-        this.RemoveSubPart(this.p5textid);
-      if (this.p6id > 0)
-        this.RemoveSubPart(this.p6id);
-      if (this.p6textid > 0)
-        this.RemoveSubPart(this.p6textid);
-      if (this.p7id > 0)
-        this.RemoveSubPart(this.p7id);
-      if (this.p7textid > 0)
-        this.RemoveSubPart(this.p7textid);
-      if (this.p8id > 0)
-        this.RemoveSubPart(this.p8id);
-      if (this.p8textid > 0)
-        this.RemoveSubPart(this.p8textid);
-      if (this.p9id > 0)
-        this.RemoveSubPart(this.p9id);
-      if (this.p9textid > 0)
-        this.RemoveSubPart(this.p9textid);
-      if (this.vp1id > 0)
-        this.RemoveSubPart(this.vp1id);
-      if (this.vp1textid > 0)
-        this.RemoveSubPart(this.vp1textid);
-      if (this.vp2id > 0)
-        this.RemoveSubPart(this.vp2id);
-      if (this.vp2textid > 0)
-        this.RemoveSubPart(this.vp2textid);
-      if (this.vp3id > 0)
-        this.RemoveSubPart(this.vp3id);
-      if (this.vp3textid > 0)
-        this.RemoveSubPart(this.vp3textid);
-      if (this.vp4id > 0)
-        this.RemoveSubPart(this.vp4id);
-      if (this.vp4textid > 0)
-        this.RemoveSubPart(this.vp4textid);
-      if (this.vp5id > 0)
-        this.RemoveSubPart(this.vp5id);
-      if (this.vp5textid > 0)
-        this.RemoveSubPart(this.vp5textid);
-      if (this.vp6id > 0)
-        this.RemoveSubPart(this.vp6id);
-      if (this.vp6textid > 0)
-        this.RemoveSubPart(this.vp6textid);
-      if (this.w1id > 0)
-        this.RemoveSubPart(this.w1id);
-      if (this.w1textid > 0)
-        this.RemoveSubPart(this.w1textid);
-      if (this.w1bid > 0)
-        this.RemoveSubPart(this.w1bid);
-      if (this.w1btextid > 0)
-        this.RemoveSubPart(this.w1btextid);
-      if (this.w2id > 0)
-        this.RemoveSubPart(this.w2id);
-      if (this.w2textid > 0)
-        this.RemoveSubPart(this.w2textid);
-      if (this.w2bid > 0)
-        this.RemoveSubPart(this.w2bid);
-      if (this.w2btextid > 0)
-        this.RemoveSubPart(this.w2btextid);
-      if (this.w3id > 0)
-        this.RemoveSubPart(this.w3id);
-      if (this.w3textid > 0)
-        this.RemoveSubPart(this.w3textid);
-      if (this.w133id > 0)
-        this.RemoveSubPart(this.w133id);
-      if (this.w133textid > 0)
-        this.RemoveSubPart(this.w133textid);
-      if (this.w4id > 0)
-        this.RemoveSubPart(this.w4id);
-      if (this.w4textid > 0)
-        this.RemoveSubPart(this.w4textid);
-      if (this.w5id > 0)
-        this.RemoveSubPart(this.w5id);
-      if (this.w5textid > 0)
-        this.RemoveSubPart(this.w5textid);
-      if (this.w6id > 0)
-        this.RemoveSubPart(this.w6id);
-      if (this.w6textid > 0)
-        this.RemoveSubPart(this.w6textid);
-      if (this.w7id > 0)
-        this.RemoveSubPart(this.w7id);
-      if (this.w7textid > 0)
-        this.RemoveSubPart(this.w7textid);
-      if (this.w8id > 0)
-        this.RemoveSubPart(this.w8id);
-      if (this.w8textid > 0)
-        this.RemoveSubPart(this.w8textid);
-      if (this.w9id > 0)
-        this.RemoveSubPart(this.w9id);
-      if (this.w9textid > 0)
-        this.RemoveSubPart(this.w9textid);
-      if (this.w9bid > 0)
-        this.RemoveSubPart(this.w9bid);
-      if (this.w9btextid > 0)
-        this.RemoveSubPart(this.w9btextid);
-      if (this.w10id > 0)
-        this.RemoveSubPart(this.w10id);
-      if (this.w10textid > 0)
-        this.RemoveSubPart(this.w10textid);
-      if (this.w11id > 0)
-        this.RemoveSubPart(this.w11id);
-      if (this.w11textid > 0)
-        this.RemoveSubPart(this.w11textid);
-      if (this.w12id > 0)
-        this.RemoveSubPart(this.w12id);
-      if (this.w12textid > 0)
-        this.RemoveSubPart(this.w12textid);
-      if (this.w13id > 0)
-        this.RemoveSubPart(this.w13id);
-      if (this.w13textid > 0)
-        this.RemoveSubPart(this.w13textid);
-      if (this.w14id > 0)
-        this.RemoveSubPart(this.w14id);
-      if (this.w14textid > 0)
-        this.RemoveSubPart(this.w14textid);
-      if (this.w16id > 0)
-        this.RemoveSubPart(this.w16id);
-      if (this.w15textid > 0)
-        this.RemoveSubPart(this.w15textid);
-      if (this.w15id > 0)
-        this.RemoveSubPart(this.w15id);
-      if (this.w16textid > 0)
-        this.RemoveSubPart(this.w16textid);
-      if (this.w17id > 0)
-        this.RemoveSubPart(this.w17id);
-      if (this.w17textid > 0)
-        this.RemoveSubPart(this.w17textid);
-      if (this.VariantListId > 0)
-        this.RemoveSubPart(this.VariantListId);
-      if (this.PreventListId > 0)
-        this.RemoveSubPart(this.PreventListId);
-      if (this.SFtypeNr <= -1)
+        self.RemoveSubPart(self.g15textid);
+      if (self.g16id > 0)
+        self.RemoveSubPart(self.g16id);
+      if (self.g16textid > 0)
+        self.RemoveSubPart(self.g16textid);
+      if (self.g17id > 0)
+        self.RemoveSubPart(self.g17id);
+      if (self.g17textid > 0)
+        self.RemoveSubPart(self.g17textid);
+      if (self.g18id > 0)
+        self.RemoveSubPart(self.g18id);
+      if (self.g18textid > 0)
+        self.RemoveSubPart(self.g18textid);
+      if (self.g19id > 0)
+        self.RemoveSubPart(self.g19id);
+      if (self.g19textid > 0)
+        self.RemoveSubPart(self.g19textid);
+      if (self.g20id > 0)
+        self.RemoveSubPart(self.g20id);
+      if (self.g20textid > 0)
+        self.RemoveSubPart(self.g20textid);
+      if (self.g21id > 0)
+        self.RemoveSubPart(self.g21id);
+      if (self.g21textid > 0)
+        self.RemoveSubPart(self.g21textid);
+      if (self.g23id > 0)
+        self.RemoveSubPart(self.g23id);
+      if (self.g23textid > 0)
+        self.RemoveSubPart(self.g23textid);
+      if (self.g24id > 0)
+        self.RemoveSubPart(self.g24id);
+      if (self.g24textid > 0)
+        self.RemoveSubPart(self.g24textid);
+      if (self.h1id > 0)
+        self.RemoveSubPart(self.h1id);
+      if (self.h1textid > 0)
+        self.RemoveSubPart(self.h1textid);
+      if (self.h2id > 0)
+        self.RemoveSubPart(self.h2id);
+      if (self.h2textid > 0)
+        self.RemoveSubPart(self.h2textid);
+      if (self.h3id > 0)
+        self.RemoveSubPart(self.h3id);
+      if (self.h3textid > 0)
+        self.RemoveSubPart(self.h3textid);
+      if (self.h4id > 0)
+        self.RemoveSubPart(self.h4id);
+      if (self.h4textid > 0)
+        self.RemoveSubPart(self.h4textid);
+      if (self.h5id > 0)
+        self.RemoveSubPart(self.h5id);
+      if (self.h5textid > 0)
+        self.RemoveSubPart(self.h5textid);
+      if (self.h6id > 0)
+        self.RemoveSubPart(self.h6id);
+      if (self.h6textid > 0)
+        self.RemoveSubPart(self.h6textid);
+      if (self.copyid > 0)
+        self.RemoveSubPart(self.copyid);
+      if (self.copytextid > 0)
+        self.RemoveSubPart(self.copytextid);
+      if (self.p1id > 0)
+        self.RemoveSubPart(self.p1id);
+      if (self.p1textid > 0)
+        self.RemoveSubPart(self.p1textid);
+      if (self.p2id > 0)
+        self.RemoveSubPart(self.p2id);
+      if (self.p2textid > 0)
+        self.RemoveSubPart(self.p2textid);
+      if (self.p3id > 0)
+        self.RemoveSubPart(self.p3id);
+      if (self.p3textid > 0)
+        self.RemoveSubPart(self.p3textid);
+      if (self.p4id > 0)
+        self.RemoveSubPart(self.p4id);
+      if (self.p4textid > 0)
+        self.RemoveSubPart(self.p4textid);
+      if (self.p5id > 0)
+        self.RemoveSubPart(self.p5id);
+      if (self.p5textid > 0)
+        self.RemoveSubPart(self.p5textid);
+      if (self.p6id > 0)
+        self.RemoveSubPart(self.p6id);
+      if (self.p6textid > 0)
+        self.RemoveSubPart(self.p6textid);
+      if (self.p7id > 0)
+        self.RemoveSubPart(self.p7id);
+      if (self.p7textid > 0)
+        self.RemoveSubPart(self.p7textid);
+      if (self.p8id > 0)
+        self.RemoveSubPart(self.p8id);
+      if (self.p8textid > 0)
+        self.RemoveSubPart(self.p8textid);
+      if (self.p9id > 0)
+        self.RemoveSubPart(self.p9id);
+      if (self.p9textid > 0)
+        self.RemoveSubPart(self.p9textid);
+      if (self.vp1id > 0)
+        self.RemoveSubPart(self.vp1id);
+      if (self.vp1textid > 0)
+        self.RemoveSubPart(self.vp1textid);
+      if (self.vp2id > 0)
+        self.RemoveSubPart(self.vp2id);
+      if (self.vp2textid > 0)
+        self.RemoveSubPart(self.vp2textid);
+      if (self.vp3id > 0)
+        self.RemoveSubPart(self.vp3id);
+      if (self.vp3textid > 0)
+        self.RemoveSubPart(self.vp3textid);
+      if (self.vp4id > 0)
+        self.RemoveSubPart(self.vp4id);
+      if (self.vp4textid > 0)
+        self.RemoveSubPart(self.vp4textid);
+      if (self.vp5id > 0)
+        self.RemoveSubPart(self.vp5id);
+      if (self.vp5textid > 0)
+        self.RemoveSubPart(self.vp5textid);
+      if (self.vp6id > 0)
+        self.RemoveSubPart(self.vp6id);
+      if (self.vp6textid > 0)
+        self.RemoveSubPart(self.vp6textid);
+      if (self.w1id > 0)
+        self.RemoveSubPart(self.w1id);
+      if (self.w1textid > 0)
+        self.RemoveSubPart(self.w1textid);
+      if (self.w1bid > 0)
+        self.RemoveSubPart(self.w1bid);
+      if (self.w1btextid > 0)
+        self.RemoveSubPart(self.w1btextid);
+      if (self.w2id > 0)
+        self.RemoveSubPart(self.w2id);
+      if (self.w2textid > 0)
+        self.RemoveSubPart(self.w2textid);
+      if (self.w2bid > 0)
+        self.RemoveSubPart(self.w2bid);
+      if (self.w2btextid > 0)
+        self.RemoveSubPart(self.w2btextid);
+      if (self.w3id > 0)
+        self.RemoveSubPart(self.w3id);
+      if (self.w3textid > 0)
+        self.RemoveSubPart(self.w3textid);
+      if (self.w133id > 0)
+        self.RemoveSubPart(self.w133id);
+      if (self.w133textid > 0)
+        self.RemoveSubPart(self.w133textid);
+      if (self.w4id > 0)
+        self.RemoveSubPart(self.w4id);
+      if (self.w4textid > 0)
+        self.RemoveSubPart(self.w4textid);
+      if (self.w5id > 0)
+        self.RemoveSubPart(self.w5id);
+      if (self.w5textid > 0)
+        self.RemoveSubPart(self.w5textid);
+      if (self.w6id > 0)
+        self.RemoveSubPart(self.w6id);
+      if (self.w6textid > 0)
+        self.RemoveSubPart(self.w6textid);
+      if (self.w7id > 0)
+        self.RemoveSubPart(self.w7id);
+      if (self.w7textid > 0)
+        self.RemoveSubPart(self.w7textid);
+      if (self.w8id > 0)
+        self.RemoveSubPart(self.w8id);
+      if (self.w8textid > 0)
+        self.RemoveSubPart(self.w8textid);
+      if (self.w9id > 0)
+        self.RemoveSubPart(self.w9id);
+      if (self.w9textid > 0)
+        self.RemoveSubPart(self.w9textid);
+      if (self.w9bid > 0)
+        self.RemoveSubPart(self.w9bid);
+      if (self.w9btextid > 0)
+        self.RemoveSubPart(self.w9btextid);
+      if (self.w10id > 0)
+        self.RemoveSubPart(self.w10id);
+      if (self.w10textid > 0)
+        self.RemoveSubPart(self.w10textid);
+      if (self.w11id > 0)
+        self.RemoveSubPart(self.w11id);
+      if (self.w11textid > 0)
+        self.RemoveSubPart(self.w11textid);
+      if (self.w12id > 0)
+        self.RemoveSubPart(self.w12id);
+      if (self.w12textid > 0)
+        self.RemoveSubPart(self.w12textid);
+      if (self.w13id > 0)
+        self.RemoveSubPart(self.w13id);
+      if (self.w13textid > 0)
+        self.RemoveSubPart(self.w13textid);
+      if (self.w14id > 0)
+        self.RemoveSubPart(self.w14id);
+      if (self.w14textid > 0)
+        self.RemoveSubPart(self.w14textid);
+      if (self.w16id > 0)
+        self.RemoveSubPart(self.w16id);
+      if (self.w15textid > 0)
+        self.RemoveSubPart(self.w15textid);
+      if (self.w15id > 0)
+        self.RemoveSubPart(self.w15id);
+      if (self.w16textid > 0)
+        self.RemoveSubPart(self.w16textid);
+      if (self.w17id > 0)
+        self.RemoveSubPart(self.w17id);
+      if (self.w17textid > 0)
+        self.RemoveSubPart(self.w17textid);
+      if (self.VariantListId > 0)
+        self.RemoveSubPart(self.VariantListId);
+      if (self.PreventListId > 0)
+        self.RemoveSubPart(self.PreventListId);
+      if (self.SFtypeNr <= -1)
         return;
-      if (this.TabSheetNr == 0)
-        this.tabsheet0();
-      if (this.TabSheetNr == 1)
-        this.tabsheet1();
-      if (this.TabSheetNr == 2)
-        this.tabsheet2();
-      if (this.TabSheetNr == 3)
-        this.tabsheet3();
-      if (this.TabSheetNr == 4)
-        this.tabsheet4();
-      if (this.TabSheetNr == 5)
-        this.tabsheet5();
-      if (this.TabSheetNr == 6)
-        this.tabsheet6();
-      if (this.TabSheetNr == 7)
-        this.tabsheet7();
-      if (this.TabSheetNr == 8)
-        this.tabsheet8();
-      if (this.TabSheetNr == 9)
-        this.tabsheet9();
-      if (this.TabSheetNr != 10)
+      if (self.TabSheetNr == 0)
+        self.tabsheet0();
+      if (self.TabSheetNr == 1)
+        self.tabsheet1();
+      if (self.TabSheetNr == 2)
+        self.tabsheet2();
+      if (self.TabSheetNr == 3)
+        self.tabsheet3();
+      if (self.TabSheetNr == 4)
+        self.tabsheet4();
+      if (self.TabSheetNr == 5)
+        self.tabsheet5();
+      if (self.TabSheetNr == 6)
+        self.tabsheet6();
+      if (self.TabSheetNr == 7)
+        self.tabsheet7();
+      if (self.TabSheetNr == 8)
+        self.tabsheet8();
+      if (self.TabSheetNr == 9)
+        self.tabsheet9();
+      if (self.TabSheetNr != 10)
         return;
-      this.tabsheet10();
+      self.tabsheet10();
     }
 
      void tabsheet0()
     {
-      this.ss = "COUNTER SYMBOL - Click to change the graphics used to symoblize this sftype on a counter of a unit";
-      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.Data.SFTypeObj[this.SFtypeNr].SymbolSpriteID, tDescript: this.ss);
-      this.BSymbolId = this.AddSubPart( tsubpart1, 10, 360, 31, 31, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "COUNTER SYMBOL - Click to change the graphics used to symoblize this sftype on a counter of a unit";
+      let mut tsubpart1: SubPartClass =  ButtonPartClass::new(self.game.Data.SFTypeObj[self.SFtypeNr].SymbolSpriteID, tDescript: self.ss);
+      self.BSymbolId = self.AddSubPart( tsubpart1, 10, 360, 31, 31, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-        this.BChangeSymbolId = this.AddSubPart( tsubpart2, 50, 360, 32, 16, 1);
+        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+        self.BChangeSymbolId = self.AddSubPart( tsubpart2, 50, 360, 32, 16, 1);
       }
-      this.ss = "MOVE+COMBAT SYMOBL - Click to change the graphics used to symoblize this sftype on a counter of a unit";
-      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.Data.SFTypeObj[this.SFtypeNr].SymbolSprite2ID, tDescript: this.ss);
-      this.BSymbol2Id = this.AddSubPart( tsubpart3, 110, 360, 31, 31, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "MOVE+COMBAT SYMOBL - Click to change the graphics used to symoblize this sftype on a counter of a unit";
+      let mut tsubpart3: SubPartClass =  ButtonPartClass::new(self.game.Data.SFTypeObj[self.SFtypeNr].SymbolSprite2ID, tDescript: self.ss);
+      self.BSymbol2Id = self.AddSubPart( tsubpart3, 110, 360, 31, 31, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-        this.BChangeSymbol2Id = this.AddSubPart( tsubpart4, 150, 360, 32, 16, 1);
+        let mut tsubpart4: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+        self.BChangeSymbol2Id = self.AddSubPart( tsubpart4, 150, 360, 32, 16, 1);
       }
-      this.ss = "Let People overdraw a gfx over this sftype. 0=dont. 1=yes in front of eqp. 2=behind eqp";
-      let mut tsubpart5: SubPartClass =  TextPartClass::new("UsePplGfx=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
-      this.y3textid = this.AddSubPart( tsubpart5, 250, 360, 100, 20, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Let People overdraw a gfx over this sftype. 0=dont. 1=yes in front of eqp. 2=behind eqp";
+      let mut tsubpart5: SubPartClass =  TextPartClass::new("UsePplGfx=" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: self.ss);
+      self.y3textid = self.AddSubPart( tsubpart5, 250, 360, 100, 20, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart6: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.y3id = this.AddSubPart( tsubpart6, 210, 360, 32, 16, 1);
+        let mut tsubpart6: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.y3id = self.AddSubPart( tsubpart6, 210, 360, 32, 16, 1);
       }
-      this.ss = "Illustration Graphic - Sideways Sprite";
-      let mut tsubpart7: SubPartClass =  ButtonPartClass::new(this.game.Data.SFTypeObj[this.SFtypeNr].SidewaysSpriteID, tDescript: this.ss, tResizeX: 70, tresizeY: 40);
-      this.y4id = this.AddSubPart( tsubpart7, 180, 400, 70, 40, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Illustration Graphic - Sideways Sprite";
+      let mut tsubpart7: SubPartClass =  ButtonPartClass::new(self.game.Data.SFTypeObj[self.SFtypeNr].SidewaysSpriteID, tDescript: self.ss, tResizeX: 70, tresizeY: 40);
+      self.y4id = self.AddSubPart( tsubpart7, 180, 400, 70, 40, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart8: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-        this.y5id = this.AddSubPart( tsubpart8, 260, 400, 32, 16, 1);
+        let mut tsubpart8: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+        self.y5id = self.AddSubPart( tsubpart8, 260, 400, 32, 16, 1);
       }
-      this.ss = "Click to change the artistic graphic for this sftype";
-      let mut tsubpart9: SubPartClass =  ButtonPartClass::new(this.game.Data.SFTypeObj[this.SFtypeNr].PicSpriteID, tDescript: this.ss, tResizeX: 96, tresizeY: 72);
-      this.BPicId = this.AddSubPart( tsubpart9, 10, 400, 96, 72, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to change the artistic graphic for this sftype";
+      let mut tsubpart9: SubPartClass =  ButtonPartClass::new(self.game.Data.SFTypeObj[self.SFtypeNr].PicSpriteID, tDescript: self.ss, tResizeX: 96, tresizeY: 72);
+      self.BPicId = self.AddSubPart( tsubpart9, 10, 400, 96, 72, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart10: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
-        this.bChangePicId = this.AddSubPart( tsubpart10, 140, 400, 32, 16, 1);
+        let mut tsubpart10: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLUE, tDescript: self.ss);
+        self.bChangePicId = self.AddSubPart( tsubpart10, 140, 400, 32, 16, 1);
       }
-      this.ss = "Click to assign the sftype a symbolgroup number, used for pre-calculation which symbolgroup is shown in mixed unit";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to assign the sftype a symbolgroup number, used for pre-calculation which symbolgroup is shown in mixed unit";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart11: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BSymbolGroupId = this.AddSubPart( tsubpart11, 10, 540, 32, 16, 1);
+        let mut tsubpart11: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BSymbolGroupId = self.AddSubPart( tsubpart11, 10, 540, 32, 16, 1);
       }
-      let mut tsubpart12: SubPartClass =  TextPartClass::new("Symbol Group: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.BSymbolGroupTextId = this.AddSubPart( tsubpart12, 50, 539, 400, 20, 0);
-      this.ss = "Click to assign the sftype as symbolweight, the more weight the earlier it prevails as symbol shown in mixed unit";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart12: SubPartClass =  TextPartClass::new("Symbol Group: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SymbolGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.BSymbolGroupTextId = self.AddSubPart( tsubpart12, 50, 539, 400, 20, 0);
+      self.ss = "Click to assign the sftype as symbolweight, the more weight the earlier it prevails as symbol shown in mixed unit";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart13: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BSymbolWeightId = this.AddSubPart( tsubpart13, 10, 570, 32, 16, 1);
+        let mut tsubpart13: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BSymbolWeightId = self.AddSubPart( tsubpart13, 10, 570, 32, 16, 1);
       }
-      let mut tsubpart14: SubPartClass =  TextPartClass::new("Symbol Weight: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.BSymbolWeightTextId = this.AddSubPart( tsubpart14, 50, 569, 400, 20, 0);
-      this.ss = "Click to toggle symbol overrule on or off. A symboloverrule means that this symbol will not be cloured as regime pen colour.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart14: SubPartClass =  TextPartClass::new("Symbol Weight: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SymbolWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.BSymbolWeightTextId = self.AddSubPart( tsubpart14, 50, 569, 400, 20, 0);
+      self.ss = "Click to toggle symbol overrule on or off. A symboloverrule means that this symbol will not be cloured as regime pen colour.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart15: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BSymbolOverRuleId = this.AddSubPart( tsubpart15, 10, 600, 32, 16, 1);
+        let mut tsubpart15: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BSymbolOverRuleId = self.AddSubPart( tsubpart15, 10, 600, 32, 16, 1);
       }
-      let mut tsubpart16: SubPartClass =  TextPartClass::new("OverRule Symbol: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.BSymbolOverRuleTextId = this.AddSubPart( tsubpart16, 50, 599, 400, 20, 0);
+      let mut tsubpart16: SubPartClass =  TextPartClass::new("OverRule Symbol: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SymbolOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.BSymbolOverRuleTextId = self.AddSubPart( tsubpart16, 50, 599, 400, 20, 0);
     }
 
      void tabsheet1()
     {
-      this.ss = "Click to set the MoveType of this SubformationType";
-      str1: String = this.game.Data.TempString[this.game.Data.SFTypeObj[this.SFtypeNr].MoveType];
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the MoveType of this SubformationType";
+      str1: String = self.game.Data.TempString[self.game.Data.SFTypeObj[self.SFtypeNr].MoveType];
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.BMoveTypeId = this.AddSubPart( tsubpart, 10, 340, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.BMoveTypeId = self.AddSubPart( tsubpart, 10, 340, 32, 16, 1);
       }
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Move Type: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.BMoveTypeTextId = this.AddSubPart( tsubpart1, 50, 339, 400, 20, 0);
-      this.ss = "Click to set how much supply sftype can maximally hold with it without using carrycap";
-      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyCarry);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Move Type: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.BMoveTypeTextId = self.AddSubPart( tsubpart1, 50, 339, 400, 20, 0);
+      self.ss = "Click to set how much supply sftype can maximally hold with it without using carrycap";
+      str2: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SupplyCarry);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B1Id = this.AddSubPart( tsubpart2, 10, 380, 32, 16, 1);
+        let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B1Id = self.AddSubPart( tsubpart2, 10, 380, 32, 16, 1);
       }
-      let mut tsubpart3: SubPartClass =  TextPartClass::new("Supply Carry: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.B1TextId = this.AddSubPart( tsubpart3, 50, 379, 400, 20, 0);
-      this.ss = "Click to set howmuch supply the sftype can maximally consume per round";
-      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BasicSupplyNeed);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart3: SubPartClass =  TextPartClass::new("Supply Carry: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.B1TextId = self.AddSubPart( tsubpart3, 50, 379, 400, 20, 0);
+      self.ss = "Click to set howmuch supply the sftype can maximally consume per round";
+      str3: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].BasicSupplyNeed);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B6Id = this.AddSubPart( tsubpart4, 10, 460, 32, 16, 1);
+        let mut tsubpart4: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B6Id = self.AddSubPart( tsubpart4, 10, 460, 32, 16, 1);
       }
-      let mut tsubpart5: SubPartClass =  TextPartClass::new("Basic Supply Need: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.B6TextId = this.AddSubPart( tsubpart5, 50, 459, 200, 20, 0);
-      this.ss = "Click to set the UnitGroup of this sftype. Is used for combatdetail stats and landscape entrench stats.";
-      str4: String = this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup] + "(" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup) + ")";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart5: SubPartClass =  TextPartClass::new("Basic Supply Need: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.B6TextId = self.AddSubPart( tsubpart5, 50, 459, 200, 20, 0);
+      self.ss = "Click to set the UnitGroup of this sftype. Is used for combatdetail stats and landscape entrench stats.";
+      str4: String = self.game.Data.TempString[400 + self.game.Data.SFTypeObj[self.SFtypeNr].UnitGroup] + "(" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].UnitGroup) + ")";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart6: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B7Id = this.AddSubPart( tsubpart6, 10, 480, 32, 16, 1);
+        let mut tsubpart6: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B7Id = self.AddSubPart( tsubpart6, 10, 480, 32, 16, 1);
       }
-      let mut tsubpart7: SubPartClass =  TextPartClass::new("SFType Group: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.B7TextId = this.AddSubPart( tsubpart7, 50, 479, 200, 20, 0);
-      this.ss = "Click to set ammount of reconpoints";
-      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ReconPts);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart7: SubPartClass =  TextPartClass::new("SFType Group: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.B7TextId = self.AddSubPart( tsubpart7, 50, 479, 200, 20, 0);
+      self.ss = "Click to set ammount of reconpoints";
+      str5: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ReconPts);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart8: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.f1id = this.AddSubPart( tsubpart8, 10, 500, 32, 16, 1);
+        let mut tsubpart8: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.f1id = self.AddSubPart( tsubpart8, 10, 500, 32, 16, 1);
       }
-      let mut tsubpart9: SubPartClass =  TextPartClass::new("ReconPts: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.f1textid = this.AddSubPart( tsubpart9, 50, 500, 200, 20, 0);
-      this.ss = "Click to set ammount of hidepoints. Specifying the minimal number of reconpoints needed to see this sftype.";
-      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HidePts);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart9: SubPartClass =  TextPartClass::new("ReconPts: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.f1textid = self.AddSubPart( tsubpart9, 50, 500, 200, 20, 0);
+      self.ss = "Click to set ammount of hidepoints. Specifying the minimal number of reconpoints needed to see this sftype.";
+      str6: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].HidePts);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart10: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.f2id = this.AddSubPart( tsubpart10, 10, 520, 32, 16, 1);
+        let mut tsubpart10: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.f2id = self.AddSubPart( tsubpart10, 10, 520, 32, 16, 1);
       }
-      let mut tsubpart11: SubPartClass =  TextPartClass::new("HidePts: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.f2textid = this.AddSubPart( tsubpart11, 50, 520, 200, 20, 0);
-      this.ss = "Click to set the number of Zone of Controll points";
-      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ZOCPts);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart11: SubPartClass =  TextPartClass::new("HidePts: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.f2textid = self.AddSubPart( tsubpart11, 50, 520, 200, 20, 0);
+      self.ss = "Click to set the number of Zone of Controll points";
+      str7: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ZOCPts);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart12: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.f3id = this.AddSubPart( tsubpart12, 10, 540, 32, 16, 1);
+        let mut tsubpart12: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.f3id = self.AddSubPart( tsubpart12, 10, 540, 32, 16, 1);
       }
-      let mut tsubpart13: SubPartClass =  TextPartClass::new("ZOCPts: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.f3textid = this.AddSubPart( tsubpart13, 50, 540, 200, 20, 0);
-      this.ss = "Click to toggle on/off if the sftype can be used for paradropping. Without paradrop airlift is always still possible";
-      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CanDoParadrop);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart13: SubPartClass =  TextPartClass::new("ZOCPts: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.f3textid = self.AddSubPart( tsubpart13, 50, 540, 200, 20, 0);
+      self.ss = "Click to toggle on/off if the sftype can be used for paradropping. Without paradrop airlift is always still possible";
+      str8: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CanDoParadrop);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart14: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g1id = this.AddSubPart( tsubpart14, 10, 560, 32, 16, 1);
+        let mut tsubpart14: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g1id = self.AddSubPart( tsubpart14, 10, 560, 32, 16, 1);
       }
-      let mut tsubpart15: SubPartClass =  TextPartClass::new("CanDoParadrop: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g1textid = this.AddSubPart( tsubpart15, 50, 560, 200, 20, 0);
-      this.ss = "Click to set the number of anti-struc points per combatround this sftype can maximally do";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart15: SubPartClass =  TextPartClass::new("CanDoParadrop: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g1textid = self.AddSubPart( tsubpart15, 50, 560, 200, 20, 0);
+      self.ss = "Click to set the number of anti-struc points per combatround this sftype can maximally do";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart16: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g2id = this.AddSubPart( tsubpart16, 10, 580, 32, 16, 1);
+        let mut tsubpart16: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g2id = self.AddSubPart( tsubpart16, 10, 580, 32, 16, 1);
       }
-      let mut tsubpart17: SubPartClass =  TextPartClass::new("AntiStrucPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiStrucPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g2textid = this.AddSubPart( tsubpart17, 50, 580, 200, 20, 0);
-      this.ss = "Click to set the Theater type of this sftype. 0=land, 1=navy and 2=air";
-      str9: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Theater);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart17: SubPartClass =  TextPartClass::new("AntiStrucPts: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AntiStrucPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g2textid = self.AddSubPart( tsubpart17, 50, 580, 200, 20, 0);
+      self.ss = "Click to set the Theater type of this sftype. 0=land, 1=navy and 2=air";
+      str9: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Theater);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart18: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B8Id = this.AddSubPart( tsubpart18, 310, 360, 32, 16, 1);
+        let mut tsubpart18: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B8Id = self.AddSubPart( tsubpart18, 310, 360, 32, 16, 1);
       }
-      let mut tsubpart19: SubPartClass =  TextPartClass::new("Theater: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.B8TextId = this.AddSubPart( tsubpart19, 350, 359, 200, 20, 0);
-      this.ss = "Click to set the weight of this sftype. Is used in mobility determination calcs and transfers/str.transfers";
-      str10: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Weight);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart19: SubPartClass =  TextPartClass::new("Theater: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.B8TextId = self.AddSubPart( tsubpart19, 350, 359, 200, 20, 0);
+      self.ss = "Click to set the weight of this sftype. Is used in mobility determination calcs and transfers/str.transfers";
+      str10: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Weight);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart20: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b9id = this.AddSubPart( tsubpart20, 310, 380, 32, 16, 1);
+        let mut tsubpart20: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b9id = self.AddSubPart( tsubpart20, 310, 380, 32, 16, 1);
       }
-      let mut tsubpart21: SubPartClass =  TextPartClass::new("Weight: " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b9textid = this.AddSubPart( tsubpart21, 350, 379, 200, 20, 0);
-      this.ss = "Click to set how much weight points this sftype can carry/mobilize";
-      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CarryCap);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart21: SubPartClass =  TextPartClass::new("Weight: " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b9textid = self.AddSubPart( tsubpart21, 350, 379, 200, 20, 0);
+      self.ss = "Click to set how much weight points this sftype can carry/mobilize";
+      str11: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CarryCap);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart22: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.d1id = this.AddSubPart( tsubpart22, 310, 400, 32, 16, 1);
+        let mut tsubpart22: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.d1id = self.AddSubPart( tsubpart22, 310, 400, 32, 16, 1);
       }
-      let mut tsubpart23: SubPartClass =  TextPartClass::new("CarryCap: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.d1textid = this.AddSubPart( tsubpart23, 350, 399, 200, 20, 0);
-      this.ss = "Click to set howmany entrench points this sftype generates at start of every turn";
-      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EntrenchPower);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart23: SubPartClass =  TextPartClass::new("CarryCap: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.d1textid = self.AddSubPart( tsubpart23, 350, 399, 200, 20, 0);
+      self.ss = "Click to set howmany entrench points this sftype generates at start of every turn";
+      str12: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].EntrenchPower);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart24: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.e1id = this.AddSubPart( tsubpart24, 310, 420, 32, 16, 1);
+        let mut tsubpart24: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.e1id = self.AddSubPart( tsubpart24, 310, 420, 32, 16, 1);
       }
-      let mut tsubpart25: SubPartClass =  TextPartClass::new("EntrenchPower: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.e1textid = this.AddSubPart( tsubpart25, 350, 419, 200, 20, 0);
-      this.ss = "Click to set the powerpoints of this sftype. Very important for experience calculations! Used to display counter strenght.";
-      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PowerPts);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart25: SubPartClass =  TextPartClass::new("EntrenchPower: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.e1textid = self.AddSubPart( tsubpart25, 350, 419, 200, 20, 0);
+      self.ss = "Click to set the powerpoints of this sftype. Very important for experience calculations! Used to display counter strenght.";
+      str13: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].PowerPts);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart26: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.e3id = this.AddSubPart( tsubpart26, 310, 460, 32, 16, 1);
+        let mut tsubpart26: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.e3id = self.AddSubPart( tsubpart26, 310, 460, 32, 16, 1);
       }
-      let mut tsubpart27: SubPartClass =  TextPartClass::new("PowerPts: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.e3textid = this.AddSubPart( tsubpart27, 350, 459, 200, 20, 0);
-      this.ss = "Click to set the percentage of movement cost reduction this sftype will get on its movetype costs. Example: 40 is 40% less AP cost";
-      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MoveRedux);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart27: SubPartClass =  TextPartClass::new("PowerPts: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.e3textid = self.AddSubPart( tsubpart27, 350, 459, 200, 20, 0);
+      self.ss = "Click to set the percentage of movement cost reduction this sftype will get on its movetype costs. Example: 40 is 40% less AP cost";
+      str14: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].MoveRedux);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart28: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b24id = this.AddSubPart( tsubpart28, 310, 640, 32, 16, 1);
+        let mut tsubpart28: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b24id = self.AddSubPart( tsubpart28, 310, 640, 32, 16, 1);
       }
-      let mut tsubpart29: SubPartClass =  TextPartClass::new("MoveRedux: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b24textid = this.AddSubPart( tsubpart29, 350, 639, 200, 20, 0);
-      this.ss = "Click to set a possible actionpomod: i32. Making it possible to give this sftype more or less than 100ap if fully ready.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart29: SubPartClass =  TextPartClass::new("MoveRedux: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b24textid = self.AddSubPart( tsubpart29, 350, 639, 200, 20, 0);
+      self.ss = "Click to set a possible actionpomod: i32. Making it possible to give this sftype more or less than 100ap if fully ready.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart30: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g4id = this.AddSubPart( tsubpart30, 610, 240, 32, 16, 1);
+        let mut tsubpart30: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g4id = self.AddSubPart( tsubpart30, 610, 240, 32, 16, 1);
       }
-      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoMod: i32: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g4textid = this.AddSubPart( tsubpart31, 650, 239, 200, 20, 0);
-      this.ss = "Click to set howmuch absolute readiness points this sfype loses with each attack";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoMod: i32: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g4textid = self.AddSubPart( tsubpart31, 650, 239, 200, 20, 0);
+      self.ss = "Click to set howmuch absolute readiness points this sfype loses with each attack";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart32: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g6id = this.AddSubPart( tsubpart32, 610, 260, 32, 16, 1);
+        let mut tsubpart32: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g6id = self.AddSubPart( tsubpart32, 610, 260, 32, 16, 1);
       }
-      let mut tsubpart33: SubPartClass =  TextPartClass::new("RdnLossPerAttack: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RdnLossPerAttack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g6textid = this.AddSubPart( tsubpart33, 650, 259, 200, 20, 0);
-      this.ss = "Click to toggle on/off if this sftype should autodestroy after having finished one full combatround.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart33: SubPartClass =  TextPartClass::new("RdnLossPerAttack: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].RdnLossPerAttack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g6textid = self.AddSubPart( tsubpart33, 650, 259, 200, 20, 0);
+      self.ss = "Click to toggle on/off if this sftype should autodestroy after having finished one full combatround.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart34: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g7id = this.AddSubPart( tsubpart34, 610, 280, 32, 16, 1);
+        let mut tsubpart34: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g7id = self.AddSubPart( tsubpart34, 610, 280, 32, 16, 1);
       }
-      let mut tsubpart35: SubPartClass =  TextPartClass::new("AutoDestroy: Att=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy) + ", Def=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g7textid = this.AddSubPart( tsubpart35, 650, 279, 200, 20, 0);
-      this.ss = "Click to set the ammount of engineer points this sftype will get every round";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart35: SubPartClass =  TextPartClass::new("AutoDestroy: Att=" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy) + ", Def=" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g7textid = self.AddSubPart( tsubpart35, 650, 279, 200, 20, 0);
+      self.ss = "Click to set the ammount of engineer points this sftype will get every round";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart36: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g8id = this.AddSubPart( tsubpart36, 610, 300, 32, 16, 1);
+        let mut tsubpart36: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g8id = self.AddSubPart( tsubpart36, 610, 300, 32, 16, 1);
       }
-      let mut tsubpart37: SubPartClass =  TextPartClass::new("EP: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g8textid = this.AddSubPart( tsubpart37, 650, 299, 200, 20, 0);
-      this.ss = "Click to choose the sound that has to be played when the sftype moves";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart37: SubPartClass =  TextPartClass::new("EP: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].EP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g8textid = self.AddSubPart( tsubpart37, 650, 299, 200, 20, 0);
+      self.ss = "Click to choose the sound that has to be played when the sftype moves";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart38: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g10id = this.AddSubPart( tsubpart38, 610, 340, 32, 16, 1);
+        let mut tsubpart38: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g10id = self.AddSubPart( tsubpart38, 610, 340, 32, 16, 1);
       }
-      let mut tsubpart39: SubPartClass =  TextPartClass::new("MoveWAV: " + this.game.Data.SFTypeObj[this.SFtypeNr].MoveWAV, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g10textid = this.AddSubPart( tsubpart39, 650, 339, 200, 20, 0);
-      this.ss = "Click to choose the sound that has to be played when the sftype fights";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart39: SubPartClass =  TextPartClass::new("MoveWAV: " + self.game.Data.SFTypeObj[self.SFtypeNr].MoveWAV, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g10textid = self.AddSubPart( tsubpart39, 650, 339, 200, 20, 0);
+      self.ss = "Click to choose the sound that has to be played when the sftype fights";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart40: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g11id = this.AddSubPart( tsubpart40, 610, 360, 32, 16, 1);
+        let mut tsubpart40: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g11id = self.AddSubPart( tsubpart40, 610, 360, 32, 16, 1);
       }
-      let mut tsubpart41: SubPartClass =  TextPartClass::new("BattleWAV: " + this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g11textid = this.AddSubPart( tsubpart41, 650, 359, 200, 20, 0);
-      this.ss = "Click to set the number of staff points this sftype has. 1 Staffpoints is needed for each Powerpounder: i32 command.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart41: SubPartClass =  TextPartClass::new("BattleWAV: " + self.game.Data.SFTypeObj[self.SFtypeNr].BattleWAV, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g11textid = self.AddSubPart( tsubpart41, 650, 359, 200, 20, 0);
+      self.ss = "Click to set the number of staff points this sftype has. 1 Staffpoints is needed for each Powerpounder: i32 command.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart42: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g15id = this.AddSubPart( tsubpart42, 610, 400, 32, 16, 1);
+        let mut tsubpart42: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g15id = self.AddSubPart( tsubpart42, 610, 400, 32, 16, 1);
       }
-      let mut tsubpart43: SubPartClass =  TextPartClass::new("StaffPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g15textid = this.AddSubPart( tsubpart43, 650, 399, 200, 20, 0);
-      this.ss = "Click to set the anti-struc points generated by this sftype when attempting to blow a bridge";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart43: SubPartClass =  TextPartClass::new("StaffPts: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StaffPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g15textid = self.AddSubPart( tsubpart43, 650, 399, 200, 20, 0);
+      self.ss = "Click to set the anti-struc points generated by this sftype when attempting to blow a bridge";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart44: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g17id = this.AddSubPart( tsubpart44, 610, 420, 32, 16, 1);
+        let mut tsubpart44: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g17id = self.AddSubPart( tsubpart44, 610, 420, 32, 16, 1);
       }
-      let mut tsubpart45: SubPartClass =  TextPartClass::new("BlowBridgePts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BlowBridgePts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g17textid = this.AddSubPart( tsubpart45, 650, 419, 200, 20, 0);
-      this.ss = "Click to set the percentage chance a kill against this sftype is mutated into a retreat.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart45: SubPartClass =  TextPartClass::new("BlowBridgePts: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].BlowBridgePts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g17textid = self.AddSubPart( tsubpart45, 650, 419, 200, 20, 0);
+      self.ss = "Click to set the percentage chance a kill against this sftype is mutated into a retreat.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart46: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g18id = this.AddSubPart( tsubpart46, 610, 440, 32, 16, 1);
+        let mut tsubpart46: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g18id = self.AddSubPart( tsubpart46, 610, 440, 32, 16, 1);
       }
-      let mut tsubpart47: SubPartClass =  TextPartClass::new("KillToRetr%(in def): " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KilltoRetreatChance), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g18textid = this.AddSubPart( tsubpart47, 650, 439, 200, 20, 0);
-      this.ss = "Click if the sftype has staff points to set the max combat modifier for units under a hq with this sftype.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart47: SubPartClass =  TextPartClass::new("KillToRetr%(in def): " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].KilltoRetreatChance), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g18textid = self.AddSubPart( tsubpart47, 650, 439, 200, 20, 0);
+      self.ss = "Click if the sftype has staff points to set the max combat modifier for units under a hq with this sftype.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart48: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b29id = this.AddSubPart( tsubpart48, 610, 460, 32, 16, 1);
+        let mut tsubpart48: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b29id = self.AddSubPart( tsubpart48, 610, 460, 32, 16, 1);
       }
-      let mut tsubpart49: SubPartClass =  TextPartClass::new("StaffCombatMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffCombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b29textid = this.AddSubPart( tsubpart49, 650, 459, 200, 20, 0);
-      this.ss = "Click if the sftype has staff points to set the max morale modifier for units under a hq with this sftype.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart49: SubPartClass =  TextPartClass::new("StaffCombatMod: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StaffCombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b29textid = self.AddSubPart( tsubpart49, 650, 459, 200, 20, 0);
+      self.ss = "Click if the sftype has staff points to set the max morale modifier for units under a hq with this sftype.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart50: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b30id = this.AddSubPart( tsubpart50, 610, 480, 32, 16, 1);
+        let mut tsubpart50: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b30id = self.AddSubPart( tsubpart50, 610, 480, 32, 16, 1);
       }
-      let mut tsubpart51: SubPartClass =  TextPartClass::new("StaffMoraleMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffMoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b30textid = this.AddSubPart( tsubpart51, 650, 479, 200, 20, 0);
-      this.ss = "Click to set the antisupply points this sftype has versus land hexes.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart51: SubPartClass =  TextPartClass::new("StaffMoraleMod: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StaffMoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b30textid = self.AddSubPart( tsubpart51, 650, 479, 200, 20, 0);
+      self.ss = "Click to set the antisupply points this sftype has versus land hexes.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart52: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g19id = this.AddSubPart( tsubpart52, 610, 500, 32, 16, 1);
+        let mut tsubpart52: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g19id = self.AddSubPart( tsubpart52, 610, 500, 32, 16, 1);
       }
-      let mut tsubpart53: SubPartClass =  TextPartClass::new("AntiSupplyPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g19textid = this.AddSubPart( tsubpart53, 650, 499, 200, 20, 0);
-      this.ss = "Click to set how far in Action Points these anti supply points are in effect";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart53: SubPartClass =  TextPartClass::new("AntiSupplyPts: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g19textid = self.AddSubPart( tsubpart53, 650, 499, 200, 20, 0);
+      self.ss = "Click to set how far in Action Points these anti supply points are in effect";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart54: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g20id = this.AddSubPart( tsubpart54, 610, 520, 32, 16, 1);
+        let mut tsubpart54: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g20id = self.AddSubPart( tsubpart54, 610, 520, 32, 16, 1);
       }
-      let mut tsubpart55: SubPartClass =  TextPartClass::new("AntiSupplyRange: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g20textid = this.AddSubPart( tsubpart55, 650, 519, 200, 20, 0);
-      this.ss = "Click the antisupply points this sftype has versus sea hexes";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart55: SubPartClass =  TextPartClass::new("AntiSupplyRange: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g20textid = self.AddSubPart( tsubpart55, 650, 519, 200, 20, 0);
+      self.ss = "Click the antisupply points this sftype has versus sea hexes";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart56: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g21id = this.AddSubPart( tsubpart56, 610, 540, 32, 16, 1);
+        let mut tsubpart56: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g21id = self.AddSubPart( tsubpart56, 610, 540, 32, 16, 1);
       }
-      let mut tsubpart57: SubPartClass =  TextPartClass::new("AntiSupplySea: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplySea), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g21textid = this.AddSubPart( tsubpart57, 650, 539, 200, 20, 0);
-      this.ss = "Click to set an absolute readiness loss points for every 100ap spent. (50 ap spent is half specified loss)";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart57: SubPartClass =  TextPartClass::new("AntiSupplySea: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupplySea), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g21textid = self.AddSubPart( tsubpart57, 650, 539, 200, 20, 0);
+      self.ss = "Click to set an absolute readiness loss points for every 100ap spent. (50 ap spent is half specified loss)";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart58: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b32id = this.AddSubPart( tsubpart58, 610, 560, 32, 16, 1);
+        let mut tsubpart58: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b32id = self.AddSubPart( tsubpart58, 610, 560, 32, 16, 1);
       }
-      let mut tsubpart59: SubPartClass =  TextPartClass::new("Abs.Rdnloss100ap: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ReadinessLoss), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-      this.b32textid = this.AddSubPart( tsubpart59, 650, 559, 250, 20, 0);
-      this.ss = "Click to set railcap pts..";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart59: SubPartClass =  TextPartClass::new("Abs.Rdnloss100ap: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ReadinessLoss), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+      self.b32textid = self.AddSubPart( tsubpart59, 650, 559, 250, 20, 0);
+      self.ss = "Click to set railcap pts..";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart60: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b33id = this.AddSubPart( tsubpart60, 610, 580, 32, 16, 1);
+        let mut tsubpart60: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b33id = self.AddSubPart( tsubpart60, 610, 580, 32, 16, 1);
       }
-      let mut tsubpart61: SubPartClass =  TextPartClass::new("Railcap: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RailCap), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b33textid = this.AddSubPart( tsubpart61, 650, 579, 200, 20, 0);
-      this.ss = "Click to set regimevar of regime that kills 1 of this sftype to be raised by 1. -1=no regvar raise.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart61: SubPartClass =  TextPartClass::new("Railcap: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].RailCap), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b33textid = self.AddSubPart( tsubpart61, 650, 579, 200, 20, 0);
+      self.ss = "Click to set regimevar of regime that kills 1 of this sftype to be raised by 1. -1=no regvar raise.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart62: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.h5id = this.AddSubPart( tsubpart62, 610, 600, 32, 16, 1);
+        let mut tsubpart62: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.h5id = self.AddSubPart( tsubpart62, 610, 600, 32, 16, 1);
       }
-      let mut tsubpart63: SubPartClass =  TextPartClass::new("KillIsRegVar: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KillIsRegVar), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.h5textid = this.AddSubPart( tsubpart63, 650, 599, 200, 20, 0);
-      this.ss = "Click to set which Slot Number of the hex attacked by this SFType should be increased by 1 for each attack in each combatround";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart63: SubPartClass =  TextPartClass::new("KillIsRegVar: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].KillIsRegVar), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.h5textid = self.AddSubPart( tsubpart63, 650, 599, 200, 20, 0);
+      self.ss = "Click to set which Slot Number of the hex attacked by this SFType should be increased by 1 for each attack in each combatround";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart64: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b34id = this.AddSubPart( tsubpart64, 610, 620, 32, 16, 1);
+        let mut tsubpart64: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b34id = self.AddSubPart( tsubpart64, 610, 620, 32, 16, 1);
       }
-      let mut tsubpart65: SubPartClass =  TextPartClass::new("OnAttackSetSlot: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SlotNumber), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b34textid = this.AddSubPart( tsubpart65, 650, 619, 200, 20, 0);
-      this.ss = "Click to set the ratio. 0=no ratio. But for example 2 shows player 2 times as many as their are individuals. Use for historicity purposes.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart65: SubPartClass =  TextPartClass::new("OnAttackSetSlot: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SlotNumber), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b34textid = self.AddSubPart( tsubpart65, 650, 619, 200, 20, 0);
+      self.ss = "Click to set the ratio. 0=no ratio. But for example 2 shows player 2 times as many as their are individuals. Use for historicity purposes.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart66: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w6id = this.AddSubPart( tsubpart66, 310, 560, 32, 16, 1);
+        let mut tsubpart66: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w6id = self.AddSubPart( tsubpart66, 310, 560, 32, 16, 1);
       }
-      let mut tsubpart67: SubPartClass =  TextPartClass::new("Ratio: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Ratio), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.w6textid = this.AddSubPart( tsubpart67, 350, 559, 200, 20, 0);
-      this.ss = "Click to set Air AP Overrule cost. Leave -1 to keep standard functionality. >-1 means thats the ap cost to move into any hex.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart67: SubPartClass =  TextPartClass::new("Ratio: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Ratio), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.w6textid = self.AddSubPart( tsubpart67, 350, 559, 200, 20, 0);
+      self.ss = "Click to set Air AP Overrule cost. Leave -1 to keep standard functionality. >-1 means thats the ap cost to move into any hex.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart68: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.x3id = this.AddSubPart( tsubpart68, 310, 580, 32, 16, 1);
+        let mut tsubpart68: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.x3id = self.AddSubPart( tsubpart68, 310, 580, 32, 16, 1);
       }
-      let mut tsubpart69: SubPartClass =  TextPartClass::new("AirOverrule: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AirAPRule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.x3textid = this.AddSubPart( tsubpart69, 350, 579, 200, 20, 0);
-      this.ss = "Click to set CopyFromSFType stat. This is only used by some scripts like those who interprent in the Trooptype Editor.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      let mut tsubpart69: SubPartClass =  TextPartClass::new("AirOverrule: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AirAPRule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.x3textid = self.AddSubPart( tsubpart69, 350, 579, 200, 20, 0);
+      self.ss = "Click to set CopyFromSFType stat. This is only used by some scripts like those who interprent in the Trooptype Editor.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart70: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w7id = this.AddSubPart( tsubpart70, 910, 120, 32, 16, 1);
+        let mut tsubpart70: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w7id = self.AddSubPart( tsubpart70, 910, 120, 32, 16, 1);
       }
-      if (this.game.Data.SFTypeObj[this.SFtypeNr].CopyDataFrom > -1)
+      if (self.game.Data.SFTypeObj[self.SFtypeNr].CopyDataFrom > -1)
       {
-        let mut tsubpart71: SubPartClass =  TextPartClass::new("CopyFromSFType: " + this.game.Data.SFTypeObj[this.game.Data.SFTypeObj[this.SFtypeNr].CopyDataFrom].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w7textid = this.AddSubPart( tsubpart71, 950, 119, 200, 20, 0);
-      }
-      else
-      {
-        let mut tsubpart72: SubPartClass =  TextPartClass::new("CopyFromSFType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w7textid = this.AddSubPart( tsubpart72, 950, 119, 200, 20, 0);
-      }
-      this.ss = "Click to select reinforcement type. Current Type#: " + this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType.ToString();
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
-      {
-        let mut tsubpart73: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w9id = this.AddSubPart( tsubpart73, 310, 440, 32, 16, 1);
-      }
-      if (this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType > -1)
-      {
-        let mut tsubpart74: SubPartClass =  TextPartClass::new("ReinforcementType: " + this.game.Data.ReinfName[this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType], Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w9textid = this.AddSubPart( tsubpart74, 350, 439, 200, 20, 0);
+        let mut tsubpart71: SubPartClass =  TextPartClass::new("CopyFromSFType: " + self.game.Data.SFTypeObj[self.game.Data.SFTypeObj[self.SFtypeNr].CopyDataFrom].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w7textid = self.AddSubPart( tsubpart71, 950, 119, 200, 20, 0);
       }
       else
       {
-        let mut tsubpart75: SubPartClass =  TextPartClass::new("ReinforcementType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w9textid = this.AddSubPart( tsubpart75, 350, 439, 200, 20, 0);
+        let mut tsubpart72: SubPartClass =  TextPartClass::new("CopyFromSFType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w7textid = self.AddSubPart( tsubpart72, 950, 119, 200, 20, 0);
       }
-      this.ss = "Click to set if in auto-reinforce phase this unit type should never be returned from a HQ (do for trucks and trains)";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to select reinforcement type. Current Type#: " + self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType.ToString();
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart76: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w10id = this.AddSubPart( tsubpart76, 310, 600, 32, 16, 1);
+        let mut tsubpart73: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w9id = self.AddSubPart( tsubpart73, 310, 440, 32, 16, 1);
       }
-      let mut tsubpart77: SubPartClass =  TextPartClass::new("DontReturnFromHQ: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].DontReturnFromHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.w10textid = this.AddSubPart( tsubpart77, 350, 599, 200, 20, 0);
-      this.ss = "Click to set ConsiderCarry true/false. If false then this sftype weight is added to the prognose weight statistic of a unit it is part of.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType > -1)
       {
-        let mut tsubpart78: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w12id = this.AddSubPart( tsubpart78, 310, 540, 32, 16, 1);
+        let mut tsubpart74: SubPartClass =  TextPartClass::new("ReinforcementType: " + self.game.Data.ReinfName[self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType], Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w9textid = self.AddSubPart( tsubpart74, 350, 439, 200, 20, 0);
       }
-      let mut tsubpart79: SubPartClass =  TextPartClass::new("ConsiderCarry: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ConsiderCarry), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.w12textid = this.AddSubPart( tsubpart79, 350, 539, 200, 20, 0);
-      this.ss = "Click to reduce the penalty this SFType gets in the first 2 rounds of combat. 1 =full rulevar penalty. 0.5=half, 0=none.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
+      else
       {
-        let mut tsubpart80: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b36id = this.AddSubPart( tsubpart80, 310, 500, 32, 16, 1);
+        let mut tsubpart75: SubPartClass =  TextPartClass::new("ReinforcementType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w9textid = self.AddSubPart( tsubpart75, 350, 439, 200, 20, 0);
       }
-      let mut tsubpart81: SubPartClass =  TextPartClass::new("FirstRoundPenaltyMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FirstRoundPenaltyMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b36textid = this.AddSubPart( tsubpart81, 350, 499, 200, 20, 0);
-      this.ss = "Click to set show/hide in info window lists";
-      if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
+      self.ss = "Click to set if in auto-reinforce phase this unit type should never be returned from a HQ (do for trucks and trains)";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart82: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g24id = this.AddSubPart( tsubpart82, 910, 180, 32, 16, 1);
+        let mut tsubpart76: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w10id = self.AddSubPart( tsubpart76, 310, 600, 32, 16, 1);
       }
-      let mut tsubpart83: SubPartClass =  TextPartClass::new("DontShowInList: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].DontShowInList), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g24textid = this.AddSubPart( tsubpart83, 950, 179, 200, 20, 0);
-      if (this.game.Data.Product >= 6)
+      let mut tsubpart77: SubPartClass =  TextPartClass::new("DontReturnFromHQ: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].DontReturnFromHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.w10textid = self.AddSubPart( tsubpart77, 350, 599, 200, 20, 0);
+      self.ss = "Click to set ConsiderCarry true/false. If false then this sftype weight is added to the prognose weight statistic of a unit it is part of.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        this.ss = "Click to change Start and End Combat Round";
-        if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
+        let mut tsubpart78: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w12id = self.AddSubPart( tsubpart78, 310, 540, 32, 16, 1);
+      }
+      let mut tsubpart79: SubPartClass =  TextPartClass::new("ConsiderCarry: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ConsiderCarry), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.w12textid = self.AddSubPart( tsubpart79, 350, 539, 200, 20, 0);
+      self.ss = "Click to reduce the penalty this SFType gets in the first 2 rounds of combat. 1 =full rulevar penalty. 0.5=half, 0=none.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0 | !self.game.Data.MasterfileReadPeople)
+      {
+        let mut tsubpart80: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b36id = self.AddSubPart( tsubpart80, 310, 500, 32, 16, 1);
+      }
+      let mut tsubpart81: SubPartClass =  TextPartClass::new("FirstRoundPenaltyMod: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FirstRoundPenaltyMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b36textid = self.AddSubPart( tsubpart81, 350, 499, 200, 20, 0);
+      self.ss = "Click to set show/hide in info window lists";
+      if (Strings.Len(self.game.Data.MasterFile) == 0 | !self.game.Data.MasterfileReadPeople)
+      {
+        let mut tsubpart82: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g24id = self.AddSubPart( tsubpart82, 910, 180, 32, 16, 1);
+      }
+      let mut tsubpart83: SubPartClass =  TextPartClass::new("DontShowInList: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].DontShowInList), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g24textid = self.AddSubPart( tsubpart83, 950, 179, 200, 20, 0);
+      if (self.game.Data.Product >= 6)
+      {
+        self.ss = "Click to change Start and End Combat Round";
+        if (Strings.Len(self.game.Data.MasterFile) == 0 | !self.game.Data.MasterfileReadPeople)
         {
-          let mut tsubpart84: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.w14id = this.AddSubPart( tsubpart84, 910, 200, 32, 16, 1);
+          let mut tsubpart84: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.w14id = self.AddSubPart( tsubpart84, 910, 200, 32, 16, 1);
         }
-        let mut tsubpart85: SubPartClass =  TextPartClass::new("Start+End Combat Round: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StartCombatRound) + "," + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EndCombatRound), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w14textid = this.AddSubPart( tsubpart85, 950, 199, 200, 20, 0);
+        let mut tsubpart85: SubPartClass =  TextPartClass::new("Start+End Combat Round: " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StartCombatRound) + "," + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].EndCombatRound), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w14textid = self.AddSubPart( tsubpart85, 950, 199, 200, 20, 0);
       }
-      this.ss = "Click to select secondary reinforcement type. Be careful with this and read docs since its functionality is very limited.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to select secondary reinforcement type. Be careful with this and read docs since its functionality is very limited.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart86: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w9bid = this.AddSubPart( tsubpart86, 310, 520, 32, 16, 1);
+        let mut tsubpart86: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w9bid = self.AddSubPart( tsubpart86, 310, 520, 32, 16, 1);
       }
-      if (this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType2 > -1)
+      if (self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType2 > -1)
       {
-        let mut tsubpart87: SubPartClass =  TextPartClass::new("2nd ReinforcementType: " + this.game.Data.ReinfName[this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType2], Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w9btextid = this.AddSubPart( tsubpart87, 350, 519, 200, 20, 0);
+        let mut tsubpart87: SubPartClass =  TextPartClass::new("2nd ReinforcementType: " + self.game.Data.ReinfName[self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType2], Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w9btextid = self.AddSubPart( tsubpart87, 350, 519, 200, 20, 0);
       }
       else
       {
-        let mut tsubpart88: SubPartClass =  TextPartClass::new("2nd ReinforcementType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w9btextid = this.AddSubPart( tsubpart88, 350, 519, 200, 20, 0);
+        let mut tsubpart88: SubPartClass =  TextPartClass::new("2nd ReinforcementType: NONE", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w9btextid = self.AddSubPart( tsubpart88, 350, 519, 200, 20, 0);
       }
-      this.tabsheet1b();
+      self.tabsheet1b();
     }
 
     pub fn tabsheet1b()
     {
-      if (this.B4Id > 0)
-        this.RemoveSubPart(this.B4Id);
-      if (this.B4TextId > 0)
-        this.RemoveSubPart(this.B4TextId);
-      if (this.detailnr <= -1)
+      if (self.B4Id > 0)
+        self.RemoveSubPart(self.B4Id);
+      if (self.B4TextId > 0)
+        self.RemoveSubPart(self.B4TextId);
+      if (self.detailnr <= -1)
         return;
-      this.ss = "Click to toggle on/off if this sftype can be recruited from selected peoplegroup";
-      if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
+      self.ss = "Click to toggle on/off if this sftype can be recruited from selected peoplegroup";
+      if (Strings.Len(self.game.Data.MasterFile) == 0 | !self.game.Data.MasterfileReadPeople)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.B4Id = this.AddSubPart( tsubpart, 10, 620, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.B4Id = self.AddSubPart( tsubpart, 10, 620, 32, 16, 1);
       }
-      if (!(Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople))
+      if (!(Strings.Len(self.game.Data.MasterFile) == 0 | !self.game.Data.MasterfileReadPeople))
         return;
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Change Value", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.B4TextId = this.AddSubPart( tsubpart1, 50, 619, 400, 20, 0);
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Change Value", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.B4TextId = self.AddSubPart( tsubpart1, 50, 619, 400, 20, 0);
     }
 
     pub fn tabsheet2()
     {
-      this.ss = "Click to set the initiative of this sftype if attacking and if defending";
-      str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Initiative) + " / " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].InitiativeDef);
+      self.ss = "Click to set the initiative of this sftype if attacking and if defending";
+      str1: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Initiative) + " / " + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].InitiativeDef);
       SubPartClass tsubpart;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b11id = this.AddSubPart( tsubpart, 10, 380, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b11id = self.AddSubPart( tsubpart, 10, 380, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Initiative: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b11textid = this.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
-      this.ss = "Click to set the number of attacks this sftype can do every combatround (10 ap per combatround)";
-      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Attacks);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Initiative: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b11textid = self.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
+      self.ss = "Click to set the number of attacks this sftype can do every combatround (10 ap per combatround)";
+      str2: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Attacks);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b12id = this.AddSubPart( tsubpart, 10, 400, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b12id = self.AddSubPart( tsubpart, 10, 400, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Attacks: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b12textid = this.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
-      this.ss = "Click to set the max number of times this sftype can be attacked before these attacks get penalties";
-      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxAttacked);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Attacks: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b12textid = self.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
+      self.ss = "Click to set the max number of times this sftype can be attacked before these attacks get penalties";
+      str3: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].MaxAttacked);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b13id = this.AddSubPart( tsubpart, 10, 420, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b13id = self.AddSubPart( tsubpart, 10, 420, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("MaxAttacked: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b13textid = this.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
-      this.ss = "Click to set the stackpoints this sftype consumes";
-      str4: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Frontage);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("MaxAttacked: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b13textid = self.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
+      self.ss = "Click to set the stackpoints this sftype consumes";
+      str4: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].Frontage);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b14id = this.AddSubPart( tsubpart, 10, 440, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b14id = self.AddSubPart( tsubpart, 10, 440, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Stack Pts: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b14textid = this.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
-      this.ss = "Click to toggle on/off if this sftype is a rear area sftype (instead of frontline)";
-      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BackBench);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Stack Pts: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b14textid = self.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
+      self.ss = "Click to toggle on/off if this sftype is a rear area sftype (instead of frontline)";
+      str5: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].BackBench);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b15id = this.AddSubPart( tsubpart, 10, 460, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b15id = self.AddSubPart( tsubpart, 10, 460, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Rear Area: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b15textid = this.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
-      this.ss = "Click to set artillery range. Range of 0 means it has no artillery capability.";
-      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ArtRange);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Rear Area: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b15textid = self.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
+      self.ss = "Click to set artillery range. Range of 0 means it has no artillery capability.";
+      str6: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ArtRange);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b16id = this.AddSubPart( tsubpart, 10, 480, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b16id = self.AddSubPart( tsubpart, 10, 480, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Art.Range: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b16textid = this.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
-      this.ss = "Click to set the number of random enemy individuals the sftype can browse through to select a best opponent.";
-      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTargetTries);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Art.Range: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b16textid = self.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
+      self.ss = "Click to set the number of random enemy individuals the sftype can browse through to select a best opponent.";
+      str7: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FavTargetTries);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b17id = this.AddSubPart( tsubpart, 10, 500, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b17id = self.AddSubPart( tsubpart, 10, 500, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FavTarget Tries: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b17textid = this.AddSubPart( tsubpart, 50, 499, 200, 20, 0);
-      this.ss = "Click to set the range of the Anti-Air power of this sftype.";
-      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AARange);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("FavTarget Tries: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b17textid = self.AddSubPart( tsubpart, 50, 499, 200, 20, 0);
+      self.ss = "Click to set the range of the Anti-Air power of this sftype.";
+      str8: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AARange);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g16id = this.AddSubPart( tsubpart, 10, 520, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g16id = self.AddSubPart( tsubpart, 10, 520, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AARange: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.g16textid = this.AddSubPart( tsubpart, 50, 519, 400, 20, 0);
-      this.ss = "Click to set the percentchance that a hit by this sftype is a kill";
-      str9: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KillPercent)) + "% on target";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("AARange: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.g16textid = self.AddSubPart( tsubpart, 50, 519, 400, 20, 0);
+      self.ss = "Click to set the percentchance that a hit by this sftype is a kill";
+      str9: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].KillPercent)) + "% on target";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b20id = this.AddSubPart( tsubpart, 10, 540, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b20id = self.AddSubPart( tsubpart, 10, 540, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Kill%: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b20textid = this.AddSubPart( tsubpart, 50, 539, 200, 20, 0);
-      this.ss = "Click to set the percentchance that a hit by this sftype is a retreat for the attacked individual";
-      str10: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RetreatPercent)) + "% on target";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Kill%: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b20textid = self.AddSubPart( tsubpart, 50, 539, 200, 20, 0);
+      self.ss = "Click to set the percentchance that a hit by this sftype is a retreat for the attacked individual";
+      str10: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].RetreatPercent)) + "% on target";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b22id = this.AddSubPart( tsubpart, 10, 560, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b22id = self.AddSubPart( tsubpart, 10, 560, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Retreat%: " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.b22textid = this.AddSubPart( tsubpart, 50, 559, 400, 20, 0);
-      this.ss = "Click to change the description of the sftype.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Retreat%: " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.b22textid = self.AddSubPart( tsubpart, 50, 559, 400, 20, 0);
+      self.ss = "Click to change the description of the sftype.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b27id = this.AddSubPart( tsubpart, 310, 360, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b27id = self.AddSubPart( tsubpart, 310, 360, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  TextPartClass::new("Change Description", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b27textid = this.AddSubPart( tsubpart, 350, 359, 200, 20, 0);
+        tsubpart =  TextPartClass::new("Change Description", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b27textid = self.AddSubPart( tsubpart, 350, 359, 200, 20, 0);
       }
-      this.ss = "Click to let this SFType use the LandscapeMod table of another SFType for artillery attacks.";
-      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ArtSFType);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to let this SFType use the LandscapeMod table of another SFType for artillery attacks.";
+      str11: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ArtSFType);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w13id = this.AddSubPart( tsubpart, 10, 580, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w13id = self.AddSubPart( tsubpart, 10, 580, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Artillery Mod Sftyp: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.w13textid = this.AddSubPart( tsubpart, 50, 579, 200, 20, 0);
-      this.ss = "If ind. scores a RETREAT or KILL hit on enemy (that consumed supply last turn) it has a 0.x chance to get killed. 0.05=5% chance. Only done for att side! ";
-      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ChanceOnDeathIfMakeHit) + "%";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Artillery Mod Sftyp: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.w13textid = self.AddSubPart( tsubpart, 50, 579, 200, 20, 0);
+      self.ss = "If ind. scores a RETREAT or KILL hit on enemy (that consumed supply last turn) it has a 0.x chance to get killed. 0.05=5% chance. Only done for att side! ";
+      str12: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ChanceOnDeathIfMakeHit) + "%";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w133id = this.AddSubPart( tsubpart, 10, 600, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w133id = self.AddSubPart( tsubpart, 10, 600, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("ChanceOnDeathIfMakeHit: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-      this.w133textid = this.AddSubPart( tsubpart, 50, 599, 250, 20, 0);
-      this.ss = "";
-      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directRange);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("ChanceOnDeathIfMakeHit: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+      self.w133textid = self.AddSubPart( tsubpart, 50, 599, 250, 20, 0);
+      self.ss = "";
+      str13: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].directRange);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w15id = this.AddSubPart( tsubpart, 10, 620, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w15id = self.AddSubPart( tsubpart, 10, 620, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("DirectRange: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-      this.w15textid = this.AddSubPart( tsubpart, 50, 619, 250, 20, 0);
-      this.ss = "";
-      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directModFirstHex);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("DirectRange: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+      self.w15textid = self.AddSubPart( tsubpart, 50, 619, 250, 20, 0);
+      self.ss = "";
+      str14: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].directModFirstHex);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w16id = this.AddSubPart( tsubpart, 10, 640, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w16id = self.AddSubPart( tsubpart, 10, 640, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("DirectModFirstHex: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-      this.w16textid = this.AddSubPart( tsubpart, 50, 639, 250, 20, 0);
-      this.ss = "";
-      str15: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directModPerHex);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("DirectModFirstHex: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+      self.w16textid = self.AddSubPart( tsubpart, 50, 639, 250, 20, 0);
+      self.ss = "";
+      str15: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].directModPerHex);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.w17id = this.AddSubPart( tsubpart, 10, 660, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.w17id = self.AddSubPart( tsubpart, 10, 660, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("DirectModPerHex: " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
-      this.w17textid = this.AddSubPart( tsubpart, 50, 659, 250, 20, 0);
-      tText: String = this.game.Data.SFTypeObj[this.SFtypeNr].Description;
-      if (this.game.Data.Product >= 7)
+      tsubpart =  TextPartClass::new("DirectModPerHex: " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: self.ss);
+      self.w17textid = self.AddSubPart( tsubpart, 50, 659, 250, 20, 0);
+      tText: String = self.game.Data.SFTypeObj[self.SFtypeNr].Description;
+      if (self.game.Data.Product >= 7)
       {
         let mut index: i32 = 0;
         do
         {
-          if (this.game.Data.SFTypeObj[this.SFtypeNr].SFTypeVar[index] > 0)
-            tText = tText + "\r\n" + "SFTYPEVAR_" + index.ToString() + "=" + this.game.Data.SFTypeObj[this.SFtypeNr].SFTypeVar[index].ToString();
+          if (self.game.Data.SFTypeObj[self.SFtypeNr].SFTypeVar[index] > 0)
+            tText = tText + "\r\n" + "SFTYPEVAR_" + index.ToString() + "=" + self.game.Data.SFTypeObj[self.SFtypeNr].SFTypeVar[index].ToString();
           index += 1;
         }
         while (index <= 99);
       }
-      tsubpart =  new TextAreaClass(this.game, 650, 10, Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), "Description", false, tText, Color.White, tbackbitmap: ( this.OwnBitmap), bbx: 310, bby: 390);
-      this.b28id = this.AddSubPart( tsubpart, 310, 390, 650, 208, 0);
+      tsubpart =  new TextAreaClass(self.game, 650, 10, Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), "Description", false, tText, Color.White, tbackbitmap: ( self.OwnBitmap), bbx: 310, bby: 390);
+      self.b28id = self.AddSubPart( tsubpart, 310, 390, 650, 208, 0);
     }
 
     pub fn tabsheet9()
     {
-      this.ss = "Which regimevar # is used as fuel resource";
-      str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar);
+      self.ss = "Which regimevar # is used as fuel resource";
+      str1: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FuelRegimeVar);
       SubPartClass tsubpart;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c2id = this.AddSubPart( tsubpart, 10, 380, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c2id = self.AddSubPart( tsubpart, 10, 380, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FuelRegimeVar: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c2textid = this.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
-      this.ss = "For every 10AP the SFType moves it needs this QTY of fuel.";
-      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForMove);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("FuelRegimeVar: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c2textid = self.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
+      self.ss = "For every 10AP the SFType moves it needs this QTY of fuel.";
+      str2: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FuelForMove);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c3id = this.AddSubPart( tsubpart, 10, 400, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c3id = self.AddSubPart( tsubpart, 10, 400, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FuelForMove(10ap): " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c3textid = this.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
-      this.ss = "If the fuel is not available movement cost will be multiplied.. 2=double movement cost. 3=3x movement cost ";
-      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("FuelForMove(10ap): " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c3textid = self.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
+      self.ss = "If the fuel is not available movement cost will be multiplied.. 2=double movement cost. 3=3x movement cost ";
+      str3: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelMove);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c4id = this.AddSubPart( tsubpart, 10, 420, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c4id = self.AddSubPart( tsubpart, 10, 420, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutOfFuelMove: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c4textid = this.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
-      this.ss = "For every combatround (10AP) the SFType needs this QTY of fuel/";
-      str4: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttack) + "/" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttackDef);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutOfFuelMove: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c4textid = self.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
+      self.ss = "For every combatround (10AP) the SFType needs this QTY of fuel/";
+      str4: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttack) + "/" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttackDef);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c5id = this.AddSubPart( tsubpart, 10, 440, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c5id = self.AddSubPart( tsubpart, 10, 440, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FuelForAttack(10ap): " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c5textid = this.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
-      this.ss = "If fuel is not available in a given combatround and the SFType is attacking. Its strength will be modified by X. 0.5=halved.";
-      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("FuelForAttack(10ap): " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c5textid = self.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
+      self.ss = "If fuel is not available in a given combatround and the SFType is attacking. Its strength will be modified by X. 0.5=halved.";
+      str5: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelAttack);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c6id = this.AddSubPart( tsubpart, 10, 460, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c6id = self.AddSubPart( tsubpart, 10, 460, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutOfFuelAttack: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c6textid = this.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
-      this.ss = "If fuel is not available in a given combatround and the SFType is defending. Its strength will be modified by X. 0.5=halved.";
-      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutOfFuelAttack: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c6textid = self.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
+      self.ss = "If fuel is not available in a given combatround and the SFType is defending. Its strength will be modified by X. 0.5=halved.";
+      str6: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelDefense);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c7id = this.AddSubPart( tsubpart, 10, 480, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c7id = self.AddSubPart( tsubpart, 10, 480, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutOfFuelDefense: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c7textid = this.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
-      this.ss = "Copy fuel stats from specified SFType number";
-      Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutOfFuelDefense: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c7textid = self.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
+      self.ss = "Copy fuel stats from specified SFType number";
+      Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelDefense);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.y2id = this.AddSubPart( tsubpart, 10, 520, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.y2id = self.AddSubPart( tsubpart, 10, 520, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Copy fuel stats from..", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.y1textid = this.AddSubPart( tsubpart, 50, 519, 200, 20, 0);
-      this.ss = "Howmuch supply is taken out of the stockpile per round of attack. 0=no stockpile rule.";
-      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileUsedPerRound);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("Copy fuel stats from..", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.y1textid = self.AddSubPart( tsubpart, 50, 519, 200, 20, 0);
+      self.ss = "Howmuch supply is taken out of the stockpile per round of attack. 0=no stockpile rule.";
+      str7: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StockpileUsedPerRound);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c12id = this.AddSubPart( tsubpart, 410, 380, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c12id = self.AddSubPart( tsubpart, 410, 380, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("StockUsePerRound: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c12textid = this.AddSubPart( tsubpart, 450, 379, 200, 20, 0);
-      this.ss = "Maximum size of the stockpile";
-      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMax);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("StockUsePerRound: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c12textid = self.AddSubPart( tsubpart, 450, 379, 200, 20, 0);
+      self.ss = "Maximum size of the stockpile";
+      str8: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StockpileMax);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c13id = this.AddSubPart( tsubpart, 410, 400, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c13id = self.AddSubPart( tsubpart, 410, 400, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("StockPileMax: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c13textid = this.AddSubPart( tsubpart, 450, 399, 200, 20, 0);
-      this.ss = "0=no maximum/rule not used. Otherwise maximum stockpile supply request in per round.";
-      str9: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMaxIn);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("StockPileMax: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c13textid = self.AddSubPart( tsubpart, 450, 399, 200, 20, 0);
+      self.ss = "0=no maximum/rule not used. Otherwise maximum stockpile supply request in per round.";
+      str9: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StockpileMaxIn);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c14id = this.AddSubPart( tsubpart, 410, 420, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c14id = self.AddSubPart( tsubpart, 410, 420, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("StockPileMaxIn: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c14textid = this.AddSubPart( tsubpart, 450, 419, 200, 20, 0);
-      this.ss = "Any attack made by this sftype, artillery or otherwise is modified with out of stockmod when no stockpile left.";
-      str10: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileDepletedMod);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("StockPileMaxIn: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c14textid = self.AddSubPart( tsubpart, 450, 419, 200, 20, 0);
+      self.ss = "Any attack made by this sftype, artillery or otherwise is modified with out of stockmod when no stockpile left.";
+      str10: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].StockpileDepletedMod);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c15id = this.AddSubPart( tsubpart, 410, 440, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c15id = self.AddSubPart( tsubpart, 410, 440, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutofStockMod): " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c15textid = this.AddSubPart( tsubpart, 450, 439, 200, 20, 0);
-      this.ss = "0=no maximum/rule not used. Otherwise its the maximum supply request in per round.";
-      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyMaxIn);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutofStockMod): " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c15textid = self.AddSubPart( tsubpart, 450, 439, 200, 20, 0);
+      self.ss = "0=no maximum/rule not used. Otherwise its the maximum supply request in per round.";
+      str11: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SupplyMaxIn);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c16id = this.AddSubPart( tsubpart, 410, 480, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c16id = self.AddSubPart( tsubpart, 410, 480, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("SupplyMaxIn " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c16textid = this.AddSubPart( tsubpart, 450, 479, 200, 20, 0);
-      this.ss = ".";
-      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttack);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("SupplyMaxIn " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c16textid = self.AddSubPart( tsubpart, 450, 479, 200, 20, 0);
+      self.ss = ".";
+      str12: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SupplyForAttack);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c17id = this.AddSubPart( tsubpart, 710, 380, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c17id = self.AddSubPart( tsubpart, 710, 380, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("SupplyForAttack: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c17textid = this.AddSubPart( tsubpart, 750, 379, 200, 20, 0);
-      this.ss = ".";
-      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttackDef);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("SupplyForAttack: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c17textid = self.AddSubPart( tsubpart, 750, 379, 200, 20, 0);
+      self.ss = ".";
+      str13: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].SupplyForAttackDef);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c18id = this.AddSubPart( tsubpart, 710, 400, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c18id = self.AddSubPart( tsubpart, 710, 400, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("SupplyForAttackDef: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c18textid = this.AddSubPart( tsubpart, 750, 399, 200, 20, 0);
-      this.ss = ".";
-      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyAttack);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("SupplyForAttackDef: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c18textid = self.AddSubPart( tsubpart, 750, 399, 200, 20, 0);
+      self.ss = ".";
+      str14: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfSupplyAttack);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c19id = this.AddSubPart( tsubpart, 710, 420, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c19id = self.AddSubPart( tsubpart, 710, 420, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutOfSupplyAttack: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c19textid = this.AddSubPart( tsubpart, 750, 419, 200, 20, 0);
-      this.ss = ".";
-      str15: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyDefense);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutOfSupplyAttack: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c19textid = self.AddSubPart( tsubpart, 750, 419, 200, 20, 0);
+      self.ss = ".";
+      str15: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].OutOfSupplyDefense);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c20id = this.AddSubPart( tsubpart, 710, 440, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c20id = self.AddSubPart( tsubpart, 710, 440, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("OutOfSupplyDefense: " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c20textid = this.AddSubPart( tsubpart, 750, 439, 200, 20, 0);
-      this.ss = ".";
-      str16: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelCarry);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart =  TextPartClass::new("OutOfSupplyDefense: " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c20textid = self.AddSubPart( tsubpart, 750, 439, 200, 20, 0);
+      self.ss = ".";
+      str16: String = Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FuelCarry);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.c21id = this.AddSubPart( tsubpart, 710, 480, 32, 16, 1);
+        tsubpart =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.c21id = self.AddSubPart( tsubpart, 710, 480, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FuelCarry: " + str16, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.c21textid = this.AddSubPart( tsubpart, 750, 479, 200, 20, 0);
+      tsubpart =  TextPartClass::new("FuelCarry: " + str16, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.c21textid = self.AddSubPart( tsubpart, 750, 479, 200, 20, 0);
     }
 
     pub fn tabsheet3()
     {
-      this.CombatListObj = ListClass::new();
-      if (this.detailnr < -1 | this.detailnr > 99)
-        this.detailnr = -1;
+      self.CombatListObj = ListClass::new();
+      if (self.detailnr < -1 | self.detailnr > 99)
+        self.detailnr = -1;
       let mut index: i32 = 0;
       do
       {
         str1: String = "";
-        str2: String = Conversion.Str( index) + ") " + this.game.Data.TempString[index + 400];
+        str2: String = Conversion.Str( index) + ") " + self.game.Data.TempString[index + 400];
         if (Strings.Len(str2) > 15)
           str2 = Strings.Left(str2, 15);
         str3: String = str1 + str2 + Strings.Space(25 - Strings.Len(str2));
-        Expression1: String = "Fav=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[index]));
+        Expression1: String = "Fav=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FavTarget[index]));
         str4: String = str3 + Expression1 + Strings.Space(12 - Strings.Len(Expression1));
-        Expression2: String = "Pow=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[index]));
+        Expression2: String = "Pow=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AttackPower[index]));
         str5: String = str4 + Expression2 + Strings.Space(12 - Strings.Len(Expression2));
-        Expression3: String = "PowDef=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[index]));
+        Expression3: String = "PowDef=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AttackPowerDef[index]));
         str6: String = str5 + Expression3 + Strings.Space(12 - Strings.Len(Expression3));
-        Expression4: String = "ArtPow=" + Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[index])));
+        Expression4: String = "ArtPow=" + Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(self.game.Data.SFTypeObj[self.SFtypeNr].AttackArt[index])));
         str7: String = str6 + Expression4 + Strings.Space(12 - Strings.Len(Expression4));
-        Expression5: String = "ArtFav=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[index]));
+        Expression5: String = "ArtFav=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FavArtTarget[index]));
         str8: String = str7 + Expression5 + Strings.Space(12 - Strings.Len(Expression5));
-        Expression6: String = "HitPts=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[index]));
-        this.CombatListObj.add(str8 + Expression6 + Strings.Space(12 - Strings.Len(Expression6)) + ("HitPtsDef=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[index]))), index);
+        Expression6: String = "HitPts=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].HitPoints[index]));
+        self.CombatListObj.add(str8 + Expression6 + Strings.Space(12 - Strings.Len(Expression6)) + ("HitPtsDef=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].HitPointsDef[index]))), index);
         index += 1;
       }
       while (index <= 99);
-      if (this.game.ScreenHeight >= 800)
+      if (self.game.ScreenHeight >= 800)
       {
-        ListClass combatListObj = this.CombatListObj;
-        let mut detailnr: i32 = this.detailnr;
-        let mut game: GameClass = this.game;
-         local1: Bitmap =  this.OwnBitmap;
+        ListClass combatListObj = self.CombatListObj;
+        let mut detailnr: i32 = self.detailnr;
+        let mut game: GameClass = self.game;
+         local1: Bitmap =  self.OwnBitmap;
         font: Font =  null;
          local2: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(combatListObj, 16, 880, detailnr, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-        this.CombatListId = this.AddSubPart( tsubpart, 10, 340, 880, 304, 0);
+        self.CombatListId = self.AddSubPart( tsubpart, 10, 340, 880, 304, 0);
       }
       else
       {
-        ListClass combatListObj = this.CombatListObj;
-        let mut detailnr: i32 = this.detailnr;
-        let mut game: GameClass = this.game;
-         local3: Bitmap =  this.OwnBitmap;
+        ListClass combatListObj = self.CombatListObj;
+        let mut detailnr: i32 = self.detailnr;
+        let mut game: GameClass = self.game;
+         local3: Bitmap =  self.OwnBitmap;
         font: Font =  null;
          local4: Font =  font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(combatListObj, 12, 880, detailnr, game, true, tbackbitmap: ( local3), bbx: 10, bby: 340, overruleFont: ( local4));
-        this.CombatListId = this.AddSubPart( tsubpart, 10, 340, 880, 240, 0);
+        self.CombatListId = self.AddSubPart( tsubpart, 10, 340, 880, 240, 0);
       }
-      if (this.detailnr <= -1)
+      if (self.detailnr <= -1)
         return;
-      this.tabsheet3b();
+      self.tabsheet3b();
     }
 
     pub fn tabsheet3b()
     {
-      this.ss = "Click to set how favourite this unitgroup is as a target for this sftype. the higher the more favourite.";
-      str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set how favourite this unitgroup is as a target for this sftype. the higher the more favourite.";
+      str1: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FavTarget[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b18id = this.AddSubPart( tsubpart, 910, 340, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b18id = self.AddSubPart( tsubpart, 910, 340, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Fav: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b18textid = this.AddSubPart( tsubpart, 950, 339, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Fav: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b18textid = self.AddSubPart( tsubpart, 950, 339, 400, 20, 0);
       }
-      this.ss = "Click to set the attackpower of this sftype in offense versus this unitgroup.";
-      str2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the attackpower of this sftype in offense versus this unitgroup.";
+      str2: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AttackPower[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b19id = this.AddSubPart( tsubpart, 910, 360, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b19id = self.AddSubPart( tsubpart, 910, 360, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Pow: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b19textid = this.AddSubPart( tsubpart, 950, 359, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Pow: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b19textid = self.AddSubPart( tsubpart, 950, 359, 400, 20, 0);
       }
-      this.ss = "Click to set the attackpower of this sftype in defense versus this unitgroup.";
-      str3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the attackpower of this sftype in defense versus this unitgroup.";
+      str3: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AttackPowerDef[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b23id = this.AddSubPart( tsubpart, 910, 380, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b23id = self.AddSubPart( tsubpart, 910, 380, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("PowDef: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b23textid = this.AddSubPart( tsubpart, 950, 379, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("PowDef: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b23textid = self.AddSubPart( tsubpart, 950, 379, 400, 20, 0);
       }
-      this.ss = "Click to set the attackpower of this sftype versus this unitgroup if it does an artillery attack";
-      str4: String = Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[this.detailnr])));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the attackpower of this sftype versus this unitgroup if it does an artillery attack";
+      str4: String = Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(self.game.Data.SFTypeObj[self.SFtypeNr].AttackArt[self.detailnr])));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b25id = this.AddSubPart( tsubpart, 910, 400, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b25id = self.AddSubPart( tsubpart, 910, 400, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("ArtPow: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b25textid = this.AddSubPart( tsubpart, 950, 399, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("ArtPow: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b25textid = self.AddSubPart( tsubpart, 950, 399, 400, 20, 0);
       }
-      this.ss = "Click to set how favourite this unitgroup is as a target for an artillery attack of this sftype. the higher the more favourite.";
-      str5: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set how favourite this unitgroup is as a target for an artillery attack of this sftype. the higher the more favourite.";
+      str5: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].FavArtTarget[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b26id = this.AddSubPart( tsubpart, 910, 420, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b26id = self.AddSubPart( tsubpart, 910, 420, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("ArtFav: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b26textid = this.AddSubPart( tsubpart, 950, 419, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("ArtFav: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b26textid = self.AddSubPart( tsubpart, 950, 419, 400, 20, 0);
       }
-      this.ss = "Click to set hitpoints when attacking a hex.";
-      str6: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set hitpoints when attacking a hex.";
+      str6: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].HitPoints[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b37id = this.AddSubPart( tsubpart, 910, 440, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b37id = self.AddSubPart( tsubpart, 910, 440, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("HitPoints: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b37textid = this.AddSubPart( tsubpart, 950, 439, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("HitPoints: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b37textid = self.AddSubPart( tsubpart, 950, 439, 400, 20, 0);
       }
-      this.ss = "Click to set hitpoints when defending a hex.";
-      str7: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set hitpoints when defending a hex.";
+      str7: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].HitPointsDef[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.b38id = this.AddSubPart( tsubpart, 910, 460, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.b38id = self.AddSubPart( tsubpart, 910, 460, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("HitPointsDef: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b38textid = this.AddSubPart( tsubpart, 950, 459, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("HitPointsDef: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b38textid = self.AddSubPart( tsubpart, 950, 459, 400, 20, 0);
       }
-      this.ss = "Click to copy the stats in this table from another SFtype.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to copy the stats in this table from another SFtype.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.copyid = this.AddSubPart( tsubpart, 910, 480, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.copyid = self.AddSubPart( tsubpart, 910, 480, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Copy combattable from ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.copytextid = this.AddSubPart( tsubpart, 950, 479, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Copy combattable from ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.copytextid = self.AddSubPart( tsubpart, 950, 479, 400, 20, 0);
       }
-      this.ss = "Click to set all att/def hitpoints in 1 go.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set all att/def hitpoints in 1 go.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.y1id = this.AddSubPart( tsubpart, 910, 500, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.y1id = self.AddSubPart( tsubpart, 910, 500, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Set ALL hitpoints ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.y1textid = this.AddSubPart( tsubpart1, 950, 499, 400, 20, 0);
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Set ALL hitpoints ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.y1textid = self.AddSubPart( tsubpart1, 950, 499, 400, 20, 0);
     }
 
     pub fn tabsheet4()
     {
-      this.CombatList2Obj = ListClass::new();
-      if (this.detailnr < -1 | this.detailnr > this.game.Data.LandscapeTypeCounter)
-        this.detailnr = -1;
-      let mut landscapeTypeCounter: i32 = this.game.Data.LandscapeTypeCounter;
+      self.CombatList2Obj = ListClass::new();
+      if (self.detailnr < -1 | self.detailnr > self.game.Data.LandscapeTypeCounter)
+        self.detailnr = -1;
+      let mut landscapeTypeCounter: i32 = self.game.Data.LandscapeTypeCounter;
       for (let mut index: i32 = 0; index <= landscapeTypeCounter; index += 1)
       {
         str1: String = "";
-        Expression1: String = Conversion.Str( index) + ") " + this.game.Data.LandscapeTypeObj[index].Name;
+        Expression1: String = Conversion.Str( index) + ") " + self.game.Data.LandscapeTypeObj[index].Name;
         if (Strings.Len(Expression1) > 30)
           Expression1 = Strings.Left(str1, 15);
         str2: String = str1 + Expression1 + Strings.Space(29 - Math.Min(28, Strings.Len(Expression1)));
-        Expression2: String = "Att=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[index]));
+        Expression2: String = "Att=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CombatModAtt[index]));
         str3: String = str2 + Expression2 + Strings.Space(13 - Strings.Len(Expression2));
-        Expression3: String = "Def=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[index]));
+        Expression3: String = "Def=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CombatModDef[index]));
         tname: String = str3 + Expression3 + Strings.Space(13 - Strings.Len(Expression3));
-        if ( this.game.Data.RuleVar[900] > 0.0)
+        if ( self.game.Data.RuleVar[900] > 0.0)
         {
-          str4: String = "ExtraRecon=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[index]));
+          str4: String = "ExtraRecon=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ExtraRecon[index]));
           tname += str4;
         }
-        this.CombatList2Obj.add(tname, index);
+        self.CombatList2Obj.add(tname, index);
       }
-      ListClass combatList2Obj = this.CombatList2Obj;
-      let mut detailnr: i32 = this.detailnr;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass combatList2Obj = self.CombatList2Obj;
+      let mut detailnr: i32 = self.detailnr;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(combatList2Obj, 12, 580, detailnr, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.CombatList2Id = this.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
-      if (this.detailnr <= -1)
+      self.CombatList2Id = self.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
+      if (self.detailnr <= -1)
         return;
-      this.tabsheet4b();
+      self.tabsheet4b();
     }
 
     pub fn tabsheet4b()
     {
-      this.ss = "Click to set the modifier for this sftype if it attacks this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
-      str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the modifier for this sftype if it attacks this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
+      str1: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CombatModAtt[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g13id = this.AddSubPart( tsubpart, 610, 340, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g13id = self.AddSubPart( tsubpart, 610, 340, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Att: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.g13textid = this.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Att: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.g13textid = self.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
       }
-      this.ss = "Click to set the modifier for this sftype if it defends in this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
-      str2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set the modifier for this sftype if it defends in this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
+      str2: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].CombatModDef[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.g14id = this.AddSubPart( tsubpart, 610, 360, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.g14id = self.AddSubPart( tsubpart, 610, 360, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Def: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.g14textid = this.AddSubPart( tsubpart, 650, 359, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Def: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.g14textid = self.AddSubPart( tsubpart, 650, 359, 400, 20, 0);
       }
-      if ( this.game.Data.RuleVar[900] > 0.0)
+      if ( self.game.Data.RuleVar[900] > 0.0)
       {
-        this.ss = "Click to set the recon value this SFType has if it looks through a special connection. Only for its main hex to direct connections.";
-        str3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[this.detailnr]));
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Click to set the recon value this SFType has if it looks through a special connection. Only for its main hex to direct connections.";
+        str3: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ExtraRecon[self.detailnr]));
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.g23id = this.AddSubPart( tsubpart, 610, 380, 32, 16, 1);
+          let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.g23id = self.AddSubPart( tsubpart, 610, 380, 32, 16, 1);
         }
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new("ExtRec: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-          this.g23textid = this.AddSubPart( tsubpart, 650, 379, 400, 20, 0);
+          let mut tsubpart: SubPartClass =  TextPartClass::new("ExtRec: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+          self.g23textid = self.AddSubPart( tsubpart, 650, 379, 400, 20, 0);
         }
       }
-      this.ss = "Click to set these att and def modifiers for all sftypes with the same unitgroup.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set these att and def modifiers for all sftypes with the same unitgroup.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.w8id = this.AddSubPart( tsubpart, 610, 400, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.w8id = self.AddSubPart( tsubpart, 610, 400, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Set for all (unitgroup)", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.w8textid = this.AddSubPart( tsubpart, 650, 399, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Set for all (unitgroup)", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.w8textid = self.AddSubPart( tsubpart, 650, 399, 400, 20, 0);
       }
-      this.ss = "Click to set these att and def modifiers for all sftypes with the same unitgroup.";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to set these att and def modifiers for all sftypes with the same unitgroup.";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.b39id = this.AddSubPart( tsubpart, 610, 420, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.b39id = self.AddSubPart( tsubpart, 610, 420, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("Set for all (reinfgroup)", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.b39textid = this.AddSubPart( tsubpart, 650, 419, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("Set for all (reinfgroup)", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.b39textid = self.AddSubPart( tsubpart, 650, 419, 400, 20, 0);
       }
-      this.ss = "Click to copy from a specific SFType #";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Click to copy from a specific SFType #";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.t1id = this.AddSubPart( tsubpart, 610, 450, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.t1id = self.AddSubPart( tsubpart, 610, 450, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Copy from SFType #", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.t1textid = this.AddSubPart( tsubpart1, 650, 449, 400, 20, 0);
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Copy from SFType #", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.t1textid = self.AddSubPart( tsubpart1, 650, 449, 400, 20, 0);
     }
 
     pub fn tabsheet7()
     {
-      if (this.detailnr2 > 99)
-        this.detailnr2 = -1;
-      this.LogoListObj = ListClass::new();
+      if (self.detailnr2 > 99)
+        self.detailnr2 = -1;
+      self.LogoListObj = ListClass::new();
       let mut index: i32 = 0;
       do
       {
-        this.LogoListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[1100 + index] + " = '" + this.game.Data.SFTypeObj[this.SFtypeNr].LogoString[index] + "'" + " , nato=" + this.game.Data.TempString[1000 + index], index);
+        self.LogoListObj.add(Conversion.Str( index) + ") " + self.game.Data.TempString[1100 + index] + " = '" + self.game.Data.SFTypeObj[self.SFtypeNr].LogoString[index] + "'" + " , nato=" + self.game.Data.TempString[1000 + index], index);
         index += 1;
       }
       while (index <= 99);
-      ListClass logoListObj = this.LogoListObj;
-      let mut detailnr2: i32 = this.detailnr2;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass logoListObj = self.LogoListObj;
+      let mut detailnr2: i32 = self.detailnr2;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(logoListObj, 10, 350, detailnr2, game, true, "Logostrings", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.LogoListId = this.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
-      if (this.detailnr2 <= -1)
+      self.LogoListId = self.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
+      if (self.detailnr2 <= -1)
         return;
-      this.ss = "Set string , no string is no stat and it will not be shown.";
+      self.ss = "Set string , no is: String no stat and it will not be shown.";
       SubPartClass tsubpart2;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.j1id = this.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.j1id = self.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Set string ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.j1textid = this.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
+      tsubpart2 =  TextPartClass::new("Set string ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.j1textid = self.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
     }
 
     pub fn tabsheet8()
     {
-      if (this.detailnr2 > this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter)
-        this.detailnr2 = -1;
-      this.PreventListObj = ListClass::new();
-      let mut preventCounter: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter;
+      if (self.detailnr2 > self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter)
+        self.detailnr2 = -1;
+      self.PreventListObj = ListClass::new();
+      let mut preventCounter: i32 = self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter;
       for (let mut index: i32 = 0; index <= preventCounter; index += 1)
       {
         str1: String = Conversion.Str( index) + ") ";
-        str2: String = this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index] <= -1 ? "ALL" : this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index]];
+        str2: String = self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn[index] <= -1 ? "ALL" : self.game.Data.TempString[400 + self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn[index]];
         if (Strings.Len(str2) > 12)
           str2 = Strings.Left(str2, 12);
         str3: String = str1 + str2 + Strings.Space(15 - Strings.Len(str2));
-        str4: String = this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom[index] <= -1 ? "ALL" : this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom[index]];
+        str4: String = self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom[index] <= -1 ? "ALL" : self.game.Data.TempString[400 + self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom[index]];
         if (Strings.Len(str4) > 12)
           str4 = Strings.Left(str4, 12);
         str5: String = str3 + str4 + Strings.Space(15 - Strings.Len(str4));
-        Expression1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[index]));
+        Expression1: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority[index]));
         str6: String = str5 + Expression1 + Strings.Space(10 - Strings.Len(Expression1));
-        Expression2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[index])) + "%";
-        this.PreventListObj.add(str6 + Expression2 + Strings.Space(10 - Strings.Len(Expression2)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[index])), index);
+        Expression2: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance[index])) + "%";
+        self.PreventListObj.add(str6 + Expression2 + Strings.Space(10 - Strings.Len(Expression2)) + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints[index])), index);
       }
-      ListClass preventListObj = this.PreventListObj;
-      let mut detailnr2: i32 = this.detailnr2;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass preventListObj = self.PreventListObj;
+      let mut detailnr2: i32 = self.detailnr2;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(preventListObj, 9, 450, detailnr2, game, true, "#  ON               FROM            PRIORITY    CHANCE   POINTS", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.PreventListId = this.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
+      self.PreventListId = self.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
       SubPartClass tsubpart2;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.p1id = this.AddSubPart( tsubpart2, 10, 550, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.p1id = self.AddSubPart( tsubpart2, 10, 550, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("add a prevent ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.p1textid = this.AddSubPart( tsubpart2, 50, 549, 400, 20, 0);
-      if (this.detailnr2 > -1)
+      tsubpart2 =  TextPartClass::new("add a prevent ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.p1textid = self.AddSubPart( tsubpart2, 50, 549, 400, 20, 0);
+      if (self.detailnr2 > -1)
       {
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-          this.p2id = this.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+          self.p2id = self.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("remove this prevent ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p2textid = this.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
-        this.ss = "";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("remove this prevent ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p2textid = self.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
+        self.ss = "";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.p3id = this.AddSubPart( tsubpart2, 510, 340, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.p3id = self.AddSubPart( tsubpart2, 510, 340, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Prevent Hit On", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p3textid = this.AddSubPart( tsubpart2, 550, 339, 400, 20, 0);
-        this.ss = "";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Prevent Hit On", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p3textid = self.AddSubPart( tsubpart2, 550, 339, 400, 20, 0);
+        self.ss = "";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.p4id = this.AddSubPart( tsubpart2, 510, 360, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.p4id = self.AddSubPart( tsubpart2, 510, 360, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Prevent Hit From", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p4textid = this.AddSubPart( tsubpart2, 550, 359, 400, 20, 0);
-        this.ss = "";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Prevent Hit From", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p4textid = self.AddSubPart( tsubpart2, 550, 359, 400, 20, 0);
+        self.ss = "";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.p5id = this.AddSubPart( tsubpart2, 510, 380, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.p5id = self.AddSubPart( tsubpart2, 510, 380, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Prevent Priority", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p5textid = this.AddSubPart( tsubpart2, 550, 379, 400, 20, 0);
-        this.ss = "";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Prevent Priority", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p5textid = self.AddSubPart( tsubpart2, 550, 379, 400, 20, 0);
+        self.ss = "";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.p6id = this.AddSubPart( tsubpart2, 510, 400, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.p6id = self.AddSubPart( tsubpart2, 510, 400, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Prevent Chance", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p6textid = this.AddSubPart( tsubpart2, 550, 399, 400, 20, 0);
-        this.ss = "";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Prevent Chance", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p6textid = self.AddSubPart( tsubpart2, 550, 399, 400, 20, 0);
+        self.ss = "";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.p7id = this.AddSubPart( tsubpart2, 510, 420, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.p7id = self.AddSubPart( tsubpart2, 510, 420, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Prevent Points", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.p7textid = this.AddSubPart( tsubpart2, 550, 419, 400, 20, 0);
+        tsubpart2 =  TextPartClass::new("Set Prevent Points", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.p7textid = self.AddSubPart( tsubpart2, 550, 419, 400, 20, 0);
       }
-      this.ss = "How many prevent points can this sftype provide to sheltering other sftypes";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "How many prevent points can this sftype provide to sheltering other sftypes";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.p8id = this.AddSubPart( tsubpart2, 810, 340, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.p8id = self.AddSubPart( tsubpart2, 810, 340, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("MaxPrvPointsUsed=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsUsed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.p8textid = this.AddSubPart( tsubpart2, 850, 339, 400, 20, 0);
-      this.ss = "How many preventers pts can this sftype use to be prevented it self by another sftype";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("MaxPrvPointsUsed=" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].MaxPreventPointsUsed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.p8textid = self.AddSubPart( tsubpart2, 850, 339, 400, 20, 0);
+      self.ss = "How many preventers pts can this sftype use to be prevented it self by another sftype";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.p9id = this.AddSubPart( tsubpart2, 810, 360, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.p9id = self.AddSubPart( tsubpart2, 810, 360, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("MaxPrvPointsGiven" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsGiven), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.p9textid = this.AddSubPart( tsubpart2, 850, 359, 400, 20, 0);
+      tsubpart2 =  TextPartClass::new("MaxPrvPointsGiven" + Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].MaxPreventPointsGiven), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.p9textid = self.AddSubPart( tsubpart2, 850, 359, 400, 20, 0);
     }
 
     pub fn tabsheet10()
     {
-      if (this.detailnr2 > this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter)
-        this.detailnr2 = -1;
-      this.VariantListObj = ListClass::new();
-      let mut modelVariantCounter: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter;
+      if (self.detailnr2 > self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter)
+        self.detailnr2 = -1;
+      self.VariantListObj = ListClass::new();
+      let mut modelVariantCounter: i32 = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter;
       for (let mut index: i32 = 0; index <= modelVariantCounter; index += 1)
       {
         str1: String = Conversion.Str( index) + ") ";
-        str2: String = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName[index];
+        str2: String = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName[index];
         if (Strings.Len(str2) > 28)
           str2 = Strings.Left(str2, 28);
         str3: String = str1 + str2 + Strings.Space(30 - Strings.Len(str2));
-        Expression: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck[index]));
-        this.VariantListObj.add(str3 + Expression + Strings.Space(10 - Strings.Len(Expression)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec[index])), index);
+        Expression: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck[index]));
+        self.VariantListObj.add(str3 + Expression + Strings.Space(10 - Strings.Len(Expression)) + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec[index])), index);
       }
-      ListClass variantListObj = this.VariantListObj;
-      let mut detailnr2: i32 = this.detailnr2;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass variantListObj = self.VariantListObj;
+      let mut detailnr2: i32 = self.detailnr2;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(variantListObj, 9, 450, detailnr2, game, true, "#  ALTERATION NAME              CHECK    EXEC", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.VariantListId = this.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
+      self.VariantListId = self.AddSubPart( tsubpart1, 10, 340, 450, 192, 0);
       SubPartClass tsubpart2;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.vp1id = this.AddSubPart( tsubpart2, 10, 550, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.vp1id = self.AddSubPart( tsubpart2, 10, 550, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("add an alteration ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.vp1textid = this.AddSubPart( tsubpart2, 50, 549, 400, 20, 0);
-      if (this.detailnr2 <= -1)
+      tsubpart2 =  TextPartClass::new("add an alteration ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.vp1textid = self.AddSubPart( tsubpart2, 50, 549, 400, 20, 0);
+      if (self.detailnr2 <= -1)
         return;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
-        this.vp2id = this.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONKILL, tDescript: self.ss);
+        self.vp2id = self.AddSubPart( tsubpart2, 10, 570, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("remove this alteration ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.vp2textid = this.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("remove this alteration ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.vp2textid = self.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.vp3id = this.AddSubPart( tsubpart2, 510, 340, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.vp3id = self.AddSubPart( tsubpart2, 510, 340, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Set Name", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.vp3textid = this.AddSubPart( tsubpart2, 550, 339, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Set Name", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.vp3textid = self.AddSubPart( tsubpart2, 550, 339, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.vp4id = this.AddSubPart( tsubpart2, 510, 360, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.vp4id = self.AddSubPart( tsubpart2, 510, 360, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Set Check", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.vp4textid = this.AddSubPart( tsubpart2, 550, 359, 400, 20, 0);
-      this.ss = "";
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Set Check", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.vp4textid = self.AddSubPart( tsubpart2, 550, 359, 400, 20, 0);
+      self.ss = "";
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.vp5id = this.AddSubPart( tsubpart2, 510, 380, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.vp5id = self.AddSubPart( tsubpart2, 510, 380, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Set Exec", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.vp5textid = this.AddSubPart( tsubpart2, 550, 379, 400, 20, 0);
+      tsubpart2 =  TextPartClass::new("Set Exec", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.vp5textid = self.AddSubPart( tsubpart2, 550, 379, 400, 20, 0);
     }
 
     pub fn tabsheet5()
     {
-      if (this.detailnr2 > this.game.Data.ResearchCounter)
-        this.detailnr2 = -1;
-      this.ResListObj = ListClass::new();
-      let mut researchCounter: i32 = this.game.Data.ResearchCounter;
+      if (self.detailnr2 > self.game.Data.ResearchCounter)
+        self.detailnr2 = -1;
+      self.ResListObj = ListClass::new();
+      let mut researchCounter: i32 = self.game.Data.ResearchCounter;
       for (let mut index1: i32 = 0; index1 <= researchCounter; index1 += 1)
       {
         str1: String = "";
-        str2: String = Conversion.Str( index1) + ") " + this.game.Data.ResearchObj[index1].Name;
+        str2: String = Conversion.Str( index1) + ") " + self.game.Data.ResearchObj[index1].Name;
         if (Strings.Len(str2) > 17)
           str2 = Strings.Left(str2, 17);
         str3: String = str1 + str2 + Strings.Space(19 - Strings.Len(str2));
-        Expression1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelLastState[index1]));
+        Expression1: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelLastState[index1]));
         str4: String = str3 + Expression1 + Strings.Space(5 - Strings.Len(Expression1));
-        Expression2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelPossibleImp[index1]));
+        Expression2: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelPossibleImp[index1]));
         str5: String = str4 + Expression2 + Strings.Space(5 - Strings.Len(Expression2));
-        Expression3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveEvent[index1]));
+        Expression3: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelImproveEvent[index1]));
         str6: String = str5 + Expression3 + Strings.Space(5 - Strings.Len(Expression3));
         let mut Number: i32 = 0;
         let mut index2: i32 = 1;
-        while (this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[index2] != index1)
+        while (self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[index2] != index1)
         {
           index2 += 1;
           if (index2 > 9)
@@ -2869,220 +2869,220 @@ namespace WindowsApplication1
         Number = index2;
 label_9:
         Expression4: String = Strings.Trim(Conversion.Str( Number));
-        this.ResListObj.add(str6 + Expression4 + Strings.Space(3 - Strings.Len(Expression4)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[index1])), index1);
+        self.ResListObj.add(str6 + Expression4 + Strings.Space(3 - Strings.Len(Expression4)) + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelAutoImprovement[index1])), index1);
       }
-      ListClass resListObj = this.ResListObj;
-      let mut detailnr2: i32 = this.detailnr2;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      ListClass resListObj = self.ResListObj;
+      let mut detailnr2: i32 = self.detailnr2;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(resListObj, 10, 350, detailnr2, game, true, "NAME           ST   POS   EV   RES  AUTO", tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.ResListId = this.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
+      self.ResListId = self.AddSubPart( tsubpart1, 10, 340, 350, 208, 0);
       SubPartClass tsubpart2;
-      if (this.detailnr2 > -1)
+      if (self.detailnr2 > -1)
       {
-        this.ss = "Set ModelLastState";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        self.ss = "Set ModelLastState";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.v1id = this.AddSubPart( tsubpart3, 10, 570, 32, 16, 1);
+          let mut tsubpart3: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.v1id = self.AddSubPart( tsubpart3, 10, 570, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Modellaststate ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.v1textid = this.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
-        this.ss = "Set Possible Improvement";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Modellaststate ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.v1textid = self.AddSubPart( tsubpart2, 50, 569, 400, 20, 0);
+        self.ss = "Set Possible Improvement";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.v2id = this.AddSubPart( tsubpart2, 10, 590, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.v2id = self.AddSubPart( tsubpart2, 10, 590, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Possible Improvement ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.v2textid = this.AddSubPart( tsubpart2, 50, 589, 400, 20, 0);
-        this.ss = "Set Improve Event";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Possible Improvement ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.v2textid = self.AddSubPart( tsubpart2, 50, 589, 400, 20, 0);
+        self.ss = "Set Improve Event";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.v3id = this.AddSubPart( tsubpart2, 10, 610, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.v3id = self.AddSubPart( tsubpart2, 10, 610, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Improve Event ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.v3textid = this.AddSubPart( tsubpart2, 50, 609, 400, 20, 0);
-        this.ss = "Set Research for Level";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Improve Event ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.v3textid = self.AddSubPart( tsubpart2, 50, 609, 400, 20, 0);
+        self.ss = "Set Research for Level";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.v4id = this.AddSubPart( tsubpart2, 10, 630, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.v4id = self.AddSubPart( tsubpart2, 10, 630, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("Set Research for Level ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.v4textid = this.AddSubPart( tsubpart2, 50, 629, 400, 20, 0);
-        this.ss = "Change if it is auto-improvement field";
-        if (Strings.Len(this.game.Data.MasterFile) == 0)
+        tsubpart2 =  TextPartClass::new("Set Research for Level ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.v4textid = self.AddSubPart( tsubpart2, 50, 629, 400, 20, 0);
+        self.ss = "Change if it is auto-improvement field";
+        if (Strings.Len(self.game.Data.MasterFile) == 0)
         {
-          tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          this.v16id = this.AddSubPart( tsubpart2, 10, 650, 32, 16, 1);
+          tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+          self.v16id = self.AddSubPart( tsubpart2, 10, 650, 32, 16, 1);
         }
-        tsubpart2 =  TextPartClass::new("ModelAutoimprovement ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-        this.v16textid = this.AddSubPart( tsubpart2, 50, 649, 400, 20, 0);
+        tsubpart2 =  TextPartClass::new("ModelAutoimprovement ", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+        self.v16textid = self.AddSubPart( tsubpart2, 50, 649, 400, 20, 0);
       }
-      this.ss = "";
-      str7: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "";
+      str7: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelIsBase));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v5id = this.AddSubPart( tsubpart2, 410, 340, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v5id = self.AddSubPart( tsubpart2, 410, 340, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelisBase = " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v5textid = this.AddSubPart( tsubpart2, 450, 339, 400, 20, 0);
-      this.ss = "";
-      str8: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostType));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelisBase = " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v5textid = self.AddSubPart( tsubpart2, 450, 339, 400, 20, 0);
+      self.ss = "";
+      str8: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostType));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v6id = this.AddSubPart( tsubpart2, 410, 360, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v6id = self.AddSubPart( tsubpart2, 410, 360, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelCostType = " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v6textid = this.AddSubPart( tsubpart2, 450, 359, 400, 20, 0);
-      this.ss = "";
-      str9: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCost));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelCostType = " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v6textid = self.AddSubPart( tsubpart2, 450, 359, 400, 20, 0);
+      self.ss = "";
+      str9: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelCost));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v7id = this.AddSubPart( tsubpart2, 410, 380, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v7id = self.AddSubPart( tsubpart2, 410, 380, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelCost = " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v7textid = this.AddSubPart( tsubpart2, 450, 379, 400, 20, 0);
-      this.ss = "";
-      str10: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelCost = " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v7textid = self.AddSubPart( tsubpart2, 450, 379, 400, 20, 0);
+      self.ss = "";
+      str10: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerLevel));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v8id = this.AddSubPart( tsubpart2, 410, 400, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v8id = self.AddSubPart( tsubpart2, 410, 400, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelCostPerLevel = " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v8textid = this.AddSubPart( tsubpart2, 450, 399, 400, 20, 0);
-      this.ss = "";
-      str11: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelCostPerLevel = " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v8textid = self.AddSubPart( tsubpart2, 450, 399, 400, 20, 0);
+      self.ss = "";
+      str11: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerSameModel));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v9id = this.AddSubPart( tsubpart2, 410, 420, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v9id = self.AddSubPart( tsubpart2, 410, 420, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelCostPerSameModel= " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v9textid = this.AddSubPart( tsubpart2, 450, 419, 400, 20, 0);
-      this.ss = "";
-      str12: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelNewEvent));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelCostPerSameModel= " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v9textid = self.AddSubPart( tsubpart2, 450, 419, 400, 20, 0);
+      self.ss = "";
+      str12: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelNewEvent));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v10id = this.AddSubPart( tsubpart2, 410, 440, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v10id = self.AddSubPart( tsubpart2, 410, 440, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelNewEvent = " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v10textid = this.AddSubPart( tsubpart2, 450, 439, 400, 20, 0);
-      this.ss = "";
-      str13: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelNameList));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelNewEvent = " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v10textid = self.AddSubPart( tsubpart2, 450, 439, 400, 20, 0);
+      self.ss = "";
+      str13: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelNameList));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v11id = this.AddSubPart( tsubpart2, 410, 460, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v11id = self.AddSubPart( tsubpart2, 410, 460, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelNameList strlID= " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v11textid = this.AddSubPart( tsubpart2, 450, 459, 400, 20, 0);
-      this.ss = "";
-      str14: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelNameList strlID= " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v11textid = self.AddSubPart( tsubpart2, 450, 459, 400, 20, 0);
+      self.ss = "";
+      str14: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowUpgrade));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v12id = this.AddSubPart( tsubpart2, 410, 480, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v12id = self.AddSubPart( tsubpart2, 410, 480, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelAllowUpgrade = " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.v12textid = this.AddSubPart( tsubpart2, 450, 479, 400, 20, 0);
-      this.ss = "";
-      str15: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelAllowUpgrade = " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.v12textid = self.AddSubPart( tsubpart2, 450, 479, 400, 20, 0);
+      self.ss = "";
+      str15: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowImprovements));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v13id = this.AddSubPart( tsubpart2, 710, 340, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v13id = self.AddSubPart( tsubpart2, 710, 340, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelAllowImprovements= " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v13textid = this.AddSubPart( tsubpart2, 750, 339, 400, 20, 0);
-      this.ss = "";
-      str16: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelAllowImprovements= " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v13textid = self.AddSubPart( tsubpart2, 750, 339, 400, 20, 0);
+      self.ss = "";
+      str16: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelImproveCostMod));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v14id = this.AddSubPart( tsubpart2, 710, 360, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v14id = self.AddSubPart( tsubpart2, 710, 360, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelImproveCost= " + str16, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v14textid = this.AddSubPart( tsubpart2, 750, 359, 400, 20, 0);
-      this.ss = "";
-      str17: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelItemType));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelImproveCost= " + str16, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v14textid = self.AddSubPart( tsubpart2, 750, 359, 400, 20, 0);
+      self.ss = "";
+      str17: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelItemType));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v15id = this.AddSubPart( tsubpart2, 710, 380, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v15id = self.AddSubPart( tsubpart2, 710, 380, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Modelitemtype= " + str17, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v15textid = this.AddSubPart( tsubpart2, 750, 379, 400, 20, 0);
-      this.ss = "";
-      str18: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelRegime));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Modelitemtype= " + str17, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v15textid = self.AddSubPart( tsubpart2, 750, 379, 400, 20, 0);
+      self.ss = "";
+      str18: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelRegime));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v17id = this.AddSubPart( tsubpart2, 710, 420, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v17id = self.AddSubPart( tsubpart2, 710, 420, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Modelregime= " + str18, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v17textid = this.AddSubPart( tsubpart2, 750, 419, 400, 20, 0);
-      this.ss = "You need to have this research before you can make a NEW of this basemodel.";
-      str19: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0]));
-      if (this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0] > -1)
-        str19 = this.game.Data.ResearchObj[this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0]].Name;
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Modelregime= " + str18, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v17textid = self.AddSubPart( tsubpart2, 750, 419, 400, 20, 0);
+      self.ss = "You need to have this research before you can make a NEW of this basemodel.";
+      str19: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[0]));
+      if (self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[0] > -1)
+        str19 = self.game.Data.ResearchObj[self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[0]].Name;
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v18id = this.AddSubPart( tsubpart2, 710, 440, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v18id = self.AddSubPart( tsubpart2, 710, 440, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Modelresearch(0)= " + str19, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v18textid = this.AddSubPart( tsubpart2, 750, 439, 400, 20, 0);
-      this.ss = "";
-      str20: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Modelresearch(0)= " + str19, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v18textid = self.AddSubPart( tsubpart2, 750, 439, 400, 20, 0);
+      self.ss = "";
+      str20: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialForAll));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v19id = this.AddSubPart( tsubpart2, 710, 460, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v19id = self.AddSubPart( tsubpart2, 710, 460, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelInitialForAll= " + str20, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v19textid = this.AddSubPart( tsubpart2, 750, 459, 400, 20, 0);
-      str21: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialEvent));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelInitialForAll= " + str20, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v19textid = self.AddSubPart( tsubpart2, 750, 459, 400, 20, 0);
+      str21: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialEvent));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v20id = this.AddSubPart( tsubpart2, 710, 480, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v20id = self.AddSubPart( tsubpart2, 710, 480, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelInitialevent= " + str21, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v20textid = this.AddSubPart( tsubpart2, 750, 479, 400, 20, 0);
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelInitialevent= " + str21, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v20textid = self.AddSubPart( tsubpart2, 750, 479, 400, 20, 0);
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
-        this.v21id = this.AddSubPart( tsubpart2, 710, 500, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONPLUS, tDescript: self.ss);
+        self.v21id = self.AddSubPart( tsubpart2, 710, 500, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("Copy all Model settings from #", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v21textid = this.AddSubPart( tsubpart2, 750, 499, 400, 20, 0);
-      str22: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelExtraResearch));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("Copy all Model settings from #", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v21textid = self.AddSubPart( tsubpart2, 750, 499, 400, 20, 0);
+      str22: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelExtraResearch));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v22id = this.AddSubPart( tsubpart2, 710, 520, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v22id = self.AddSubPart( tsubpart2, 710, 520, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelExtraResearch=" + str22, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v22textid = this.AddSubPart( tsubpart2, 750, 519, 400, 20, 0);
-      this.ss = "Modifies the setting of upgrade cost for upgrading an SFType in the field for an old model. 1=normal";
-      str23: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      tsubpart2 =  TextPartClass::new("ModelExtraResearch=" + str22, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v22textid = self.AddSubPart( tsubpart2, 750, 519, 400, 20, 0);
+      self.ss = "Modifies the setting of upgrade cost for upgrading an SFType in the field for an old model. 1=normal";
+      str23: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].ModelSFTypeUpgrade));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.v23id = this.AddSubPart( tsubpart2, 710, 540, 32, 16, 1);
+        tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.v23id = self.AddSubPart( tsubpart2, 710, 540, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("ModelSFTypeUpgrade=" + str23, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
-      this.v23textid = this.AddSubPart( tsubpart2, 750, 539, 400, 20, 0);
+      tsubpart2 =  TextPartClass::new("ModelSFTypeUpgrade=" + str23, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: self.ss);
+      self.v23textid = self.AddSubPart( tsubpart2, 750, 539, 400, 20, 0);
     }
 
     pub fn tabsheet5b()
@@ -3091,9 +3091,9 @@ label_9:
 
     pub fn tabsheet6()
     {
-      this.CombatList4Obj = ListClass::new();
-      if (this.detailnr < -1 | this.detailnr > 99)
-        this.detailnr = -1;
+      self.CombatList4Obj = ListClass::new();
+      if (self.detailnr < -1 | self.detailnr > 99)
+        self.detailnr = -1;
       let mut num1: i32 = -1;
       let mut num2: i32 = -1;
       let mut index: i32 = 1;
@@ -3147,462 +3147,462 @@ label_9:
           Expression += "";
         if (Strings.Len(Expression) > 30)
           Expression = Strings.Left(str, 15);
-        tname: String = str + Expression + Strings.Space(30 - Strings.Len(Expression)) + ("Score=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[index])));
+        tname: String = str + Expression + Strings.Space(30 - Strings.Len(Expression)) + ("Score=" + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AIRoleScore[index])));
         num2 += 1;
-        if (this.detailnr == index)
+        if (self.detailnr == index)
           num1 = num2;
-        this.CombatList4Obj.add(tname, index);
+        self.CombatList4Obj.add(tname, index);
         index += 1;
       }
       while (index <= 49);
-      ListClass combatList4Obj = this.CombatList4Obj;
+      ListClass combatList4Obj = self.CombatList4Obj;
       let mut tlistselect: i32 = num1;
-      let mut game: GameClass = this.game;
-       local1: Bitmap =  this.OwnBitmap;
+      let mut game: GameClass = self.game;
+       local1: Bitmap =  self.OwnBitmap;
       font: Font =  null;
        local2: Font =  font;
       let mut tsubpart: SubPartClass =  new ListSubPartClass(combatList4Obj, 12, 580, tlistselect, game, true, tbackbitmap: ( local1), bbx: 10, bby: 340, overruleFont: ( local2));
-      this.combatlist4id = this.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
-      if (this.detailnr <= -1)
+      self.combatlist4id = self.AddSubPart( tsubpart, 10, 340, 580, 240, 0);
+      if (self.detailnr <= -1)
         return;
-      this.tabsheet6b();
+      self.tabsheet6b();
     }
 
     pub fn tabsheet6b()
     {
-      this.ss = "Set the AIRolescore for this sftype. Basicly you set 100 at the role it is supposed to be used at.";
-      str: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Set the AIRolescore for this sftype. Basicly you set 100 at the role it is supposed to be used at.";
+      str: String = Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AIRoleScore[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-        this.h3id = this.AddSubPart( tsubpart, 610, 340, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
+        self.h3id = self.AddSubPart( tsubpart, 610, 340, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  TextPartClass::new("AIRoleScore: " + str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        this.h3textid = this.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
+        let mut tsubpart: SubPartClass =  TextPartClass::new("AIRoleScore: " + str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+        self.h3textid = self.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
       }
-      this.ss = "Set the AIRolescore for this sftype. And all with the same Unitgroup";
-      Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
-      if (Strings.Len(this.game.Data.MasterFile) == 0)
+      self.ss = "Set the AIRolescore for this sftype. And all with the same Unitgroup";
+      Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.SFtypeNr].AIRoleScore[self.detailnr]));
+      if (Strings.Len(self.game.Data.MasterFile) == 0)
       {
-        let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
-        this.w11id = this.AddSubPart( tsubpart, 610, 380, 32, 16, 1);
+        let mut tsubpart: SubPartClass =  ButtonPartClass::new(self.game.BUTTONYELLOW, tDescript: self.ss);
+        self.w11id = self.AddSubPart( tsubpart, 610, 380, 32, 16, 1);
       }
-      if (Strings.Len(this.game.Data.MasterFile) != 0)
+      if (Strings.Len(self.game.Data.MasterFile) != 0)
         return;
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Set for all", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-      this.w11textid = this.AddSubPart( tsubpart1, 650, 379, 400, 20, 0);
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Set for all", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: self.ss);
+      self.w11textid = self.AddSubPart( tsubpart1, 650, 379, 400, 20, 0);
     }
 
     pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (this.SubPartCounter > -1)
+      if (self.SubPartCounter > -1)
       {
-        let mut subPartCounter: i32 = this.SubPartCounter;
+        let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index1: i32 = 0; index1 <= subPartCounter; index1 += 1)
         {
-          if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
+          if (x > self.SubPartX[index1] & x < self.SubPartX[index1] + self.SubPartW[index1] && y > self.SubPartY[index1] & y < self.SubPartY[index1] + self.SubPartH[index1])
           {
-            let mut num1: i32 = this.SubPartID[index1];
-            if (num1 == this.SFtypeListId)
+            let mut num1: i32 = self.SubPartID[index1];
+            if (num1 == self.SFtypeListId)
             {
-              let mut num2: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num2: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
-                this.SFtypeNr = num2;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
-                this.MakeSFtypeTypeItemGUI();
+                self.SFtypeNr = num2;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
+                self.MakeSFtypeTypeItemGUI();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.LibListId)
+            if (num1 == self.LibListId)
             {
-              let mut num3: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num3: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
-                this.LibNr = num3;
-                this.SFtypeNr = -1;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
-                this.MakeSFtypeTypeItemGUI();
+                self.LibNr = num3;
+                self.SFtypeNr = -1;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
+                self.MakeSFtypeTypeItemGUI();
               }
               else if (num3 == -2)
               {
-                this.LibNr = -1;
-                this.SFtypeNr = -1;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
-                this.MakeSFtypeTypeItemGUI();
+                self.LibNr = -1;
+                self.SFtypeNr = -1;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
+                self.MakeSFtypeTypeItemGUI();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.TabListId)
+            if (num1 == self.TabListId)
             {
-              let mut num4: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num4: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num4 > -1)
               {
-                this.TabSheetNr = num4;
-                this.MakeSFtypeTypeItemGUI();
+                self.TabSheetNr = num4;
+                self.MakeSFtypeTypeItemGUI();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.ExtraListId)
+            if (num1 == self.ExtraListId)
             {
-              let mut num5: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num5: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num5 > -1)
               {
-                this.detailnr = num5;
-                this.Tabsheet();
+                self.detailnr = num5;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.ResListId)
+            if (num1 == self.ResListId)
             {
-              let mut num6: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num6: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num6 > -1)
               {
-                this.detailnr2 = num6;
-                this.Tabsheet();
+                self.detailnr2 = num6;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.LogoListId)
+            if (num1 == self.LogoListId)
             {
-              let mut num7: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num7: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num7 > -1)
               {
-                this.detailnr2 = num7;
-                this.Tabsheet();
+                self.detailnr2 = num7;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.PreventListId)
+            if (num1 == self.PreventListId)
             {
-              let mut num8: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num8: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num8 > -1)
               {
-                this.detailnr2 = num8;
-                this.Tabsheet();
+                self.detailnr2 = num8;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.VariantListId)
+            if (num1 == self.VariantListId)
             {
-              let mut num9: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num9: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num9 > -1)
               {
-                this.detailnr2 = num9;
-                this.Tabsheet();
+                self.detailnr2 = num9;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p1id)
+            if (num1 == self.p1id)
             {
-              SFTypeClass[] sfTypeObj = this.game.Data.SFTypeObj;
+              SFTypeClass[] sfTypeObj = self.game.Data.SFTypeObj;
               SFTypeClass[] sfTypeClassArray = sfTypeObj;
-              let mut sftypeNr: i32 = this.SFtypeNr;
+              let mut sftypeNr: i32 = self.SFtypeNr;
               let mut index2: i32 = sftypeNr;
               sfTypeClassArray[index2].PreventCounter = sfTypeObj[sftypeNr].PreventCounter + 1;
-              this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.vp1id)
+            if (num1 == self.vp1id)
             {
-              SFTypeClass[] sfTypeObj = this.game.Data.SFTypeObj;
+              SFTypeClass[] sfTypeObj = self.game.Data.SFTypeObj;
               SFTypeClass[] sfTypeClassArray = sfTypeObj;
-              let mut sftypeNr: i32 = this.SFtypeNr;
+              let mut sftypeNr: i32 = self.SFtypeNr;
               let mut index3: i32 = sftypeNr;
               sfTypeClassArray[index3].ModelVariantCounter = sfTypeObj[sftypeNr].ModelVariantCounter + 1;
-              this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName = (string[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName, (Array) new string[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
-              this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName = (string[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName, (Array) new string[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
+              self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p2id)
+            if (num1 == self.p2id)
             {
-              if (this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter > 0)
+              if (self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter > 0)
               {
-                let mut detailnr2: i32 = this.detailnr2;
-                let mut num10: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter - 1;
+                let mut detailnr2: i32 = self.detailnr2;
+                let mut num10: i32 = self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter - 1;
                 for (let mut index4: i32 = detailnr2; index4 <= num10; index4 += 1)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index4] = this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index4 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom[index4] = this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom[index4 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[index4] = this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[index4 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[index4] = this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[index4 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[index4] = this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[index4 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn[index4] = self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn[index4 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom[index4] = self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom[index4 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority[index4] = self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority[index4 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance[index4] = self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance[index4 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints[index4] = self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints[index4 + 1];
                 }
               }
-              --this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter;
-              if (this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter > -1)
+              --self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter;
+              if (self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter > -1)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitFrom, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitOn, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventHitFrom, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].PreventCounter + 1]);
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.vp2id)
+            if (num1 == self.vp2id)
             {
-              if (this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter > 0)
+              if (self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter > 0)
               {
-                let mut detailnr2: i32 = this.detailnr2;
-                let mut num11: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter - 1;
+                let mut detailnr2: i32 = self.detailnr2;
+                let mut num11: i32 = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter - 1;
                 for (let mut index5: i32 = detailnr2; index5 <= num11; index5 += 1)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName[index5] = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName[index5 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck[index5] = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck[index5 + 1];
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec[index5] = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec[index5 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName[index5] = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName[index5 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck[index5] = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck[index5 + 1];
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec[index5] = self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec[index5 + 1];
                 }
               }
-              --this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter;
-              if (this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter > -1)
+              --self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter;
+              if (self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter > -1)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName = (string[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName, (Array) new string[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec = (int[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec, (Array) new int[this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName = (string[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName, (Array) new string[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCheck, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec = (int[]) Utils.CopyArray((Array) self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantExec, (Array) new int[self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantCounter + 1]);
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.y3id)
+            if (num1 == self.y3id)
             {
-              if (this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics == 0)
-                this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics = 1;
-              else if (this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics == 1)
-                this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics = 2;
+              if (self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics == 0)
+                self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics = 1;
+              else if (self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics == 1)
+                self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics = 2;
               else
-                this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics = 0;
-              this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].UsePeopleGraphics = 0;
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.copyid)
+            if (num1 == self.copyid)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 70, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 70, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p3id)
+            if (num1 == self.p3id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 68, this.SFtypeNr, this.detailnr2);
+              Form3::new( self.formref).Initialize(self.game.Data, 68, self.SFtypeNr, self.detailnr2);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.vp3id)
+            if (num1 == self.vp3id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName[this.detailnr2] = Interaction.InputBox("Give name", "Shadow Empire : Planetary Conquest");
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].ModelVariantName[self.detailnr2] = Interaction.InputBox("Give name", "Shadow Empire : Planetary Conquest");
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p4id)
+            if (num1 == self.p4id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 69, this.SFtypeNr, this.detailnr2);
+              Form3::new( self.formref).Initialize(self.game.Data, 69, self.SFtypeNr, self.detailnr2);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.vp4id)
+            if (num1 == self.vp4id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 77, this.SFtypeNr, this.detailnr2);
+              Form3::new( self.formref).Initialize(self.game.Data, 77, self.SFtypeNr, self.detailnr2);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.vp5id)
+            if (num1 == self.vp5id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 78, this.SFtypeNr, this.detailnr2);
+              Form3::new( self.formref).Initialize(self.game.Data, 78, self.SFtypeNr, self.detailnr2);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p5id)
+            if (num1 == self.p5id)
             {
               let mut num12: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Prevent Priority.", "Shadow Empire : Planetary Conquest")));
               if (num12 >= -1 & num12 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[this.detailnr2] = num12;
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventPriority[self.detailnr2] = num12;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num13: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p6id)
+            if (num1 == self.p6id)
             {
               let mut num14: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Prevent Chance in %.", "Shadow Empire : Planetary Conquest")));
               if (num14 >= 0 & num14 <= 100)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[this.detailnr2] = num14;
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventChance[self.detailnr2] = num14;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num15: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p7id)
+            if (num1 == self.p7id)
             {
               let mut num16: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Prevent Points.", "Shadow Empire : Planetary Conquest")));
               if (num16 >= 0 & num16 <= 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[this.detailnr2] = num16;
+                self.game.Data.SFTypeObj[self.SFtypeNr].PreventPoints[self.detailnr2] = num16;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num17: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p8id)
+            if (num1 == self.p8id)
             {
               let mut num18: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Max Prevent Points Used. (0=cannot use any)", "Shadow Empire : Planetary Conquest")));
               if (num18 >= 0 & num18 <= 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsUsed = num18;
+                self.game.Data.SFTypeObj[self.SFtypeNr].MaxPreventPointsUsed = num18;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num19: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.p9id)
+            if (num1 == self.p9id)
             {
               let mut num20: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Max Prevent Points Given. (0=cannot use any)", "Shadow Empire : Planetary Conquest")));
               if (num20 >= 0 & num20 <= 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsGiven = num20;
+                self.game.Data.SFTypeObj[self.SFtypeNr].MaxPreventPointsGiven = num20;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num21: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x1id)
+            if (num1 == self.x1id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 42, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 42, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x2id)
+            if (num1 == self.x2id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 43, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 43, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x3id)
+            if (num1 == self.x3id)
             {
               let mut num22: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Air Overrule AP Cost (-1=default).", "Shadow Empire : Planetary Conquest")));
               if (num22 >= -1 & num22 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AirAPRule = num22;
+                self.game.Data.SFTypeObj[self.SFtypeNr].AirAPRule = num22;
                 windowReturnClass.SetFlag(true);
               }
               else
               {
                 let mut num23: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x4id)
+            if (num1 == self.x4id)
             {
-              SFTypeClass sfTypeClass = this.game.Data.SFTypeObj[this.SFtypeNr].Clone();
-              this.game.Data.SFTypeObj[this.SFtypeNr] = this.game.Data.SFTypeObj[this.SFtypeNr + 1].Clone();
-              this.game.Data.SFTypeObj[this.SFtypeNr + 1] = sfTypeClass;
-              this.game.Data.ChangeSFTypeNr(this.SFtypeNr, 9999);
-              this.game.Data.ChangeSFTypeNr(this.SFtypeNr + 1, this.SFtypeNr);
-              this.game.Data.ChangeSFTypeNr(9999, this.SFtypeNr + 1);
-              this.game.Data.SFTypeObj[this.SFtypeNr].LoadSprites();
-              this.game.Data.SFTypeObj[this.SFtypeNr + 1].LoadSprites();
+              SFTypeClass sfTypeClass = self.game.Data.SFTypeObj[self.SFtypeNr].Clone();
+              self.game.Data.SFTypeObj[self.SFtypeNr] = self.game.Data.SFTypeObj[self.SFtypeNr + 1].Clone();
+              self.game.Data.SFTypeObj[self.SFtypeNr + 1] = sfTypeClass;
+              self.game.Data.ChangeSFTypeNr(self.SFtypeNr, 9999);
+              self.game.Data.ChangeSFTypeNr(self.SFtypeNr + 1, self.SFtypeNr);
+              self.game.Data.ChangeSFTypeNr(9999, self.SFtypeNr + 1);
+              self.game.Data.SFTypeObj[self.SFtypeNr].LoadSprites();
+              self.game.Data.SFTypeObj[self.SFtypeNr + 1].LoadSprites();
               this += 1.SFtypeNr;
-              this.SubPartFlag[this.SubpartNr(this.SFtypeListId)] = true;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
-              this.MakeSFtypeTypeItemGUI();
+              self.SubPartFlag[self.SubpartNr(self.SFtypeListId)] = true;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
+              self.MakeSFtypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x5id)
+            if (num1 == self.x5id)
             {
-              SFTypeClass sfTypeClass = this.game.Data.SFTypeObj[this.SFtypeNr].Clone();
-              this.game.Data.SFTypeObj[this.SFtypeNr] = this.game.Data.SFTypeObj[this.SFtypeNr - 1].Clone();
-              this.game.Data.SFTypeObj[this.SFtypeNr - 1] = sfTypeClass;
-              this.game.Data.ChangeSFTypeNr(this.SFtypeNr, 9999);
-              this.game.Data.ChangeSFTypeNr(this.SFtypeNr - 1, this.SFtypeNr);
-              this.game.Data.ChangeSFTypeNr(9999, this.SFtypeNr - 1);
-              this.game.Data.SFTypeObj[this.SFtypeNr].LoadSprites();
-              this.game.Data.SFTypeObj[this.SFtypeNr - 1].LoadSprites();
-              --this.SFtypeNr;
-              this.SubPartFlag[this.SubpartNr(this.SFtypeListId)] = true;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
-              this.MakeSFtypeTypeItemGUI();
+              SFTypeClass sfTypeClass = self.game.Data.SFTypeObj[self.SFtypeNr].Clone();
+              self.game.Data.SFTypeObj[self.SFtypeNr] = self.game.Data.SFTypeObj[self.SFtypeNr - 1].Clone();
+              self.game.Data.SFTypeObj[self.SFtypeNr - 1] = sfTypeClass;
+              self.game.Data.ChangeSFTypeNr(self.SFtypeNr, 9999);
+              self.game.Data.ChangeSFTypeNr(self.SFtypeNr - 1, self.SFtypeNr);
+              self.game.Data.ChangeSFTypeNr(9999, self.SFtypeNr - 1);
+              self.game.Data.SFTypeObj[self.SFtypeNr].LoadSprites();
+              self.game.Data.SFTypeObj[self.SFtypeNr - 1].LoadSprites();
+              --self.SFtypeNr;
+              self.SubPartFlag[self.SubpartNr(self.SFtypeListId)] = true;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
+              self.MakeSFtypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.clibid)
+            if (num1 == self.clibid)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 93, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 93, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.x6id)
+            if (num1 == self.x6id)
             {
               let mut num24: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give SFType to replace with.", "Shadow Empire : Planetary Conquest")));
-              if (num24 >= 0 & num24 <= this.game.Data.SFTypeCounter)
+              if (num24 >= 0 & num24 <= self.game.Data.SFTypeCounter)
               {
-                let mut sfCounter: i32 = this.game.Data.SFCounter;
+                let mut sfCounter: i32 = self.game.Data.SFCounter;
                 Number: i32;
                 for (let mut index6: i32 = 0; index6 <= sfCounter; index6 += 1)
                 {
-                  if (this.game.Data.SFObj[index6].Type == this.SFtypeNr)
+                  if (self.game.Data.SFObj[index6].Type == self.SFtypeNr)
                   {
-                    this.game.Data.SFObj[index6].Type = num24;
+                    self.game.Data.SFObj[index6].Type = num24;
                     Number += 1;
                   }
                 }
@@ -3612,195 +3612,195 @@ label_9:
               {
                 let mut num26: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and SFTypeCounter", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.y5id)
+            if (num1 == self.y5id)
             {
-              s: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of sideways sprite", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + s))
+              s: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of sideways sprite", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + s))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceSidewaysSprite(s);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceSidewaysSprite(s);
               }
               else
               {
-                let mut num27: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w1id)
+            if (num1 == self.w1id)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of extra Pic Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of extra Pic Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraPic(this.detailnr, filename);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraPic(self.detailnr, filename);
               }
               else
               {
-                let mut num28: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num28: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w1bid)
+            if (num1 == self.w1bid)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of extra Pic Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of extra Pic Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraSideways(this.detailnr, filename);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraSideways(self.detailnr, filename);
               }
               else
               {
-                let mut num29: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num29: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w10id)
+            if (num1 == self.w10id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].DontReturnFromHQ = !this.game.Data.SFTypeObj[this.SFtypeNr].DontReturnFromHQ;
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].DontReturnFromHQ = !self.game.Data.SFTypeObj[self.SFtypeNr].DontReturnFromHQ;
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w12id)
+            if (num1 == self.w12id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].ConsiderCarry = !this.game.Data.SFTypeObj[this.SFtypeNr].ConsiderCarry;
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].ConsiderCarry = !self.game.Data.SFTypeObj[self.SFtypeNr].ConsiderCarry;
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w8id)
+            if (num1 == self.w8id)
             {
               let mut num30: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Set for unitgroup# ", "Shadow Empire : Planetary Conquest")));
-              let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
+              let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
               for (let mut index7: i32 = 0; index7 <= sfTypeCounter; index7 += 1)
               {
-                if (this.game.Data.SFTypeObj[index7].UnitGroup == num30)
+                if (self.game.Data.SFTypeObj[index7].UnitGroup == num30)
                 {
-                  let mut upperBound: i32 = this.game.Data.SFTypeObj[index7].CombatModAtt.GetUpperBound(0);
+                  let mut upperBound: i32 = self.game.Data.SFTypeObj[index7].CombatModAtt.GetUpperBound(0);
                   for (let mut index8: i32 = 0; index8 <= upperBound; index8 += 1)
                   {
-                    this.game.Data.SFTypeObj[index7].CombatModAtt[index8] = this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[index8];
-                    this.game.Data.SFTypeObj[index7].CombatModDef[index8] = this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[index8];
-                    this.game.Data.SFTypeObj[index7].ExtraRecon[index8] = this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[index8];
+                    self.game.Data.SFTypeObj[index7].CombatModAtt[index8] = self.game.Data.SFTypeObj[self.SFtypeNr].CombatModAtt[index8];
+                    self.game.Data.SFTypeObj[index7].CombatModDef[index8] = self.game.Data.SFTypeObj[self.SFtypeNr].CombatModDef[index8];
+                    self.game.Data.SFTypeObj[index7].ExtraRecon[index8] = self.game.Data.SFTypeObj[self.SFtypeNr].ExtraRecon[index8];
                   }
                 }
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b39id)
+            if (num1 == self.b39id)
             {
-              let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
+              let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
               for (let mut index9: i32 = 0; index9 <= sfTypeCounter; index9 += 1)
               {
-                if (this.game.Data.SFTypeObj[index9].ReinforcementType == this.game.Data.SFTypeObj[this.SFtypeNr].ReinforcementType)
+                if (self.game.Data.SFTypeObj[index9].ReinforcementType == self.game.Data.SFTypeObj[self.SFtypeNr].ReinforcementType)
                 {
-                  let mut upperBound: i32 = this.game.Data.SFTypeObj[index9].CombatModAtt.GetUpperBound(0);
+                  let mut upperBound: i32 = self.game.Data.SFTypeObj[index9].CombatModAtt.GetUpperBound(0);
                   for (let mut index10: i32 = 0; index10 <= upperBound; index10 += 1)
                   {
-                    this.game.Data.SFTypeObj[index9].CombatModAtt[index10] = this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[index10];
-                    this.game.Data.SFTypeObj[index9].CombatModDef[index10] = this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[index10];
-                    this.game.Data.SFTypeObj[index9].ExtraRecon[index10] = this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[index10];
+                    self.game.Data.SFTypeObj[index9].CombatModAtt[index10] = self.game.Data.SFTypeObj[self.SFtypeNr].CombatModAtt[index10];
+                    self.game.Data.SFTypeObj[index9].CombatModDef[index10] = self.game.Data.SFTypeObj[self.SFtypeNr].CombatModDef[index10];
+                    self.game.Data.SFTypeObj[index9].ExtraRecon[index10] = self.game.Data.SFTypeObj[self.SFtypeNr].ExtraRecon[index10];
                   }
                 }
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.t1id)
+            if (num1 == self.t1id)
             {
               let mut index11: i32 =  Math.Round(Conversion.Int(Conversion.Val(Interaction.InputBox("Give SFType# to copy from", "Shadow Empire : Planetary Conquest"))));
-              if (index11 > -1 & index11 <= this.game.Data.SFTypeCounter)
+              if (index11 > -1 & index11 <= self.game.Data.SFTypeCounter)
               {
-                let mut sftypeNr: i32 = this.SFtypeNr;
-                let mut upperBound: i32 = this.game.Data.SFTypeObj[sftypeNr].CombatModAtt.GetUpperBound(0);
+                let mut sftypeNr: i32 = self.SFtypeNr;
+                let mut upperBound: i32 = self.game.Data.SFTypeObj[sftypeNr].CombatModAtt.GetUpperBound(0);
                 for (let mut index12: i32 = 0; index12 <= upperBound; index12 += 1)
                 {
-                  this.game.Data.SFTypeObj[sftypeNr].CombatModAtt[index12] = this.game.Data.SFTypeObj[index11].CombatModAtt[index12];
-                  this.game.Data.SFTypeObj[sftypeNr].CombatModDef[index12] = this.game.Data.SFTypeObj[index11].CombatModDef[index12];
-                  this.game.Data.SFTypeObj[sftypeNr].ExtraRecon[index12] = this.game.Data.SFTypeObj[index11].ExtraRecon[index12];
+                  self.game.Data.SFTypeObj[sftypeNr].CombatModAtt[index12] = self.game.Data.SFTypeObj[index11].CombatModAtt[index12];
+                  self.game.Data.SFTypeObj[sftypeNr].CombatModDef[index12] = self.game.Data.SFTypeObj[index11].CombatModDef[index12];
+                  self.game.Data.SFTypeObj[sftypeNr].ExtraRecon[index12] = self.game.Data.SFTypeObj[index11].ExtraRecon[index12];
                 }
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w2id)
+            if (num1 == self.w2id)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraSymbol(this.detailnr, filename);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraSymbol(self.detailnr, filename);
               }
               else
               {
-                let mut num31: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num31: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.y8id)
+            if (num1 == self.y8id)
             {
-              filename1: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename1))
+              filename1: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename1))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraColBigSymbol(this.detailnr, filename1);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraColBigSymbol(self.detailnr, filename1);
               }
               else
               {
-                let mut num32: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num32: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              filename2: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give SECOND File Name For Replacement of extra Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename2))
+              filename2: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give SECOND File Name For Replacement of extra Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename2))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraColBigSymbol2(this.detailnr, filename2);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraColBigSymbol2(self.detailnr, filename2);
               }
               else
               {
-                let mut num33: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num33: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w2bid)
+            if (num1 == self.w2bid)
             {
-              filename: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + filename))
+              filename: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Replacement of extra Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + filename))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceExtraSymbol2(this.detailnr, filename);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceExtraSymbol2(self.detailnr, filename);
               }
               else
               {
-                let mut num34: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num34: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.Tabsheet();
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.y2id)
+            if (num1 == self.y2id)
             {
               let mut index13: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give SFType to Copy From .", "Shadow Empire : Planetary Conquest")));
-              if (index13 >= 0 & index13 <= this.game.Data.SFTypeCounter)
+              if (index13 >= 0 & index13 <= self.game.Data.SFTypeCounter)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttack = this.game.Data.SFTypeObj[index13].FuelForAttack;
-                this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttackDef = this.game.Data.SFTypeObj[index13].FuelForAttackDef;
-                this.game.Data.SFTypeObj[this.SFtypeNr].FuelForMove = this.game.Data.SFTypeObj[index13].FuelForMove;
-                this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar = this.game.Data.SFTypeObj[index13].FuelRegimeVar;
-                this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack = this.game.Data.SFTypeObj[index13].OutOfFuelAttack;
-                this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense = this.game.Data.SFTypeObj[index13].OutOfFuelDefense;
-                this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove = this.game.Data.SFTypeObj[index13].OutOfFuelMove;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttack = self.game.Data.SFTypeObj[index13].FuelForAttack;
+                self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttackDef = self.game.Data.SFTypeObj[index13].FuelForAttackDef;
+                self.game.Data.SFTypeObj[self.SFtypeNr].FuelForMove = self.game.Data.SFTypeObj[index13].FuelForMove;
+                self.game.Data.SFTypeObj[self.SFtypeNr].FuelRegimeVar = self.game.Data.SFTypeObj[index13].FuelRegimeVar;
+                self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelAttack = self.game.Data.SFTypeObj[index13].OutOfFuelAttack;
+                self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelDefense = self.game.Data.SFTypeObj[index13].OutOfFuelDefense;
+                self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelMove = self.game.Data.SFTypeObj[index13].OutOfFuelMove;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -3809,13 +3809,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w3id)
+            if (num1 == self.w3id)
             {
               let mut num36: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Code for selected extra graphics.", "Shadow Empire : Planetary Conquest")));
               if (num36 > 0 & num36 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ExtraCode[this.detailnr] = num36;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].ExtraCode[self.detailnr] = num36;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -3824,156 +3824,156 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.h6id)
+            if (num1 == self.h6id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].ExtraName[this.detailnr] = Interaction.InputBox("Give Name.", "Shadow Empire : Planetary Conquest");
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].ExtraName[self.detailnr] = Interaction.InputBox("Give Name.", "Shadow Empire : Planetary Conquest");
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w4id)
+            if (num1 == self.w4id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].RemoveExtraSprite(this.detailnr);
-              this.detailnr = -1;
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].RemoveExtraSprite(self.detailnr);
+              self.detailnr = -1;
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.w5id)
+            if (num1 == self.w5id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].AddExtraSprite();
-              this.detailnr = this.game.Data.SFTypeObj[this.SFtypeNr].ExtraCounter;
-              this.Tabsheet();
+              self.game.Data.SFTypeObj[self.SFtypeNr].AddExtraSprite();
+              self.detailnr = self.game.Data.SFTypeObj[self.SFtypeNr].ExtraCounter;
+              self.Tabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b28id)
+            if (num1 == self.b28id)
             {
-              this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BAddSFtypeId)
+            if (num1 == self.BAddSFtypeId)
             {
-              this.game.Data.AddSFType();
-              this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].LibId.libSlot = this.LibNr;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.AddSFType();
+              self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter].LibId.libSlot = self.LibNr;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BAddSFtype2Id)
+            if (num1 == self.BAddSFtype2Id)
             {
-              let mut sftypeNr: i32 = this.SFtypeNr;
-              this.game.Data.AddSFType();
-              let mut id: i32 = this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].Id;
-              this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter] = this.game.Data.SFTypeObj[sftypeNr].Clone();
-              this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].Id = id;
-              this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].LoadSprites();
-              this.game.Data.SFTypeObj[this.game.Data.SFTypeCounter].LibId.libSlot = this.LibNr;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              let mut sftypeNr: i32 = self.SFtypeNr;
+              self.game.Data.AddSFType();
+              let mut id: i32 = self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter].Id;
+              self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter] = self.game.Data.SFTypeObj[sftypeNr].Clone();
+              self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter].Id = id;
+              self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter].LoadSprites();
+              self.game.Data.SFTypeObj[self.game.Data.SFTypeCounter].LibId.libSlot = self.LibNr;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BNameId)
+            if (num1 == self.BNameId)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].Name = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.SFTypeObj[self.SFtypeNr].Name = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.j1id)
+            if (num1 == self.j1id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].LogoString[this.detailnr2] = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.SFTypeObj[self.SFtypeNr].LogoString[self.detailnr2] = Interaction.InputBox("Give new name, please.", "Shadow Empire : Planetary Conquest");
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BRemoveSFtypeId)
+            if (num1 == self.BRemoveSFtypeId)
             {
-              this.game.Data.RemoveSFType(this.SFtypeNr);
-              if (this.game.Data.SFTypeCounter < this.SFtypeNr)
-                this.SFtypeNr = this.game.Data.SFTypeCounter;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.RemoveSFType(self.SFtypeNr);
+              if (self.game.Data.SFTypeCounter < self.SFtypeNr)
+                self.SFtypeNr = self.game.Data.SFTypeCounter;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BRemoveSFtypeId2)
+            if (num1 == self.BRemoveSFtypeId2)
             {
-              for (let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter; sfTypeCounter >= 0; sfTypeCounter += -1)
-                this.game.Data.RemoveSFType(sfTypeCounter);
-              this.SFtypeNr = -1;
-              this.MakeSFtypeListGUI(-1);
+              for (let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter; sfTypeCounter >= 0; sfTypeCounter += -1)
+                self.game.Data.RemoveSFType(sfTypeCounter);
+              self.SFtypeNr = -1;
+              self.MakeSFtypeListGUI(-1);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BChangeSymbolId)
+            if (num1 == self.BChangeSymbolId)
             {
-              s: String = this.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + s))
+              s: String = self.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + s))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceSymbolSprite(s);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceSymbolSprite(s);
               }
               else
               {
-                let mut num38: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num38: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.y7id)
+            if (num1 == self.y7id)
             {
-              s: String = this.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + s))
+              s: String = self.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + s))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceColBigSymbolSprite(s);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceColBigSymbolSprite(s);
               }
               else
               {
-                let mut num39: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num39: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BChangeSymbol2Id)
+            if (num1 == self.BChangeSymbol2Id)
             {
-              s: String = this.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + s))
+              s: String = self.game.HandyFunctionsObj.LoadSomething("Pings (*.Png)|*.png|Bmp|*.bmp", "Give File Name For Replacement of Symbol Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + s))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplaceSymbolSprite2(s);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplaceSymbolSprite2(s);
               }
               else
               {
-                let mut num40: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num40: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.bChangePicId)
+            if (num1 == self.bChangePicId)
             {
-              s: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of Picture Sprite:", this.game.AppPath + "graphics\\", true);
-              if (File.Exists(this.game.AppPath + "graphics/" + s))
+              s: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp|Jpg|*.jpg", "Give File Name For Replacement of Picture Sprite:", self.game.AppPath + "graphics\\", true);
+              if (File.Exists(self.game.AppPath + "graphics/" + s))
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReplacePicSprite(s);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReplacePicSprite(s);
               }
               else
               {
-                let mut num41: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
+                let mut num41: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BSymbolGroupId)
+            if (num1 == self.BSymbolGroupId)
             {
               let mut num42: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new Symbol Group Number, please.", "Shadow Empire : Planetary Conquest")));
               if (num42 > -2 & num42 < 100)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].SymbolGroup = num42;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].SymbolGroup = num42;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -3982,33 +3982,33 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.BSymbolOverRuleId)
+            if (num1 == self.BSymbolOverRuleId)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].SymbolOverrule = !this.game.Data.SFTypeObj[this.SFtypeNr].SymbolOverrule;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.SFTypeObj[self.SFtypeNr].SymbolOverrule = !self.game.Data.SFTypeObj[self.SFtypeNr].SymbolOverrule;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b35id)
+            if (num1 == self.b35id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].FreeAir = !this.game.Data.SFTypeObj[this.SFtypeNr].FreeAir;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.SFTypeObj[self.SFtypeNr].FreeAir = !self.game.Data.SFTypeObj[self.SFtypeNr].FreeAir;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BMoveTypeId)
+            if (num1 == self.BMoveTypeId)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 4, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 4, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.BSymbolWeightId)
+            if (num1 == self.BSymbolWeightId)
             {
               let mut num44: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new Symbol Weight, please.", "Shadow Empire : Planetary Conquest")));
               if (num44 > -1 & num44 < 10000)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].SymbolWeight = num44;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].SymbolWeight = num44;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4017,13 +4017,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.B1Id)
+            if (num1 == self.B1Id)
             {
               let mut num46: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Supply Carry, please.", "Shadow Empire : Planetary Conquest")));
               if (num46 > -2 & num46 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].SupplyCarry = num46;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].SupplyCarry = num46;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4032,13 +4032,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b33id)
+            if (num1 == self.b33id)
             {
               let mut num48: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give RailCap pts", "Shadow Empire : Planetary Conquest")));
               if (num48 > -1 & num48 <= 10000)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].RailCap = num48;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].RailCap = num48;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4047,11 +4047,11 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b31id)
+            if (num1 == self.b31id)
             {
               let mut num50: i32 =  Interaction.MsgBox( "For all, or only selected peoplegroup", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
               let mut num51: i32 =  Interaction.MsgBox( "Set true? yes=true.. no=false", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
-              let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
+              let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
               for (let mut index14: i32 = 0; index14 <= sfTypeCounter; index14 += 1)
               {
                 let mut index15: i32 = 0;
@@ -4059,18 +4059,18 @@ label_9:
                 {
                   if (num50 == 6)
                   {
-                    if (this.detailnr > -1)
+                    if (self.detailnr > -1)
                     {
                       if (num51 == 6)
-                        this.game.Data.SFTypeObj[index14].PeopleGroup[this.detailnr] = true;
+                        self.game.Data.SFTypeObj[index14].PeopleGroup[self.detailnr] = true;
                       else
-                        this.game.Data.SFTypeObj[index14].PeopleGroup[this.detailnr] = false;
+                        self.game.Data.SFTypeObj[index14].PeopleGroup[self.detailnr] = false;
                     }
                   }
                   else if (num51 == 6)
-                    this.game.Data.SFTypeObj[index14].PeopleGroup[index15] = true;
+                    self.game.Data.SFTypeObj[index14].PeopleGroup[index15] = true;
                   else
-                    this.game.Data.SFTypeObj[index14].PeopleGroup[index15] = false;
+                    self.game.Data.SFTypeObj[index14].PeopleGroup[index15] = false;
                   index15 += 1;
                 }
                 while (index15 <= 99);
@@ -4078,13 +4078,13 @@ label_9:
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.h3id)
+            if (num1 == self.h3id)
             {
               let mut num52: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New RoleScore, please.", "Shadow Empire : Planetary Conquest")));
               if (num52 > -1 & num52 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr] = num52;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].AIRoleScore[self.detailnr] = num52;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4093,18 +4093,18 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w11id)
+            if (num1 == self.w11id)
             {
               let mut num54: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New RoleScore (will set for all with same unitgroup), please.", "Shadow Empire : Planetary Conquest")));
               if (num54 > -1 & num54 < 9999)
               {
-                let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
+                let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
                 for (let mut index16: i32 = 0; index16 <= sfTypeCounter; index16 += 1)
                 {
-                  if (this.game.Data.SFTypeObj[index16].UnitGroup == this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup)
-                    this.game.Data.SFTypeObj[index16].AIRoleScore[this.detailnr] = num54;
+                  if (self.game.Data.SFTypeObj[index16].UnitGroup == self.game.Data.SFTypeObj[self.SFtypeNr].UnitGroup)
+                    self.game.Data.SFTypeObj[index16].AIRoleScore[self.detailnr] = num54;
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4113,13 +4113,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.B5Id)
+            if (num1 == self.B5Id)
             {
               let mut num56: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New LandCap, please.", "Shadow Empire : Planetary Conquest")));
               if (num56 > -1 & num56 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Cap = num56;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].Cap = num56;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4128,13 +4128,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.y6id)
+            if (num1 == self.y6id)
             {
               let mut num58: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Morph: Color value.", "Shadow Empire : Planetary Conquest")));
               if (num58 > -1 & num58 < 7)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].BaseColor = num58;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].BaseColor = num58;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4143,13 +4143,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.B6Id)
+            if (num1 == self.B6Id)
             {
               let mut num60: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Basic Supply Need, please.", "Shadow Empire : Planetary Conquest")));
               if (num60 > -1 & num60 < 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].BasicSupplyNeed = num60;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].BasicSupplyNeed = num60;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4158,13 +4158,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b32id)
+            if (num1 == self.b32id)
             {
               let mut num62: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New absolute readiness loss per 100ap please.", "Shadow Empire : Planetary Conquest")));
               if (num62 > -1 & num62 <= 100)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ReadinessLoss = num62;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ReadinessLoss = num62;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4173,19 +4173,19 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.B7Id)
+            if (num1 == self.B7Id)
             {
-              Form3::new( this.formref).Initialize(this.game.Data, 5, this.SFtypeNr);
+              Form3::new( self.formref).Initialize(self.game.Data, 5, self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B8Id)
+            if (num1 == self.B8Id)
             {
               let mut num64: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Theater #, please.", "Shadow Empire : Planetary Conquest")));
               if (num64 > -1 & num64 < 3)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Theater = num64;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].Theater = num64;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4194,13 +4194,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b9id)
+            if (num1 == self.b9id)
             {
               let mut num66: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Weight, please.", "Shadow Empire : Planetary Conquest")));
               if (num66 > 0 & num66 < 999999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Weight = num66;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].Weight = num66;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4209,27 +4209,27 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b10id)
+            if (num1 == self.b10id)
             {
               let mut num68: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New DefPower for ATTACK HEX, please.", "Shadow Empire : Planetary Conquest")));
               if (num68 > 0 & num68 < 999999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].DefPower = num68;
+                self.game.Data.SFTypeObj[self.SFtypeNr].DefPower = num68;
               }
               else
               {
                 let mut num69: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b11id)
+            if (num1 == self.b11id)
             {
               let mut num70: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Initiative for ATTACK HEX, please.", "Shadow Empire : Planetary Conquest")));
               if (num70 > 0 & num70 < 999999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Initiative = num70;
+                self.game.Data.SFTypeObj[self.SFtypeNr].Initiative = num70;
               }
               else
               {
@@ -4238,23 +4238,23 @@ label_9:
               let mut num72: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Initiative for DEFEND HEX, please.", "Shadow Empire : Planetary Conquest")));
               if (num72 > 0 & num72 < 999999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].InitiativeDef = num72;
+                self.game.Data.SFTypeObj[self.SFtypeNr].InitiativeDef = num72;
               }
               else
               {
                 let mut num73: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b12id)
+            if (num1 == self.b12id)
             {
               let mut num74: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Attacks, please.", "Shadow Empire : Planetary Conquest")));
               if (num74 > -1 & num74 <= 9999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Attacks = num74;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].Attacks = num74;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4263,13 +4263,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b13id)
+            if (num1 == self.b13id)
             {
               let mut num76: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New MaxAttacked, please.", "Shadow Empire : Planetary Conquest")));
               if (num76 > 0 & num76 < 999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].MaxAttacked = num76;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].MaxAttacked = num76;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4278,13 +4278,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b14id)
+            if (num1 == self.b14id)
             {
               let mut num78: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Frontage, please.", "Shadow Empire : Planetary Conquest")));
               if (num78 > -1 & num78 < 999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].Frontage = num78;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].Frontage = num78;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4293,20 +4293,20 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b15id)
+            if (num1 == self.b15id)
             {
-              this.game.Data.SFTypeObj[this.SFtypeNr].BackBench = !this.game.Data.SFTypeObj[this.SFtypeNr].BackBench;
-              this.MakeSFtypeListGUI(this.SFtypeNr);
+              self.game.Data.SFTypeObj[self.SFtypeNr].BackBench = !self.game.Data.SFTypeObj[self.SFtypeNr].BackBench;
+              self.MakeSFtypeListGUI(self.SFtypeNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.b16id)
+            if (num1 == self.b16id)
             {
               let mut num80: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New ArtRange, please.", "Shadow Empire : Planetary Conquest")));
               if (num80 > -1 & num80 < 99)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ArtRange = num80;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ArtRange = num80;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4315,13 +4315,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w13id)
+            if (num1 == self.w13id)
             {
               let mut num82: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New SFType # used to look up landscape mods for artillery attack.", "Shadow Empire : Planetary Conquest")));
-              if (num82 >= -1 & num82 < this.game.Data.SFTypeCounter)
+              if (num82 >= -1 & num82 < self.game.Data.SFTypeCounter)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ArtSFType = num82;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ArtSFType = num82;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4330,13 +4330,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b17id)
+            if (num1 == self.b17id)
             {
               let mut num84: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New FavTarget Tries, please.", "Shadow Empire : Planetary Conquest")));
               if (num84 > 0 & num84 < 999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].FavTargetTries = num84;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].FavTargetTries = num84;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4345,13 +4345,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b18id)
+            if (num1 == self.b18id)
             {
               let mut num86: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Fav Target score, please.", "Shadow Empire : Planetary Conquest")));
               if (num86 > -1 & num86 < 999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[this.detailnr] = num86;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].FavTarget[self.detailnr] = num86;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4360,13 +4360,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b19id)
+            if (num1 == self.b19id)
             {
               let mut num88: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Attack Power score, please.", "Shadow Empire : Planetary Conquest")));
               if (num88 > -1 & num88 < 9990)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[this.detailnr] = num88;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].AttackPower[self.detailnr] = num88;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4375,13 +4375,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b23id)
+            if (num1 == self.b23id)
             {
               let mut num90: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Attack Def Power score, please.", "Shadow Empire : Planetary Conquest")));
               if (num90 > -1 & num90 < 9990)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[this.detailnr] = num90;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].AttackPowerDef[self.detailnr] = num90;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4390,13 +4390,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b25id)
+            if (num1 == self.b25id)
             {
               let mut num92: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Art Attack score, please.", "Shadow Empire : Planetary Conquest")));
               if (num92 > -1 & num92 < 9990)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[this.detailnr] =  num92;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].AttackArt[self.detailnr] =  num92;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4405,13 +4405,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b26id)
+            if (num1 == self.b26id)
             {
               let mut num94: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Artillery Fav score, please.", "Shadow Empire : Planetary Conquest")));
               if (num94 > -1 & num94 < 9990)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[this.detailnr] = num94;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].FavArtTarget[self.detailnr] = num94;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4420,13 +4420,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b37id)
+            if (num1 == self.b37id)
             {
               let mut num96: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give hitpoints", "Shadow Empire : Planetary Conquest")));
               if (num96 > -1 & num96 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[this.detailnr] = num96;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].HitPoints[self.detailnr] = num96;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4435,13 +4435,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b38id)
+            if (num1 == self.b38id)
             {
               let mut num98: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give def hitpoints", "Shadow Empire : Planetary Conquest")));
               if (num98 > -1 & num98 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[this.detailnr] = num98;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].HitPointsDef[self.detailnr] = num98;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4450,13 +4450,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w15id)
+            if (num1 == self.w15id)
             {
               let mut num100: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("DirectRange", "Shadow Empire : Planetary Conquest")));
               if (num100 > -1 & num100 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].directRange = num100;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].directRange = num100;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4465,13 +4465,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w16id)
+            if (num1 == self.w16id)
             {
               let mut num102: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Direct Mod 1st Hex", "Shadow Empire : Planetary Conquest")));
               if (num102 > -1 & num102 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].directModFirstHex = num102;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].directModFirstHex = num102;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4480,13 +4480,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.w17id)
+            if (num1 == self.w17id)
             {
               let mut num104: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Direct Mod 2nd+ Hex", "Shadow Empire : Planetary Conquest")));
               if (num104 > -1 & num104 < 99999)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].directModPerHex = num104;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].directModPerHex = num104;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4495,7 +4495,7 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.y1id)
+            if (num1 == self.y1id)
             {
               let mut num106: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give def hitpoints", "Shadow Empire : Planetary Conquest")));
               if (num106 > -1 & num106 < 99999)
@@ -4503,12 +4503,12 @@ label_9:
                 let mut index17: i32 = 0;
                 do
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[index17] = num106;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[index17] = num106;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].HitPointsDef[index17] = num106;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].HitPoints[index17] = num106;
                   index17 += 1;
                 }
                 while (index17 <= 99);
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4517,13 +4517,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b20id)
+            if (num1 == self.b20id)
             {
               let mut num108: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Kill % chance please.", "Shadow Empire : Planetary Conquest")));
               if (num108 > -1 & num108 < 101)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].KillPercent = num108;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].KillPercent = num108;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4532,13 +4532,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b21id)
+            if (num1 == self.b21id)
             {
               let mut num110: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give  Equipment Kill % chance, please.", "Shadow Empire : Planetary Conquest")));
               if (num110 > -1 & num110 < 101)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].EquipPercent = num110;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].EquipPercent = num110;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4547,13 +4547,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b22id)
+            if (num1 == self.b22id)
             {
               let mut num112: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Retreat % chance, please.", "Shadow Empire : Planetary Conquest")));
               if (num112 > -1 & num112 < 101)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].RetreatPercent = num112;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].RetreatPercent = num112;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4562,13 +4562,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b34id)
+            if (num1 == self.b34id)
             {
               let mut num114: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give slot# (-1 = dont set any slot).", "Shadow Empire : Planetary Conquest")));
               if (num114 >= -1 & num114 <= 9)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].SlotNumber = num114;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].SlotNumber = num114;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4577,13 +4577,13 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.b24id)
+            if (num1 == self.b24id)
             {
               let mut num116: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Move Redux in %, please.", "Shadow Empire : Planetary Conquest")));
               if (num116 > -101 & num116 < 101)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].MoveRedux = num116;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].MoveRedux = num116;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
@@ -4592,85 +4592,85 @@ label_9:
               }
               return windowReturnClass;
             }
-            if (num1 == this.PGListId)
+            if (num1 == self.PGListId)
             {
-              let mut num118: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num118: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num118 > -1)
               {
-                this.detailnr = num118;
-                this.Tabsheet();
+                self.detailnr = num118;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.CombatListId)
+            if (num1 == self.CombatListId)
             {
-              let mut num119: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num119: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num119 > -1)
               {
-                this.detailnr = num119;
-                this.Tabsheet();
+                self.detailnr = num119;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.CombatList2Id)
+            if (num1 == self.CombatList2Id)
             {
-              let mut num120: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num120: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num120 > -1)
               {
-                this.detailnr = num120;
-                this.Tabsheet();
+                self.detailnr = num120;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.combatlist3id)
+            if (num1 == self.combatlist3id)
             {
-              let mut num121: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num121: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num121 > -1)
               {
-                this.detailnr = num121;
-                this.Tabsheet();
+                self.detailnr = num121;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.combatlist4id)
+            if (num1 == self.combatlist4id)
             {
-              let mut num122: i32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
-              this.SubPartFlag[index1] = true;
+              let mut num122: i32 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              self.SubPartFlag[index1] = true;
               if (num122 > -1)
               {
-                this.detailnr = num122;
-                this.Tabsheet();
+                self.detailnr = num122;
+                self.Tabsheet();
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if (num1 == this.B4Id)
+            if (num1 == self.B4Id)
             {
-              if (this.detailnr > -1)
+              if (self.detailnr > -1)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].PeopleGroup[this.detailnr] = !this.game.Data.SFTypeObj[this.SFtypeNr].PeopleGroup[this.detailnr];
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].PeopleGroup[self.detailnr] = !self.game.Data.SFTypeObj[self.SFtypeNr].PeopleGroup[self.detailnr];
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
             }
             else
             {
-              if (num1 == this.d1id)
+              if (num1 == self.d1id)
               {
                 let mut num123: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New CarryCap, please.", "Shadow Empire : Planetary Conquest")));
                 if (num123 > -1 & num123 < 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].CarryCap = num123;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].CarryCap = num123;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4679,13 +4679,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.e1id)
+              if (num1 == self.e1id)
               {
                 let mut num125: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New EntrenchPower, please.", "Shadow Empire : Planetary Conquest")));
                 if (num125 > -1 & num125 < 901)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].EntrenchPower = num125;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].EntrenchPower = num125;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4694,31 +4694,31 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.e5id)
+              if (num1 == self.e5id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 26, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 26, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.w9id)
+              if (num1 == self.w9id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 51, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 51, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.w9bid)
+              if (num1 == self.w9bid)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 89, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 89, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.e6id)
+              if (num1 == self.e6id)
               {
                 let mut num127: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Upgrade cost in ProdPts, please. (rulevar77 how much prodpts = 1 supply)", "Shadow Empire : Planetary Conquest")));
                 if (num127 > -1 & num127 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].UpgradeCost = num127;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].UpgradeCost = num127;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4727,13 +4727,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.e7id)
+              if (num1 == self.e7id)
               {
                 let mut num129: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Upgrade XP needed, please.", "Shadow Empire : Planetary Conquest")));
                 if (num129 > -1 & num129 <= 999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].UpgradeXP = num129;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].UpgradeXP = num129;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4742,13 +4742,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.e3id)
+              if (num1 == self.e3id)
               {
                 let mut num131: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New PowerPts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num131 > -1 & num131 < 999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].PowerPts = num131;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].PowerPts = num131;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4757,13 +4757,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.w6id)
+              if (num1 == self.w6id)
               {
                 let mut num133: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New ratio, please.", "Shadow Empire : Planetary Conquest")));
                 if (num133 > -1 & num133 < 999999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].Ratio = num133;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].Ratio = num133;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4772,13 +4772,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.w7id)
+              if (num1 == self.w7id)
               {
                 let mut num135: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new copyFrom sftype slot.", "Shadow Empire : Planetary Conquest")));
-                if (num135 >= -1 & num135 <= this.game.Data.SFTypeCounter)
+                if (num135 >= -1 & num135 <= self.game.Data.SFTypeCounter)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].CopyDataFrom = num135;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].CopyDataFrom = num135;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4787,20 +4787,20 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v19id)
+              if (num1 == self.v19id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll = !this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialForAll = !self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialForAll;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.f1id)
+              if (num1 == self.f1id)
               {
                 let mut num137: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Recon Pts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num137 > -1 & num137 < 999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ReconPts = num137;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ReconPts = num137;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4809,13 +4809,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.f2id)
+              if (num1 == self.f2id)
               {
                 let mut num139: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Hide Pts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num139 > -1 & num139 < 999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].HidePts = num139;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].HidePts = num139;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4824,13 +4824,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v1id)
+              if (num1 == self.v1id)
               {
                 let mut num141: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Last State. 1=got it. 0=not", "Shadow Empire : Planetary Conquest")));
                 if (num141 >= 0 & num141 <= 1)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelLastState[this.detailnr2] = num141;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelLastState[self.detailnr2] = num141;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4839,13 +4839,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v2id)
+              if (num1 == self.v2id)
               {
                 let mut num143: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Possible Improvement. 1=gives impr. 0=not", "Shadow Empire : Planetary Conquest")));
                 if (num143 >= 0 & num143 <= 1)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelPossibleImp[this.detailnr2] = num143;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelPossibleImp[self.detailnr2] = num143;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4854,13 +4854,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c2id)
+              if (num1 == self.c2id)
               {
                 let mut num145: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give regimevar used for fuel (-1=none)", "Shadow Empire : Planetary Conquest")));
                 if (num145 >= -1 & num145 <= 400)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar = num145;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FuelRegimeVar = num145;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4869,13 +4869,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c3id)
+              if (num1 == self.c3id)
               {
                 let mut num147: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give fuel needed for move (10 ap or minimum cost)", "Shadow Empire : Planetary Conquest")));
                 if (num147 >= 0 & num147 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FuelForMove = num147;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FuelForMove = num147;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4884,13 +4884,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c12id)
+              if (num1 == self.c12id)
               {
                 let mut num149: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give stockpile used per round", "Shadow Empire : Planetary Conquest")));
                 if (num149 >= 0 & num149 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StockpileUsedPerRound = num149;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StockpileUsedPerRound = num149;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4899,13 +4899,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c13id)
+              if (num1 == self.c13id)
               {
                 let mut num151: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give stockpile max size", "Shadow Empire : Planetary Conquest")));
                 if (num151 >= 0 & num151 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMax = num151;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StockpileMax = num151;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4914,13 +4914,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c14id)
+              if (num1 == self.c14id)
               {
                 let mut num153: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give stockpile max in", "Shadow Empire : Planetary Conquest")));
                 if (num153 >= 0 & num153 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMaxIn = num153;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StockpileMaxIn = num153;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4929,13 +4929,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c15id)
+              if (num1 == self.c15id)
               {
                 float num155 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of stockpile", "Shadow Empire : Planetary Conquest"));
                 if ( num155 >= 0.0 &  num155 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StockpileDepletedMod = num155;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StockpileDepletedMod = num155;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4944,13 +4944,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c16id)
+              if (num1 == self.c16id)
               {
                 let mut num157: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give max (regular) supply in", "Shadow Empire : Planetary Conquest")));
                 if (num157 >= 0 & num157 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].SupplyMaxIn = num157;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].SupplyMaxIn = num157;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4959,13 +4959,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c17id)
+              if (num1 == self.c17id)
               {
                 let mut num159: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Supply for 100AP of offensive combat", "Shadow Empire : Planetary Conquest")));
                 if (num159 >= 0 & num159 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttack = num159;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].SupplyForAttack = num159;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4974,13 +4974,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c18id)
+              if (num1 == self.c18id)
               {
                 let mut num161: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Supply for 100AP of defensive combat", "Shadow Empire : Planetary Conquest")));
                 if (num161 >= 0 & num161 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttackDef = num161;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].SupplyForAttackDef = num161;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -4989,13 +4989,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c19id)
+              if (num1 == self.c19id)
               {
                 float num163 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
                 if ( num163 >= 0.0 &  num163 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyAttack = num163;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].OutOfSupplyAttack = num163;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5004,13 +5004,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c20id)
+              if (num1 == self.c20id)
               {
                 float num165 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
                 if ( num165 >= 0.0 &  num165 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyDefense = num165;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].OutOfSupplyDefense = num165;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5019,13 +5019,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c21id)
+              if (num1 == self.c21id)
               {
                 let mut num167: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Fuel Carry Pts", "Shadow Empire : Planetary Conquest")));
                 if (num167 >= 0 & num167 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FuelCarry = num167;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FuelCarry = num167;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5034,31 +5034,31 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c5id)
+              if (num1 == self.c5id)
               {
                 let mut num169: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give fuel needed for 1 combatround in OFFENSE", "Shadow Empire : Planetary Conquest")));
                 let mut num170: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give fuel needed for 1 combatround in DEFENSE", "Shadow Empire : Planetary Conquest")));
                 if (num169 >= 0 & num169 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttack = num169;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttack = num169;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 if (num170 >= 0 & num170 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttackDef = num170;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FuelForAttackDef = num170;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v3id)
+              if (num1 == self.v3id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 63, this.SFtypeNr, this.detailnr2);
+                Form3::new( self.formref).Initialize(self.game.Data, 63, self.SFtypeNr, self.detailnr2);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v4id)
+              if (num1 == self.v4id)
               {
                 let mut index18: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("For which level is this research necc. 0-9 (0=for none)", "Shadow Empire : Planetary Conquest")));
                 if (index18 >= 0 & index18 <= 9)
@@ -5066,13 +5066,13 @@ label_9:
                   let mut index19: i32 = 1;
                   do
                   {
-                    if (this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[index19] == this.detailnr2)
-                      this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[index19] = -1;
+                    if (self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[index19] == self.detailnr2)
+                      self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[index19] = -1;
                     index19 += 1;
                   }
                   while (index19 <= 9);
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[index18] = this.detailnr2;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[index18] = self.detailnr2;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5081,20 +5081,20 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v5id)
+              if (num1 == self.v5id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase = !this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelIsBase = !self.game.Data.SFTypeObj[self.SFtypeNr].ModelIsBase;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v6id)
+              if (num1 == self.v6id)
               {
                 let mut num172: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New ModelCostType. -1=PP. 0-499=regvar ", "Shadow Empire : Planetary Conquest")));
                 if (num172 >= -1 & num172 <= 499)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostType = num172;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostType = num172;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5103,13 +5103,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v17id)
+              if (num1 == self.v17id)
               {
                 let mut num174: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Model Regime. -1=all ", "Shadow Empire : Planetary Conquest")));
-                if (num174 >= -2 & num174 <= this.game.Data.RegimeCounter)
+                if (num174 >= -2 & num174 <= self.game.Data.RegimeCounter)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelRegime = num174;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelRegime = num174;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5118,13 +5118,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v18id)
+              if (num1 == self.v18id)
               {
                 let mut num176: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Research(0). (-1 no need) ", "Shadow Empire : Planetary Conquest")));
-                if (num176 >= -1 & num176 <= this.game.Data.ResearchCounter)
+                if (num176 >= -1 & num176 <= self.game.Data.ResearchCounter)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0] = num176;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[0] = num176;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5133,13 +5133,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v7id)
+              if (num1 == self.v7id)
               {
                 let mut num178: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Cost 0-99999 ", "Shadow Empire : Planetary Conquest")));
                 if (num178 >= 0 & num178 <= 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCost = num178;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCost = num178;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5148,13 +5148,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c4id)
+              if (num1 == self.c4id)
               {
                 float num180 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Move Modifier. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num180 >= 0.0 &  num180 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove = num180;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelMove = num180;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5163,13 +5163,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c6id)
+              if (num1 == self.c6id)
               {
                 float num182 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Attack Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num182 >= 0.0 &  num182 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack = num182;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelAttack = num182;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5178,13 +5178,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.w133id)
+              if (num1 == self.w133id)
               {
                 float num184 =  Conversion.Val(Interaction.InputBox("Give new 0.0-1.0 score", "Shadow Empire : Planetary Conquest"));
                 if ( num184 >= 0.0 &  num184 <= 1.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ChanceOnDeathIfMakeHit = num184;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ChanceOnDeathIfMakeHit = num184;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5193,13 +5193,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.c7id)
+              if (num1 == self.c7id)
               {
                 float num186 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Defend Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num186 >= 0.0 &  num186 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense = num186;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].OutOfFuelDefense = num186;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5208,13 +5208,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v8id)
+              if (num1 == self.v8id)
               {
                 float num188 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier per level. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num188 >= 0.0 &  num188 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel = num188;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerLevel = num188;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5223,13 +5223,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v9id)
+              if (num1 == self.v9id)
               {
                 float num190 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier per same model. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num190 >= 0.0 &  num190 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel = num190;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerSameModel = num190;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5238,84 +5238,84 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v10id)
+              if (num1 == self.v10id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 64, this.SFtypeNr, this.detailnr2);
+                Form3::new( self.formref).Initialize(self.game.Data, 64, self.SFtypeNr, self.detailnr2);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v11id)
+              if (num1 == self.v11id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 65, this.SFtypeNr, this.detailnr2);
+                Form3::new( self.formref).Initialize(self.game.Data, 65, self.SFtypeNr, self.detailnr2);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v20id)
+              if (num1 == self.v20id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 66, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 66, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v15id)
+              if (num1 == self.v15id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 67, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 67, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v22id)
+              if (num1 == self.v22id)
               {
-                Form3::new( this.formref).Initialize(this.game.Data, 71, this.SFtypeNr);
+                Form3::new( self.formref).Initialize(self.game.Data, 71, self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v12id)
+              if (num1 == self.v12id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade = !this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowUpgrade = !self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowUpgrade;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v13id)
+              if (num1 == self.v13id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements = !this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowImprovements = !self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowImprovements;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.v21id)
+              if (num1 == self.v21id)
               {
                 let mut index20: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give SFType # to copy from. (-1=cancel)", "Shadow Empire : Planetary Conquest")));
-                if (index20 > -1 & index20 <= this.game.Data.SFTypeCounter)
+                if (index20 > -1 & index20 <= self.game.Data.SFTypeCounter)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod = this.game.Data.SFTypeObj[index20].ModelImproveCostMod;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialEvent = this.game.Data.SFTypeObj[index20].ModelInitialEvent;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll = this.game.Data.SFTypeObj[index20].ModelInitialForAll;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase = this.game.Data.SFTypeObj[index20].ModelIsBase;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelNewEvent = this.game.Data.SFTypeObj[index20].ModelNewEvent;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade = this.game.Data.SFTypeObj[index20].ModelAllowUpgrade;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements = this.game.Data.SFTypeObj[index20].ModelAllowImprovements;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel = this.game.Data.SFTypeObj[index20].ModelCostPerLevel;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameImp = this.game.Data.SFTypeObj[index20].ModelCostPerSameImp;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel = this.game.Data.SFTypeObj[index20].ModelCostPerSameModel;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelCost = this.game.Data.SFTypeObj[index20].ModelCost;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelExtraResearch = this.game.Data.SFTypeObj[index20].ModelExtraResearch;
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade = this.game.Data.SFTypeObj[index20].ModelSFTypeUpgrade;
-                  let mut researchCounter: i32 = this.game.Data.ResearchCounter;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelImproveCostMod = self.game.Data.SFTypeObj[index20].ModelImproveCostMod;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialEvent = self.game.Data.SFTypeObj[index20].ModelInitialEvent;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelInitialForAll = self.game.Data.SFTypeObj[index20].ModelInitialForAll;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelIsBase = self.game.Data.SFTypeObj[index20].ModelIsBase;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelNewEvent = self.game.Data.SFTypeObj[index20].ModelNewEvent;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowUpgrade = self.game.Data.SFTypeObj[index20].ModelAllowUpgrade;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelAllowImprovements = self.game.Data.SFTypeObj[index20].ModelAllowImprovements;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerLevel = self.game.Data.SFTypeObj[index20].ModelCostPerLevel;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerSameImp = self.game.Data.SFTypeObj[index20].ModelCostPerSameImp;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCostPerSameModel = self.game.Data.SFTypeObj[index20].ModelCostPerSameModel;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelCost = self.game.Data.SFTypeObj[index20].ModelCost;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelExtraResearch = self.game.Data.SFTypeObj[index20].ModelExtraResearch;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelSFTypeUpgrade = self.game.Data.SFTypeObj[index20].ModelSFTypeUpgrade;
+                  let mut researchCounter: i32 = self.game.Data.ResearchCounter;
                   for (let mut index21: i32 = 0; index21 <= researchCounter; index21 += 1)
                   {
-                    this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[index21] = this.game.Data.SFTypeObj[index20].ModelAutoImprovement[index21];
-                    this.game.Data.SFTypeObj[this.SFtypeNr].ModelLastState[index21] = this.game.Data.SFTypeObj[index20].ModelLastState[index21];
-                    this.game.Data.SFTypeObj[this.SFtypeNr].ModelPossibleImp[index21] = this.game.Data.SFTypeObj[index20].ModelPossibleImp[index21];
-                    this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveEvent[index21] = this.game.Data.SFTypeObj[index20].ModelImproveEvent[index21];
+                    self.game.Data.SFTypeObj[self.SFtypeNr].ModelAutoImprovement[index21] = self.game.Data.SFTypeObj[index20].ModelAutoImprovement[index21];
+                    self.game.Data.SFTypeObj[self.SFtypeNr].ModelLastState[index21] = self.game.Data.SFTypeObj[index20].ModelLastState[index21];
+                    self.game.Data.SFTypeObj[self.SFtypeNr].ModelPossibleImp[index21] = self.game.Data.SFTypeObj[index20].ModelPossibleImp[index21];
+                    self.game.Data.SFTypeObj[self.SFtypeNr].ModelImproveEvent[index21] = self.game.Data.SFTypeObj[index20].ModelImproveEvent[index21];
                   }
                   let mut index22: i32 = 0;
                   do
                   {
-                    this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[index22] = this.game.Data.SFTypeObj[index20].ModelResearch[index22];
+                    self.game.Data.SFTypeObj[self.SFtypeNr].ModelResearch[index22] = self.game.Data.SFTypeObj[index20].ModelResearch[index22];
                     index22 += 1;
                   }
                   while (index22 <= 9);
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5324,13 +5324,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v14id)
+              if (num1 == self.v14id)
               {
                 float num193 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier for improvement. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num193 >= 0.0 &  num193 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod = num193;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelImproveCostMod = num193;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5339,13 +5339,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v23id)
+              if (num1 == self.v23id)
               {
                 float num195 =  Conversion.Val(Interaction.InputBox("Give New modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
                 if ( num195 >= 0.0 &  num195 <= 99999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade = num195;
-                  this.Tabsheet();
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ModelSFTypeUpgrade = num195;
+                  self.Tabsheet();
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5354,20 +5354,20 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.v16id)
+              if (num1 == self.v16id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[this.detailnr2] = !this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[this.detailnr2];
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].ModelAutoImprovement[self.detailnr2] = !self.game.Data.SFTypeObj[self.SFtypeNr].ModelAutoImprovement[self.detailnr2];
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.f3id)
+              if (num1 == self.f3id)
               {
                 let mut num197: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New ZOC Pts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num197 > -1 & num197 < 999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ZOCPts = num197;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ZOCPts = num197;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5376,20 +5376,20 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g1id)
+              if (num1 == self.g1id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].CanDoParadrop = !this.game.Data.SFTypeObj[this.SFtypeNr].CanDoParadrop;
-                this.Tabsheet();
+                self.game.Data.SFTypeObj[self.SFtypeNr].CanDoParadrop = !self.game.Data.SFTypeObj[self.SFtypeNr].CanDoParadrop;
+                self.Tabsheet();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g2id)
+              if (num1 == self.g2id)
               {
                 let mut num199: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New AntiStruc Pts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num199 > -1 & num199 < 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AntiStrucPts = num199;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AntiStrucPts = num199;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5398,12 +5398,12 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.w14id)
+              if (num1 == self.w14id)
               {
                 let mut num201: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new Start Round (0=normal), please.", "Shadow Empire : Planetary Conquest")));
                 if (num201 > -1 & num201 < 9)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StartCombatRound = num201;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StartCombatRound = num201;
                 }
                 else
                 {
@@ -5412,23 +5412,23 @@ label_9:
                 let mut num203: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new End Round (0=normal), please.", "Shadow Empire : Planetary Conquest")));
                 if (num203 > -1 & num203 < 9)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].EndCombatRound = num203;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].EndCombatRound = num203;
                 }
                 else
                 {
                   let mut num204: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g3id)
+              if (num1 == self.g3id)
               {
                 let mut num205: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New AirCarrierCap, please.", "Shadow Empire : Planetary Conquest")));
                 if (num205 > -1 & num205 < 99999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AirCarrierCap = num205;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AirCarrierCap = num205;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5437,21 +5437,21 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g24id)
+              if (num1 == self.g24id)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].DontShowInList = !this.game.Data.SFTypeObj[this.SFtypeNr].DontShowInList;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.game.Data.SFTypeObj[self.SFtypeNr].DontShowInList = !self.game.Data.SFTypeObj[self.SFtypeNr].DontShowInList;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
               num207: i32;
-              if (num1 == this.b36id)
+              if (num1 == self.b36id)
               {
                 float num208 =  Conversion.Val(Interaction.InputBox("Give First Rounds Penalty Mod, please (0.0(gone)-1.0(normal)).", "Shadow Empire : Planetary Conquest"));
                 if ( num208 >= 0.0 & num207 <= 1)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].FirstRoundPenaltyMod = num208;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].FirstRoundPenaltyMod = num208;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5460,13 +5460,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g4id)
+              if (num1 == self.g4id)
               {
                 float num210 =  Conversion.Val(Interaction.InputBox("Give New Ap Mod, please.", "Shadow Empire : Planetary Conquest"));
                 if ( num210 > 0.0 & num207 < 10)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ApMod = num210;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ApMod = num210;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5475,13 +5475,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g6id)
+              if (num1 == self.g6id)
               {
                 let mut num212: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New RdnLossPerAttack, please.", "Shadow Empire : Planetary Conquest")));
                 if (num212 >= 0 & num212 <= 100)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].RdnLossPerAttack = num212;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].RdnLossPerAttack = num212;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5490,27 +5490,27 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g7id)
+              if (num1 == self.g7id)
               {
                 if (MsgBoxResult.Yes == Interaction.MsgBox( "AutoDestroy in Attack?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy = true;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy = true;
                 else
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy = false;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy = false;
                 if (MsgBoxResult.Yes == Interaction.MsgBox( "AutoDestroy in Defense?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2 = true;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy2 = true;
                 else
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2 = false;
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AutoDestroy2 = false;
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g8id)
+              if (num1 == self.g8id)
               {
                 let mut num214: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give EP pts, please.", "Shadow Empire : Planetary Conquest")));
                 if (num214 >= 0 & num214 <= 9999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].EP = num214;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].EP = num214;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5519,13 +5519,13 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g9id)
+              if (num1 == self.g9id)
               {
                 let mut num216: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give ACap Service percentage, please.", "Shadow Empire : Planetary Conquest")));
                 if (num216 >= 0 & num216 <= 100)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].EP = num216;
-                  this.MakeSFtypeListGUI(this.SFtypeNr);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].EP = num216;
+                  self.MakeSFtypeListGUI(self.SFtypeNr);
                   windowReturnClass.SetFlag(true);
                 }
                 else
@@ -5534,249 +5534,249 @@ label_9:
                 }
                 return windowReturnClass;
               }
-              if (num1 == this.g10id)
+              if (num1 == self.g10id)
               {
                 Left: String = "";
                 if (!Information.IsNothing( DrawMod.TGame) && !Information.IsNothing( DrawMod.TGame.Data.SoundDir))
                   Left = DrawMod.TGame.Data.SoundDir;
                 if (Operators.CompareString(Left, "", false) == 0)
                   Left = DrawMod.TGame.ModSoundDir;
-                str: String = this.game.HandyFunctionsObj.LoadSomething("WAVs (*.wav)|*.wav", "Select File For Move Sound", this.game.AppPath + Left + "\\", true);
-                if (File.Exists(this.game.AppPath + Left + "\\" + str))
+                str: String = self.game.HandyFunctionsObj.LoadSomething("WAVs (*.wav)|*.wav", "Select File For Move Sound", self.game.AppPath + Left + "\\", true);
+                if (File.Exists(self.game.AppPath + Left + "\\" + str))
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].MoveWAV = str;
-                  SoundMod.PlayAWave(this.game.AppPath + Left + "\\" + this.game.Data.SFTypeObj[this.SFtypeNr].MoveWAV,  this.game.EditObj);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].MoveWAV = str;
+                  SoundMod.PlayAWave(self.game.AppPath + Left + "\\" + self.game.Data.SFTypeObj[self.SFtypeNr].MoveWAV,  self.game.EditObj);
                 }
                 else
                 {
                   let mut num218: i32 =  Interaction.MsgBox( "File does not exist. wav set to no sound.", Title: ( "Shadow Empire : Planetary Conquest"));
-                  this.game.Data.SFTypeObj[this.SFtypeNr].MoveWAV = "";
+                  self.game.Data.SFTypeObj[self.SFtypeNr].MoveWAV = "";
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g11id)
+              if (num1 == self.g11id)
               {
                 Left: String = "";
                 if (!Information.IsNothing( DrawMod.TGame) && !Information.IsNothing( DrawMod.TGame.Data.SoundDir))
                   Left = DrawMod.TGame.Data.SoundDir;
                 if (Operators.CompareString(Left, "", false) == 0)
                   Left = DrawMod.TGame.ModSoundDir;
-                str: String = this.game.HandyFunctionsObj.LoadSomething("WAVs (*.wav)|*.wav", "Select File For Battle Sound", this.game.AppPath + Left + "\\", true);
-                if (File.Exists(this.game.AppPath + Left + "\\" + str))
+                str: String = self.game.HandyFunctionsObj.LoadSomething("WAVs (*.wav)|*.wav", "Select File For Battle Sound", self.game.AppPath + Left + "\\", true);
+                if (File.Exists(self.game.AppPath + Left + "\\" + str))
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV = str;
-                  SoundMod.PlayAWave(this.game.AppPath + Left + "\\" + this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV,  this.game.EditObj);
+                  self.game.Data.SFTypeObj[self.SFtypeNr].BattleWAV = str;
+                  SoundMod.PlayAWave(self.game.AppPath + Left + "\\" + self.game.Data.SFTypeObj[self.SFtypeNr].BattleWAV,  self.game.EditObj);
                 }
                 else
                 {
                   let mut num219: i32 =  Interaction.MsgBox( "File does not exist. wav set to no sound.", Title: ( "Shadow Empire : Planetary Conquest"));
-                  this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV = "";
+                  self.game.Data.SFTypeObj[self.SFtypeNr].BattleWAV = "";
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g13id)
+              if (num1 == self.g13id)
               {
                 float num220 =  Conversion.Val(Interaction.InputBox("Give att mod.", "Shadow Empire : Planetary Conquest"));
                 if ( num220 >= 0.0 &  num220 <= 999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr] = num220;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].CombatModAtt[self.detailnr] = num220;
                 }
                 else
                 {
                   let mut num221: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g14id)
+              if (num1 == self.g14id)
               {
                 float num222 =  Conversion.Val(Interaction.InputBox("Give def mod.", "Shadow Empire : Planetary Conquest"));
                 if ( num222 >= 0.0 &  num222 <= 999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[this.detailnr] = num222;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].CombatModDef[self.detailnr] = num222;
                 }
                 else
                 {
                   let mut num223: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g23id)
+              if (num1 == self.g23id)
               {
                 let mut num224: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give extra recon", "Shadow Empire : Planetary Conquest")));
                 if (num224 >= 0 & num224 <= 9999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[this.detailnr] = num224;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].ExtraRecon[self.detailnr] = num224;
                 }
                 else
                 {
                   let mut num225: i32 =  Interaction.MsgBox( "Value between 0 - 9999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.b29id)
+              if (num1 == self.b29id)
               {
                 float num226 =  Conversion.Val(Interaction.InputBox("Give staffcombatmod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
                 if ( num226 >= 0.0 &  num226 <= 999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StaffCombatMod = num226;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StaffCombatMod = num226;
                 }
                 else
                 {
                   let mut num227: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.b30id)
+              if (num1 == self.b30id)
               {
                 float num228 =  Conversion.Val(Interaction.InputBox("Give staffmoralemod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
                 if ( num228 >= 0.0 &  num228 <= 999.0)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StaffMoraleMod = num228;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StaffMoraleMod = num228;
                 }
                 else
                 {
                   let mut num229: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g15id)
+              if (num1 == self.g15id)
               {
                 let mut num230: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give # of staff pts.", "Shadow Empire : Planetary Conquest")));
                 if (num230 > -1 & num230 <= 9999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].StaffPts = num230;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].StaffPts = num230;
                 }
                 else
                 {
                   let mut num231: i32 =  Interaction.MsgBox( "btween 0-9999 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g16id)
+              if (num1 == self.g16id)
               {
                 let mut num232: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give AA Range. 1=distance 1, 2=distance 2", "Shadow Empire : Planetary Conquest")));
                 if (num232 > -1 & num232 <= 99)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AARange = num232;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AARange = num232;
                 }
                 else
                 {
                   let mut num233: i32 =  Interaction.MsgBox( "btween 0-99 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g17id)
+              if (num1 == self.g17id)
               {
                 let mut num234: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give # of blowbridge pts.", "Shadow Empire : Planetary Conquest")));
                 if (num234 > -1 & num234 <= 9999)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].BlowBridgePts = num234;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].BlowBridgePts = num234;
                 }
                 else
                 {
                   let mut num235: i32 =  Interaction.MsgBox( "btween 0-9999 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g18id)
+              if (num1 == self.g18id)
               {
                 let mut num236: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Kill to Retreat chance (0-100).", "Shadow Empire : Planetary Conquest")));
                 if (num236 > -1 & num236 <= 100)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].KilltoRetreatChance = num236;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].KilltoRetreatChance = num236;
                 }
                 else
                 {
                   let mut num237: i32 =  Interaction.MsgBox( "btween 0-100 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g19id)
+              if (num1 == self.g19id)
               {
                 let mut num238: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Anti Supply Pts versus LAnd.", "Shadow Empire : Planetary Conquest")));
                 if (num238 > -1 & num238 <= 10009)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupply = num238;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupply = num238;
                 }
                 else
                 {
                   let mut num239: i32 =  Interaction.MsgBox( "btween 0-10009 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g21id)
+              if (num1 == self.g21id)
               {
                 let mut num240: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Anti Supply Pts versus Sea.", "Shadow Empire : Planetary Conquest")));
                 if (num240 > -1 & num240 <= 10009)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplySea = num240;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupplySea = num240;
                 }
                 else
                 {
                   let mut num241: i32 =  Interaction.MsgBox( "btween 0-19000 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.g20id)
+              if (num1 == self.g20id)
               {
                 let mut num242: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Anti Supply Range in AP", "Shadow Empire : Planetary Conquest")));
                 if (num242 > -1 & num242 <= 1090)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplyRange = num242;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].AntiSupplyRange = num242;
                 }
                 else
                 {
                   let mut num243: i32 =  Interaction.MsgBox( "btween 0-1000 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.h5id)
+              if (num1 == self.h5id)
               {
                 let mut num244: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Kill is RegVar #", "Shadow Empire : Planetary Conquest")));
                 if (num244 >= -1 & num244 <= 499)
                 {
-                  this.game.Data.SFTypeObj[this.SFtypeNr].KillIsRegVar = num244;
+                  self.game.Data.SFTypeObj[self.SFtypeNr].KillIsRegVar = num244;
                 }
                 else
                 {
                   let mut num245: i32 =  Interaction.MsgBox( "btween 0-499 pls.. or -1 for none", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num1 == this.b27id)
+              if (num1 == self.b27id)
               {
-                Form2::new( this.formref).Initialize(this.game.Data, 1, this.SFtypeNr);
-                this.MakeSFtypeListGUI(this.SFtypeNr);
+                Form2::new( self.formref).Initialize(self.game.Data, 1, self.SFtypeNr);
+                self.MakeSFtypeListGUI(self.SFtypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }

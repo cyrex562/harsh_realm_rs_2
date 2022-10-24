@@ -24,75 +24,75 @@ namespace WindowsApplication1
     pub CostType: i32;
     pub UpgradeCost: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name",  this.Name);
-      info.AddValue("Text",  this.Text);
-      info.AddValue("PointCost",  this.PointCost);
-      info.AddValue("SFTypePic", this.SFTypePic);
-      info.AddValue("PreReq", this.PreReq);
-      info.AddValue("PreReq2", this.PreReq2);
-      info.AddValue("Blocks", this.Blocks);
-      info.AddValue("TechLevel", this.TechLevel);
-      info.AddValue("CostType", this.CostType);
-      info.AddValue("UpgradeCost", this.UpgradeCost);
+      info.AddValue("Name",  self.Name);
+      info.AddValue("Text",  self.Text);
+      info.AddValue("PointCost",  self.PointCost);
+      info.AddValue("SFTypePic", self.SFTypePic);
+      info.AddValue("PreReq", self.PreReq);
+      info.AddValue("PreReq2", self.PreReq2);
+      info.AddValue("Blocks", self.Blocks);
+      info.AddValue("TechLevel", self.TechLevel);
+      info.AddValue("CostType", self.CostType);
+      info.AddValue("UpgradeCost", self.UpgradeCost);
     }
 
     protected ResearchClass(SerializationInfo info, StreamingContext context)
     {
-      this.PointCost = new int[100];
-      this.Name = info.GetString(nameof (Name));
-      this.Text = info.GetString(nameof (Text));
-      this.PointCost = (int[]) info.GetValue(nameof (PointCost), this.PointCost.GetType());
-      this.PointCost = (int[]) Utils.CopyArray((Array) this.PointCost, (Array) new int[100]);
-      this.SFTypePic = info.GetInt32(nameof (SFTypePic));
-      this.PreReq = info.GetInt32(nameof (PreReq));
-      this.PreReq2 = info.GetInt32(nameof (PreReq2));
-      this.Blocks = info.GetInt32(nameof (Blocks));
-      this.TechLevel = info.GetInt32(nameof (TechLevel));
+      self.PointCost = new int[100];
+      self.Name = info.GetString(nameof (Name));
+      self.Text = info.GetString(nameof (Text));
+      self.PointCost = (int[]) info.GetValue(nameof (PointCost), self.PointCost.GetType());
+      self.PointCost = (int[]) Utils.CopyArray((Array) self.PointCost, (Array) new int[100]);
+      self.SFTypePic = info.GetInt32(nameof (SFTypePic));
+      self.PreReq = info.GetInt32(nameof (PreReq));
+      self.PreReq2 = info.GetInt32(nameof (PreReq2));
+      self.Blocks = info.GetInt32(nameof (Blocks));
+      self.TechLevel = info.GetInt32(nameof (TechLevel));
       try
       {
-        this.CostType = info.GetInt32(nameof (CostType));
+        self.CostType = info.GetInt32(nameof (CostType));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.CostType = -1;
+        self.CostType = -1;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.UpgradeCost = info.GetInt32(nameof (UpgradeCost));
+        self.UpgradeCost = info.GetInt32(nameof (UpgradeCost));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.UpgradeCost = -1;
+        self.UpgradeCost = -1;
         ProjectData.ClearProjectError();
       }
     }
 
     pub ResearchClass(hardcoded: i32)
     {
-      this.PointCost = new int[100];
+      self.PointCost = new int[100];
       if (hardcoded != 0)
         return;
-      this.Name = "A default Research Field";
-      this.Text = "Description...";
+      self.Name = "A default Research Field";
+      self.Text = "Description...";
       let mut index: i32 = 0;
       do
       {
-        this.PointCost[index] = 10;
+        self.PointCost[index] = 10;
         index += 1;
       }
       while (index <= 19);
-      this.SFTypePic = -1;
-      this.UpgradeCost = -1;
-      this.PreReq = -1;
-      this.PreReq2 = -1;
-      this.CostType = -1;
-      this.Blocks = -1;
-      this.TechLevel = -1;
+      self.SFTypePic = -1;
+      self.UpgradeCost = -1;
+      self.PreReq = -1;
+      self.PreReq2 = -1;
+      self.CostType = -1;
+      self.Blocks = -1;
+      self.TechLevel = -1;
     }
 
     pub fn Kill()

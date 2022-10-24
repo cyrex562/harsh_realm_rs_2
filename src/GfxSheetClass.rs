@@ -27,7 +27,7 @@ namespace WindowsApplication1
       this.Bmp = (Bitmap) null;
     }
 
-    pub fn Load(string tDirName)
+    pub fn Load(tDirName: String)
     {
       this.DirName = tDirName;
       StreamReader streamReader = File.OpenText(DrawMod.TGame.AppPath + "graphics/" + this.DirName + "/sheet.txt");

@@ -165,7 +165,7 @@ namespace WindowsApplication1
      LocTypeNr: i32;
      TabSheetNr: i32;
      DetailNr: i32;
-     string ss;
+     ss: String;
 
     pub LocTypeWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 100, tDoBorders: 1, tHeaderString: "Location Types")

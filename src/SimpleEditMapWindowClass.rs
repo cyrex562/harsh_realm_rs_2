@@ -156,13 +156,13 @@ namespace WindowsApplication1
       let mut num6: i32 = num1 + 500;
       let mut y2: i32 = 50;
       bool flag1;
-      string str1;
-      string str2;
+      str1: String;
+      str2: String;
       if (self.game.EditObj.PencilType > 0)
       {
         if (!(self.game.EditObj.PencilType == 3 | self.game.EditObj.PencilType == 10 | self.game.EditObj.PencilType == 12 | self.game.EditObj.PencilType == 11 | self.game.EditObj.PencilType == 1 | self.game.EditObj.PencilType == 9))
           flag1 = true;
-        string str3;
+        str3: String;
         if (self.game.EditObj.PencilType == 1 | self.game.EditObj.PencilType == 10)
         {
           str1 = "Landsc# " + Conversion.Str( self.game.EditObj.PencilData1) + "," + Conversion.Str( self.game.EditObj.PencilData2);

@@ -183,9 +183,9 @@ namespace WindowsApplication1
      detailchoice: i32;
      detailLib: i32;
      COMMANDTYPE: Vec<String>;
-     string String1;
-     string String2;
-     string String3;
+     String1: String;
+     String2: String;
+     String3: String;
      bool DoingSlots;
      SetSlot: i32;
      StepCurrent: i32;
@@ -203,7 +203,7 @@ namespace WindowsApplication1
      const let mut LOOPER: i32 =  5;
      const let mut ENDLOOPER: i32 =  6;
      const let mut COMMENT: i32 =  7;
-     string ss;
+     ss: String;
 
     pub EventWindowClass(ref tGame: GameClass)
       : base(ref tGame, tGame.ScreenWidth, tGame.ScreenHeight)
@@ -223,10 +223,10 @@ namespace WindowsApplication1
       this.detail4 = -1;
       this.groupdetail =  -1;
       this.cat = -1;
-      this.COMMANDTYPE[0] = "EMPTY";
+      this.COMMANDTYPE[0] = "EMPTY".to_owned();
       this.COMMANDTYPE[1] = nameof (CHECK);
       this.COMMANDTYPE[2] = "END CHECK";
-      this.COMMANDTYPE[3] = "EXECUTE";
+      this.COMMANDTYPE[3] = "EXECUTE".to_owned();
       this.COMMANDTYPE[4] = nameof (SETVAR);
       this.COMMANDTYPE[5] = nameof (LOOPER);
       this.COMMANDTYPE[6] = "END LOOPER";
@@ -554,7 +554,7 @@ namespace WindowsApplication1
       this.OptionsList6Obj.add("All Events", -1);
       let mut num1: i32 =  0;
       let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
-      string str1;
+      str1: String;
       for (let mut index2: i32 =  0; index2 <= libraryCounter; index2 += 1)
       {
         str1 = this.game.Data.LibraryObj[index2].name;
@@ -1883,13 +1883,13 @@ namespace WindowsApplication1
       this.ITEMNAME[3] = "ENDVAL: " + this.ItemInfo(this.detail1, this.detail2, 2);
     }
 
-    pub string ItemInfo(enr: i32, cnr: i32, inr: i32)
+    pub ItemInfo: String(enr: i32, cnr: i32, inr: i32)
     {
       CommandClass command = this.game.Data.EventObj[enr].CommandList[cnr];
       if (command.type == 5 && inr == 0)
         return "TempVar" + Strings.Trim(Conversion.Str( command.Data[inr, 0]));
       if (Conversions.ToDouble(command.Data[inr, 0]) == 0.0)
-        return "Empty";
+        return "Empty".to_owned();
       if (Conversions.ToDouble(command.Data[inr, 0]) == 1.0)
       {
         if (command.type == 5 & inr == 1)
@@ -1971,11 +1971,11 @@ namespace WindowsApplication1
             return "*";
         }
       }
-      string str;
+      str: String;
       return str;
     }
 
-    pub string GetVarInfo(enr: i32, cnr: i32, inr: i32, datnr: i32)
+    pub GetVarInfo: String(enr: i32, cnr: i32, inr: i32, datnr: i32)
     {
       CommandClass command = this.game.Data.EventObj[enr].CommandList[cnr];
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 0.0)
@@ -1984,7 +1984,7 @@ namespace WindowsApplication1
         return "TempVar" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1]));
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 2.0)
       {
-        string varInfo;
+        varInfo: String;
         if (Conversions.ToDouble(command.Data[inr, datnr + 1]) <=  this.game.Data.RegimeCounter)
           varInfo = this.game.Data.RegimeObj[Conversions.ToInteger(command.Data[inr, datnr + 1])].Name + "_" + this.game.Data.RegimeSlotName[Conversions.ToInteger(command.Data[inr, datnr + 2])] + "(#" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 2])) + ")";
         else
@@ -2014,7 +2014,7 @@ namespace WindowsApplication1
         return "TempString" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1]));
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 8.0)
         return "'" + command.Data[inr, datnr + 1] + "'";
-      string varInfo1;
+      varInfo1: String;
       return varInfo1;
     }
 
@@ -2195,7 +2195,7 @@ namespace WindowsApplication1
                 let mut eventCounter: i32 =  this.game.Data.EventCounter;
                 num6: i32;
                 num7: i32;
-                string str2;
+                str2: String;
                 for (let mut index4: i32 =  0; index4 <= eventCounter; index4 += 1)
                 {
                   bool flag1 = false;

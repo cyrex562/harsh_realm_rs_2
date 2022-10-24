@@ -62,7 +62,7 @@ namespace WindowsApplication1
         {
           do
           {
-            string s;
+            s: String;
             do
             {
               if (this.game.Data.UseAI == 1)
@@ -465,7 +465,7 @@ namespace WindowsApplication1
             }
             while (this.game.EditObj.Test < 11);
             this.game.EditObj.Test = 0;
-            s = "Finished";
+            s = "Finished".to_owned();
             this.DoingAI = true;
             if ( this.game.Data.RuleVar[814] == 0.0)
             {
@@ -502,7 +502,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub fn ExitTheLoopSub(string s)
+    pub fn ExitTheLoopSub(s: String)
     {
       this.game.se1Running = false;
       if (!(this.game.EditObj.Test == 9 | this.game.EditObj.Test == 10))

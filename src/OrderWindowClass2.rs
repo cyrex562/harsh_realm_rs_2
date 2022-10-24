@@ -38,7 +38,7 @@ namespace WindowsApplication1
      Kill2Id: i32;
      All2Id: i32;
      None2Id: i32;
-     string NotOkText;
+     NotOkText: String;
      tab1: i32;
      tab2: i32;
      tab3: i32;
@@ -159,54 +159,54 @@ namespace WindowsApplication1
      TransportButtonId2: i32;
      BattleGroupButtonId: i32;
      BattleGroupButtonId2: i32;
-     string SFDesignButtonText;
-     string MoveButtonText;
-     string ButtonZoomInText;
-     string ButtonZoomOutText;
-     string ButtonStackedUnitText;
-     string GroupMoveButtonText;
-     string StatisticsButtonText;
-     string NextButtonText;
-     string GiveUnitText;
-     string GiveHexText;
-     string NewUnitButtonText;
-     string HqUnitButtonText;
-     string AttackButtonText;
-     string ChangeModelText;
-     string OfficerText;
-     string SeaAttackButtonText;
-     string PrefsButtonText;
-     string ArtAttackButtonText;
-     string SeaArtAttackButtonText;
-     string TransferButtonText;
-     string AirAttackButtonText;
-     string AirReconButtonText;
-     string newunitbutton2text;
-     string paradropbuttontext;
-     string loadbuttontext;
-     string unloadbuttontext;
-     string researchbuttontext;
-     string diptext;
-     string constructtext;
-     string historytext;
-     string savetext;
-     string quittext;
-     string hqprodbuttontext;
-     string ordersurrendertext;
-     string battlegroupText;
-     string transportButtonText;
-     string supplylayerbuttontext;
-     string blowlocationtext;
-     string disbandtext;
-     string interdictbuttontext;
-     string prodbuttontext;
-     string researchtext;
-     string groupstrategictext;
-     string strategicbuttontext;
-     string airsupplybuttontext;
-     string blowbridgebuttontext;
-     string infrabuttontext;
-     string buildbuttontext;
+     SFDesignButtonText: String;
+     MoveButtonText: String;
+     ButtonZoomInText: String;
+     ButtonZoomOutText: String;
+     ButtonStackedUnitText: String;
+     GroupMoveButtonText: String;
+     StatisticsButtonText: String;
+     NextButtonText: String;
+     GiveUnitText: String;
+     GiveHexText: String;
+     NewUnitButtonText: String;
+     HqUnitButtonText: String;
+     AttackButtonText: String;
+     ChangeModelText: String;
+     OfficerText: String;
+     SeaAttackButtonText: String;
+     PrefsButtonText: String;
+     ArtAttackButtonText: String;
+     SeaArtAttackButtonText: String;
+     TransferButtonText: String;
+     AirAttackButtonText: String;
+     AirReconButtonText: String;
+     newunitbutton2text: String;
+     paradropbuttontext: String;
+     loadbuttontext: String;
+     unloadbuttontext: String;
+     researchbuttontext: String;
+     diptext: String;
+     constructtext: String;
+     historytext: String;
+     savetext: String;
+     quittext: String;
+     hqprodbuttontext: String;
+     ordersurrendertext: String;
+     battlegroupText: String;
+     transportButtonText: String;
+     supplylayerbuttontext: String;
+     blowlocationtext: String;
+     disbandtext: String;
+     interdictbuttontext: String;
+     prodbuttontext: String;
+     researchtext: String;
+     groupstrategictext: String;
+     strategicbuttontext: String;
+     airsupplybuttontext: String;
+     blowbridgebuttontext: String;
+     infrabuttontext: String;
+     buildbuttontext: String;
      int[] ActionButtonId;
      int[] ActionButtonId2;
      int[] ActionButtonCardSlot;
@@ -1564,7 +1564,7 @@ label_10:
         this.game.EditObj.udsUnitOrderMode = 0;
       Rectangle rectangle;
       Rectangle trect1;
-      string str1;
+      str1: String;
       if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
         let mut width: i32 =  75;
@@ -1718,7 +1718,7 @@ label_10:
               num10 *= this.game.Data.RuleVar[421];
           }
           let mut num12: i32 =  this.game.ScreenWidth - 290;
-          string str2;
+          str2: String;
           if (num7 > 0)
           {
             str3: String = this.game.EditObj.MouseOverX.ToString() + "," + this.game.EditObj.MouseOverY.ToString() + " - Los:" + num7.ToString() + " - Obs:" + num8.ToString();
@@ -3450,7 +3450,7 @@ label_10:
           if ( this.game.Data.RuleVar[471] > 0.0 & this.game.Data.Product >= 6)
           {
             let mut location2: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Location2;
-            string str5;
+            str5: String;
             if (location2 > -1)
             {
               if (this.game.Data.LocTypeObj[this.game.Data.LocObj[location2].Type].isSupplySource)
@@ -3502,7 +3502,7 @@ label_10:
           else
             str1 = "Strategic Transfer. Select destination Hex";
         }
-        string tDescript;
+        tDescript: String;
         if (this.game.EditObj.OrderType == 3)
         {
           this.PopupButtonId = 1;
@@ -4206,7 +4206,7 @@ label_10:
           {
             let mut x8: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             bitmap: Bitmap;
-            string upper;
+            upper: String;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
             {
@@ -5168,7 +5168,7 @@ label_10:
                 }
                 if (num1 == this.SaveId)
                 {
-                  string str1;
+                  str1: String;
                   if (this.game.Data.Round == 0)
                   {
                     str2: String = this.game.AppPath + "scenarios\\";

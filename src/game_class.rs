@@ -897,7 +897,7 @@ pub struct GameClass
       this.dlc_ID[this.dlc_Counter] = dlcType;
     }
 
-    pub AddDynFont: i32(string name, size: i32, style: i32, bool world = false)
+    pub fn AddDynFont(name: String, size: i32, style: i32, bool world = false) -> i32
     {
       bool flag = false;
       let mut num1: i32 =  -1;
@@ -1097,7 +1097,7 @@ label_30:
         this.AppPath_SAVEGAMES = this.AppPath + "savedgames\\";
       if (Information.IsNothing( tformref))
         return;
-      string str1;
+      str1: String;
       try
       {
         this.ModFile = DrawMod.ModFile;
@@ -1115,7 +1115,7 @@ label_30:
         this.ModScenarioDir = streamReader.ReadLine();
         this.ModSoundDir = streamReader.ReadLine();
         this.ModNatoCounters = streamReader.ReadLine();
-        this.ModNatoCounters = "natocounters";
+        this.ModNatoCounters = "natocounters".to_owned();
         this.ModOpeningSoundtrack = streamReader.ReadLine();
         this.ModExtraSound = streamReader.ReadLine();
         this.ModCounter = Conversions.ToInteger(streamReader.ReadLine());
@@ -1352,7 +1352,7 @@ label_30:
         ProjectData.SetProjectError(ex);
         ProjectData.ClearProjectError();
       }
-      this.AlternativeGraphics = "graphicsAlt";
+      this.AlternativeGraphics = "graphicsAlt".to_owned();
       this.AllowHeightMap = true;
       if (!this.SuperAdminRights)
       {

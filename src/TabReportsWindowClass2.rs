@@ -15,7 +15,7 @@ namespace WindowsApplication1
   {
      Info1Id: i32;
      info2id: i32;
-     string ShowString;
+     ShowString: String;
      DateTime ShowTime;
      w: i32;
      h: i32;
@@ -132,7 +132,7 @@ namespace WindowsApplication1
             self.detailnr = 0;
           if (self.detailnr == tdata)
             tlistselect1 = num1;
-          string str;
+          str: String;
           if (self.game.Data.RegimeObj[self.game.Data.Turn].MesName[tdata].Length > 1)
           {
             str = self.game.Data.RegimeObj[self.game.Data.Turn].MesName[tdata];

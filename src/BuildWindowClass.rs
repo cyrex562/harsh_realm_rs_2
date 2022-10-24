@@ -101,7 +101,7 @@ namespace WindowsApplication1
         this.LocCanSetup = true;
       }
       int tlistselect;
-      string str1;
+      str1: String;
       SubPartClass tsubpart;
       if (this.OptionsListId == 0)
       {
@@ -110,7 +110,7 @@ namespace WindowsApplication1
           this.detailnr = -1;
         tlistselect = -1;
         let mut num: i32 =  -1;
-        str1 = "NAME";
+        str1 = "NAME".to_owned();
         if (this.game.Data.LocTypeCounter > -1)
         {
           let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
@@ -191,21 +191,21 @@ namespace WindowsApplication1
         txt2: String = str3;
         DrawMod.MakeFullBoxVic2(ref local11, rect1_3, "LOC PEOPLE", rect2_3, txt2);
         this.OptionsList2Obj = ATListClass::new();
-        str4: String = "0";
+        str4: String = "0".to_owned();
         if (this.game.EditObj.OrderUnit > -1)
           str4 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit)));
         str5: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].EPCost));
-        tvalue3_1: String = Conversion.Val(str4) < Conversion.Val(str5) ? "SHORT" : "OK";
+        tvalue3_1: String = Conversion.Val(str4) < Conversion.Val(str5) ? "SHORT" : "OK".to_owned();
         this.OptionsList2Obj.add("EP", -1, str5, str4, tvalue3_1);
         str6: String = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
         str7: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].PPCost));
-        tvalue3_2: String = Conversion.Val(str6) < Conversion.Val(str7) ? "SHORT" : "OK";
+        tvalue3_2: String = Conversion.Val(str6) < Conversion.Val(str7) ? "SHORT" : "OK".to_owned();
         this.OptionsList2Obj.add("PP", -1, str7, str6, tvalue3_2);
-        str8: String = "0";
+        str8: String = "0".to_owned();
         if (this.game.EditObj.OrderUnit > -1)
           str8 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.HQSupplyChain(this.game.EditObj.OrderUnit, true)));
         str9: String = Strings.Trim(Conversion.Str(  Math.Round( ( this.game.Data.LocTypeObj[this.detailnr].SupplyCost / this.game.Data.RuleVar[77]))));
-        tvalue3_3: String = Conversion.Val(str8) < Conversion.Val(str9) ? "SHORT" : "OK";
+        tvalue3_3: String = Conversion.Val(str8) < Conversion.Val(str9) ? "SHORT" : "OK".to_owned();
         this.OptionsList2Obj.add("SUP", -1, str9, str8, tvalue3_3);
         let mut index2: i32 =  0;
         do
@@ -214,7 +214,7 @@ namespace WindowsApplication1
           {
             str10: String = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[this.game.Data.LocTypeObj[this.detailnr].VarType[index2]]));
             str11: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].VarQty[index2]));
-            tvalue3_4: String = Conversion.Val(str10) < Conversion.Val(str11) ? "SHORT" : "OK";
+            tvalue3_4: String = Conversion.Val(str10) < Conversion.Val(str11) ? "SHORT" : "OK".to_owned();
             this.OptionsList2Obj.add(this.game.Data.RegimeSlotName[this.game.Data.LocTypeObj[this.detailnr].VarType[index2]], -1, str11, str10, tvalue3_4);
           }
           index2 += 1;

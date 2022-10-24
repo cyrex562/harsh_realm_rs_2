@@ -63,13 +63,13 @@ namespace WindowsApplication1
           if (num == self.userid)
           {
             self.game.EditObj.TipButton = true;
-            self.game.EditObj.TipTitle = "USERNAME";
+            self.game.EditObj.TipTitle = "USERNAME".to_owned();
             self.game.EditObj.TipText = "Enter a username of choice here.";
           }
           else if (num == self.passid)
           {
             self.game.EditObj.TipButton = true;
-            self.game.EditObj.TipTitle = "PASSWORD";
+            self.game.EditObj.TipTitle = "PASSWORD".to_owned();
             self.game.EditObj.TipText = "Enter a password of choice here.";
           }
           else if (num == self.serialid)
@@ -155,7 +155,7 @@ namespace WindowsApplication1
             if (num == self.userid)
             {
               self.selectedid = self.userid;
-              self.SubPartList[self.SubpartNr(self.userid)].Descript = "select";
+              self.SubPartList[self.SubpartNr(self.userid)].Descript = "select".to_owned();
               self.SubPartList[self.SubpartNr(self.serialid)].Descript = "";
               self.SubPartList[self.SubpartNr(self.passid)].Descript = "";
               self.SubPartFlag[self.SubpartNr(self.userid)] = true;
@@ -168,7 +168,7 @@ namespace WindowsApplication1
             {
               self.selectedid = self.serialid;
               self.SubPartList[self.SubpartNr(self.userid)].Descript = "";
-              self.SubPartList[self.SubpartNr(self.serialid)].Descript = "select";
+              self.SubPartList[self.SubpartNr(self.serialid)].Descript = "select".to_owned();
               self.SubPartList[self.SubpartNr(self.passid)].Descript = "";
               self.SubPartFlag[self.SubpartNr(self.userid)] = true;
               self.SubPartFlag[self.SubpartNr(self.serialid)] = true;
@@ -179,7 +179,7 @@ namespace WindowsApplication1
             if (num == self.passid)
             {
               self.selectedid = self.passid;
-              self.SubPartList[self.SubpartNr(self.passid)].Descript = "select";
+              self.SubPartList[self.SubpartNr(self.passid)].Descript = "select".to_owned();
               self.SubPartList[self.SubpartNr(self.serialid)].Descript = "";
               self.SubPartList[self.SubpartNr(self.userid)].Descript = "";
               self.SubPartFlag[self.SubpartNr(self.userid)] = true;

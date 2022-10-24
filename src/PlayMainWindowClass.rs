@@ -44,7 +44,7 @@ namespace WindowsApplication1
 
     pub fn PopUpRefresh() => this.MakeShit();
 
-    pub string WindowDescription(x: i32, y: i32)
+    pub WindowDescription: String(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
@@ -96,14 +96,14 @@ namespace WindowsApplication1
       this.ClearMouse();
       if (this.game.Data.Round == 0)
         this.game.Data.Turn = -1;
-      string str;
+      str: String;
       if (this.game.Data.Turn > -1)
       {
         str = this.game.Data.RegimeObj[this.game.Data.Turn].Name;
       }
       else
       {
-        str = "Editor";
+        str = "Editor".to_owned();
         DrawMod.DrawTextVic2( graphics, "Editor", this.game.VicFont1, 10, 1, this.game.VicColor2, this.game.VicColor1Shade);
       }
       if (this.game.Data.Round > 0)
@@ -192,7 +192,7 @@ namespace WindowsApplication1
         DrawMod.DrawRectangle( graphics, 10, 44, 200, 135,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
       }
       else
-        str = "Editor";
+        str = "Editor".to_owned();
       if (this.game.SelectX == -1)
       {
         this.game.SelectX = 0;
@@ -224,7 +224,7 @@ namespace WindowsApplication1
       str1: String = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].Name;
       if (location1 > -1)
         str1 = str1 + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].Name;
-      string str2;
+      str2: String;
       num1: i32;
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SeeNow(this.game.Data.Turn) < 1)
       {
@@ -241,7 +241,7 @@ namespace WindowsApplication1
         num2 = 1;
       if (this.game.Data.Round == 0)
         num2 = 1;
-      string str3;
+      str3: String;
       if (num1 == 0)
       {
         str3 = "";
@@ -326,7 +326,7 @@ namespace WindowsApplication1
       {
         let mut num3: i32 =  0;
         name: String = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].LandscapeType].Name;
-        string str5;
+        str5: String;
         if (location1 > -1)
           str5 = name + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].Name;
         if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_SeeNow(this.game.Data.Turn) < 1)
@@ -437,7 +437,7 @@ namespace WindowsApplication1
           rectangle = Rectangle::new(120, ty + 335, 35, 40);
           trect = rectangle;
           this.AddMouse( trect, "", "Zone of Control Points");
-          string str9;
+          str9: String;
           if (num2 == 1)
           {
             str9 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
@@ -639,7 +639,7 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "Number of autorepair points that are applied to the location each round");
           if (!this.game.Data.FOWOn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[location].X, this.game.Data.LocObj[location].Y].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
           {
-            string str4;
+            str4: String;
             if (this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].NoHQ)
             {
               str4 = "Needs no Hq";
@@ -666,9 +666,9 @@ namespace WindowsApplication1
                 let mut index: i32 =  this.game.Data.LocObj[location].Production[prodslot];
                 Left: String = Strings.Left(this.game.Data.ItemTypeObj[index].Name, 12);
                 if (this.game.Data.ItemTypeObj[index].IsSupply)
-                  Left = "Supplies";
+                  Left = "Supplies".to_owned();
                 if (this.game.Data.ItemTypeObj[index].IsResPt)
-                  Left = "Political";
+                  Left = "Political".to_owned();
                 if (this.game.Data.ItemTypeObj[index].IsSFType > -1)
                   Left = Strings.Left(this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index].IsSFType].Name, 12);
                 Number =  this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, location, true, false, true);

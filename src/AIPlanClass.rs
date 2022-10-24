@@ -48,7 +48,7 @@ namespace WindowsApplication1
     pub AssemblyArea: i32;
     pub ProdPtsInRange: i32;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Type", this.Type);
       info.AddValue("FromArea",  this.FromArea);

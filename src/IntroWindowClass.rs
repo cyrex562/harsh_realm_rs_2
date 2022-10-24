@@ -181,7 +181,7 @@ namespace WindowsApplication1
       Rectangle rectangle2;
       let mut rect2_1: &Rectangle = &rectangle2
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "OPPONENTS", rect2_1, "");
-      string txt;
+      txt: String;
       if (Strings.Len(this.game.Data.Designer) < 1)
       {
         txt = "";
@@ -354,7 +354,7 @@ namespace WindowsApplication1
         }
         else
         {
-          tHeader: String = "OPPONENTS";
+          tHeader: String = "OPPONENTS".to_owned();
           if (this.game.Data.NoAIAdvice)
             tHeader = "OPPONENTS (AI blocked)";
           let mut tsubpart: SubPartClass =  new ATListSubPartClass(this.RegimeListObj, 8, 355, tlistselect, this.game, true, tHeader, false, false, tShowPair: true, tValueWidth: 130, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: 95, bby: 513);

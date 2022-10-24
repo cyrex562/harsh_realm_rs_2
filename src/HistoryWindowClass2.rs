@@ -487,7 +487,7 @@ namespace WindowsApplication1
         self.OptionsList2Id = self.AddSubPart( tsubpart2, num1 + 500, 65, 290, 176, 0);
         str4: String = "AN ATTACK";
         if (self.game.EditObj.HisAttackType == 2)
-          str4 = "ATTACK";
+          str4 = "ATTACK".to_owned();
         if (self.game.EditObj.HisAttackType == 55)
           str4 = "AIR BRIDGE";
         if (self.game.EditObj.HisAttackType == 33)
@@ -495,11 +495,11 @@ namespace WindowsApplication1
         if (self.game.EditObj.HisAttackType == 12)
           str4 = "SEA ATTACK";
         if (self.game.EditObj.HisAttackType == 11)
-          str4 = "ARTILLERY";
+          str4 = "ARTILLERY".to_owned();
         if (self.game.EditObj.HisAttackType == 13)
           str4 = "SEA ARTILLERY";
         if (self.game.EditObj.HisAttackType == 14)
-          str4 = "AIRSTRIKE";
+          str4 = "AIRSTRIKE".to_owned();
         if (self.game.EditObj.HisAttackType == 15)
           str4 = "BOMBING RUN";
         if (self.game.EditObj.HisAttackType == 21)
@@ -509,7 +509,7 @@ namespace WindowsApplication1
         if (self.game.EditObj.HisAttackType == 19)
           str4 = "PARADROP ATTACK";
         if (self.game.EditObj.HisAttackType == 42)
-          str4 = "AIRLIFT";
+          str4 = "AIRLIFT".to_owned();
         if (self.game.EditObj.HisAttackType == 17)
           str4 = "ANTICAP DOGFIGHT";
         if (self.game.EditObj.HisAttackType == 31)

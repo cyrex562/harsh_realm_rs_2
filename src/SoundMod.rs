@@ -16,7 +16,7 @@ namespace WindowsApplication1
   [StandardModule]
   pub sealed class SoundMod
   {
-    pub static string LastSong;
+    pub static LastSong: String;
      static ISoundEngine engine;
      static ISoundSource medley;
      static ISound eventsound;
@@ -52,7 +52,7 @@ namespace WindowsApplication1
     }
 
     pub static void PlayAWave(
-      string Soundfile,
+      Soundfile: String,
        teditobj: EditClass,
       bool overrule = false,
       let mut volumeMod: i32 = 0)
@@ -82,7 +82,7 @@ namespace WindowsApplication1
         SoundMod.eventsound.Volume =  teditobj.Volume2 / 100f;
     }
 
-    pub static void PlayEventWave(string Soundfile,  teditobj: EditClass)
+    pub static void PlayEventWave(Soundfile: String,  teditobj: EditClass)
     {
       if (SoundMod.NOSOUND || SoundMod.SYSTEMFAILURE)
         return;
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       SoundMod.PlayEventBackground(lastSong,  teditobj);
     }
 
-    pub static void PlayEventBackground(string Soundfile,  teditobj: EditClass)
+    pub static void PlayEventBackground(Soundfile: String,  teditobj: EditClass)
     {
       if (SoundMod.NOSOUND || SoundMod.SYSTEMFAILURE)
         return;
@@ -417,7 +417,7 @@ namespace WindowsApplication1
     pub static void dssStartSound(
        teditobj: EditClass,
       dssSlotNr: i32,
-      string Soundfile,
+      Soundfile: String,
       tStatus: i32,
       tType: i32,
       float tVolume,

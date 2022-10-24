@@ -36,7 +36,7 @@ namespace WindowsApplication1
      text5id: i32;
      opt5id: i32;
      bool outputFixedSys;
-     string output;
+     output: String;
 
     pub SimpleEditDebugWindowClass( tGame: GameClass)
       : base( tGame, tGame.ScreenWidth, tGame.ScreenHeight - 50, 9, tDoBorders: 1, tHeaderString: "Debug Options")
@@ -282,7 +282,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-     string Batch_MassMoveUnits(deltaX: i32, deltaY: i32)
+     Batch_MassMoveUnits: String(deltaX: i32, deltaY: i32)
     {
       Left: String = "";
       y: i32;
@@ -368,7 +368,7 @@ namespace WindowsApplication1
       return Left;
     }
 
-     string RemoveDuplicateOfficers(bool testing)
+     RemoveDuplicateOfficers: String(bool testing)
     {
       Left1: String = "";
       num1: i32;
@@ -426,7 +426,7 @@ namespace WindowsApplication1
           if (flag)
           {
             str2: String = "COMMANDER '" + self.game.Data.HistoricalUnitObj[historicalUnitCounter1].CommanderName + "' (pool=" + self.game.Data.HistoricalUnitObj[historicalUnitCounter1].Pool.ToString() + ")...";
-            string str3;
+            str3: String;
             if (self.game.Data.HistoricalUnitObj[historicalUnitCounter1].LibId.libSlot > -1)
               str3 = str2 + " from library: " + self.game.Data.LibraryObj[self.game.Data.HistoricalUnitObj[historicalUnitCounter1].LibId.libSlot].name + ", id: " + self.game.Data.HistoricalUnitObj[historicalUnitCounter1].LibId.id.ToString();
             else
@@ -451,7 +451,7 @@ namespace WindowsApplication1
       return str1 + "\r\n" + Left2;
     }
 
-     string RemoveDuplicateTroopTypeLibs(bool testing)
+     RemoveDuplicateTroopTypeLibs: String(bool testing)
     {
       Left: String = "";
       num1: i32;
@@ -523,7 +523,7 @@ namespace WindowsApplication1
       return Left;
     }
 
-     string RemoveDuplicateHistoricals(bool testing)
+     RemoveDuplicateHistoricals: String(bool testing)
     {
       let mut num1: i32 = 0;
       str1: String = "";
@@ -607,7 +607,7 @@ namespace WindowsApplication1
       return (num3 <= 0 ? str9 + "NO DOUBLE NAME MODEL HISTORICAL UNITS FOUND" : (!testing ? str9 + "TOTAL DOUBLE NAME MODEL HISTORICAL UNITS FOUND = " + num3.ToString() : str9 + "TOTAL DOUBLE NAME MODEL HISTORICAL UNITS FOUND = " + num3.ToString())) + "\r\n" + "Note: Duplicate names are not neccessarily a problem. Hence they are NOT a problem that will be fixed." + "\r\n";
     }
 
-     string RemoveDuplicateTroopTypeInSameLib(bool testing)
+     RemoveDuplicateTroopTypeInSameLib: String(bool testing)
     {
       bool[] flagArray = new bool[self.game.Data.SFTypeCounter + 1];
       str1: String = "";
@@ -664,7 +664,7 @@ namespace WindowsApplication1
           self.game.Data.RemoveSFType(nr);
         }
       }
-      string str3;
+      str3: String;
       if (num > 0)
       {
         str4: String = str1 + "\r\n";
@@ -686,10 +686,10 @@ namespace WindowsApplication1
       return false;
     }
 
-     string DiagnosticsTroopTypeLibs()
+     DiagnosticsTroopTypeLibs: String()
     {
       let mut libraryCounter: i32 = self.game.Data.LibraryCounter;
-      string str;
+      str: String;
       for (let mut index1: i32 = 0; index1 <= libraryCounter; index1 += 1)
       {
         bool flag1 = false;
@@ -724,11 +724,11 @@ namespace WindowsApplication1
       return str;
     }
 
-     string DiagnosticsGraphicsMem()
+     DiagnosticsGraphicsMem: String()
     {
       strArray: Vec<String> = new string[BitmapStore.Counter + 1];
       SimpleList simpleList = SimpleList::new();
-      string str1;
+      str1: String;
       str2: String = str1 + "TOTAL MEMORY USAGE" + "\r\n";
       let mut counter1: i32 = BitmapStore.Counter;
       index1: i32;
@@ -736,7 +736,7 @@ namespace WindowsApplication1
       num2: i32;
       num3: i32;
       num4: i32;
-      string str3;
+      str3: String;
       for (let mut index2: i32 = 0; index2 <= counter1; index2 += 1)
       {
         index1 = BitmapStore.GetMemorySize(index2, 0, 1);
@@ -769,7 +769,7 @@ namespace WindowsApplication1
       return str5 + str3;
     }
 
-     string DiagnosticsFuel()
+     DiagnosticsFuel: String()
     {
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
@@ -905,7 +905,7 @@ namespace WindowsApplication1
       }
       simpleList1.ReverseSortHighSpeed();
       let mut regimeCounter: i32 = self.game.Data.RegimeCounter;
-      string str1;
+      str1: String;
       for (let mut index39: i32 = 0; index39 <= regimeCounter; index39 += 1)
       {
         str2: String = str1 + "\r\n" + "FUEL USAGE CUMULATIVE TOTALS FOR " + self.game.Data.RegimeObj[index39].Name.ToUpper() + "\r\n";
@@ -1232,7 +1232,7 @@ namespace WindowsApplication1
       return str1;
     }
 
-     string DiagnosticsPower()
+     DiagnosticsPower: String()
     {
       SimpleList simpleList1 = SimpleList::new();
       SimpleList simpleList2 = SimpleList::new();
@@ -1270,7 +1270,7 @@ namespace WindowsApplication1
       }
       simpleList1.ReverseSortHighSpeed();
       let mut regimeCounter1: i32 = self.game.Data.RegimeCounter;
-      string str1;
+      str1: String;
       for (let mut index5: i32 = 0; index5 <= regimeCounter1; index5 += 1)
       {
         str2: String = str1 + "\r\n" + "POWER CUMULATIVE TOTALS FOR " + self.game.Data.RegimeObj[index5].Name.ToUpper() + "\r\n";
@@ -1355,7 +1355,7 @@ namespace WindowsApplication1
       return str14;
     }
 
-     string RemoveSFTypeLogoTextRemnants(bool testing)
+     RemoveSFTypeLogoTextRemnants: String(bool testing)
     {
       Left: String = "";
       num: i32;

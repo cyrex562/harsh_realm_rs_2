@@ -13,7 +13,7 @@ namespace WindowsApplication1
   pub class TextPartClass : SubPartClass
   {
      OwnFont: Font;
-     string OwnText;
+     OwnText: String;
      bool CenterIt;
      OColor: i32;
      bool BlackBack;
@@ -22,7 +22,7 @@ namespace WindowsApplication1
      bool Marc;
 
     pub TextPartClass(
-      string txt,
+      txt: String,
       f: Font,
       w: i32,
       h: i32,

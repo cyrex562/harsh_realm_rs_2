@@ -93,7 +93,7 @@ namespace WindowsApplication1
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].get_SeeNow(this.game.Data.Turn) < 1)
       {
         DrawMod.DrawBlock( toG, 0, 0, 210, 85, 0, 0, 0,  byte.MaxValue);
-        string str;
+        str: String;
         tstring: String = str + "Shrouded (" + Conversion.Str( this.x) + "," + Conversion.Str( this.y) + ")";
         DrawMod.DrawText( toG, tstring, Font::new("Times New Roman", 12f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 35);
         return this.OwnBitmap;
@@ -212,7 +212,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub Click: i32(x: i32, y: i32, let mut b: i32 =  1)
+    pub fn Click(x: i32, y: i32, let mut b: i32 =  1) -> i32
     {
       if (this.mzcount <= -1)
         return -1;

@@ -243,7 +243,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.PaintShortcut1 == 1)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Landscapes";
+        str1 = "Landscapes".to_owned();
         let mut num: i32 =  -1;
         let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
         for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter; tdata += 1)
@@ -260,7 +260,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 2)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Roads";
+        str1 = "Roads".to_owned();
         let mut roadTypeCounter: i32 =  this.game.Data.RoadTypeCounter;
         for (let mut tdata: i32 =  0; tdata <= roadTypeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RoadTypeObj[tdata].Name, tdata);
@@ -268,7 +268,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 3)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Regimes";
+        str1 = "Regimes".to_owned();
         let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
         for (let mut tdata: i32 =  0; tdata <= regimeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RegimeObj[tdata].Name, tdata);
@@ -277,7 +277,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 4)
       {
         this.medListObj = ATListClass::new();
-        str1 = "LocType";
+        str1 = "LocType".to_owned();
         let mut num: i32 =  -1;
         let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
         for (let mut tdata: i32 =  0; tdata <= locTypeCounter; tdata += 1)
@@ -294,7 +294,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 5)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Rivers";
+        str1 = "Rivers".to_owned();
         let mut riverTypeCounter: i32 =  this.game.Data.RiverTypeCounter;
         for (let mut tdata: i32 =  0; tdata <= riverTypeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RiverTypeObj[tdata].Name, tdata);
@@ -302,7 +302,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 6)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Bridges";
+        str1 = "Bridges".to_owned();
         this.medListObj.add("Bridge", 0);
       }
       else if (this.game.EditObj.PaintShortcut1 == 9)
@@ -320,7 +320,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 10)
       {
         this.medListObj = ATListClass::new();
-        str1 = "Landscapes";
+        str1 = "Landscapes".to_owned();
         this.medListObj.add("No Special", -1);
         let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
         for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter; tdata += 1)
@@ -370,7 +370,7 @@ namespace WindowsApplication1
       if ((this.game.EditObj.PaintShortcut1 == 1 | this.game.EditObj.PaintShortcut1 == 10) & this.game.EditObj.PaintShortcut2 > -1)
       {
         this.lastListObj = ATListClass::new();
-        str2 = "Sprites";
+        str2 = "Sprites".to_owned();
         let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[this.game.EditObj.PaintShortcut2].BasicSpriteCounter;
         for (let mut tdata: i32 =  0; tdata <= basicSpriteCounter; tdata += 1)
           this.lastListObj.add(this.game.Data.LandscapeTypeObj[this.game.EditObj.PaintShortcut2].BasicSpriteFileName[tdata], tdata);
@@ -378,7 +378,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 9 & this.game.EditObj.PaintShortcut2 > -1)
       {
         this.lastListObj = ATListClass::new();
-        str2 = "Values";
+        str2 = "Values".to_owned();
         let mut num: i32 =  0;
         do
         {
@@ -394,7 +394,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 12 & this.game.EditObj.PaintShortcut2 == 0)
       {
         this.lastListObj = ATListClass::new();
-        str2 = "Values";
+        str2 = "Values".to_owned();
         let mut num1: i32 =  -1;
         tlistselect2 = -1;
         let mut num2: i32 =  0;
@@ -411,7 +411,7 @@ namespace WindowsApplication1
       else if (this.game.EditObj.PaintShortcut1 == 11 & this.game.EditObj.PaintShortcut2 > -1)
       {
         this.lastListObj = ATListClass::new();
-        str2 = "Values";
+        str2 = "Values".to_owned();
         let mut num3: i32 =  -1;
         tlistselect2 = -1;
         let mut index: i32 =  -1;

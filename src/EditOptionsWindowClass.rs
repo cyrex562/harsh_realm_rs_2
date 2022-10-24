@@ -99,7 +99,7 @@ namespace WindowsApplication1
         this.game.EditObj.PopupValue = 10;
         this.game.EditObj.QuestionText = str;
         this.game.EditObj.AnswerCount = 1;
-        this.game.EditObj.AnswerText[1] = "Ok";
+        this.game.EditObj.AnswerText[1] = "Ok".to_owned();
         this.game.EditObj.warningshown = true;
         windowReturnClass.AddCommand(5, 10);
         this.game.EditObj.MyDelegate = new EditClass.AfterPopUpRefresh(this.PopUpRefresh);
@@ -231,9 +231,9 @@ namespace WindowsApplication1
       this.FlagAll();
       this.detailnr = this.game.EditObj.MapSelected;
       bool flag;
-      string str;
-      string Left1;
-      string ttext;
+      str: String;
+      Left1: String;
+      ttext: String;
       if (this.game.EditObj.PencilType > 0)
       {
         if (!(this.game.EditObj.PencilType == 3 | this.game.EditObj.PencilType == 10 | this.game.EditObj.PencilType == 1 | this.game.EditObj.PencilType == 9 | this.game.EditObj.PencilType == 11))
@@ -276,7 +276,7 @@ namespace WindowsApplication1
         }
         else if (this.game.EditObj.PencilType == 6)
         {
-          str = "Bridge";
+          str = "Bridge".to_owned();
           Left1 = "";
           ttext = "First right click to select a hex, then left click on a neighbouring hex to draw a bridge in between them.";
         }
@@ -294,16 +294,16 @@ namespace WindowsApplication1
         }
         else
         {
-          str = "Pointer";
+          str = "Pointer".to_owned();
           Left1 = "";
           ttext = "I hope you are having a good day!";
         }
       }
       let mut x: i32 =  735;
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      Left2: String = this.game.EditObj.PencilMode != 0 ? "Fill" : "Draw";
+      Left2: String = this.game.EditObj.PencilMode != 0 ? "Fill" : "Draw".to_owned();
       if (this.game.EditObj.PencilType == 0)
-        Left2 = "None";
+        Left2 = "None".to_owned();
       ref Graphics local1 = ref graphics;
       Rectangle rectangle1 = Rectangle::new(x, 5, 200, 10);
       let mut rect1_1: &Rectangle = &rectangle1
@@ -392,7 +392,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub string WindowDescription(x: i32, y: i32)
+    pub WindowDescription: String(x: i32, y: i32)
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";

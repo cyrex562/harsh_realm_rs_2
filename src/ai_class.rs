@@ -1717,33 +1717,33 @@ pub struct AIClass
               if (rolenr1 > -1)
               {
                 simpleList1.Add(num1, rolenr1, rolenr2, itemtypenr1, itemtypenr2);
-                string str;
+                str: String;
                 if (rolenr1 == 6)
-                  str = "INFANTRY";
+                  str = "INFANTRY".to_owned();
                 if (rolenr1 == 7)
-                  str = "INFANTRYSUPPORT";
+                  str = "INFANTRYSUPPORT".to_owned();
                 if (rolenr1 == 8)
-                  str = "ARTILERY";
+                  str = "ARTILERY".to_owned();
                 if (rolenr1 == 9)
-                  str = "MOBILIZER";
+                  str = "MOBILIZER".to_owned();
                 if (rolenr1 == 10)
-                  str = "ARMOUR";
+                  str = "ARMOUR".to_owned();
                 if (rolenr1 == 1)
-                  str = "STAFF";
+                  str = "STAFF".to_owned();
                 if (rolenr1 == 2)
-                  str = "LANDCAP";
+                  str = "LANDCAP".to_owned();
                 if (rolenr1 == 3)
-                  str = "SEACAP";
+                  str = "SEACAP".to_owned();
                 if (rolenr1 == 5)
-                  str = "ENGINEER";
+                  str = "ENGINEER".to_owned();
                 if (rolenr1 == 17)
-                  str = "CARGOSHIP";
+                  str = "CARGOSHIP".to_owned();
                 if (rolenr1 == 19)
-                  str = "RAIDER";
+                  str = "RAIDER".to_owned();
                 if (rolenr1 == 18)
                   str = "SEA SUPRIORITY";
                 if (rolenr1 == 13)
-                  str = "FIGHTER";
+                  str = "FIGHTER".to_owned();
                 if (rolenr1 == 14)
                   str = "TACTICAL BOMBER";
                 self.AddLog("RL#" + Conversion.Str( num1) + "..." + self.game.Data.UnitObj[unr].Name + " => ROLE = " + str);
@@ -1870,7 +1870,7 @@ pub struct AIClass
       return false;
     }
 
-    pub ProdGetRole: i32(locnr: i32, rolenr: i32, bool returnsftypnr = false)
+    pub fn ProdGetRole(locnr: i32, rolenr: i32, bool returnsftypnr = false) -> i32
     {
       let mut num1: i32 =  -1;
       let mut num2: i32 =  -1;
@@ -1914,7 +1914,7 @@ pub struct AIClass
       return returnsftypnr ? num2 : num1;
     }
 
-    pub ProdGetPPItem: i32(locnr: i32)
+    pub fn ProdGetPPItem(locnr: i32) -> i32
     {
       let mut itemTypeCounter: i32 =  self.game.Data.ItemTypeCounter;
       for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
@@ -1925,7 +1925,7 @@ pub struct AIClass
       return -1;
     }
 
-    pub ProdGetSupplyItem: i32(locnr: i32)
+    pub fn ProdGetSupplyItem(locnr: i32) -> i32
     {
       let mut itemTypeCounter: i32 =  self.game.Data.ItemTypeCounter;
       for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
@@ -2153,7 +2153,7 @@ pub struct AIClass
       return  num1 >=  self.game.Data.RuleVar[182] &&  num4 >=  self.game.Data.RuleVar[247];
     }
 
-    pub GetPlanUnitGoalPercent: i32(plnr: i32, goaltype: i32)
+    pub fn GetPlanUnitGoalPercent(plnr: i32, goaltype: i32) -> i32
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -3991,7 +3991,7 @@ pub struct AIClass
       return roleSfResult;
     }
 
-    pub GetRolePercent: i32(unr: i32, rolenr: i32)
+    pub fn GetRolePercent(unr: i32, rolenr: i32) -> i32
     {
       let mut sfCount: i32 =  self.game.Data.UnitObj[unr].SFCount;
       num1: i32;
@@ -4007,7 +4007,7 @@ pub struct AIClass
       return num1 == 0 ? 0 : (int) Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
-    pub LandTransferGetSF: i32(unr: i32, roletype: i32, let mut sftypenr: i32 =  -1)
+    pub fn LandTransferGetSF(unr: i32, roletype: i32, let mut sftypenr: i32 =  -1) -> i32
     {
       let mut sf1: i32 =  -1;
       if (roletype == -1)
@@ -6326,7 +6326,7 @@ pub struct AIClass
           self.AddLog("*Plan " + Strings.Trim(Conversion.Str( Number)) + ": ");
           str1: String = "";
           if (self.TPlanObj[Number].Type == 20)
-            str1 = "LANDFRONT";
+            str1 = "LANDFRONT".to_owned();
           if (self.TPlanObj[Number].Type == 50)
             str1 = "OLD-LANDFRONT";
           self.AddLog(str1 + " from " + self.game.HandyFunctionsObj.GetHexName(self.TPlanObj[Number].FromArea.X, self.TPlanObj[Number].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( self.TPlanObj[Number].FromArea.X)) + "," + Strings.Trim(Conversion.Str( self.TPlanObj[Number].FromArea.Y)) + ")" + " to " + self.game.HandyFunctionsObj.GetHexName(self.TPlanObj[Number].TooArea.X, self.TPlanObj[Number].TooArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( self.TPlanObj[Number].TooArea.X)) + "," + Strings.Trim(Conversion.Str( self.TPlanObj[Number].TooArea.Y)) + "" + ", strategic-weight: " + Conversion.Str( self.TPlanObj[Number].WeightStrategic));
@@ -6356,11 +6356,11 @@ pub struct AIClass
           self.AddLog(str2 + " (count: F=" + Conversion.Str( self.TPlanObj[Number].FriendlyUnitCount) + "/E=" + Conversion.Str( self.TPlanObj[Number].EnemyUnitCount) + ")");
           s: String = "Stand: ";
           if (self.TPlanObj[Number].Stand == 1)
-            s += "ATTACK";
+            s += "ATTACK".to_owned();
           if (self.TPlanObj[Number].Stand == 2)
-            s += "DEFEND";
+            s += "DEFEND".to_owned();
           if (self.TPlanObj[Number].Stand == 3)
-            s += "RETREAT";
+            s += "RETREAT".to_owned();
           self.AddLog(s);
           if (self.TPlanObj[Number].RiverLine == 1)
             self.AddLog("RIVERLINE DEFEND PLAN");
@@ -6446,7 +6446,7 @@ pub struct AIClass
           self.AddLog("*Plan " + Strings.Trim(Conversion.Str( Number1)) + ": ");
           str6: String = "";
           if (self.TPlanObj[Number1].Type == 20)
-            str6 = "LANDRESERVE";
+            str6 = "LANDRESERVE".to_owned();
           self.AddLog(str6 + " at " + self.game.HandyFunctionsObj.GetHexName(self.TPlanObj[Number1].FromArea.X, self.TPlanObj[Number1].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( self.TPlanObj[Number1].FromArea.X)) + "," + Strings.Trim(Conversion.Str( self.TPlanObj[Number1].FromArea.Y)) + ")");
           str7: String = "Units: ";
           let mut unitCounter: i32 =  self.game.Data.UnitCounter;
@@ -6473,7 +6473,7 @@ pub struct AIClass
       }
     }
 
-    pub GetPlanEPPerTurn: i32(plannr: i32)
+    pub fn GetPlanEPPerTurn(plannr: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       integer: i32;
@@ -6562,7 +6562,7 @@ pub struct AIClass
           let mut unitCounter2: i32 =  self.game.Data.UnitCounter;
           num12: i32;
           bool Number;
-          string str;
+          str: String;
           for (let mut unr: i32 =  0; unr <= unitCounter2; unr += 1)
           {
             if (self.game.Data.Round == 1 | self.game.Data.UnitObj[unr].AIUnitGoal < 1 && !self.game.Data.UnitObj[unr].IsHQ & self.game.Data.UnitObj[unr].AIUnitGoal == 0 && self.game.Data.UnitObj[unr].AIPlanNr == index1 & self.game.Data.UnitObj[unr].Regime == self.game.Data.Turn && unr == specificunit | specificunit == -1)
@@ -6574,7 +6574,7 @@ pub struct AIClass
                 num3 += 1;
                 num6 += 1;
                 num12 = 2;
-                str = "ARMOUR";
+                str = "ARMOUR".to_owned();
                 if (self.TPlanObj[index1].Stand == 1)
                 {
                   if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6592,7 +6592,7 @@ pub struct AIClass
                 num5 += 1;
                 num6 += 1;
                 num12 = 4;
-                str = "ENGINEER";
+                str = "ENGINEER".to_owned();
                 if ( self.game.Data.RuleVar[214] == 1.0)
                   Number = true;
               }
@@ -6601,7 +6601,7 @@ pub struct AIClass
                 num4 += 1;
                 num6 += 1;
                 num12 = 3;
-                str = "ART";
+                str = "ART".to_owned();
                 if (self.TPlanObj[index1].Stand == 1)
                 {
                   if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6619,7 +6619,7 @@ pub struct AIClass
                 num2 += 1;
                 num6 += 1;
                 num12 = 1;
-                str = "INF";
+                str = "INF".to_owned();
                 if (self.TPlanObj[index1].Stand == 1)
                 {
                   if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6633,22 +6633,22 @@ pub struct AIClass
               else if (self.GetRolePercent(unr, 17) > 0)
               {
                 num12 = 8;
-                str = "CARGO";
+                str = "CARGO".to_owned();
               }
               else if (self.GetRolePercent(unr, 19) > 30)
               {
                 num12 = 10;
-                str = "RAIDER";
+                str = "RAIDER".to_owned();
               }
               else if (self.GetRolePercent(unr, 18) > 0)
               {
                 num12 = 9;
-                str = "NAVALWAR";
+                str = "NAVALWAR".to_owned();
               }
               else if (self.game.HandyFunctionsObj.HasUnitAirSF(unr))
               {
                 num12 = 5;
-                str = "AIRSUPPORT";
+                str = "AIRSUPPORT".to_owned();
                 self.game.Data.UnitObj[unr].SOInterceptRdnStop = 75;
               }
               if (num12 > -1)
@@ -6672,13 +6672,13 @@ pub struct AIClass
                 {
                   num12 = 1;
                   Number = false;
-                  str = "INFANTRY";
+                  str = "INFANTRY".to_owned();
                   if (self.TPlanObj[index1].Stand == 2)
                   {
                     if ( self.TPlanObj[index1].WeightEnemyForce < 5.0)
                     {
                       num12 = 2;
-                      str = "ARMOUR";
+                      str = "ARMOUR".to_owned();
                       num2 += 1;
                       num6 += 1;
                       Number = true;
@@ -6695,7 +6695,7 @@ pub struct AIClass
                     else if ( (num3 * 100) /  num6 <  self.game.Data.RuleVar[161] & 100.0 * (1.0 /  num7) <=  self.game.Data.RuleVar[161])
                     {
                       num12 = 2;
-                      str = "ARMOUR";
+                      str = "ARMOUR".to_owned();
                       num3 += 1;
                       num6 += 1;
                       if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[153])
@@ -6706,7 +6706,7 @@ pub struct AIClass
                     else if ( (num4 * 100) /  num6 <  self.game.Data.RuleVar[163] & 100.0 * (1.0 /  num7) <=  self.game.Data.RuleVar[163])
                     {
                       num12 = 3;
-                      str = "ARTILLERY";
+                      str = "ARTILLERY".to_owned();
                       num4 += 1;
                       num6 += 1;
                       if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[153])
@@ -6720,7 +6720,7 @@ pub struct AIClass
                     if ( (num3 * 100) /  num6 <  self.game.Data.RuleVar[171] & 100.0 * (1.0 /  num7) <=  self.game.Data.RuleVar[171])
                     {
                       num12 = 2;
-                      str = "ARMOUR";
+                      str = "ARMOUR".to_owned();
                       num3 += 1;
                       num6 += 1;
                       if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6731,7 +6731,7 @@ pub struct AIClass
                     else if ( (num2 * 100) /  num6 <  self.game.Data.RuleVar[172])
                     {
                       num12 = 1;
-                      str = "INFANTRY";
+                      str = "INFANTRY".to_owned();
                       num2 += 1;
                       num6 += 1;
                       if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6740,7 +6740,7 @@ pub struct AIClass
                     else if ( (num4 * 100) /  num6 <  self.game.Data.RuleVar[173] & 100.0 * (1.0 /  num7) <=  self.game.Data.RuleVar[173])
                     {
                       num12 = 3;
-                      str = "ARTILLERY";
+                      str = "ARTILLERY".to_owned();
                       num4 += 1;
                       num6 += 1;
                       if ( VBMath.Rnd() * 100.0 <=  self.game.Data.RuleVar[154])
@@ -6757,25 +6757,25 @@ pub struct AIClass
                   {
                     num12 = 9;
                     Number = false;
-                    str = "NAVALWAR";
+                    str = "NAVALWAR".to_owned();
                     if ( (num11 * 100) /  num8 <  self.game.Data.RuleVar[232])
                     {
                       num12 = 8;
-                      str = "CARGO";
+                      str = "CARGO".to_owned();
                       num11 += 1;
                       num8 += 1;
                     }
                     else if ( (num10 * 100) /  num8 <  self.game.Data.RuleVar[231])
                     {
                       num12 = 9;
-                      str = "NAVWAR";
+                      str = "NAVWAR".to_owned();
                       num10 += 1;
                       num8 += 1;
                     }
                     else if ( (num9 * 100) /  num8 <  self.game.Data.RuleVar[230])
                     {
                       num12 = 10;
-                      str = "RAIDER";
+                      str = "RAIDER".to_owned();
                       num9 += 1;
                       num8 += 1;
                     }
@@ -6784,25 +6784,25 @@ pub struct AIClass
                   {
                     num12 = 9;
                     Number = false;
-                    str = "NAVALWAR";
+                    str = "NAVALWAR".to_owned();
                     if ( (num11 * 100) /  num8 <  self.game.Data.RuleVar[235])
                     {
                       num12 = 8;
-                      str = "CARGO";
+                      str = "CARGO".to_owned();
                       num11 += 1;
                       num8 += 1;
                     }
                     else if ( (num10 * 100) /  num8 <  self.game.Data.RuleVar[234])
                     {
                       num12 = 9;
-                      str = "NAVWAR";
+                      str = "NAVWAR".to_owned();
                       num10 += 1;
                       num8 += 1;
                     }
                     else if ( (num9 * 100) /  num8 <  self.game.Data.RuleVar[233])
                     {
                       num12 = 10;
-                      str = "RAIDER";
+                      str = "RAIDER".to_owned();
                       num9 += 1;
                       num8 += 1;
                     }
@@ -6811,25 +6811,25 @@ pub struct AIClass
                   {
                     num12 = 8;
                     Number = false;
-                    str = "NAVALWAR";
+                    str = "NAVALWAR".to_owned();
                     if ( (num11 * 100) /  num8 <  self.game.Data.RuleVar[238])
                     {
                       num12 = 8;
-                      str = "CARGO";
+                      str = "CARGO".to_owned();
                       num11 += 1;
                       num8 += 1;
                     }
                     else if ( (num10 * 100) /  num8 <  self.game.Data.RuleVar[237])
                     {
                       num12 = 9;
-                      str = "NAVWAR";
+                      str = "NAVWAR".to_owned();
                       num10 += 1;
                       num8 += 1;
                     }
                     else if ( (num9 * 100) /  num8 <  self.game.Data.RuleVar[236])
                     {
                       num12 = 10;
-                      str = "RAIDER";
+                      str = "RAIDER".to_owned();
                       num9 += 1;
                       num8 += 1;
                     }
@@ -6838,7 +6838,7 @@ pub struct AIClass
                       if (self.game.Data.MapObj[0].HexObj[self.SAObj[self.TPlanObj[index1].SeaTarget].X, self.SAObj[self.TPlanObj[index1].SeaTarget].Y].Regime == -1)
                       {
                         num12 = 8;
-                        str = "CARGO";
+                        str = "CARGO".to_owned();
                       }
                     }
                     else
@@ -6848,25 +6848,25 @@ pub struct AIClass
                   {
                     num12 = 9;
                     Number = false;
-                    str = "NAVALWAR";
+                    str = "NAVALWAR".to_owned();
                     if ( (num11 * 100) /  num8 <  self.game.Data.RuleVar[242])
                     {
                       num12 = 8;
-                      str = "CARGO";
+                      str = "CARGO".to_owned();
                       num11 += 1;
                       num8 += 1;
                     }
                     else if ( (num10 * 100) /  num8 <  self.game.Data.RuleVar[241])
                     {
                       num12 = 9;
-                      str = "NAVWAR";
+                      str = "NAVWAR".to_owned();
                       num10 += 1;
                       num8 += 1;
                     }
                     else if ( (num9 * 100) /  num8 <  self.game.Data.RuleVar[240])
                     {
                       num12 = 10;
-                      str = "RAIDER";
+                      str = "RAIDER".to_owned();
                       num9 += 1;
                       num8 += 1;
                     }
@@ -6878,7 +6878,7 @@ pub struct AIClass
               }
               if ( self.game.Data.RuleVar[211] > 0.0 &  self.game.Data.RuleVar[32] > -1.0 && !self.game.Data.UnitObj[unr].IsHQ & self.game.Data.UnitObj[unr].AIPlanNr == index1 && self.game.Data.UnitObj[unr].AIUnitGoal != 4 && self.game.HandyFunctionsObj.GetUnitEP(unr) >= self.game.Data.RoadTypeObj[(int) Math.Round( self.game.Data.RuleVar[32])].EPCost &&  self.GetRolePercent(unr, 5) > 1.0 +  VBMath.Rnd() * 100.0)
               {
-                str = "ENGINEER";
+                str = "ENGINEER".to_owned();
                 num12 = 4;
                 self.game.Data.UnitObj[unr].AIUnitGoal = num12;
                 num5 += 1;
@@ -6886,7 +6886,7 @@ pub struct AIClass
               }
               if ( self.game.Data.RuleVar[221] > 0.0 && !self.game.Data.UnitObj[unr].IsHQ & self.game.Data.UnitObj[unr].AIPlanNr == index1 && self.TPlanObj[index1].Type == 40 && self.game.HandyFunctionsObj.HasUnitAirSF(unr) & !self.game.HandyFunctionsObj.HasUnitNavySF(unr) && self.game.Data.UnitObj[unr].AIUnitGoal != 5)
               {
-                str = "AIRSUPPORT";
+                str = "AIRSUPPORT".to_owned();
                 num12 = 5;
                 self.game.Data.UnitObj[unr].AIUnitGoal = num12;
                 self.game.Data.UnitObj[unr].SOInterceptRdnStop = 75;
@@ -6894,7 +6894,7 @@ pub struct AIClass
               }
               if ( self.game.Data.RuleVar[227] > 0.0 && !self.game.Data.UnitObj[unr].IsHQ & self.game.Data.UnitObj[unr].AIPlanNr == index1 && self.TPlanObj[index1].Type == 40 && self.MakeNavyActive(index1) && self.game.HandyFunctionsObj.HasUnitNavySF(unr) && !(self.game.Data.UnitObj[unr].AIUnitGoal == 10 | self.game.Data.UnitObj[unr].AIUnitGoal == 8 | self.game.Data.UnitObj[unr].AIUnitGoal == 9) && self.game.HandyFunctionsObj.IsHexHarbourOrSea(self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y, 0))
               {
-                str = "GOALNAVALWAR";
+                str = "GOALNAVALWAR".to_owned();
                 num12 = 9;
                 self.game.Data.UnitObj[unr].AIUnitGoal = num12;
                 self.AddLog("Unit: " + self.game.Data.UnitObj[unr].Name + " has been re-assigned goal: " + str);
@@ -7133,7 +7133,7 @@ pub struct AIClass
       }
     }
 
-    pub GetAbsolutePowerForReserveUnit: i32(plnr: i32)
+    pub fn GetAbsolutePowerForReserveUnit(plnr: i32) -> i32
     {
       object Counter;
       object LoopForResult;
@@ -7157,7 +7157,7 @@ pub struct AIClass
       return Conversions.ToInteger(Conversion.Int(Operators.DivideObject(Left, obj)));
     }
 
-    pub GetTotalStrategicValue: i32()
+    pub fn GetTotalStrategicValue() -> i32
     {
       let mut tplanCount: i32 =  self.TPlanCount;
       totalStrategicValue: i32;
@@ -7169,7 +7169,7 @@ pub struct AIClass
       return totalStrategicValue;
     }
 
-    pub HasPlanEngineerUnit: i32(plannr: i32)
+    pub fn HasPlanEngineerUnit(plannr: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -7842,7 +7842,7 @@ pub struct AIClass
       }
     }
 
-    pub AverageDistanceUnits: i32(plannr: i32, x: i32, y: i32)
+    pub fn AverageDistanceUnits(plannr: i32, x: i32, y: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       num1: i32;
@@ -7860,7 +7860,7 @@ pub struct AIClass
       return (int) Math.Round(Conversion.Int( num1 /  num2));
     }
 
-    pub AverageDistanceUnitsInAP: i32(plannr: i32, x: i32, y: i32, bool onlyifinownarea = false)
+    pub fn AverageDistanceUnitsInAP(plannr: i32, x: i32, y: i32, bool onlyifinownarea = false) -> i32
     {
       if (self.TempAvgUnits[plannr] > -1)
         return self.TempAvgUnits[plannr];
@@ -8161,7 +8161,7 @@ pub struct AIClass
       }
     }
 
-    pub GetPowerPointPercent: i32(sftype: i32)
+    pub fn GetPowerPointPercent(sftype: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       num1: i32;
@@ -8187,7 +8187,7 @@ pub struct AIClass
       return (int) Math.Round( num3 /  num2);
     }
 
-    pub GetPowerPointPercentUpgradeableToo: i32(sftype: i32)
+    pub fn GetPowerPointPercentUpgradeableToo(sftype: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       num1: i32;
@@ -8213,7 +8213,7 @@ pub struct AIClass
       return (int) Math.Round( num3 /  num2);
     }
 
-    pub GetlandUnitsUnderHQ: i32(unr: i32)
+    pub fn GetlandUnitsUnderHQ(unr: i32) -> i32
     {
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
       num: i32;
@@ -8484,7 +8484,7 @@ pub struct AIClass
       }
     }
 
-    pub GetLandForcesNearHex: i32(bool friendly, dist: i32, x: i32, y: i32)
+    pub fn GetLandForcesNearHex(bool friendly, dist: i32, x: i32, y: i32) -> i32
     {
       let mut landForcesNearHex: i32 =  0;
       let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
@@ -8604,7 +8604,7 @@ pub struct AIClass
       }
     }
 
-    pub GetAverageAIVP: i32()
+    pub fn GetAverageAIVP() -> i32
     {
       if (self.SACount <= 0)
         return 0;
@@ -9310,7 +9310,7 @@ pub struct AIClass
       }
     }
 
-    pub GetMostUsedHQ: i32(plannr: i32)
+    pub fn GetMostUsedHQ(plannr: i32) -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;
@@ -9530,7 +9530,7 @@ pub struct AIClass
       }
     }
 
-    pub getDistanceClosestUnit: i32(fromarea: i32, towardsarea: i32)
+    pub fn getDistanceClosestUnit(fromarea: i32, towardsarea: i32) -> i32
     {
       object[,] objArray = new object[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       let mut Right: i32 =  0;
@@ -10424,7 +10424,7 @@ pub struct AIClass
       return entrenchMod;
     }
 
-    pub PlanEngineerNeedScore: i32(plnr: i32)
+    pub fn PlanEngineerNeedScore(plnr: i32) -> i32
     {
       num1: i32;
       if (self.TPlanObj[plnr].Type == 40)
@@ -10633,7 +10633,7 @@ pub struct AIClass
 
     pub NeedHQ: bool(nr: i32) => self.TPlanObj[nr].FriendlyUnitCount > 2;
 
-    pub WhichCurrentAreaIsThis: i32(ref SAClass Area)
+    pub fn WhichCurrentAreaIsThis(ref SAClass Area) -> i32
     {
       if (Information.IsNothing( Area))
         return 0;
@@ -11182,7 +11182,7 @@ pub struct AIClass
       return artilleryCoord;
     }
 
-    pub GetNavalTarget: i32(plnr: i32)
+    pub fn GetNavalTarget(plnr: i32) -> i32
     {
       self.SetNavalMatrix1(self.TPlanObj[plnr].FromArea.X, self.TPlanObj[plnr].FromArea.Y);
       let mut num1: i32 =  0;
@@ -12092,7 +12092,7 @@ pub struct AIClass
       }
     }
 
-    pub GetAreaNr: i32(SAClass tempSA)
+    pub fn GetAreaNr(SAClass tempSA) -> i32
     {
       try
       {
@@ -12726,7 +12726,7 @@ pub struct AIClass
       return forceAirStrength;
     }
 
-    pub GetClosestFrontline: i32(x: i32, y: i32)
+    pub fn GetClosestFrontline(x: i32, y: i32) -> i32
     {
       numArray: Vec<i32> = new int[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       if (x == -1)
@@ -12760,7 +12760,7 @@ pub struct AIClass
       return closestFrontline;
     }
 
-    pub GetClosestBackPlan: i32(x: i32, y: i32)
+    pub fn GetClosestBackPlan(x: i32, y: i32) -> i32
     {
       numArray: Vec<i32> = new int[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       if (x == -1)
@@ -12794,7 +12794,7 @@ pub struct AIClass
       return closestBackPlan;
     }
 
-    pub GetClosestFrontlineDistance2: i32(x: i32, y: i32)
+    pub fn GetClosestFrontlineDistance2(x: i32, y: i32) -> i32
     {
       numArray: Vec<i32> = new int[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth1: i32 =  self.game.Data.MapObj[0].MapWidth;
@@ -12826,7 +12826,7 @@ pub struct AIClass
       return frontlineDistance2;
     }
 
-    pub GetClosestEnemyDistance: i32(x: i32, y: i32, bool enemyunit = false)
+    pub fn GetClosestEnemyDistance(x: i32, y: i32, bool enemyunit = false) -> i32
     {
       numArray: Vec<i32> = new int[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth1: i32 =  self.game.Data.MapObj[0].MapWidth;
@@ -12860,7 +12860,7 @@ pub struct AIClass
       return closestEnemyDistance;
     }
 
-    pub GetClosestFrontlineDistance: i32(sanr: i32, x: i32, y: i32, bool withunit = false)
+    pub fn GetClosestFrontlineDistance(sanr: i32, x: i32, y: i32, bool withunit = false) -> i32
     {
       numArray: Vec<i32> = new int[self.game.Data.MapObj[0].MapWidth + 1, self.game.Data.MapObj[0].MapHeight + 1];
       let mut mapWidth1: i32 =  self.game.Data.MapObj[0].MapWidth;
@@ -12898,7 +12898,7 @@ pub struct AIClass
       return frontlineDistance;
     }
 
-    pub GetSANr: i32(SAClass TempArea)
+    pub fn GetSANr(SAClass TempArea) -> i32
     {
       let mut saCount: i32 =  self.SACount;
       for (let mut saNr: i32 =  1; saNr <= saCount; saNr += 1)
@@ -12909,7 +12909,7 @@ pub struct AIClass
       return 0;
     }
 
-    pub AverageFuzzyVP: i32()
+    pub fn AverageFuzzyVP() -> i32
     {
       let mut saCount: i32 =  self.SACount;
       num: i32;
@@ -12918,7 +12918,7 @@ pub struct AIClass
       return (int) Math.Round(Conversion.Int( num /  self.SACount));
     }
 
-    pub GetFriendlyAreaNeighbours: i32(areanr: i32, bool withoutenemies)
+    pub fn GetFriendlyAreaNeighbours(areanr: i32, bool withoutenemies) -> i32
     {
       let mut index1: i32 =  areanr;
       let mut neighbourCount: i32 =  self.SAObj[index1].NeighbourCount;
@@ -12938,7 +12938,7 @@ pub struct AIClass
       return friendlyAreaNeighbours;
     }
 
-    pub GetBestNeighbourForRetreater: i32(areanr: i32)
+    pub fn GetBestNeighbourForRetreater(areanr: i32) -> i32
     {
       let mut neighbourCount: i32 =  self.SAObj[areanr].NeighbourCount;
       for (let mut index: i32 =  1; index <= neighbourCount; index += 1)
@@ -12953,7 +12953,7 @@ pub struct AIClass
       return -1;
     }
 
-    pub AreaDistance: i32(nr: i32, nr2: i32, bool onlyfriendly = false, let mut MaxDistance: i32 =  999)
+    pub fn AreaDistance(nr: i32, nr2: i32, bool onlyfriendly = false, let mut MaxDistance: i32 =  999) -> i32
     {
       int[] numArray = new int[self.SACount + 1];
       let mut saCount1: i32 =  self.SACount;
@@ -12988,7 +12988,7 @@ pub struct AIClass
       return numArray[nr2];
     }
 
-    pub AreaDistance2: i32(nr: i32, nr2: i32, bool onlyfriendly = false, let mut MaxDistance: i32 =  999)
+    pub fn AreaDistance2(nr: i32, nr2: i32, bool onlyfriendly = false, let mut MaxDistance: i32 =  999) -> i32
     {
       int[] numArray = new int[self.SACount + 1];
       let mut saCount1: i32 =  self.SACount;
@@ -13024,7 +13024,7 @@ pub struct AIClass
       return numArray[nr2];
     }
 
-    pub AreaDistanceIncludingSea: i32(nr: i32, nr2: i32)
+    pub fn AreaDistanceIncludingSea(nr: i32, nr2: i32) -> i32
     {
       int[] numArray = new int[self.SACount + 1];
       let mut saCount1: i32 =  self.SACount;
@@ -13059,7 +13059,7 @@ pub struct AIClass
       return numArray[nr2];
     }
 
-    pub AreaDistanceOnlySea: i32(nr: i32, nr2: i32)
+    pub fn AreaDistanceOnlySea(nr: i32, nr2: i32) -> i32
     {
       int[] numArray = new int[self.SACount + 1];
       let mut saCount1: i32 =  self.SACount;
@@ -13114,7 +13114,7 @@ pub struct AIClass
       self.TPlanObj = (AIPlanClass[]) Utils.CopyArray((Array) self.TPlanObj, (Array) new AIPlanClass[self.TPlanCount + 1]);
     }
 
-    pub getclosestplan: i32(x: i32, y: i32, plantype: i32)
+    pub fn getclosestplan(x: i32, y: i32, plantype: i32) -> i32
     {
       num: i32;
       for (; num < 99; num += 1)
@@ -13143,7 +13143,7 @@ pub struct AIClass
       return -1;
     }
 
-    pub getclosestplansea: i32(x: i32, y: i32, plantype: i32)
+    pub fn getclosestplansea(x: i32, y: i32, plantype: i32) -> i32
     {
       num: i32;
       for (; num < 99; num += 1)
@@ -13172,7 +13172,7 @@ pub struct AIClass
       return -1;
     }
 
-    pub getfrontplan: i32(x: i32, y: i32)
+    pub fn getfrontplan(x: i32, y: i32) -> i32
     {
       let mut num1: i32 =  20;
       let mut num2: i32 =  self.HexSA[x, y];
@@ -13185,7 +13185,7 @@ pub struct AIClass
       return -1;
     }
 
-    pub GetRealForceInArea: i32(areanr: i32, plannr: i32, bool withoutmods)
+    pub fn GetRealForceInArea(areanr: i32, plannr: i32, bool withoutmods) -> i32
     {
       let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
       realForceInArea: i32;
@@ -13209,7 +13209,7 @@ pub struct AIClass
       return realForceInArea;
     }
 
-    pub GetRealForceInArea2: i32(areanr: i32, bool withoutmods)
+    pub fn GetRealForceInArea2(areanr: i32, bool withoutmods) -> i32
     {
       let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
       realForceInArea2: i32;
@@ -13232,7 +13232,7 @@ pub struct AIClass
       return realForceInArea2;
     }
 
-    pub GetRealNavalForceInArea: i32(seaareanr: i32, plannr: i32, bool withoutmods, bool friendly)
+    pub fn GetRealNavalForceInArea(seaareanr: i32, plannr: i32, bool withoutmods, bool friendly) -> i32
     {
       let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
       navalForceInArea: i32;
@@ -13261,7 +13261,7 @@ pub struct AIClass
       return navalForceInArea;
     }
 
-    pub fn Screenshot(typ: i32, string fileextension)
+    pub fn Screenshot(typ: i32, fileextension: String)
     {
       FileStream fileStream = new FileStream(self.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str( typ)) + "_pl" + Strings.Trim(Conversion.Str( self.game.Data.Turn)) + fileextension + ".bmp", FileMode.Create);
       bitmap: Bitmap = new Bitmap(self.game.Data.MapObj[0].MapWidth * 40 + 80, self.game.Data.MapObj[0].MapHeight * 32 + 68, PixelFormat.Format24bppRgb);
@@ -13541,7 +13541,7 @@ pub struct AIClass
       }
     }
 
-    pub fn AddLog2(string s)
+    pub fn AddLog2(s: String)
     {
       this += 1.LogCounter2;
       self.LogTxt2 = (string[]) Utils.CopyArray((Array) self.LogTxt2, (Array) new string[self.LogCounter2 + 1]);
@@ -13565,7 +13565,7 @@ pub struct AIClass
       }
     }
 
-    pub fn AddLog(string s)
+    pub fn AddLog(s: String)
     {
       this += 1.LogCounter;
       self.LogTxt = (string[]) Utils.CopyArray((Array) self.LogTxt, (Array) new string[self.LogCounter + 1]);
@@ -13628,7 +13628,7 @@ pub struct AIClass
       return  aaonHex;
     }
 
-    pub GetMeRandomUnit: i32()
+    pub fn GetMeRandomUnit() -> i32
     {
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter: i32 =  self.game.Data.UnitCounter;

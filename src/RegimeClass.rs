@@ -163,275 +163,275 @@ namespace WindowsApplication1
     pub TempSelectable: bool;
     pub minimumDataUsage: bool;
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    pub fn GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name",  this.Name);
-      info.AddValue("Red", this.Red);
-      info.AddValue("Green", this.Green);
-      info.AddValue("Blue", this.Blue);
-      info.AddValue("Red2", this.Red2);
-      info.AddValue("Green2", this.Green2);
-      info.AddValue("Blue2", this.Blue2);
-      info.AddValue("Red3", this.Red3);
-      info.AddValue("Green3", this.Green3);
-      info.AddValue("Blue3", this.Blue3);
-      info.AddValue("Red4", this.Red4);
-      info.AddValue("Green4", this.Green4);
-      info.AddValue("Blue4", this.Blue4);
-      info.AddValue("People", this.People);
-      info.AddValue("RegimeSlot",  this.RegimeSlot);
-      info.AddValue("HQSpriteFileName",  this.HQSpriteFileName);
-      info.AddValue("HQSpriteFileName2",  this.HQSpriteFileName2);
-      info.AddValue("BaseMorale", this.BaseMorale);
-      info.AddValue("ResPts", this.ResPts);
-      info.AddValue("ResFieldCounter", this.ResFieldCounter);
-      info.AddValue("ResField",  this.ResField);
-      info.AddValue("RegimeCounter", this.RegimeCounter);
-      info.AddValue("RegimeRel",  this.RegimeRel);
-      info.AddValue("RegimeOffer",  this.RegimeOffer);
-      info.AddValue("MapCount", this.MapCount);
-      info.AddValue("HistoryOwner",  this.HistoryOwner);
-      info.AddValue("HistorySFType",  this.HistorySFType);
-      info.AddValue("HistoryForce",  this.HistoryForce);
-      info.AddValue("HistoryHis",  this.HistoryHis);
-      info.AddValue("HistoryDepth",  this.HistoryDepth);
-      info.AddValue("HistoryStep",  this.HistoryStep);
-      info.AddValue("HistoryStepCounter", this.HistoryStepCounter);
-      info.AddValue("MessCounter", this.MessCounter);
-      info.AddValue("MessString",  this.MessString);
-      info.AddValue("MessBackPic",  this.MessBackPic);
-      info.AddValue("MessFrontPic",  this.MessFrontPic);
-      info.AddValue("MessWav",  this.MessWav);
-      info.AddValue("MesStyle",  this.MesStyle);
-      info.AddValue("MesNote",  this.MesNote);
-      info.AddValue("MesNote2",  this.MesNote2);
-      info.AddValue("MesName",  this.MesName);
-      info.AddValue("MesGroup",  this.MesGroup);
-      info.AddValue("MesChosen",  this.MesChosen);
-      info.AddValue("MesHideFromStart",  this.MesHideFromStart);
-      info.AddValue("MesHideFromTab",  this.MesHideFromTab);
-      info.AddValue("AI", this.AI);
-      info.AddValue("AIid", this.AIid);
-      info.AddValue("Sleep", this.Sleep);
-      info.AddValue("PassWord",  this.PassWord);
-      info.AddValue("UnitName",  this.UnitName);
-      info.AddValue("UnitNumber", this.UnitNumber);
-      info.AddValue("HQName",  this.HQName);
-      info.AddValue("HQNumber", this.HQNumber);
-      info.AddValue("SLoss",  this.SLoss);
-      info.AddValue("SKills",  this.SKills);
-      info.AddValue("SProd",  this.SProd);
-      info.AddValue("SPresent",  this.SPresent);
-      info.AddValue("DipBlock", this.DipBlock);
-      info.AddValue("SASSupplyLost", this.SASSupplyLost);
-      info.AddValue("SASSupplyKilled", this.SASSupplyKilled);
-      info.AddValue("SASProdLost",  this.SASProdLost);
-      info.AddValue("SASKilled",  this.SASKilled);
-      info.AddValue("HQSpriteOverrule", this.HQSpriteOverrule);
-      info.AddValue("PlanCounter", this.PlanCounter);
-      info.AddValue("PlanObj",  this.PlanObj);
-      info.AddValue("ProdBonus", this.ProdBonus);
-      info.AddValue("AIVP",  this.AIVP);
-      info.AddValue("Trafic",  this.Trafic);
-      info.AddValue("Trafic2",  this.Trafic2);
-      info.AddValue("AIPower",  this.AIPower);
-      info.AddValue("AIDefense",  this.AIDefense);
-      info.AddValue("ActionCardCounter", this.ActionCardCounter);
-      info.AddValue("ActionCard",  this.ActionCard);
-      info.AddValue("ActionCardHistoryCounter", this.ActionCardHistoryCounter);
-      info.AddValue("ActionCardHistory",  this.ActionCardHistory);
-      info.AddValue("ActionCardHistoryRound",  this.ActionCardHistoryRound);
-      info.AddValue("AIConservative", this.AIConservative);
-      info.AddValue("ExtraStat",  this.ExtraStat);
-      info.AddValue("NationalIconSpriteName",  this.NationalIconSpriteName);
-      info.AddValue("RoundelSpriteName",  this.RoundelSpriteName);
-      info.AddValue("RoundelSpriteName2",  this.RoundelSpriteName2);
-      info.AddValue("BannerSpriteFileName",  this.BannerSpriteFileName);
-      info.AddValue("BannerSpriteFileName2",  this.BannerSpriteFileName2);
-      info.AddValue("SymbolSpriteName",  this.SymbolSpriteName);
-      info.AddValue("ExtraGraphicUse", this.ExtraGraphicUse);
-      info.AddValue("FirstRound", this.FirstRound);
-      info.AddValue("RandomCode", this.RandomCode);
-      info.AddValue("AIGroupCounter", this.AIGroupCounter);
-      info.AddValue("AIGroupHis",  this.AIGroupHis);
-      info.AddValue("AIGroupType",  this.AIGroupType);
-      info.AddValue("AIGroupLastAttack",  this.AIGroupLastAttack);
-      info.AddValue("AIGroupLastDefend",  this.AIGroupLastDefend);
-      info.AddValue("AIGroupLastFollowUp",  this.AIGroupLastFollowUp);
-      info.AddValue("AIGroupLastFallBack",  this.AIGroupLastFallBack);
-      info.AddValue("AICorpsTopGroup",  this.AICorpsTopGroup);
-      info.AddValue("AIGroupName",  this.AIGroupName);
-      info.AddValue("OfficerPool", this.OfficerPool);
-      info.AddValue("UberRegime", this.UberRegime);
-      info.AddValue("Mirror", this.Mirror);
-      info.AddValue("Version", this.Version);
-      info.AddValue("subVersion",  this.subVersion);
-      info.AddValue("LoadTransferHistorical", this.LoadTransferHistorical);
-      info.AddValue("OldAINarrow",  this.OldAINarrow);
-      info.AddValue("AIHelpMove", this.AIHelpMove);
-      info.AddValue("AIHelpCombat", this.AIHelpCombat);
-      info.AddValue("AIHelpStrategic", this.AIHelpStrategic);
-      info.AddValue("PBEMPlayer", this.PbemPlayer);
-      info.AddValue("UseAlternateActionCardPics", this.UseAlternateActionCardPics);
-      info.AddValue("FerryEffectivity", this.FerryEffectivity);
-      info.AddValue("LibId",  this.libId);
-      info.AddValue("Id", this.id);
-      info.AddValue("hideFromList", this.hideFromList);
-      info.AddValue("minimumDataUsage", this.minimumDataUsage);
+      info.AddValue("Name",  self.Name);
+      info.AddValue("Red", self.Red);
+      info.AddValue("Green", self.Green);
+      info.AddValue("Blue", self.Blue);
+      info.AddValue("Red2", self.Red2);
+      info.AddValue("Green2", self.Green2);
+      info.AddValue("Blue2", self.Blue2);
+      info.AddValue("Red3", self.Red3);
+      info.AddValue("Green3", self.Green3);
+      info.AddValue("Blue3", self.Blue3);
+      info.AddValue("Red4", self.Red4);
+      info.AddValue("Green4", self.Green4);
+      info.AddValue("Blue4", self.Blue4);
+      info.AddValue("People", self.People);
+      info.AddValue("RegimeSlot",  self.RegimeSlot);
+      info.AddValue("HQSpriteFileName",  self.HQSpriteFileName);
+      info.AddValue("HQSpriteFileName2",  self.HQSpriteFileName2);
+      info.AddValue("BaseMorale", self.BaseMorale);
+      info.AddValue("ResPts", self.ResPts);
+      info.AddValue("ResFieldCounter", self.ResFieldCounter);
+      info.AddValue("ResField",  self.ResField);
+      info.AddValue("RegimeCounter", self.RegimeCounter);
+      info.AddValue("RegimeRel",  self.RegimeRel);
+      info.AddValue("RegimeOffer",  self.RegimeOffer);
+      info.AddValue("MapCount", self.MapCount);
+      info.AddValue("HistoryOwner",  self.HistoryOwner);
+      info.AddValue("HistorySFType",  self.HistorySFType);
+      info.AddValue("HistoryForce",  self.HistoryForce);
+      info.AddValue("HistoryHis",  self.HistoryHis);
+      info.AddValue("HistoryDepth",  self.HistoryDepth);
+      info.AddValue("HistoryStep",  self.HistoryStep);
+      info.AddValue("HistoryStepCounter", self.HistoryStepCounter);
+      info.AddValue("MessCounter", self.MessCounter);
+      info.AddValue("MessString",  self.MessString);
+      info.AddValue("MessBackPic",  self.MessBackPic);
+      info.AddValue("MessFrontPic",  self.MessFrontPic);
+      info.AddValue("MessWav",  self.MessWav);
+      info.AddValue("MesStyle",  self.MesStyle);
+      info.AddValue("MesNote",  self.MesNote);
+      info.AddValue("MesNote2",  self.MesNote2);
+      info.AddValue("MesName",  self.MesName);
+      info.AddValue("MesGroup",  self.MesGroup);
+      info.AddValue("MesChosen",  self.MesChosen);
+      info.AddValue("MesHideFromStart",  self.MesHideFromStart);
+      info.AddValue("MesHideFromTab",  self.MesHideFromTab);
+      info.AddValue("AI", self.AI);
+      info.AddValue("AIid", self.AIid);
+      info.AddValue("Sleep", self.Sleep);
+      info.AddValue("PassWord",  self.PassWord);
+      info.AddValue("UnitName",  self.UnitName);
+      info.AddValue("UnitNumber", self.UnitNumber);
+      info.AddValue("HQName",  self.HQName);
+      info.AddValue("HQNumber", self.HQNumber);
+      info.AddValue("SLoss",  self.SLoss);
+      info.AddValue("SKills",  self.SKills);
+      info.AddValue("SProd",  self.SProd);
+      info.AddValue("SPresent",  self.SPresent);
+      info.AddValue("DipBlock", self.DipBlock);
+      info.AddValue("SASSupplyLost", self.SASSupplyLost);
+      info.AddValue("SASSupplyKilled", self.SASSupplyKilled);
+      info.AddValue("SASProdLost",  self.SASProdLost);
+      info.AddValue("SASKilled",  self.SASKilled);
+      info.AddValue("HQSpriteOverrule", self.HQSpriteOverrule);
+      info.AddValue("PlanCounter", self.PlanCounter);
+      info.AddValue("PlanObj",  self.PlanObj);
+      info.AddValue("ProdBonus", self.ProdBonus);
+      info.AddValue("AIVP",  self.AIVP);
+      info.AddValue("Trafic",  self.Trafic);
+      info.AddValue("Trafic2",  self.Trafic2);
+      info.AddValue("AIPower",  self.AIPower);
+      info.AddValue("AIDefense",  self.AIDefense);
+      info.AddValue("ActionCardCounter", self.ActionCardCounter);
+      info.AddValue("ActionCard",  self.ActionCard);
+      info.AddValue("ActionCardHistoryCounter", self.ActionCardHistoryCounter);
+      info.AddValue("ActionCardHistory",  self.ActionCardHistory);
+      info.AddValue("ActionCardHistoryRound",  self.ActionCardHistoryRound);
+      info.AddValue("AIConservative", self.AIConservative);
+      info.AddValue("ExtraStat",  self.ExtraStat);
+      info.AddValue("NationalIconSpriteName",  self.NationalIconSpriteName);
+      info.AddValue("RoundelSpriteName",  self.RoundelSpriteName);
+      info.AddValue("RoundelSpriteName2",  self.RoundelSpriteName2);
+      info.AddValue("BannerSpriteFileName",  self.BannerSpriteFileName);
+      info.AddValue("BannerSpriteFileName2",  self.BannerSpriteFileName2);
+      info.AddValue("SymbolSpriteName",  self.SymbolSpriteName);
+      info.AddValue("ExtraGraphicUse", self.ExtraGraphicUse);
+      info.AddValue("FirstRound", self.FirstRound);
+      info.AddValue("RandomCode", self.RandomCode);
+      info.AddValue("AIGroupCounter", self.AIGroupCounter);
+      info.AddValue("AIGroupHis",  self.AIGroupHis);
+      info.AddValue("AIGroupType",  self.AIGroupType);
+      info.AddValue("AIGroupLastAttack",  self.AIGroupLastAttack);
+      info.AddValue("AIGroupLastDefend",  self.AIGroupLastDefend);
+      info.AddValue("AIGroupLastFollowUp",  self.AIGroupLastFollowUp);
+      info.AddValue("AIGroupLastFallBack",  self.AIGroupLastFallBack);
+      info.AddValue("AICorpsTopGroup",  self.AICorpsTopGroup);
+      info.AddValue("AIGroupName",  self.AIGroupName);
+      info.AddValue("OfficerPool", self.OfficerPool);
+      info.AddValue("UberRegime", self.UberRegime);
+      info.AddValue("Mirror", self.Mirror);
+      info.AddValue("Version", self.Version);
+      info.AddValue("subVersion",  self.subVersion);
+      info.AddValue("LoadTransferHistorical", self.LoadTransferHistorical);
+      info.AddValue("OldAINarrow",  self.OldAINarrow);
+      info.AddValue("AIHelpMove", self.AIHelpMove);
+      info.AddValue("AIHelpCombat", self.AIHelpCombat);
+      info.AddValue("AIHelpStrategic", self.AIHelpStrategic);
+      info.AddValue("PBEMPlayer", self.PbemPlayer);
+      info.AddValue("UseAlternateActionCardPics", self.UseAlternateActionCardPics);
+      info.AddValue("FerryEffectivity", self.FerryEffectivity);
+      info.AddValue("LibId",  self.libId);
+      info.AddValue("Id", self.id);
+      info.AddValue("hideFromList", self.hideFromList);
+      info.AddValue("minimumDataUsage", self.minimumDataUsage);
     }
 
     pub fn AddPlan()
     {
       this += 1.PlanCounter;
-      this.PlanObj = (AIPlanClass[]) Utils.CopyArray((Array) this.PlanObj, (Array) new AIPlanClass[this.PlanCounter + 1]);
-      this.PlanObj[this.PlanCounter] = AIPlanClass::new();
+      self.PlanObj = (AIPlanClass[]) Utils.CopyArray((Array) self.PlanObj, (Array) new AIPlanClass[self.PlanCounter + 1]);
+      self.PlanObj[self.PlanCounter] = AIPlanClass::new();
     }
 
     pub fn RemovePlan(nr: i32)
     {
-      if (nr < this.PlanCounter)
+      if (nr < self.PlanCounter)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.PlanCounter - 1;
+        let mut num2: i32 = self.PlanCounter - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
-          this.PlanObj[index] = this.PlanObj[index + 1];
+          self.PlanObj[index] = self.PlanObj[index + 1];
       }
-      --this.PlanCounter;
-      this.PlanObj = (AIPlanClass[]) Utils.CopyArray((Array) this.PlanObj, (Array) new AIPlanClass[this.PlanCounter + 1]);
+      --self.PlanCounter;
+      self.PlanObj = (AIPlanClass[]) Utils.CopyArray((Array) self.PlanObj, (Array) new AIPlanClass[self.PlanCounter + 1]);
     }
 
     protected RegimeClass(SerializationInfo info, StreamingContext context)
     {
-      this.RegimeSlot = new int[500];
-      this.LastTempRegimeSlotPredict = new int[500];
-      this.TempRegimeSlotPredict = new int[500];
-      this.TempRegimeSlotIncrease = new int[500];
-      this.ResField = new bool[1];
-      this.RegimeRel = new int[1];
-      this.RegimeOffer = new int[1];
-      this.HistoryOwner = new MapMatrix2[1];
-      this.HistoryForce = new MapMatrix2[1];
-      this.HistorySFType = new MapMatrix2[1];
-      this.HistoryHis = new MapMatrix2[1];
-      this.HistoryDepth = new MapMatrix2[1];
-      this.Trafic = new MapMatrix2[1];
-      this.Trafic2 = new MapMatrix2[1];
-      this.AIVP = new MapMatrix2[1];
-      this.AIPower = new MapMatrix2[1];
-      this.AIDefense = new MapMatrix2[1];
-      this.OldAINarrow = new MapMatrix2[1];
-      this.HistoryStep = new HistoryStepClass[1];
-      this.MessString = new string[1];
-      this.MessBackPic = new int[1];
-      this.MessFrontPic = new int[1];
-      this.MessWav = new string[1];
-      this.MesStyle = new int[1];
-      this.MesNote = new string[1];
-      this.MesNote2 = new string[1];
-      this.MesName = new string[1];
-      this.MesGroup = new int[1];
-      this.MesHideFromStart = new bool[1];
-      this.MesHideFromTab = new bool[1];
-      this.MesChosen = new int[1];
-      this.SLoss = new int[1, 1];
-      this.SKills = new int[1, 1];
-      this.SProd = new int[1, 1];
-      this.SPresent = new int[1, 1];
-      this.LisPoints = new int[1, 1, 7];
-      this.PlanObj = new AIPlanClass[1];
-      this.SASProdLost = new int[1];
-      this.SASKilled = new int[1];
-      this.ActionCard = new int[1];
-      this.ActionCardHistory = new int[1];
-      this.ActionCardHistoryRound = new int[1];
-      this.ExtraStat = new int[3, 1];
-      this.AIGroupName = new string[1];
-      this.AIGroupType = new int[1];
-      this.AIGroupHis = new int[1];
-      this.AIGroupLastAttack = new int[1];
-      this.AIGroupLastDefend = new int[1];
-      this.AIGroupLastFollowUp = new int[1];
-      this.AIGroupLastFallBack = new int[1];
-      this.AICorpsTopGroup = new int[1];
-      this.Name = info.GetString(nameof (Name));
-      this.Red = info.GetInt32(nameof (Red));
-      this.Green = info.GetInt32(nameof (Green));
-      this.Blue = info.GetInt32(nameof (Blue));
-      this.Red2 = info.GetInt32(nameof (Red2));
-      this.Green2 = info.GetInt32(nameof (Green2));
-      this.Blue2 = info.GetInt32(nameof (Blue2));
+      self.RegimeSlot = new int[500];
+      self.LastTempRegimeSlotPredict = new int[500];
+      self.TempRegimeSlotPredict = new int[500];
+      self.TempRegimeSlotIncrease = new int[500];
+      self.ResField = new bool[1];
+      self.RegimeRel = new int[1];
+      self.RegimeOffer = new int[1];
+      self.HistoryOwner = new MapMatrix2[1];
+      self.HistoryForce = new MapMatrix2[1];
+      self.HistorySFType = new MapMatrix2[1];
+      self.HistoryHis = new MapMatrix2[1];
+      self.HistoryDepth = new MapMatrix2[1];
+      self.Trafic = new MapMatrix2[1];
+      self.Trafic2 = new MapMatrix2[1];
+      self.AIVP = new MapMatrix2[1];
+      self.AIPower = new MapMatrix2[1];
+      self.AIDefense = new MapMatrix2[1];
+      self.OldAINarrow = new MapMatrix2[1];
+      self.HistoryStep = new HistoryStepClass[1];
+      self.MessString = new string[1];
+      self.MessBackPic = new int[1];
+      self.MessFrontPic = new int[1];
+      self.MessWav = new string[1];
+      self.MesStyle = new int[1];
+      self.MesNote = new string[1];
+      self.MesNote2 = new string[1];
+      self.MesName = new string[1];
+      self.MesGroup = new int[1];
+      self.MesHideFromStart = new bool[1];
+      self.MesHideFromTab = new bool[1];
+      self.MesChosen = new int[1];
+      self.SLoss = new int[1, 1];
+      self.SKills = new int[1, 1];
+      self.SProd = new int[1, 1];
+      self.SPresent = new int[1, 1];
+      self.LisPoints = new int[1, 1, 7];
+      self.PlanObj = new AIPlanClass[1];
+      self.SASProdLost = new int[1];
+      self.SASKilled = new int[1];
+      self.ActionCard = new int[1];
+      self.ActionCardHistory = new int[1];
+      self.ActionCardHistoryRound = new int[1];
+      self.ExtraStat = new int[3, 1];
+      self.AIGroupName = new string[1];
+      self.AIGroupType = new int[1];
+      self.AIGroupHis = new int[1];
+      self.AIGroupLastAttack = new int[1];
+      self.AIGroupLastDefend = new int[1];
+      self.AIGroupLastFollowUp = new int[1];
+      self.AIGroupLastFallBack = new int[1];
+      self.AICorpsTopGroup = new int[1];
+      self.Name = info.GetString(nameof (Name));
+      self.Red = info.GetInt32(nameof (Red));
+      self.Green = info.GetInt32(nameof (Green));
+      self.Blue = info.GetInt32(nameof (Blue));
+      self.Red2 = info.GetInt32(nameof (Red2));
+      self.Green2 = info.GetInt32(nameof (Green2));
+      self.Blue2 = info.GetInt32(nameof (Blue2));
       try
       {
-        this.Red3 = info.GetInt32(nameof (Red3));
-        this.Green3 = info.GetInt32(nameof (Green3));
-        this.Blue3 = info.GetInt32(nameof (Blue3));
-        this.Red4 = info.GetInt32(nameof (Red4));
-        this.Green4 = info.GetInt32(nameof (Green4));
-        this.Blue4 = info.GetInt32(nameof (Blue4));
+        self.Red3 = info.GetInt32(nameof (Red3));
+        self.Green3 = info.GetInt32(nameof (Green3));
+        self.Blue3 = info.GetInt32(nameof (Blue3));
+        self.Red4 = info.GetInt32(nameof (Red4));
+        self.Green4 = info.GetInt32(nameof (Green4));
+        self.Blue4 = info.GetInt32(nameof (Blue4));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
         ProjectData.ClearProjectError();
       }
-      this.People = info.GetInt32(nameof (People));
-      this.RegimeSlot = (int[]) info.GetValue(nameof (RegimeSlot), this.RegimeSlot.GetType());
-      this.HQSpriteFileName = info.GetString(nameof (HQSpriteFileName));
+      self.People = info.GetInt32(nameof (People));
+      self.RegimeSlot = (int[]) info.GetValue(nameof (RegimeSlot), self.RegimeSlot.GetType());
+      self.HQSpriteFileName = info.GetString(nameof (HQSpriteFileName));
       try
       {
-        this.HQSpriteFileName2 = info.GetString(nameof (HQSpriteFileName2));
-        this.BannerSpriteFileName = info.GetString(nameof (BannerSpriteFileName));
-        this.BannerSpriteFileName2 = info.GetString(nameof (BannerSpriteFileName2));
-        this.SymbolSpriteName = info.GetString(nameof (SymbolSpriteName));
+        self.HQSpriteFileName2 = info.GetString(nameof (HQSpriteFileName2));
+        self.BannerSpriteFileName = info.GetString(nameof (BannerSpriteFileName));
+        self.BannerSpriteFileName2 = info.GetString(nameof (BannerSpriteFileName2));
+        self.SymbolSpriteName = info.GetString(nameof (SymbolSpriteName));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.HQSpriteFileName2 = "systemgraphics/trans.bmp";
-        this.BannerSpriteFileName = "systemgraphics/trans.bmp";
-        this.BannerSpriteFileName2 = "systemgraphics/trans.bmp";
-        this.SymbolSpriteName = "systemgraphics/trans.bmp";
+        self.HQSpriteFileName2 = "systemgraphics/trans.bmp";
+        self.BannerSpriteFileName = "systemgraphics/trans.bmp";
+        self.BannerSpriteFileName2 = "systemgraphics/trans.bmp";
+        self.SymbolSpriteName = "systemgraphics/trans.bmp";
         ProjectData.ClearProjectError();
       }
-      this.BaseMorale = info.GetInt32(nameof (BaseMorale));
-      this.ResPts = info.GetInt32(nameof (ResPts));
-      this.ResFieldCounter = info.GetInt32(nameof (ResFieldCounter));
-      this.ResField = this.ResFieldCounter <= -1 ? new bool[1] : new bool[this.ResFieldCounter + 1];
-      this.ResField = (bool[]) info.GetValue(nameof (ResField), this.ResField.GetType());
-      this.RegimeCounter = info.GetInt32(nameof (RegimeCounter));
-      if (this.RegimeCounter > -1)
+      self.BaseMorale = info.GetInt32(nameof (BaseMorale));
+      self.ResPts = info.GetInt32(nameof (ResPts));
+      self.ResFieldCounter = info.GetInt32(nameof (ResFieldCounter));
+      self.ResField = self.ResFieldCounter <= -1 ? new bool[1] : new bool[self.ResFieldCounter + 1];
+      self.ResField = (bool[]) info.GetValue(nameof (ResField), self.ResField.GetType());
+      self.RegimeCounter = info.GetInt32(nameof (RegimeCounter));
+      if (self.RegimeCounter > -1)
       {
-        this.RegimeRel = new int[this.RegimeCounter + 1];
-        this.RegimeOffer = new int[this.RegimeCounter + 1];
+        self.RegimeRel = new int[self.RegimeCounter + 1];
+        self.RegimeOffer = new int[self.RegimeCounter + 1];
       }
       else
       {
-        this.RegimeRel = new int[1];
-        this.RegimeOffer = new int[1];
+        self.RegimeRel = new int[1];
+        self.RegimeOffer = new int[1];
       }
-      this.RegimeRel = (int[]) info.GetValue(nameof (RegimeRel), this.RegimeRel.GetType());
+      self.RegimeRel = (int[]) info.GetValue(nameof (RegimeRel), self.RegimeRel.GetType());
       try
       {
-        this.RegimeOffer = (int[]) info.GetValue(nameof (RegimeOffer), this.RegimeOffer.GetType());
+        self.RegimeOffer = (int[]) info.GetValue(nameof (RegimeOffer), self.RegimeOffer.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
         ProjectData.ClearProjectError();
       }
-      this.AI = info.GetBoolean(nameof (AI));
-      this.Sleep = info.GetBoolean(nameof (Sleep));
-      this.HistoryStepCounter = info.GetInt32(nameof (HistoryStepCounter));
-      this.HistoryStep = this.HistoryStepCounter <= -1 ? new HistoryStepClass[1] : new HistoryStepClass[this.HistoryStepCounter + 1];
-      this.HistoryStep = (HistoryStepClass[]) info.GetValue(nameof (HistoryStep), this.HistoryStep.GetType());
+      self.AI = info.GetBoolean(nameof (AI));
+      self.Sleep = info.GetBoolean(nameof (Sleep));
+      self.HistoryStepCounter = info.GetInt32(nameof (HistoryStepCounter));
+      self.HistoryStep = self.HistoryStepCounter <= -1 ? new HistoryStepClass[1] : new HistoryStepClass[self.HistoryStepCounter + 1];
+      self.HistoryStep = (HistoryStepClass[]) info.GetValue(nameof (HistoryStep), self.HistoryStep.GetType());
       try
       {
-        this.UberRegime = info.GetInt32(nameof (UberRegime));
+        self.UberRegime = info.GetInt32(nameof (UberRegime));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.UberRegime = -1;
+        self.UberRegime = -1;
         ProjectData.ClearProjectError();
       }
       let mut mapWidth: i32 = DrawMod.TGame.Data.MapWidth;
@@ -439,166 +439,166 @@ namespace WindowsApplication1
       numArray1: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
       try
       {
-        this.MapCount = info.GetInt32(nameof (MapCount));
-        this.HistoryOwner = new MapMatrix2[this.MapCount + 1];
-        this.HistoryForce = new MapMatrix2[this.MapCount + 1];
-        this.HistorySFType = new MapMatrix2[this.MapCount + 1];
-        this.HistoryHis = new MapMatrix2[this.MapCount + 1];
-        this.HistoryDepth = new MapMatrix2[this.MapCount + 1];
-        this.AIVP = new MapMatrix2[this.MapCount + 1];
-        this.AIPower = new MapMatrix2[this.MapCount + 1];
-        this.AIDefense = new MapMatrix2[this.MapCount + 1];
-        this.HistoryOwner = (MapMatrix2[]) info.GetValue(nameof (HistoryOwner), this.HistoryOwner.GetType());
-        this.HistoryForce = (MapMatrix2[]) info.GetValue(nameof (HistoryForce), this.HistoryForce.GetType());
-        this.HistorySFType = (MapMatrix2[]) info.GetValue(nameof (HistorySFType), this.HistorySFType.GetType());
-        this.HistoryHis = (MapMatrix2[]) info.GetValue(nameof (HistoryHis), this.HistoryHis.GetType());
-        this.HistoryDepth = (MapMatrix2[]) info.GetValue(nameof (HistoryDepth), this.HistoryDepth.GetType());
-        this.AIVP = (MapMatrix2[]) info.GetValue(nameof (AIVP), this.AIVP.GetType());
-        this.AIPower = (MapMatrix2[]) info.GetValue(nameof (AIPower), this.AIPower.GetType());
+        self.MapCount = info.GetInt32(nameof (MapCount));
+        self.HistoryOwner = new MapMatrix2[self.MapCount + 1];
+        self.HistoryForce = new MapMatrix2[self.MapCount + 1];
+        self.HistorySFType = new MapMatrix2[self.MapCount + 1];
+        self.HistoryHis = new MapMatrix2[self.MapCount + 1];
+        self.HistoryDepth = new MapMatrix2[self.MapCount + 1];
+        self.AIVP = new MapMatrix2[self.MapCount + 1];
+        self.AIPower = new MapMatrix2[self.MapCount + 1];
+        self.AIDefense = new MapMatrix2[self.MapCount + 1];
+        self.HistoryOwner = (MapMatrix2[]) info.GetValue(nameof (HistoryOwner), self.HistoryOwner.GetType());
+        self.HistoryForce = (MapMatrix2[]) info.GetValue(nameof (HistoryForce), self.HistoryForce.GetType());
+        self.HistorySFType = (MapMatrix2[]) info.GetValue(nameof (HistorySFType), self.HistorySFType.GetType());
+        self.HistoryHis = (MapMatrix2[]) info.GetValue(nameof (HistoryHis), self.HistoryHis.GetType());
+        self.HistoryDepth = (MapMatrix2[]) info.GetValue(nameof (HistoryDepth), self.HistoryDepth.GetType());
+        self.AIVP = (MapMatrix2[]) info.GetValue(nameof (AIVP), self.AIVP.GetType());
+        self.AIPower = (MapMatrix2[]) info.GetValue(nameof (AIPower), self.AIPower.GetType());
         try
         {
-          this.AIDefense = (MapMatrix2[]) info.GetValue(nameof (AIDefense), this.AIPower.GetType());
+          self.AIDefense = (MapMatrix2[]) info.GetValue(nameof (AIDefense), self.AIPower.GetType());
         }
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
           ProjectData.ClearProjectError();
         }
-        this.Trafic = new MapMatrix2[this.MapCount + 1];
+        self.Trafic = new MapMatrix2[self.MapCount + 1];
         try
         {
-          this.Trafic = (MapMatrix2[]) info.GetValue(nameof (Trafic), this.Trafic.GetType());
+          self.Trafic = (MapMatrix2[]) info.GetValue(nameof (Trafic), self.Trafic.GetType());
         }
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          this.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
+          self.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
           ProjectData.ClearProjectError();
         }
-        this.Trafic2 = new MapMatrix2[this.MapCount + 1];
+        self.Trafic2 = new MapMatrix2[self.MapCount + 1];
         try
         {
-          this.Trafic2 = (MapMatrix2[]) info.GetValue(nameof (Trafic2), this.Trafic2.GetType());
+          self.Trafic2 = (MapMatrix2[]) info.GetValue(nameof (Trafic2), self.Trafic2.GetType());
         }
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          this.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
+          self.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
           ProjectData.ClearProjectError();
         }
       }
       catch (Exception ex1)
       {
         ProjectData.SetProjectError(ex1);
-        this.MapCount = 0;
-        this.HistoryOwner = new MapMatrix2[1];
-        this.HistoryForce = new MapMatrix2[1];
-        this.HistorySFType = new MapMatrix2[1];
-        this.HistoryHis = new MapMatrix2[1];
-        this.HistoryDepth = new MapMatrix2[1];
-        this.AIVP = new MapMatrix2[1];
-        this.AIPower = new MapMatrix2[1];
-        this.AIDefense = new MapMatrix2[1];
+        self.MapCount = 0;
+        self.HistoryOwner = new MapMatrix2[1];
+        self.HistoryForce = new MapMatrix2[1];
+        self.HistorySFType = new MapMatrix2[1];
+        self.HistoryHis = new MapMatrix2[1];
+        self.HistoryDepth = new MapMatrix2[1];
+        self.AIVP = new MapMatrix2[1];
+        self.AIPower = new MapMatrix2[1];
+        self.AIDefense = new MapMatrix2[1];
         if (mapWidth > -1 & mapHeight > -1)
         {
           numArray2: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
           numArray3: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryOwner), numArray2.GetType());
-          this.HistoryOwner[0] = new MapMatrix2(mapWidth, mapHeight);
-          this.HistoryOwner[0].Value = numArray3;
+          self.HistoryOwner[0] = new MapMatrix2(mapWidth, mapHeight);
+          self.HistoryOwner[0].Value = numArray3;
           numArray4: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
           numArray5: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryForce), numArray4.GetType());
-          this.HistoryForce[0] = new MapMatrix2(mapWidth, mapHeight);
-          this.HistoryForce[0].Value = numArray5;
+          self.HistoryForce[0] = new MapMatrix2(mapWidth, mapHeight);
+          self.HistoryForce[0].Value = numArray5;
           numArray6: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
           numArray7: Vec<i32> = (int[,]) info.GetValue(nameof (HistorySFType), numArray6.GetType());
-          this.HistorySFType[0] = new MapMatrix2(mapWidth, mapHeight);
-          this.HistorySFType[0].Value = numArray7;
+          self.HistorySFType[0] = new MapMatrix2(mapWidth, mapHeight);
+          self.HistorySFType[0].Value = numArray7;
           try
           {
             numArray8: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray9: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryHis), numArray8.GetType());
-            this.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.HistoryHis[0].Value = numArray9;
+            self.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.HistoryHis[0].Value = numArray9;
             numArray10: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray11: Vec<i32> = (int[,]) info.GetValue(nameof (HistoryDepth), numArray10.GetType());
-            this.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.HistoryDepth[0].Value = numArray11;
+            self.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.HistoryDepth[0].Value = numArray11;
           }
           catch (Exception ex2)
           {
             ProjectData.SetProjectError(ex2);
-            this.HistoryHis = new MapMatrix2[1];
-            this.HistoryDepth = new MapMatrix2[1];
+            self.HistoryHis = new MapMatrix2[1];
+            self.HistoryDepth = new MapMatrix2[1];
             numArray12: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
-            this.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.HistoryHis[0].Value = numArray12;
-            this.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.HistoryDepth[0].Value = numArray12;
+            self.HistoryHis[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.HistoryHis[0].Value = numArray12;
+            self.HistoryDepth[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.HistoryDepth[0].Value = numArray12;
             ProjectData.ClearProjectError();
           }
           try
           {
             numArray13: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray14: Vec<i32> = (int[,]) info.GetValue(nameof (AIVP), numArray13.GetType());
-            this.AIVP[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.AIVP[0].Value = numArray14;
+            self.AIVP[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIVP[0].Value = numArray14;
           }
           catch (Exception ex3)
           {
             ProjectData.SetProjectError(ex3);
-            this.AIVP[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIVP[0] = new MapMatrix2(mapWidth, mapHeight);
             ProjectData.ClearProjectError();
           }
           try
           {
             numArray15: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray16: Vec<i32> = (int[,]) info.GetValue(nameof (Trafic), numArray15.GetType());
-            this.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.Trafic[0].Value = numArray16;
+            self.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.Trafic[0].Value = numArray16;
           }
           catch (Exception ex4)
           {
             ProjectData.SetProjectError(ex4);
-            this.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.Trafic[0] = new MapMatrix2(mapWidth, mapHeight);
             ProjectData.ClearProjectError();
           }
           try
           {
             numArray17: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray18: Vec<i32> = (int[,]) info.GetValue(nameof (Trafic2), numArray17.GetType());
-            this.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.Trafic2[0].Value = numArray18;
+            self.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.Trafic2[0].Value = numArray18;
           }
           catch (Exception ex5)
           {
             ProjectData.SetProjectError(ex5);
-            this.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.Trafic2[0] = new MapMatrix2(mapWidth, mapHeight);
             ProjectData.ClearProjectError();
           }
           try
           {
             numArray19: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray20: Vec<i32> = (int[,]) info.GetValue(nameof (AIPower), numArray19.GetType());
-            this.AIPower[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.AIPower[0].Value = numArray20;
+            self.AIPower[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIPower[0].Value = numArray20;
           }
           catch (Exception ex6)
           {
             ProjectData.SetProjectError(ex6);
-            this.AIPower[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIPower[0] = new MapMatrix2(mapWidth, mapHeight);
             ProjectData.ClearProjectError();
           }
           try
           {
             numArray21: Vec<i32> = new int[mapWidth + 1, mapHeight + 1];
             numArray22: Vec<i32> = (int[,]) info.GetValue(nameof (AIDefense), numArray21.GetType());
-            this.AIDefense[0] = new MapMatrix2(mapWidth, mapHeight);
-            this.AIDefense[0].Value = numArray22;
+            self.AIDefense[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIDefense[0].Value = numArray22;
           }
           catch (Exception ex7)
           {
             ProjectData.SetProjectError(ex7);
-            this.AIDefense[0] = new MapMatrix2(mapWidth, mapHeight);
+            self.AIDefense[0] = new MapMatrix2(mapWidth, mapHeight);
             ProjectData.ClearProjectError();
           }
         }
@@ -606,102 +606,102 @@ namespace WindowsApplication1
       }
       try
       {
-        this.LoadTransferHistorical = info.GetBoolean(nameof (LoadTransferHistorical));
+        self.LoadTransferHistorical = info.GetBoolean(nameof (LoadTransferHistorical));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.LoadTransferHistorical = false;
+        self.LoadTransferHistorical = false;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.OfficerPool = info.GetInt32(nameof (OfficerPool));
+        self.OfficerPool = info.GetInt32(nameof (OfficerPool));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.OfficerPool = -1;
+        self.OfficerPool = -1;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.OldAINarrow[0] = new MapMatrix2(mapWidth, mapHeight);
-        this.OldAINarrow = (MapMatrix2[]) info.GetValue(nameof (OldAINarrow), this.OldAINarrow.GetType());
+        self.OldAINarrow[0] = new MapMatrix2(mapWidth, mapHeight);
+        self.OldAINarrow = (MapMatrix2[]) info.GetValue(nameof (OldAINarrow), self.OldAINarrow.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.OldAINarrow[0] = new MapMatrix2(mapWidth, mapHeight);
+        self.OldAINarrow[0] = new MapMatrix2(mapWidth, mapHeight);
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.Mirror = info.GetBoolean(nameof (Mirror));
+        self.Mirror = info.GetBoolean(nameof (Mirror));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.Mirror = false;
+        self.Mirror = false;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.Version = info.GetInt32(nameof (Version));
+        self.Version = info.GetInt32(nameof (Version));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.Version = 0;
+        self.Version = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.subVersion = info.GetString(nameof (subVersion));
+        self.subVersion = info.GetString(nameof (subVersion));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.subVersion = "";
+        self.subVersion = "";
         ProjectData.ClearProjectError();
       }
-      this.MessCounter = info.GetInt32(nameof (MessCounter));
-      if (this.MessCounter > -1)
+      self.MessCounter = info.GetInt32(nameof (MessCounter));
+      if (self.MessCounter > -1)
       {
-        this.MessString = new string[this.MessCounter + 1];
-        this.MessBackPic = new int[this.MessCounter + 1];
-        this.MessFrontPic = new int[this.MessCounter + 1];
-        this.MessWav = new string[this.MessCounter + 1];
-        this.MesStyle = new int[this.MessCounter + 1];
-        this.MesNote = new string[this.MessCounter + 1];
-        this.MesNote2 = new string[this.MessCounter + 1];
-        this.MesGroup = new int[this.MessCounter + 1];
-        this.MesName = new string[this.MessCounter + 1];
-        this.MesChosen = new int[this.MessCounter + 1];
-        this.MesHideFromStart = new bool[this.MessCounter + 1];
-        this.MesHideFromTab = new bool[this.MessCounter + 1];
+        self.MessString = new string[self.MessCounter + 1];
+        self.MessBackPic = new int[self.MessCounter + 1];
+        self.MessFrontPic = new int[self.MessCounter + 1];
+        self.MessWav = new string[self.MessCounter + 1];
+        self.MesStyle = new int[self.MessCounter + 1];
+        self.MesNote = new string[self.MessCounter + 1];
+        self.MesNote2 = new string[self.MessCounter + 1];
+        self.MesGroup = new int[self.MessCounter + 1];
+        self.MesName = new string[self.MessCounter + 1];
+        self.MesChosen = new int[self.MessCounter + 1];
+        self.MesHideFromStart = new bool[self.MessCounter + 1];
+        self.MesHideFromTab = new bool[self.MessCounter + 1];
       }
       else
       {
-        this.MessString = new string[1];
-        this.MessBackPic = new int[1];
-        this.MessFrontPic = new int[1];
-        this.MessWav = new string[1];
-        this.MesStyle = new int[1];
-        this.MesNote = new string[1];
-        this.MesNote2 = new string[1];
-        this.MesGroup = new int[1];
-        this.MesName = new string[1];
-        this.MesChosen = new int[1];
-        this.MesHideFromStart = new bool[1];
-        this.MesHideFromTab = new bool[1];
+        self.MessString = new string[1];
+        self.MessBackPic = new int[1];
+        self.MessFrontPic = new int[1];
+        self.MessWav = new string[1];
+        self.MesStyle = new int[1];
+        self.MesNote = new string[1];
+        self.MesNote2 = new string[1];
+        self.MesGroup = new int[1];
+        self.MesName = new string[1];
+        self.MesChosen = new int[1];
+        self.MesHideFromStart = new bool[1];
+        self.MesHideFromTab = new bool[1];
       }
-      this.MessString = (string[]) info.GetValue(nameof (MessString), this.MessString.GetType());
-      this.MessBackPic = (int[]) info.GetValue(nameof (MessBackPic), this.MessBackPic.GetType());
-      this.MessFrontPic = (int[]) info.GetValue(nameof (MessFrontPic), this.MessFrontPic.GetType());
+      self.MessString = (string[]) info.GetValue(nameof (MessString), self.MessString.GetType());
+      self.MessBackPic = (int[]) info.GetValue(nameof (MessBackPic), self.MessBackPic.GetType());
+      self.MessFrontPic = (int[]) info.GetValue(nameof (MessFrontPic), self.MessFrontPic.GetType());
       try
       {
-        this.MessWav = (string[]) info.GetValue(nameof (MessWav), this.MessWav.GetType());
+        self.MessWav = (string[]) info.GetValue(nameof (MessWav), self.MessWav.GetType());
       }
       catch (Exception ex)
       {
@@ -710,9 +710,9 @@ namespace WindowsApplication1
       }
       try
       {
-        this.MesStyle = (int[]) info.GetValue(nameof (MesStyle), this.MesStyle.GetType());
-        this.MesNote = (string[]) info.GetValue(nameof (MesNote), this.MesNote.GetType());
-        this.MesNote2 = (string[]) info.GetValue(nameof (MesNote2), this.MesNote2.GetType());
+        self.MesStyle = (int[]) info.GetValue(nameof (MesStyle), self.MesStyle.GetType());
+        self.MesNote = (string[]) info.GetValue(nameof (MesNote), self.MesNote.GetType());
+        self.MesNote2 = (string[]) info.GetValue(nameof (MesNote2), self.MesNote2.GetType());
       }
       catch (Exception ex)
       {
@@ -721,248 +721,248 @@ namespace WindowsApplication1
       }
       try
       {
-        this.MesName = (string[]) info.GetValue(nameof (MesName), this.MesName.GetType());
-        this.MesGroup = (int[]) info.GetValue(nameof (MesGroup), this.MesGroup.GetType());
-        this.MesChosen = (int[]) info.GetValue(nameof (MesChosen), this.MesChosen.GetType());
-        this.MesHideFromStart = (bool[]) info.GetValue(nameof (MesHideFromStart), this.MesHideFromStart.GetType());
-        this.MesHideFromTab = (bool[]) info.GetValue(nameof (MesHideFromTab), this.MesHideFromTab.GetType());
+        self.MesName = (string[]) info.GetValue(nameof (MesName), self.MesName.GetType());
+        self.MesGroup = (int[]) info.GetValue(nameof (MesGroup), self.MesGroup.GetType());
+        self.MesChosen = (int[]) info.GetValue(nameof (MesChosen), self.MesChosen.GetType());
+        self.MesHideFromStart = (bool[]) info.GetValue(nameof (MesHideFromStart), self.MesHideFromStart.GetType());
+        self.MesHideFromTab = (bool[]) info.GetValue(nameof (MesHideFromTab), self.MesHideFromTab.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
         ProjectData.ClearProjectError();
       }
-      this.AIid = info.GetInt32(nameof (AIid));
-      this.PassWord = info.GetString(nameof (PassWord));
-      this.UnitName = info.GetString(nameof (UnitName));
-      this.UnitNumber = info.GetInt32(nameof (UnitNumber));
-      this.HQName = info.GetString(nameof (HQName));
-      this.HQNumber = info.GetInt32(nameof (HQNumber));
-      this.SLoss = (int[,]) info.GetValue(nameof (SLoss), this.SLoss.GetType());
-      this.SKills = (int[,]) info.GetValue(nameof (SKills), this.SKills.GetType());
-      this.SProd = (int[,]) info.GetValue(nameof (SProd), this.SProd.GetType());
+      self.AIid = info.GetInt32(nameof (AIid));
+      self.PassWord = info.GetString(nameof (PassWord));
+      self.UnitName = info.GetString(nameof (UnitName));
+      self.UnitNumber = info.GetInt32(nameof (UnitNumber));
+      self.HQName = info.GetString(nameof (HQName));
+      self.HQNumber = info.GetInt32(nameof (HQNumber));
+      self.SLoss = (int[,]) info.GetValue(nameof (SLoss), self.SLoss.GetType());
+      self.SKills = (int[,]) info.GetValue(nameof (SKills), self.SKills.GetType());
+      self.SProd = (int[,]) info.GetValue(nameof (SProd), self.SProd.GetType());
       try
       {
-        this.SPresent = (int[,]) info.GetValue(nameof (SPresent), this.SPresent.GetType());
+        self.SPresent = (int[,]) info.GetValue(nameof (SPresent), self.SPresent.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.SPresent = new int[this.SLoss.GetUpperBound(0) + 1, this.SLoss.GetUpperBound(1) + 1];
+        self.SPresent = new int[self.SLoss.GetUpperBound(0) + 1, self.SLoss.GetUpperBound(1) + 1];
         ProjectData.ClearProjectError();
       }
-      if (this.SProd.GetUpperBound(0) < this.SKills.GetUpperBound(0))
-        this.SProd = new int[this.SLoss.GetUpperBound(0) + 1, this.SLoss.GetUpperBound(1) + 1];
-      this.DipBlock = info.GetBoolean(nameof (DipBlock));
-      this.SASSupplyLost = info.GetInt32(nameof (SASSupplyLost));
-      this.SASSupplyKilled = info.GetInt32(nameof (SASSupplyKilled));
-      this.SASProdLost = (int[]) info.GetValue(nameof (SASProdLost), this.SASProdLost.GetType());
-      this.SASKilled = (int[]) info.GetValue(nameof (SASKilled), this.SASKilled.GetType());
-      this.HQSpriteOverrule = info.GetBoolean(nameof (HQSpriteOverrule));
-      this.ProdBonus = info.GetInt32(nameof (ProdBonus));
-      this.ActionCardCounter = info.GetInt32(nameof (ActionCardCounter));
-      this.ActionCardHistoryCounter = info.GetInt32(nameof (ActionCardHistoryCounter));
-      if (this.ActionCardCounter > -1)
+      if (self.SProd.GetUpperBound(0) < self.SKills.GetUpperBound(0))
+        self.SProd = new int[self.SLoss.GetUpperBound(0) + 1, self.SLoss.GetUpperBound(1) + 1];
+      self.DipBlock = info.GetBoolean(nameof (DipBlock));
+      self.SASSupplyLost = info.GetInt32(nameof (SASSupplyLost));
+      self.SASSupplyKilled = info.GetInt32(nameof (SASSupplyKilled));
+      self.SASProdLost = (int[]) info.GetValue(nameof (SASProdLost), self.SASProdLost.GetType());
+      self.SASKilled = (int[]) info.GetValue(nameof (SASKilled), self.SASKilled.GetType());
+      self.HQSpriteOverrule = info.GetBoolean(nameof (HQSpriteOverrule));
+      self.ProdBonus = info.GetInt32(nameof (ProdBonus));
+      self.ActionCardCounter = info.GetInt32(nameof (ActionCardCounter));
+      self.ActionCardHistoryCounter = info.GetInt32(nameof (ActionCardHistoryCounter));
+      if (self.ActionCardCounter > -1)
       {
-        this.ActionCard = new int[this.ActionCardCounter + 1];
-        this.ActionCard = (int[]) info.GetValue(nameof (ActionCard), this.ActionCard.GetType());
+        self.ActionCard = new int[self.ActionCardCounter + 1];
+        self.ActionCard = (int[]) info.GetValue(nameof (ActionCard), self.ActionCard.GetType());
       }
       else
       {
-        this.ActionCardCounter = -1;
-        this.ActionCard = new int[1];
+        self.ActionCardCounter = -1;
+        self.ActionCard = new int[1];
       }
-      if (this.ActionCardHistoryCounter > -1)
+      if (self.ActionCardHistoryCounter > -1)
       {
-        this.ActionCardHistory = new int[this.ActionCardHistoryCounter + 1];
-        this.ActionCardHistoryRound = new int[this.ActionCardHistoryCounter + 1];
-        this.ActionCardHistory = (int[]) info.GetValue(nameof (ActionCardHistory), this.ActionCardHistory.GetType());
-        this.ActionCardHistoryRound = (int[]) info.GetValue(nameof (ActionCardHistoryRound), this.ActionCardHistoryRound.GetType());
+        self.ActionCardHistory = new int[self.ActionCardHistoryCounter + 1];
+        self.ActionCardHistoryRound = new int[self.ActionCardHistoryCounter + 1];
+        self.ActionCardHistory = (int[]) info.GetValue(nameof (ActionCardHistory), self.ActionCardHistory.GetType());
+        self.ActionCardHistoryRound = (int[]) info.GetValue(nameof (ActionCardHistoryRound), self.ActionCardHistoryRound.GetType());
       }
       else
       {
-        this.ActionCardHistoryCounter = -1;
-        this.ActionCardHistory = new int[1];
-        this.ActionCardHistoryRound = new int[1];
+        self.ActionCardHistoryCounter = -1;
+        self.ActionCardHistory = new int[1];
+        self.ActionCardHistoryRound = new int[1];
       }
-      this.AISavedPP = 0;
-      this.AIConservative = info.GetSingle(nameof (AIConservative));
-      if ( this.AIConservative <= 0.0)
-        this.AIConservative = 1f;
-      this.ExtraStat = (int[,]) info.GetValue(nameof (ExtraStat), this.ExtraStat.GetType());
-      this.NationalIconSpriteName = info.GetString(nameof (NationalIconSpriteName));
-      this.ExtraGraphicUse = info.GetInt32(nameof (ExtraGraphicUse));
+      self.AISavedPP = 0;
+      self.AIConservative = info.GetSingle(nameof (AIConservative));
+      if ( self.AIConservative <= 0.0)
+        self.AIConservative = 1f;
+      self.ExtraStat = (int[,]) info.GetValue(nameof (ExtraStat), self.ExtraStat.GetType());
+      self.NationalIconSpriteName = info.GetString(nameof (NationalIconSpriteName));
+      self.ExtraGraphicUse = info.GetInt32(nameof (ExtraGraphicUse));
       try
       {
-        this.FirstRound = info.GetInt32(nameof (FirstRound));
+        self.FirstRound = info.GetInt32(nameof (FirstRound));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.FirstRound = 0;
+        self.FirstRound = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.RandomCode = info.GetInt32(nameof (RandomCode));
+        self.RandomCode = info.GetInt32(nameof (RandomCode));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.RandomCode = 0;
+        self.RandomCode = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.AIGroupCounter = info.GetInt32(nameof (AIGroupCounter));
-        this.AIGroupHis = (int[]) info.GetValue(nameof (AIGroupHis), this.AIGroupHis.GetType());
-        this.AIGroupType = (int[]) info.GetValue(nameof (AIGroupType), this.AIGroupType.GetType());
-        this.AIGroupName = (string[]) info.GetValue(nameof (AIGroupName), this.AIGroupName.GetType());
+        self.AIGroupCounter = info.GetInt32(nameof (AIGroupCounter));
+        self.AIGroupHis = (int[]) info.GetValue(nameof (AIGroupHis), self.AIGroupHis.GetType());
+        self.AIGroupType = (int[]) info.GetValue(nameof (AIGroupType), self.AIGroupType.GetType());
+        self.AIGroupName = (string[]) info.GetValue(nameof (AIGroupName), self.AIGroupName.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.AIGroupCounter = -1;
+        self.AIGroupCounter = -1;
         ProjectData.ClearProjectError();
       }
-      if (this.AIGroupCounter > -1)
+      if (self.AIGroupCounter > -1)
       {
         try
         {
-          this.AIGroupLastAttack = (int[]) info.GetValue(nameof (AIGroupLastAttack), this.AIGroupLastAttack.GetType());
-          this.AIGroupLastDefend = (int[]) info.GetValue(nameof (AIGroupLastDefend), this.AIGroupLastDefend.GetType());
-          this.AIGroupLastFallBack = (int[]) info.GetValue(nameof (AIGroupLastFallBack), this.AIGroupLastFallBack.GetType());
-          this.AIGroupLastFollowUp = (int[]) info.GetValue(nameof (AIGroupLastFollowUp), this.AIGroupLastFollowUp.GetType());
+          self.AIGroupLastAttack = (int[]) info.GetValue(nameof (AIGroupLastAttack), self.AIGroupLastAttack.GetType());
+          self.AIGroupLastDefend = (int[]) info.GetValue(nameof (AIGroupLastDefend), self.AIGroupLastDefend.GetType());
+          self.AIGroupLastFallBack = (int[]) info.GetValue(nameof (AIGroupLastFallBack), self.AIGroupLastFallBack.GetType());
+          self.AIGroupLastFollowUp = (int[]) info.GetValue(nameof (AIGroupLastFollowUp), self.AIGroupLastFollowUp.GetType());
         }
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          this.AIGroupLastAttack = new int[this.AIGroupCounter + 1];
-          this.AIGroupLastDefend = new int[this.AIGroupCounter + 1];
-          this.AIGroupLastFollowUp = new int[this.AIGroupCounter + 1];
-          this.AIGroupLastFallBack = new int[this.AIGroupCounter + 1];
+          self.AIGroupLastAttack = new int[self.AIGroupCounter + 1];
+          self.AIGroupLastDefend = new int[self.AIGroupCounter + 1];
+          self.AIGroupLastFollowUp = new int[self.AIGroupCounter + 1];
+          self.AIGroupLastFallBack = new int[self.AIGroupCounter + 1];
           ProjectData.ClearProjectError();
         }
         try
         {
-          this.AICorpsTopGroup = (int[]) info.GetValue(nameof (AICorpsTopGroup), this.AICorpsTopGroup.GetType());
+          self.AICorpsTopGroup = (int[]) info.GetValue(nameof (AICorpsTopGroup), self.AICorpsTopGroup.GetType());
         }
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          this.AICorpsTopGroup = new int[this.AIGroupCounter + 1];
+          self.AICorpsTopGroup = new int[self.AIGroupCounter + 1];
           ProjectData.ClearProjectError();
         }
       }
       try
       {
-        this.AIHelpMove = info.GetInt32(nameof (AIHelpMove));
-        this.AIHelpCombat = info.GetInt32(nameof (AIHelpCombat));
-        this.AIHelpStrategic = info.GetInt32(nameof (AIHelpStrategic));
+        self.AIHelpMove = info.GetInt32(nameof (AIHelpMove));
+        self.AIHelpCombat = info.GetInt32(nameof (AIHelpCombat));
+        self.AIHelpStrategic = info.GetInt32(nameof (AIHelpStrategic));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.AIHelpMove = 0;
-        this.AIHelpCombat = 0;
-        this.AIHelpStrategic = 0;
+        self.AIHelpMove = 0;
+        self.AIHelpCombat = 0;
+        self.AIHelpStrategic = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.RoundelSpriteName = info.GetString(nameof (RoundelSpriteName));
+        self.RoundelSpriteName = info.GetString(nameof (RoundelSpriteName));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.RoundelSpriteName = "systemgraphics/trans.bmp";
+        self.RoundelSpriteName = "systemgraphics/trans.bmp";
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.RoundelSpriteName2 = info.GetString(nameof (RoundelSpriteName2));
+        self.RoundelSpriteName2 = info.GetString(nameof (RoundelSpriteName2));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.RoundelSpriteName2 = "systemgraphics/trans.bmp";
+        self.RoundelSpriteName2 = "systemgraphics/trans.bmp";
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.PbemPlayer = info.GetInt32("PBEMPlayer");
+        self.PbemPlayer = info.GetInt32("PBEMPlayer");
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.PbemPlayer = 0;
+        self.PbemPlayer = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.UseAlternateActionCardPics = (uint) info.GetInt32(nameof (UseAlternateActionCardPics)) > 0U;
+        self.UseAlternateActionCardPics = (uint) info.GetInt32(nameof (UseAlternateActionCardPics)) > 0U;
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.UseAlternateActionCardPics = false;
+        self.UseAlternateActionCardPics = false;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.FerryEffectivity = info.GetInt32(nameof (FerryEffectivity));
+        self.FerryEffectivity = info.GetInt32(nameof (FerryEffectivity));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.FerryEffectivity = 0;
+        self.FerryEffectivity = 0;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.libId = LibIdClass::new();
-        this.libId = (LibIdClass) info.GetValue("LibId", this.libId.GetType());
+        self.libId = LibIdClass::new();
+        self.libId = (LibIdClass) info.GetValue("LibId", self.libId.GetType());
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.libId = LibIdClass::new();
+        self.libId = LibIdClass::new();
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.id = info.GetInt32("Id");
+        self.id = info.GetInt32("Id");
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.id = -1;
+        self.id = -1;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.hideFromList = info.GetBoolean(nameof (hideFromList));
+        self.hideFromList = info.GetBoolean(nameof (hideFromList));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.hideFromList = false;
+        self.hideFromList = false;
         ProjectData.ClearProjectError();
       }
       try
       {
-        this.minimumDataUsage = info.GetBoolean(nameof (minimumDataUsage));
+        self.minimumDataUsage = info.GetBoolean(nameof (minimumDataUsage));
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.minimumDataUsage = false;
+        self.minimumDataUsage = false;
         ProjectData.ClearProjectError();
       }
-      if (!(this.Sleep | this.AI))
+      if (!(self.Sleep | self.AI))
         return;
-      this.HistoryStepCounter = -1;
-      this.HistoryStep = new HistoryStepClass[1];
+      self.HistoryStepCounter = -1;
+      self.HistoryStep = new HistoryStepClass[1];
     }
 
     pub RegimeClass Clone()
@@ -981,298 +981,298 @@ namespace WindowsApplication1
       tData: DataClass,
       bool tminimalDataUsage = false)
     {
-      this.RegimeSlot = new int[500];
-      this.LastTempRegimeSlotPredict = new int[500];
-      this.TempRegimeSlotPredict = new int[500];
-      this.TempRegimeSlotIncrease = new int[500];
-      this.ResField = new bool[1];
-      this.RegimeRel = new int[1];
-      this.RegimeOffer = new int[1];
-      this.HistoryOwner = new MapMatrix2[1];
-      this.HistoryForce = new MapMatrix2[1];
-      this.HistorySFType = new MapMatrix2[1];
-      this.HistoryHis = new MapMatrix2[1];
-      this.HistoryDepth = new MapMatrix2[1];
-      this.Trafic = new MapMatrix2[1];
-      this.Trafic2 = new MapMatrix2[1];
-      this.AIVP = new MapMatrix2[1];
-      this.AIPower = new MapMatrix2[1];
-      this.AIDefense = new MapMatrix2[1];
-      this.OldAINarrow = new MapMatrix2[1];
-      this.HistoryStep = new HistoryStepClass[1];
-      this.MessString = new string[1];
-      this.MessBackPic = new int[1];
-      this.MessFrontPic = new int[1];
-      this.MessWav = new string[1];
-      this.MesStyle = new int[1];
-      this.MesNote = new string[1];
-      this.MesNote2 = new string[1];
-      this.MesName = new string[1];
-      this.MesGroup = new int[1];
-      this.MesHideFromStart = new bool[1];
-      this.MesHideFromTab = new bool[1];
-      this.MesChosen = new int[1];
-      this.SLoss = new int[1, 1];
-      this.SKills = new int[1, 1];
-      this.SProd = new int[1, 1];
-      this.SPresent = new int[1, 1];
-      this.LisPoints = new int[1, 1, 7];
-      this.PlanObj = new AIPlanClass[1];
-      this.SASProdLost = new int[1];
-      this.SASKilled = new int[1];
-      this.ActionCard = new int[1];
-      this.ActionCardHistory = new int[1];
-      this.ActionCardHistoryRound = new int[1];
-      this.ExtraStat = new int[3, 1];
-      this.AIGroupName = new string[1];
-      this.AIGroupType = new int[1];
-      this.AIGroupHis = new int[1];
-      this.AIGroupLastAttack = new int[1];
-      this.AIGroupLastDefend = new int[1];
-      this.AIGroupLastFollowUp = new int[1];
-      this.AIGroupLastFallBack = new int[1];
-      this.AICorpsTopGroup = new int[1];
-      this.RoundelSpriteName = "systemgraphics/trans.bmp";
-      this.RoundelSpriteName2 = "systemgraphics/trans.bmp";
-      this.UberRegime = -1;
-      this.Name = "Default Regime";
-      this.Red =  byte.MaxValue;
-      this.Green = 128;
-      this.Blue = 0;
-      this.subVersion = "";
-      this.Red2 =  byte.MaxValue;
-      this.Green2 =  byte.MaxValue;
-      this.Blue2 =  byte.MaxValue;
-      this.HQSpriteFileName = "systemgraphics/trans.bmp";
-      this.HQSpriteFileName2 = "systemgraphics/trans.bmp";
-      this.BannerSpriteFileName = "systemgraphics/trans.bmp";
-      this.BannerSpriteFileName2 = "systemgraphics/trans.bmp";
-      this.SymbolSpriteName = "systemgraphics/trans.bmp";
+      self.RegimeSlot = new int[500];
+      self.LastTempRegimeSlotPredict = new int[500];
+      self.TempRegimeSlotPredict = new int[500];
+      self.TempRegimeSlotIncrease = new int[500];
+      self.ResField = new bool[1];
+      self.RegimeRel = new int[1];
+      self.RegimeOffer = new int[1];
+      self.HistoryOwner = new MapMatrix2[1];
+      self.HistoryForce = new MapMatrix2[1];
+      self.HistorySFType = new MapMatrix2[1];
+      self.HistoryHis = new MapMatrix2[1];
+      self.HistoryDepth = new MapMatrix2[1];
+      self.Trafic = new MapMatrix2[1];
+      self.Trafic2 = new MapMatrix2[1];
+      self.AIVP = new MapMatrix2[1];
+      self.AIPower = new MapMatrix2[1];
+      self.AIDefense = new MapMatrix2[1];
+      self.OldAINarrow = new MapMatrix2[1];
+      self.HistoryStep = new HistoryStepClass[1];
+      self.MessString = new string[1];
+      self.MessBackPic = new int[1];
+      self.MessFrontPic = new int[1];
+      self.MessWav = new string[1];
+      self.MesStyle = new int[1];
+      self.MesNote = new string[1];
+      self.MesNote2 = new string[1];
+      self.MesName = new string[1];
+      self.MesGroup = new int[1];
+      self.MesHideFromStart = new bool[1];
+      self.MesHideFromTab = new bool[1];
+      self.MesChosen = new int[1];
+      self.SLoss = new int[1, 1];
+      self.SKills = new int[1, 1];
+      self.SProd = new int[1, 1];
+      self.SPresent = new int[1, 1];
+      self.LisPoints = new int[1, 1, 7];
+      self.PlanObj = new AIPlanClass[1];
+      self.SASProdLost = new int[1];
+      self.SASKilled = new int[1];
+      self.ActionCard = new int[1];
+      self.ActionCardHistory = new int[1];
+      self.ActionCardHistoryRound = new int[1];
+      self.ExtraStat = new int[3, 1];
+      self.AIGroupName = new string[1];
+      self.AIGroupType = new int[1];
+      self.AIGroupHis = new int[1];
+      self.AIGroupLastAttack = new int[1];
+      self.AIGroupLastDefend = new int[1];
+      self.AIGroupLastFollowUp = new int[1];
+      self.AIGroupLastFallBack = new int[1];
+      self.AICorpsTopGroup = new int[1];
+      self.RoundelSpriteName = "systemgraphics/trans.bmp";
+      self.RoundelSpriteName2 = "systemgraphics/trans.bmp";
+      self.UberRegime = -1;
+      self.Name = "Default Regime";
+      self.Red =  byte.MaxValue;
+      self.Green = 128;
+      self.Blue = 0;
+      self.subVersion = "";
+      self.Red2 =  byte.MaxValue;
+      self.Green2 =  byte.MaxValue;
+      self.Blue2 =  byte.MaxValue;
+      self.HQSpriteFileName = "systemgraphics/trans.bmp";
+      self.HQSpriteFileName2 = "systemgraphics/trans.bmp";
+      self.BannerSpriteFileName = "systemgraphics/trans.bmp";
+      self.BannerSpriteFileName2 = "systemgraphics/trans.bmp";
+      self.SymbolSpriteName = "systemgraphics/trans.bmp";
       let mut index1: i32 = 0;
       do
       {
-        this.RegimeSlot[index1] = -1;
+        self.RegimeSlot[index1] = -1;
         index1 += 1;
       }
       while (index1 <= 499);
-      this.BaseMorale = 100;
-      this.RegimeCounter = tregimecounter;
-      this.RegimeRel = new int[this.RegimeCounter + 1];
-      this.RegimeOffer = new int[this.RegimeCounter + 1];
-      let mut regimeCounter: i32 = this.RegimeCounter;
+      self.BaseMorale = 100;
+      self.RegimeCounter = tregimecounter;
+      self.RegimeRel = new int[self.RegimeCounter + 1];
+      self.RegimeOffer = new int[self.RegimeCounter + 1];
+      let mut regimeCounter: i32 = self.RegimeCounter;
       for (let mut index2: i32 = 0; index2 <= regimeCounter; index2 += 1)
-        this.RegimeRel[index2] = 1;
-      this.ResFieldCounter = trescounter;
-      this.ResField = new bool[this.ResFieldCounter + 1];
-      let mut resFieldCounter: i32 = this.ResFieldCounter;
+        self.RegimeRel[index2] = 1;
+      self.ResFieldCounter = trescounter;
+      self.ResField = new bool[self.ResFieldCounter + 1];
+      let mut resFieldCounter: i32 = self.ResFieldCounter;
       for (let mut index3: i32 = 0; index3 <= resFieldCounter; index3 += 1)
-        this.ResField[index3] = false;
-      this.HistoryStepCounter = -1;
-      this.MapCount = tData.MapCounter;
-      this.HistoryOwner = new MapMatrix2[this.MapCount + 1];
-      this.HistoryForce = new MapMatrix2[this.MapCount + 1];
-      this.HistorySFType = new MapMatrix2[this.MapCount + 1];
-      this.HistoryHis = new MapMatrix2[this.MapCount + 1];
-      this.HistoryDepth = new MapMatrix2[this.MapCount + 1];
-      this.AIVP = new MapMatrix2[this.MapCount + 1];
-      this.Trafic = new MapMatrix2[this.MapCount + 1];
-      this.Trafic2 = new MapMatrix2[this.MapCount + 1];
-      this.AIPower = new MapMatrix2[this.MapCount + 1];
-      this.AIDefense = new MapMatrix2[this.MapCount + 1];
-      this.minimumDataUsage = tminimalDataUsage;
-      if (!this.minimumDataUsage)
+        self.ResField[index3] = false;
+      self.HistoryStepCounter = -1;
+      self.MapCount = tData.MapCounter;
+      self.HistoryOwner = new MapMatrix2[self.MapCount + 1];
+      self.HistoryForce = new MapMatrix2[self.MapCount + 1];
+      self.HistorySFType = new MapMatrix2[self.MapCount + 1];
+      self.HistoryHis = new MapMatrix2[self.MapCount + 1];
+      self.HistoryDepth = new MapMatrix2[self.MapCount + 1];
+      self.AIVP = new MapMatrix2[self.MapCount + 1];
+      self.Trafic = new MapMatrix2[self.MapCount + 1];
+      self.Trafic2 = new MapMatrix2[self.MapCount + 1];
+      self.AIPower = new MapMatrix2[self.MapCount + 1];
+      self.AIDefense = new MapMatrix2[self.MapCount + 1];
+      self.minimumDataUsage = tminimalDataUsage;
+      if (!self.minimumDataUsage)
       {
-        let mut mapCount: i32 = this.MapCount;
+        let mut mapCount: i32 = self.MapCount;
         for (let mut index4: i32 = 0; index4 <= mapCount; index4 += 1)
         {
-          this.HistoryOwner[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.HistoryForce[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.HistorySFType[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.HistoryHis[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.HistoryDepth[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.AIVP[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.Trafic[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.Trafic2[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.AIPower[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
-          this.AIDefense[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.HistoryOwner[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.HistoryForce[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.HistorySFType[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.HistoryHis[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.HistoryDepth[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.AIVP[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.Trafic[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.Trafic2[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.AIPower[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
+          self.AIDefense[index4] = new MapMatrix2(tData.MapObj[index4].MapWidth, tData.MapObj[index4].MapHeight);
         }
       }
-      this.Sleep = false;
-      this.ActionCardCounter = -1;
-      this.ActionCardHistoryCounter = -1;
-      this.AIConservative = 1f;
-      this.NationalIconSpriteName = "systemgraphics/trans.bmp";
-      this.ExtraGraphicUse = -1;
-      this.OfficerPool = -1;
-      this.libId = LibIdClass::new();
+      self.Sleep = false;
+      self.ActionCardCounter = -1;
+      self.ActionCardHistoryCounter = -1;
+      self.AIConservative = 1f;
+      self.NationalIconSpriteName = "systemgraphics/trans.bmp";
+      self.ExtraGraphicUse = -1;
+      self.OfficerPool = -1;
+      self.libId = LibIdClass::new();
     }
 
     pub fn AddMap(w: i32, h: i32)
     {
       this += 1.MapCount;
-      this.HistoryOwner = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryOwner, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryForce = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryForce, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistorySFType = (MapMatrix2[]) Utils.CopyArray((Array) this.HistorySFType, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryHis = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryHis, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryDepth = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryDepth, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIVP = (MapMatrix2[]) Utils.CopyArray((Array) this.AIVP, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.Trafic = (MapMatrix2[]) Utils.CopyArray((Array) this.Trafic, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.Trafic2 = (MapMatrix2[]) Utils.CopyArray((Array) this.Trafic2, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIPower = (MapMatrix2[]) Utils.CopyArray((Array) this.AIPower, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIDefense = (MapMatrix2[]) Utils.CopyArray((Array) this.AIDefense, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryOwner[this.MapCount] = new MapMatrix2(w, h);
-      this.HistoryForce[this.MapCount] = new MapMatrix2(w, h);
-      this.HistorySFType[this.MapCount] = new MapMatrix2(w, h);
-      this.HistoryHis[this.MapCount] = new MapMatrix2(w, h);
-      this.HistoryDepth[this.MapCount] = new MapMatrix2(w, h);
-      this.AIVP[this.MapCount] = new MapMatrix2(w, h);
-      this.Trafic[this.MapCount] = new MapMatrix2(w, h);
-      this.Trafic2[this.MapCount] = new MapMatrix2(w, h);
-      this.AIPower[this.MapCount] = new MapMatrix2(w, h);
-      this.AIDefense[this.MapCount] = new MapMatrix2(w, h);
+      self.HistoryOwner = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryOwner, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryForce = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryForce, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistorySFType = (MapMatrix2[]) Utils.CopyArray((Array) self.HistorySFType, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryHis = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryHis, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryDepth = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryDepth, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIVP = (MapMatrix2[]) Utils.CopyArray((Array) self.AIVP, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.Trafic = (MapMatrix2[]) Utils.CopyArray((Array) self.Trafic, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.Trafic2 = (MapMatrix2[]) Utils.CopyArray((Array) self.Trafic2, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIPower = (MapMatrix2[]) Utils.CopyArray((Array) self.AIPower, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIDefense = (MapMatrix2[]) Utils.CopyArray((Array) self.AIDefense, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryOwner[self.MapCount] = new MapMatrix2(w, h);
+      self.HistoryForce[self.MapCount] = new MapMatrix2(w, h);
+      self.HistorySFType[self.MapCount] = new MapMatrix2(w, h);
+      self.HistoryHis[self.MapCount] = new MapMatrix2(w, h);
+      self.HistoryDepth[self.MapCount] = new MapMatrix2(w, h);
+      self.AIVP[self.MapCount] = new MapMatrix2(w, h);
+      self.Trafic[self.MapCount] = new MapMatrix2(w, h);
+      self.Trafic2[self.MapCount] = new MapMatrix2(w, h);
+      self.AIPower[self.MapCount] = new MapMatrix2(w, h);
+      self.AIDefense[self.MapCount] = new MapMatrix2(w, h);
     }
 
     pub fn RemoveMap(nr: i32)
     {
-      if (nr < this.MapCount)
+      if (nr < self.MapCount)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.MapCount - 1;
+        let mut num2: i32 = self.MapCount - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
         {
-          this.HistoryOwner[index] = this.HistoryOwner[index + 1];
-          this.HistoryForce[index] = this.HistoryForce[index + 1];
-          this.HistorySFType[index] = this.HistorySFType[index + 1];
-          this.HistoryHis[index] = this.HistoryHis[index + 1];
-          this.HistoryDepth[index] = this.HistoryDepth[index + 1];
-          this.AIVP[index] = this.AIVP[index + 1];
-          this.Trafic[index] = this.Trafic[index + 1];
-          this.Trafic2[index] = this.Trafic2[index + 1];
-          this.AIPower[index] = this.AIPower[index + 1];
-          this.AIDefense[index] = this.AIDefense[index + 1];
+          self.HistoryOwner[index] = self.HistoryOwner[index + 1];
+          self.HistoryForce[index] = self.HistoryForce[index + 1];
+          self.HistorySFType[index] = self.HistorySFType[index + 1];
+          self.HistoryHis[index] = self.HistoryHis[index + 1];
+          self.HistoryDepth[index] = self.HistoryDepth[index + 1];
+          self.AIVP[index] = self.AIVP[index + 1];
+          self.Trafic[index] = self.Trafic[index + 1];
+          self.Trafic2[index] = self.Trafic2[index + 1];
+          self.AIPower[index] = self.AIPower[index + 1];
+          self.AIDefense[index] = self.AIDefense[index + 1];
         }
       }
-      --this.MapCount;
-      if (this.MapCount <= -1)
+      --self.MapCount;
+      if (self.MapCount <= -1)
         return;
-      this.HistoryOwner = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryOwner, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryForce = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryForce, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistorySFType = (MapMatrix2[]) Utils.CopyArray((Array) this.HistorySFType, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryHis = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryHis, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.HistoryDepth = (MapMatrix2[]) Utils.CopyArray((Array) this.HistoryDepth, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIVP = (MapMatrix2[]) Utils.CopyArray((Array) this.AIVP, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.Trafic = (MapMatrix2[]) Utils.CopyArray((Array) this.Trafic, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.Trafic2 = (MapMatrix2[]) Utils.CopyArray((Array) this.Trafic2, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIPower = (MapMatrix2[]) Utils.CopyArray((Array) this.AIPower, (Array) new MapMatrix2[this.MapCount + 1]);
-      this.AIDefense = (MapMatrix2[]) Utils.CopyArray((Array) this.AIDefense, (Array) new MapMatrix2[this.MapCount + 1]);
+      self.HistoryOwner = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryOwner, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryForce = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryForce, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistorySFType = (MapMatrix2[]) Utils.CopyArray((Array) self.HistorySFType, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryHis = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryHis, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.HistoryDepth = (MapMatrix2[]) Utils.CopyArray((Array) self.HistoryDepth, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIVP = (MapMatrix2[]) Utils.CopyArray((Array) self.AIVP, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.Trafic = (MapMatrix2[]) Utils.CopyArray((Array) self.Trafic, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.Trafic2 = (MapMatrix2[]) Utils.CopyArray((Array) self.Trafic2, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIPower = (MapMatrix2[]) Utils.CopyArray((Array) self.AIPower, (Array) new MapMatrix2[self.MapCount + 1]);
+      self.AIDefense = (MapMatrix2[]) Utils.CopyArray((Array) self.AIDefense, (Array) new MapMatrix2[self.MapCount + 1]);
     }
 
     pub fn AddResField()
     {
       this += 1.ResFieldCounter;
-      this.ResField = (bool[]) Utils.CopyArray((Array) this.ResField, (Array) new bool[this.ResFieldCounter + 1]);
-      this.ResField[this.ResFieldCounter] = false;
+      self.ResField = (bool[]) Utils.CopyArray((Array) self.ResField, (Array) new bool[self.ResFieldCounter + 1]);
+      self.ResField[self.ResFieldCounter] = false;
     }
 
     pub fn RemoveResField(nr: i32)
     {
-      if (nr < this.ResFieldCounter)
+      if (nr < self.ResFieldCounter)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.ResFieldCounter - 1;
+        let mut num2: i32 = self.ResFieldCounter - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
-          this.ResField[index] = this.ResField[index + 1];
+          self.ResField[index] = self.ResField[index + 1];
       }
-      --this.ResFieldCounter;
-      if (this.ResFieldCounter <= -1)
+      --self.ResFieldCounter;
+      if (self.ResFieldCounter <= -1)
         return;
-      this.ResField = (bool[]) Utils.CopyArray((Array) this.ResField, (Array) new bool[this.ResFieldCounter + 1]);
+      self.ResField = (bool[]) Utils.CopyArray((Array) self.ResField, (Array) new bool[self.ResFieldCounter + 1]);
     }
 
     pub fn AddRegime()
     {
       this += 1.RegimeCounter;
-      this.RegimeRel = (int[]) Utils.CopyArray((Array) this.RegimeRel, (Array) new int[this.RegimeCounter + 1]);
-      this.RegimeOffer = (int[]) Utils.CopyArray((Array) this.RegimeOffer, (Array) new int[this.RegimeCounter + 1]);
-      this.RegimeRel[this.RegimeCounter] = 1;
+      self.RegimeRel = (int[]) Utils.CopyArray((Array) self.RegimeRel, (Array) new int[self.RegimeCounter + 1]);
+      self.RegimeOffer = (int[]) Utils.CopyArray((Array) self.RegimeOffer, (Array) new int[self.RegimeCounter + 1]);
+      self.RegimeRel[self.RegimeCounter] = 1;
     }
 
     pub fn Removeregime(nr: i32)
     {
-      if (nr < this.RegimeCounter)
+      if (nr < self.RegimeCounter)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.RegimeCounter - 1;
+        let mut num2: i32 = self.RegimeCounter - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
-          this.RegimeRel[index] = this.RegimeRel[index + 1];
+          self.RegimeRel[index] = self.RegimeRel[index + 1];
       }
-      --this.RegimeCounter;
-      if (this.RegimeCounter <= -1)
+      --self.RegimeCounter;
+      if (self.RegimeCounter <= -1)
         return;
-      this.RegimeRel = (int[]) Utils.CopyArray((Array) this.RegimeRel, (Array) new int[this.RegimeCounter + 1]);
+      self.RegimeRel = (int[]) Utils.CopyArray((Array) self.RegimeRel, (Array) new int[self.RegimeCounter + 1]);
     }
 
     pub fn AddActionCard(nr: i32)
     {
       this += 1.ActionCardCounter;
-      this.ActionCard = (int[]) Utils.CopyArray((Array) this.ActionCard, (Array) new int[this.ActionCardCounter + 1]);
-      this.ActionCard[this.ActionCardCounter] = nr;
+      self.ActionCard = (int[]) Utils.CopyArray((Array) self.ActionCard, (Array) new int[self.ActionCardCounter + 1]);
+      self.ActionCard[self.ActionCardCounter] = nr;
     }
 
     pub fn RemoveActionCard(nr: i32)
     {
-      if (nr < this.ActionCardCounter)
+      if (nr < self.ActionCardCounter)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.ActionCardCounter - 1;
+        let mut num2: i32 = self.ActionCardCounter - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
-          this.ActionCard[index] = this.ActionCard[index + 1];
+          self.ActionCard[index] = self.ActionCard[index + 1];
       }
-      --this.ActionCardCounter;
-      if (this.ActionCardCounter <= -1)
+      --self.ActionCardCounter;
+      if (self.ActionCardCounter <= -1)
         return;
-      this.ActionCard = (int[]) Utils.CopyArray((Array) this.ActionCard, (Array) new int[this.ActionCardCounter + 1]);
+      self.ActionCard = (int[]) Utils.CopyArray((Array) self.ActionCard, (Array) new int[self.ActionCardCounter + 1]);
     }
 
     pub fn AddActionCardHistory(nr: i32, round: i32)
     {
       this += 1.ActionCardHistoryCounter;
-      this.ActionCardHistory = (int[]) Utils.CopyArray((Array) this.ActionCardHistory, (Array) new int[this.ActionCardHistoryCounter + 1]);
-      this.ActionCardHistoryRound = (int[]) Utils.CopyArray((Array) this.ActionCardHistoryRound, (Array) new int[this.ActionCardHistoryCounter + 1]);
-      this.ActionCardHistory[this.ActionCardHistoryCounter] = nr;
-      this.ActionCardHistoryRound[this.ActionCardHistoryCounter] = round;
+      self.ActionCardHistory = (int[]) Utils.CopyArray((Array) self.ActionCardHistory, (Array) new int[self.ActionCardHistoryCounter + 1]);
+      self.ActionCardHistoryRound = (int[]) Utils.CopyArray((Array) self.ActionCardHistoryRound, (Array) new int[self.ActionCardHistoryCounter + 1]);
+      self.ActionCardHistory[self.ActionCardHistoryCounter] = nr;
+      self.ActionCardHistoryRound[self.ActionCardHistoryCounter] = round;
     }
 
     pub fn RemoveActionCardHistory(nr: i32)
     {
-      if (nr < this.ActionCardHistoryCounter)
+      if (nr < self.ActionCardHistoryCounter)
       {
         let mut num1: i32 = nr;
-        let mut num2: i32 = this.ActionCardHistoryCounter - 1;
+        let mut num2: i32 = self.ActionCardHistoryCounter - 1;
         for (let mut index: i32 = num1; index <= num2; index += 1)
         {
-          this.ActionCardHistory[index] = this.ActionCardHistory[index + 1];
-          this.ActionCardHistoryRound[index] = this.ActionCardHistoryRound[index + 1];
+          self.ActionCardHistory[index] = self.ActionCardHistory[index + 1];
+          self.ActionCardHistoryRound[index] = self.ActionCardHistoryRound[index + 1];
         }
       }
-      --this.ActionCardHistoryCounter;
-      if (this.ActionCardHistoryCounter <= -1)
+      --self.ActionCardHistoryCounter;
+      if (self.ActionCardHistoryCounter <= -1)
         return;
-      this.ActionCardHistory = (int[]) Utils.CopyArray((Array) this.ActionCardHistory, (Array) new int[this.RegimeCounter + 1]);
-      this.ActionCardHistoryRound = (int[]) Utils.CopyArray((Array) this.ActionCardHistoryRound, (Array) new int[this.RegimeCounter + 1]);
+      self.ActionCardHistory = (int[]) Utils.CopyArray((Array) self.ActionCardHistory, (Array) new int[self.RegimeCounter + 1]);
+      self.ActionCardHistoryRound = (int[]) Utils.CopyArray((Array) self.ActionCardHistoryRound, (Array) new int[self.RegimeCounter + 1]);
     }
 
-    pub fn DoTempCounterBig() => this.DoTempCounterAnySize(1);
+    pub fn DoTempCounterBig() => self.DoTempCounterAnySize(1);
 
-    pub fn DoTempCounter() => this.DoTempCounterAnySize(0);
+    pub fn DoTempCounter() => self.DoTempCounterAnySize(0);
 
-    pub fn DoTempCounterSmall() => this.DoTempCounterAnySize(-1);
+    pub fn DoTempCounterSmall() => self.DoTempCounterAnySize(-1);
 
     pub fn doTempRegimeHighlight(bool lighter = false)
     {
-      float num1 =  ( this.Red / 512.0 - 0.9);
-      float num2 =  ( this.Green / 512.0 - 0.9);
-      float num3 =  ( this.Blue / 512.0 - 0.9);
+      float num1 =  ( self.Red / 512.0 - 0.9);
+      float num2 =  ( self.Green / 512.0 - 0.9);
+      float num3 =  ( self.Blue / 512.0 - 0.9);
       float num4 = 0.25f;
       if (lighter)
         num4 = 0.1f;
@@ -1288,7 +1288,7 @@ namespace WindowsApplication1
       double b1 =  num3;
       double a1 =  num4;
       DrawMod.Draw( local1,  local2, 0, 0,  r1,  g1,  b1,  a1);
-      this.TempRegimeColorBig = bitmap1;
+      self.TempRegimeColorBig = bitmap1;
       graphics1.Dispose();
       bitmap3: Bitmap = new Bitmap(64, 48);
       bitmap3.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
@@ -1302,7 +1302,7 @@ namespace WindowsApplication1
       double b2 =  num3;
       double a2 =  num4;
       DrawMod.Draw( local3,  local4, 0, 0,  r2,  g2,  b2,  a2);
-      this.TempRegimeColor = bitmap3;
+      self.TempRegimeColor = bitmap3;
       graphics2.Dispose();
       bitmap5: Bitmap = new Bitmap(32, 24);
       bitmap5.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
@@ -1316,7 +1316,7 @@ namespace WindowsApplication1
       double b3 =  num3;
       double a3 =  num4;
       DrawMod.Draw( local5,  local6, 0, 0,  r3,  g3,  b3,  a3);
-      this.TempRegimeColorSmall = bitmap5;
+      self.TempRegimeColorSmall = bitmap5;
       graphics3.Dispose();
     }
 
@@ -1342,9 +1342,9 @@ namespace WindowsApplication1
           num3 = 64;
           break;
       }
-      float num5 =  this.Red /  byte.MaxValue;
-      float num6 =  this.Green /  byte.MaxValue;
-      float num7 =  this.Blue /  byte.MaxValue;
+      float num5 =  self.Red /  byte.MaxValue;
+      float num6 =  self.Green /  byte.MaxValue;
+      float num7 =  self.Blue /  byte.MaxValue;
       float num8 =  (1.0 * ( num5 / (( num6 +  num7) / 2.0)));
       float num9 =  (1.0 * ( num6 / (( num5 +  num7) / 2.0)));
       float num10 =  (1.0 * ( num7 / (( num6 +  num5) / 2.0)));
@@ -1761,92 +1761,92 @@ namespace WindowsApplication1
       switch (sizey)
       {
         case -1:
-          this.TempCountersmall = bitmap1;
-          this.TempCountersmallHigh = bitmap6;
+          self.TempCountersmall = bitmap1;
+          self.TempCountersmallHigh = bitmap6;
           break;
         case 0:
-          this.TempCounter = bitmap1;
-          this.TempCounterHigh = bitmap6;
+          self.TempCounter = bitmap1;
+          self.TempCounterHigh = bitmap6;
           break;
         case 1:
-          this.TempCounterBig = bitmap1;
-          this.TempCounterBigHigh = bitmap6;
+          self.TempCounterBig = bitmap1;
+          self.TempCounterBigHigh = bitmap6;
           break;
       }
     }
 
     pub fn Kill()
     {
-      this.TempCounter = (Bitmap) null;
-      BitmapStore.RemoveBitmapNr(this.NationalIconSprite);
-      BitmapStore.RemoveBitmapNr(this.HQSpriteNr);
+      self.TempCounter = (Bitmap) null;
+      BitmapStore.RemoveBitmapNr(self.NationalIconSprite);
+      BitmapStore.RemoveBitmapNr(self.HQSpriteNr);
     }
 
     pub fn LoadSprites()
     {
-      this.HQSpriteNr = BitmapStore.AddFile(this.HQSpriteFileName, false, true);
-      this.HQSpriteNr2 = BitmapStore.AddFile(this.HQSpriteFileName2, false, true);
-      this.TempCounter = (Bitmap) null;
-      this.NationalIconSprite = BitmapStore.AddFile(this.NationalIconSpriteName, false, true);
-      this.RoundelIconSprite = BitmapStore.AddFile(this.RoundelSpriteName, false);
-      this.RoundelIconSprite2 = BitmapStore.AddFile(this.RoundelSpriteName2, false);
-      this.BannerSpriteNr = BitmapStore.AddFile(this.BannerSpriteFileName, false);
-      this.BannerSpriteNr2 = BitmapStore.AddFile(this.BannerSpriteFileName2, false);
-      this.SymbolSpriteNr = BitmapStore.AddFile(this.SymbolSpriteName, false);
+      self.HQSpriteNr = BitmapStore.AddFile(self.HQSpriteFileName, false, true);
+      self.HQSpriteNr2 = BitmapStore.AddFile(self.HQSpriteFileName2, false, true);
+      self.TempCounter = (Bitmap) null;
+      self.NationalIconSprite = BitmapStore.AddFile(self.NationalIconSpriteName, false, true);
+      self.RoundelIconSprite = BitmapStore.AddFile(self.RoundelSpriteName, false);
+      self.RoundelIconSprite2 = BitmapStore.AddFile(self.RoundelSpriteName2, false);
+      self.BannerSpriteNr = BitmapStore.AddFile(self.BannerSpriteFileName, false);
+      self.BannerSpriteNr2 = BitmapStore.AddFile(self.BannerSpriteFileName2, false);
+      self.SymbolSpriteNr = BitmapStore.AddFile(self.SymbolSpriteName, false);
     }
 
-    pub fn ReplaceNationalSprite(string filename)
+    pub fn ReplaceNationalSprite(filename: String)
     {
-      this.NationalIconSpriteName = filename;
-      this.NationalIconSprite = BitmapStore.ReloadFile(this.NationalIconSprite, filename, IsBig: true);
+      self.NationalIconSpriteName = filename;
+      self.NationalIconSprite = BitmapStore.ReloadFile(self.NationalIconSprite, filename, IsBig: true);
     }
 
-    pub fn ReplaceRoundelSprite(string filename)
+    pub fn ReplaceRoundelSprite(filename: String)
     {
-      this.RoundelSpriteName = filename;
-      this.RoundelIconSprite = BitmapStore.ReloadFile(this.RoundelIconSprite, filename);
+      self.RoundelSpriteName = filename;
+      self.RoundelIconSprite = BitmapStore.ReloadFile(self.RoundelIconSprite, filename);
     }
 
-    pub fn ReplaceBannerSprite(string filename)
+    pub fn ReplaceBannerSprite(filename: String)
     {
-      this.BannerSpriteFileName = filename;
-      this.BannerSpriteNr = BitmapStore.ReloadFile(this.BannerSpriteNr, filename);
+      self.BannerSpriteFileName = filename;
+      self.BannerSpriteNr = BitmapStore.ReloadFile(self.BannerSpriteNr, filename);
     }
 
-    pub fn ReplaceSymbolSprite(string filename)
+    pub fn ReplaceSymbolSprite(filename: String)
     {
-      this.SymbolSpriteName = filename;
-      this.SymbolSpriteNr = BitmapStore.ReloadFile(this.SymbolSpriteNr, filename);
+      self.SymbolSpriteName = filename;
+      self.SymbolSpriteNr = BitmapStore.ReloadFile(self.SymbolSpriteNr, filename);
     }
 
-    pub fn ReplaceHQSprite(string filename)
+    pub fn ReplaceHQSprite(filename: String)
     {
-      this.HQSpriteFileName = filename;
-      this.HQSpriteNr = BitmapStore.AddFile(this.HQSpriteFileName, false, true);
+      self.HQSpriteFileName = filename;
+      self.HQSpriteNr = BitmapStore.AddFile(self.HQSpriteFileName, false, true);
       if (DrawMod.TGame.Data.Product >= 7)
         return;
-      this.DoTempCounter();
+      self.DoTempCounter();
     }
 
-    pub fn ReplaceRoundelSprite2(string filename)
+    pub fn ReplaceRoundelSprite2(filename: String)
     {
-      this.RoundelSpriteName2 = filename;
-      this.RoundelIconSprite2 = BitmapStore.ReloadFile(this.RoundelIconSprite2, filename);
+      self.RoundelSpriteName2 = filename;
+      self.RoundelIconSprite2 = BitmapStore.ReloadFile(self.RoundelIconSprite2, filename);
     }
 
-    pub fn ReplaceHQSprite2(string filename)
+    pub fn ReplaceHQSprite2(filename: String)
     {
-      this.HQSpriteFileName2 = filename;
-      this.HQSpriteNr2 = BitmapStore.AddFile(this.HQSpriteFileName2, false, true);
+      self.HQSpriteFileName2 = filename;
+      self.HQSpriteNr2 = BitmapStore.AddFile(self.HQSpriteFileName2, false, true);
       if (DrawMod.TGame.Data.Product >= 7)
         return;
-      this.DoTempCounter();
+      self.DoTempCounter();
     }
 
-    pub fn ReplaceBannerSprite2(string filename)
+    pub fn ReplaceBannerSprite2(filename: String)
     {
-      this.BannerSpriteFileName2 = filename;
-      this.BannerSpriteNr2 = BitmapStore.ReloadFile(this.BannerSpriteNr2, filename);
+      self.BannerSpriteFileName2 = filename;
+      self.BannerSpriteNr2 = BitmapStore.ReloadFile(self.BannerSpriteNr2, filename);
     }
   }
 }

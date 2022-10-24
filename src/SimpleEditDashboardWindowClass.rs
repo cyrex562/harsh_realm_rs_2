@@ -514,7 +514,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.saveId)
             {
-              string tinitdir;
+              tinitdir: String;
               if (self.game.Data.Round == 0)
               {
                 tinitdir = self.game.AppPath + "scenarios\\";

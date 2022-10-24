@@ -13,14 +13,14 @@ namespace WindowsApplication1
   pub class InputTextClass : SubPartClass
   {
      OwnFont: Font;
-     string OwnText;
+     OwnText: String;
      maxchar: i32;
      bool inactive;
      bool noSpace;
      maxSize: i32;
 
     pub InputTextClass(
-      string txt,
+      txt: String,
       f: Font,
       w: i32,
       h: i32,
@@ -42,7 +42,7 @@ namespace WindowsApplication1
       this.OwnText = Strings.Left(this.OwnText, this.maxSize);
     }
 
-    pub fn Refresh(string s)
+    pub fn Refresh(s: String)
     {
       let mut length: i32 =  s.Length;
       for (let mut Start: i32 =  1; Start <= length; Start += 1)
@@ -61,7 +61,7 @@ namespace WindowsApplication1
       this.OwnText = Strings.Left(this.OwnText, this.maxSize);
     }
 
-    pub string GetText()
+    pub GetText: String()
     {
       if (this.OwnText.Length > this.maxSize)
         this.OwnText = Strings.Left(this.OwnText, this.maxSize);

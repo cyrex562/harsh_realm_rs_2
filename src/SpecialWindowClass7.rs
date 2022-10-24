@@ -66,7 +66,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.cellinfoid);
         self.cellinfoid = 0;
       }
-      string txt;
+      txt: String;
       if (self.detaily == -1 | self.detailx == -1)
         txt = "No cell selected";
       else if (self.strId > -1)
@@ -626,7 +626,7 @@ namespace WindowsApplication1
               windowReturnClass.AddCommand(4, 67);
               return windowReturnClass;
             }
-            string str1;
+            str1: String;
             if (num1 == self.exportCsv)
             {
               str2: String = self.game.HandyFunctionsObj.SaveSomething("CSV (*.csv)|*.csv|TXT (*.txt)|*.txt|All (*.*)|*.*", "Give save name...", self.game.AppPath + "csv/", false);

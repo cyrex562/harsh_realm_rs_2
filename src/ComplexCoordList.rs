@@ -88,7 +88,7 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub FindSlot: i32(x: i32, y: i32, map: i32)
+    pub fn FindSlot(x: i32, y: i32, map: i32) -> i32
     {
       if (this.counter == -1)
         return -1;

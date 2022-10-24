@@ -28,7 +28,7 @@ namespace WindowsApplication1
      Kill2Id: i32;
      All2Id: i32;
      None2Id: i32;
-     string NotOkText;
+     NotOkText: String;
      lastorderx: i32;
      lastordery: i32;
      bool TimerUsed;
@@ -131,52 +131,52 @@ namespace WindowsApplication1
      ACapButtonId2: i32;
      InfraButtonId2: i32;
      BuildButtonId2: i32;
-     string SFDesignButtonText;
-     string MoveButtonText;
-     string ButtonZoomInText;
-     string ButtonZoomOutText;
-     string ButtonStackedUnitText;
-     string GroupMoveButtonText;
-     string StatisticsButtonText;
-     string NextButtonText;
-     string GiveUnitText;
-     string GiveHexText;
-     string NewUnitButtonText;
-     string HqUnitButtonText;
-     string AttackButtonText;
-     string ChangeModelText;
-     string OfficerText;
-     string SeaAttackButtonText;
-     string PrefsButtonText;
-     string ArtAttackButtonText;
-     string SeaArtAttackButtonText;
-     string TransferButtonText;
-     string AirAttackButtonText;
-     string AirReconButtonText;
-     string newunitbutton2text;
-     string paradropbuttontext;
-     string loadbuttontext;
-     string unloadbuttontext;
-     string researchbuttontext;
-     string diptext;
-     string constructtext;
-     string historytext;
-     string savetext;
-     string quittext;
-     string hqprodbuttontext;
-     string ordersurrendertext;
-     string supplylayerbuttontext;
-     string blowlocationtext;
-     string disbandtext;
-     string interdictbuttontext;
-     string prodbuttontext;
-     string researchtext;
-     string groupstrategictext;
-     string strategicbuttontext;
-     string airsupplybuttontext;
-     string blowbridgebuttontext;
-     string infrabuttontext;
-     string buildbuttontext;
+     SFDesignButtonText: String;
+     MoveButtonText: String;
+     ButtonZoomInText: String;
+     ButtonZoomOutText: String;
+     ButtonStackedUnitText: String;
+     GroupMoveButtonText: String;
+     StatisticsButtonText: String;
+     NextButtonText: String;
+     GiveUnitText: String;
+     GiveHexText: String;
+     NewUnitButtonText: String;
+     HqUnitButtonText: String;
+     AttackButtonText: String;
+     ChangeModelText: String;
+     OfficerText: String;
+     SeaAttackButtonText: String;
+     PrefsButtonText: String;
+     ArtAttackButtonText: String;
+     SeaArtAttackButtonText: String;
+     TransferButtonText: String;
+     AirAttackButtonText: String;
+     AirReconButtonText: String;
+     newunitbutton2text: String;
+     paradropbuttontext: String;
+     loadbuttontext: String;
+     unloadbuttontext: String;
+     researchbuttontext: String;
+     diptext: String;
+     constructtext: String;
+     historytext: String;
+     savetext: String;
+     quittext: String;
+     hqprodbuttontext: String;
+     ordersurrendertext: String;
+     supplylayerbuttontext: String;
+     blowlocationtext: String;
+     disbandtext: String;
+     interdictbuttontext: String;
+     prodbuttontext: String;
+     researchtext: String;
+     groupstrategictext: String;
+     strategicbuttontext: String;
+     airsupplybuttontext: String;
+     blowbridgebuttontext: String;
+     infrabuttontext: String;
+     buildbuttontext: String;
      disbandid: i32;
      disbandid2: i32;
 
@@ -2415,7 +2415,7 @@ namespace WindowsApplication1
       }
       else
       {
-        string str;
+        str: String;
         if (this.game.EditObj.OrderType == 1)
           str = "Movement";
         if (this.game.EditObj.OrderType == 48)
@@ -2522,7 +2522,7 @@ namespace WindowsApplication1
           else
             str = "Select destination Hex";
         }
-        string tDescript;
+        tDescript: String;
         if (this.game.EditObj.OrderType == 3)
         {
           str = "Select HQ for Unit";

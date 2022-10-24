@@ -17,9 +17,9 @@ namespace WindowsApplication1
   [StandardModule]
   pub sealed class BitmapStore
   {
-     static Bitmap[] tmpBitmap;
-     static Bitmap[] tmpBigBitmap;
-     static Bitmap[] tmpSmallBitmap;
+     static tmpBitmap: Vec<Bitmap>;
+     static tmpBigBitmap: Vec<Bitmap>;
+     static tmpSmallBitmap: Vec<Bitmap>;
      static int[] tmpWidth;
     pub static tmpFileName: Vec<String>;
     pub static int[] tmpOverloadCounter;
@@ -32,9 +32,9 @@ namespace WindowsApplication1
     pub static bool[] tmpIsSystem;
     pub static bool[] tmpIsBig;
     pub static int Counter;
-    pub static string GraphicsPath;
-    pub static string LastReplace;
-    pub static string lastreloadsystemgfx;
+    pub static GraphicsPath: String;
+    pub static LastReplace: String;
+    pub static lastreloadsystemgfx: String;
     pub static SmallShape: Bitmap;
     pub static MediumShape: Bitmap;
     pub static BigShape: Bitmap;
@@ -75,7 +75,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static void ReloadBeforeRecolor(string spart, string newSpart)
+    pub static void ReloadBeforeRecolor(spart: String, newSpart: String)
     {
       let mut counter: i32 =  BitmapStore.Counter;
       for (let mut nr: i32 =  0; nr <= counter; nr += 1)
@@ -95,7 +95,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static bool ModifyColorOfNameInstrToGray(string spart, int effectStrength)
+    pub static bool ModifyColorOfNameInstrToGray(spart: String, int effectStrength)
     {
       bool gray = false;
       if (Strings.InStr(spart, "sandy") > 0)
@@ -137,7 +137,7 @@ namespace WindowsApplication1
     }
 
     pub static bool ModifyColorOfNameInstr(
-      string spart,
+      spart: String,
       int fr,
       int fg,
       int fb,
@@ -174,7 +174,7 @@ namespace WindowsApplication1
       return flag;
     }
 
-    pub static string FileNameOverride(string filename)
+    pub static FileNameOverride: String(filename: String)
     {
       if (Operators.CompareString(DrawMod.TGame.AlternativeGraphics, "", false) == 0)
         return filename;
@@ -187,7 +187,7 @@ namespace WindowsApplication1
       return filename;
     }
 
-    pub static LoadBitmap: Bitmap(string filename)
+    pub static LoadBitmap: Bitmap(filename: String)
     {
       filename = BitmapStore.FileNameOverride(filename);
       FileStream fileStream = new FileStream(filename, FileMode.Open, FileAccess.Read);
@@ -267,7 +267,7 @@ namespace WindowsApplication1
       return memorySize;
     }
 
-    pub static void GiveGraphicsPath(string s)
+    pub static void GiveGraphicsPath(s: String)
     {
       BitmapStore.GraphicsPath = s;
       BitmapStore.SmallShape = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + "systemgraphics/smallshape.png");
@@ -337,7 +337,7 @@ namespace WindowsApplication1
       return BitmapStore.tmpKnownTransparent[nr];
     }
 
-    pub static object ReloadSystemGraphics(string ns, bool AlwaysReload = false)
+    pub static object ReloadSystemGraphics(ns: String, bool AlwaysReload = false)
     {
       if (Operators.CompareString(ns, "", false) == 0)
         ns = DrawMod.TGame.ModSystemGraphicsDirectory;
@@ -434,7 +434,7 @@ namespace WindowsApplication1
           Number += 1;
           if (Number == 183)
             Number = Number;
-          string path;
+          path: String;
           if (Operators.CompareString(ns, "", false) == 0)
             path = DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png";
           else
@@ -477,7 +477,7 @@ namespace WindowsApplication1
       return obj;
     }
 
-    pub static string MakeBigString(string s)
+    pub static MakeBigString: String(s: String)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  num1;
@@ -491,7 +491,7 @@ namespace WindowsApplication1
       return Strings.Left(s, Start - 1) + "BIG" + Strings.Mid(s, Start);
     }
 
-    pub static string MakeSmallString(string s)
+    pub static MakeSmallString: String(s: String)
     {
       let mut num1: i32 =  0;
       let mut num2: i32 =  num1;
@@ -507,7 +507,7 @@ namespace WindowsApplication1
 
     pub static int ReloadFile(
       int nr,
-      string filename,
+      filename: String,
       bool IsSystem = false,
       bool IsBig = false,
       bool EventDriven = false,
@@ -809,7 +809,7 @@ namespace WindowsApplication1
     }
 
     [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    pub static int AddFile(string filename, bool IsSystem, bool IsBig = false, bool forceReload = false)
+    pub static int AddFile(filename: String, bool IsSystem, bool IsBig = false, bool forceReload = false)
     {
       if (Strings.InStr(filename, "defaultcounterbig") > 0)
       {
@@ -1507,7 +1507,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static Coordinate GetSheetPos(string s)
+    pub static Coordinate GetSheetPos(s: String)
     {
       Coordinate sheetPos;
       sheetPos.x = -1;
@@ -1541,7 +1541,7 @@ namespace WindowsApplication1
       return sheetPos;
     }
 
-    pub static void CheckLoadSheet(string s)
+    pub static void CheckLoadSheet(s: String)
     {
       str: String = Strings.Right(s, Strings.Len(s) - Strings.Len(DrawMod.TGame.AppPath + "graphics/"));
       if (Strings.InStr(str, "/") > 0)
@@ -1578,7 +1578,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub static string GetFileName(int nr) => BitmapStore.tmpFileName[nr];
+    pub static GetFileName: String(int nr) => BitmapStore.tmpFileName[nr];
 
     pub static int GetWidth(int nr, let mut zoom: i32 =  0)
     {

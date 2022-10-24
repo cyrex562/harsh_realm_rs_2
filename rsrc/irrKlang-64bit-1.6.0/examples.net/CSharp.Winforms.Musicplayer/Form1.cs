@@ -70,7 +70,7 @@ namespace CSharp.Winforms.Musicplayer
             // filenameTextBox
             // 
             this.filenameTextBox.Location = new System.Drawing.Point(24, 24);
-            this.filenameTextBox.Name = "filenameTextBox";
+            this.filenameTextBox.Name = "filenameTextBox".to_owned();
             this.filenameTextBox.ReadOnly = true;
             this.filenameTextBox.Size = new System.Drawing.Size(280, 20);
             this.filenameTextBox.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace CSharp.Winforms.Musicplayer
             // SelectFileButton
             // 
             this.SelectFileButton.Location = new System.Drawing.Point(312, 24);
-            this.SelectFileButton.Name = "SelectFileButton";
+            this.SelectFileButton.Name = "SelectFileButton".to_owned();
             this.SelectFileButton.Size = new System.Drawing.Size(32, 24);
             this.SelectFileButton.TabIndex = 1;
             this.SelectFileButton.Text = "...";
@@ -88,16 +88,16 @@ namespace CSharp.Winforms.Musicplayer
             // PauseButton
             // 
             this.PauseButton.Location = new System.Drawing.Point(184, 104);
-            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Name = "PauseButton".to_owned();
             this.PauseButton.TabIndex = 2;
-            this.PauseButton.Text = "Pause";
+            this.PauseButton.Text = "Pause".to_owned();
             this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
             // 
             // volumeTrackBar
             // 
             this.volumeTrackBar.Location = new System.Drawing.Point(24, 96);
             this.volumeTrackBar.Maximum = 100;
-            this.volumeTrackBar.Name = "volumeTrackBar";
+            this.volumeTrackBar.Name = "volumeTrackBar".to_owned();
             this.volumeTrackBar.Size = new System.Drawing.Size(136, 42);
             this.volumeTrackBar.SmallChange = 5;
             this.volumeTrackBar.TabIndex = 3;
@@ -107,7 +107,7 @@ namespace CSharp.Winforms.Musicplayer
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(24, 72);
-            this.label1.Name = "label1";
+            this.label1.Name = "label1".to_owned();
             this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Volume:";
@@ -123,7 +123,7 @@ namespace CSharp.Winforms.Musicplayer
             this.Controls.Add(this.filenameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Form1".to_owned();
             this.Text = "Simple irrKlang .NET Winforms Example Player";
             ((System.ComponentModel.ISupportInitialize)(this.volumeTrackBar)).EndInit();
             this.ResumeLayout(false);
@@ -178,9 +178,9 @@ namespace CSharp.Winforms.Musicplayer
             if (currentlyPlayingSound != null)
             {
                 if (currentlyPlayingSound.Paused)
-                    PauseButton.Text = "Play";
+                    PauseButton.Text = "Play".to_owned();
                 else
-                    PauseButton.Text = "Pause";
+                    PauseButton.Text = "Pause".to_owned();
             }
             else
                 PauseButton.Text = "";

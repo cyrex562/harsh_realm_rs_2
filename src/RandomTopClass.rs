@@ -20,7 +20,7 @@ namespace WindowsApplication1
      tab1: i32;
      tab2: i32;
      tab3: i32;
-     string tabname;
+     tabname: String;
 
     pub RandomTopClass(
        tGame: GameClass,
@@ -28,14 +28,14 @@ namespace WindowsApplication1
        Rectangle tLowerRect)
       : base( tGame, tGame.ScreenWidth, 75, 8)
     {
-      this.NewGfx = true;
-      this.w = tGame.ScreenWidth;
-      this.h = 75;
-      this.LowerWindow = tLowerWindow;
-      this.LowerRect = tLowerRect;
-      this.CurrentView = 0;
-      this.tabname = this.game.HandyFunctionsObj.GetUDSmanagementTabName(1, true);
-      this.dostuff();
+      self.NewGfx = true;
+      self.w = tGame.ScreenWidth;
+      self.h = 75;
+      self.LowerWindow = tLowerWindow;
+      self.LowerRect = tLowerRect;
+      self.CurrentView = 0;
+      self.tabname = self.game.HandyFunctionsObj.GetUDSmanagementTabName(1, true);
+      self.dostuff();
     }
 
     pub HandleMouseMove: WindowReturnClass(x: i32, y: i32)
@@ -46,25 +46,25 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub fn DoRefresh() => this.dostuff();
+    pub fn DoRefresh() => self.dostuff();
 
     pub fn dostuff()
     {
-      if (this.game.EditObj.SetViewMode2 > 0 & this.game.EditObj.SetViewMode2 < 101)
-        this.game.EditObj.SetViewMode2 = 0;
-      this.CurrentView = this.game.EditObj.SetViewMode2;
-      this.ClearMouse();
-      this.NewBackGroundAndClearAll(this.w, this.h, -1);
-      Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      for (let mut index: i32 = 0; index < this.game.ScreenWidth; index += 100)
+      if (self.game.EditObj.SetViewMode2 > 0 & self.game.EditObj.SetViewMode2 < 101)
+        self.game.EditObj.SetViewMode2 = 0;
+      self.CurrentView = self.game.EditObj.SetViewMode2;
+      self.ClearMouse();
+      self.NewBackGroundAndClearAll(self.w, self.h, -1);
+      Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
+      for (let mut index: i32 = 0; index < self.game.ScreenWidth; index += 100)
       {
          let mut local1: &Graphics = &graphics;
-        bitmap: Bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
+        bitmap: Bitmap = BitmapStore.GetBitmap(self.game.MARCTOPBAR);
          let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = index;
         DrawMod.DrawSimple( local1,  local2, x, 0);
       }
-      this.DrawTabs( graphics);
+      self.DrawTabs( graphics);
       if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
@@ -72,19 +72,19 @@ namespace WindowsApplication1
 
     pub fn DrawTabs(object g)
     {
-      this.tab1 = -1;
-      this.tab2 = -1;
-      this.tab3 = -1;
+      self.tab1 = -1;
+      self.tab2 = -1;
+      self.tab3 = -1;
       Graphics objgraphics;
       Rectangle trect1;
       Rectangle rectangle;
       bitmap1: Bitmap;
-      if (this.CurrentView > 0)
+      if (self.CurrentView > 0)
       {
-        Rectangle rectForTab = DrawMod.GetRectForTab(this.CurrentView);
+        Rectangle rectForTab = DrawMod.GetRectForTab(self.CurrentView);
         objgraphics = (Graphics) g;
          let mut local1: &Graphics = &objgraphics;
-        bitmap2: Bitmap = BitmapStore.GetBitmap(this.game.MARCTAB);
+        bitmap2: Bitmap = BitmapStore.GetBitmap(self.game.MARCTAB);
          let mut local2: &Bitmap = &bitmap2;
         trect1 = Rectangle::new(0, 20, 8, 43);
         let mut srcrect1: &Rectangle = &trect1
@@ -94,7 +94,7 @@ namespace WindowsApplication1
         g =  objgraphics;
         objgraphics = (Graphics) g;
          let mut local3: &Graphics = &objgraphics;
-        bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
+        bitmap1 = BitmapStore.GetBitmap(self.game.MARCTAB);
          let mut local4: &Bitmap = &bitmap1;
         rectangle = Rectangle::new(170, 20, 16, 43);
         let mut srcrect2: &Rectangle = &rectangle
@@ -110,7 +110,7 @@ namespace WindowsApplication1
             width = rectForTab.X + rectForTab.Width - 16 - x;
           objgraphics = (Graphics) g;
            let mut local5: &Graphics = &objgraphics;
-          bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
+          bitmap1 = BitmapStore.GetBitmap(self.game.MARCTAB);
            let mut local6: &Bitmap = &bitmap1;
           rectangle = Rectangle::new(10, 20, width, 43);
           let mut srcrect3: &Rectangle = &rectangle
@@ -122,12 +122,12 @@ namespace WindowsApplication1
       }
       SizeF sizeF1;
       SizeF sizeF2;
-      if (this.tabname.Length > 0 && this.CurrentView != 101)
+      if (self.tabname.Length > 0 && self.CurrentView != 101)
       {
         let mut x1: i32 = 160;
         objgraphics = (Graphics) g;
          let mut local7: &Graphics = &objgraphics;
-        bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
+        bitmap1 = BitmapStore.GetBitmap(self.game.MARCTABBUTTON);
          let mut local8: &Bitmap = &bitmap1;
         let mut x2: i32 = x1;
         DrawMod.DrawSimple( local7,  local8, x2, 32);
@@ -135,7 +135,7 @@ namespace WindowsApplication1
         object Instance = g;
         object[] objArray1 = new object[2]
         {
-           this.tabname,
+           self.tabname,
           null
         };
         object[] objArray2 = objArray1;
@@ -148,26 +148,26 @@ namespace WindowsApplication1
         bool[] CopyBack = flagArray;
         object obj = NewLateBinding.LateGet(Instance, (Type) null, "MeasureString", Arguments, (string[]) null, (Type[]) null, CopyBack);
         if (flagArray[0])
-          this.tabname = (string) Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray3[0]), typeof (string));
+          self.tabname = (string) Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray3[0]), typeof (string));
         if (flagArray[1])
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray3[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, this.tabname, this.game.MarcFont4, x1 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        DrawMod.DrawTextColouredMarc( objgraphics, self.tabname, self.game.MarcFont4, x1 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
         g =  objgraphics;
         rectangle = Rectangle::new(x1, 32, 75, 27);
         trect1 = rectangle;
-        this.AddMouse( trect1, this.tabname, "Random Screen Tab #1", 1);
-        this.tab1 = this.MouseCounter;
+        self.AddMouse( trect1, self.tabname, "Random Screen Tab #1", 1);
+        self.tab1 = self.MouseCounter;
       }
-      if (this.CurrentView == 107)
+      if (self.CurrentView == 107)
         return;
-      if (this.game.ScreenWidth <= 1040)
+      if (self.game.ScreenWidth <= 1040)
       {
-        let mut x: i32 =  Math.Round(Math.Max( this.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
+        let mut x: i32 =  Math.Round(Math.Max( self.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (self.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
          let mut local9: &Graphics = &objgraphics;
-        bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
+        bitmap1 = BitmapStore.GetBitmap(self.game.MARCTABBUTTON);
          let mut local10: &Bitmap = &bitmap1;
         rectangle = Rectangle::new(0, 0, 78, 33);
         let mut srcrect: &Rectangle = &rectangle
@@ -194,18 +194,18 @@ namespace WindowsApplication1
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray6[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x +  Math.Round((53.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", self.game.MarcFont4, x +  Math.Round((53.0 -  sizeF2.Width) / 2.0), 33, Color.White);
         g =  objgraphics;
         rectangle = Rectangle::new(x, 32, 50, 27);
         let mut trect2: &Rectangle = &rectangle
-        this.AddMouse( trect2, "MINIMAP", "View the mini-map. [F8]", 7);
+        self.AddMouse( trect2, "MINIMAP", "View the mini-map. [F8]", 7);
       }
       else
       {
-        let mut x3: i32 =  Math.Round(Math.Max( this.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
+        let mut x3: i32 =  Math.Round(Math.Max( self.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (self.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
          let mut local11: &Graphics = &objgraphics;
-        bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
+        bitmap1 = BitmapStore.GetBitmap(self.game.MARCTABBUTTON);
          let mut local12: &Bitmap = &bitmap1;
         let mut x4: i32 = x3;
         DrawMod.DrawSimple( local11,  local12, x4, 32);
@@ -229,26 +229,26 @@ namespace WindowsApplication1
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray9[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x3 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", self.game.MarcFont4, x3 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
         g =  objgraphics;
         rectangle = Rectangle::new(x3, 32, 75, 27);
         let mut trect3: &Rectangle = &rectangle
-        this.AddMouse( trect3, "MINIMAP", "View the mini-map. [F8]", 7);
+        self.AddMouse( trect3, "MINIMAP", "View the mini-map. [F8]", 7);
       }
-      this.tab2 = this.MouseCounter;
+      self.tab2 = self.MouseCounter;
     }
 
     pub fn HandleToolTip(x: i32, y: i32)
     {
-      let mut mouseCounter: i32 = this.MouseCounter;
+      let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
       {
-        if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
+        if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
         {
-          if (this.MouseData[index] > 0)
-            this.game.EditObj.TipButton = true;
-          this.game.EditObj.TipTitle = this.MouseTitle[index];
-          this.game.EditObj.TipText = this.MouseText[index];
+          if (self.MouseData[index] > 0)
+            self.game.EditObj.TipButton = true;
+          self.game.EditObj.TipTitle = self.MouseTitle[index];
+          self.game.EditObj.TipText = self.MouseText[index];
           break;
         }
       }
@@ -257,26 +257,26 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(x: i32, y: i32, b: i32)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (this.game.EditObj.TutOrder > -1)
+      if (self.game.EditObj.TutOrder > -1)
         return windowReturnClass;
-      let mut mouseCounter: i32 = this.MouseCounter;
+      let mut mouseCounter: i32 = self.MouseCounter;
       for (let mut index: i32 = 0; index <= mouseCounter; index += 1)
       {
-        if (this.MouseData[index] > 0 && x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
+        if (self.MouseData[index] > 0 && x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
         {
-          switch (this.MouseData[index])
+          switch (self.MouseData[index])
           {
             case 1:
-              this.game.EditObj.SetViewMode2 = 101;
-              this.dostuff();
+              self.game.EditObj.SetViewMode2 = 101;
+              self.dostuff();
               windowReturnClass.AddCommand(1, 9);
               windowReturnClass.AddCommand(7, 12);
               windowReturnClass.AddCommand(2, 113);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             case 7:
-              this.game.EditObj.SetViewMode2 = 107;
-              this.dostuff();
+              self.game.EditObj.SetViewMode2 = 107;
+              self.dostuff();
               windowReturnClass.AddCommand(1, 9);
               windowReturnClass.AddCommand(7, 12);
               windowReturnClass.AddCommand(2, 76);
@@ -297,7 +297,7 @@ namespace WindowsApplication1
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (nr == 77)
-        SoundMod.dssEnd( this.game.EditObj);
+        SoundMod.dssEnd( self.game.EditObj);
       return windowReturnClass;
     }
   }

@@ -47,11 +47,11 @@ namespace WindowsApplication1
       }
       this.game.SelectX = -1;
       this.game.SelectY = -1;
-      this.game.EditObj.LoadString = "Unzipping";
+      this.game.EditObj.LoadString = "Unzipping".to_owned();
       this.game.HandyFunctionsObj.Unzip(str1);
-      this.game.EditObj.LoadString = "Deserializing";
+      this.game.EditObj.LoadString = "Deserializing".to_owned();
       this.game.Data = DataClass.deserialize(str1);
-      this.game.EditObj.LoadString = "Zipping";
+      this.game.EditObj.LoadString = "Zipping".to_owned();
       this.game.HandyFunctionsObj.ZipFile(str1);
       let mut specialSaveMode: i32 =  this.game.Data.specialSaveMode;
       this.game.Data.specialSaveMode = 0;

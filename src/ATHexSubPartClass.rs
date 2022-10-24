@@ -93,7 +93,7 @@ namespace WindowsApplication1
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].get_SeeNow(this.game.Data.Turn) < 1)
       {
         DrawMod.DrawBlock(ref graphics, 0, 0, 200, 82, 0, 0, 0, (int) byte.MaxValue);
-        string str;
+        str: String;
         tstring: String = str + "Shrouded (" + Conversion.Str( this.x) + "," + Conversion.Str( this.y) + ")";
         DrawMod.DrawText(ref graphics, tstring, Font::new("Times New Roman", 12f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 35);
         return this.OwnBitmap;
